@@ -13,30 +13,30 @@
 
 ``` bash
 安装依赖（第一次运行需要）
-$ npm install
+$ yarn
 
 启动服务器，Run npx styleguidist server to start a style guide dev server.
-$ npm run dev 或 npx styleguidist server 
+$ yarn dev
 
 生成静态文件，Run npx styleguidist build to build a static version.
-$ npx styleguidist build
+$ yarn build
 
 压缩源代码
-$ npm run min
+$ yarn min
 
 发布到线上预览地址：http://test.himalaya.com/components/
-$ npm run publish
+$ yarn publish
 ```
 
 ## 新增组件
 
-以`Checkbox`为例说明
+以`Button`为例说明
 
-- 在`Checkbox.js`中的`class Checkbox extends Component`前面添加注释，以说明该组件
-- 在`Checkbox.js`中的`Checkbox.propTypes`为各个参数添加注释，以说明该参数
-- 将`Checkbox`中的`markdown`文件，重命名为`Checkbox.md`
-- 将`Checkbox.md`中代码示例的\`\`\`后面加上`jsx`
-- 引入其他组件，参考`CheckboxGroup.md`
+- 在`Button.tsx`中的`class Button extends Component`前面添加注释，以说明该组件
+- 在`Button.tsx`中的`Button.propTypes`为各个参数添加注释，以说明该参数
+- 将`Button`中的`markdown`文件，重命名为`Button.md`
+- 将`Button.md`中代码示例的\`\`\`后面加上`jsx`
+- 引入其他组件，参考`ButtonGroup.md`
 
 推荐规范
 

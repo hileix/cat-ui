@@ -3,12 +3,11 @@ const { version } = require('./package')
 
 module.exports = {
   components: 'src/components/**/[A-Z]*.tsx',
-  // components: 'src/components/*(ButtonDemo|CardDemo|Checkbox)/[A-Z]*.js',
+  // components: 'src/components/*(ButtonDemo|CardDemo|Checkbox)/[A-Z]*.tsx',
+  // ignore: ['**/*.spec.js', '**/components/Button.tsx'], // 不显示的组件
   defaultExample: true,
-  // propsParser: require('react-docgen-typescript').parse,
   resolver: require('react-docgen').resolver.findAllComponentDefinitions,
   propsParser: require('react-docgen-typescript').withDefaultConfig({ propFilter: { skipPropsWithoutDoc: true } }).parse,
-  // ignore: ['**/*.spec.js', '**/components/Button.js'], // 不显示的组件
   moduleAliases: {
     'rsg-example': path.resolve(__dirname, 'src')
   },
