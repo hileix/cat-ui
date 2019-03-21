@@ -7,7 +7,6 @@
     "styleguidist": "styleguidist",
     "dev": "tsc && styleguidist server",
     "start": "tsc && styleguidist server",
-    "webpack": "webpack",
     "min": "react-scripts build",
     "build": "styleguidist build",
     "publish": "npm run build && ./scp_171.sh",

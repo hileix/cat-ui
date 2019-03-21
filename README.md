@@ -1,11 +1,11 @@
 # cat-ui
 
-喜马拉雅国际版前端基础组件库，本文主要介绍`master`分支的开发（`styleguidist`）
+喜马拉雅国际版前端基础组件库，`styleguidist`化的开发
 
 ## 分支简介
 
-- `master`分支是稳定分支  
-- `develop`分支是开发分支  
+- `master`分支是稳定分支，用以正式线上项目
+- `develop`分支是开发分支，用以开发、测试、预览
 
 `styleguidist`化的组件预览地址：http://test.himalaya.com/components/  
 
