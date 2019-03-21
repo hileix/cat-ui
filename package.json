@@ -1,0 +1,48 @@
+{
+  "name": "cat-ui",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "tsc": "tsc",
+    "styleguidist": "styleguidist",
+    "dev": "tsc && styleguidist server",
+    "start": "tsc && styleguidist server",
+    "webpack": "webpack",
+    "min": "react-scripts build",
+    "build": "styleguidist build",
+    "publish": "npm run build && ./scp_171.sh",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "lodash": "^4.17.11",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-scripts": "2.1.8"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "@types/node": "^11.11.4",
+    "@types/prop-types": "^15.7.0",
+    "@types/react": "^16.8.8",
+    "@types/source-map-support": "^0.5.0",
+    "babel-loader": "^8.0.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react-app": "^7.0.2",
+    "css-loader": "^2.1.1",
+    "file-loader": "^3.0.1",
+    "lint-staged": "^8.1.5",
+    "react-docgen-typescript": "^1.12.3",
+    "react-styleguidist": "^9.0.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.3.3333",
+    "webpack": "^4.29.6"
+  }
+}
