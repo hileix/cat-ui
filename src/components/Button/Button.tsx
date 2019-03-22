@@ -23,8 +23,8 @@ export interface ButtonProps {
   icon?: string;
   /** 子元素 */
   children?: React.ReactNode;
-   /** 点击按钮时的回调 */
-   onClick?: () => void;
+  /** 点击按钮时的回调 */
+  onClick?: (e) => void;
 }
 
 /**
@@ -38,6 +38,15 @@ class Button extends Component<ButtonProps, any> {
     disabled: false
   }
 
+  handleClick = (event) => {
+    const { disabled, onClick } = this.props
+    if (disabled) return;
+
+    if (onClick) {
+      onClick(event)
+    }
+  }
+
   render() {
     const { prefix, className, style, theme, size, block, disabled, children, ...others } = this.props
     const classes = classNames(`${prefix}-button`, {
@@ -47,7 +56,11 @@ class Button extends Component<ButtonProps, any> {
       [`${prefix}-button-disabled`]: disabled
     }, className)
 
-    return (<div className={classes} style={style}>
+    return (<div
+      className={classes}
+      style={style}
+      onClick={this.handleClick}
+      {...others}>
       {children}
     </div>)
   }
