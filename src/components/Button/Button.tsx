@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { Component } from 'react';
-// import * as PropTypes from 'prop-types';
-import classNames from 'classnames';
+import * as React from 'react'
+import { Component } from 'react'
+// import * as PropTypes from 'prop-types'
+import classNames from 'classnames'
 import './Button.scss'
 
 export interface ButtonProps {
@@ -9,18 +9,22 @@ export interface ButtonProps {
   prefix?: string;
   /** 类名 */
   className?: string;
+  /** 样式 */
+  style?: object;
   /** 主题 */
   theme?: 'primary';
   /** 是否禁用 */
   disabled?: boolean;
-  /** 点击按钮时的回调 */
-  onClick?: () => void;
+  /** 是否将按钮宽度调整为其父宽度 */
+  block?: boolean;
   /** 尺寸 */
   size?: 'sm' | 'md' | 'lg';
   /** 设置按钮的图标类型 */
   icon?: string;
   /** 子元素 */
   children?: React.ReactNode;
+   /** 点击按钮时的回调 */
+   onClick?: () => void;
 }
 
 /**
@@ -35,16 +39,17 @@ class Button extends Component<ButtonProps, any> {
   }
 
   render() {
-    const { prefix, className, theme, size, disabled, ...others } = this.props
+    const { prefix, className, style, theme, size, block, disabled, children, ...others } = this.props
     const classes = classNames(`${prefix}-button`, {
       [`${prefix}-button-${theme}`]: theme,
       [`${prefix}-button-${size}`]: size,
+      [`${prefix}-button-block`]: block,
       [`${prefix}-button-disabled`]: disabled
     }, className)
 
-    return (<div className={classes}>
-      Button
-    </div>);
+    return (<div className={classes} style={style}>
+      {children}
+    </div>)
   }
 }
 
