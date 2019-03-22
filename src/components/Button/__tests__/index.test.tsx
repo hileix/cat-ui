@@ -9,14 +9,18 @@ import Button from '../index';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Button', () => {
-  it('renders correctly', () => {
+  test('renders correctly', () => {
     const wrapper = render(
       <Button>Follow</Button>
     );
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('mount correctly', () => {
+  test('two plus two is four', () => {
+    expect(2 + 2).toBe(4);
+  });
+
+  test('mount correctly', () => {
     if (process.env.REACT === '15') {
       return;
     }
