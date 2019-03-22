@@ -12,7 +12,7 @@ export interface ButtonProps {
   /** 样式 */
   style?: object;
   /** 主题 */
-  theme?: 'primary';
+  theme?: 'primary' | 'yellow' | 'white-primary' | 'white-cyan';
   /** 是否禁用 */
   disabled?: boolean;
   /** 是否将按钮宽度调整为其父宽度 */
