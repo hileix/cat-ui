@@ -1,6 +1,6 @@
 # cat-ui
 
-喜马拉雅国际版前端基础组件库，`styleguidist`化的开发
+喜马拉雅国际版前端基础组件库
 
 ## 分支简介
 
@@ -12,20 +12,14 @@
 ## 常用命令
 
 ``` bash
-安装依赖（第一次运行需要）
+安装依赖
 $ yarn
 
-启动服务器，Run npx styleguidist server to start a style guide dev server.
+启动服务器
 $ yarn dev
 
-生成静态文件，Run npx styleguidist build to build a static version.
-$ yarn build
-
-压缩源代码
-$ yarn min
-
-发布到线上预览地址：http://test.himalaya.com/components/
-$ yarn publish
+运行单元测试
+$ yarn test
 ```
 
 ## 新增组件
@@ -33,9 +27,9 @@ $ yarn publish
 以`Button`为例说明
 
 - 在`Button.tsx`中的`class Button extends Component`前面添加注释，以说明该组件
-- 在`Button.tsx`中的`Button.propTypes`为各个参数添加注释，以说明该参数
-- 将`Button`中的`markdown`文件，重命名为`Button.md`
-- 将`Button.md`中代码示例的\`\`\`后面加上`jsx`
+- 在`Button.tsx`中的`Button`的`interface`为各个参数添加注释，以说明该参数
+- 将`Button.md`中编写各个示例
+- 将`__tests__/index.test.tsx`中编写单元测试
 - 引入其他组件，参考`ButtonGroup.md`
 
 推荐规范
@@ -58,34 +52,8 @@ $ yarn publish
 ├── public                              静态资源
 ├── src
 │   ├── components                      组件库
-│   │     ├── AutoComplete              // 自动完成
-│   │     ├── Avatar                    // 头像
-│   │     ├── BreadCrumb                // 面包屑
 │   │     ├── Button                    // 按钮
-│   │     ├── Card                      // 卡片
-│   │     ├── Chart                     // 折线图
-│   │     ├── CheckBox                  // 复选框
-│   │     ├── Col                       // 栅格
-│   │     ├── Input                     // 输入框 
-│   │     ├── Loading                   // loading 
-│   │     ├── Menu                      // 菜单栏
-│   │     ├── NavPrompt                 // 导航提示
-│   │     ├── Pagination                // 分页
-│   │     ├── Player                    // 播放器
-│   │     ├── Progress                  // 进度条
-│   │     ├── QRCode                    // 二维码
-│   │     ├── Radio                     // 单选框
-│   │     ├── ReCaptcha                 // google验证器
-│   │     ├── RichEditor                // 富文本编辑器
-│   │     ├── Row                       // 栅格的Row
-│   │     ├── Scroll                    // 滚动
-│   │     ├── Select                    // 下拉选择框
-│   │     ├── Slider                    // 滑动输入条
-│   │     ├── Steps                     // 步骤条
-│   │     ├── Table                     // table
-│   │     ├── Tabs                      // tab切换
-│   │     ├── ToolTip                   // 文字提示
-│   │     └── Upload                    // 上传
+│   │     └── ToolTip                   // 文字提示
 │   └── style                           组件库的全局样式
 ├── styleguide.config.js                styleguide的webpack配置
 ```
