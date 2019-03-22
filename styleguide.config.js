@@ -12,7 +12,7 @@ module.exports = {
     'rsg-example': path.resolve(__dirname, 'src')
   },
   ribbon: {
-    url: 'http://gitlab.ximalaya.com/FEM/hmly-components',
+    url: 'http://gitlab.ximalaya.com/HIFE/cat-ui',
     text: 'Fork me on GitLab'
   },
   version,
