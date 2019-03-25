@@ -4,10 +4,11 @@
 
 ## 分支简介
 
-- `master`分支是稳定分支，用以正式线上项目，master分支的提交会自动触发脚本
+- `master`分支是稳定分支，用以正式线上项目
 - `develop`分支是开发分支，用以开发、测试、预览
 
-`styleguidist`化的组件预览地址：http://test.himalaya.com/components/
+`master`分支的`git`提交，会自动发布`styleguidist`预览
+`styleguidist`化的组件预览地址：http://test.himalaya.com/catui/
 
 ## 常用命令
 
@@ -16,10 +17,10 @@
 $ yarn
 
 启动服务器
-$ yarn dev
+$ yarn run dev
 
 运行单元测试
-$ yarn test
+$ yarn run test
 ```
 
 ## 新增组件
