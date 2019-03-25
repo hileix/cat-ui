@@ -5,6 +5,7 @@ module.exports = {
   components: 'src/components/**/[A-Z]*.tsx',
   // components: 'src/components/*(ButtonDemo|CardDemo|Checkbox)/[A-Z]*.tsx',
   // ignore: ['**/*.spec.js', '**/components/Button.tsx'], // 不显示的组件
+  assetsDir: './',
   defaultExample: true,
   resolver: require('react-docgen').resolver.findAllComponentDefinitions,
   propsParser: require('react-docgen-typescript').withDefaultConfig({ propFilter: { skipPropsWithoutDoc: true } }).parse,
