@@ -18,11 +18,6 @@ module.exports = {
   },
   version,
   webpackConfig: {
-    output: {
-      path: path.resolve(__dirname, `./styleguide/`),
-      filename: 'js/[name].js',
-      publicPath: ''
-    },
     module: {
       rules: [{
         test: /\.jsx?$/,
