@@ -21,7 +21,7 @@ module.exports = {
     output: {
       path: path.resolve(__dirname, `./styleguide/`),
       filename: 'js/[name].js',
-      publicPath: './'
+      publicPath: ''
     },
     module: {
       rules: [{

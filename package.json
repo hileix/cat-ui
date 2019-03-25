@@ -12,7 +12,6 @@
     "styleguidist_deploy": "yarn && yarn run styleguidist_build && pm2 reload cat-ui-styleguidist",
     "styleguidist_start": "NODE_ENV=test pm2 start ./server.js --name=cat-ui-styleguidist",
     "styleguidist_stop": "pm2 stop cat-ui-styleguidist",
-    "publish": "npm run build && ./scp_171.sh",
     "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
     "lint:fix": "npm run lint -- --fix",
     "prettier:base": "prettier --parser typescript --single-quote --trailing-comma none",
