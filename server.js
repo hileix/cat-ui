@@ -5,7 +5,7 @@ var app = express()
 app.use(express.static('styleguide'));
 
 app.get('*', function (request, response) {
-  response.sendFile(path.resolve(__dirname, 'catui', 'styleguide', 'index.html'))
+  response.sendFile(path.resolve(__dirname, 'styleguide', 'index.html'))
 })
 
 app.listen(6060, function () {
