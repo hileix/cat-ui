@@ -2,10 +2,13 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es5",
-    "lib": ["es5", "es6", "dom"],
+    "lib": ["es5", "es6", "es7", "dom"],
     "noImplicitAny": false,
+    "noImplicitReturns": false,
+    "noImplicitThis": false,
     "sourceMap": true,
     "outDir": "lib",
     "jsx": "react"
-  }
+  },
+  // "exclude": ["node_modules", "lib"]
 }
