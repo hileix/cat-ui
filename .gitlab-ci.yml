@@ -19,6 +19,16 @@ deploy:
     - git pull origin master
     - git status
     - npm run styleguidist_deploy
+    - >-
+        curl https://oapi.dingtalk.com/robot/send?access_token=257e8078e3a47afad431421818bfe6fa7ff37d5c91f594ef1b06506520e5b6b6
+        -H 'Content-Type: application/json'
+        -d '{"msgtype": "markdown",
+            "markdown": {
+                "title":"cat-ui-styleguidist发布完成",
+                "text":"commit msg: '"$CI_COMMIT_TITLE"' \n\n [点击查看发布状态](http://gitlab.ximalaya.com/FEM/cat-ui/-/jobs/'"$CI_JOB_ID"') \n\n [直接访问测试环境](http://test.himalaya.com/catui/) "
+            }
+          }
+        '
 
   environment:
     name: master
