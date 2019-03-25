@@ -25,7 +25,7 @@ deploy:
         -d '{"msgtype": "markdown",
             "markdown": {
                 "title":"cat-ui-styleguidist发布完成",
-                "text":"commit msg: '"$CI_COMMIT_TITLE"' \n\n cat-ui-styleguidist发布完成 \n\n [点击查看发布状态](http://gitlab.ximalaya.com/HIFE/cat-ui/-/jobs/'"$CI_JOB_ID"') \n\n [直接访问测试环境](http://test.himalaya.com/catui/) "
+                "cat-ui-styleguidist发布完成 \n\n text":"commit msg: '"$CI_COMMIT_TITLE"' \n\n [点击查看发布状态](http://gitlab.ximalaya.com/HIFE/cat-ui/-/jobs/'"$CI_JOB_ID"') \n\n [直接访问styleguidist环境](http://test.himalaya.com/catui/) "
             }
           }
         '
