@@ -1,0 +1,29 @@
+image: node:8
+
+stages:
+  - build
+  - test
+  - deploy
+
+variables:
+  DOCKER_DRIVER: overlay
+
+before_script:
+  - 'cd /srv/nodejs/cat-ui'
+
+deploy:
+  stage: deploy
+  script:
+    - git checkout .
+    - git clean -fd
+    - git pull origin master
+    - git status
+    - npm run styleguidist_deploy
+
+  environment:
+    name: master
+    url: http://test.himalaya.com
+  only:
+    - master
+  tags:
+    - fe-common
