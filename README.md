@@ -4,10 +4,10 @@
 
 ## 分支简介
 
-- `master`分支是稳定分支，用以正式线上项目
+- `master`分支是稳定分支，用以正式线上项目，master分支的提交会自动触发脚本
 - `develop`分支是开发分支，用以开发、测试、预览
 
-`styleguidist`化的组件预览地址：http://test.himalaya.com/components/  
+`styleguidist`化的组件预览地址：http://test.himalaya.com/components/
 
 ## 常用命令
 
