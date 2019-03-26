@@ -10,11 +10,11 @@ module.exports = {
     Input: './src/components/Input/index.ts'
   },
 
-  // output: {
-  //   path: path.resolve(__dirname, 'dist'),
-  //   publicPath: '/',
-  //   // filename: '[name].bundle.js'
-  // },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
+    filename: '[name].bundle.css'
+  },
 
   module: {
     rules: [{
