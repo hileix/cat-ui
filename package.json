@@ -12,7 +12,7 @@
     "styleguidist": "styleguidist",
     "dev": "tsc && styleguidist server",
     "start": "tsc && styleguidist server",
-    "publish": "npm publish --registry http://xnpm.ximalaya.com",
+    "publish": "./scripts/publish.sh",
     "test": "jest",
     "styleguidist_build": "styleguidist build",
     "styleguidist_deploy": "yarn && yarn run styleguidist_build && pm2 reload cat-ui-styleguidist",
