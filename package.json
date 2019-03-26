@@ -2,12 +2,18 @@
   "name": "@xmly/cat-ui",
   "version": "0.0.2",
   "main": "lib/index.js",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.ximalaya.com:HIFE/cat-ui.git"
+  },
   "scripts": {
     "tsc": "tsc",
     "styleguidist": "styleguidist",
     "dev": "tsc && styleguidist server",
     "start": "tsc && styleguidist server",
-    "min": "react-scripts build",
+    "publish": "npm publish --registry http://xnpm.ximalaya.com",
+    "test": "jest",
     "styleguidist_build": "styleguidist build",
     "styleguidist_deploy": "yarn && yarn run styleguidist_build && pm2 reload cat-ui-styleguidist",
     "styleguidist_start": "NODE_ENV=test pm2 start ./server.js --name=cat-ui-styleguidist",
@@ -17,7 +23,6 @@
     "prettier:base": "prettier --parser typescript --single-quote --trailing-comma none",
     "prettier:check": "npm run prettier:base -- -l \"src/**/*.{ts,tsx}\"",
     "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\"",
-    "test": "jest",
     "eject": "react-scripts eject"
   },
   "dependencies": {
@@ -61,9 +66,5 @@
     "tslint": "^5.14.0",
     "typescript": "^3.3.3333",
     "webpack": "^4.29.6"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@gitlab.ximalaya.com:HIFE/cat-ui.git"
   }
 }
