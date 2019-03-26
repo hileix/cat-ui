@@ -7,13 +7,17 @@ module.exports = {
   entry: {
     main: './src/components/index.ts',
     Button: './src/components/Button/index.ts',
-    Input: './src/components/Input/index.ts'
+    // Input: './src/components/Input/index.ts'
   },
 
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '.cache'),
     publicPath: '/',
-    filename: '[name].bundle.css'
+    filename: '[name].bundle.js',
+    // library: 'someLibName',
+    // libraryTarget: 'umd',
+    // filename: 'someLibName.js',
+    // auxiliaryComment: 'Test Comment',
   },
 
   module: {
