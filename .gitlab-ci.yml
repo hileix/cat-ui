@@ -18,7 +18,7 @@ deploy:
     - git clean -fd
     - git pull origin master
     - git status
-    - npm run styleguidist_deploy
+    - npm run styleguidist:publish
     - >-
         curl https://oapi.dingtalk.com/robot/send?access_token=257e8078e3a47afad431421818bfe6fa7ff37d5c91f594ef1b06506520e5b6b6
         -H 'Content-Type: application/json'
