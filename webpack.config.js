@@ -1,17 +1,20 @@
 const path = require('path')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = {
   mode: 'production',
 
   entry: {
-    main: ['./src/components/index.ts']
+    main: './src/components/index.ts',
+    Button: './src/components/Button/index.ts',
+    Input: './src/components/Input/index.ts'
   },
 
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
-    filename: '[name].bundle.js'
-  },
+  // output: {
+  //   path: path.resolve(__dirname, 'dist'),
+  //   publicPath: '/',
+  //   // filename: '[name].bundle.js'
+  // },
 
   module: {
     rules: [{
@@ -20,24 +23,28 @@ module.exports = {
       exclude: /node_modules/,
     }, {
       test: /\.css$/,
-      use: [{
-        loader: 'style-loader' // 将 JS 字符串生成为 style 节点
-      }, {
-        loader: 'css-loader' // 将 CSS 转化成 CommonJS 模块
-      }]
+      use: [
+        MiniCssExtractPlugin.loader,
+        'css-loader'
+      ]
     }, {
       test: /\.scss$/,
-      use: [{
-        loader: 'style-loader' // 将 JS 字符串生成为 style 节点
-      }, {
-        loader: 'css-loader' // 将 CSS 转化成 CommonJS 模块
-      }, {
-        loader: 'sass-loader' // 将 Sass 编译成 CSS
-      }]
+      use: [
+        MiniCssExtractPlugin.loader,
+        'css-loader',
+        'sass-loader',
+      ]
     }]
   },
 
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx"]
-  }
+  },
+
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    })
+  ],
 }

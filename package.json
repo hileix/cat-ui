@@ -1,7 +1,7 @@
 {
   "name": "@xmly/cat-ui",
   "version": "0.0.3",
-  "main": "lib/index.js",
+  "main": "lib/components/index.js",
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -13,7 +13,8 @@
     "dev": "tsc && styleguidist server",
     "start": "tsc && styleguidist server",
     "publish": "./scripts/publish.sh",
-    "build": "webpack",
+    "webpack": "webpack",
+    "build": "tsc && webpack",
     "test": "jest",
     "styleguidist:build": "styleguidist build",
     "styleguidist:publish": "yarn && yarn run styleguidist:build && pm2 reload cat-ui-styleguidist",
@@ -57,6 +58,7 @@
     "jest-transform-css": "^2.0.0",
     "jsdom": "^14.0.0",
     "lint-staged": "^8.1.5",
+    "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "prettier": "^1.16.4",
     "react-docgen-typescript": "^1.12.3",
@@ -67,6 +69,7 @@
     "ts-loader": "^5.3.3",
     "tslint": "^5.14.0",
     "typescript": "^3.3.3333",
-    "webpack": "^4.29.6"
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
   }
 }
