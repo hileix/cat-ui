@@ -4,6 +4,7 @@
     "target": "es5",
     "lib": ["es5", "es6", "dom"],
     "noImplicitAny": false,
+    "removeComments": true,
     "sourceMap": true,
     "outDir": "lib",
     "jsx": "react"

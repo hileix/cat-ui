@@ -13,6 +13,7 @@
     "dev": "tsc && styleguidist server",
     "start": "tsc && styleguidist server",
     "publish": "./scripts/publish.sh",
+    "build": "webpack",
     "test": "jest",
     "styleguidist:build": "styleguidist build",
     "styleguidist:publish": "yarn && yarn run styleguidist:build && pm2 reload cat-ui-styleguidist",
