@@ -1,6 +1,7 @@
 {
   "name": "@xmly/cat-ui",
   "version": "0.0.1",
+  "main": "lib/index.js",
   "scripts": {
     "tsc": "tsc",
     "styleguidist": "styleguidist",
@@ -60,5 +61,9 @@
     "tslint": "^5.14.0",
     "typescript": "^3.3.3333",
     "webpack": "^4.29.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.ximalaya.com:HIFE/cat-ui.git"
   }
 }
