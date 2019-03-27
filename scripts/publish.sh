@@ -14,7 +14,7 @@ echo ${newSubVersionNum}
 echo ${newVersionNum}
 echo ${newVersionLine}
 
-sed -i "ss" "s/${versionLine}/${newVersionLine}/g" "package.json"
+sed -i "" "s/${versionLine}/${newVersionLine}/g" "package.json"
 
 git commit -am "publish:script"
 
