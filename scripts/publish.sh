@@ -13,6 +13,6 @@ echo "package.json更新成功：${newVersionLine}"
 
 git commit -am "publish:script"
 git push
-npm publish --registry http://xnpm.ximalaya.com
+# npm publish --registry http://xnpm.ximalaya.com
 
 echo "发布成功: ${newVersionLine}"
