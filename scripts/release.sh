@@ -4,7 +4,7 @@ set -e
 
 checkBranch() {
   branch=$(git branch | grep \* | cut -d ' ' -f2)
-  if [ branch != 'master' ]
+  if [ $branch != 'master' ]
   then
     echo -e "\033[31m \n只有master分支，才能发布到xnpm\n \033[0m"
     exit
