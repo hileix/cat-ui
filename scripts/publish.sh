@@ -1,18 +1,23 @@
 #！/bin/bash
 
-# version=$(grep version package.json)
+versionLine=$(grep version package.json)
+versionNum=$(echo ${versionLine} | tr -cd "[0-9].[0-9]")
+subVersionNum=$(echo ${versionNum##*.})
+newSubVersionNum=`expr $subVersionNum + 1`
+newVersionNum=$(echo ${versionNum/${subVersionNum}/${newSubVersionNum}})
+newVersionLine=$(echo "${versionLine/${versionNum}/${newVersionNum}}")
 
-# echo ${version}
-# echo ${version/.*\d/5}
-# echo ${sed 's/version/sss/g'}
-# echo hssere365test | sed 's/.*ere\([0-9]*\).*/\1/g'
-# echo ${version} | sed 's/.*ere\([0-9]*\).*/\1/g'
-# echo ${version}
+echo ${versionLine}
+echo ${versionNum}
+echo ${subVersionNum}
+echo ${newSubVersionNum}
+echo ${newVersionNum}
+echo ${newVersionLine}
 
-# basepath=$(dirname $0)
-# echo $basepath
-# sed 's/version/sss/g' 'package.json'
-# sed -i "" 's/"version": "0.0.4"/"version": "0.0.5"/g' 'package.json'
+sed -i "ss" "s/${versionLine}/${newVersionLine}/g" "package.json"
+
+git commit -am "publish:script"
 
 npm publish --registry http://xnpm.ximalaya.com
 
+echo "发布成功：${newVersionLine}"
