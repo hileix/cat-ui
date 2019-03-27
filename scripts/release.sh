@@ -6,7 +6,7 @@ checkBranch() {
   branch=$(git branch | grep \* | cut -d ' ' -f2)
   if [ branch != 'master' ]
   then
-    echo "只有master分支，才能发布到xnpm"
+    echo -e "\033[31m \n只有master分支，才能发布到xnpm\n \033[0m"
     exit
   fi
 }
@@ -19,7 +19,7 @@ upgradeVersion() {
   newVersionNum=$(echo ${versionNum/${subVersionNum}/${newSubVersionNum}})
   newVersionLine=$(echo "${versionLine/${versionNum}/${newVersionNum}}")
   sed -i "" "s/${versionLine}/${newVersionLine}/g" "package.json"
-  echo "package.json更新成功：${newVersionLine}"
+  echo -e "\033[32m \npackage.json更新成功：${newVersionLine}\n \033[0m"
 }
 
 checkBranch
@@ -33,7 +33,7 @@ then
   git commit -am "release:script"
   git push
   git status
-  echo "发布成功: ${newVersionLine}"
+  echo -e "\033[32m \n发布成功: ${newVersionLine}\n \033[0m"
 else
-  echo "发布失败: ${newVersionLine}"
+  echo -e "\033[31m \n发布失败: ${newVersionLine}\n \033[0m"
 fi
