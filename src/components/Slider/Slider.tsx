@@ -13,9 +13,23 @@ export interface SliderOption {
   theme?: string;
   /** 输入条的值 */
   value?: number;
+  /** 输入条值发生变化前触发 */
+  onBeforeChange?: (value: number) => void;
+  /** 输入条值发生变化时触发 */
+  onChange?: (value: number) => void;
+  /** 输入条值发生变化后触发 */
+  onAfterChange?: (value: number) => void;
 }
 
-class Slider extends Component<any, any> {
+/**
+ * Slider滑动输入条
+ * 
+ * 为Slider组件提供value属性，可使Slider变为受控组件，否则当前组件为非受控
+ * 
+ * Slider兼容至移动端，在移动端下会默认使用touch事件
+ * 
+ */
+class Slider extends Component<SliderOption, any> {
 
   static defaultProps = {
     className: '',
@@ -25,7 +39,6 @@ class Slider extends Component<any, any> {
   }
 
   refSlider: React.RefObject<HTMLDivElement>
-  onChange: Function
 
   constructor (props) {
     super(props)
@@ -83,7 +96,7 @@ class Slider extends Component<any, any> {
 
   onMouseMove = e => {
     const { onChange } = this.props
-    const value = this.calcValue(e.clientX)
+    const value: number = this.calcValue(e.clientX)
     if (!('value' in this.props)) {
       this.setState({ value })
     }
