@@ -5,15 +5,14 @@ module.exports = {
   mode: 'production',
 
   entry: {
-    main: './src/components/index.ts',
     Button: './src/components/Button/index.ts',
-    // Input: './src/components/Input/index.ts'
+    Input: './src/components/Input/index.ts'
   },
 
   output: {
-    path: path.resolve(__dirname, '.cache'),
+    path: path.resolve(__dirname, 'lib/components'),
     publicPath: '/',
-    filename: '[name].bundle.js',
+    filename: '[name].cache.js',
     // library: 'someLibName',
     // libraryTarget: 'umd',
     // filename: 'someLibName.js',
