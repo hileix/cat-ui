@@ -36,6 +36,10 @@ export interface TooltipOption {
   children?: React.ReactNode | string;
 }
 
+/**
+ * Tooltip
+ * 
+ */
 export default class Tooltip extends React.Component<TooltipOption, any>{
   static defaultProps = {
     prefixCls: 'hmly',
