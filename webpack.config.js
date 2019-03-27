@@ -12,11 +12,13 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'lib/components'),
     publicPath: '/',
-    filename: '[name].cache.js',
+    filename: '[name]/[name].cache.js',
     // library: 'someLibName',
     // libraryTarget: 'umd',
-    // filename: 'someLibName.js',
     // auxiliaryComment: 'Test Comment',
+    library: 'cat-ui',
+    libraryTarget: 'umd',
+    umdNamedDefine: true,
   },
 
   module: {
@@ -46,7 +48,7 @@ module.exports = {
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].css",
+      filename: "[name]/[name].css",
       chunkFilename: "[id].css"
     })
   ],
