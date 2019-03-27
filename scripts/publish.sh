@@ -1,18 +1,25 @@
 #！/bin/bash
 
-# version=$(grep version package.json)
+upgradeVersion() {
+  versionLine=$(grep version package.json)
+  versionNum=$(echo ${versionLine} | tr -cd "[0-9].[0-9]")
+  subVersionNum=$(echo ${versionNum##*.})
+  newSubVersionNum=`expr $subVersionNum + 1`
+  newVersionNum=$(echo ${versionNum/${subVersionNum}/${newSubVersionNum}})
+  newVersionLine=$(echo "${versionLine/${versionNum}/${newVersionNum}}")
+  sed -i "" "s/${versionLine}/${newVersionLine}/g" "package.json"
+  echo "package.json更新成功：${newVersionLine}"
+}
 
-# echo ${version}
-# echo ${version/.*\d/5}
-# echo ${sed 's/version/sss/g'}
-# echo hssere365test | sed 's/.*ere\([0-9]*\).*/\1/g'
-# echo ${version} | sed 's/.*ere\([0-9]*\).*/\1/g'
-# echo ${version}
+upgradeVersion
 
-# basepath=$(dirname $0)
-# echo $basepath
-# sed 's/version/sss/g' 'package.json'
-# sed -i "" 's/"version": "0.0.4"/"version": "0.0.5"/g' 'package.json'
-
-npm publish --registry http://xnpm.ximalaya.com
-
+if npm publish --registry http://xnpm.ximalaya.com
+then
+  echo "发布成功: ${newVersionLine}"
+  git commit -am "publish:script"
+  git push
+  break
+else
+  echo "发布失败: ${newVersionLine}"
+  break
+fi
