@@ -1,4 +1,6 @@
-#！/bin/bash
+#!/bin/bash
+
+set -e
 
 upgradeVersion() {
   versionLine=$(grep version package.json)
@@ -25,7 +27,7 @@ upgradeVersion
 # npm publish --registry http://xnpm.ximalaya.com
 echo "发布成功了----------"
 
-if [ $? -eq 0 ]
+if [ $? -eq 0 ];
 then
   echo "发布成功: ${newVersionLine}"
   git commit -am "publish:script"
