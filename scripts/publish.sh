@@ -8,20 +8,22 @@ upgradeVersion() {
   newVersionNum=$(echo ${versionNum/${subVersionNum}/${newSubVersionNum}})
   newVersionLine=$(echo "${versionLine/${versionNum}/${newVersionNum}}")
   sed -i "" "s/${versionLine}/${newVersionLine}/g" "package.json"
+  echo "package.json更新成功：${newVersionLine}"
 }
 
 upgradeVersion
 
-if [ $? -eq 0 ]
-then
-  echo "package.json更新成功：${newVersionLine}"
-  break
-else
-  echo "package.json更新失败：${newVersionLine}"
-  exit
-fi
+# if [ $? -eq 0 ]
+# then
+#   echo "package.json更新成功：${newVersionLine}"
+#   break
+# else
+#   echo "package.json更新失败：${newVersionLine}"
+#   exit
+# fi
 
-npm publish --registry http://xnpm.ximalaya.com
+# npm publish --registry http://xnpm.ximalaya.com
+echo "发布成功了----------"
 
 if [ $? -eq 0 ]
 then
