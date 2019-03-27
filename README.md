@@ -19,6 +19,9 @@ $ yarn
 启动服务器
 $ yarn run dev
 
+发布到xnpm
+$ yarn run release
+
 运行单元测试
 $ yarn run test
 ```

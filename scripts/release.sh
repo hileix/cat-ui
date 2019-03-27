@@ -1,4 +1,15 @@
-#！/bin/bash
+#!/bin/bash
+
+set -e
+
+checkBranch() {
+  branch=$(git branch | grep \* | cut -d ' ' -f2)
+  if [ branch != 'master' ]
+  then
+    echo "只有master分支，才能发布到xnpm"
+    exit
+  fi
+}
 
 upgradeVersion() {
   versionLine=$(grep version package.json)
@@ -11,15 +22,18 @@ upgradeVersion() {
   echo "package.json更新成功：${newVersionLine}"
 }
 
+checkBranch
+
 upgradeVersion
 
-if npm publish --registry http://xnpm.ximalaya.com
+npm publish --registry http://xnpm.ximalaya.com
+
+if [ $? -eq 0 ]
 then
-  echo "发布成功: ${newVersionLine}"
-  git commit -am "publish:script"
+  git commit -am "release:script"
   git push
-  break
+  git status
+  echo "发布成功: ${newVersionLine}"
 else
   echo "发布失败: ${newVersionLine}"
-  break
 fi
