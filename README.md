@@ -20,7 +20,9 @@ $ yarn
 $ yarn run dev
 
 发布到xnpm
-$ yarn run release
+$ yarn run release 自动迭代版本号，递增最后一位
+$ yarn run release -i 忽略自动迭代，不要自动迭代版本号
+$ yarn run release 1.6.2 使用用户传入的版本号
 
 运行单元测试
 $ yarn run test
