@@ -1,6 +1,7 @@
 import * as React from 'react'
 import * as PropTypes from 'prop-types'
 import classnames from '../../utils/classnames'
+import './Input.scss'
 
 export type InputType = 'line' | 'line-password' | 'text' | 'text-password' | 'textarea'
 
