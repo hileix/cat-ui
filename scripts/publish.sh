@@ -28,8 +28,8 @@ then
   echo "发布成功: ${newVersionLine}"
   git commit -am "publish:script"
   git push
-  break
+  exit
 else
   echo "发布失败: ${newVersionLine}"
-  break
+  exit
 fi
