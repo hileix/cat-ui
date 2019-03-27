@@ -2,6 +2,15 @@
 
 set -e
 
+checkBranch() {
+  branch=$(git branch | grep \* | cut -d ' ' -f2)
+  if [ branch != 'master' ]
+  then
+    echo "只有master分支，才能发布到xnpm"
+    exit
+  fi
+}
+
 upgradeVersion() {
   versionLine=$(grep version package.json)
   versionNum=$(echo ${versionLine} | tr -cd "[0-9].[0-9]")
@@ -12,6 +21,8 @@ upgradeVersion() {
   sed -i "" "s/${versionLine}/${newVersionLine}/g" "package.json"
   echo "package.json更新成功：${newVersionLine}"
 }
+
+checkBranch
 
 upgradeVersion
 
