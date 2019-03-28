@@ -12,7 +12,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'lib/components'),
     publicPath: '/',
-    filename: '[name]/[name].cache.js',
+    filename: '[name]/[name].min.js',
     // library: 'someLibName',
     // libraryTarget: 'umd',
     // auxiliaryComment: 'Test Comment',
@@ -48,7 +48,7 @@ module.exports = {
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name]/[name].css",
+      filename: "[name]/[name].scss",
       chunkFilename: "[id].css"
     })
   ],
