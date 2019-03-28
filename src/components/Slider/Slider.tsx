@@ -40,7 +40,7 @@ class Slider extends Component<SliderOption, any> {
 
   refSlider: React.RefObject<HTMLDivElement>
 
-  constructor (props) {
+  constructor (props: any) {
     super(props)
     this.state = {
       value: props.value || props.defaultValue || 0
@@ -66,11 +66,11 @@ class Slider extends Component<SliderOption, any> {
     }
   }
 
-  static getDerivedStateFromProps (nextProps, prevState) {
+  static getDerivedStateFromProps (nextProps: any, prevState: any) {
     return 'value' in nextProps ? { value: nextProps.value } : null
   }
 
-  calcValue = clientX => {
+  calcValue = (clientX: number)  => {
     const slider = this.refSlider.current
     let value = (clientX - slider.getBoundingClientRect().left) / slider.offsetWidth
     if (value < 0) {
@@ -81,7 +81,7 @@ class Slider extends Component<SliderOption, any> {
     return value * 100
   }
 
-  onMouseDown = e => {
+  onMouseDown = (e: any) => {
     const { onBeforeChange, onChange } = this.props
     const value = this.calcValue(e.clientX)
     document.addEventListener('mousemove', this.onMouseMove)
@@ -94,7 +94,7 @@ class Slider extends Component<SliderOption, any> {
     onChange && onChange(value)
   }
 
-  onMouseMove = e => {
+  onMouseMove = (e: any) => {
     const { onChange } = this.props
     const value: number = this.calcValue(e.clientX)
     if (!('value' in this.props)) {
@@ -103,7 +103,7 @@ class Slider extends Component<SliderOption, any> {
     onChange && onChange(value)
   }
 
-  onMouseUp = e => {
+  onMouseUp = (e: any) => {
     const { onAfterChange } = this.props
     const value = this.calcValue(e.clientX)
     this.setState({ dragging: false })
@@ -112,7 +112,7 @@ class Slider extends Component<SliderOption, any> {
     onAfterChange && onAfterChange(value)
   }
 
-  onTouchStart = e => {
+  onTouchStart = (e: any) => {
     const { onBeforeChange, onChange } = this.props
     const value = this.calcValue(e.touches[0].clientX)
     document.addEventListener('touchmove', this.onTouchMove)
@@ -125,7 +125,7 @@ class Slider extends Component<SliderOption, any> {
     onChange && onChange(value)
   }
 
-  onTouchMove = e => {
+  onTouchMove = (e: any) => {
     const { onChange } = this.props
     const value = this.calcValue(e.touches[0].clientX)
     if (!('value' in this.props)) {
@@ -134,7 +134,7 @@ class Slider extends Component<SliderOption, any> {
     onChange && onChange(value)
   }
 
-  onTouchEnd = e => {
+  onTouchEnd = (e: any) => {
     const { onAfterChange } = this.props
     const value = this.calcValue(e.changedTouches[0].clientX)
     this.setState({ dragging: false })
