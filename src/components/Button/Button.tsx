@@ -24,7 +24,7 @@ export interface ButtonProps {
   /** 子元素 */
   children?: React.ReactNode;
   /** 点击按钮时的回调 */
-  onClick?: (e) => void;
+  onClick?: (e: MouseEvent) => void;
 }
 
 /**
@@ -38,7 +38,7 @@ class Button extends Component<ButtonProps, any> {
     disabled: false
   }
 
-  handleClick = (event) => {
+  handleClick = (event: MouseEvent) => {
     const { disabled, onClick } = this.props
     if (disabled) return;
 
