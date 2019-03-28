@@ -44,7 +44,18 @@ $ yarn run test
 - 有多个子组件的时候，每个子组件使用一个`markdown`文件
 - 子组件在`markdown`文件示范的时候，使用`CheckboxGroup`这种，无法使用`Checkbox.Group`
 
-#### react-styleguidis文档
+## 使用组件
+
+``` jsx
+import { Button } from '@xmly/cat-ui'
+
+<h3>size</h3>
+<Button size='sm'>sm</Button>
+<Button size='md'>md</Button>
+<Button size='lg'>lg</Button>
+```
+
+## react-styleguidis文档
 
 - 官方文档：https://react-styleguidist.js.org/docs/documenting.html  
 - 常见问题：https://react-styleguidist.js.org/docs/cookbook.html
@@ -58,8 +69,13 @@ $ yarn run test
 ├── public                              静态资源
 ├── src
 │   ├── components                      组件库
-│   │     ├── Button                    // 按钮
-│   │     └── ToolTip                   // 文字提示
-│   └── style                           组件库的全局样式
+│   │     ├── Button                    按钮
+│   │     ├── Input                     输入框
+│   │     ├── Popup                     弹层
+│   │     ├── Slider                    滑动输入条
+│   │     └── ToolTip                   文字提示
+│   ├── style                           样式
+│   └── utils                           工具函数
 ├── styleguide.config.js                styleguide的webpack配置
+├── webpack.config.js                   发包的webpack配置
 ```
