@@ -16,35 +16,35 @@ module.exports = {
     text: 'Fork me on GitLab'
   },
   version,
+
   webpackConfig: {
     module: {
       rules: [{
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        use: 'babel-loader'
       },
       {
         test: /(\.ts|\.tsx?)$/,
-        loader: 'ts-loader',
+        use: 'ts-loader',
         exclude: /node_modules/,
       },
       {
         test: /\.css$/,
-        use: [{
-          loader: 'style-loader' // 将 JS 字符串生成为 style 节点
-        }, {
-          loader: 'css-loader' // 将 CSS 转化成 CommonJS 模块
-        }]
+        use: [
+          'style-loader',
+          'css-loader'
+        ],
+        exclude: /node_modules/,
       },
       {
         test: /\.scss$/,
-        use: [{
-          loader: 'style-loader' // 将 JS 字符串生成为 style 节点
-        }, {
-          loader: 'css-loader' // 将 CSS 转化成 CommonJS 模块
-        }, {
-          loader: 'sass-loader' // 将 Sass 编译成 CSS
-        }]
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ],
+        exclude: /node_modules/,
       }
       ]
     },
