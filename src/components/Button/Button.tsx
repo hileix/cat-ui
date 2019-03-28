@@ -15,6 +15,8 @@ export interface ButtonProps {
   theme?: 'primary' | 'yellow' | 'white-primary' | 'white-cyan';
   /** 是否禁用 */
   disabled?: boolean;
+  /** 样式 */
+  htmlType?: 'submit' | 'button' | 'span' | 'span';
   /** 是否将按钮宽度调整为其父宽度 */
   block?: boolean;
   /** 尺寸 */
@@ -24,7 +26,7 @@ export interface ButtonProps {
   /** 子元素 */
   children?: React.ReactNode;
   /** 点击按钮时的回调 */
-  onClick?: (e: MouseEvent) => void;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 /**
@@ -38,7 +40,7 @@ class Button extends Component<ButtonProps, any> {
     disabled: false
   }
 
-  handleClick = (event: MouseEvent) => {
+  handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
     const { disabled, onClick } = this.props
     if (disabled) return;
 
@@ -48,7 +50,8 @@ class Button extends Component<ButtonProps, any> {
   }
 
   render() {
-    const { prefix, className, style, theme, size, block, disabled, children, ...others } = this.props
+    const { prefix, className, style, theme, size, block, disabled,
+      htmlType, children, ...others } = this.props
     const classes = classNames(`${prefix}-button`, {
       [`${prefix}-button-${theme}`]: theme,
       [`${prefix}-button-${size}`]: size,
@@ -56,13 +59,14 @@ class Button extends Component<ButtonProps, any> {
       [`${prefix}-button-disabled`]: disabled
     }, className)
 
-    return (<div
+    return (<button
       className={classes}
       style={style}
+      type={htmlType || 'button'}
       onClick={this.handleClick}
       {...others}>
       {children}
-    </div>)
+    </button>)
   }
 }
 
