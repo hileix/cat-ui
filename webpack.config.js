@@ -1,13 +1,11 @@
 const path = require('path')
+const glob = require('glob')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = {
   mode: 'production',
 
-  entry: {
-    Button: './src/components/Button/index.ts',
-    Input: './src/components/Input/index.ts'
-  },
+  entry: getEntry(),
 
   output: {
     path: path.resolve(__dirname, 'lib/components'),
@@ -52,4 +50,23 @@ module.exports = {
       chunkFilename: "[id].css"
     })
   ],
+}
+
+// 获取各个文件目录
+function getEntry () {
+  let entry = {}
+  const files = path.resolve(__dirname, './src/components/**/[A-Z]*.tsx')
+
+  glob.sync(files).forEach(function(filePath){
+    const index1 = filePath.lastIndexOf('/')
+    const index2 = filePath.lastIndexOf('/', index1 - 1)
+    const folder = filePath.slice(index2 + 1, index1)
+    if (entry[folder]) {
+      entry[folder].push(filePath)
+    } else {
+      entry[folder] = [filePath]
+    }
+  })
+
+  return entry
 }
