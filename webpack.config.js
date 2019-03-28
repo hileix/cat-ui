@@ -11,8 +11,6 @@ module.exports = {
     path: path.resolve(__dirname, 'lib/components'),
     publicPath: '/',
     filename: '[name]/[name].min.js',
-    // library: 'someLibName',
-    // libraryTarget: 'umd',
     // auxiliaryComment: 'Test Comment',
     library: 'cat-ui',
     libraryTarget: 'umd',
