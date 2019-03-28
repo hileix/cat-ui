@@ -2,7 +2,7 @@ var express = require('express')
 var path = require('path')
 
 var app = express()
-app.use(express.static('styleguide'));
+app.use(express.static('styleguide'))
 
 app.get('*', function (request, response) {
   response.sendFile(path.resolve(__dirname, 'styleguide', 'index.html'))

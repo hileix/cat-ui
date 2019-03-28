@@ -19,22 +19,24 @@ module.exports = {
 
   module: {
     rules: [{
-      test: /(\.ts|\.tsx?)$/,
-      loader: 'ts-loader',
+      test: /(\.ts|\.tsx)$/,
+      use: 'ts-loader',
       exclude: /node_modules/,
     }, {
       test: /\.css$/,
       use: [
         MiniCssExtractPlugin.loader,
         'css-loader'
-      ]
+      ],
+      exclude: /node_modules/
     }, {
       test: /\.scss$/,
       use: [
         MiniCssExtractPlugin.loader,
         'css-loader',
         'sass-loader',
-      ]
+      ],
+      exclude: /node_modules/
     }]
   },
 

@@ -20,12 +20,12 @@ module.exports = {
   webpackConfig: {
     module: {
       rules: [{
-        test: /\.jsx?$/,
+        test: /(\.js|\.jsx)$/,
+        use: 'babel-loader',
         exclude: /node_modules/,
-        use: 'babel-loader'
       },
       {
-        test: /(\.ts|\.tsx?)$/,
+        test: /(\.ts|\.tsx)$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
