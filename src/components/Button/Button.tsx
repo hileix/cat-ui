@@ -35,6 +35,7 @@ export interface ButtonProps {
 class Button extends Component<ButtonProps, any> {
   static defaultProps = {
     prefix: 'hmly',
+    htmlType: 'button',
     theme: 'primary',
     size: 'md',
     disabled: false
