@@ -63,7 +63,7 @@ class Button extends Component<ButtonProps, any> {
     return (<button
       className={classes}
       style={style}
-      type={htmlType || 'button'}
+      type={htmlType}
       onClick={this.handleClick}
       {...others}>
       {children}
