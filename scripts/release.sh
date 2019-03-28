@@ -46,7 +46,8 @@ npm publish --registry http://xnpm.ximalaya.com
 
 if [ $? -eq 0 ]
 then
-  git commit -am "release:script"
+  git add .
+  git commit -m "release:script"
   git push
   git status
   echo -e "\033[32m \n发布成功: ${newVersionLine}\n \033[0m"
