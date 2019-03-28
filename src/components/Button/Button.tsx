@@ -16,7 +16,7 @@ export interface ButtonProps {
   /** 是否禁用 */
   disabled?: boolean;
   /** 样式 */
-  htmlType?: 'submit' | 'button' | 'span' | 'span';
+  htmlType?: 'submit' | 'button' | 'span' | 'div';
   /** 是否将按钮宽度调整为其父宽度 */
   block?: boolean;
   /** 尺寸 */
