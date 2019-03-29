@@ -1,6 +1,9 @@
 const path = require('path')
 const { version } = require('./package')
 
+const createStyledComponentsTransformer = require('typescript-plugin-styled-components').default;
+const styledComponentsTransformer = createStyledComponentsTransformer();
+
 module.exports = {
   components: 'src/components/**/[A-Z]*.tsx',
   // components: 'src/components/*(ButtonDemo|CardDemo|Checkbox)/[A-Z]*.tsx',
@@ -26,7 +29,12 @@ module.exports = {
       },
       {
         test: /(\.ts|\.tsx)$/,
-        use: 'ts-loader',
+        use: [ {
+          loader: 'awesome-typescript-loader',
+          options: {
+            getCustomTransformers: () => ({ before: [styledComponentsTransformer] })
+          },
+        }],
         exclude: /node_modules/,
       },
       {
