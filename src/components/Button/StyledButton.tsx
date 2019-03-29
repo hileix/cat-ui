@@ -1,84 +1,70 @@
 import * as React from 'react'
-import { Component } from 'react'
-// import * as PropTypes from 'prop-types'
 import styled from 'styled-components'
-import classNames from 'classnames'
-import './Button.scss'
+import { primaryBtnColor, yellowBtnColor } from '../../style/theme'
 
-export interface ButtonProps {
-  /** 前缀 */
-  prefix?: string;
-  /** 类名 */
-  className?: string;
-  /** 样式 */
-  style?: object;
-  /** 主题 */
-  theme?: 'primary' | 'yellow' | 'white-primary' | 'white-cyan';
-  /** 是否禁用 */
-  disabled?: boolean;
-  /** 样式 */
-  htmlType?: 'submit' | 'button' | 'reset';
-  /** 是否将按钮宽度调整为其父宽度 */
-  block?: boolean;
-  /** 尺寸 */
-  size?: 'sm' | 'md' | 'lg';
-  /** 设置按钮的图标类型 */
-  icon?: string;
-  /** 子元素 */
-  children?: React.ReactNode;
-  /** 点击按钮时的回调 */
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-}
+const StyledButton = styled.button`
+  display: inline-block;
+  border-radius: 2px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  outline: 0;
+  border: 1px solid transparent;
 
-const Title = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: palevioletred;
+  &:active {
+    outline: none;
+    box-shadow: none;
+    text-decoration: none;
+  }
+
+  &.hmly-button-primary {
+    background-color: ${primaryBtnColor};
+    color: #ffffff;
+  }
+
+  &.hmly-button-sm {
+    padding: 6px 20px;
+  }
+  &.hmly-button-md {
+    padding: 10px 25px;
+  }
+  &.hmly-button-lg {
+    padding: 14px 29px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  &.hmly-button-primary {
+    background-color: ${primaryBtnColor};
+    color: #ffffff;
+  }
+  &.hmly-button-yellow {
+    background-color: ${yellowBtnColor};
+    color: #ffffff;
+  }
+  &.hmly-button-white-primary {
+    background-color: #ffffff;
+    color: #9b9b9b;
+    border: 1px solid rgba(83, 118, 130, 0.8);
+  }
+  &.hmly-button-white-cyan {
+    background-color: #ffffff;
+    color: ${primaryBtnColor};
+    border: 1px solid ${primaryBtnColor};
+  }
+
+  &.hmly-button-block {
+    width: 100%;
+  }
+
+  &.hmly-button-disabled {
+    background-color: #a6a6a6;
+    color: #ffffff;
+    cursor: not-allowed;
+    border: 1px solid transparent;
+  }
 `;
-
-/**
- * 按钮
- */
-class StyledButton extends Component<ButtonProps, any> {
-  static defaultProps = {
-    prefix: 'hmly',
-    htmlType: 'button',
-    theme: 'primary',
-    size: 'md',
-    disabled: false
-  }
-
-  handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
-    const { disabled, onClick } = this.props
-    if (disabled) return;
-
-    if (onClick) {
-      onClick(event)
-    }
-  }
-
-  render() {
-    const { prefix, className, style, theme, size, block, disabled,
-      htmlType, children, ...others } = this.props
-    const classes = classNames(`${prefix}-button`, {
-      [`${prefix}-button-${theme}`]: theme,
-      [`${prefix}-button-${size}`]: size,
-      [`${prefix}-button-block`]: block,
-      [`${prefix}-button-disabled`]: disabled
-    }, className)
-
-    return (<button
-      className={classes}
-      style={style}
-      type={htmlType}
-      onClick={this.handleClick}
-      {...others}>
-      {children}
-      <Title>
-        Hello World!
-      </Title>
-    </button>)
-  }
-}
 
 export default StyledButton
