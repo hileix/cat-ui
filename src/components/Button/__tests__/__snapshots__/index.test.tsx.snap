@@ -4,7 +4,7 @@ exports[`Button renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-button hmly-button-primary hmly-button-md",
+      "class": "hmly-button hmly-button-primary hmly-button-md sc-bdVaJa etCqtU",
       "type": "button",
     },
     "children": Array [
