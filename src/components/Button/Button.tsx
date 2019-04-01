@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Component } from 'react'
 // import * as PropTypes from 'prop-types'
 import classNames from 'classnames'
-import StyledButton from './StyledButton'
+import { StyledButton } from './styled'
 
 export interface ButtonProps {
   /** 前缀 */
