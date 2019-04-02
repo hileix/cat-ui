@@ -1,6 +1,6 @@
 import * as React from "react"
 import classNames from 'classnames'
-import { Popup } from '../../components'
+import Popup from '../Popup'
 import './Tooltip.scss'
 
 export type TooltipPlacement =
