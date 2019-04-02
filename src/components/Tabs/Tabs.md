@@ -6,12 +6,25 @@ import TabPanel from './TabPanel';
 class Example extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {}
+    this.state = {
+      activeId: 'b'
+    }
+    this.onTabChange = this.onTabChange.bind(this)
+  }
+
+  onTabChange (id) {
+    this.setState({
+      activeId: id
+    });
   }
 
   render () {
+    const { activeId } = this.state
+
     return (<div>
-      <Tabs>
+      <Tabs 
+        activeId={activeId}
+        onChange={this.onTabChange}>
         <TabPanel 
           id='a'
           tab='选项A'>
