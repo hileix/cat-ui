@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Component } from 'react'
 import { StyledTabs, TabsNavBox, TabsNav, TabsContentBox, TabsContent } from './styled'
+import TabPanel from './TabPanel'
 
 export interface TabsProps {
   /** 类名 */
@@ -17,6 +18,8 @@ export interface TabsProps {
  * Tabs
  */
 class Tabs extends Component<TabsProps, any> {
+  static TabsPanel: typeof TabPanel;
+
   toRender = () => {
     const { children } = this.props
     let navs: Object[] = []
