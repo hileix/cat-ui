@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { primaryBtnColor, yellowBtnColor } from '../../../style/theme'
+import { primaryBtnColor, yellowBtnColor } from '../../../styles/theme'
 
 const StyledButton = styled.button`
   display: inline-block;

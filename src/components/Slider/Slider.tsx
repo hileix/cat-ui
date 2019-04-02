@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Component, createRef } from 'react'
 import classNames from 'classnames'
-import './index.scss'
+import './Slider.scss'
 import { Function } from '@babel/types';
 
 export interface SliderOption {
@@ -23,11 +23,11 @@ export interface SliderOption {
 
 /**
  * Slider滑动输入条
- * 
+ *
  * 为Slider组件提供value属性，可使Slider变为受控组件，否则当前组件为非受控
- * 
+ *
  * Slider兼容至移动端，在移动端下会默认使用touch事件
- * 
+ *
  */
 class Slider extends Component<SliderOption, any> {
 

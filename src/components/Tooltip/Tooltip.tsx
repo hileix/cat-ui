@@ -1,7 +1,7 @@
 import * as React from "react"
 import classNames from 'classnames'
-import { Popup } from '../'
-import './index.scss'
+import { Popup } from '../../components'
+import './Tooltip.scss'
 
 export type TooltipPlacement =
   | 'top'
@@ -38,7 +38,7 @@ export interface TooltipOption {
 
 /**
  * Tooltip
- * 
+ *
  */
 export default class Tooltip extends React.Component<TooltipOption, any>{
   static defaultProps = {
