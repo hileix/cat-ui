@@ -55,7 +55,6 @@
     "@types/source-map-support": "^0.5.0",
     "@types/styled-components": "^4.1.12",
     "awesome-typescript-loader": "^5.2.1",
-    "babel-loader": "^8.0.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react-app": "^7.0.2",
     "css-loader": "^2.1.1",
