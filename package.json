@@ -24,8 +24,7 @@
     "lint:fix": "npm run lint -- --fix",
     "prettier:base": "prettier --parser typescript --single-quote --trailing-comma none",
     "prettier:check": "npm run prettier:base -- -l \"src/**/*.{ts,tsx}\"",
-    "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\"",
-    "eject": "react-scripts eject"
+    "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\""
   },
   "dependencies": {
     "classnames": "^2.2.6",
@@ -34,7 +33,6 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8",
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
@@ -56,7 +54,6 @@
     "@types/styled-components": "^4.1.12",
     "awesome-typescript-loader": "^5.2.1",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-react-app": "^7.0.2",
     "css-loader": "^2.1.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
