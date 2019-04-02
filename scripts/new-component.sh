@@ -40,8 +40,7 @@ class ${input} extends Component<${input}Props, any> {
   }
 }
 
-export default ${input}
-" >> src/components/${input}/${input}.tsx
+export default ${input}" >> src/components/${input}/${input}.tsx
 
 # 导入${input}/index.ts默认模块
 echo "import ${input} from './${input}'
@@ -52,15 +51,32 @@ export default ${input}" >> src/components/${input}/index.ts
 echo "Example
 
 \`\`\`jsx
-<${input}>${input}</${input}>
+class Example extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {}
+  }
 
-<style>
-  {\`
+  render () {
+    return (<div className='box'>
+      <${input}>
+        test
+      </${input}>
 
-  \`}
-</style>
-\`\`\`
-" >> src/components/${input}/${input}.md
+      <style>
+        {\`
+          .box {
+            padding: 15px;
+          }
+        \`}
+      </style>
+    </div>
+    )
+  }
+}
+
+<Example />
+\`\`\`" >> src/components/${input}/${input}.md
 
 # 导入${input}/styled/index.tsx默认模块
 echo "import styled from 'styled-components'
@@ -70,8 +86,7 @@ const Styled${input} = styled.div\`
   color: red;
 \`;
 
-export { Styled${input} }
-" >> src/components/${input}/styled/index.tsx
+export { Styled${input} }" >> src/components/${input}/styled/index.tsx
 
 # 导入${input}/__test__/index.test.tsx默认模块
 echo "import * as React from 'react'
@@ -93,7 +108,6 @@ describe('${input}', () => {
   test('two plus two is four', () => {
     expect(2 + 2).toBe(4)
   })
-})
-" >> src/components/${input}/__test__/index.test.tsx
+})" >> src/components/${input}/__test__/index.test.tsx
 
 echo -e "\033[32m \n新建组件成功: ${input}\n \033[0m"

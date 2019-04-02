@@ -50,21 +50,6 @@ class Modal extends Component<ModalProps, any> {
     disabled: false
   }
 
-  componentDidMount() {
-    const { visible } = this.props
-    const node = document.querySelector('body')
-    console.log('Modal:node', node, visible)
-    if ((visible === undefined) || visible) {
-      node.setAttribute('style', 'overflow: hidden;')
-      // const { style } = node
-      // style.overflow = 'hidden'
-    }
-  }
-
-  componentWillUnmount() {
-    const { visible } = this.props
-  }
-
   onMaskClick = (e: any) => {
     if (e.target === e.currentTarget) {
       this.props.onClose && this.props.onClose(e)
