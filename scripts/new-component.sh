@@ -17,6 +17,7 @@ touch src/components/${input}/__test__/index.test.tsx
 # 导入${input}/${input}.tsx默认模块
 echo "import * as React from 'react'
 import { Component } from 'react'
+import { Styled${input} } from './styled'
 
 export interface ${input}Props {
   /** 类名 */
@@ -32,9 +33,9 @@ class ${input} extends Component<${input}Props, any> {
 
   render() {
     return (
-      <div>
+      <Styled${input}>
         ${input}
-      </div>
+      </Styled${input}>
     )
   }
 }
