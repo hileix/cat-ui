@@ -29,6 +29,21 @@ class Portal extends Component<ProtalProps, any> {
     selector: 'body'
   }
 
+  // componentDidMount() {
+  //   const { visible, selector } = this.props
+  //   const node = this.getContainer(selector)
+  //   console.log('node', node, visible)
+  //   if ((visible === undefined) || visible) {
+  //     node.setAttribute('style', 'overflow: hidden;')
+  //     // const { style } = node
+  //     // style.overflow = 'hidden'
+  //   }
+  // }
+
+  // componentWillUnmount() {
+  //   const { visible } = this.props
+  // }
+
   // getContainer = memoizeOne((selector: string) => {
   //   let node = document.querySelector(selector) || document.body
   //   // if (!this.props.append) {
@@ -46,8 +61,8 @@ class Portal extends Component<ProtalProps, any> {
   }
 
   render() {
-    const { selector: container, onMount, onUnmount, render, visible, children } = this.props
-    const domNode = this.getContainer(container)
+    const { selector, onMount, onUnmount, render, visible, children } = this.props
+    const domNode = this.getContainer(selector)
     const content = render ? render() : children
 
     if (!visible) { return null}

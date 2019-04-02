@@ -22,11 +22,12 @@ class Example extends React.Component {
     return (<div>
       <Button onClick={() => this.toggleDialog(true)}>打开Modal</Button>
       <Modal 
+        title='Enter the amount you want to redeem'
         visible={isOpen}
+        cancelText='Cancel'
+        okText='OK'
         onClose={() => this.toggleDialog(false)}>
-        <p>对话框内容...</p>
-        <p>对话框内容...</p>
-        <p>对话框内容...</p>
+        <p>Please ensure that the amount you are redeeming does not exceed the remaining total amount.</p>
       </Modal>
     </div>
     )

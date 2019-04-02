@@ -24,7 +24,27 @@ const InnerModal = styled.div`
   font-size: 14px;
   white-space: normal;
   min-width: 450px;
-  max-width: 75%;
+  max-width: 600px;
 `;
 
-export { ModalBox, InnerModal }
+const ModalHeader = styled.div`
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  color: #4a4a4a;
+`;
+
+const ModalBody = styled.div`
+  font-size: 18px;
+  color: #4a4a4a;
+`;
+
+
+const ModalFooter = styled.div`
+  float: right;
+`;
+
+export { ModalBox, InnerModal, ModalHeader, ModalBody, ModalFooter }
