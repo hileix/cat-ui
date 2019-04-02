@@ -28,17 +28,17 @@ class Example extends React.Component {
         <TabPanel 
           id='a'
           tab='选项A'>
-          <h2>11111</h2>
+          <h2>选项A的内容11111</h2>
         </TabPanel>
         <TabPanel 
           id='b'
           tab='选项B'>
-          <h3>2222222</h3>
+          <h3>选项B的内容2222222</h3>
         </TabPanel>
         <TabPanel 
           id='c'
           tab='选项C'>
-          <p>333333</p>
+          <p>选项C的内容333333</p>
         </TabPanel>
       </Tabs>
 

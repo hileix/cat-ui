@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Component } from 'react'
-import { StyledTabs, TabsNavBox, TabsNav, TabsContent } from './styled'
+import { StyledTabs, TabsNavBox, TabsNav, TabsContentBox, TabsContent } from './styled'
 
 export interface TabsProps {
   /** 类名 */
@@ -20,11 +20,13 @@ class Tabs extends Component<TabsProps, any> {
   toRender = () => {
     const { children } = this.props
     let navs: Object[] = []
+    let contents: Object[] = []
     React.Children.forEach(children, (child: any) => {
       const { props: { tab, id } } = child
       navs.push({id: id, tab: tab})
+      contents.push(child)
     })
-    return navs
+    return { navs, contents }
   }
 
   onTabClick = (id: string | number) => {
@@ -34,34 +36,48 @@ class Tabs extends Component<TabsProps, any> {
 
   toRenderNav = (navs: Object[]) => {
     const { activeId } = this.props
-    return navs.map((ele: any) => {
-      let cls
-      if (activeId === ele.id) {
-        cls = 'active'
-      }
+    return navs.map((element: any) => {
+      let classes = activeId === element.id ? 'active': ''
       return (
         <TabsNav
-          key={ele.id}
-          onClick={() => {this.onTabClick(ele.id)}}
-          className={cls}>
-          {ele.tab}
+          key={element.id}
+          onClick={() => {this.onTabClick(element.id)}}
+          className={classes}>
+          {element.tab}
         </TabsNav>
       )
     })
   }
 
+  toRenderContent = (contents: any) => {
+    const { activeId } = this.props
+    return contents.map((element: any, index: number) => {
+      const { id } = element.props
+      let classes = activeId === id ? 'active': ''
+      return (
+        <TabsContent
+          key={index}
+          className={classes}>
+          {element}
+        </TabsContent>
+      )
+    })
+  }
+
   render() {
-    let { className, children, activeId } = this.props
-    let navs = this.toRender()
+    let { className, style } = this.props
+    let { navs, contents } = this.toRender()
 
     return (
-      <StyledTabs>
+      <StyledTabs
+        className={className}
+        style={style}>
         <TabsNavBox>
           {this.toRenderNav(navs)}
         </TabsNavBox>
-        <TabsContent>
-          TabsContent
-        </TabsContent>
+        <TabsContentBox>
+          {this.toRenderContent(contents)}
+        </TabsContentBox>
       </StyledTabs>
     )
   }

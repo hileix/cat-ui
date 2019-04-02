@@ -19,9 +19,10 @@ export interface TabPanelProps {
 class TabPanel extends Component<TabPanelProps, any> {
 
   render() {
+    const { children } = this.props
     return (
       <div>
-        TabPanel
+        {children}
       </div>
     )
   }

@@ -39,9 +39,17 @@ const TabsNav = styled.div`
   }
 `;
 
-const TabsContent = styled.div`
+const TabsContentBox = styled.div`
   padding-top: 20px;
 `;
 
-export { StyledTabs, TabsNavBox, TabsNav, TabsContent }
+const TabsContent = styled.div`
+  display: none;
+
+  &.active {
+    display: block;
+  }
+`;
+
+export { StyledTabs, TabsNavBox, TabsNav, TabsContentBox, TabsContent }
 
