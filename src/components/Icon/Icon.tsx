@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { PureComponent } from 'react'
 import classNames from 'classnames'
-import { StyledIcon } from './styled'
+// import { StyledIcon } from './styled'
+import './Icon.css'
 
 export interface IconProps {
   /** 类名 */
@@ -25,7 +26,7 @@ class Icon extends PureComponent<IconProps, any> {
       <i
         className={classes}
         style={style} />
-      <StyledIcon />
+      {/* <StyledIcon /> */}
     </React.Fragment>
     )
   }

@@ -2,7 +2,8 @@ import { createGlobalStyle } from 'styled-components'
 import { primaryBtnColor } from '../../../styles/theme'
 
 const StyledIcon = createGlobalStyle`
-  @font-face {font-family: "iconfont";
+  @font-face {
+    font-family: "iconfont";
     src: url('https://at.alicdn.com/t/font_569430_s6lrohkji6.eot'); /* IE9 */
     src: url('https://at.alicdn.com/t/font_569430_s6lrohkji6.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
     url('https://at.alicdn.com/t/font_569430_s6lrohkji6.woff2') format('woff2'),
@@ -202,7 +203,6 @@ const StyledIcon = createGlobalStyle`
   .hmly-icon-warning:before {
     content: "\e62e";
   }
-
 `;
 
 export { StyledIcon }
