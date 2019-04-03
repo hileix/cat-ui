@@ -2,7 +2,7 @@ import * as React from 'react'
 import { PureComponent } from 'react'
 import classNames from 'classnames'
 // import { StyledIcon } from './styled'
-import './Icon.scss'
+import './Icon.css'
 
 export interface IconProps {
   /** 类名 */
