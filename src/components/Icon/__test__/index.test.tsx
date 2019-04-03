@@ -9,7 +9,7 @@ Enzyme.configure({ adapter: new Adapter() })
 describe('Icon', () => {
   test('renders correctly', () => {
     const wrapper = render(
-      <Icon>Test</Icon>
+      <Icon type='close' />
     )
     expect(wrapper).toMatchSnapshot()
   })
