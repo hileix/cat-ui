@@ -1,6 +1,6 @@
 import Tabs from './Tabs'
-import TabsPanel from './TabPanel'
+import TabPanel from './TabPanel'
 
-Tabs.TabsPanel = TabsPanel
+Tabs.TabPanel = TabPanel
 
 export default Tabs
