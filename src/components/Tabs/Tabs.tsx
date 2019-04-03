@@ -18,7 +18,7 @@ export interface TabsProps {
  * Tabs
  */
 class Tabs extends Component<TabsProps, any> {
-  static TabsPanel: typeof TabPanel;
+  static TabsPanel = TabPanel;
 
   toRender = () => {
     const { children } = this.props
