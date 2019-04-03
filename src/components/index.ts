@@ -1,4 +1,5 @@
 export { default as Button } from './Button'
+export { default as Icon } from './Icon'
 export { default as Modal } from './Modal'
 export { default as Tabs } from './Tabs'
 // export { default as Popup } from './Popup'

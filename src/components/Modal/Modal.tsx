@@ -3,7 +3,7 @@ import { Component } from 'react'
 // import * as PropTypes from 'prop-types'
 import classNames from 'classnames'
 import Portal from '../Portal'
-import { Button } from '../../components'
+import { Button, Icon } from '../../components'
 import { ModalBox, InnerModal, ModalHeader, ModalBody, ModalFooter } from './styled/index'
 // import { any } from 'prop-types';
 
@@ -78,6 +78,7 @@ class Modal extends Component<ModalProps, any> {
         <InnerModal>
           <ModalHeader>
             {title}
+            <Icon type='close' />
           </ModalHeader>
           <ModalBody>
             {children}
