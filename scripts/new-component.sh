@@ -3,7 +3,7 @@
 set -e
 
 input=$1
-lowerInput = $(echo $input | tr "[A-Z]" "[a-z]")
+lowerInput=$(echo $input | tr "[A-Z]" "[a-z]")
 
 mkdir src/components/${input}
 mkdir src/components/${input}/__test__
