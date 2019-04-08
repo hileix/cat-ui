@@ -5,7 +5,7 @@ import { StyledTable } from './styled'
 
 export interface TableHeaderProps {
   /** 每一列需要的所有数据 */
-  columns?: Array<string>;
+  columns?: Array<any>;
   /** 对齐 */
   align?: string;
 }
@@ -15,31 +15,31 @@ export interface TableHeaderProps {
  */
 class TableHeader extends Component<TableHeaderProps, any> {
 
-  render() {
-    const { columns, align } = this.props
-    const classes = classNames({
-      'hmly-table-thead': true,
-      [`hmly-table-thead-${align}`]: align
+  toRenderTds = () => {
+    const { columns } = this.props
+    return columns.map((elem: any) => {
+      // 渲染字符串或函数返回的DOM
+      const result = typeof elem.render === 'function' ? elem.render() : elem.render
+      return (
+        <th key={elem.index} className='table-th'>
+          <span className='th-inner'>
+            {result}
+          </span>
+        </th>
+      )
     })
+  }
+
+  render() {
+    const { align } = this.props
+    const classes = classNames('hmly-table-thead', `hmly-table-thead-${align}`)
+    const tds = this.toRenderTds()
 
     return (
-      <thead>
+      <thead className={classes}>
         <tr>
-        {columns.map((elem: any) => {
-          let _render = elem.render // 渲染字符串或数字
-          // 渲染函数返回的DOM
-          if (typeof elem.render === 'function') {
-            _render = elem.render()
-          }
-          return (
-            <th key={elem.dataIndex} className='table-th'>
-              <span className='th-inner'>
-                {_render}
-              </span>
-            </th>
-          )
-        })}
-      </tr>
+          {tds}
+        </tr>
       </thead>
     )
   }

@@ -9,16 +9,16 @@ class Example extends React.Component {
 
   render () {
     const columns = [{
-      dataIndex: 'ranking',
+      index: 'ranking',
       render: <span>ranking1111</span>
     }, {
-      dataIndex: 'platforms',
+      index: 'platforms',
       render: <span>platforms2333</span>
     }, {
-      dataIndex: 'totalListen',
+      index: 'totalListen',
       render: <span>platforms3333</span>
     }, {
-      dataIndex: 'rates',
+      index: 'rates',
       render: <span>platforms444</span>
     }]
 
@@ -65,7 +65,6 @@ class Example extends React.Component {
       }
     ]
 
-    console.log('Table', Table)
     return (<div className='box'>
       <Table
         align='center'

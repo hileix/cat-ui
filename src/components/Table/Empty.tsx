@@ -1,26 +1,24 @@
 import * as React from 'react'
-import { PureComponent } from 'react'
-import classNames from 'classnames'
+import { Component } from 'react'
 import { StyledTable } from './styled'
 
 export interface EmptyProps {
-  /** 每一列需要的所有数据 */
-  columns?: Array<string>;
+  /** 空单元格可横跨的列数 */
+  colSpan?: number;
   /** 空模板的文案 */
   emptyText?: string;
 }
 
 /**
- * Table
+ * Empty
  */
-class Empty extends PureComponent<EmptyProps, any> {
-
+class Empty extends Component<EmptyProps, any> {
   render() {
-    const { columns, emptyText } = this.props
+    const { colSpan, emptyText } = this.props
 
     return (
       <tr className='hmly-table-row'>
-        <td colSpan={columns.length} className='table-td-empty'>
+        <td colSpan={colSpan} className='table-td-empty'>
           <span className='empty'>
             {emptyText}
           </span>

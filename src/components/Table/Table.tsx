@@ -3,8 +3,7 @@ import { Component } from 'react'
 import classNames from 'classnames'
 import { StyledTable } from './styled'
 import TableHeader from './TableHeader'
-import TableRow from './TableRow'
-import Empty from './Empty'
+import TableBody from './TableBody'
 
 export interface TableProps {
   /** 类名 */
@@ -22,42 +21,31 @@ export interface TableProps {
 }
 
 /**
- * Table
+ * 表格（列表）
  */
 class Table extends Component<TableProps, any> {
+  static defaultProps = {
+    align: 'left',
+    emptyText: ''
+  }
 
   render() {
     const { className, style, columns, dataSource, align, emptyText } = this.props
     const classes = classNames('hmly-table', className)
-
-    console.log('columns', columns, dataSource, align)
-
-    const columnsIndex = columns.map((elem: any) => {
-      return elem.dataIndex
-    })
 
     return (
       <StyledTable
         className={classes}
         style={style}>
         <table className='table'>
-          <TableHeader columns={columns} align={align} />
-          <tbody>
-          {dataSource.map((elem, index) => {
-              return (
-                <TableRow
-                  columns={columns}
-                  columnsIndex={columnsIndex}
-                  data={elem}
-                  align={align}
-                  key={index} />
-              )
-            })}
-            {dataSource.length === 0
-              ? <Empty columns={columns} emptyText={emptyText} />
-              : null
-            }
-          </tbody>
+          <TableHeader
+            columns={columns}
+            align={align} />
+          <TableBody
+            columns={columns}
+            align={align}
+            dataSource={dataSource}
+            emptyText={emptyText} />
         </table>
       </StyledTable>
     )
