@@ -40,6 +40,10 @@ upgradeVersion() {
 
 checkBranch
 
+rm -rf lib
+
+yarn run build
+
 upgradeVersion
 
 npm publish --registry http://xnpm.ximalaya.com

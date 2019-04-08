@@ -12,7 +12,7 @@
     "styleguidist": "styleguidist",
     "dev": "tsc && styleguidist server",
     "start": "tsc && styleguidist server",
-    "release": "yarn run build && ./scripts/release.sh",
+    "release": "./scripts/release.sh",
     "css:build": "./scripts/build-css.sh",
     "new": "./scripts/new-component.sh",
     "build": "tsc && yarn run test &&  yarn run css:build",
