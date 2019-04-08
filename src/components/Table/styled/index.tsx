@@ -31,8 +31,8 @@ const StyledTd = styled.td`
   line-height: 22px;
   word-break: break-all;
   font-size: 14px;
-  font-weight: bold;
-  color: #0f0f0f;
+  font-weight: 600;
+  color: #4a4a4a;
 `;
 
 const StyledTh = styled.th`
@@ -45,7 +45,7 @@ const StyledTh = styled.th`
   word-break: break-all;
   color: #9b9b9b;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 600;
 `;
 
 export { StyledTableBox, StyledTr, StyledTd, StyledTh }

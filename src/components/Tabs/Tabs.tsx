@@ -15,7 +15,7 @@ export interface TabsProps {
 }
 
 /**
- * Tabs
+ * 选项卡
  */
 class Tabs extends Component<TabsProps, any> {
   static TabPanel: typeof TabPanel;
