@@ -1,6 +1,6 @@
 {
   "name": "@xmly/cat-ui",
-  "version": "0.0.54",
+  "version": "0.0.55",
   "main": "lib/components/index.js",
   "license": "ISC",
   "repository": {
@@ -12,10 +12,10 @@
     "styleguidist": "styleguidist",
     "dev": "tsc && styleguidist server",
     "start": "tsc && styleguidist server",
-    "release": "yarn run build && ./scripts/release.sh",
+    "release": "./scripts/release.sh",
     "css:build": "./scripts/build-css.sh",
     "new": "./scripts/new-component.sh",
-    "build": "tsc && yarn run test &&  yarn run css:build",
+    "build": "tsc && yarn run test",
     "test": "jest",
     "styleguidist:build": "styleguidist build && yarn run test",
     "styleguidist:publish": "yarn && yarn run styleguidist:build && pm2 reload cat-ui-styleguidist",
