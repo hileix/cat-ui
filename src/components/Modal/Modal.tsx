@@ -4,7 +4,7 @@ import { Component } from 'react'
 import classNames from 'classnames'
 import Portal from '../Portal'
 import { Button, Icon } from '../../components'
-import { ModalBox, InnerModal, ModalHeader, ModalBody, ModalFooter } from './styled/index'
+import { ModalBox, InnerModal, ModalHeader, ModalBody, ModalFooter, CloseBox } from './styled/index'
 // import { any } from 'prop-types';
 
 export interface ModalProps {
@@ -30,8 +30,10 @@ export interface ModalProps {
   children?: React.ReactNode;
   /** 确认按钮文字 */
   okText: string | React.ReactNode;
+  /** 自定义的ModalFooter */
+  footer?: React.ReactNode;
   /** 取消按钮文字 */
-  cancelText: string | React.ReactNode;
+  cancelText: string;
   /** 点击确定回调	 */
   onOk?: (e: any) => {};
   /** 关闭操作回调函数 */
@@ -56,19 +58,42 @@ class Modal extends Component<ModalProps, any> {
     }
   }
 
+  setBodyStyle = () => {
+    const node = document.querySelector('body')
+    const { visible } = this.props
+    if (visible) {
+      node.setAttribute('style', 'overflow: hidden; padding-right: 15px;')
+    } else {
+      node.removeAttribute('style')
+    }
+  }
+
+  toRenderFooter = () => {
+    const { footer, okText, cancelText } = this.props
+    if (footer) {
+      return footer
+    } else {
+      return (<ModalFooter>
+        {cancelText.length > 0 && <Button
+          theme='white-primary'
+          onClick={this.onMaskClick}>
+          {cancelText}
+        </Button>}
+        <Button>
+          {okText}
+        </Button>
+      </ModalFooter>)
+    }
+  }
+
   render() {
     const { prefix, className, style, theme, size, width, disabled, visible,
       title, okText, cancelText, children, ...others } = this.props
     const classes = classNames(`${prefix}-modal`, {
       [`${prefix}-modal-${size}`]: size,
     }, className)
-
-    const node = document.querySelector('body')
-    if (visible) {
-      node.setAttribute('style', 'overflow: hidden; padding-right: 15px;')
-    } else {
-      node.removeAttribute('style')
-    }
+    this.setBodyStyle()
+    const modalFooter = this.toRenderFooter()
 
     return (<Portal visible={visible}>
       <ModalBox
@@ -78,21 +103,14 @@ class Modal extends Component<ModalProps, any> {
         <InnerModal>
           <ModalHeader>
             {title}
-            <Icon type='close' />
+            <CloseBox>
+              <Icon type='close' onClick={this.onMaskClick} />
+            </CloseBox>
           </ModalHeader>
           <ModalBody>
             {children}
           </ModalBody>
-          <ModalFooter>
-            <Button
-              theme='white-primary'
-              onClick={this.onMaskClick}>
-              {cancelText}
-            </Button>
-            <Button>
-              {okText}
-            </Button>
-          </ModalFooter>
+          {modalFooter}
         </InnerModal>
       </ModalBox>
     </Portal>)

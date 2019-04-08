@@ -20,7 +20,7 @@ const InnerModal = styled.div`
   text-align: initial;
   background-color: #fff;
   border-radius: 4px;
-  padding: 20px;
+  padding: 30px;
   font-size: 14px;
   white-space: normal;
   min-width: 450px;
@@ -47,4 +47,14 @@ const ModalFooter = styled.div`
   float: right;
 `;
 
-export { ModalBox, InnerModal, ModalHeader, ModalBody, ModalFooter }
+const CloseBox = styled.div`
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  .hmly-icon {
+    font-size: 12px;
+    cursor: pointer;
+  }
+`;
+
+export { ModalBox, InnerModal, ModalHeader, ModalBody, ModalFooter, CloseBox }

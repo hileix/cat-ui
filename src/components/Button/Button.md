@@ -9,7 +9,7 @@ class Example extends React.Component {
   }
 
   render () {
-    return (<div className='box'>
+    return (<div className='button-box'>
       <h3>size</h3>
       <Button size='sm'>sm</Button>
       <Button size='md'>md</Button>
@@ -39,7 +39,7 @@ class Example extends React.Component {
 
       <style>
         {`
-          .hmly-button + .hmly-button {
+          .button-box .hmly-button + .hmly-button {
             margin-left: 20px;
           }
           .block-box {

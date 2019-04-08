@@ -65,14 +65,14 @@ class Example extends React.Component {
   }
 
   render () {
-    return (<div className='box'>
+    return (<div className='${lowerInput}-box'>
       <${input}>
         test
       </${input}>
 
       <style>
         {\`
-          .box {
+          .${lowerInput}-box {
             padding: 5px;
           }
         \`}

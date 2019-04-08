@@ -43,11 +43,8 @@ class Button extends Component<ButtonProps, any> {
 
   handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
     const { disabled, onClick } = this.props
-    if (disabled) return;
-
-    if (onClick) {
-      onClick(event)
-    }
+    if (disabled) return
+    onClick && onClick(event)
   }
 
   render() {
