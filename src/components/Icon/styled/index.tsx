@@ -3,17 +3,17 @@ import { primaryBtnColor } from '../../../styles/theme'
 
 const StyledIcon = createGlobalStyle`
   @font-face {
-    font-family: 'iconfont';  /* project id 1121757 */
-    src: url('//at.alicdn.com/t/font_1121757_jg6db9sb6c.eot');
-    src: url('//at.alicdn.com/t/font_1121757_jg6db9sb6c.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_1121757_jg6db9sb6c.woff2') format('woff2'),
-    url('//at.alicdn.com/t/font_1121757_jg6db9sb6c.woff') format('woff'),
-    url('//at.alicdn.com/t/font_1121757_jg6db9sb6c.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_1121757_jg6db9sb6c.svg#font_family') format('svg');
+    font-family: 'Himalaya';  /* project id 1121757 */
+    src: url('//at.alicdn.com/t/font_1121757_xe3l5wxusfe.eot');
+    src: url('//at.alicdn.com/t/font_1121757_xe3l5wxusfe.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1121757_xe3l5wxusfe.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1121757_xe3l5wxusfe.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1121757_xe3l5wxusfe.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1121757_xe3l5wxusfe.svg#Himalaya') format('svg');
   }
 
   .hmly-icon {
-    font-family: "iconfont" !important;
+    font-family: "Himalaya" !important;
     font-size: 16px;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
@@ -41,7 +41,7 @@ const StyledIcon = createGlobalStyle`
   }
 
   .hmly-icon-more:before {
-    content: "\\e61b";
+    content: "\\e621";
   }
 
   .hmly-icon-stats:before {
