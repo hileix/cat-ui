@@ -9,14 +9,23 @@ class Example extends React.Component {
 
   render () {
     return (<div className='box'>
-      <Icon type='share' />
-      <Icon type='fb' />
-      <Icon type='cp' />
-      <Icon type='close' />
+      <Icon type='question-circle' />
       <Icon type='question' />
-      <Icon type='backward' />
+      <Icon type='share3' />
+      <Icon type='share2' />
+      <Icon type='share1' />
+      <Icon type='more' />
+      <Icon type='stats' />
       <Icon type='forward' />
-      <Icon type='ring' />
+      <Icon type='backward' />
+      <Icon type='ins' />
+      <Icon type='twitter' />
+      <Icon type='facebook' />
+      <Icon type='crown' />
+      <Icon type='early-access' />
+      <Icon type='hi-circle' />
+      <Icon type='ad-free' />
+      <Icon type='close' />
 
       <style>
         {`
