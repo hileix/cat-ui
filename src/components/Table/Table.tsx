@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Component } from 'react'
 import classNames from 'classnames'
-import { StyledTable } from './styled'
+import { StyledTableBox } from './styled'
 import TableHeader from './TableHeader'
 import TableBody from './TableBody'
 
@@ -15,7 +15,7 @@ export interface TableProps {
   /** 每一行需要展示的数据	 */
   dataSource?: Array<any>;
   /** 对齐 */
-  align?: string;
+  align?: 'left' | 'center';
   /** 空模板的文案 */
   emptyText?: string;
 }
@@ -34,7 +34,7 @@ class Table extends Component<TableProps, any> {
     const classes = classNames('hmly-table', className)
 
     return (
-      <StyledTable
+      <StyledTableBox
         className={classes}
         style={style}>
         <table className='table'>
@@ -47,7 +47,7 @@ class Table extends Component<TableProps, any> {
             dataSource={dataSource}
             emptyText={emptyText} />
         </table>
-      </StyledTable>
+      </StyledTableBox>
     )
   }
 }

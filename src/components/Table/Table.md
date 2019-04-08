@@ -67,6 +67,7 @@ class Example extends React.Component {
 
     return (<div className='box'>
       <Table
+        align='left'
         columns={columns}
         emptyText='空的模板'
         dataSource={dataSource} />

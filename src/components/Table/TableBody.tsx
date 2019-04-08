@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Component } from 'react'
 import classNames from 'classnames'
 import * as memoizeOne from 'memoize-one'
-import { StyledTable } from './styled'
+import { StyledTableBox } from './styled'
 import TableTr from './TableTr'
 import Empty from './Empty'
 

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Component } from 'react'
-import { StyledTable } from './styled'
+import { StyledTableBox } from './styled'
 
 export interface EmptyProps {
   /** 空单元格可横跨的列数 */

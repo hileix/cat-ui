@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Component } from 'react'
 import classNames from 'classnames'
-import { StyledTable } from './styled'
+import { StyledTr, StyledTd } from './styled'
 
 export interface TableTrProps {
   /** 每一列需要的所有数据 */
@@ -22,9 +22,9 @@ class TableTr extends Component<TableTrProps, any> {
       const index = elem.index
       // 渲染字符串或函数返回的DOM
       const result = typeof data[index] === 'function'? data[index]() : data[index]
-      return (<td key={index} className='table-td'>
+      return (<StyledTd key={index} className='table-td'>
         <span>{result}</span>
-      </td>)
+      </StyledTd>)
     })
   }
 
@@ -34,9 +34,9 @@ class TableTr extends Component<TableTrProps, any> {
     const tds = this.toRenderTds()
 
     return (
-      <tr className={classes}>
+      <StyledTr className={classes}>
         {tds}
-      </tr>
+      </StyledTr>
     )
   }
 }
