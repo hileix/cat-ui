@@ -8,44 +8,61 @@ class Example extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      isOpen: false
+      isOpen1: false,
+      isOpen2: false
     }
   }
 
-  toggleDialog (isOpen) {
-    this.setState({ isOpen })
+  toggleDialog1 (isOpen1) {
+    this.setState({ isOpen1 })
+  }
+
+  toggleDialog2 (isOpen2) {
+    this.setState({ isOpen2 })
   }
 
   render () {
-    const { isOpen } = this.state
+    const { isOpen1, isOpen2 } = this.state
     const footer = (
       <div className='footer'>
-        <Button size='sm'>sm</Button>
-        <Button size='md'>md</Button>
-        <Button size='lg'>lg</Button>
+        <Button 
+          onClick={() => this.toggleDialog2(false)}
+          theme='white-primary'>Cancel</Button>
+        <Button theme='white-cyan'>Submit</Button>
       </div>
     )
 
-    return (<div>
-      <Button onClick={() => this.toggleDialog(true)}>打开基础Modal</Button>
-      <Button onClick={() => this.toggleDialog(true)}>打开自定义footer的Modal</Button>
+    return (<div className='modal-box'>
+      <Button onClick={() => this.toggleDialog1(true)}>打开基础Modal</Button>
+      <Button onClick={() => this.toggleDialog2(true)}>打开自定义footer的Modal</Button>
       <Modal 
         title='Enter the amount you want to redeem'
-        visible={isOpen}
+        visible={isOpen1}
         cancelText=''
         okText='Submit'
-        onClose={() => this.toggleDialog(false)}>
+        onClose={() => this.toggleDialog1(false)}>
         <p>Please ensure that the amount you are redeeming does not exceed the remaining total amount.</p>
       </Modal>
       <Modal 
         title='Enter the amount you want to redeem'
-        visible={isOpen}
+        visible={isOpen2}
         cancelText=''
+        align='center'
         okText='Submit'
         footer={footer}
-        onClose={() => this.toggleDialog(false)}>
+        onClose={() => this.toggleDialog2(false)}>
         <p>Please ensure that the amount you are redeeming does not exceed the remaining total amount.</p>
       </Modal>
+      <style>
+        {`
+          .modal-box .hmly-button + .hmly-button {
+            margin-left: 20px;
+          }
+          .footer .hmly-button + .hmly-button {
+            margin-left: 20px;
+          }
+        `}
+      </style>
     </div>
     )
   }

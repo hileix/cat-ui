@@ -26,6 +26,8 @@ export interface ModalProps {
   size?: 'sm' | 'md' | 'lg';
   /** 宽度 */
   width?: number;
+  /** 对齐 */
+  align?: 'left' | 'center';
   /** 子元素 */
   children?: React.ReactNode;
   /** 确认按钮文字 */
@@ -88,9 +90,10 @@ class Modal extends Component<ModalProps, any> {
 
   render() {
     const { prefix, className, style, theme, size, width, disabled, visible,
-      title, okText, cancelText, children, ...others } = this.props
+      title, okText, cancelText, align, children, ...others } = this.props
     const classes = classNames(`${prefix}-modal`, {
       [`${prefix}-modal-${size}`]: size,
+      [`${prefix}-modal-${align}`]: align,
     }, className)
     this.setBodyStyle()
     const modalFooter = this.toRenderFooter()

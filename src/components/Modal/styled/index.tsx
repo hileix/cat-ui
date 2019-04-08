@@ -10,6 +10,9 @@ const ModalBox = styled.div`
   background-color: rgba(0,0,0,.6);
   height: 100%;
   z-index: 1050;
+  &.hmly-modal-center div {
+    text-align: center;
+  }
 `;
 
 const InnerModal = styled.div`
