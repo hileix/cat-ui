@@ -118,3 +118,6 @@ describe('${input}', () => {
 })" >> src/components/${input}/__test__/index.test.tsx
 
 echo -e "\033[32m \n新建组件成功: ${input}\n \033[0m"
+
+# 导入src/components/index.ts默认模块
+echo "export { default as ${input} } from './${input}'" >> src/components/index.ts
