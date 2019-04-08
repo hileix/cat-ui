@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import { StyledTable } from './styled'
 import TableHeader from './TableHeader'
 import TableRow from './TableRow'
+import Empty from './Empty'
 
 export interface TableProps {
   /** 类名 */
@@ -16,6 +17,8 @@ export interface TableProps {
   dataSource?: Array<any>;
   /** 对齐 */
   align?: string;
+  /** 空模板的文案 */
+  emptyText: string;
 }
 
 /**
@@ -24,7 +27,7 @@ export interface TableProps {
 class Table extends Component<TableProps, any> {
 
   render() {
-    const { className, style, columns, dataSource, align } = this.props
+    const { className, style, columns, dataSource, align, emptyText } = this.props
     const classes = classNames('hmly-table', className)
 
     console.log('columns', columns, dataSource, align)
@@ -50,10 +53,10 @@ class Table extends Component<TableProps, any> {
                   key={index} />
               )
             })}
-            {/* {dataSource.length === 0
-              ? <Empty columns={columns} />
+            {dataSource.length === 0
+              ? <Empty columns={columns} emptyText={emptyText} />
               : null
-            } */}
+            }
           </tbody>
         </table>
       </StyledTable>

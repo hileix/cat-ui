@@ -6,15 +6,15 @@ import Table from '../index'
 
 Enzyme.configure({ adapter: new Adapter() })
 
-describe('Table', () => {
-  test('renders correctly', () => {
-    const wrapper = render(
-      <Table>Test</Table>
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
+// describe('Table', () => {
+//   test('renders correctly', () => {
+//     const wrapper = render(
+//       <Table>Test</Table>
+//     )
+//     expect(wrapper).toMatchSnapshot()
+//   })
 
-  test('two plus two is four', () => {
-    expect(2 + 2).toBe(4)
-  })
-})
+//   test('two plus two is four', () => {
+//     expect(2 + 2).toBe(4)
+//   })
+// })

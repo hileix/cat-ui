@@ -70,6 +70,7 @@ class Example extends React.Component {
       <Table
         align='center'
         columns={columns}
+        emptyText='空的模板'
         dataSource={dataSource} />
 
       <style>
