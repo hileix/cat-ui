@@ -15,7 +15,7 @@
     "release": "./scripts/release.sh",
     "css:build": "./scripts/build-css.sh",
     "new": "./scripts/new-component.sh",
-    "build": "tsc && yarn run test &&  yarn run css:build",
+    "build": "tsc && yarn run test",
     "test": "jest",
     "styleguidist:build": "styleguidist build && yarn run test",
     "styleguidist:publish": "yarn && yarn run styleguidist:build && pm2 reload cat-ui-styleguidist",
