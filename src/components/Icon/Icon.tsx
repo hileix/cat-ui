@@ -13,7 +13,7 @@ export interface IconProps {
 }
 
 /**
- * Icon
+ * 图标
  */
 class Icon extends PureComponent<IconProps, any> {
 

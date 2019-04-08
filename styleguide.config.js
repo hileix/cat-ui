@@ -5,9 +5,8 @@ const createStyledComponentsTransformer = require('typescript-plugin-styled-comp
 const styledComponentsTransformer = createStyledComponentsTransformer();
 
 module.exports = {
-  components: 'src/components/**/[A-Z]*.tsx',
-  // components: 'src/components/*(ButtonDemo|CardDemo|Checkbox)/[A-Z]*.tsx',
-  ignore: ['**/styled/*.tsx', '**/PortalContent.tsx', '**/TabPanel.tsx'], // 不显示的组件
+  components: 'src/components/[A-Z]*/index.ts',
+  // ignore: ['**/styled/*.tsx', '**/PortalContent.tsx', '**/TabPanel.tsx'], // 不显示的组件
   defaultExample: true,
   resolver: require('react-docgen').resolver.findAllComponentDefinitions,
   propsParser: require('react-docgen-typescript').withDefaultConfig({ propFilter: { skipPropsWithoutDoc: true } }).parse,
