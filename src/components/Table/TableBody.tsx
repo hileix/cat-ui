@@ -18,7 +18,7 @@ export interface TableBodyProps {
 }
 
 /**
- * Table
+ * TableBody
  */
 class TableBody extends Component<TableBodyProps, any> {
 

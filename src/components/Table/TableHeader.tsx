@@ -32,12 +32,12 @@ class TableHeader extends Component<TableHeaderProps, any> {
 
   render() {
     const { align } = this.props
-    const classes = classNames('hmly-table-thead', `hmly-table-thead-${align}`)
+    const trClasses = classNames('hmly-table-row', `hmly-table-row-${align}`)
     const tds = this.toRenderTds()
 
     return (
-      <thead className={classes}>
-        <tr>
+      <thead className='hmly-table-thead'>
+        <tr className={trClasses}>
           {tds}
         </tr>
       </thead>

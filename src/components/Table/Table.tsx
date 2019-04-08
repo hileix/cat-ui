@@ -17,7 +17,7 @@ export interface TableProps {
   /** 对齐 */
   align?: string;
   /** 空模板的文案 */
-  emptyText: string;
+  emptyText?: string;
 }
 
 /**
