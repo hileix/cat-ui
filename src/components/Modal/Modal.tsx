@@ -5,7 +5,6 @@ import classNames from 'classnames'
 import Portal from '../Portal'
 import { Button, Icon } from '../../components'
 import { ModalBox, InnerModal, ModalHeader, ModalBody, ModalFooter, CloseBox } from './styled/index'
-// import { any } from 'prop-types';
 
 export interface ModalProps {
   /** 前缀 */
@@ -32,10 +31,12 @@ export interface ModalProps {
   children?: React.ReactNode;
   /** 确认按钮文字 */
   okText: string | React.ReactNode;
-  /** 自定义的ModalFooter */
-  footer?: React.ReactNode;
   /** 取消按钮文字 */
   cancelText: string;
+  /** 取消按钮文字 */
+  noClose: boolean;
+  /** 自定义的ModalFooter */
+  footer?: React.ReactNode;
   /** 点击确定回调	 */
   onOk?: (e: any) => {};
   /** 关闭操作回调函数 */
@@ -51,12 +52,31 @@ class Modal extends Component<ModalProps, any> {
     theme: 'primary',
     size: 'md',
     visible: false,
-    disabled: false
+    disabled: false,
+    noClose: false
   }
 
   onMaskClick = (e: any) => {
     if (e.target === e.currentTarget) {
       this.props.onClose && this.props.onClose(e)
+    }
+  }
+
+  handleCancle = (e: any) => {
+    const { onClose } = this.props
+    if (onClose) {
+      onClose(e)
+    } else {
+      this.onMaskClick(e)
+    }
+  }
+
+  handleOk = (e: any) => {
+    const { onOk } = this.props
+    if (onOk) {
+      onOk(e)
+    } else {
+      this.onMaskClick(e)
     }
   }
 
@@ -71,17 +91,17 @@ class Modal extends Component<ModalProps, any> {
   }
 
   toRenderFooter = () => {
-    const { footer, okText, cancelText } = this.props
+    const { footer, okText, cancelText, align } = this.props
     if (footer) {
       return footer
     } else {
-      return (<ModalFooter>
+      return (<ModalFooter align={align}>
         {cancelText.length > 0 && <Button
           theme='white-primary'
-          onClick={this.onMaskClick}>
+          onClick={this.handleCancle}>
           {cancelText}
         </Button>}
-        <Button>
+        <Button onClick={this.handleOk}>
           {okText}
         </Button>
       </ModalFooter>)
@@ -90,7 +110,7 @@ class Modal extends Component<ModalProps, any> {
 
   render() {
     const { prefix, className, style, theme, size, width, disabled, visible,
-      title, okText, cancelText, align, children, ...others } = this.props
+      title, okText, cancelText, align, noClose, children, ...others } = this.props
     const classes = classNames(`${prefix}-modal`, {
       [`${prefix}-modal-${size}`]: size,
       [`${prefix}-modal-${align}`]: align,
@@ -106,9 +126,9 @@ class Modal extends Component<ModalProps, any> {
         <InnerModal>
           <ModalHeader>
             {title}
-            <CloseBox>
+            {!noClose && <CloseBox>
               <Icon type='close' onClick={this.onMaskClick} />
-            </CloseBox>
+            </CloseBox>}
           </ModalHeader>
           <ModalBody>
             {children}

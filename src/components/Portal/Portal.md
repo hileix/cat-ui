@@ -19,7 +19,7 @@ class Example extends React.Component {
   render () {
     const { isOpen } = this.state
 
-    return (<div>
+    return (<div className='portal-box'>
       <Button onClick={() => this.toggleDialog(true)}>打开Portal</Button>
       <Button onClick={() => this.toggleDialog(false)}>关闭Portal</Button>
       <Portal 
@@ -40,6 +40,9 @@ class Example extends React.Component {
             width: 300px;
             heitht: 300px;
             background-color: #eee;
+          }
+          .portal-box .hmly-button + .hmly-button {
+            margin-left: 20px;
           }
         `}
       </style>

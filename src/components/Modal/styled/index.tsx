@@ -45,9 +45,12 @@ const ModalBody = styled.div`
   color: #4a4a4a;
 `;
 
+interface ModalFooterProps {
+  align: 'left' | 'center';
+}
 
 const ModalFooter = styled.div`
-  float: right;
+  float: ${(props: ModalFooterProps) => (props.align === 'center') ? 'none' : 'right'};
 `;
 
 const CloseBox = styled.div`
