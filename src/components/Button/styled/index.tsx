@@ -24,13 +24,15 @@ const StyledButton = styled.button`
   }
 
   &.hmly-button-sm {
-    padding: 6px 20px;
+    padding: 5px 12px;
+    font-size: 14px;
   }
   &.hmly-button-md {
-    padding: 10px 25px;
+    padding: 9px 24px;
+    font-size: 14px;
   }
   &.hmly-button-lg {
-    padding: 14px 29px;
+    padding: 12px 36px;
     font-size: 16px;
     font-weight: bold;
   }

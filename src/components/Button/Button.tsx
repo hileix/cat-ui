@@ -37,7 +37,7 @@ class Button extends PureComponent<ButtonProps, any> {
     prefix: 'hmly',
     htmlType: 'button',
     theme: 'primary',
-    size: 'md',
+    size: 'lg',
     disabled: false
   }
 
