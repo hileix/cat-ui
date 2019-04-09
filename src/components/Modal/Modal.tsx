@@ -33,8 +33,8 @@ export interface ModalProps {
   okText: string | React.ReactNode;
   /** 取消按钮文字 */
   cancelText: string;
-  /** 取消按钮文字 */
-  noClose: boolean;
+  /** 不要关闭按钮的Icon */
+  noCloseIcon: boolean;
   /** 自定义的ModalFooter */
   footer?: React.ReactNode;
   /** 点击确定回调	 */
@@ -53,7 +53,7 @@ class Modal extends Component<ModalProps, any> {
     size: 'md',
     visible: false,
     disabled: false,
-    noClose: false
+    noCloseIcon: false
   }
 
   onMaskClick = (e: any) => {
@@ -110,7 +110,7 @@ class Modal extends Component<ModalProps, any> {
 
   render() {
     const { prefix, className, style, theme, size, width, disabled, visible,
-      title, okText, cancelText, align, noClose, children, ...others } = this.props
+      title, okText, cancelText, align, noCloseIcon, children, ...others } = this.props
     const classes = classNames(`${prefix}-modal`, {
       [`${prefix}-modal-${size}`]: size,
       [`${prefix}-modal-${align}`]: align,
@@ -126,7 +126,7 @@ class Modal extends Component<ModalProps, any> {
           style={style}>
           <ModalHeader>
             {title}
-            {!noClose && <CloseBox>
+            {!noCloseIcon && <CloseBox>
               <Icon type='close' onClick={this.onMaskClick} />
             </CloseBox>}
           </ModalHeader>

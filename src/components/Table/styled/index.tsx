@@ -27,7 +27,7 @@ const StyledTd = styled.td`
   position: relative;
   vertical-align: middle;
   border-bottom: 1px solid #e1e6f0;
-  padding: 10px;
+  padding: 20px 10px;
   line-height: 22px;
   word-break: break-all;
   font-size: 14px;
