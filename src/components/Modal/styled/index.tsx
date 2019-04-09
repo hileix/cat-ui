@@ -2,21 +2,24 @@ import styled from 'styled-components'
 import { primaryBtnColor, yellowBtnColor } from '../../../styles/theme'
 
 const ModalBox = styled.div`
+
+`;
+
+const Background = styled.div`
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,.6);
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(1px);
+  /* filter: blur(5px); */
   height: 100%;
-  z-index: 1050;
-  &.hmly-modal-center div {
-    text-align: center;
-  }
+  z-index: 10;
 `;
 
 const StyledModal = styled.div`
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -28,6 +31,10 @@ const StyledModal = styled.div`
   white-space: normal;
   min-width: 450px;
   max-width: 600px;
+  z-index: 9999;
+  &.hmly-modal-center {
+    text-align: center;
+  }
 `;
 
 const ModalHeader = styled.div`
@@ -64,4 +71,4 @@ const CloseBox = styled.div`
   }
 `;
 
-export { ModalBox, StyledModal, ModalHeader, ModalBody, ModalFooter, CloseBox }
+export { ModalBox, StyledModal, ModalHeader, ModalBody, ModalFooter, CloseBox, Background }

@@ -4,7 +4,7 @@ import { Component } from 'react'
 import classNames from 'classnames'
 import Portal from '../Portal'
 import { Button, Icon } from '../../components'
-import { ModalBox, StyledModal, ModalHeader, ModalBody, ModalFooter, CloseBox } from './styled/index'
+import { ModalBox, StyledModal, ModalHeader, ModalBody, ModalFooter, CloseBox, Background } from './styled/index'
 
 export interface ModalProps {
   /** 前缀 */
@@ -47,6 +47,17 @@ export interface ModalProps {
  * 对话框
  */
 class Modal extends Component<ModalProps, any> {
+  static modalId: number = 0;
+  static pools: Array<number> = [];
+  static originalStyle: string = '';
+  private mid: number
+
+  constructor (props: ModalProps) {
+    super(props)
+    this.mid = Modal.modalId++
+    Modal.pools.push(0)
+  }
+
   static defaultProps = {
     prefix: 'hmly',
     theme: 'primary',
@@ -84,9 +95,14 @@ class Modal extends Component<ModalProps, any> {
     const node = document.querySelector('body')
     const { visible } = this.props
     if (visible) {
+      Modal.pools[this.mid] = 1
+      Modal.originalStyle = node.getAttribute('style')
       node.setAttribute('style', 'overflow: hidden; padding-right: 15px;')
     } else {
-      node.removeAttribute('style')
+      Modal.pools[this.mid] = 0
+      if (Modal.pools.indexOf(1) === -1) {
+        node.setAttribute('style', Modal.originalStyle)
+      }
     }
   }
 
@@ -119,8 +135,8 @@ class Modal extends Component<ModalProps, any> {
     const modalFooter = this.toRenderFooter()
 
     return (<Portal visible={visible}>
-      <ModalBox
-        onClick={this.onMaskClick}>
+      <ModalBox>
+        <Background onClick={this.onMaskClick} />
         <StyledModal
           className={classes}
           style={style}>
