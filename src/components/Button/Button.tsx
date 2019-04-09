@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Component } from 'react'
+import { PureComponent } from 'react'
 // import * as PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { StyledButton } from './styled'
@@ -32,7 +32,7 @@ export interface ButtonProps {
 /**
  * 按钮
  */
-class Button extends Component<ButtonProps, any> {
+class Button extends PureComponent<ButtonProps, any> {
   static defaultProps = {
     prefix: 'hmly',
     htmlType: 'button',
@@ -43,6 +43,7 @@ class Button extends Component<ButtonProps, any> {
 
   handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
     const { disabled, onClick } = this.props
+    console.log('Button:handleClick: disabled', disabled)
     if (disabled) return
     onClick && onClick(event)
   }

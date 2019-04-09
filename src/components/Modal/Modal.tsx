@@ -4,7 +4,7 @@ import { Component } from 'react'
 import classNames from 'classnames'
 import Portal from '../Portal'
 import { Button, Icon } from '../../components'
-import { ModalBox, InnerModal, ModalHeader, ModalBody, ModalFooter, CloseBox } from './styled/index'
+import { ModalBox, StyledModal, ModalHeader, ModalBody, ModalFooter, CloseBox } from './styled/index'
 
 export interface ModalProps {
   /** 前缀 */
@@ -120,10 +120,10 @@ class Modal extends Component<ModalProps, any> {
 
     return (<Portal visible={visible}>
       <ModalBox
-        className={classes}
-        style={style}
         onClick={this.onMaskClick}>
-        <InnerModal>
+        <StyledModal
+          className={classes}
+          style={style}>
           <ModalHeader>
             {title}
             {!noClose && <CloseBox>
@@ -134,7 +134,7 @@ class Modal extends Component<ModalProps, any> {
             {children}
           </ModalBody>
           {modalFooter}
-        </InnerModal>
+        </StyledModal>
       </ModalBox>
     </Portal>)
   }

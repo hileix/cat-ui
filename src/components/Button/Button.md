@@ -6,6 +6,11 @@ class Example extends React.Component {
   constructor (props) {
     super(props)
     this.state = {}
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick (e) {
+    console.log('Example:handleClick', e)
   }
 
   render () {
@@ -29,11 +34,11 @@ class Example extends React.Component {
         <Button block theme='yellow'>block</Button>
       </div>
       <div className='block-box'>
-        <Button block theme='white-primary'>block</Button>
+        <Button block theme='white-primary'onClick={this.handleClick}>block</Button>
       </div>
 
       <h3>disabled</h3>
-      <Button disabled>disabled</Button>
+      <Button disabled onClick={this.handleClick}>disabled</Button>
       <Button disabled theme='yellow'>disabled</Button>
       <Button disabled theme='white-primary'>disabled</Button>
 

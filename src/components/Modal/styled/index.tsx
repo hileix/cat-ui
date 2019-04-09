@@ -15,7 +15,7 @@ const ModalBox = styled.div`
   }
 `;
 
-const InnerModal = styled.div`
+const StyledModal = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -37,6 +37,7 @@ const ModalHeader = styled.div`
   font-stretch: normal;
   line-height: 1.33;
   letter-spacing: normal;
+  margin-bottom: 20px;
   color: #4a4a4a;
 `;
 
@@ -63,4 +64,4 @@ const CloseBox = styled.div`
   }
 `;
 
-export { ModalBox, InnerModal, ModalHeader, ModalBody, ModalFooter, CloseBox }
+export { ModalBox, StyledModal, ModalHeader, ModalBody, ModalFooter, CloseBox }
