@@ -14,7 +14,7 @@ export interface TableBodyProps {
   /** 对齐 */
   align?: string;
   /** 空模板的文案 */
-  emptyText?: string;
+  empty?: string | React.ReactNode;
 }
 
 /**
@@ -36,7 +36,7 @@ class TableBody extends Component<TableBodyProps, any> {
   }
 
   render() {
-    const { columns, dataSource, align, emptyText } = this.props
+    const { columns, dataSource, align, empty } = this.props
     const classes = classNames('hmly-table-row', `hmly-table-row-${align}`)
     const trs = this.toRenderTrs()
     const colSpan = columns.length
@@ -44,7 +44,7 @@ class TableBody extends Component<TableBodyProps, any> {
     return (
       <tbody>
         {dataSource.length === 0
-          ? <Empty colSpan={colSpan} emptyText={emptyText} />
+          ? <Empty colSpan={colSpan} empty={empty} />
           : (trs)
         }
       </tbody>

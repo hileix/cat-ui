@@ -17,7 +17,7 @@ export interface TableProps {
   /** 对齐 */
   align?: 'left' | 'center';
   /** 空模板的文案 */
-  emptyText?: string;
+  empty: string | React.ReactNode;
 }
 
 /**
@@ -26,11 +26,11 @@ export interface TableProps {
 class Table extends Component<TableProps, any> {
   static defaultProps = {
     align: 'left',
-    emptyText: ''
+    empty: ''
   }
 
   render() {
-    const { className, style, columns, dataSource, align, emptyText } = this.props
+    const { className, style, columns, dataSource, align, empty } = this.props
     const classes = classNames('hmly-table', className)
 
     return (
@@ -45,7 +45,7 @@ class Table extends Component<TableProps, any> {
             columns={columns}
             align={align}
             dataSource={dataSource}
-            emptyText={emptyText} />
+            empty={empty} />
         </table>
       </StyledTableBox>
     )

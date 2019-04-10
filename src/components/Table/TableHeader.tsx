@@ -21,7 +21,7 @@ class TableHeader extends Component<TableHeaderProps, any> {
       // 渲染字符串或函数返回的DOM
       const result = typeof elem.render === 'function' ? elem.render() : elem.render
       return (
-        <StyledTh key={elem.index} className='table-th'>
+        <StyledTh key={elem.id} className='table-th'>
           <span className='th-inner'>
             {result}
           </span>

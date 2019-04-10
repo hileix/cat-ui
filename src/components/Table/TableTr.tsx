@@ -19,10 +19,10 @@ class TableTr extends Component<TableTrProps, any> {
   toRenderTds = () => {
     const { columns, data } = this.props
     return columns.map((elem: any) => {
-      const index = elem.index
+      const id = elem.id
       // 渲染字符串或函数返回的DOM
-      const result = typeof data[index] === 'function'? data[index]() : data[index]
-      return (<StyledTd key={index} className='table-td'>
+      const result = typeof data[id] === 'function'? data[id]() : data[id]
+      return (<StyledTd key={id} className='table-td'>
         <span>{result}</span>
       </StyledTd>)
     })
