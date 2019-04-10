@@ -25,6 +25,7 @@ class Tabs extends PureComponent<TabsProps, any> {
     let navs: Object[] = []
     let contents: Object[] = []
     React.Children.forEach(children, (child: any) => {
+      if (!React.isValidElement(element)) { return }
       const { props: { tab, id } } = child
       navs.push({id: id, tab: tab})
       contents.push(child)
