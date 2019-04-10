@@ -7,6 +7,7 @@ const StyledTabs = styled.div`
 
 const TabsNavBox = styled.div`
   border-bottom: 1px solid #eeeeee;
+  margin-bottom: 20px;
 `;
 
 const TabsNav = styled.div`
@@ -40,7 +41,6 @@ const TabsNav = styled.div`
 `;
 
 const TabsContentBox = styled.div`
-  padding-top: 20px;
 `;
 
 const TabsContent = styled.div`

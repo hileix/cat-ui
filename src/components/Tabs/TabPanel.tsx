@@ -10,7 +10,7 @@ export interface TabPanelProps {
   /** 该TabPanel的id */
   id: string | number;
   /** 该TabPanel所对应的tab标签的名字	 */
-  tab: string;
+  tab: string | React.ReactNode;
 }
 
 /**
