@@ -2,10 +2,11 @@ import * as React from 'react'
 import { Component } from 'react'
 import classNames from 'classnames'
 import { StyledTr, StyledTd } from './styled'
+import { ColumnProps } from './interface'
 
 export interface TableTrProps {
   /** 每一列需要的所有数据 */
-  columns?: Array<any>;
+  columns: Array<ColumnProps>;
   /** 每一行的数据 */
   data?: any;
   /** 对齐 */

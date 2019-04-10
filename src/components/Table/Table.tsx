@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Component } from 'react'
 import classNames from 'classnames'
 import { StyledTableBox } from './styled'
+import { ColumnProps } from './interface'
 import TableHeader from './TableHeader'
 import TableBody from './TableBody'
 
@@ -11,7 +12,7 @@ export interface TableProps {
   /** 样式 */
   style?: object;
   /** 每一列需要的所有数据 */
-  columns?: Array<any>;
+  columns?: Array<ColumnProps>;
   /** 每一行需要展示的数据	 */
   dataSource?: Array<any>;
   /** 对齐 */

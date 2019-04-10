@@ -2,10 +2,11 @@ import * as React from 'react'
 import { Component } from 'react'
 import classNames from 'classnames'
 import { StyledTh } from './styled'
+import { ColumnProps } from './interface'
 
 export interface TableHeaderProps {
   /** 每一列需要的所有数据 */
-  columns?: Array<any>;
+  columns: Array<ColumnProps>;
   /** 对齐 */
   align?: string;
 }
