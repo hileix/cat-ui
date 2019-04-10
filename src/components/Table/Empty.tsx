@@ -1,26 +1,26 @@
 import * as React from 'react'
-import { Component } from 'react'
+import { PureComponent } from 'react'
 import { StyledTableBox } from './styled'
 
 export interface EmptyProps {
   /** 空单元格可横跨的列数 */
   colSpan?: number;
   /** 空模板的文案 */
-  emptyText?: string;
+  empty?: string | React.ReactNode;
 }
 
 /**
  * Empty
  */
-class Empty extends Component<EmptyProps, any> {
+class Empty extends PureComponent<EmptyProps, any> {
   render() {
-    const { colSpan, emptyText } = this.props
+    const { colSpan, empty } = this.props
 
     return (
       <tr className='hmly-table-row'>
         <td colSpan={colSpan} className='table-td-empty'>
           <span className='empty'>
-            {emptyText}
+            {empty}
           </span>
         </td>
       </tr>

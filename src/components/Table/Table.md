@@ -9,16 +9,15 @@ class Example extends React.Component {
 
   render () {
     const columns = [{
-      index: 'ranking',
+      id: 3333,
       render: <span>ranking1111</span>
     }, {
-      index: 'platforms',
-      render: <span>platforms2333</span>
+      id: 'platforms',
     }, {
-      index: 'totalListen',
+      id: 'totalListen',
       render: <span>platforms3333</span>
     }, {
-      index: 'rates',
+      id: 'rates',
       render: <span>platforms444</span>
     }]
 
@@ -65,18 +64,34 @@ class Example extends React.Component {
       }
     ]
 
-    return (<div className='box'>
+    const empty = (<div className='empty1'>
+      <h4>title</h4>
+      <p>empty empty empty text</p>
+    </div>)
+
+    return (<div className='table-box'>
+      <h3>基础Table</h3>
       <Table
         align='left'
         columns={columns}
-        emptyText='空的模板'
-        dataSource={dataSource} />
+        dataSource={dataSource}
+        empty='空的模板' />
+
+      <h3>自定义empty的Table</h3>
+      <Table
+        align='left'
+        columns={[]}
+        dataSource={[]}
+        empty={empty} />
 
       <style>
         {`
-          .box {
+          .table-box {
             padding: 5px;
           }
+          .table-box .empty1 {
+              text-align: center;
+            }
         `}
       </style>
     </div>

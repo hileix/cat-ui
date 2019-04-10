@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Component } from 'react'
+import { PureComponent } from 'react'
 // import * as PropTypes from 'prop-types'
 import classNames from 'classnames'
 import Portal from '../Portal'
@@ -46,7 +46,7 @@ export interface ModalProps {
 /**
  * 对话框
  */
-class Modal extends Component<ModalProps, any> {
+class Modal extends PureComponent<ModalProps, any> {
   static modalId: number = 0;
   static pools: Array<number> = [];
   static originalStyle: string = '';

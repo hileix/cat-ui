@@ -2,10 +2,11 @@ import * as React from 'react'
 import { Component } from 'react'
 import classNames from 'classnames'
 import { StyledTh } from './styled'
+import { ColumnProps } from './interface'
 
 export interface TableHeaderProps {
   /** 每一列需要的所有数据 */
-  columns?: Array<any>;
+  columns: Array<ColumnProps>;
   /** 对齐 */
   align?: string;
 }
@@ -21,7 +22,7 @@ class TableHeader extends Component<TableHeaderProps, any> {
       // 渲染字符串或函数返回的DOM
       const result = typeof elem.render === 'function' ? elem.render() : elem.render
       return (
-        <StyledTh key={elem.index} className='table-th'>
+        <StyledTh key={elem.id} className='table-th'>
           <span className='th-inner'>
             {result}
           </span>

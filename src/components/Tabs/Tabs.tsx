@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Component } from 'react'
+import { PureComponent } from 'react'
 import { StyledTabs, TabsNavBox, TabsNav, TabsContentBox, TabsContent } from './styled'
 import TabPanel from './TabPanel'
 
@@ -17,7 +17,7 @@ export interface TabsProps {
 /**
  * 选项卡
  */
-class Tabs extends Component<TabsProps, any> {
+class Tabs extends PureComponent<TabsProps, any> {
   static TabPanel: typeof TabPanel;
 
   toRender = () => {
@@ -25,6 +25,8 @@ class Tabs extends Component<TabsProps, any> {
     let navs: Object[] = []
     let contents: Object[] = []
     React.Children.forEach(children, (child: any) => {
+      const isElemet = React.isValidElement(child)
+      if (!isElemet) { return }
       const { props: { tab, id } } = child
       navs.push({id: id, tab: tab})
       contents.push(child)
