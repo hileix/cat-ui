@@ -58,15 +58,15 @@ class Example extends React.Component {
         onChange={this.onTabChange2}>
         <TabPanel 
           id='d'
-          tab={(<a href='http://localhost:6060/#table'>选项table</a>)}>
+          tab={(<a href='/#table'>选项table</a>)}>
         </TabPanel>
         <TabPanel 
           id='e'
-          tab={(<a href='http://localhost:6060/#slider'>选项slider</a>)}>
+          tab={(<a href='/#slider'>选项slider</a>)}>
         </TabPanel>
         <TabPanel 
           id='f'
-          tab={(<a href='http://localhost:6060/#tooltip'>选项tooltip</a>)}>
+          tab={(<a href='/#tooltip'>选项tooltip</a>)}>
         </TabPanel>
       </Tabs>
 
