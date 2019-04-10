@@ -51,7 +51,7 @@ class Example extends React.Component {
         </TabPanel>
       </Tabs>
 
-      <h3>tab属性为dom，空tab body的Tabs</h3>
+      <h3>TabPanel的tab属性为dom && TabPanel的children为空</h3>
 
       <Tabs 
         activeId={activeId2}
