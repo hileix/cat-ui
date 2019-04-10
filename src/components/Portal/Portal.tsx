@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Component } from 'react'
+import { PureComponent } from 'react'
 import * as ReactDOM from 'react-dom'
 import * as memoizeOne from 'memoize-one'
 // import classNames from 'classnames'
@@ -24,7 +24,7 @@ export interface ProtalProps {
   onUnmount?: () => {};
 }
 
-class Portal extends Component<ProtalProps, any> {
+class Portal extends PureComponent<ProtalProps, any> {
   static defaultProps = {
     selector: 'body'
   }
