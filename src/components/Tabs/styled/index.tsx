@@ -40,7 +40,7 @@ const TabsNav = styled.div`
 
 const TabsNavLink = styled(TabsNav)`
   padding: 0;
-  & > a {
+  & > * {
     display: inline-block;
     padding: 12px 0;
   }
