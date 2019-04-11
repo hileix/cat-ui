@@ -11,6 +11,7 @@ mkdir src/components/${input}/styled
 
 touch src/components/${input}/index.ts
 touch src/components/${input}/${input}.tsx
+touch src/components/${input}/interface.tsx
 touch src/components/${input}/${input}.md
 touch src/components/${input}/styled/index.tsx
 touch src/components/${input}/__test__/index.test.tsx
@@ -84,6 +85,7 @@ class Example extends React.Component {
 
 <Example />
 \`\`\`" >> src/components/${input}/${input}.md
+
 
 # 导入${input}/styled/index.tsx默认模块
 echo "import styled from 'styled-components'

@@ -9,10 +9,11 @@ class Example extends React.Component {
 
   render () {
     const columns = [{
-      id: 3333,
+      id: 'ranking',
       render: <span>ranking1111</span>
     }, {
       id: 'platforms',
+      render: <span>rplatforms222</span>
     }, {
       id: 'totalListen',
       render: <span>platforms3333</span>
