@@ -20,12 +20,12 @@ class Example extends React.Component {
       <h3>单独使用</h3>
       <Radio value={1}>1</Radio>
       <Radio checked value={2}>2</Radio>
-      <h3>结合Radio.Group使用</h3>
+      <h3>Radio.Group</h3>
       <Radio.Group value={activeId1} onChange={this.onRadioChange}>
         <Radio value={1}>1</Radio>
         <Radio value={2}>2</Radio>
         <Radio value={3}>3</Radio>
-        <Radio value={4}>4</Radio>
+        <Radio disabled value={4}>4</Radio>
         <Radio value={5} shape='hook'>5</Radio>
       </Radio.Group>
 

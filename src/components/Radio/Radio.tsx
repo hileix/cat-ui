@@ -63,7 +63,9 @@ class Radio extends Component<RadioProps, any> {
         className={classes}
         style={style}>
         <StyledRadio>
-          <RadioInner checked={checked} />
+          <RadioInner
+            checked={checked}
+            disabled={disabled} />
           <RadioInput
             value={value}
             checked={checked}
