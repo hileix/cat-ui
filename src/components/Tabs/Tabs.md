@@ -66,7 +66,7 @@ class Example extends React.Component {
         </TabPanel>
         <TabPanel 
           id='f'
-          tab={(<a href='/#tooltip'>选项tooltip</a>)}>
+          tab={(<span href='/#tooltip'>选项<span>tooltip</span></span>)}>
         </TabPanel>
       </Tabs>
 
