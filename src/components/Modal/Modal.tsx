@@ -49,7 +49,8 @@ export interface ModalProps {
 class Modal extends PureComponent<ModalProps, any> {
   static modalId: number = 0;
   static pools: Array<number> = [];
-  static originalStyle: string = '';
+  static originalBodyStyle: string = '';
+  static originalFirstDivStyle: string = '';
   private mid: number
 
   constructor (props: ModalProps) {
@@ -92,16 +93,20 @@ class Modal extends PureComponent<ModalProps, any> {
   }
 
   setBodyStyle = () => {
-    const node = document.querySelector('body')
+    const nodeBody = document.querySelector('body')
+    const nodeFirstDiv = document.querySelector('body > div')
     const { visible } = this.props
     if (visible) {
       Modal.pools[this.mid] = 1
-      Modal.originalStyle = node.getAttribute('style')
-      node.setAttribute('style', 'overflow: hidden; padding-right: 15px;')
+      Modal.originalBodyStyle = nodeBody.getAttribute('style')
+      Modal.originalFirstDivStyle = nodeBody.getAttribute('style')
+      nodeBody.setAttribute('style', 'overflow: hidden; padding-right: 15px;')
+      nodeFirstDiv.setAttribute('style', 'filter: blur(2px);')
     } else {
       Modal.pools[this.mid] = 0
       if (Modal.pools.indexOf(1) === -1) {
-        node.setAttribute('style', Modal.originalStyle)
+        nodeBody.setAttribute('style', Modal.originalBodyStyle)
+        nodeFirstDiv.setAttribute('style', Modal.originalFirstDivStyle)
       }
     }
   }
