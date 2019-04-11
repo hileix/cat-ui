@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Component } from 'react'
-// import { StyledTabPanel } from './styled'
+import { StyledTabPanel } from './styled'
 
 export interface TabPanelProps {
   /** 类名 */
@@ -21,9 +21,9 @@ class TabPanel extends Component<TabPanelProps, any> {
   render() {
     const { children } = this.props
     return (
-      <div>
+      <StyledTabPanel>
         {children}
-      </div>
+      </StyledTabPanel>
     )
   }
 }

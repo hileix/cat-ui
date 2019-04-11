@@ -1,9 +1,7 @@
 import styled from 'styled-components'
 import { primaryBtnColor } from '../../../styles/theme'
 
-const StyledTabs = styled.div`
-
-`;
+const StyledTabs = styled.div``;
 
 const TabsNavBox = styled.div`
   border-bottom: 1px solid #eeeeee;
@@ -40,6 +38,14 @@ const TabsNav = styled.div`
   }
 `;
 
+const TabsNavLink = styled(TabsNav)`
+  padding: 0;
+  & > a {
+    display: inline-block;
+    padding: 12px 0;
+  }
+`
+
 const TabsContentBox = styled.div`
 `;
 
@@ -51,5 +57,10 @@ const TabsContent = styled.div`
   }
 `;
 
-export { StyledTabs, TabsNavBox, TabsNav, TabsContentBox, TabsContent }
+const StyledTabPanel = styled.div``
+
+export {
+  StyledTabs, TabsNavBox, TabsNav, TabsNavLink, TabsContentBox,
+  TabsContent, StyledTabPanel
+}
 
