@@ -44,7 +44,6 @@ class Tabs extends PureComponent<TabsProps, any> {
     return navs.map((element: any) => {
       const classes = activeId === element.id ? 'active': ''
       const isElement = React.isValidElement(element.tab)
-      console.log('isElement', isElement)
       if (isElement) {
         return (
           <TabsNavLink
