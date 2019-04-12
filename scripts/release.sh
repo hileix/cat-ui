@@ -55,6 +55,15 @@ then
   git push
   git status
   echo -e "\033[32m \n发布成功: ${newVersionLine}\n \033[0m"
+  curl https://oapi.dingtalk.com/robot/send?access_token=257e8078e3a47afad431421818bfe6fa7ff37d5c91f594ef1b06506520e5b6b6
+    -H 'Content-Type: application/json'
+    -d '{"msgtype": "markdown",
+      "markdown": {
+        "title":"@xmly/cat-ui发布完成",
+        "text":"commit msg: '"$CI_COMMIT_TITLE"' \n\n @xmly/cat-ui发布完成 '${newVersionLine}' \n\n  [点击查看xnpm](http://xnpm.ximalaya.com/#/detail/@xmly/cat-ui) "
+      }
+    }
+  '
 else
   echo -e "\033[31m \n发布失败: ${newVersionLine}\n \033[0m"
 fi
