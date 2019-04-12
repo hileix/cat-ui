@@ -12,7 +12,7 @@ export interface ButtonProps {
   /** 样式 */
   style?: object;
   /** 主题 */
-  theme?: 'primary' | 'yellow' | 'white-primary' | 'white-cyan';
+  theme?: 'primary' | 'yellow' | 'white-primary' | 'white-cyan' | 'borderless';
   /** 是否禁用 */
   disabled?: boolean;
   /** 样式 */

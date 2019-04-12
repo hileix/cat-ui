@@ -25,6 +25,7 @@ class Example extends React.Component {
       <Button theme='yellow'>yellow</Button>
       <Button theme='white-primary'>white-primary</Button>
       <Button theme='white-cyan'>white-cyan</Button>
+      <Button theme='borderless'>borderless</Button>
 
       <h3>block</h3>
       <div className='block-box'>

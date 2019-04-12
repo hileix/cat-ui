@@ -55,6 +55,9 @@ const StyledButton = styled.button`
     color: ${primaryBtnColor};
     border: 1px solid ${primaryBtnColor};
   }
+  &.hmly-button-borderless {
+    color: ${primaryBtnColor};
+  }
 
   &.hmly-button-block {
     width: 100%;
