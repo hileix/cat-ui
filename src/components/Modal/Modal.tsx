@@ -69,8 +69,9 @@ class Modal extends PureComponent<ModalProps, any> {
   }
 
   onMaskClick = (e: any) => {
+    const { onClose } = this.props
     if (e.target === e.currentTarget) {
-      this.props.onClose && this.props.onClose(e)
+      onClose && onClose(e)
     }
   }
 
@@ -105,8 +106,16 @@ class Modal extends PureComponent<ModalProps, any> {
     } else {
       Modal.pools[this.mid] = 0
       if (Modal.pools.indexOf(1) === -1) {
-        nodeBody.setAttribute('style', Modal.originalBodyStyle)
-        nodeFirstDiv.setAttribute('style', Modal.originalFirstDivStyle)
+        if (Modal.originalBodyStyle) {
+          nodeBody.setAttribute('style', Modal.originalBodyStyle)
+        } else {
+          nodeBody.removeAttribute('style')
+        }
+        if (Modal.originalFirstDivStyle) {
+          nodeFirstDiv.setAttribute('style', Modal.originalFirstDivStyle)
+        } else {
+          nodeFirstDiv.removeAttribute('style')
+        }
       }
     }
   }

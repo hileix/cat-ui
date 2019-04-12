@@ -2,7 +2,6 @@ import * as React from 'react'
 import { PureComponent } from 'react'
 import * as ReactDOM from 'react-dom'
 import * as memoizeOne from 'memoize-one'
-// import classNames from 'classnames'
 import PortalContent from './PortalContent'
 
 export interface ProtalProps {
@@ -24,39 +23,17 @@ export interface ProtalProps {
   onUnmount?: () => {};
 }
 
+/**
+ * 底层的弹出层组件，不含样式
+ */
+
 class Portal extends PureComponent<ProtalProps, any> {
   static defaultProps = {
     selector: 'body'
   }
 
-  // componentDidMount() {
-  //   const { visible, selector } = this.props
-  //   const node = this.getContainer(selector)
-  //   console.log('node', node, visible)
-  //   if ((visible === undefined) || visible) {
-  //     node.setAttribute('style', 'overflow: hidden;')
-  //     // const { style } = node
-  //     // style.overflow = 'hidden'
-  //   }
-  // }
-
-  // componentWillUnmount() {
-  //   const { visible } = this.props
-  // }
-
-  // getContainer = memoizeOne((selector: string) => {
-  //   let node = document.querySelector(selector) || document.body
-  //   // if (!this.props.append) {
-  //   //   removeAllChildren(node);
-  //   // }
-  //   return node
-  // })
-
   getContainer = (selector: string) => {
-    let node = document.querySelector(selector) || document.body
-    // if (!this.props.append) {
-    //   removeAllChildren(node);
-    // }
+    const node = document.querySelector(selector) || document.body
     return node
   }
 

@@ -16,10 +16,12 @@ class Example extends React.Component {
 
   render () {
     const { activeId1 } = this.state
+    
     return (<div className='radio-box'>
       <h3>单独使用</h3>
       <Radio value={1}>1</Radio>
       <Radio checked value={2}>2</Radio>
+      
       <h3>Radio.Group</h3>
       <Radio.Group value={activeId1} onChange={this.onRadioChange}>
         <Radio value={1}>1</Radio>
