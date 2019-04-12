@@ -53,10 +53,7 @@ class Radio extends Component<RadioProps, any> {
 
   render() {
     const { className, style, disabled, readOnly, checked, value, children } = this.props
-    const classes = classNames('hmly-radio', {
-      'hmly-radio-checked': checked,
-      'hmly-radio-disabled': disabled
-    }, className)
+    const classes = classNames('hmly-radio', className)
 
     return (
       <StyledRadioBox
@@ -72,9 +69,10 @@ class Radio extends Component<RadioProps, any> {
             disabled={disabled}
             readOnly={readOnly}
             onClick={this.handleClick}
-            onChange={this.handleClick}/>
+            onChange={this.handleChange} />
         </StyledRadio>
-        <RadioSlot>
+        <RadioSlot
+          disabled={disabled}>
           {children}
         </RadioSlot>
       </StyledRadioBox>

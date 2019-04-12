@@ -8,3 +8,7 @@ export interface RadioInnerProps {
 export interface RadioInputProps {
   disabled?: boolean;
 }
+
+export interface RadioSlotProps {
+  disabled?: boolean;
+}

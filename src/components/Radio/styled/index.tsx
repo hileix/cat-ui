@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { primaryBtnColor } from '../../../styles/theme'
-import { RadioInnerProps, RadioInputProps } from '../interface'
+import { primaryRadioColor } from '../../../styles/theme'
+import { RadioInnerProps, RadioInputProps, RadioSlotProps } from '../interface'
 
 const StyledRadioBox = styled.div`
   position: relative;
@@ -40,10 +40,10 @@ const RadioInner = styled.span`
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  transition: all .3s;
+  transition: all 0.1s;
   box-sizing: border-box;
   background-color: #f5f5f5;
-  border-color: ${(props: RadioInnerProps) => props.disabled ? '#979797': '#313646'};
+  border-color: ${(props: RadioInnerProps) => props.disabled ? '#979797': primaryRadioColor};
   border-width: 1px;
   border-style: solid;
   &::after {
@@ -58,8 +58,8 @@ const RadioInner = styled.span`
     border-left: 0;
     content: " ";
     opacity: ${(props: RadioInnerProps) => props.checked ? 1 : 0};
-    background-color: ${(props: RadioInnerProps) => props.disabled ? '#ccc': '#313646'};
-    transition: all .3s cubic-bezier(.78,.14,.15,.86);
+    background-color: ${(props: RadioInnerProps) => props.disabled ? '#ccc': primaryRadioColor};
+    transition: all 0.1s cubic-bezier(.78,.14,.15,.86);
     box-sizing: border-box;
   }
 `
@@ -89,6 +89,8 @@ const RadioSlot = styled.span`
   cursor: pointer;
   box-sizing: border-box;
   vertical-align: text-top;
+  color: ${(props: RadioSlotProps) => props.disabled ? 'rgba(0,0,0,.25)': ''};
+  cursor: ${(props: RadioSlotProps) => props.disabled ? 'not-allowed': 'pointer'};
 `
 const StyledRadioGroup = styled.div``
 

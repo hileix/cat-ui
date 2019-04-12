@@ -2,7 +2,6 @@
 export const primaryBtnColor = '#ff4444'
 export const yellowBtnColor = '#ffba0f'
 
-export default {
-  primaryBtnColor,
-  yellowBtnColor
-}
+// 单选框
+export const primaryRadioColor = '#313646'
+

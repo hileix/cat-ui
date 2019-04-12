@@ -44,7 +44,6 @@ class RadioGroup extends Component<RadioGroupProps, any> {
     const self = this
     const { className, style, disabled, readOnly, checked, value, children } = this.props
     const classes = classNames('hmly-radio-group', className)
-
     const radios = React.Children.map(children, (element: any, index) => {
       if (!element) { return element }
       return cloneElement(element, {
