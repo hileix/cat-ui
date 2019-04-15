@@ -100,7 +100,7 @@ export { Styled${input} }" >> src/components/${input}/styled/index.tsx
 # 导入${input}/__test__/index.test.tsx默认模块
 echo "import * as React from 'react'
 import * as Enzyme from 'enzyme'
-import { render } from 'enzyme'
+import { render, mount } from 'enzyme'
 import * as Adapter from 'enzyme-adapter-react-16'
 import ${input} from '../index'
 
@@ -114,9 +114,6 @@ describe('${input}', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  test('two plus two is four', () => {
-    expect(2 + 2).toBe(4)
-  })
 })" >> src/components/${input}/__test__/index.test.tsx
 
 echo -e "\033[32m \n新建组件成功: ${input}\n \033[0m"
