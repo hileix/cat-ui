@@ -36,10 +36,7 @@ $ yarn run test
 ``` jsx
 import { Button } from '@xmly/cat-ui'
 
-<h3>size</h3>
-<Button size='sm'>sm</Button>
-<Button size='md'>md</Button>
-<Button size='lg'>lg</Button>
+<Button>Test</Button>
 ```
 
 ## react-styleguidis文档
@@ -57,11 +54,18 @@ import { Button } from '@xmly/cat-ui'
 ├── src
 │   ├── components                      组件库
 │   │     ├── Button                    按钮
+│   │     ├── Checkbox                  多选框
+│   │     ├── Icon                      按钮
 │   │     ├── Input                     输入框
+│   │     ├── Modal                     对话框
 │   │     ├── Popup                     弹层
+│   │     ├── Portal                    弹出层
+│   │     ├── Radio                     单选框
 │   │     ├── Slider                    滑动输入条
+│   │     ├── Table                     表格（列表）
+│   │     ├── Tabs                      选项卡
 │   │     └── ToolTip                   文字提示
-│   ├── style                           样式
+│   ├── styles                           样式
 │   └── utils                           工具函数
 ├── styleguide.config.js                styleguide的webpack配置
 ├── webpack.config.js                   发包的webpack配置
