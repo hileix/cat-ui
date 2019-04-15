@@ -65,7 +65,7 @@ import { Button } from '@xmly/cat-ui'
 │   │     ├── Table                     表格（列表）
 │   │     ├── Tabs                      选项卡
 │   │     └── ToolTip                   文字提示
-│   ├── styles                           样式
+│   ├── styles                          样式
 │   └── utils                           工具函数
 ├── styleguide.config.js                styleguide的webpack配置
 ├── webpack.config.js                   发包的webpack配置
