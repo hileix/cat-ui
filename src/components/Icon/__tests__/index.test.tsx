@@ -53,8 +53,8 @@ describe('Icon', () => {
 
   test('props: onClick', () => {
     let isClicked = false
-    const wrapper = mount(<Icon onClick={() => {isClicked = true}} />)
-    wrapper.simulate('click')
+    const wrapper = mount(<Icon type='more' onClick={() => {isClicked = true}} />)
+    wrapper.find('.hmly-icon').simulate('click')
     expect(isClicked).toBe(true)
   })
 

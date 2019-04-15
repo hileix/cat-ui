@@ -5,11 +5,16 @@ class Example extends React.Component {
   constructor (props) {
     super(props)
     this.state = {}
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick () {
+    console.log('Example:handleClick')
   }
 
   render () {
     return (<div className='box'>
-      <Icon type='question-circle' />
+      <Icon type='question-circle' onClick={this.handleClick} />
       <Icon type='question' />
       <Icon type='share3' />
       <Icon type='share2' />
