@@ -7,9 +7,6 @@
 - `master`分支是稳定分支，用以正式线上环境
 - `develop`分支是开发分支，用以开发、测试、预览
 
-`master`分支的`git`提交，会自动发布`styleguidist`预览
-`styleguidist`化的组件预览地址：http://test.himalaya.com/catui/
-
 ## 常用命令
 
 ``` bash
@@ -27,7 +24,7 @@ $ yarn run release 自动迭代版本号，递增最后一位
 $ yarn run release -i 忽略自动迭代，不要自动迭代版本号
 $ yarn run release 1.6.2 使用用户传入的版本号
 
-运行单元测试
+运行Jest测试
 $ yarn run test
 ```
 
@@ -39,10 +36,7 @@ import { Button } from '@xmly/cat-ui'
 <Button>Test</Button>
 ```
 
-## react-styleguidis文档
-
-- 官方文档：https://react-styleguidist.js.org/docs/documenting.html  
-- 常见问题：https://react-styleguidist.js.org/docs/cookbook.html
+组件预览地址：http://test.himalaya.com/catui/  
 
 ## 目录结构
 
