@@ -19,12 +19,14 @@ class Empty extends PureComponent<EmptyProps, any> {
   render() {
     const { colSpan, empty, emptyText } = this.props
 
-    const defaultEmpty = (<EmptyInner>
+    const defaultEmpty = (<EmptyInner image={EmptyBgImg}>
       <span className='content'>
-        <EmptyImage src={EmptyBgImg} />
+        <span className='empty-bg' />
         <p className='empty-desc'>{emptyText}</p>
       </span>
     </EmptyInner>)
+
+    // <EmptyImage src={EmptyBgImg} />
 
     const emptyDOM = empty ? empty : defaultEmpty
 

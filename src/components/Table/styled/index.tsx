@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { primaryBtnColor } from '../../../styles/theme'
-// import { ColumnProps } from '../interface'
+import { EmptyInnerProps } from '../interface'
 
 const StyledTableBox = styled.div`
   margin: 0;
@@ -54,6 +54,16 @@ const EmptyInner = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
+  .empty-bg {
+    display: block;
+    width: 127px;
+    height: 137px;
+    font-size: 19px;
+    margin: 0 auto;
+    background-image: url(${(props: EmptyInnerProps) => props.image});
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
   .empty-desc {
     font-size: 14px;
     font-weight: normal;
