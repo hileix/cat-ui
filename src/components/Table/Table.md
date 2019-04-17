@@ -77,18 +77,20 @@ class Example extends React.Component {
         dataSource={dataSource}
         emptyText='空的模板' />
 
+      {/*
       <h3>使用emptyText的Table</h3>
       <Table
         columns={[]}
         dataSource={[]}
         emptyText={`You don't have any premium transaction.`} />
-
+      */}
+       
       <h3>自定义empty的Table</h3>
       <Table
         columns={[]}
         dataSource={[]}
         empty={empty} />
-
+      
       <h3>align=center的Table</h3>
       <Table
         columns={columns}
