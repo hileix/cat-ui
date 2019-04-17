@@ -73,18 +73,28 @@ class Example extends React.Component {
     return (<div className='table-box'>
       <h3>基础Table</h3>
       <Table
-        align='left'
         columns={columns}
         dataSource={dataSource}
-        empty='空的模板' />
+        emptyText='空的模板' />
+
+      <h3>使用emptyText的Table</h3>
+      <Table
+        columns={[]}
+        dataSource={[]}
+        emptyText='暂无数据' />
 
       <h3>自定义empty的Table</h3>
       <Table
-        align='left'
         columns={[]}
         dataSource={[]}
         empty={empty} />
 
+      <h3>align=center的Table</h3>
+      <Table
+        columns={columns}
+        dataSource={dataSource}
+        emptyText='空的模板' />
+        
       <style>
         {`
           .table-box {
@@ -92,6 +102,7 @@ class Example extends React.Component {
           }
           .table-box .empty1 {
               text-align: center;
+              color: red;
             }
         `}
       </style>

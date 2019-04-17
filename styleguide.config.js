@@ -31,16 +31,14 @@ module.exports = {
           },
         }],
         exclude: /node_modules/,
-      },
-      {
+      }, {
         test: /\.css$/,
         use: [
           'style-loader',
           'css-loader'
         ],
         exclude: /node_modules/,
-      },
-      {
+      }, {
         test: /\.scss$/,
         use: [
           'style-loader',
@@ -48,8 +46,17 @@ module.exports = {
           'sass-loader'
         ],
         exclude: /node_modules/,
-      }
-      ]
+      }, {
+        test: /\.(gif|jpg|png|woff|woff2|svg|eot|ttf)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+            }
+          }
+        ]
+      }]
     },
 
     resolve: {

@@ -7,6 +7,8 @@ import { ColumnProps } from './interface'
 import TableTr from './TableTr'
 import Empty from './Empty'
 
+import EmptyImg from './styled/empty.png'
+
 export interface TableBodyProps {
   /** 每一列需要的所有数据 */
   columns: Array<ColumnProps>;
@@ -14,8 +16,10 @@ export interface TableBodyProps {
   dataSource?: Array<any>;
   /** 对齐 */
   align?: string;
+  /** 自定义的空模板 */
+  empty?: React.ReactNode;
   /** 空模板的文案 */
-  empty?: string | React.ReactNode;
+  emptyText?: string;
 }
 
 /**
@@ -37,7 +41,7 @@ class TableBody extends Component<TableBodyProps, any> {
   }
 
   render() {
-    const { columns, dataSource, align, empty } = this.props
+    const { columns, dataSource, align, empty, emptyText } = this.props
     const classes = classNames('hmly-table-row', `hmly-table-row-${align}`)
     const trs = this.toRenderTrs()
     const colSpan = columns.length
@@ -45,7 +49,10 @@ class TableBody extends Component<TableBodyProps, any> {
     return (
       <tbody>
         {dataSource.length === 0
-          ? <Empty colSpan={colSpan} empty={empty} />
+          ? <Empty
+            colSpan={colSpan}
+            empty={empty}
+            emptyText={emptyText} />
           : (trs)
         }
       </tbody>
