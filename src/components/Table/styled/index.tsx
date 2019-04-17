@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { primaryBtnColor } from '../../../styles/theme'
-import { EmptyImgProps } from '../interface'
+// import { ColumnProps } from '../interface'
 
 const StyledTableBox = styled.div`
   margin: 0;
@@ -50,7 +50,10 @@ const StyledTh = styled.th`
 `;
 
 const EmptyInner = styled.span`
-  position: relative;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   .empty-desc {
     font-size: 14px;
     font-weight: normal;
@@ -63,11 +66,11 @@ const EmptyInner = styled.span`
   }
 `;
 
-const EmptyImg = styled.img`
+const EmptyImage = styled.img`
   display: block;
-  width: 127px;
-  height: auto;
+  width: auto;
+  max-height: 137px;
   margin: 0 auto;
 `;
 
-export { StyledTableBox, StyledTr, StyledTd, StyledTh, EmptyInner, EmptyImg }
+export { StyledTableBox, StyledTr, StyledTd, StyledTh, EmptyInner, EmptyImage }

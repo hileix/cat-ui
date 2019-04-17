@@ -81,7 +81,7 @@ class Example extends React.Component {
       <Table
         columns={[]}
         dataSource={[]}
-        emptyText='暂无数据' />
+        emptyText={`You don't have any premium transaction.`} />
 
       <h3>自定义empty的Table</h3>
       <Table
