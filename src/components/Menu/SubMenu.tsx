@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { Component } from 'react'
+import { Component, cloneElement } from 'react'
 import classNames from 'classnames'
-import { StyledSubMenu, SubMenuTitle, InlineMenu } from './styled'
+import { StyledSubMenu, SubMenuTitle, InlineSubMenu, PopSubMenuBox, PopSubMenu } from './styled'
 
 export interface SubMenuProps {
   /** 类名 */
@@ -28,14 +28,43 @@ export interface SubMenuProps {
  * SubMenu
  */
 class SubMenu extends Component<SubMenuProps, any> {
-  onItemClick = (e: any) => {
+  private enterTimer: number
+  private leaveTimer: number
+
+  constructor (props: SubMenuProps) {
+    super(props)
+    this.state = {
+      popMenuVisible: false
+    }
+  }
+
+  onSubMenuClick = (e: any) => {
     const { onClick, onMenuChange, id } = this.props
     onClick && onClick(e)
     onMenuChange && onMenuChange(id)
   }
 
+  onMouseEnter = () => {
+    if (this.leaveTimer) {
+      clearTimeout(this.leaveTimer)
+    }
+    this.enterTimer = setTimeout(() => {
+      this.setState({ popMenuVisible: true })
+    }, 200)
+  }
+
+  onMouseLeave = () => {
+    if (this.enterTimer) {
+      clearTimeout(this.enterTimer)
+    }
+    this.leaveTimer = setTimeout(() => {
+      this.setState({ popMenuVisible: false })
+    }, 200)
+  }
+
   renderContent = () => {
     const { mode, title, checked, children } = this.props
+    const { popMenuVisible } = this.state
     let subMenuItems = null
     const classes = classNames({
       [`hmly-submenu-title-${mode}`]: mode
@@ -45,14 +74,15 @@ class SubMenu extends Component<SubMenuProps, any> {
         {title}
       </SubMenuTitle>
     )
+    console.log('renderContent:children', children)
     // 行内内嵌
     if (mode === 'inline') {
       subMenuItems = (
         <React.Fragment>
           {subMenuTitle}
-          <InlineMenu>
+          <InlineSubMenu>
             {children}
-          </InlineMenu>
+          </InlineSubMenu>
         </React.Fragment>
       )
     }
@@ -61,6 +91,11 @@ class SubMenu extends Component<SubMenuProps, any> {
       subMenuItems = (
         <React.Fragment>
           {subMenuTitle}
+          {popMenuVisible && <PopSubMenuBox>
+            <PopSubMenu>
+              {children}
+            </PopSubMenu>
+          </PopSubMenuBox>}
         </React.Fragment>
       )
     }
@@ -83,13 +118,15 @@ class SubMenu extends Component<SubMenuProps, any> {
     }, className)
 
     const subMenuItems = this.renderContent()
-    // console.log('subMenuItems', mode, subMenuItems)
+    console.log('subMenuItems', mode, subMenuItems)
 
     return (
       <StyledSubMenu
         className={classes}
         style={style}
-        onClick={this.onItemClick}>
+        onMouseEnter={this.onMouseEnter}
+        onMouseLeave={this.onMouseLeave}
+        onClick={this.onSubMenuClick}>
         {subMenuItems}
       </StyledSubMenu>
     )

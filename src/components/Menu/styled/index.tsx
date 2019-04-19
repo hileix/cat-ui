@@ -34,6 +34,7 @@ const StyledMenuItem = styled.li`
 
 const StyledSubMenu = styled.li`
   height: auto;
+  position: relative;
 `;
 
 const SubMenuTitle = styled.div`
@@ -58,7 +59,7 @@ const SubMenuTitle = styled.div`
   }
   &.hmly-submenu-title-inline::after {
     position: absolute;
-    top: calc(50% - 5px);
+    top: calc(50% - 10px);
     right: 25px;
     height: 10px;
     width: 10px;
@@ -87,13 +88,28 @@ const SubMenuTitle = styled.div`
   }
 `;
 
-const InlineMenu = styled(StyledMenu)`
+const InlineSubMenu = styled(StyledMenu)`
   /* height: auto; */
   height: 0px;
   overflow: hidden;
 `;
 
+const PopSubMenuBox = styled.div`
+  position: absolute;
+  top: 0;
+  right: -200px;
+  z-index: 999;
+  width: 200px;
+  border: 1px solid #eee;
+`
+
+const PopSubMenu = styled.ul`
+  list-style: none;
+  padding: 0;
+  background-color: #fff;
+`
+
 const StyledAnimateHeight = styled.div``;
 
 export { StyledMenu, StyledMenuItem, StyledSubMenu, SubMenuTitle,
-  InlineMenu, StyledAnimateHeight }
+  InlineSubMenu, PopSubMenu, PopSubMenuBox, StyledAnimateHeight }

@@ -115,6 +115,15 @@ class Example extends React.Component {
             title={<span>Income Center</span>}>
             <Menu.Item key='income1' className='item6'>Income 1</Menu.Item>
             <Menu.Item key='income2' className='item6'>Income 2</Menu.Item>
+            <Menu.SubMenu
+              title={<span>Center</span>}>
+              <Menu.Item key='center1' className='item6'>Center 1</Menu.Item>
+              <Menu.Item key='center2' className='item6'>Center 2</Menu.Item>
+              <Menu.Item key='center3' className='item6'>Center 3</Menu.Item>
+              <Menu.Item key='center4' className='item6'>Center 4</Menu.Item>
+            </Menu.SubMenu>
+            <Menu.Item key='income3' className='item6'>Income 3</Menu.Item>
+            <Menu.Item key='income4' className='item6'>Income 4</Menu.Item>
           </Menu.SubMenu>
           <Menu.Item key='episodes' className='item6'>Episodes</Menu.Item>
           <Menu.Item key='setting' className='item6'>Show Settings</Menu.Item>
@@ -168,38 +177,38 @@ class Example extends React.Component {
           }
           .menu-box .menu4 .item4.hmly-menu-item-checked::before {
             position: absolute;
-            top: 7px;
+            top: 0px;
             left: 0px;
             content: '';
             width: 4px;
-            height: 30px;
+            height: 40px;
             background-color: #ff4444;
           }
           .menu-box .menu5 .item5.hmly-menu-item-checked::before {
             position: absolute;
-            top: 7px;
+            top: 0px;
             left: 0px;
             content: '';
             width: 4px;
-            height: 30px;
+            height: 40px;
             background-color: #ff4444;
           }
           .menu-box .menu6 .item6.hmly-menu-item-checked::before {
             position: absolute;
-            top: 7px;
+            top: 0px;
             left: 0px;
             content: '';
             width: 4px;
-            height: 30px;
+            height: 40px;
             background-color: #ffba0f;
           }
           .menu-box .menu7 .item7.hmly-menu-item-checked::before {
             position: absolute;
-            top: 7px;
+            top: 0px;
             left: 0px;
             content: '';
             width: 4px;
-            height: 30px;
+            height: 40px;
             background-color: rgba(83,118,130,0.8);
           }
           .menu-box .menu4 .item4:hover {
