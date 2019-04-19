@@ -47,8 +47,8 @@ class Example extends React.Component {
     return (<div className='modal-box'>
       <Button onClick={() => this.toggleDialog1(true)}>基础Modal</Button>
       <Button onClick={() => this.toggleDialog2(true)}>自定义footer的Modal</Button>
-      <hr />
       <Button onClick={() => this.toggleDialog3(true)}>align=center的Modal</Button>
+      <hr />
       <Button onClick={() => this.toggleDialog4(true)}>align=center && noCloseIcon的Modal</Button>
       <Modal 
         title='Enter the amount you want to redeem'

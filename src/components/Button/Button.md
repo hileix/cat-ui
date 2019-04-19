@@ -48,11 +48,12 @@ class Example extends React.Component {
           .button-box .hmly-button + .hmly-button {
             margin-left: 20px;
           }
-          .block-box {
-            width: 300px;
+          .button-box .block-box {
+            display: inline-block;
+            width: 280px;
           }
-          .block-box + .block-box {
-            margin-top: 20px;
+          .button-box .block-box + .block-box {
+            margin-left: 20px;
           }
         `}
       </style>
