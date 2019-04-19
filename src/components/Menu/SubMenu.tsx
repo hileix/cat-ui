@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Component } from 'react'
 import classNames from 'classnames'
-import { StyledSubMenu, InlineTitle, InlineMenu } from './styled'
+import { StyledSubMenu, SubMenuTitle, InlineMenu } from './styled'
 
 export interface SubMenuProps {
   /** 类名 */
@@ -37,35 +37,38 @@ class SubMenu extends Component<SubMenuProps, any> {
   renderContent = () => {
     const { mode, title, checked, children } = this.props
     let subMenuItems = null
+    const classes = classNames({
+      [`hmly-submenu-title-${mode}`]: mode
+    })
+    const subMenuTitle = (
+      <SubMenuTitle className={classes}>
+        {title}
+      </SubMenuTitle>
+    )
+    // 行内内嵌
     if (mode === 'inline') {
       subMenuItems = (
         <React.Fragment>
-          <InlineTitle>
-            {title}
-          </InlineTitle>
+          {subMenuTitle}
           <InlineMenu>
             {children}
           </InlineMenu>
         </React.Fragment>
       )
     }
-
+    // 扩展弹出
     if (mode === 'pop') {
       subMenuItems = (
         <React.Fragment>
-          <InlineTitle>
-            {title}
-          </InlineTitle>
+          {subMenuTitle}
         </React.Fragment>
       )
     }
-
+    // 原地替换
     if (mode === 'replace') {
       subMenuItems = (
         <React.Fragment>
-          <InlineTitle>
-            {title}
-          </InlineTitle>
+          {subMenuTitle}
         </React.Fragment>
       )
     }

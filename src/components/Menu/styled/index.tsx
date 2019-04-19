@@ -36,7 +36,7 @@ const StyledSubMenu = styled.li`
   height: auto;
 `;
 
-const InlineTitle = styled.div`
+const SubMenuTitle = styled.div`
   color: #4a4a4a;
   width: 100%;
   height: 40px;
@@ -51,6 +51,40 @@ const InlineTitle = styled.div`
   box-sizing: border-box;
   position: relative;
   cursor: pointer;
+  &:hover {
+    background-color: #f3f3f3;
+    color: #4a4a4a;
+    font-weight: 600;
+  }
+  &.hmly-submenu-title-inline::after {
+    position: absolute;
+    top: calc(50% - 5px);
+    right: 25px;
+    height: 10px;
+    width: 10px;
+    content: "";
+    border-right: 2px solid #9B9B9B;
+    border-top: 2px solid #9B9B9B;
+    border-left: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    display: inline-block;
+    transform: rotate(135deg);
+  }
+  &.hmly-submenu-title-pop::after,
+  &.hmly-submenu-title-replace::after {
+    position: absolute;
+    top: calc(50% - 5px);
+    right: 10px;
+    height: 10px;
+    width: 10px;
+    content: "";
+    border-right: 2px solid #9B9B9B;
+    border-top: 2px solid #9B9B9B;
+    border-left: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    display: inline-block;
+    transform: rotate(45deg);
+  }
 `;
 
 const InlineMenu = styled(StyledMenu)`
@@ -61,4 +95,5 @@ const InlineMenu = styled(StyledMenu)`
 
 const StyledAnimateHeight = styled.div``;
 
-export { StyledMenu, StyledMenuItem, StyledSubMenu, InlineTitle, InlineMenu, StyledAnimateHeight }
+export { StyledMenu, StyledMenuItem, StyledSubMenu, SubMenuTitle,
+  InlineMenu, StyledAnimateHeight }
