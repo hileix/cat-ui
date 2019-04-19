@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Component, cloneElement } from 'react'
 import classNames from 'classnames'
 import { StyledMenu } from './styled'
+import SubMenu from './SubMenu'
 import MenuItem from './MenuItem'
 
 export interface MenuProps {
@@ -22,6 +23,7 @@ export interface MenuProps {
  */
 class Menu extends Component<MenuProps, any> {
   static Item: typeof MenuItem
+  static SubMenu: typeof SubMenu
 
   static defaultProps = {
     mode: 'pop'
@@ -42,9 +44,11 @@ class Menu extends Component<MenuProps, any> {
 
     const items = React.Children.map(children, (element: any, index) => {
       if (!element) { return element }
+      // console.log('element', element, element.key)
       return cloneElement(element, {
         key: index,
         id: element.key,
+        mode: mode,
         checked: activeKey === element.key,
         onMenuChange: self.onMenuChange
       })

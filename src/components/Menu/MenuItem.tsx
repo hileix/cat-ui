@@ -3,7 +3,7 @@ import { Component } from 'react'
 import classNames from 'classnames'
 import { StyledMenuItem } from './styled'
 
-export interface MenuProps {
+export interface MenuItemProps {
   /** 类名 */
   className?: string;
   /** 样式 */
@@ -25,7 +25,7 @@ export interface MenuProps {
 /**
  * MenuItem
  */
-class MenuItem extends Component<MenuProps, any> {
+class MenuItem extends Component<MenuItemProps, any> {
   onItemClick = (e: any) => {
     const { onClick, onMenuChange, id } = this.props
     onClick && onClick(e)
