@@ -26,6 +26,10 @@ const StyledMenuItem = styled.li`
     color: #4a4a4a;
     font-weight: 600;
   }
+  &.hmly-menu-item-checked {
+    font-weight: bold;
+    color: #3a3a3a;
+  }
 `;
 
 export { StyledMenu, StyledMenuItem }

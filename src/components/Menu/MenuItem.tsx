@@ -10,25 +10,40 @@ export interface MenuProps {
   style?: object;
   /** 菜单类型，现在支持扩展弹出、行内内嵌、原地替换三种 */
   mode?: 'pop' | 'inline' | 'replace';
+  /** 当前MenuItem的id */
+  id?: boolean;
+  /** 是否选中 */
+  checked?: boolean;
   /** 是否禁用 */
   disabled?: boolean;
+  /** MenuItem点击事件的回调 */
+  onClick?: any;
+  /** Menu改变事件的回调 */
+  onMenuChange?: any;
 }
 
 /**
  * MenuItem
  */
 class MenuItem extends Component<MenuProps, any> {
+  onItemClick = (e: any) => {
+    const { onClick, onMenuChange, id } = this.props
+    onClick && onClick(e)
+    onMenuChange && onMenuChange(id)
+  }
 
   render() {
-    const { className, style, mode, children } = this.props
+    const { className, style, mode, checked, children } = this.props
     const classes = classNames('hmly-menu-item', {
-      [`hmly-menu-${mode}`]: mode
+      [`hmly-menu-item-${mode}`]: mode,
+      [`hmly-menu-item-checked`]: checked
     }, className)
 
     return (
       <StyledMenuItem
         className={classes}
-        style={style}>
+        style={style}
+        onClick={this.onItemClick}>
         {children}
       </StyledMenuItem>
     )
