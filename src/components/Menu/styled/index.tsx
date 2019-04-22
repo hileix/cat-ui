@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { primaryBtnColor } from '../../../styles/theme'
+import { InlineSubMenuProps } from '../interface'
 
 const StyledMenu = styled.ul`
   list-style: none;
@@ -86,12 +87,15 @@ const SubMenuTitle = styled.div`
     display: inline-block;
     transform: rotate(45deg);
   }
+  &.hmly-submenu-title-inline.hmly-submenu-title-expand::after {
+    transform: rotate(-45deg);
+  }
 `;
 
 const InlineSubMenu = styled(StyledMenu)`
-  /* height: auto; */
-  height: 0px;
+  height: ${(props: InlineSubMenuProps) => props.height};
   overflow: hidden;
+  padding-left: 20px;
 `;
 
 const PopSubMenuBox = styled.div`

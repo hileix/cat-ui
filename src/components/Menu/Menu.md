@@ -93,9 +93,19 @@ class Example extends React.Component {
           className='menu5'>
           <Menu.Item key='dashboard' className='item5'>Dashboard</Menu.Item>
           <Menu.SubMenu
+            key='SubMenu'
             title={<span>Income Center</span>}>
             <Menu.Item key='income1' className='item5'>Income 1</Menu.Item>
             <Menu.Item key='income2' className='item5'>Income 2</Menu.Item>
+            <Menu.SubMenu
+              title={<span>Center</span>}>
+              <Menu.Item key='center1' className='item6'>Center 1</Menu.Item>
+              <Menu.Item key='center2' className='item6'>Center 2</Menu.Item>
+              <Menu.Item key='center3' className='item6'>Center 3</Menu.Item>
+              <Menu.Item key='center4' className='item6'>Center 4</Menu.Item>
+            </Menu.SubMenu>
+            <Menu.Item key='income3' className='item6'>Income 3</Menu.Item>
+            <Menu.Item key='income4' className='item6'>Income 4</Menu.Item>
           </Menu.SubMenu>
           <Menu.Item key='episodes' className='item5'>Episodes</Menu.Item>
           <Menu.Item key='setting' className='item5'>Show Settings</Menu.Item>
