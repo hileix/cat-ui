@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Component, cloneElement } from 'react'
 import classNames from 'classnames'
+import AnimateHeight from './AnimateHeight'
 import { StyledSubMenu, SubMenuTitle, InlineSubMenu, PopSubMenuBox, PopSubMenu } from './styled'
 
 export interface SubMenuProps {
@@ -34,7 +35,8 @@ class SubMenu extends Component<SubMenuProps, any> {
   constructor (props: SubMenuProps) {
     super(props)
     this.state = {
-      popMenuVisible: false
+      isPopVisible: false,
+      isInlineExpand: false
     }
   }
 
@@ -44,33 +46,47 @@ class SubMenu extends Component<SubMenuProps, any> {
     onMenuChange && onMenuChange(id)
   }
 
+  onSubMenuTitleClick = () => {
+    const { isInlineExpand } = this.state
+    const { mode } = this.props
+    if (mode === 'inline') {
+      this.setState({ isInlineExpand: !isInlineExpand })
+    }
+    console.log('onSubMenuTitleClick', mode)
+  }
+
   onMouseEnter = () => {
+    const { mode } = this.props
+    if (mode !== 'pop') { return }
     if (this.leaveTimer) {
       clearTimeout(this.leaveTimer)
     }
     this.enterTimer = setTimeout(() => {
-      this.setState({ popMenuVisible: true })
+      this.setState({ isPopVisible: true })
     }, 200)
   }
 
   onMouseLeave = () => {
+    const { mode } = this.props
+    if (mode !== 'pop') { return }
     if (this.enterTimer) {
       clearTimeout(this.enterTimer)
     }
     this.leaveTimer = setTimeout(() => {
-      this.setState({ popMenuVisible: false })
+      this.setState({ isPopVisible: false })
     }, 200)
   }
 
   renderContent = () => {
     const { mode, title, checked, children } = this.props
-    const { popMenuVisible } = this.state
+    const { isPopVisible, isInlineExpand } = this.state
     let subMenuItems = null
     const classes = classNames({
-      [`hmly-submenu-title-${mode}`]: mode
+      [`hmly-submenu-title-${mode}`]: mode,
+      'hmly-submenu-title-expand': isInlineExpand
     })
     const subMenuTitle = (
-      <SubMenuTitle className={classes}>
+      <SubMenuTitle className={classes} onClick={this.onSubMenuTitleClick}>
         {title}
       </SubMenuTitle>
     )
@@ -82,16 +98,21 @@ class SubMenu extends Component<SubMenuProps, any> {
         mode: mode
       })
     })
-    // console.log('renderContent:children', mode, children)
+
+    // console.log('renderContent:isInlineExpand', mode, isInlineExpand)
 
     // 行内内嵌
     if (mode === 'inline') {
       subMenuItems = (
         <React.Fragment>
           {subMenuTitle}
-          <InlineSubMenu>
-            {items}
-          </InlineSubMenu>
+          <AnimateHeight
+            duration={200}
+            height={isInlineExpand ? 'auto' : 0}>
+            <InlineSubMenu height={isInlineExpand ? 'auto' : 0}>
+              {items}
+            </InlineSubMenu>
+          </AnimateHeight>
         </React.Fragment>
       )
     }
@@ -100,7 +121,7 @@ class SubMenu extends Component<SubMenuProps, any> {
       subMenuItems = (
         <React.Fragment>
           {subMenuTitle}
-          {popMenuVisible && <PopSubMenuBox>
+          {isPopVisible && <PopSubMenuBox>
             <PopSubMenu>
               {items}
             </PopSubMenu>
