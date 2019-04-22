@@ -39,7 +39,7 @@ class Tabs extends PureComponent<TabsProps, any> {
     onChange && onChange(id)
   }
 
-  toRenderNav = (navs: Object[]) => {
+  renderNav = (navs: Object[]) => {
     const { activeId } = this.props
     return navs.map((element: any) => {
       const classes = activeId === element.id ? 'active': ''
@@ -66,7 +66,7 @@ class Tabs extends PureComponent<TabsProps, any> {
     })
   }
 
-  toRenderContent = (contents: any) => {
+  renderContent = (contents: any) => {
     const { activeId } = this.props
     return contents.map((element: any, index: number) => {
       const { id } = element.props
@@ -90,10 +90,10 @@ class Tabs extends PureComponent<TabsProps, any> {
         className={className}
         style={style}>
         <TabsNavBox>
-          {this.toRenderNav(navs)}
+          {this.renderNav(navs)}
         </TabsNavBox>
         <TabsContentBox>
-          {this.toRenderContent(contents)}
+          {this.renderContent(contents)}
         </TabsContentBox>
       </StyledTabs>
     )

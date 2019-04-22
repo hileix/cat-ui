@@ -74,14 +74,23 @@ class SubMenu extends Component<SubMenuProps, any> {
         {title}
       </SubMenuTitle>
     )
-    console.log('renderContent:children', children)
+    const items = React.Children.map(children, (element: any, index) => {
+      if (!element) { return element }
+      return cloneElement(element, {
+        key: index,
+        id: element.key,
+        mode: mode
+      })
+    })
+    // console.log('renderContent:children', mode, children)
+
     // 行内内嵌
     if (mode === 'inline') {
       subMenuItems = (
         <React.Fragment>
           {subMenuTitle}
           <InlineSubMenu>
-            {children}
+            {items}
           </InlineSubMenu>
         </React.Fragment>
       )
@@ -93,7 +102,7 @@ class SubMenu extends Component<SubMenuProps, any> {
           {subMenuTitle}
           {popMenuVisible && <PopSubMenuBox>
             <PopSubMenu>
-              {children}
+              {items}
             </PopSubMenu>
           </PopSubMenuBox>}
         </React.Fragment>
@@ -118,7 +127,7 @@ class SubMenu extends Component<SubMenuProps, any> {
     }, className)
 
     const subMenuItems = this.renderContent()
-    console.log('subMenuItems', mode, subMenuItems)
+    // console.log('subMenuItems', mode, subMenuItems)
 
     return (
       <StyledSubMenu

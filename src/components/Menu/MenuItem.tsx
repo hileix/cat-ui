@@ -38,6 +38,7 @@ class MenuItem extends Component<MenuItemProps, any> {
       [`hmly-menu-item-${mode}`]: mode,
       [`hmly-menu-item-checked`]: checked
     }, className)
+    // console.log('MenuItem', mode, children)
 
     return (
       <StyledMenuItem
