@@ -19,9 +19,11 @@ export interface IinputProps {
   placeholder?: string;
   showClear?: boolean;
   showEye?: boolean;
+  forwardedRef?: React.RefObject<HTMLInputElement>;
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => any;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => any;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => any;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => any;
   onPressEnter?: (e: React.KeyboardEvent<HTMLInputElement>) => any;
 }
 
@@ -51,8 +53,6 @@ class Input extends React.PureComponent<IinputProps, IinputStates> {
     disabled: false
   }
 
-  private input: HTMLInputElement | HTMLTextAreaElement;
-
   public constructor (props: IinputProps) {
     super(props)
     const value = typeof props.value === 'undefined' ? props.defaultValue : props.value
@@ -77,23 +77,30 @@ class Input extends React.PureComponent<IinputProps, IinputStates> {
   }
 
   private handleKeyDown (e: React.KeyboardEvent<HTMLInputElement>): void {
-    const { onPressEnter } = this.props
-    onPressEnter && onPressEnter(e)
+    const { onPressEnter, onKeyDown } = this.props
+    if (e.keyCode === 13 && onPressEnter) {
+      onPressEnter(e)
+    }
+    if (onKeyDown) {
+      onKeyDown(e)
+    }
   }
 
   public render () {
+    const { forwardedRef } = this.props
     const props = pick(this.props, Object.keys(domProps)) as IdomProps
 
     return (
       <input
-        onFocus={this.handleFocus}
-        onBlur={this.handleBlur}
-        onChange={this.handleChange}
-        onKeyDown={this.handleKeyDown}
+        onFocus={this.handleFocus.bind(this)}
+        onBlur={this.handleBlur.bind(this)}
+        onChange={this.handleChange.bind(this)}
+        onKeyDown={this.handleKeyDown.bind(this)}
+        ref={forwardedRef}
         {...props}
       />
     )
   }
 }
 
-export default Input
+export default React.forwardRef((props, ref) => <Input {...props} forwardedRef={ref} />)
