@@ -1,36 +1,59 @@
 import * as React from 'react'
 import * as PropTypes from 'prop-types'
+import { pick } from 'lodash'
 import classnames from '../../utils/classnames'
 import './Input.scss'
 
-export type InputType = 'line' | 'line-password' | 'text' | 'text-password' | 'textarea'
+export type TinputType = 'line' | 'line-password' | 'text' | 'text-password' | 'textarea'
 
-export interface InputProps {
+export interface IinputProps {
   autoFocus?: boolean;
   autoSelect?: boolean;
   className?: string;
   defaultValue?: string;
   disabled?: boolean;
   value?: string;
-  type?: InputType;
+  type?: TinputType;
   readOnly?: boolean;
   size?: 'large' | 'normal' | 'small';
   placeholder?: string;
   showClear?: boolean;
   showEye?: boolean;
+  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => any;
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => any;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => any;
+  onPressEnter?: (e: React.KeyboardEvent<HTMLInputElement>) => any;
 }
 
-export interface InputStates {
+export interface IinputStates {
   value: string
 }
 
-class Input extends React.PureComponent<InputProps, InputStates> {
+interface IdomProps {
+  placeholder?: string;
+  defaultValue?: string;
+  value?: string;
+  disabled?: boolean;
+  readOnly?: boolean;
+}
+
+const domProps: IdomProps = {
+  placeholder: '',
+  defaultValue: '',
+  value: '',
+  disabled: false,
+  readOnly: false
+}
+
+class Input extends React.PureComponent<IinputProps, IinputStates> {
   static defaultProps = {
     type: 'text',
     disabled: false
   }
 
-  constructor (props: InputProps) {
+  private input: HTMLInputElement | HTMLTextAreaElement;
+
+  public constructor (props: IinputProps) {
     super(props)
     const value = typeof props.value === 'undefined' ? props.defaultValue : props.value
     this.state = {
@@ -38,13 +61,37 @@ class Input extends React.PureComponent<InputProps, InputStates> {
     }
   }
 
-  public state = {
-    value: ''
+  private handleFocus (e: React.FocusEvent<HTMLInputElement>): void {
+    const { onFocus } = this.props
+    onFocus && onFocus(e)
+  }
+
+  private handleBlur (e: React.FocusEvent<HTMLInputElement>): void {
+    const { onBlur } = this.props
+    onBlur && onBlur(e)
+  }
+
+  private handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
+    const { onChange } = this.props
+    onChange && onChange(e)
+  }
+
+  private handleKeyDown (e: React.KeyboardEvent<HTMLInputElement>): void {
+    const { onPressEnter } = this.props
+    onPressEnter && onPressEnter(e)
   }
 
   public render () {
+    const props = pick(this.props, Object.keys(domProps)) as IdomProps
+
     return (
-      <input />
+      <input
+        onFocus={this.handleFocus}
+        onBlur={this.handleBlur}
+        onChange={this.handleChange}
+        onKeyDown={this.handleKeyDown}
+        {...props}
+      />
     )
   }
 }
