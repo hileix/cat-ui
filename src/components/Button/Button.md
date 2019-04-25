@@ -23,7 +23,7 @@ class Example extends React.Component {
 
       <h3>theme</h3>
       <Button theme='primary'>primary</Button>
-      <Button theme='primary-up' style={{color: 'blue', height: '60px'}}>primary-up</Button>
+      <Button theme='primary-up'>primary-up</Button>
       <Button theme='yellow'>yellow</Button>
       <Button theme='white-primary'>white-primary</Button>
       <Button theme='white-cyan'>white-cyan</Button>
