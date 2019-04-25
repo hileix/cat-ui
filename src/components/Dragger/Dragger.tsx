@@ -1,15 +1,14 @@
 import * as React from 'react'
-import { Component } from 'react'
+import { PureComponent, cloneElement } from 'react'
 import classNames from 'classnames'
-import { StyledDragger, StyledDraggerItem } from './styled'
+import { StyledDragger } from './styled'
+import DraggerItem from './DraggerItem'
 
 export interface DraggerProps {
   /** 类名 */
   className?: string;
   /** 样式 */
   style?: object;
-  /** id */
-  id: string | number;
   /**  */
   draggedElement: any;
   /**  */
@@ -25,10 +24,11 @@ export interface DraggerProps {
 /**
  * 拖拽器
  */
-class Dragger extends Component<DraggerProps, any> {
+class Dragger extends PureComponent<DraggerProps, any> {
   private draggerRef: any
   private dragged: any
   private over: any
+  static Item: typeof DraggerItem
 
   constructor (props: DraggerProps) {
     super(props)
@@ -96,6 +96,15 @@ class Dragger extends Component<DraggerProps, any> {
     const { childrenNode } = this.state
     const { className, style } = this.props
     const classes = classNames('hmly-dragger', className)
+    const items = React.Children.map(childrenNode, (element: any, index) => {
+        if (!element) { return element }
+        return cloneElement(element, {
+          key: index,
+          order: index + 1,
+          onDragStart: self.dragStart,
+          onDragEnd: self.dragEnd
+        })
+    })
 
     return (
       <StyledDragger
@@ -103,19 +112,7 @@ class Dragger extends Component<DraggerProps, any> {
         className={classes}
         style={style}
         onDragOver={self.dragOver}>
-        {React.Children.map(childrenNode, (element, index) => {
-          const itemClasses = classNames('hmly-dragger-item')
-          return (
-            <StyledDraggerItem
-              draggable
-              data-order={index + 1}
-              onDragStart={self.dragStart}
-              onDragEnd={self.dragEnd}
-              className={itemClasses}>
-              { element }
-            </StyledDraggerItem>
-          )
-        })}
+        {items}
       </StyledDragger>
     )
   }

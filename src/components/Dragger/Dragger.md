@@ -29,6 +29,7 @@ class Example extends React.Component {
 
   render () {
     return (<div className='dragger-box'>
+      {/*
       <Dragger
         draggedElement={this.draggedElement}
         onDragStart={this.onDragStart}
@@ -39,6 +40,25 @@ class Example extends React.Component {
         <div id={2} className='item'>2</div>
         <div id={3} className='item'>3</div>
         <div id={4} className='item'>4</div>
+      */}
+      <Dragger
+        draggedElement={this.draggedElement}
+        onDragStart={this.onDragStart}
+        onDragOver={this.onDragOver}
+        onDragEnd={this.onDragEnd}
+        onSort={this.onSort}>
+        <Dragger.Item id={1} className='item'>
+          <div className='text'>111</div>
+        </Dragger.Item>
+        <Dragger.Item id={2} className='item'>
+          <div className='text'>222</div>
+        </Dragger.Item>
+        <Dragger.Item id={3} className='item'>
+          <div className='text'>333</div>
+        </Dragger.Item>
+        <Dragger.Item id={4} className='item'>
+          <div className='text'>444</div>
+        </Dragger.Item>
       </Dragger>
 
       <style>
