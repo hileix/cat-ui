@@ -59,6 +59,10 @@ class Modal extends PureComponent<ModalProps, any> {
     Modal.pools.push(0)
   }
 
+  componentDidUpdate () {
+    this.setBodyStyle()
+  }
+
   static defaultProps = {
     prefix: 'hmly',
     theme: 'primary',
@@ -102,7 +106,7 @@ class Modal extends PureComponent<ModalProps, any> {
       Modal.originalBodyStyle = nodeBody.getAttribute('style')
       Modal.originalFirstDivStyle = nodeBody.getAttribute('style')
       nodeBody.setAttribute('style', 'overflow: hidden; padding-right: 15px;')
-      nodeFirstDiv.setAttribute('style', 'filter: blur(2px);')
+      // nodeFirstDiv.setAttribute('style', 'filter: blur(2px);')
     } else {
       Modal.pools[this.mid] = 0
       if (Modal.pools.indexOf(1) === -1) {
@@ -111,11 +115,11 @@ class Modal extends PureComponent<ModalProps, any> {
         } else {
           nodeBody.removeAttribute('style')
         }
-        if (Modal.originalFirstDivStyle) {
-          nodeFirstDiv.setAttribute('style', Modal.originalFirstDivStyle)
-        } else {
-          nodeFirstDiv.removeAttribute('style')
-        }
+        // if (Modal.originalFirstDivStyle) {
+        //   nodeFirstDiv.setAttribute('style', Modal.originalFirstDivStyle)
+        // } else {
+        //   nodeFirstDiv.removeAttribute('style')
+        // }
       }
     }
   }
@@ -145,7 +149,6 @@ class Modal extends PureComponent<ModalProps, any> {
       [`${prefix}-modal-${size}`]: size,
       [`${prefix}-modal-${align}`]: align,
     }, className)
-    this.setBodyStyle()
     const modalFooter = this.toRenderFooter()
 
     return (<Portal visible={visible}>

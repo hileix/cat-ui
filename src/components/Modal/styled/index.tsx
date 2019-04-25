@@ -12,9 +12,9 @@ const Background = styled.div`
   left: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  /* backdrop-filter: blur(1px); */
+  backdrop-filter: blur(1px);
   height: 100%;
-  z-index: 10;
+  z-index: 1000;
 `;
 
 const StyledModal = styled.div`
