@@ -1,4 +1,6 @@
 import * as React from 'react'
+import * as _ from 'lodash'
+import { debounce } from 'lodash'
 import { PureComponent } from 'react'
 // import * as PropTypes from 'prop-types'
 import classNames from 'classnames'
@@ -52,6 +54,7 @@ class Button extends PureComponent<ButtonProps, any> {
   componentDidMount () {
     const btnDOM = this.buttonRef.current
     this.originalBtnStyle = btnDOM.getAttribute('style')
+    // console.log('componentDidMount', debounce)
   }
 
   handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
@@ -61,27 +64,26 @@ class Button extends PureComponent<ButtonProps, any> {
     onClick && onClick(event)
   }
 
-  onMouseEnter = () => {
+  setBtnUp = debounce((e: any) => {
     const { theme } = this.props
-    const btnDOM = this.buttonRef.current
     if (theme === 'primary-up') {
-      btnDOM.setAttribute('style', 'top: -3px;')
-      // console.log('onMouseEnter', btnDOM)
+      const btnDOM = this.buttonRef.current
+      const newStyle = this.originalBtnStyle +  'transform: translateY(-3px);'
+      btnDOM.setAttribute('style', newStyle)
     }
-  }
+  }, 50)
 
-  onMouseLeave = () => {
+  setBtnDown = debounce(() => {
     const { theme } = this.props
-    const btnDOM = this.buttonRef.current
     if (theme === 'primary-up') {
+      const btnDOM = this.buttonRef.current
       if (this.originalBtnStyle) {
         btnDOM.setAttribute('style', this.originalBtnStyle)
       } else {
         btnDOM.removeAttribute('style')
       }
-      // console.log('onMouseLeave', btnDOM)
     }
-  }
+  }, 50)
 
   render() {
     const { prefix, className, style, theme, size, block, disabled,
@@ -100,8 +102,10 @@ class Button extends PureComponent<ButtonProps, any> {
       type={htmlType}
       disabled={disabled}
       onClick={this.handleClick}
-      onMouseEnter={this.onMouseEnter}
-      onMouseLeave={this.onMouseLeave}>
+      onMouseEnter={this.setBtnUp}
+      onMouseLeave={this.setBtnDown}
+      onMouseDown={this.setBtnDown}
+      onMouseUp={this.setBtnUp}>
       {children}
     </StyledButton>)
   }

@@ -39,6 +39,7 @@ const StyledButton = styled.button`
   &.hmly-button-primary-up {
     background-color: ${primaryBtnColor};
     color: #ffffff;
+    transition: all .15s ease;
     &:hover {
       box-shadow: 0 6px 16px 0 rgba(255, 68, 68, 0.5);
       background-color: #ff6464;
