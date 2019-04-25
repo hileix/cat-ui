@@ -3,7 +3,7 @@ import { primaryBtnColor, yellowBtnColor } from '../../../styles/theme'
 
 const StyledButton = styled.button`
   display: inline-block;
-  border-radius: 2px;
+  border-radius: 4px;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
@@ -18,18 +18,15 @@ const StyledButton = styled.button`
     text-decoration: none;
   }
 
-  &.hmly-button-primary {
-    background-color: ${primaryBtnColor};
-    color: #ffffff;
-  }
-
   &.hmly-button-sm {
     padding: 5px 12px;
     font-size: 14px;
+    font-weight: normal;
   }
   &.hmly-button-md {
     padding: 9px 24px;
     font-size: 14px;
+    font-weight: 600;
   }
   &.hmly-button-lg {
     padding: 12px 36px;
@@ -40,6 +37,10 @@ const StyledButton = styled.button`
   &.hmly-button-primary {
     background-color: ${primaryBtnColor};
     color: #ffffff;
+    &:hover {
+      box-shadow: 0 6px 16px 0 rgba(255, 68, 68, 0.5);
+      background-color: #ff6464;
+    }
   }
   &.hmly-button-yellow {
     background-color: ${yellowBtnColor};
