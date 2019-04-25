@@ -12,6 +12,7 @@ const StyledButton = styled.button`
   outline: 0;
   border: 1px solid transparent;
   position: relative;
+  transition: all .15s ease;
 
   &:active {
     outline: none;
@@ -39,10 +40,13 @@ const StyledButton = styled.button`
   &.hmly-button-primary-up {
     background-color: ${primaryBtnColor};
     color: #ffffff;
-    transition: all .15s ease;
+    &:hover {
+      background-color: #ff6464;
+    }
+  }
+  &.hmly-button-primary-up {
     &:hover {
       box-shadow: 0 6px 16px 0 rgba(255, 68, 68, 0.5);
-      background-color: #ff6464;
     }
   }
   &.hmly-button-yellow {
@@ -58,9 +62,16 @@ const StyledButton = styled.button`
     background-color: #ffffff;
     color: ${primaryBtnColor};
     border: 1px solid ${primaryBtnColor};
+    &:hover {
+      background-color: #ff4444;
+      color: #ffffff;
+    }
   }
   &.hmly-button-borderless {
-    color: ${primaryBtnColor};
+    color: #9b9b9b;
+    &:hover {
+      color: #4a4a4a;
+    }
   }
 
   &.hmly-button-block {

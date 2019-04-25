@@ -53,7 +53,7 @@ class Button extends PureComponent<ButtonProps, any> {
 
   componentDidMount () {
     const btnDOM = this.buttonRef.current
-    this.originalBtnStyle = btnDOM.getAttribute('style')
+    this.originalBtnStyle = btnDOM.getAttribute('style') ? btnDOM.getAttribute('style') : ''
     // console.log('componentDidMount', debounce)
   }
 
@@ -68,7 +68,7 @@ class Button extends PureComponent<ButtonProps, any> {
     const { theme } = this.props
     if (theme === 'primary-up') {
       const btnDOM = this.buttonRef.current
-      const newStyle = this.originalBtnStyle +  'transform: translateY(-3px);'
+      const newStyle = this.originalBtnStyle + 'transform: translateY(-3px);'
       btnDOM.setAttribute('style', newStyle)
     }
   }, 50)
