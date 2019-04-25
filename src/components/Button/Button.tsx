@@ -62,8 +62,8 @@ class Button extends PureComponent<ButtonProps, any> {
       className={classes}
       style={style}
       type={htmlType}
-      onClick={this.handleClick}
-      {...others}>
+      disabled={disabled}
+      onClick={this.handleClick}>
       {children}
     </StyledButton>)
   }

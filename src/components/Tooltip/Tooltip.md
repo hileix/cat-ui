@@ -1,7 +1,7 @@
 Example
 
 ```jsx
-<div className='top-box'>
+<div className='tooltip-box'>
   <Tooltip placement='topLeft' title={<div>Add</div>}>
     <div className='item top-left'>top-left</div>
   </Tooltip>
@@ -15,13 +15,12 @@ Example
 
 <style>
   {`
-    .top-box,
-    .bottom-box {
+    .tooltip-box {
       width: 900px;
       margin: 60px auto;
       text-align: center;
     }
-    .item {
+    .tooltip-box .item {
       display: inline-block;
       font-size: 0.875rem;
       transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
@@ -38,7 +37,7 @@ Example
       cursor: pointer;
       margin: 0 5%;
     }
-    .item:hover {
+    .tooltip-box .item:hover {
       text-decoration: none;
       background-color: rgba(0, 0, 0, 0.08);
     }

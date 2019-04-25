@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Component } from 'react'
 import classNames from 'classnames'
-import { StyledDragger } from './styled'
+import { StyledDragger, StyledDraggerItem } from './styled'
 
 export interface DraggerProps {
   /** 类名 */
@@ -107,14 +107,14 @@ class Dragger extends Component<DraggerProps, any> {
         {React.Children.map(childrenNode, (element, index) => {
           const itemClasses = classNames('hmly-dragger-item')
           return (
-            <div
+            <StyledDraggerItem
               draggable
               data-order={index + 1}
               onDragStart={self.dragStart}
               onDragEnd={self.dragEnd}
               className={itemClasses}>
               { element }
-            </div>
+            </StyledDraggerItem>
           )
         })}
       </StyledDragger>

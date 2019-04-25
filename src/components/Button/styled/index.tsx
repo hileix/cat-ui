@@ -65,10 +65,15 @@ const StyledButton = styled.button`
   }
 
   &.hmly-button-disabled {
-    background-color: #a6a6a6;
-    color: #ffffff;
+    background-color: #eeeeee;
+    color: #bcbcbc;
     cursor: not-allowed;
     border: 1px solid transparent;
+    &:hover {
+      background-color: #eeeeee;
+      color: #bcbcbc;
+      box-shadow: none;
+    }
   }
 `;
 
