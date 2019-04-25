@@ -37,10 +37,15 @@ class Example extends React.Component {
       <div className='footer'>
         <Button 
           onClick={() => this.toggleDialog2(false)}
-          theme='white-primary'>Cancel</Button>
+          size='md'
+          theme='borderless'>
+          Cancel
+        </Button>
         <Button 
-          onClick={() => this.toggleDialog2(false)}
-          theme='white-cyan' >Submit</Button>
+          size='md'
+          onClick={() => this.toggleDialog2(false)}>
+          Submit
+        </Button>
       </div>
     )
 
