@@ -57,6 +57,10 @@ const StyledButton = styled.button`
     background-color: #ffffff;
     color: #9b9b9b;
     border: 1px solid rgba(83, 118, 130, 0.8);
+    &:hover {
+      background-color: rgba(83, 118, 130, 0.8);
+      color: #ffffff;
+    }
   }
   &.hmly-button-white-cyan {
     background-color: #ffffff;

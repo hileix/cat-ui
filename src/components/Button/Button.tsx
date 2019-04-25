@@ -59,7 +59,6 @@ class Button extends PureComponent<ButtonProps, any> {
 
   handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
     const { disabled, onClick } = this.props
-    console.log('Button:handleClick: disabled', disabled)
     if (disabled) return
     onClick && onClick(event)
   }
@@ -74,6 +73,16 @@ class Button extends PureComponent<ButtonProps, any> {
   }, 50)
 
   setBtnDown = debounce(() => {
+    const { theme } = this.props
+    if (theme === 'primary-up') {
+      const btnDOM = this.buttonRef.current
+      const downStyle = 'background-color: #ff4444;box-shadow: 0 4px 12px 0 rgba(255, 68, 68, 0.5);'
+      const newStyle = this.originalBtnStyle + downStyle
+      btnDOM.setAttribute('style', newStyle)
+    }
+  }, 50)
+
+  onMouseLeave = debounce(() => {
     const { theme } = this.props
     if (theme === 'primary-up') {
       const btnDOM = this.buttonRef.current
@@ -103,7 +112,7 @@ class Button extends PureComponent<ButtonProps, any> {
       disabled={disabled}
       onClick={this.handleClick}
       onMouseEnter={this.setBtnUp}
-      onMouseLeave={this.setBtnDown}
+      onMouseLeave={this.onMouseLeave}
       onMouseDown={this.setBtnDown}
       onMouseUp={this.setBtnUp}>
       {children}
