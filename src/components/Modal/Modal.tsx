@@ -110,11 +110,13 @@ class Modal extends PureComponent<ModalProps, any> {
     } else {
       Modal.pools[this.mid] = 0
       if (Modal.pools.indexOf(1) === -1) {
+        // 背景层不可滑动
         if (Modal.originalBodyStyle) {
           nodeBody.setAttribute('style', Modal.originalBodyStyle)
         } else {
           nodeBody.removeAttribute('style')
         }
+        // 背景层模糊
         // if (Modal.originalFirstDivStyle) {
         //   nodeFirstDiv.setAttribute('style', Modal.originalFirstDivStyle)
         // } else {
@@ -124,7 +126,7 @@ class Modal extends PureComponent<ModalProps, any> {
     }
   }
 
-  toRenderFooter = () => {
+  renderFooter = () => {
     const { footer, okText, cancelText, align } = this.props
     if (footer) {
       return footer
@@ -149,7 +151,7 @@ class Modal extends PureComponent<ModalProps, any> {
       [`${prefix}-modal-${size}`]: size,
       [`${prefix}-modal-${align}`]: align,
     }, className)
-    const modalFooter = this.toRenderFooter()
+    const modalFooter = this.renderFooter()
 
     return (<Portal visible={visible}>
       <ModalBox>
