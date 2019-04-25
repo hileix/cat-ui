@@ -11,6 +11,7 @@ const StyledButton = styled.button`
   cursor: pointer;
   outline: 0;
   border: 1px solid transparent;
+  position: relative;
 
   &:active {
     outline: none;
@@ -34,7 +35,8 @@ const StyledButton = styled.button`
     font-weight: bold;
   }
 
-  &.hmly-button-primary {
+  &.hmly-button-primary,
+  &.hmly-button-primary-up {
     background-color: ${primaryBtnColor};
     color: #ffffff;
     &:hover {

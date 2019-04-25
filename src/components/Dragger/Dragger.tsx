@@ -32,7 +32,6 @@ class Dragger extends Component<DraggerProps, any> {
 
   constructor (props: DraggerProps) {
     super(props)
-
     this.state = {
       childrenNode: []
     }
@@ -76,8 +75,8 @@ class Dragger extends Component<DraggerProps, any> {
 
     // 返回拖拽的DOM
     let _draggedEleIndex = _childrenNode.indexOf(draggedNode)
-    let draggerDom = this.draggerRef.current
-    let _draggedEle = draggerDom.querySelector(`:nth-child(${_draggedEleIndex + 1})`)
+    let draggerDOM = this.draggerRef.current
+    let _draggedEle = draggerDOM.querySelector(`:nth-child(${_draggedEleIndex + 1})`)
 
     // 返回排序后的id
     let sortedIds: Array<any> = []

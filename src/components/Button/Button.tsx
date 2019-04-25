@@ -12,7 +12,7 @@ export interface ButtonProps {
   /** 样式 */
   style?: object;
   /** 主题 */
-  theme?: 'primary' | 'yellow' | 'white-primary' | 'white-cyan' | 'borderless';
+  theme?: 'primary' | 'primary-up' | 'yellow' | 'white-primary' | 'white-cyan' | 'borderless';
   /** 是否禁用 */
   disabled?: boolean;
   /** 样式 */
@@ -33,6 +33,8 @@ export interface ButtonProps {
  * 按钮
  */
 class Button extends PureComponent<ButtonProps, any> {
+  private buttonRef: any;
+  private originalBtnStyle: string = '';
   static defaultProps = {
     prefix: 'hmly',
     htmlType: 'button',
@@ -41,11 +43,44 @@ class Button extends PureComponent<ButtonProps, any> {
     disabled: false
   }
 
+  constructor (props: ButtonProps) {
+    super(props)
+    this.state = {}
+    this.buttonRef = React.createRef()
+  }
+
+  componentDidMount () {
+    const btnDOM = this.buttonRef.current
+    this.originalBtnStyle = btnDOM.getAttribute('style')
+  }
+
   handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
     const { disabled, onClick } = this.props
     console.log('Button:handleClick: disabled', disabled)
     if (disabled) return
     onClick && onClick(event)
+  }
+
+  onMouseEnter = () => {
+    const { theme } = this.props
+    const btnDOM = this.buttonRef.current
+    if (theme === 'primary-up') {
+      btnDOM.setAttribute('style', 'top: -3px;')
+      // console.log('onMouseEnter', btnDOM)
+    }
+  }
+
+  onMouseLeave = () => {
+    const { theme } = this.props
+    const btnDOM = this.buttonRef.current
+    if (theme === 'primary-up') {
+      if (this.originalBtnStyle) {
+        btnDOM.setAttribute('style', this.originalBtnStyle)
+      } else {
+        btnDOM.removeAttribute('style')
+      }
+      // console.log('onMouseLeave', btnDOM)
+    }
   }
 
   render() {
@@ -59,11 +94,14 @@ class Button extends PureComponent<ButtonProps, any> {
     }, className)
 
     return (<StyledButton
+      ref={this.buttonRef}
       className={classes}
       style={style}
       type={htmlType}
       disabled={disabled}
-      onClick={this.handleClick}>
+      onClick={this.handleClick}
+      onMouseEnter={this.onMouseEnter}
+      onMouseLeave={this.onMouseLeave}>
       {children}
     </StyledButton>)
   }

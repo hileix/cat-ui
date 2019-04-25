@@ -19,9 +19,11 @@ class Example extends React.Component {
       <Button size='sm'>sm</Button>
       <Button size='md'>md</Button>
       <Button size='lg'>lg</Button>
+      <Button>default</Button>
 
       <h3>theme</h3>
       <Button theme='primary'>primary</Button>
+      <Button theme='primary-up'>primary-up</Button>
       <Button theme='yellow'>yellow</Button>
       <Button theme='white-primary'>white-primary</Button>
       <Button theme='white-cyan'>white-cyan</Button>
@@ -45,8 +47,8 @@ class Example extends React.Component {
 
       <style>
         {`
-          .button-box .hmly-button + .hmly-button {
-            margin-left: 20px;
+          .button-box .hmly-button {
+            margin: 0 20px 20px 20px;
           }
           .button-box .block-box {
             display: inline-block;
