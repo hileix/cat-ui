@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { primaryBtnColor } from '../../../styles/theme'
-import { EmptyInnerProps } from '../interface'
+import { EmptyInnerProps, StyledTableHeaderProps } from '../interface'
 
 const StyledTableBox = styled.div`
   margin: 0;
@@ -17,8 +17,15 @@ const StyledTableBox = styled.div`
   }
 `;
 
+const StyledTableHeader = styled.thead`
+  text-align: ${(props: StyledTableHeaderProps) => props.align};
+`;
+
 const StyledTr = styled.tr`
   text-align: left;
+  &:hover {
+    background-color: rgba(238, 238, 238, 0.3);
+  }
   &.hmly-table-row-center {
     text-align: center;
   }
@@ -42,7 +49,6 @@ const StyledTh = styled.th`
   border-bottom: 1px solid #e1e6f0;
   padding: 10px;
   line-height: 22px;
-  text-align: left;
   word-break: break-all;
   color: #9b9b9b;
   font-size: 12px;
@@ -83,4 +89,5 @@ const EmptyImage = styled.img`
   margin: 0 auto;
 `;
 
-export { StyledTableBox, StyledTr, StyledTd, StyledTh, EmptyInner, EmptyImage }
+export { StyledTableBox, StyledTableHeader, StyledTr, StyledTd, StyledTh,
+  EmptyInner, EmptyImage }

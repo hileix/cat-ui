@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Component } from 'react'
 import classNames from 'classnames'
-import { StyledTh } from './styled'
+import { StyledTh, StyledTableHeader } from './styled'
 import { ColumnProps } from './interface'
 
 export interface TableHeaderProps {
@@ -37,11 +37,11 @@ class TableHeader extends Component<TableHeaderProps, any> {
     const tds = this.toRenderTds()
 
     return (
-      <thead className='hmly-table-thead'>
+      <StyledTableHeader align={align}>
         <tr className={trClasses}>
           {tds}
         </tr>
-      </thead>
+      </StyledTableHeader>
     )
   }
 }
