@@ -14,22 +14,46 @@ export interface PopoverProps {
   style?: object;
   /** 弹层是否可见 */
   visible?: boolean;
+  /** 触发类型 */
+  mode: 'click' | 'hover';
 }
 
 /**
  * 弹层
  */
 class Popover extends Component<PopoverProps, any> {
+  private popoverRef: any;
   static Trigger: typeof PopoverTrigger;
   static Content: typeof PopoverContent;
-  private popoverRef: any;
+  static defaultProps = {
+    mode: 'click'
+  }
 
   constructor (props: PopoverProps) {
     super(props)
-    this.state = {}
+    this.state = {
+      visible: false
+    }
     this.popoverRef = React.createRef()
   }
 
+  static getDerivedStateFromProps (nextProps: PopoverProps) {
+    if ('visible' in nextProps) {
+      return {
+        visible: nextProps.visible
+      }
+    } else {
+      return null
+    }
+  }
+
+  componentDidMount () {
+    window.addEventListener('click', this.removePopover)
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener('click', this.removePopover)
+  }
 
   open = () => {
 
@@ -37,6 +61,23 @@ class Popover extends Component<PopoverProps, any> {
 
   close = () => {
 
+  }
+
+  toggleVisible = (value: boolean) => {
+    this.setState({ visible: value })
+  }
+
+  removePopover = (e: any) => {
+    const { visible } = this.state
+    const node = e.target
+    const triggerDOM = this.popoverRef.current
+
+    // // 如果点击的节点不在popup中或者有clickRemove属性
+    if (visible && triggerDOM.contains(node) === false) {
+      // this.togglePopup(false)
+      console.log('removePopover')
+      this.setState({ visible: false })
+    }
   }
 
   genTriggerContent = () => {
@@ -62,16 +103,22 @@ class Popover extends Component<PopoverProps, any> {
   }
 
   renderTrigger = (trigger: any) => {
+    const { mode } =  this.props
+    const { visible } = this.state
     return React.cloneElement(trigger, {
+      mode: mode,
       open: this.open,
       close: this.close,
+      toggleVisible: this.toggleVisible
     })
   }
 
   renderContent = (content: any) => {
-    const { visible } = this.props
+    const { mode } = this.props
+    const { visible } = this.state
     return React.cloneElement(content, {
       visible: visible,
+      mode: mode,
       open: this.open,
       close: this.close,
       triggerDOM: this.popoverRef.current
@@ -79,12 +126,13 @@ class Popover extends Component<PopoverProps, any> {
   }
 
   render() {
-    const { className, style, visible, children } = this.props
+    const { className, style, children } = this.props
+    const { visible } = this.state
     const classes = classNames('hmly-popover', className)
     const { trigger, content } = this.genTriggerContent()
     // const visible = this.getVisible()
 
-    console.log('Popover:render', visible, trigger, content)
+    console.log('Popover:render', visible)
 
     return (
       <StyledPopover

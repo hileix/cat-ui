@@ -16,6 +16,8 @@ export interface PopoverContentProps {
   visible?: boolean;
   /** triggerDOM */
   triggerDOM?: any;
+  /** 触发类型 */
+  mode: 'click' | 'hover';
 }
 
 const defaultPostion = {
@@ -42,7 +44,6 @@ class PopoverContent extends Component<PopoverContentProps, any> {
     }
     window.addEventListener('scroll', this.onWindowScroll)
     window.addEventListener('resize', this.onWindowResize)
-    window.addEventListener('click', this.removePopover)
   }
 
   componentDidUpdate(prevProps: PopoverContentProps) {
@@ -56,7 +57,6 @@ class PopoverContent extends Component<PopoverContentProps, any> {
   componentWillUnmount () {
     window.removeEventListener('scroll', this.onWindowScroll)
     window.removeEventListener('resize', this.onWindowResize)
-    window.removeEventListener('click', this.removePopover)
   }
 
   adjustPosition = () => {
@@ -77,17 +77,8 @@ class PopoverContent extends Component<PopoverContentProps, any> {
 
   }
 
-  removePopover = (e: any) => {
-    // let node = e.target
-
-    // // 如果点击的节点不在popup中或者有clickRemove属性
-    // if (triggerDOM.contains(node) === false) {
-    //   this.togglePopup(false)
-    // }
-  }
-
-  onWindowResize = throttle((evt: any, delta: any) => {
-    if (this.props.visible && (delta.deltaX !== 0 || delta.deltaY !== 0)) {
+  onWindowResize = throttle((evt: any) => {
+    if (this.props.visible) {
       this.adjustPosition()
     }
   }, 16)
@@ -99,7 +90,7 @@ class PopoverContent extends Component<PopoverContentProps, any> {
     const { className, style, visible, triggerDOM, children } = this.props
     const classes = classNames('hmly-popover', className)
     // console.log('PopoverContent:render', visible, triggerDOM)
-    console.log('PopoverContent:position', position)
+    console.log('PopoverContent:visible', visible)
 
     return (
       <Portal visible={visible}>
