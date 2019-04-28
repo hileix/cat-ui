@@ -62,7 +62,7 @@ class Example extends React.Component {
         </Popover.Content>
       </Popover>
 
-      <h3>外部visible1的Popover</h3>
+      <h3>外部visible的Popover</h3>
       <Popover 
         visible={visible1}
         onVisibleChange={this.onVisibleChange2}>
