@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { PureComponent } from 'react'
-import { StyledTabs, TabsNavBox, TabsNav, TabsNavLink, TabsContentBox, TabsContent } from './styled'
+import { StyledTabs, TabsNavBox, TabsNav, TabsNavLink, TabsContentBox,
+  TabsContent } from './styled'
 import TabPanel from './TabPanel'
 
 export interface TabsProps {
@@ -20,7 +21,7 @@ export interface TabsProps {
 class Tabs extends PureComponent<TabsProps, any> {
   static TabPanel: typeof TabPanel;
 
-  toRender = () => {
+  genNavsContents = () => {
     const { children } = this.props
     let navs: Object[] = []
     let contents: Object[] = []
@@ -83,7 +84,7 @@ class Tabs extends PureComponent<TabsProps, any> {
 
   render() {
     const { className, style } = this.props
-    const { navs, contents } = this.toRender()
+    const { navs, contents } = this.genNavsContents()
 
     return (
       <StyledTabs

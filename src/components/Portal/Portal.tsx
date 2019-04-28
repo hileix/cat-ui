@@ -24,7 +24,7 @@ export interface ProtalProps {
 }
 
 /**
- * 底层的弹出层组件，不含样式
+ * 传送门，底层的弹出层组件，不含样式
  */
 
 class Portal extends PureComponent<ProtalProps, any> {
