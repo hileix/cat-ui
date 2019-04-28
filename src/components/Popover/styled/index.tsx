@@ -17,4 +17,13 @@ const StyledPopoverContent = styled.div`
   color: red;
 `;
 
-export { StyledPopover, StyledPopoverTrigger, StyledPopoverContent }
+const StyledPopBox = styled.div`
+  border: 1px solid #e5e5e5;
+  padding: 10px;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 14px;
+`
+
+export { StyledPopover, StyledPopoverTrigger, StyledPopoverContent,
+  StyledPopBox }
