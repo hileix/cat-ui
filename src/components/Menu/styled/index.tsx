@@ -60,7 +60,7 @@ const SubMenuTitle = styled.div`
   }
   &.hmly-submenu-title-inline::after {
     position: absolute;
-    top: calc(50% - 10px);
+    top: calc(50% - 8px);
     right: 25px;
     height: 10px;
     width: 10px;
@@ -71,6 +71,7 @@ const SubMenuTitle = styled.div`
     border-bottom: 2px solid transparent;
     display: inline-block;
     transform: rotate(135deg);
+    box-sizing: border-box;
   }
   &.hmly-submenu-title-pop::after,
   &.hmly-submenu-title-replace::after {
@@ -86,6 +87,7 @@ const SubMenuTitle = styled.div`
     border-bottom: 2px solid transparent;
     display: inline-block;
     transform: rotate(45deg);
+    box-sizing: border-box;
   }
   &.hmly-submenu-title-inline.hmly-submenu-title-expand::after {
     transform: rotate(-45deg);
@@ -138,6 +140,7 @@ const BackToMenu = styled.div`
     border-bottom: 2px solid transparent;
     display: inline-block;
     transform: rotate(225deg);
+    box-sizing: border-box;
   }
 `
 
