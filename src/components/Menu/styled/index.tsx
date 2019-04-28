@@ -113,7 +113,36 @@ const PopSubMenu = styled.ul`
   background-color: #fff;
 `
 
+const BackToMenu = styled.div`
+  color: #4a4a4a;
+  width: 100%;
+  height: 40px;
+  padding: 0 22px 0 45px;
+  line-height: 40px;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  position: relative;
+  cursor: pointer;
+  &::after {
+    position: absolute;
+    top: calc(50% - 5px);
+    left: 25px;
+    height: 10px;
+    width: 10px;
+    content: "";
+    border-right: 2px solid #9B9B9B;
+    border-top: 2px solid #9B9B9B;
+    border-left: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    display: inline-block;
+    transform: rotate(225deg);
+  }
+`
+
 const StyledAnimateHeight = styled.div``;
 
 export { StyledMenu, StyledMenuItem, StyledSubMenu, SubMenuTitle,
-  InlineSubMenu, PopSubMenu, PopSubMenuBox, StyledAnimateHeight }
+  InlineSubMenu, PopSubMenu, PopSubMenuBox, StyledAnimateHeight,
+  BackToMenu }

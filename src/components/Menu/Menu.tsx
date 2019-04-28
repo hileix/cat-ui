@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Component, cloneElement } from 'react'
 import classNames from 'classnames'
-import { StyledMenu } from './styled'
+import { StyledMenu, BackToMenu } from './styled'
 import SubMenu from './SubMenu'
 import MenuItem from './MenuItem'
 
@@ -16,6 +16,8 @@ export interface MenuProps {
   activeKey?: string;
   /** 点击事件的回调 */
   onChange?: any;
+  /** 子元素 */
+  children?: any;
 }
 
 /**
@@ -29,20 +31,48 @@ class Menu extends Component<MenuProps, any> {
     mode: 'pop'
   }
 
+  constructor (props: MenuProps) {
+    super(props)
+    this.state = {
+      activeMenu: props.children,
+      activeHeader: null,
+      isSubMenu: false,
+    }
+  }
+
   onMenuChange = (id: any) => {
     // console.log('Menu:onMenuChange', id)
     const { onChange } = this.props
     onChange && onChange(id)
   }
 
+  // replace时，切换显示组件
+  onSwitchMenu = (menu: any, backHeader: any) => {
+    this.setState({
+      activeMenu: menu,
+      activeHeader: backHeader,
+      isSubMenu: true
+    })
+  }
+
+  onBackClick = () => {
+    const { children } = this.props
+    this.setState({
+      activeMenu: children,
+      activeHeader: null,
+      isSubMenu: false
+    })
+  }
+
   render() {
     const self = this
-    const { className, style, mode, activeKey, children} = this.props
+    const { activeMenu, activeHeader, isSubMenu } = this.state
+    const { className, style, mode, activeKey, children } = this.props
     const classes = classNames('hmly-menu', {
       [`hmly-menu-${mode}`]: mode
     }, className)
 
-    const items = React.Children.map(children, (element: any, index) => {
+    const items = React.Children.map(activeMenu, (element: any, index) => {
       if (!element) { return element }
       // console.log('element', element, element.key)
       return cloneElement(element, {
@@ -50,14 +80,20 @@ class Menu extends Component<MenuProps, any> {
         id: element.key,
         mode: mode,
         checked: activeKey === element.key,
-        onMenuChange: self.onMenuChange
+        onMenuChange: self.onMenuChange,
+        onSwitchMenu: self.onSwitchMenu
       })
     })
+    const hasPrevMenu = activeMenu !== children
+    // console.log('activeMenu', activeMenu === children)
 
     return (
       <StyledMenu
         className={classes}
         style={style}>
+        {isSubMenu && <BackToMenu onClick={this.onBackClick}>
+          {activeHeader}
+        </BackToMenu>}
         {items}
       </StyledMenu>
     )

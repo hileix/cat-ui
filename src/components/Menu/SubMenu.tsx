@@ -23,6 +23,10 @@ export interface SubMenuProps {
   onClick?: any;
   /** Menu改变事件的回调 */
   onMenuChange?: any;
+  /** Menu改变事件的回调 */
+  onSwitchMenu?: any;
+  /** 返回上一级菜单的header */
+  backHeader?: any;
 }
 
 /**
@@ -48,11 +52,14 @@ class SubMenu extends Component<SubMenuProps, any> {
 
   onSubMenuTitleClick = () => {
     const { isInlineExpand } = this.state
-    const { mode } = this.props
+    const { mode, onSwitchMenu, backHeader, children } = this.props
     if (mode === 'inline') {
       this.setState({ isInlineExpand: !isInlineExpand })
     }
-    console.log('onSubMenuTitleClick', mode)
+    if (mode === 'replace') {
+      onSwitchMenu && onSwitchMenu(children, backHeader)
+    }
+    console.log('onSubMenuTitleClick', mode, children)
   }
 
   onMouseEnter = () => {

@@ -150,9 +150,16 @@ class Example extends React.Component {
           className='menu7'>
           <Menu.Item key='dashboard' className='item7'>Dashboard</Menu.Item>
           <Menu.SubMenu
+            backHeader='Shows'
             title={<span>Income Center</span>}>
             <Menu.Item key='income1' className='item7'>Income 1</Menu.Item>
             <Menu.Item key='income2' className='item7'>Income 2</Menu.Item>
+             <Menu.SubMenu
+              backHeader='Incomes'
+              title={<span>Center</span>}>
+              <Menu.Item key='center1' className='item7'>Center 1</Menu.Item>
+              <Menu.Item key='center2' className='item7'>Center 2</Menu.Item>
+            </Menu.SubMenu>
           </Menu.SubMenu>
           <Menu.Item key='episodes' className='item7'>Episodes</Menu.Item>
           <Menu.Item key='setting' className='item7'>Show Settings</Menu.Item>
