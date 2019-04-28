@@ -24,7 +24,7 @@ class TableHeader extends Component<TableHeaderProps, any> {
     return columns.map((elem: any) => {
       // 渲染字符串或函数返回的DOM
       const result = typeof elem.render === 'function' ? elem.render() : elem.render
-      const filterIcon = isEmpty(elem.filters) ? null : (<Icon type='up' />)
+      const filterIcon = isEmpty(elem.filters) ? null : (<Icon type='filter' />)
       // console.log('filters', elem.filters)
 
       return (

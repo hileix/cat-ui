@@ -106,6 +106,10 @@ class Example extends React.Component {
         <Icon type='process' />
         process
       </div>
+      <div className='icon-item'>
+        <Icon type='filter' />
+        filter
+      </div>
 
       <style>
         {`
