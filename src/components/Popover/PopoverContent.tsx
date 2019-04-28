@@ -4,7 +4,6 @@ import classNames from 'classnames'
 import throttle from 'lodash-es/throttle'
 import { StyledPopoverContent, StyledPopBox } from './styled'
 import Portal from '../Portal'
-import invisiblePlacement from '../../utils/invisible'
 // import WindowEventHandler from '../../utils/WindowEventHandler'
 // import WindowResizeHandler from '../../utils/WindowResizeHandler'
 
