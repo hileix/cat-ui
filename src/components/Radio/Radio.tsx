@@ -32,7 +32,6 @@ class Radio extends Component<RadioProps, any> {
   }
 
   handleClick = (e: any) => {
-    console.log('handleClick')
     const { disabled, onChange } = this.props
     if (disabled) { return }
 

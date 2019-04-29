@@ -32,6 +32,10 @@ class Table extends Component<TableProps, any> {
     emptyText: ''
   }
 
+  onFilterSelect = (value: any) => {
+    console.log('onFilterSelect', value)
+  }
+
   render() {
     const { className, style, columns, dataSource, align, empty, emptyText } = this.props
     const classes = classNames('hmly-table', className)
@@ -43,7 +47,8 @@ class Table extends Component<TableProps, any> {
         <table className='table'>
           <TableHeader
             columns={columns}
-            align={align} />
+            align={align}
+            onFilterSelect={this.onFilterSelect} />
           <TableBody
             columns={columns}
             align={align}

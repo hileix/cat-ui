@@ -75,7 +75,7 @@ class Popover extends Component<PopoverProps, any> {
     // // 如果点击的节点不在popup中或者有clickRemove属性
     if (visible && triggerDOM.contains(node) === false) {
       // this.togglePopup(false)
-      console.log('removePopover')
+      // console.log('removePopover')
       this.setState({ visible: false })
     }
   }

@@ -14,6 +14,8 @@ export interface TableHeaderProps {
   columns: Array<ColumnProps>;
   /** 对齐 */
   align?: string;
+  /** onFilterSelect */
+  onFilterSelect?: any;
 }
 
 /**
@@ -21,8 +23,9 @@ export interface TableHeaderProps {
  */
 class TableHeader extends Component<TableHeaderProps, any> {
 
-  onFilterClick = () => {
-    console.log('onFilterClick')
+  onFilterClick = (value: any) => {
+    const { onFilterSelect } = this.props
+    onFilterSelect && onFilterSelect(value)
   }
 
   renderTds = () => {
@@ -40,13 +43,15 @@ class TableHeader extends Component<TableHeaderProps, any> {
             {!isEmpty(elem.filters) &&
               <Popover mode='click'>
                 <Popover.Trigger>
-                  <StyledFilter onClick={self.onFilterClick} type='filter' />
+                  <StyledFilter type='filter' />
                 </Popover.Trigger>
                 <Popover.Content>
                   <div className='pop-content-menu'>
                     <Menu mode='pop' className='menu1'>
                       {elem.filters.map((item: any) => {
-                        return (<Menu.Item key={item.value}>
+                        return (<Menu.Item
+                          key={item.value}
+                          onClick={() => {self.onFilterClick(item.value)}}>
                             <Radio value={item.value}>{item.text}</Radio>
                           </Menu.Item>)
                       })}
