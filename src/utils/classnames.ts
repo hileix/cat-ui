@@ -3,11 +3,13 @@ const memoize = require('lodash/memoize')
 
 interface initParams {
   prefix: string;
-  theme: string;
+  theme?: string;
 }
 
-export function classnames ({prefix, theme}: initParams): string {
-  return memoize(function (suffix: string, className: string): string {
+export function classnames (params: initParams): Function {
+  const { prefix, theme } = params
+
+  return memoize(function (suffix: string, className?: string): string {
     return classNames({
       [`${prefix}`]: !!prefix && !suffix,
       [`${prefix}-${theme}`]: !!prefix && !suffix && !!theme,
