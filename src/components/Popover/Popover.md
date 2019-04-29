@@ -2,6 +2,7 @@ Example
 
 ```jsx
 import Button from '../Button';
+import Icon from '../Icon';
 import Menu from '../Menu';
 
 class Example extends React.Component {
@@ -129,6 +130,31 @@ class Example extends React.Component {
               <Menu.Item key='episodes' className='item6'>Episodes</Menu.Item>
               <Menu.Item key='setting' className='item6'>Show Settings</Menu.Item>
               <Menu.Item key='analytics' className='item6'>Analytics</Menu.Item>
+            </Menu>
+          </div>
+        </Popover.Content>
+      </Popover>
+
+      <h3>省略号Icon的Menu Popover</h3>
+      <Popover mode='click'>
+        <Popover.Trigger>
+          <Icon type='more' style={{cursor: 'pointer'}} />
+        </Popover.Trigger>
+        <Popover.Content>
+          <div className='pop-content-menu'>
+            <Menu mode='pop' className='menu2'>
+              <Menu.Item>
+                <Icon type='edit' style={{marginRight: '10px'}} />Edit
+              </Menu.Item>
+              <Menu.Item>
+                <Icon type='share1' style={{marginRight: '10px'}} />Share
+              </Menu.Item>
+              <Menu.Item>
+                <Icon type='download' style={{marginRight: '10px'}} />Download
+              </Menu.Item>
+              <Menu.Item>
+                <Icon type='delete' style={{marginRight: '10px'}} />Delete
+              </Menu.Item>
             </Menu>
           </div>
         </Popover.Content>
