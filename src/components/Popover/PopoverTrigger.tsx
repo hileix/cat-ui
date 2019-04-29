@@ -11,9 +11,9 @@ export interface PopoverTriggerProps {
   /** 弹层是否可见 */
   visible?: boolean;
   /** 触发类型 */
-  mode: 'click' | 'hover';
+  mode?: 'click' | 'hover';
   /** toggleVisible */
-  toggleVisible: any;
+  toggleVisible?: any;
 }
 
 /**

@@ -17,9 +17,9 @@ export interface PopoverContentProps {
   /** triggerDOM */
   triggerDOM?: any;
   /** 触发类型 */
-  mode: 'click' | 'hover';
+  mode?: 'click' | 'hover';
   /** toggleVisible */
-  toggleVisible: any;
+  toggleVisible?: any;
 }
 
 const defaultPostion = {

@@ -17,7 +17,7 @@ export interface TableTrProps {
  * TableTr
  */
 class TableTr extends Component<TableTrProps, any> {
-  toRenderTds = () => {
+  renderTds = () => {
     const { columns, data } = this.props
     return columns.map((elem: any) => {
       const id = elem.id
@@ -32,7 +32,7 @@ class TableTr extends Component<TableTrProps, any> {
   render() {
     const { align } = this.props
     const classes = classNames('hmly-table-row', `hmly-table-row-${align}`)
-    const tds = this.toRenderTds()
+    const tds = this.renderTds()
 
     return (
       <StyledTr className={classes}>

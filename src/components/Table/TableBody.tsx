@@ -27,7 +27,7 @@ export interface TableBodyProps {
  */
 class TableBody extends Component<TableBodyProps, any> {
 
-  toRenderTrs = () => {
+  renderTrs = () => {
     const { columns, dataSource, align } = this.props
     return dataSource.map((elem, index) => {
       return (
@@ -43,7 +43,7 @@ class TableBody extends Component<TableBodyProps, any> {
   render() {
     const { columns, dataSource, align, empty, emptyText } = this.props
     const classes = classNames('hmly-table-row', `hmly-table-row-${align}`)
-    const trs = this.toRenderTrs()
+    const trs = this.renderTrs()
     const colSpan = columns.length
 
     return (

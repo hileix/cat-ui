@@ -111,7 +111,6 @@ class Example extends React.Component {
       <Table
         columns={columns2}
         dataSource={dataSource}
-        align='center'
         emptyText='空的模板' />
 
       <h3>align=center的Table</h3>

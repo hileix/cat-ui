@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { primaryBtnColor } from '../../../styles/theme'
 import { EmptyInnerProps, StyledTableHeaderProps } from '../interface'
+import Icon from '../../Icon'
 
 const StyledTableBox = styled.div`
   margin: 0;
@@ -89,5 +90,11 @@ const EmptyImage = styled.img`
   margin: 0 auto;
 `;
 
+const StyledFilter = styled(Icon)`
+  cursor: pointer;
+  margin-left: 5px;
+  vertical-align: middle;
+`;
+
 export { StyledTableBox, StyledTableHeader, StyledTr, StyledTd, StyledTh,
-  EmptyInner, EmptyImage }
+  EmptyInner, EmptyImage, StyledFilter }
