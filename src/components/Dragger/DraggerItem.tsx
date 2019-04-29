@@ -22,16 +22,38 @@ export interface DraggerItemProps {
  * DraggerItem
  */
 class DraggerItem extends PureComponent<DraggerItemProps, any> {
+  constructor (props: DraggerItemProps) {
+    super(props)
+    this.state = {
+      dragging: false
+    }
+  }
+
+  handleDragStart = (e: any) => {
+    const { onDragStart } = this.props
+    onDragStart && onDragStart(e)
+    this.setState({ dragging: true })
+  }
+
+  handleDragEnd = (e: any) => {
+    const { onDragEnd } = this.props
+    onDragEnd && onDragEnd(e)
+    this.setState({ dragging: false })
+  }
+
   render() {
-    const { className, style, order, onDragStart, onDragEnd, children } = this.props
-    const classes = classNames('hmly-dragger-item', className)
+    const { dragging } = this.state
+    const { className, style, order, children } = this.props
+    const classes = classNames('hmly-dragger-item', {
+      'hmly-dragger-item-dragging': dragging
+    }, className)
 
     return (
       <StyledDraggerItem
         draggable
         data-order={order}
-        onDragStart={onDragStart}
-        onDragEnd={onDragEnd}
+        onDragStart={this.handleDragStart}
+        onDragEnd={this.handleDragEnd}
         className={classes}
         style={style}>
         { children }
