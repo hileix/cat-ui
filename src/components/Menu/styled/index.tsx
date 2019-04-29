@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { primaryBtnColor } from '../../../styles/theme'
+import { pageTurning } from '../../../styles/animation'
 import { InlineSubMenuProps, PopSubMenuBoxProps } from '../interface'
 
 const StyledMenu = styled.ul`
@@ -109,6 +110,8 @@ const PopSubMenuBox = styled.div`
   width: ${(props: PopSubMenuBoxProps) => props.width};
   border: 1px solid #eee;
   box-sizing: border-box;
+  transform-origin: left center;
+  animation: .15s ${pageTurning} ease-in;
 `
 
 const PopSubMenu = styled.ul`

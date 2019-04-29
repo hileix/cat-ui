@@ -11,7 +11,6 @@ const StyledPopoverTrigger = styled.div``;
 const StyledPopoverContent = styled.div`
   position: relative;
   border: 1px solid #e5e5e5;
-  /* padding: 10px; */
   border-radius: 4px;
   font-size: 14px;
 `;
