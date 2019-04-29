@@ -2,6 +2,7 @@ Example
 
 ```jsx
 import Button from '../Button';
+import Menu from '../Menu';
 
 class Example extends React.Component {
   constructor (props) {
@@ -13,6 +14,7 @@ class Example extends React.Component {
     this.showPopover1 = this.showPopover1.bind(this)
     this.showPopover2 = this.showPopover2.bind(this)
     this.closePopover2 = this.closePopover2.bind(this)
+    this.onItem1Click = this.onItem1Click.bind(this)
   }
 
   onVisibleChange2 () {
@@ -30,6 +32,10 @@ class Example extends React.Component {
 
   closePopover2 () {
     this.setState({ visible1: false })
+  }
+
+  onItem1Click () {
+    console.log('onItem1Click')
   }
 
   render () {
@@ -52,7 +58,7 @@ class Example extends React.Component {
        <h3>mode='hover'的Popover</h3>
       <Popover mode='hover'>
         <Popover.Trigger>
-          <Button onClick={this.showPopover1}>点击打开</Button>
+          <Button onClick={this.showPopover1}>hover打开</Button>
         </Popover.Trigger>
         <Popover.Content>
           <div className='pop-content'>
@@ -78,10 +84,63 @@ class Example extends React.Component {
         </Popover.Content>
       </Popover>
 
+      <h3>mode='click'的Menu Popover</h3>
+      <Popover mode='click'>
+        <Popover.Trigger>
+          <Button onClick={this.showPopover1}>点击打开</Button>
+        </Popover.Trigger>
+        <Popover.Content>
+          <div className='pop-content-menu'>
+            <Menu mode='pop' className='menu1'>
+              <Menu.Item onClick={this.onItem1Click}>Edit</Menu.Item>
+              <Menu.Item onClick={this.onItem1Click}>Share</Menu.Item>
+              <Menu.Item onClick={this.onItem1Click}>Download</Menu.Item>
+              <Menu.Item onClick={this.onItem1Click}>Delete</Menu.Item>
+            </Menu>
+          </div>
+        </Popover.Content>
+      </Popover>
+
+      <h3>mode='hover'的Menu Popover</h3>
+      <Popover mode='hover'>
+        <Popover.Trigger>
+          <Button onClick={this.showPopover1}>hover打开</Button>
+        </Popover.Trigger>
+        <Popover.Content>
+          <div className='pop-content-menu'>
+            <Menu 
+              mode='pop' 
+              className='menu6'>
+              <Menu.Item key='dashboard' className='item6'>Dashboard</Menu.Item>
+              <Menu.SubMenu
+                title={<span>Income Center</span>}>
+                <Menu.Item key='income1' className='item6'>Income 1</Menu.Item>
+                <Menu.Item key='income2' className='item6'>Income 2</Menu.Item>
+                <Menu.SubMenu
+                  title={<span>Center</span>}>
+                  <Menu.Item key='center1' className='item6'>Center 1</Menu.Item>
+                  <Menu.Item key='center2' className='item6'>Center 2</Menu.Item>
+                  <Menu.Item key='center3' className='item6'>Center 3</Menu.Item>
+                  <Menu.Item key='center4' className='item6'>Center 4</Menu.Item>
+                </Menu.SubMenu>
+                <Menu.Item key='income3' className='item6'>Income 3</Menu.Item>
+                <Menu.Item key='income4' className='item6'>Income 4</Menu.Item>
+              </Menu.SubMenu>
+              <Menu.Item key='episodes' className='item6'>Episodes</Menu.Item>
+              <Menu.Item key='setting' className='item6'>Show Settings</Menu.Item>
+              <Menu.Item key='analytics' className='item6'>Analytics</Menu.Item>
+            </Menu>
+          </div>
+        </Popover.Content>
+      </Popover>
+
       <style>
         {`
           .popover-box button + button {
             margin-left: 20px;
+          }
+          .pop-content {
+            padding: 10px;
           }
         `}
       </style>

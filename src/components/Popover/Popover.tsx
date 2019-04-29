@@ -121,7 +121,8 @@ class Popover extends Component<PopoverProps, any> {
       mode: mode,
       open: this.open,
       close: this.close,
-      triggerDOM: this.popoverRef.current
+      triggerDOM: this.popoverRef.current,
+      toggleVisible: this.toggleVisible
     })
   }
 
@@ -132,7 +133,7 @@ class Popover extends Component<PopoverProps, any> {
     const { trigger, content } = this.genTriggerContent()
     // const visible = this.getVisible()
 
-    console.log('Popover:render', visible)
+    // console.log('Popover:render', visible)
 
     return (
       <StyledPopover

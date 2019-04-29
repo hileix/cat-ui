@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { primaryBtnColor } from '../../../styles/theme'
-import { InlineSubMenuProps } from '../interface'
+import { InlineSubMenuProps, PopSubMenuBoxProps } from '../interface'
 
 const StyledMenu = styled.ul`
   list-style: none;
@@ -22,6 +22,7 @@ const StyledMenuItem = styled.li`
   box-sizing: border-box;
   position: relative;
   cursor: pointer;
+  white-space:nowrap;
   &:hover {
     background-color: #f3f3f3;
     color: #4a4a4a;
@@ -64,7 +65,7 @@ const SubMenuTitle = styled.div`
     right: 25px;
     height: 10px;
     width: 10px;
-    content: "";
+    content: " ";
     border-right: 2px solid #9B9B9B;
     border-top: 2px solid #9B9B9B;
     border-left: 2px solid transparent;
@@ -80,7 +81,7 @@ const SubMenuTitle = styled.div`
     right: 10px;
     height: 10px;
     width: 10px;
-    content: "";
+    content: " ";
     border-right: 2px solid #9B9B9B;
     border-top: 2px solid #9B9B9B;
     border-left: 2px solid transparent;
@@ -103,16 +104,18 @@ const InlineSubMenu = styled(StyledMenu)`
 const PopSubMenuBox = styled.div`
   position: absolute;
   top: 0;
-  right: -200px;
+  right: ${(props: PopSubMenuBoxProps) => props.right};
   z-index: 999;
-  width: 200px;
+  width: ${(props: PopSubMenuBoxProps) => props.width};
   border: 1px solid #eee;
+  box-sizing: border-box;
 `
 
 const PopSubMenu = styled.ul`
   list-style: none;
   padding: 0;
   background-color: #fff;
+  box-sizing: border-box;
 `
 
 const BackToMenu = styled.div`
@@ -133,7 +136,7 @@ const BackToMenu = styled.div`
     left: 25px;
     height: 10px;
     width: 10px;
-    content: "";
+    content: " ";
     border-right: 2px solid #9B9B9B;
     border-top: 2px solid #9B9B9B;
     border-left: 2px solid transparent;

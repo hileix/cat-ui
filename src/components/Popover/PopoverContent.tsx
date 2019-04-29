@@ -18,6 +18,8 @@ export interface PopoverContentProps {
   triggerDOM?: any;
   /** 触发类型 */
   mode: 'click' | 'hover';
+  /** toggleVisible */
+  toggleVisible: any;
 }
 
 const defaultPostion = {
@@ -62,7 +64,7 @@ class PopoverContent extends Component<PopoverContentProps, any> {
   adjustPosition = () => {
     const { visible, triggerDOM } = this.props
     const { position } =  this.state
-    if (!visible) { return }
+    if (!visible || !triggerDOM) { return }
 
     const nodeRect = triggerDOM.getBoundingClientRect()
     const { left, top, width, height } = nodeRect
@@ -85,16 +87,33 @@ class PopoverContent extends Component<PopoverContentProps, any> {
 
   onWindowScroll = throttle(this.adjustPosition, 16)
 
+  handleMouseEnter = () => {
+    const { mode, toggleVisible } = this.props
+    if (mode === 'hover') {
+      toggleVisible(true)
+    }
+  }
+
+  handleMouseLeave = () => {
+    const { mode, toggleVisible } = this.props
+    if (mode === 'hover') {
+      toggleVisible(false)
+    }
+  }
+
   render() {
     const { position } = this.state
     const { className, style, visible, triggerDOM, children } = this.props
     const classes = classNames('hmly-popover', className)
     // console.log('PopoverContent:render', visible, triggerDOM)
-    console.log('PopoverContent:visible', visible)
+    // console.log('PopoverContent:visible', visible)
 
     return (
       <Portal visible={visible}>
-        <StyledPopBox style={position}>
+        <StyledPopBox
+          style={position}
+          onMouseEnter={this.handleMouseEnter}
+          onMouseLeave={this.handleMouseLeave}>
           <StyledPopoverContent
             className={classes}
             style={style}>

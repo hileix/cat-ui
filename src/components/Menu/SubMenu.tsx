@@ -35,6 +35,9 @@ export interface SubMenuProps {
 class SubMenu extends Component<SubMenuProps, any> {
   private enterTimer: number
   private leaveTimer: number
+  private popSubMenuRef: any
+  private popSubMenuWidth: number | string = 'auto'
+  private popSubMenuRight: number | string = 'auto'
 
   constructor (props: SubMenuProps) {
     super(props)
@@ -42,6 +45,7 @@ class SubMenu extends Component<SubMenuProps, any> {
       isPopVisible: false,
       isInlineExpand: false
     }
+    this.popSubMenuRef = React.createRef()
   }
 
   onSubMenuClick = (e: any) => {
@@ -59,7 +63,6 @@ class SubMenu extends Component<SubMenuProps, any> {
     if (mode === 'replace') {
       onSwitchMenu && onSwitchMenu(children, backHeader)
     }
-    console.log('onSubMenuTitleClick', mode, children)
   }
 
   onMouseEnter = () => {
@@ -125,10 +128,20 @@ class SubMenu extends Component<SubMenuProps, any> {
     }
     // 扩展弹出
     if (mode === 'pop') {
+      const popDOM = this.popSubMenuRef.current
+      const popRect = popDOM && popDOM.getBoundingClientRect()
+      const { width = 'auto' } = popRect || {}
+      if (this.popSubMenuWidth === 'auto' && width !== 'auto') {
+        this.popSubMenuWidth = width + 'px'
+        this.popSubMenuRight = '-' + this.popSubMenuWidth
+      }
       subMenuItems = (
         <React.Fragment>
           {subMenuTitle}
-          {isPopVisible && <PopSubMenuBox>
+          {isPopVisible && <PopSubMenuBox
+            ref={this.popSubMenuRef}
+            right={this.popSubMenuRight}
+            width={this.popSubMenuWidth}>
             <PopSubMenu>
               {items}
             </PopSubMenu>
