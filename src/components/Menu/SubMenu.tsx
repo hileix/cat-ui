@@ -52,7 +52,6 @@ class SubMenu extends Component<SubMenuProps, any> {
   componentWillUnmount () {
     clearTimeout(this.leaveTimer)
     clearTimeout(this.enterTimer)
-    this.setState = noop
   }
 
   onSubMenuClick = (e: any) => {
