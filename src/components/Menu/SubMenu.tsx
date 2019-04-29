@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Component, cloneElement } from 'react'
 import classNames from 'classnames'
+import noop from 'lodash-es/noop'
 import AnimateHeight from './AnimateHeight'
 import { StyledSubMenu, SubMenuTitle, InlineSubMenu, PopSubMenuBox, PopSubMenu } from './styled'
 
@@ -46,6 +47,10 @@ class SubMenu extends Component<SubMenuProps, any> {
       isInlineExpand: false
     }
     this.popSubMenuRef = React.createRef()
+  }
+
+  componentWillUnmount () {
+    this.setState = noop
   }
 
   onSubMenuClick = (e: any) => {

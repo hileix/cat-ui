@@ -1,6 +1,5 @@
 import * as React from 'react'
-import * as _ from 'lodash'
-import { debounce } from 'lodash'
+import debounce from 'lodash-es/debounce'
 import { PureComponent } from 'react'
 // import * as PropTypes from 'prop-types'
 import classNames from 'classnames'
