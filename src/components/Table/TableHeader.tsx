@@ -31,7 +31,7 @@ class TableHeader extends Component<TableHeaderProps, any> {
     return columns.map((elem: any) => {
       // 渲染字符串或函数返回的DOM
       const result = typeof elem.render === 'function' ? elem.render() : elem.render
-      console.log('filters', elem.filters)
+      // console.log('filters', elem.filters)
 
       return (
         <StyledTh key={elem.id} className='table-th'>
