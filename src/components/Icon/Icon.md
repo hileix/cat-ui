@@ -122,6 +122,14 @@ class Example extends React.Component {
         <Icon type='drag2' />
         drag2
       </div>
+      <div className='icon-item'>
+        <Icon type='prev' />
+        prev
+      </div>
+      <div className='icon-item'>
+        <Icon type='next' />
+        next
+      </div>
 
       <style>
         {`
