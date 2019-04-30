@@ -33,6 +33,8 @@ class TableHeader extends Component<TableHeaderProps, any> {
     const self = this
     const { columns, filterKeys } = this.props
     const { id = '', value = '' } = filterKeys
+    const isAllFilter = value === ''
+
     return columns.map((elem: any) => {
       // 渲染字符串或函数返回的DOM
       const elementRender = typeof elem.render === 'function' ? elem.render() : elem.render
@@ -59,6 +61,13 @@ class TableHeader extends Component<TableHeaderProps, any> {
                             </Radio>
                           </Menu.Item>)
                       })}
+                      <Menu.Item
+                        key='all'
+                        onClick={() => {self.onFilterClick(elem.id, '')}}>
+                          <Radio checked={isAllFilter} value='all'>
+                            全部
+                          </Radio>
+                        </Menu.Item>
                     </Menu>
                   </div>
                 </Popover.Content>

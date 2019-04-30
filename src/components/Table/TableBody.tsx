@@ -40,10 +40,11 @@ class TableBody extends Component<TableBodyProps, any> {
     const begin = (current - 1) * pageSize
     const currentPageData = dataSource.slice(begin, begin + pageSize)
     const showDataSource = hasPagination ? currentPageData : dataSource
+    console.log('TableBody:renderTrs', id, value)
 
     return showDataSource.map((elem, index) => {
       // 筛选dataSource，当前值等于filterKeys或者未选择filterKeys
-      if (elem[id] === value || id === '') {
+      if (elem[id] === value || value === '') {
         return (
           <TableTr
             columns={columns}
