@@ -96,5 +96,10 @@ const StyledFilter = styled(Icon)`
   vertical-align: middle;
 `;
 
+const StyledPaginationBox = styled.div`
+  margin: 30px auto;
+  text-align: center;
+`;
+
 export { StyledTableBox, StyledTableHeader, StyledTr, StyledTd, StyledTh,
-  EmptyInner, EmptyImage, StyledFilter }
+  EmptyInner, EmptyImage, StyledFilter, StyledPaginationBox }

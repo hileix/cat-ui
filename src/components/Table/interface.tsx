@@ -24,3 +24,16 @@ export interface FilterKeysProps {
   id?: string | number;
   value?: string | number;
 }
+
+export interface PaginationProps {
+  /** 当前页数 */
+  current?: number;
+  /** 数据总数 */
+  total?: number;
+  /** 每页条数 */
+  pageSize?: number;
+  /** 分页大小改变时候的回调函数 */
+  onPageSizeChange?: (current: number) => void;
+  /** 每页条数 */
+  onChange?: (page: number, pageSize?: number) => void;
+}

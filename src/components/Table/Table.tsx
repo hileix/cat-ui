@@ -1,10 +1,12 @@
 import * as React from 'react'
 import { Component } from 'react'
 import classNames from 'classnames'
-import { StyledTableBox } from './styled'
-import { ColumnProps } from './interface'
+import * as isEmpty from 'lodash/isEmpty'
+import { StyledTableBox, StyledPaginationBox } from './styled'
+import { ColumnProps, PaginationProps } from './interface'
 import TableHeader from './TableHeader'
 import TableBody from './TableBody'
+import Pagination from '../Pagination'
 
 export interface TableProps {
   /** 类名 */
@@ -17,6 +19,8 @@ export interface TableProps {
   dataSource?: Array<any>;
   /** 对齐 */
   align?: 'left' | 'center';
+  /** 分页参数 */
+  pagination: PaginationProps;
   /** 自定义的空模板 */
   empty?: React.ReactNode;
   /** 空模板的文案 */
@@ -29,7 +33,8 @@ export interface TableProps {
 class Table extends Component<TableProps, any> {
   static defaultProps = {
     align: 'left',
-    emptyText: ''
+    emptyText: '',
+    pagination: {}
   }
 
   constructor (props: TableProps) {
@@ -47,8 +52,12 @@ class Table extends Component<TableProps, any> {
 
   render() {
     const { filterKeys } = this.state
-    const { className, style, columns, dataSource, align, empty, emptyText } = this.props
+    const { className, style, columns, dataSource, align, pagination,
+      empty, emptyText } = this.props
+    const { current, total, pageSize, onChange } = pagination
     const classes = classNames('hmly-table', className)
+    const hasPagination = !isEmpty(pagination)
+    // console.log('Table:render', pageSize)
 
     return (
       <StyledTableBox
@@ -65,9 +74,17 @@ class Table extends Component<TableProps, any> {
             columns={columns}
             dataSource={dataSource}
             filterKeys={filterKeys}
+            pagination={pagination}
             empty={empty}
             emptyText={emptyText} />
         </table>
+        {hasPagination && <StyledPaginationBox>
+          <Pagination
+            current={current}
+            total={total}
+            pageSize={pageSize}
+            onChange={onChange} />
+        </StyledPaginationBox>}
       </StyledTableBox>
     )
   }

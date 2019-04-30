@@ -4,10 +4,19 @@ Example
 class Example extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {}
+    this.state = {
+      currentPage: 2
+    }
+    this.onPageChange = this.onPageChange.bind(this)
+  }
+
+  onPageChange (page) {
+    console.log('Example:onPageChange', page)
+    this.setState({ currentPage: page })
   }
 
   render () {
+    const { currentPage } = this.state
     const columns1 = [{
       id: 'ranking',
       render: <span>ranking1111</span>
@@ -65,6 +74,11 @@ class Example extends React.Component {
         platforms: 'name3',
         totalListen: 'number3',
         rates: 'rate3'
+      }, {
+        ranking: 'ranking3',
+        platforms: 'name4',
+        totalListen: 'number4',
+        rates: 'rate3'
       }
     ]
 
@@ -72,6 +86,13 @@ class Example extends React.Component {
       <h4>title</h4>
       <p>empty empty empty text</p>
     </div>)
+
+    const pagination1 = {
+      current: currentPage,
+      total: dataSource.length,
+      pageSize: 2,
+      onChange: this.onPageChange
+    }
 
     return (<div className='table-box'>
       <h3>基础Table</h3>
@@ -93,6 +114,13 @@ class Example extends React.Component {
         columns={columns2}
         dataSource={dataSource}
         emptyText='空的模板' />
+
+      <h3>有分页的Table</h3>
+      <Table
+        columns={columns2}
+        dataSource={dataSource}
+        emptyText='空的模板'
+        pagination={pagination1} />
 
       <h3>align=center的Table</h3>
       <Table
