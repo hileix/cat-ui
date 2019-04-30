@@ -24,7 +24,8 @@ const StyledModal = styled.div`
   transform: translate(-50%, -50%);
   text-align: initial;
   background-color: #fff;
-  border-radius: 4px;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px 0 rgba(49, 54, 70, 0.2);
   padding: 30px;
   font-size: 14px;
   white-space: normal;
