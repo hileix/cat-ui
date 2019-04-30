@@ -39,7 +39,6 @@ class Pagination extends Component<PaginationProps, any> {
   onItemClick = (value: number) => {
     const { onChange } = this.props
     onChange && onChange(value)
-    // console.log('Pagination:onItemClick', value)
   }
 
   onPrevClick = () => {
