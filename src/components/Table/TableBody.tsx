@@ -20,6 +20,8 @@ export interface TableBodyProps {
   empty?: React.ReactNode;
   /** 空模板的文案 */
   emptyText?: string;
+  /** filterKeys */
+  filterKeys: any;
 }
 
 /**
@@ -28,15 +30,19 @@ export interface TableBodyProps {
 class TableBody extends Component<TableBodyProps, any> {
 
   renderTrs = () => {
-    const { columns, dataSource, align } = this.props
+    const { columns, dataSource, align, filterKeys } = this.props
+    const { id = '', value = '' } = filterKeys
     return dataSource.map((elem, index) => {
-      return (
-        <TableTr
-          columns={columns}
-          data={elem}
-          align={align}
-          key={index} />
-      )
+      // 筛选dataSource
+      if (elem[id] === value || id === '') {
+        return (
+          <TableTr
+            columns={columns}
+            data={elem}
+            align={align}
+            key={index} />
+        )
+      }
     })
   }
 

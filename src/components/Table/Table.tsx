@@ -32,11 +32,21 @@ class Table extends Component<TableProps, any> {
     emptyText: ''
   }
 
-  onFilterSelect = (value: any) => {
-    console.log('onFilterSelect', value)
+  constructor (props: TableProps) {
+    super(props)
+    this.state = {
+      filterKeys: {}
+    }
+  }
+
+  onFilterSelect = (id: any, value: any) => {
+    // console.log('onFilterSelect', id, value)
+    const _filterKeys = { id: id, value: value }
+    this.setState({ filterKeys: _filterKeys })
   }
 
   render() {
+    const { filterKeys } = this.state
     const { className, style, columns, dataSource, align, empty, emptyText } = this.props
     const classes = classNames('hmly-table', className)
 
@@ -46,13 +56,15 @@ class Table extends Component<TableProps, any> {
         style={style}>
         <table className='table'>
           <TableHeader
-            columns={columns}
             align={align}
+            columns={columns}
+            filterKeys={filterKeys}
             onFilterSelect={this.onFilterSelect} />
           <TableBody
-            columns={columns}
             align={align}
+            columns={columns}
             dataSource={dataSource}
+            filterKeys={filterKeys}
             empty={empty}
             emptyText={emptyText} />
         </table>

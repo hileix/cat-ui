@@ -46,44 +46,25 @@ class Example extends React.Component {
 
     const dataSource = [
       {
-        ranking: () => {
-          return (<span>ranking1</span>)
-        },
-        platforms: () => {
-          return (<span>name1</span>)
-        },
-        totalListen: () => {
-          return (<span>number1</span>)
-        },
-        rates: () => {
-          return (<span>rate1</span>)
-        }
+        ranking: 'ranking1',
+        platforms: 'name1',
+        totalListen: 'number1',
+        rates: 'rate1'
       }, {
-        ranking: () => {
-          return (<span>ranking2</span>)
-        },
-        platforms: () => {
-          return (<span>name2</span>)
-        },
-        totalListen: () => {
-          return (<span>number2</span>)
-        },
-        rates: () => {
-          return (<span>rate2</span>)
-        }
+        ranking: 'ranking1',
+        platforms: 'name1',
+        totalListen: 'number1',
+        rates: 'rate1'
       }, {
-        ranking: () => {
-          return (<span>ranking3</span>)
-        },
-        platforms: () => {
-          return (<span>name3</span>)
-        },
-        totalListen: () => {
-          return (<span>number3</span>)
-        },
-        rates: () => {
-          return (<span>rate3</span>)
-        }
+        ranking: 'ranking2',
+        platforms: 'name2',
+        totalListen: 'number2',
+        rates: 'rate2'
+      }, {
+        ranking: 'ranking3',
+        platforms: 'name3',
+        totalListen: 'number3',
+        rates: 'rate3'
       }
     ]
 

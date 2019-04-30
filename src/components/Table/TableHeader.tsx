@@ -16,6 +16,8 @@ export interface TableHeaderProps {
   align?: string;
   /** onFilterSelect */
   onFilterSelect?: any;
+  /** filterKeys */
+  filterKeys: any;
 }
 
 /**
@@ -23,14 +25,15 @@ export interface TableHeaderProps {
  */
 class TableHeader extends Component<TableHeaderProps, any> {
 
-  onFilterClick = (value: any) => {
+  onFilterClick = (id: any, value: any) => {
     const { onFilterSelect } = this.props
-    onFilterSelect && onFilterSelect(value)
+    onFilterSelect && onFilterSelect(id, value)
   }
 
   renderTds = () => {
     const self = this
-    const { columns } = this.props
+    const { columns, filterKeys } = this.props
+    const { id = '', value = '' } = filterKeys
     return columns.map((elem: any) => {
       // 渲染字符串或函数返回的DOM
       const result = typeof elem.render === 'function' ? elem.render() : elem.render
@@ -51,8 +54,8 @@ class TableHeader extends Component<TableHeaderProps, any> {
                       {elem.filters.map((item: any) => {
                         return (<Menu.Item
                           key={item.value}
-                          onClick={() => {self.onFilterClick(item.value)}}>
-                            <Radio value={item.value}>{item.text}</Radio>
+                          onClick={() => {self.onFilterClick(elem.id, item.value)}}>
+                            <Radio checked={item.value === value} value={item.value}>{item.text}</Radio>
                           </Menu.Item>)
                       })}
                     </Menu>
