@@ -33,12 +33,13 @@ class TableHeader extends Component<TableHeaderProps, any> {
     const self = this
     const { columns, filterKeys } = this.props
     const { id = '', value = '' } = filterKeys
-    const isAllFilter = value === ''
+    const isAllSelect = value === ''
 
     return columns.map((elem: any) => {
       // 渲染字符串或函数返回的DOM
       const elementRender = typeof elem.render === 'function' ? elem.render() : elem.render
       const hasFilters = !isEmpty(elem.filters)
+
       return (
         <StyledTh key={elem.id} className='table-th'>
           <span className='th-inner'>
@@ -64,7 +65,7 @@ class TableHeader extends Component<TableHeaderProps, any> {
                       <Menu.Item
                         key='all'
                         onClick={() => {self.onFilterClick(elem.id, '')}}>
-                          <Radio checked={isAllFilter} value='all'>
+                          <Radio checked={isAllSelect} value='all'>
                             全部
                           </Radio>
                         </Menu.Item>

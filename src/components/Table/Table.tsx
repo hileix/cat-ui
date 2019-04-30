@@ -103,7 +103,6 @@ class Table extends Component<TableProps, any> {
         currentPageData: filterDataSource
       })
     }
-    // console.log('filterDataSource', filterDataSource)
   }
 
   // 分页点击之后的回调函数
@@ -116,9 +115,8 @@ class Table extends Component<TableProps, any> {
 
   render() {
     const { filterKeys, currentPageData, pageTotal } = this.state
-    const { className, style, columns, dataSource, align, pagination,
-      empty, emptyText } = this.props
-    const { current, pageSize, onChange } = pagination
+    const { className, style, columns, align, pagination, empty, emptyText } = this.props
+    const { current, pageSize } = pagination
     const classes = classNames('hmly-table', className)
     // console.log('Table:render', pageSize)
 
