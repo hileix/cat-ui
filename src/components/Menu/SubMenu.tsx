@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Component, cloneElement } from 'react'
 import classNames from 'classnames'
-import noop from 'lodash-es/noop'
+import * as noop from 'lodash/noop'
 import AnimateHeight from './AnimateHeight'
 import { StyledSubMenu, SubMenuTitle, InlineSubMenu, PopSubMenuBox, PopSubMenu } from './styled'
 

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Component } from 'react'
 import classNames from 'classnames'
-import throttle from 'lodash-es/throttle'
+import * as throttle from 'lodash/throttle'
 import { StyledPopoverContent, StyledPopBox } from './styled'
 import Portal from '../Portal'
 // import WindowEventHandler from '../../utils/WindowEventHandler'

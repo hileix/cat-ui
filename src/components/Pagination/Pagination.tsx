@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Component } from 'react'
 import classNames from 'classnames'
 import memoizeOne from 'memoize-one'
-import isNumber from 'lodash-es/isNumber'
+import * as isNumber from 'lodash/isNumber'
 import { StyledPagination, StyledIcon } from './styled'
 import PageItem from './PageItem'
 

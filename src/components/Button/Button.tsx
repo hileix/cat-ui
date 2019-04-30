@@ -1,5 +1,5 @@
 import * as React from 'react'
-import debounce from 'lodash-es/debounce'
+import * as debounce from 'lodash/debounce'
 import { PureComponent } from 'react'
 // import * as PropTypes from 'prop-types'
 import classNames from 'classnames'
