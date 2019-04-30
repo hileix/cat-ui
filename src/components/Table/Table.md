@@ -33,6 +33,7 @@ class Example extends React.Component {
 
     const columns2 = [{
       id: 'ranking',
+      filterAllText: 'All',
       filters: [{
         text: 'ranking1',
         value: 'ranking1',

@@ -66,7 +66,7 @@ class TableHeader extends Component<TableHeaderProps, any> {
                         key='all'
                         onClick={() => {self.onFilterClick(elem.id, '')}}>
                           <Radio checked={isAllSelect} value='all'>
-                            全部
+                            {elem.filterAllText}
                           </Radio>
                         </Menu.Item>
                     </Menu>
