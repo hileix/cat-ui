@@ -61,22 +61,27 @@ class Example extends React.Component {
         rates: 'rate1'
       }, {
         ranking: 'ranking1',
-        platforms: 'name1',
+        platforms: 'name2',
         totalListen: 'number1',
         rates: 'rate1'
       }, {
         ranking: 'ranking2',
-        platforms: 'name2',
+        platforms: 'name3',
         totalListen: 'number2',
         rates: 'rate2'
       }, {
         ranking: 'ranking3',
-        platforms: 'name3',
+        platforms: 'name4',
         totalListen: 'number3',
         rates: 'rate3'
       }, {
         ranking: 'ranking3',
-        platforms: 'name4',
+        platforms: 'name5',
+        totalListen: 'number4',
+        rates: 'rate3'
+      }, {
+        ranking: 'ranking1',
+        platforms: 'name6',
         totalListen: 'number4',
         rates: 'rate3'
       }

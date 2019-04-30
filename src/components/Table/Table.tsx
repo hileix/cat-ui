@@ -14,9 +14,9 @@ export interface TableProps {
   /** 样式 */
   style?: object;
   /** 每一列需要的所有数据 */
-  columns?: Array<ColumnProps>;
-  /** 每一行需要展示的数据	 */
-  dataSource?: Array<any>;
+  columns: Array<ColumnProps>;
+  /** 每一行需要展示的数据 */
+  dataSource: Array<any>;
   /** 对齐 */
   align?: 'left' | 'center';
   /** 分页参数 */
@@ -40,23 +40,86 @@ class Table extends Component<TableProps, any> {
   constructor (props: TableProps) {
     super(props)
     this.state = {
-      filterKeys: {}
+      filterKeys: {},
+      pageTotal: 0,
+      filterDataSource: props.dataSource,
+      currentPageData: props.dataSource
     }
   }
 
+  componentDidMount () {
+    if (this.hasPagination()) {
+      const { pagination } = this.props
+      const { total = 0 } = pagination
+      this.setState({ pageTotal: total })
+      this.pagingDataSource()
+    }
+  }
+
+  hasPagination = () => {
+    return !isEmpty(this.props.pagination)
+  }
+
+  // 对数据进行分页
+  pagingDataSource = (currentArg?: number) => {
+    const { pagination } = this.props
+    const { filterDataSource } = this.state
+    const { current, pageSize } = pagination
+    // 优先采用传入的current
+    const currentPage = currentArg || current
+    const begin = (currentPage - 1) * pageSize
+    // 分页后当前页面显示的数据
+    const currentPageData = filterDataSource.slice(begin, begin + pageSize)
+    if (this.hasPagination()) {
+      this.setState({ currentPageData: currentPageData })
+    }
+  }
+
+  // 选择了筛选栏之后的回调函数
   onFilterSelect = (id: any, value: any) => {
-    // console.log('onFilterSelect', id, value)
+    const { dataSource } = this.props
     const _filterKeys = { id: id, value: value }
-    this.setState({ filterKeys: _filterKeys })
+    // 筛选dataSource，当前值等于filterKeys或者未选择filterKeys
+    const filterDataSource = dataSource.filter((elem, index) => {
+      if (elem[id] === value || value === '') {
+        return elem
+      }
+    })
+    // 是否需要分页
+    if (this.hasPagination()) {
+      // 选择筛选栏时，应该跳至第一页
+      this.onPaginationChange(1)
+      this.setState({
+        filterKeys: _filterKeys,
+        filterDataSource: filterDataSource,
+        pageTotal: filterDataSource.length
+      }, () => {
+        this.pagingDataSource()
+      })
+    } else {
+      this.setState({
+        filterKeys: _filterKeys,
+        filterDataSource: filterDataSource,
+        currentPageData: filterDataSource
+      })
+    }
+    // console.log('filterDataSource', filterDataSource)
+  }
+
+  // 分页点击之后的回调函数
+  onPaginationChange = (page: number) => {
+    const { pagination } = this.props
+    const { onChange } = pagination
+    onChange && onChange(page)
+    this.pagingDataSource(page)
   }
 
   render() {
-    const { filterKeys } = this.state
+    const { filterKeys, currentPageData, pageTotal } = this.state
     const { className, style, columns, dataSource, align, pagination,
       empty, emptyText } = this.props
-    const { current, total, pageSize, onChange } = pagination
+    const { current, pageSize, onChange } = pagination
     const classes = classNames('hmly-table', className)
-    const hasPagination = !isEmpty(pagination)
     // console.log('Table:render', pageSize)
 
     return (
@@ -72,18 +135,16 @@ class Table extends Component<TableProps, any> {
           <TableBody
             align={align}
             columns={columns}
-            dataSource={dataSource}
-            filterKeys={filterKeys}
-            pagination={pagination}
+            currentPageData={currentPageData}
             empty={empty}
             emptyText={emptyText} />
         </table>
-        {hasPagination && <StyledPaginationBox>
+        {this.hasPagination() && <StyledPaginationBox>
           <Pagination
             current={current}
-            total={total}
+            total={pageTotal}
             pageSize={pageSize}
-            onChange={onChange} />
+            onChange={this.onPaginationChange} />
         </StyledPaginationBox>}
       </StyledTableBox>
     )

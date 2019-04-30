@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { PureComponent } from 'react'
 import * as ReactDOM from 'react-dom'
-import * as memoizeOne from 'memoize-one'
+import memoizeOne from 'memoize-one'
 import PortalContent from './PortalContent'
 
 export interface ProtalProps {
