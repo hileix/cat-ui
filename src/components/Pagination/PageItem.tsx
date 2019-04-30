@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Component } from 'react'
+import { PureComponent } from 'react'
 import classNames from 'classnames'
 import { StyledPageItem } from './styled'
 
@@ -11,7 +11,7 @@ export interface PageItemProps {
   /** active */
   active?: boolean;
   /** value */
-  value?: number;
+  value?: any;
   /** onItemClick */
   onItemClick?: any;
 }
@@ -19,14 +19,14 @@ export interface PageItemProps {
 /**
  * PageItem
  */
-class PageItem extends Component<PageItemProps, any> {
+class PageItem extends PureComponent<PageItemProps, any> {
   handleClick = () => {
     const { onItemClick, value } = this.props
     onItemClick && onItemClick(value)
   }
 
   render() {
-    const { className, style, active, children } = this.props
+    const { className, style, active, value, children } = this.props
     const classes = classNames('hmly-page-item', className)
 
     return (
