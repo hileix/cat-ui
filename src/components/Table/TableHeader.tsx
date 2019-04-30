@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Component } from 'react'
 import classNames from 'classnames'
 import { StyledTh, StyledTableHeader, StyledFilter } from './styled'
-import { ColumnProps } from './interface'
+import { ColumnProps, FilterKeysProps } from './interface'
 import * as _ from 'lodash'
 import { isEmpty } from 'lodash'
 import Popover from '../Popover'
@@ -16,8 +16,8 @@ export interface TableHeaderProps {
   align?: string;
   /** onFilterSelect */
   onFilterSelect?: any;
-  /** filterKeys */
-  filterKeys: any;
+  /** 筛选的keys */
+  filterKeys: FilterKeysProps;
 }
 
 /**
@@ -36,14 +36,13 @@ class TableHeader extends Component<TableHeaderProps, any> {
     const { id = '', value = '' } = filterKeys
     return columns.map((elem: any) => {
       // 渲染字符串或函数返回的DOM
-      const result = typeof elem.render === 'function' ? elem.render() : elem.render
-      // console.log('filters', elem.filters)
-
+      const elementRender = typeof elem.render === 'function' ? elem.render() : elem.render
+      const hasFilters = !isEmpty(elem.filters)
       return (
         <StyledTh key={elem.id} className='table-th'>
           <span className='th-inner'>
-            {result}
-            {!isEmpty(elem.filters) &&
+            {elementRender}
+            {hasFilters &&
               <Popover mode='click'>
                 <Popover.Trigger>
                   <StyledFilter type='filter' />
@@ -52,10 +51,13 @@ class TableHeader extends Component<TableHeaderProps, any> {
                   <div className='pop-content-menu'>
                     <Menu mode='pop' className='menu1'>
                       {elem.filters.map((item: any) => {
+                        const filterChecked = item.value === value
                         return (<Menu.Item
                           key={item.value}
                           onClick={() => {self.onFilterClick(elem.id, item.value)}}>
-                            <Radio checked={item.value === value} value={item.value}>{item.text}</Radio>
+                            <Radio checked={filterChecked} value={item.value}>
+                              {item.text}
+                            </Radio>
                           </Menu.Item>)
                       })}
                     </Menu>

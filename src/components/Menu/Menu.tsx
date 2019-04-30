@@ -84,7 +84,6 @@ class Menu extends Component<MenuProps, any> {
         onSwitchMenu: self.onSwitchMenu
       })
     })
-    const hasPrevMenu = activeMenu !== children
     // console.log('activeMenu', activeMenu === children)
 
     return (

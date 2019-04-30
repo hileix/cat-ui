@@ -19,3 +19,8 @@ export interface EmptyInnerProps {
 export interface StyledTableHeaderProps {
   align?: string;
 }
+
+export interface FilterKeysProps {
+  id?: string | number;
+  value?: string | number;
+}

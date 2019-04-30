@@ -3,7 +3,7 @@ import { Component } from 'react'
 import classNames from 'classnames'
 import * as memoizeOne from 'memoize-one'
 import { StyledTableBox } from './styled'
-import { ColumnProps } from './interface'
+import { ColumnProps, FilterKeysProps } from './interface'
 import TableTr from './TableTr'
 import Empty from './Empty'
 
@@ -20,8 +20,8 @@ export interface TableBodyProps {
   empty?: React.ReactNode;
   /** 空模板的文案 */
   emptyText?: string;
-  /** filterKeys */
-  filterKeys: any;
+  /** 筛选的keys */
+  filterKeys: FilterKeysProps;
 }
 
 /**
@@ -33,7 +33,7 @@ class TableBody extends Component<TableBodyProps, any> {
     const { columns, dataSource, align, filterKeys } = this.props
     const { id = '', value = '' } = filterKeys
     return dataSource.map((elem, index) => {
-      // 筛选dataSource
+      // 筛选dataSource，当前值等于filterKeys或者未选择filterKeys
       if (elem[id] === value || id === '') {
         return (
           <TableTr
