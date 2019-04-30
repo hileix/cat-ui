@@ -110,6 +110,18 @@ class Example extends React.Component {
         <Icon type='filter' />
         filter
       </div>
+      <div className='icon-item'>
+        <Icon type='enter' />
+        enter
+      </div>
+      <div className='icon-item'>
+        <Icon type='drag1' />
+        drag1
+      </div>
+      <div className='icon-item'>
+        <Icon type='drag2' />
+        drag2
+      </div>
 
       <style>
         {`
