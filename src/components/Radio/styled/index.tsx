@@ -42,7 +42,7 @@ const RadioInner = styled.span`
   border-radius: 50%;
   transition: all 0.1s;
   box-sizing: border-box;
-  background-color: #f5f5f5;
+  background-color: #fff;
   border-color: ${(props: RadioInnerProps) => props.disabled ? '#979797': primaryRadioColor};
   border-width: 1px;
   border-style: solid;
