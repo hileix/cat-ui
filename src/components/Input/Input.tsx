@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as PropTypes from 'prop-types'
 import { pick } from 'lodash'
 import classnames from '../../utils/classnames'
-import { StyledInput } from './styled'
+import { StyledLabel, StyledInput } from './styled'
 
 export type TinputType = 'line' | 'line-password' | 'text' | 'text-password' | 'textarea'
 
@@ -97,7 +97,7 @@ class Input extends React.PureComponent<IinputProps, IinputStates> {
     })
 
     return (
-      <label className={classes('label', className)}>
+      <StyledLabel className={classes('label', className)}>
         <StyledInput
           className={classes('', className)}
           onFocus={this.handleFocus.bind(this)}
@@ -107,7 +107,7 @@ class Input extends React.PureComponent<IinputProps, IinputStates> {
           ref={forwardedRef}
           {...props}
         />
-      </label>
+      </StyledLabel>
     )
   }
 }
