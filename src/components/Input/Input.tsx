@@ -20,7 +20,6 @@ export interface IinputProps {
   placeholder?: string;
   showClear?: boolean;
   showEye?: boolean;
-  forwardedRef?: React.RefObject<HTMLInputElement>;
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => any;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => any;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => any;
@@ -89,7 +88,7 @@ class Input extends React.PureComponent<IinputProps, IinputStates> {
   }
 
   public render () {
-    const { forwardedRef, theme, className } = this.props
+    const { theme, className } = this.props
     const props = pick(this.props, Object.keys(domProps)) as IdomProps
     const classes = classnames({
       prefix: 'hmly-input',
@@ -104,7 +103,6 @@ class Input extends React.PureComponent<IinputProps, IinputStates> {
           onBlur={this.handleBlur.bind(this)}
           onChange={this.handleChange.bind(this)}
           onKeyDown={this.handleKeyDown.bind(this)}
-          ref={forwardedRef}
           {...props}
         />
       </StyledLabel>
@@ -112,6 +110,4 @@ class Input extends React.PureComponent<IinputProps, IinputStates> {
   }
 }
 
-const ForwardInput = () => React.forwardRef((props: IinputProps, ref: React.RefObject<HTMLInputElement>) => <Input {...props} forwardedRef={ref} />)
-
-export default ForwardInput
+export default Input
