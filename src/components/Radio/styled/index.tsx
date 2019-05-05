@@ -29,7 +29,7 @@ const StyledRadio = styled.span`
   white-space: nowrap;
   cursor: pointer;
   line-height: 1;
-  vertical-align: text-top;
+  vertical-align: middle;
 `
 
 const RadioInner = styled.span`
@@ -88,7 +88,7 @@ const RadioSlot = styled.span`
   line-height: 24px;
   cursor: pointer;
   box-sizing: border-box;
-  vertical-align: text-top;
+  vertical-align: middle;
   color: ${(props: RadioSlotProps) => props.disabled ? 'rgba(0,0,0,.25)': ''};
   cursor: ${(props: RadioSlotProps) => props.disabled ? 'not-allowed': 'pointer'};
 `
