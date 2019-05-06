@@ -6,7 +6,7 @@ module.exports = {
     "^.+\\.tsx?$": "ts-jest",
     ".+\\.(css|styl|less|sass|scss)$": "jest-transform-css"
   },
-  "testRegex": "src\/components\/.*\/__tests__\/.*\.test\.tsx?$",
+  "testRegex": "src\/components\/.*\/__test__\/.*\.test\.tsx?$",
   "moduleNameMapper": {
     "\\.(css|scss)$": "identity-obj-proxy"
   },
