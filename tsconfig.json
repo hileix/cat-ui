@@ -12,5 +12,12 @@
     "outDir": "lib",
     "jsx": "react"
   },
-  "exclude": ["node_modules", "lib", "styleguide"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "lib",
+    "styleguide"
+  ]
 }
