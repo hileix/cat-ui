@@ -16,6 +16,8 @@ export interface PopoverProps {
   visible?: boolean;
   /** 触发类型 */
   mode: 'click' | 'hover';
+  /** 打开或关闭的回调函数 */
+  onChange?: any;
 }
 
 /**
@@ -64,7 +66,9 @@ class Popover extends Component<PopoverProps, any> {
   }
 
   toggleVisible = (value: boolean) => {
+    const { onChange } = this.props
     this.setState({ visible: value })
+    onChange && onChange(value)
   }
 
   removePopover = (e: any) => {
@@ -74,9 +78,7 @@ class Popover extends Component<PopoverProps, any> {
 
     // // 如果点击的节点不在popup中或者有clickRemove属性
     if (visible && triggerDOM.contains(node) === false) {
-      // this.togglePopup(false)
-      // console.log('removePopover')
-      this.setState({ visible: false })
+      this.toggleVisible(false)
     }
   }
 

@@ -1,8 +1,58 @@
 import styled from 'styled-components'
 import { primaryBtnColor } from '../../../styles/theme'
+import { StyledOptionBoxProps } from '../interface'
 
 const StyledSelect = styled.div`
-  color: red;
+  position: relative;
+  width: 100%;
+  height: 46px;
+  padding: 14px;
+  line-height: 18px;
+  border-radius: 2px;
+  border: solid 1px #e2e2e2;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  color: #bcbcbc;
+  box-sizing: border-box;
+  &::after {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    content: " ";
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 10px solid #313646;
+  }
+  &.hmly-select-open::after {
+    transform: rotate(180deg);
+  }
 `;
 
-export { StyledSelect }
+const StyledOptionBox = styled.div`
+  width: ${(props: StyledOptionBoxProps) => props.width};
+`
+
+const StyledOption = styled.div`
+  width: 100%;
+  padding: 8px 19px;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #313646;
+  box-sizing: border-box;
+  cursor: pointer;
+  &:hover {
+    background-color: #eee;
+  }
+`
+
+export { StyledSelect, StyledOption, StyledOptionBox }

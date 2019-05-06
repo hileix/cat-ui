@@ -35,14 +35,14 @@ export interface ${input}Props {
 class ${input} extends Component<${input}Props, any> {
 
   render() {
-    const { className, style } = this.props
+    const { className, style, children } = this.props
     const classes = classNames('hmly-${lowerInput}', className)
 
     return (
       <Styled${input}
         className={classes}
         style={style}>
-        ${input}
+        {children}
       </Styled${input}>
     )
   }
@@ -91,9 +91,7 @@ class Example extends React.Component {
 echo "import styled from 'styled-components'
 import { primaryBtnColor } from '../../../styles/theme'
 
-const Styled${input} = styled.div\`
-  color: red;
-\`;
+const Styled${input} = styled.div\`\`;
 
 export { Styled${input} }" >> src/components/${input}/styled/index.tsx
 
