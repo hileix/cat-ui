@@ -11,11 +11,11 @@ export interface DraggerItemProps {
   /** id */
   id: string | number;
   /** order */
-  order: string | number;
+  order?: string | number;
   /** onDragStart */
-  onDragStart: any;
+  onDragStart?: any;
   /** onDragEnd */
-  onDragEnd: any;
+  onDragEnd?: any;
 }
 
 /**

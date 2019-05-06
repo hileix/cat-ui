@@ -9,7 +9,12 @@ Enzyme.configure({ adapter: new Adapter() })
 describe('Menu', () => {
   test('renders correctly', () => {
     const wrapper = render(
-      <Menu>Test</Menu>
+      <Menu mode='pop' className='menu1'>
+        <Menu.Item>Edit</Menu.Item>
+        <Menu.Item>Share</Menu.Item>
+        <Menu.Item>Download</Menu.Item>
+        <Menu.Item>Delete</Menu.Item>
+      </Menu>
     )
     expect(wrapper).toMatchSnapshot()
   })

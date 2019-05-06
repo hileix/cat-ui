@@ -9,7 +9,9 @@ Enzyme.configure({ adapter: new Adapter() })
 describe('Pagination', () => {
   test('renders correctly', () => {
     const wrapper = render(
-      <Pagination>Test</Pagination>
+      <Pagination
+        current={2}
+        total={85} />
     )
     expect(wrapper).toMatchSnapshot()
   })

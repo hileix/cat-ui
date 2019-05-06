@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Component } from 'react'
 import classNames from 'classnames'
+import * as memoize from 'memoize-one'
 import memoizeOne from 'memoize-one'
 import * as isNumber from 'lodash/isNumber'
 import { StyledPagination, StyledIcon } from './styled'
@@ -96,7 +97,7 @@ class Pagination extends Component<PaginationProps, any> {
     const { className, style, current, total, pageSize } = this.props
     const classes = classNames('hmly-pagination', className)
     const items = this.renderItems(current, total, pageSize)
-    // console.log('current, total, pageSize')
+    // console.log('current, total, pageSize', memoizeOne)
 
     return (
       <StyledPagination

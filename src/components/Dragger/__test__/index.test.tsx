@@ -1,22 +1,30 @@
-// import * as React from 'react'
-// import * as Enzyme from 'enzyme'
-// import { render, mount } from 'enzyme'
-// import * as Adapter from 'enzyme-adapter-react-16'
-// import Dragger from '../index'
+import * as React from 'react'
+import * as Enzyme from 'enzyme'
+import { render, mount } from 'enzyme'
+import * as Adapter from 'enzyme-adapter-react-16'
+import Dragger from '../index'
 
-// Enzyme.configure({ adapter: new Adapter() })
+Enzyme.configure({ adapter: new Adapter() })
 
-// describe('Dragger', () => {
-//   test('renders correctly', () => {
-//     const wrapper = render(
-//       <Dragger>
-//         <div id={1} className='item'>1</div>
-//         <div id={2} className='item'>2</div>
-//         <div id={3} className='item'>3</div>
-//         <div id={4} className='item'>4</div>
-//       </Dragger>
-//     )
-//     expect(wrapper).toMatchSnapshot()
-//   })
+describe('Dragger', () => {
+  test('renders correctly', () => {
+    const wrapper = render(
+      <Dragger>
+        <Dragger.Item id={1} className='item'>
+          <div className='text'>111</div>
+        </Dragger.Item>
+        <Dragger.Item id={2} className='item'>
+          <div className='text'>222</div>
+        </Dragger.Item>
+        <Dragger.Item id={3} className='item'>
+          <div className='text'>333</div>
+        </Dragger.Item>
+        <Dragger.Item id={4} className='item'>
+          <div className='text'>444</div>
+        </Dragger.Item>
+      </Dragger>
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
 
-// })
+})

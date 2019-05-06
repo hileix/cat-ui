@@ -10,15 +10,15 @@ export interface DraggerProps {
   /** 样式 */
   style?: object;
   /**  */
-  draggedElement: any;
+  draggedElement?: any;
   /**  */
-  onDragStart: any;
+  onDragStart?: any;
   /**  */
-  onDragOver: any;
+  onDragOver?: any;
   /**  */
-  onDragEnd: any;
+  onDragEnd?: any;
   /**  */
-  onSort: any;
+  onSort?: any;
 }
 
 /**
