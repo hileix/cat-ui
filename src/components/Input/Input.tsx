@@ -1,8 +1,9 @@
 import * as React from 'react'
 import * as PropTypes from 'prop-types'
 import { pick } from 'lodash'
-import classnames from '../../utils/classnames'
-import { StyledLabel, StyledInput } from './styled'
+import { StyledInput } from './styled'
+import { Ttheme, TinputState } from './Input.d'
+import Wrapper from './Wrapper'
 
 export type TinputType = 'line' | 'line-password' | 'text' | 'text-password' | 'textarea'
 
@@ -16,10 +17,11 @@ export interface IinputProps {
   type?: TinputType;
   readOnly?: boolean;
   size?: 'large' | 'normal' | 'small';
-  theme?: 'line' | 'line-pwd' | 'box' | 'box-pwd';
+  theme?: Ttheme;
   placeholder?: string;
   showClear?: boolean;
   showEye?: boolean;
+  error?: boolean | string;
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => any;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => any;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => any;
@@ -29,46 +31,76 @@ export interface IinputProps {
 
 export interface IinputStates {
   value: string;
+  inputState: TinputState;
 }
 
 interface IdomProps {
   placeholder?: string;
-  defaultValue?: string;
-  value?: string;
   disabled?: boolean;
   readOnly?: boolean;
 }
 
 const domProps: IdomProps = {
   placeholder: '',
-  defaultValue: '',
-  value: '',
   disabled: false,
   readOnly: false
+}
+
+const enum inputStates {
+  default,
+  hover,
+  active,
+  error
 }
 
 class Input extends React.PureComponent<IinputProps, IinputStates> {
   static defaultProps = {
     type: 'text',
-    theme: 'line',
-    disabled: false
+    theme: 'line'
   }
+
+  static getDerivedStateFromProps(nextProps: IinputProps) {
+    if ('value' in nextProps) {
+      return {
+        value: nextProps.value
+      }
+    }
+    return null
+  }
+
+  private input: React.RefObject<HTMLInputElement>;
 
   public constructor (props: IinputProps) {
     super(props)
     const value = typeof props.value === 'undefined' ? props.defaultValue : props.value
+    const inputState = props.error ? inputStates.error : inputStates.default
     this.state = {
-      value
+      value,
+      inputState
     }
+
+    this.input = React.createRef()
+  }
+
+  public getSnapShotBeforeUpdate (prevProps: IinputProps, prevState: IinputStates) {
+    
   }
 
   private handleFocus (e: React.FocusEvent<HTMLInputElement>): void {
     const { onFocus } = this.props
+    const { inputState } = this.state
+    inputState !== inputStates.error && this.setState({
+      inputState: inputStates.active
+    })
     onFocus && onFocus(e)
   }
 
   private handleBlur (e: React.FocusEvent<HTMLInputElement>): void {
     const { onBlur } = this.props
+    const { inputState } = this.state
+    inputState !== inputStates.error && this.setState({
+      inputState: inputStates.default
+    })
     onBlur && onBlur(e)
   }
 
@@ -87,25 +119,43 @@ class Input extends React.PureComponent<IinputProps, IinputStates> {
     }
   }
 
+  private handleMouseEnter (e: React.MouseEvent<HTMLInputElement>) {
+    const { inputState } = this.state
+    inputState === inputStates.default && this.setState({
+      inputState: inputStates.hover
+    })
+  }
+
+  private handleMouseLeave (e: React.MouseEvent<HTMLInputElement>) {
+    const { inputState } = this.state
+    inputState === inputStates.hover && this.setState({
+      inputState: inputStates.default
+    })
+  }
+
   public render () {
+    const { value, inputState } = this.state
     const { theme, className } = this.props
     const props = pick(this.props, Object.keys(domProps)) as IdomProps
-    const classes = classnames({
-      prefix: 'hmly-input',
-      theme
-    })
 
     return (
-      <StyledLabel className={classes('label', className)}>
+      <Wrapper
+        theme={theme}
+        state={inputState}
+        className={className}
+      >
         <StyledInput
-          className={classes('', className)}
+          value={value}
           onFocus={this.handleFocus.bind(this)}
           onBlur={this.handleBlur.bind(this)}
           onChange={this.handleChange.bind(this)}
           onKeyDown={this.handleKeyDown.bind(this)}
+          onMouseEnter={this.handleMouseEnter.bind(this)}
+          onMouseLeave={this.handleMouseLeave.bind(this)}
+          ref={this.input}
           {...props}
         />
-      </StyledLabel>
+      </Wrapper>
     )
   }
 }
