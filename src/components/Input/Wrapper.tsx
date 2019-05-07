@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as PropTypes from 'prop-types'
-import { StyledWrapper, StyledWrapperBorder, StyledWrapperPlaceholder, StyledWrapperErrorMsg } from './styled'
+import { StyledWrapper, StyledWrapperBorder, StyledWrapperPlaceholder, StyledWrapperMsg } from './styled'
 import { Ttheme, TinputState } from './Input.d'
 
 export interface IWrapperProps {
@@ -8,13 +8,13 @@ export interface IWrapperProps {
   state?: TinputState;
   className?: string;
   placeholder?: string;
-  errMsg?: string;
+  message?: string;
   children?: any;
 }
 
 class Wrapper extends React.PureComponent<IWrapperProps, any> {
   public render () {
-    const { className, theme, state, placeholder, errMsg, children } = this.props
+    const { className, theme, state, placeholder, message, children } = this.props
 
     return (
       <StyledWrapper
@@ -26,10 +26,16 @@ class Wrapper extends React.PureComponent<IWrapperProps, any> {
           theme={theme}
           state={state}
         >
-          {placeholder && <StyledWrapperPlaceholder>{placeholder}</StyledWrapperPlaceholder>}   
+          {placeholder && <StyledWrapperPlaceholder theme={theme} state={state} >
+            {placeholder}
+            </StyledWrapperPlaceholder>
+          }   
         </StyledWrapperBorder>
         {children}
-        {errMsg && <StyledWrapperErrorMsg>{errMsg}</StyledWrapperErrorMsg>}
+        {message && <StyledWrapperMsg theme={theme} state={state} >
+          {message}
+          </StyledWrapperMsg>
+        }
       </StyledWrapper>
     )
   }

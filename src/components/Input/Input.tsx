@@ -5,8 +5,6 @@ import { StyledInput } from './styled'
 import { Ttheme, TinputState } from './Input.d'
 import Wrapper from './Wrapper'
 
-export type TinputType = 'line' | 'line-password' | 'text' | 'text-password' | 'textarea'
-
 export interface IinputProps {
   autoFocus?: boolean;
   autoSelect?: boolean;
@@ -14,14 +12,14 @@ export interface IinputProps {
   defaultValue?: string;
   disabled?: boolean;
   value?: string;
-  type?: TinputType;
   readOnly?: boolean;
   size?: 'large' | 'normal' | 'small';
   theme?: Ttheme;
   placeholder?: string;
   showClear?: boolean;
   showEye?: boolean;
-  error?: boolean | string;
+  error?: boolean;
+  message?: string;
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => any;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => any;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => any;
@@ -56,7 +54,8 @@ const enum inputStates {
 class Input extends React.PureComponent<IinputProps, IinputStates> {
   static defaultProps = {
     type: 'text',
-    theme: 'line'
+    theme: 'line',
+    error: false
   }
 
   static getDerivedStateFromProps(nextProps: IinputProps) {
@@ -135,7 +134,7 @@ class Input extends React.PureComponent<IinputProps, IinputStates> {
 
   public render () {
     const { value, inputState } = this.state
-    const { theme, className } = this.props
+    const { theme, className, message, placeholder } = this.props
     const props = pick(this.props, Object.keys(domProps)) as IdomProps
 
     return (
@@ -143,6 +142,8 @@ class Input extends React.PureComponent<IinputProps, IinputStates> {
         theme={theme}
         state={inputState}
         className={className}
+        message={message}
+        placeholder={placeholder}
       >
         <StyledInput
           value={value}

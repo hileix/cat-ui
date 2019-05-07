@@ -12,8 +12,9 @@ class Example extends React.Component {
       <Input className='item' />
       <Input className='item' placeholder='Please fill something' />
       <Input className='item' defaultValue='defaultValue' />
-      <Input className='item' value='error msg is xxxx' error='server 500' />
+      <Input className='item err' value='test value' error message='error msg is xxxx' />
       <Input className='item' theme='box' />
+      <Input className='item' theme='box' placeholder='Please fill number' />
       <style>
         {`
           .input-box {
@@ -26,6 +27,9 @@ class Example extends React.Component {
           }
           .input-box .item + .item{
             margin: 15px 0 0 0;
+          }
+          .input-box .item + .item.err{
+            margin-bottom: 30px;
           }
         `}
       </style>
