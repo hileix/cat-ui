@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { colorQuaternary, colorTertiary, colorPrimary, colorRedPrimary } from '../../../styles/theme'
 import { IWrapperProps } from '../Wrapper'
 
@@ -102,15 +102,35 @@ const StyledWrapperBorder = styled.span<IWrapperProps>`
   border-radius: ${props => (props.theme === 'box' || props.theme === 'box-pwd' ? '4px' : 0)};
 `
 
+const fly = keyframes`
+  from {
+    font-size: 16px;
+    color: ${colorTertiary};
+    background-color: transparent;
+    transform: translate(0, -50%);
+    top: 50%;
+  }
+
+  to {
+    font-size: 12px;
+    color: ${colorPrimary};
+    background-color: #ffffff;
+    transform: translate(0, 0);
+    top: -16%;
+  }
+`;
+
 const StyledWrapperPlaceholder = styled.span<IWrapperProps>`
+  display: ${props => ((props.state === inputStates.active || props.state === inputStates.error) ? 'block' : 'none')};
   position: absolute;
   top: 50%
+  z-index: 2;
   left: ${props => (props.theme === 'box' || props.theme === 'box-pwd' ? '20px' : 0)};
   transform: translate(0, -50%);
   font-size: 16px;
   font-weight: normal;
   transition: all .3s;
-  color: ${props => (props.state === inputStates.active ? colorPrimary : 'transparent')};
+  animation: ${props => ((props.state === inputStates.active || props.state === inputStates.error) && fly)} .2s ease-out forwards;
 `
 
 const StyledWrapperMsg = styled.span<IWrapperProps>`

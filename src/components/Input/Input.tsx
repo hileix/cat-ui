@@ -29,6 +29,7 @@ export interface IinputProps {
 
 export interface IinputStates {
   value: string;
+  domProps: Array<string>;
   inputState: TinputState;
 }
 
@@ -75,6 +76,7 @@ class Input extends React.PureComponent<IinputProps, IinputStates> {
     const inputState = props.error ? inputStates.error : inputStates.default
     this.state = {
       value,
+      domProps: Object.keys(domProps),
       inputState
     }
 
@@ -87,25 +89,36 @@ class Input extends React.PureComponent<IinputProps, IinputStates> {
 
   private handleFocus (e: React.FocusEvent<HTMLInputElement>): void {
     const { onFocus } = this.props
-    const { inputState } = this.state
+    const { domProps, inputState } = this.state
+    // set input active state
     inputState !== inputStates.error && this.setState({
       inputState: inputStates.active
+    })
+
+    // remove placeholder prop
+    !!~domProps.indexOf('placeholder') && this.setState({
+      domProps: Array.prototype.filter.call(domProps, (v: string) => v !== 'placeholder')
     })
     onFocus && onFocus(e)
   }
 
   private handleBlur (e: React.FocusEvent<HTMLInputElement>): void {
     const { onBlur } = this.props
-    const { inputState } = this.state
+    const { domProps, inputState } = this.state
+    // set input default state
     inputState !== inputStates.error && this.setState({
       inputState: inputStates.default
+    })
+
+    // add placeholder prop
+    !~domProps.indexOf('placeholder') && this.setState({
+      domProps: Array.prototype.concat.call(domProps, ['placeholder'])
     })
     onBlur && onBlur(e)
   }
 
   private handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
-    const { onChange } = this.props
-    onChange && onChange(e)
+    this.setValue(e.target.value, e)
   }
 
   private handleKeyDown (e: React.KeyboardEvent<HTMLInputElement>): void {
@@ -132,10 +145,37 @@ class Input extends React.PureComponent<IinputProps, IinputStates> {
     })
   }
 
+  private setValue(
+    value: string,
+    e: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLElement, MouseEvent>,
+    callback?: () => void,
+  ) {
+    if (!('value' in this.props)) {
+      this.setState({ value }, callback);
+    }
+    const { onChange } = this.props
+    if (onChange) {
+      let event = e
+      if (e.type === 'click') {
+        // click clear icon
+        event = Object.create(e)
+        event.target = this.input.current
+        event.currentTarget = this.input.current
+        const originalInputValue = this.input.current.value
+
+        this.input.current.value = ''
+        onChange(event as React.ChangeEvent<HTMLInputElement>)
+        this.input.current.value = originalInputValue;
+        return
+      }
+      onChange(event as React.ChangeEvent<HTMLInputElement>);
+    }
+  }
+
   public render () {
-    const { value, inputState } = this.state
+    const { value, domProps, inputState } = this.state
     const { theme, className, message, placeholder } = this.props
-    const props = pick(this.props, Object.keys(domProps)) as IdomProps
+    const props = pick(this.props, domProps) as IdomProps
 
     return (
       <Wrapper
