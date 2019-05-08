@@ -5,7 +5,7 @@ import { StyledInput } from './styled'
 import { Ttheme, TinputState } from './Input.d'
 import Wrapper from './Wrapper'
 
-export interface IinputProps {
+export interface InputProps {
   autoFocus?: boolean;
   autoSelect?: boolean;
   className?: string;
@@ -14,7 +14,7 @@ export interface IinputProps {
   value?: string;
   readOnly?: boolean;
   size?: 'large' | 'normal' | 'small';
-  theme?: Ttheme;
+  type?: Ttheme;
   placeholder?: string;
   showClear?: boolean;
   showEye?: boolean;
@@ -27,7 +27,8 @@ export interface IinputProps {
   onPressEnter?: (e: React.KeyboardEvent<HTMLInputElement>) => any;
 }
 
-export interface IinputStates {
+export interface InputStates {
+  type: 'text' | 'password';
   value: string;
   domProps: Array<string>;
   inputState: TinputState;
@@ -52,14 +53,35 @@ const enum inputStates {
   error
 }
 
-class Input extends React.PureComponent<IinputProps, IinputStates> {
+class Input extends React.PureComponent<InputProps, InputStates> {
   static defaultProps = {
-    type: 'text',
-    theme: 'line',
+    type: 'line',
     error: false
   }
 
-  static getDerivedStateFromProps(nextProps: IinputProps) {
+  static PropTypes = {
+    autoFocus: PropTypes.bool,
+    autoSelect: PropTypes.bool,
+    className: PropTypes.string,
+    defaultValue: PropTypes.string,
+    disabled: PropTypes.bool,
+    value: PropTypes.string,
+    readOnly: PropTypes.bool,
+    size: PropTypes.string,
+    type: PropTypes.string,
+    placeholder: PropTypes.string,
+    showClear: PropTypes.bool,
+    showEye: PropTypes.bool,
+    error: PropTypes.bool,
+    message: PropTypes.string,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func,
+    onKeyDown: PropTypes.func,
+    onPressEnter: PropTypes.func
+  }
+
+  static getDerivedStateFromProps(nextProps: InputProps) {
     if ('value' in nextProps) {
       return {
         value: nextProps.value
@@ -70,11 +92,13 @@ class Input extends React.PureComponent<IinputProps, IinputStates> {
 
   private input: React.RefObject<HTMLInputElement>;
 
-  public constructor (props: IinputProps) {
+  public constructor (props: InputProps) {
     super(props)
-    const value = typeof props.value === 'undefined' ? props.defaultValue : props.value
+    const type = typeof props.type === 'undefined' ? 'text' : (props.type === 'line-pwd' || props.type === 'box-pwd' ? 'password' : 'text')
+    const value = (typeof props.value === 'undefined' ? props.defaultValue : props.value) || ''
     const inputState = props.error ? inputStates.error : inputStates.default
     this.state = {
+      type,
       value,
       domProps: Object.keys(domProps),
       inputState
@@ -83,12 +107,11 @@ class Input extends React.PureComponent<IinputProps, IinputStates> {
     this.input = React.createRef()
   }
 
-  public getSnapShotBeforeUpdate (prevProps: IinputProps, prevState: IinputStates) {
+  public getSnapShotBeforeUpdate (prevProps: InputProps, prevState: InputStates) {
     
   }
 
   private handleFocus (e: React.FocusEvent<HTMLInputElement>): void {
-    const { onFocus } = this.props
     const { domProps, inputState } = this.state
     // set input active state
     inputState !== inputStates.error && this.setState({
@@ -99,11 +122,12 @@ class Input extends React.PureComponent<IinputProps, IinputStates> {
     !!~domProps.indexOf('placeholder') && this.setState({
       domProps: Array.prototype.filter.call(domProps, (v: string) => v !== 'placeholder')
     })
+
+    const { onFocus } = this.props
     onFocus && onFocus(e)
   }
 
   private handleBlur (e: React.FocusEvent<HTMLInputElement>): void {
-    const { onBlur } = this.props
     const { domProps, inputState } = this.state
     // set input default state
     inputState !== inputStates.error && this.setState({
@@ -114,6 +138,8 @@ class Input extends React.PureComponent<IinputProps, IinputStates> {
     !~domProps.indexOf('placeholder') && this.setState({
       domProps: Array.prototype.concat.call(domProps, ['placeholder'])
     })
+
+    const { onBlur } = this.props
     onBlur && onBlur(e)
   }
 
@@ -173,8 +199,9 @@ class Input extends React.PureComponent<IinputProps, IinputStates> {
   }
 
   public render () {
-    const { value, domProps, inputState } = this.state
-    const { theme, className, message, placeholder } = this.props
+    const { type, value, domProps, inputState } = this.state
+    const { className, message, placeholder } = this.props
+    const theme = this.props.type
     const props = pick(this.props, domProps) as IdomProps
 
     return (
@@ -186,6 +213,7 @@ class Input extends React.PureComponent<IinputProps, IinputStates> {
         placeholder={placeholder}
       >
         <StyledInput
+          type={type}
           value={value}
           onFocus={this.handleFocus.bind(this)}
           onBlur={this.handleBlur.bind(this)}
