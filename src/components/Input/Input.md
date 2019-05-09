@@ -9,12 +9,22 @@ class Example extends React.Component {
 
   render () {
     return (<div className='input-box'>
-      线型输入框:
+      <span className='hint' >
+        线型输入框:
+      </span>
       <Input className='item' />
+      <span className='hint' >
+        线型输入框带清除按钮:
+      </span>
+      <Input className='item' showClear />
       <span className='hint' >
         线型密码输入框:
       </span>
       <Input className='item' type='line-pwd' />
+      <span className='hint' >
+        线型密码输入框带眼睛按钮:
+      </span>
+      <Input className='item' type='line-pwd' showEye />
       <span className='hint' >
         线型输入框带占位符:
       </span>
@@ -32,9 +42,17 @@ class Example extends React.Component {
       </span>
       <Input className='item item-box' type='box' />
       <span className='hint' >
+        盒子输入框带清除按钮:
+      </span>
+      <Input className='item item-box' type='box' showClear />
+      <span className='hint' >
         盒子密码输入框:
       </span>
       <Input className='item item-box' type='box-pwd' />
+      <span className='hint' >
+        盒子密码输入框带眼睛按钮:
+      </span>
+      <Input className='item item-box' type='box-pwd' showEye />
       <span className='hint' >
         盒子输入框带占位符:
       </span>

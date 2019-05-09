@@ -1,7 +1,6 @@
 import * as React from 'react'
-import { StyledWrapper, StyledWrapperBorder, StyledWrapperPlaceholder, StyledWrapperMsg, StyledWrapperIcon } from './styled'
+import { StyledWrapper, StyledWrapperBorder, StyledWrapperPlaceholder, StyledWrapperMsg } from './styled'
 import { Ttheme, TinputState } from './Input.d'
-import Icon from '../Icon'
 
 export interface IWrapperProps {
   theme?: Ttheme;
@@ -16,12 +15,14 @@ export interface IWrapperProps {
 
 class Wrapper extends React.PureComponent<IWrapperProps, any> {
   public render () {
-    const { className, theme, state, placeholder, message, children } = this.props
+    const { className, theme, state, placeholder, message, showClear, showEye, children } = this.props
 
     return (
       <StyledWrapper
         theme={theme}
         state={state}
+        showClear={showClear}
+        showEye={showEye}
         className={className}
       >
         <StyledWrapperBorder
@@ -38,9 +39,6 @@ class Wrapper extends React.PureComponent<IWrapperProps, any> {
           {message}
           </StyledWrapperMsg>
         }
-        <StyledWrapperIcon>
-          <Icon type={'close'} />
-        </StyledWrapperIcon>
       </StyledWrapper>
     )
   }

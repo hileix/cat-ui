@@ -1,9 +1,10 @@
 import * as React from 'react'
 import * as PropTypes from 'prop-types'
 import { pick } from 'lodash'
-import { StyledInput } from './styled'
+import { StyledInput, StyledWrapperIcon } from './styled'
 import { Ttheme, TinputState } from './Input.d'
 import Wrapper from './Wrapper'
+import Icon from '../Icon'
 
 export interface InputProps {
   /** 自动聚焦 */
@@ -217,6 +218,17 @@ class Input extends React.PureComponent<InputProps, InputStates> {
     }
   }
 
+  protected handleClear (): void {
+    this.setState({ value: '' })
+  }
+
+  protected handleEye (): void {
+    this.setState(prevState => {
+      const type = prevState.type === 'text' ? 'password' : 'text'
+      return { type }
+    })
+  }
+
   public render () {
     const { type, value, domProps, inputState } = this.state
     const { className, message, placeholder, showClear, showEye } = this.props
@@ -245,6 +257,10 @@ class Input extends React.PureComponent<InputProps, InputStates> {
           ref={this.input}
           {...props}
         />
+        <StyledWrapperIcon>
+          {showClear && <Icon type='close' onClick={this.handleClear.bind(this)} />}
+          {!showClear && (theme === 'line-pwd' || theme === 'box-pwd') && showEye && <Icon type={type === 'text' ? 'eye-close' : 'eye-open'} onClick={this.handleEye.bind(this)} />}
+        </StyledWrapperIcon>
       </Wrapper>
     )
   }

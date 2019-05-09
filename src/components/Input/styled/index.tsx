@@ -53,6 +53,7 @@ const StyledWrapper = styled.div<IWrapperProps>`
   position: relative;
   box-sizing: border-box;
   padding-left: ${props => (props.theme === 'box' || props.theme === 'box-pwd' ? '20px' : 0)};
+  padding-right: ${props => (props.showClear && props.showEye ? '5%' : (props.showClear || props.showEye) ? '3.5%' : 0)};
 `
 
 const StyledWrapperBorder = styled.span<IWrapperProps>`
@@ -63,9 +64,6 @@ const StyledWrapperBorder = styled.span<IWrapperProps>`
   width: 100%;
   height: 100%;
   transition: all .3s;
-  &:hover{
-    border-color: ${colorTertiary};
-  }
   border-left: ${props => {
     if (props.theme === 'line' || props.theme === 'line-pwd') return 0
     return '1px solid'
@@ -146,7 +144,7 @@ const StyledWrapperIcon = styled.span<IWrapperProps>`
   position: absolute;
   top: 50%
   transform: translate(0, -50%);
-  z-index: 2;
+  z-index: 1;
   width: 10px;
   height: 10px;
   right: 5.6%;
