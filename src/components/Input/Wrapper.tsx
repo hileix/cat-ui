@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { StyledWrapper, StyledWrapperBorder, StyledWrapperPlaceholder, StyledWrapperMsg } from './styled'
+import { StyledWrapper, StyledWrapperBorder, StyledWrapperPlaceholder, StyledWrapperMsg, StyledWrapperIcon } from './styled'
 import { Ttheme, TinputState } from './Input.d'
 import Icon from '../Icon'
 
@@ -9,6 +9,8 @@ export interface IWrapperProps {
   className?: string;
   placeholder?: string;
   message?: string;
+  showClear?: boolean;
+  showEye?: boolean;
   children?: any;
 }
 
@@ -36,6 +38,9 @@ class Wrapper extends React.PureComponent<IWrapperProps, any> {
           {message}
           </StyledWrapperMsg>
         }
+        <StyledWrapperIcon>
+          <Icon type={'close'} />
+        </StyledWrapperIcon>
       </StyledWrapper>
     )
   }

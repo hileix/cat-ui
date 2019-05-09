@@ -219,7 +219,7 @@ class Input extends React.PureComponent<InputProps, InputStates> {
 
   public render () {
     const { type, value, domProps, inputState } = this.state
-    const { className, message, placeholder } = this.props
+    const { className, message, placeholder, showClear, showEye } = this.props
     const theme = this.props.type
     const props = pick(this.props, domProps) as IdomProps
 
@@ -228,8 +228,10 @@ class Input extends React.PureComponent<InputProps, InputStates> {
         theme={theme}
         state={inputState}
         className={className}
-        message={message}
         placeholder={placeholder}
+        message={message}
+        showClear={showClear}
+        showEye={showEye}
       >
         <StyledInput
           type={type}

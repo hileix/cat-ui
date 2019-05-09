@@ -141,4 +141,17 @@ const StyledWrapperMsg = styled.span<IWrapperProps>`
   margin-top: 8px;
 `
 
-export { StyledInput, StyledWrapper, StyledWrapperBorder, StyledWrapperPlaceholder, StyledWrapperMsg }
+const StyledWrapperIcon = styled.span<IWrapperProps>`
+  cursor: pointer;
+  position: absolute;
+  top: 50%
+  transform: translate(0, -50%);
+  z-index: 2;
+  width: 10px;
+  height: 10px;
+  right: 5.6%;
+  color: ${props => (props.state === inputStates.error ? colorRedPrimary : colorPrimary)};
+  font-size: 10px;
+`
+
+export { StyledInput, StyledWrapper, StyledWrapperBorder, StyledWrapperPlaceholder, StyledWrapperMsg, StyledWrapperIcon }
