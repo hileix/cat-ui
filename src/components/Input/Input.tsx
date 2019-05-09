@@ -6,24 +6,43 @@ import { Ttheme, TinputState } from './Input.d'
 import Wrapper from './Wrapper'
 
 export interface InputProps {
+  /** 自动聚焦 */
   autoFocus?: boolean;
+  /** 自动选择 */
   autoSelect?: boolean;
+  /** 类名 */
   className?: string;
+  /** 默认值 */
   defaultValue?: string;
+  /** 禁用 */
   disabled?: boolean;
+  /** 值 - 如果传入value属性，则input框变为受控, 因此输入框的值只根据value设置 */
   value?: string;
+  /** 是否只读 */
   readOnly?: boolean;
+  /** 大小尺寸 */
   size?: 'large' | 'normal' | 'small';
+  /** 类型 'line' | 'line-pwd' | 'box' | 'box-pwd' */
   type?: Ttheme;
+  /** 占位符 */
   placeholder?: string;
+  /** 展示一键清除按钮 */
   showClear?: boolean;
+  /** 展示密码和文本切换按钮 */
   showEye?: boolean;
+  /** 是否出错 */
   error?: boolean;
+  /** 输入框消息提示 */
   message?: string;
+  /** 聚焦回调 */
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => any;
+  /** 失焦回调 */
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => any;
+  /** 值改变的回调 */
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => any;
+  /** 按键的回调 */
   onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => any;
+  /** 按下回车键的回调 */
   onPressEnter?: (e: React.KeyboardEvent<HTMLInputElement>) => any;
 }
 

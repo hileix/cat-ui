@@ -130,7 +130,14 @@ class Example extends React.Component {
         <Icon type='next' />
         next
       </div>
-
+      <div className='icon-item'>
+        <Icon type='eye-open' />
+        eye-open
+      </div>
+      <div className='icon-item'>
+        <Icon type='eye-close' />
+        eye-close
+      </div>
       <style>
         {`
           .icon-box .hmly-icon {

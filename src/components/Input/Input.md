@@ -46,6 +46,10 @@ class Example extends React.Component {
       <span className='hint' >
         盒子输入框带错误展示:
       </span>
+      <Input className='item item-box err' type='box' value='cuole' error message='error msg is zzzz' />
+      <span className='hint' >
+        盒子输入框带错误展示和占位符:
+      </span>
       <Input className='item item-box err' type='box' value='123123' error message='error msg is yyyy' placeholder='Please fill username' />
       <style>
         {`

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { StyledWrapper, StyledWrapperBorder, StyledWrapperPlaceholder, StyledWrapperMsg } from './styled'
 import { Ttheme, TinputState } from './Input.d'
+import Icon from '../Icon'
 
 export interface IWrapperProps {
   theme?: Ttheme;

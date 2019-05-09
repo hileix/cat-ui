@@ -136,6 +136,14 @@ const StyledIcon = createGlobalStyle`
   .hmly-icon-next:before {
     content: "\\e62c";
   }
+
+  .hmly-icon-eye-open:before {
+    content: "\\e62f";
+  }
+
+  .hmly-icon-eye-close:before {
+    content: "\\e62e";
+  }
 `;
 
 export { StyledIcon }
