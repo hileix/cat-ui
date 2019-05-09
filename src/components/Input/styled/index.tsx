@@ -127,7 +127,7 @@ const StyledWrapperBorder = styled.span<IWrapperProps>`
   border-radius: ${props => (props.theme === 'box' || props.theme === 'box-pwd' ? '4px' : 0)};
 `
 
-const fly = keyframes`
+const flyout = keyframes`
   from {
     font-size: 16px;
     color: ${colorTertiary};
@@ -141,21 +141,42 @@ const fly = keyframes`
     color: ${colorPrimary};
     background-color: #ffffff;
     transform: translate(0, 0);
-    top: -16%;
+    top: -15%;
+  }
+`;
+
+const flyin = keyframes`
+  from {
+    font-size: 12px;
+    color: ${colorPrimary};
+    background-color: #ffffff;
+    transform: translate(0, 0);
+    top: -15%;
+  }
+
+  to {
+    font-size: 16px;
+    color: ${colorTertiary};
+    background-color: transparent;
+    transform: translate(0, -50%);
+    top: 50%;
   }
 `;
 
 const StyledWrapperPlaceholder = styled.span<IWrapperProps>`
-  display: ${props => ((props.state === inputStates.active || props.state === inputStates.error) ? 'block' : 'none')};
   position: absolute;
   top: 50%
-  z-index: 2;
-  left: ${props => (props.theme === 'box' || props.theme === 'box-pwd' ? '20px' : 0)};
+  z-index: 1;
+  left: ${props => (props.theme === 'box' || props.theme === 'box-pwd' ? '15px' : 0)};
+  padding: ${props => (props.theme === 'box' || props.theme === 'box-pwd' ? '0 5px' : 0)};
   transform: translate(0, -50%);
   font-size: 16px;
   font-weight: normal;
+  line-height: 1;
+  letter-spacing: 0.75px;
+  color: ${colorTertiary};
   transition: all .3s;
-  animation: ${props => ((props.state === inputStates.active || props.state === inputStates.error) && fly)} .2s ease-out forwards;
+  animation: ${props => ((props.state === inputStates.active || props.value) ? flyout : flyin)} .2s ease-out forwards;
 `
 
 const StyledWrapperMsg = styled.span<IWrapperProps>`

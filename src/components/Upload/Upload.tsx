@@ -26,7 +26,7 @@ enum errorTypes {
   'trycatch'
 }
 
-export interface IUploadProps {
+export interface UploadProps {
   id?: string;
   className?: string;
   style?: object;
@@ -42,7 +42,7 @@ export interface IUploadProps {
   onError?: (type: number, e?: any) => any;
 }
 
-export interface IUploadStates {
+export interface UploadStates {
   isMounted: boolean;
 }
 
@@ -62,7 +62,7 @@ const domProps: IdomProps = {
   accept: ''
 }
 
-class Upload extends Component<IUploadProps, IUploadStates> {
+class Upload extends Component<UploadProps, UploadStates> {
   static defaultProps = {
     theme: 'default',
     style: {},
@@ -72,7 +72,7 @@ class Upload extends Component<IUploadProps, IUploadStates> {
 
   private file: React.RefObject<HTMLInputElement>;
 
-  constructor (props: IUploadProps) {
+  constructor (props: UploadProps) {
     super(props)
 
     this.state = {

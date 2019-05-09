@@ -3,6 +3,7 @@ import { StyledWrapper, StyledWrapperBorder, StyledWrapperPlaceholder, StyledWra
 import { TSize, Ttheme, TinputState } from './Input.d'
 
 export interface IWrapperProps {
+  value?: string;
   size?: TSize;
   theme?: Ttheme;
   state?: TinputState;
@@ -16,7 +17,7 @@ export interface IWrapperProps {
 
 class Wrapper extends React.PureComponent<IWrapperProps, any> {
   public render () {
-    const { className, size, theme, state, placeholder, message, showClear, showEye, children } = this.props
+    const { value, className, size, theme, state, placeholder, message, showClear, showEye, children } = this.props
 
     return (
       <StyledWrapper
@@ -31,7 +32,7 @@ class Wrapper extends React.PureComponent<IWrapperProps, any> {
           theme={theme}
           state={state}
         >
-          {placeholder && <StyledWrapperPlaceholder theme={theme} state={state} >
+          {placeholder && <StyledWrapperPlaceholder value={value} theme={theme} state={state} >
             {placeholder}
             </StyledWrapperPlaceholder>
           }   

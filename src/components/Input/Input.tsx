@@ -50,12 +50,10 @@ export interface InputStates {
 }
 
 export interface IdomProps {
-  placeholder?: string;
   disabled?: boolean;
 }
 
 const domProps: IdomProps = {
-  placeholder: '',
   disabled: false
 }
 
@@ -112,11 +110,6 @@ class Input extends React.PureComponent<InputProps, InputStates> {
       inputState: inputStates.active
     })
 
-    // remove placeholder prop
-    !!~domProps.indexOf('placeholder') && this.setState({
-      domProps: Array.prototype.filter.call(domProps, (v: string) => v !== 'placeholder')
-    })
-
     const { onFocus } = this.props
     onFocus && onFocus(e)
   }
@@ -126,11 +119,6 @@ class Input extends React.PureComponent<InputProps, InputStates> {
     // set input default state
     inputState !== inputStates.error && this.setState({
       inputState: inputStates.default
-    })
-
-    // add placeholder prop
-    !~domProps.indexOf('placeholder') && this.setState({
-      domProps: Array.prototype.concat.call(domProps, ['placeholder'])
     })
 
     const { onBlur } = this.props
@@ -212,6 +200,7 @@ class Input extends React.PureComponent<InputProps, InputStates> {
 
     return (
       <Wrapper
+        value={value}
         theme={theme}
         size={size}
         state={inputState}
