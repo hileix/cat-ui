@@ -14,9 +14,9 @@ class Example extends React.Component {
       </span>
       <Input size='small' />
       <span className='hint' >
-        线型输入框 normal:
+        线型输入框 normal(带自动聚焦):
       </span>
-      <Input size='normal' />
+      <Input size='normal' autoFocus />
       <span className='hint' >
         线型输入框 large:
       </span>

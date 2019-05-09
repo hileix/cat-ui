@@ -8,8 +8,6 @@ import Icon from '../Icon'
 export interface InputProps {
   /** 自动聚焦 */
   autoFocus?: boolean;
-  /** 自动选择 */
-  autoSelect?: boolean;
   /** 类名 */
   className?: string;
   /** 默认值 */
@@ -70,6 +68,8 @@ const enum inputStates {
 
 class Input extends React.PureComponent<InputProps, InputStates> {
   static defaultProps = {
+    autoFocus: false,
+    disabled: false,
     type: 'line',
     error: false
   }
@@ -100,8 +100,9 @@ class Input extends React.PureComponent<InputProps, InputStates> {
     this.input = React.createRef()
   }
 
-  public getSnapShotBeforeUpdate (prevProps: InputProps, prevState: InputStates) {
-    
+  public componentDidMount () {
+    const { autoFocus } = this.props
+    if (autoFocus) this.input.current.focus()
   }
 
   private handleFocus (e: React.FocusEvent<HTMLInputElement>): void {
@@ -192,7 +193,8 @@ class Input extends React.PureComponent<InputProps, InputStates> {
   }
 
   protected handleClear (): void {
-    this.setState({ value: '' })
+    const { value } = this.state
+    value && this.setState({ value: '' })
   }
 
   protected handleEye (): void {
