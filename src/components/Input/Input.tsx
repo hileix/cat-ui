@@ -1,8 +1,7 @@
 import * as React from 'react'
-import * as PropTypes from 'prop-types'
 import { pick } from 'lodash'
-import { StyledInput, StyledWrapperIcon } from './styled'
-import { Ttheme, TinputState } from './Input.d'
+import { StyledInput, StyledIcon } from './styled'
+import { TSize, Ttheme, TinputState } from './Input.d'
 import Wrapper from './Wrapper'
 import Icon from '../Icon'
 
@@ -19,10 +18,8 @@ export interface InputProps {
   disabled?: boolean;
   /** 值 - 如果传入value属性，则input框变为受控, 因此输入框的值只根据value设置 */
   value?: string;
-  /** 是否只读 */
-  readOnly?: boolean;
-  /** 大小尺寸 */
-  size?: 'large' | 'normal' | 'small';
+  /** 大小尺寸 'large' | 'normal' | 'small' */
+  size?: TSize;
   /** 类型 'line' | 'line-pwd' | 'box' | 'box-pwd' */
   type?: Ttheme;
   /** 占位符 */
@@ -54,16 +51,14 @@ export interface InputStates {
   inputState: TinputState;
 }
 
-interface IdomProps {
+export interface IdomProps {
   placeholder?: string;
   disabled?: boolean;
-  readOnly?: boolean;
 }
 
 const domProps: IdomProps = {
   placeholder: '',
-  disabled: false,
-  readOnly: false
+  disabled: false
 }
 
 const enum inputStates {
@@ -77,28 +72,6 @@ class Input extends React.PureComponent<InputProps, InputStates> {
   static defaultProps = {
     type: 'line',
     error: false
-  }
-
-  static PropTypes = {
-    autoFocus: PropTypes.bool,
-    autoSelect: PropTypes.bool,
-    className: PropTypes.string,
-    defaultValue: PropTypes.string,
-    disabled: PropTypes.bool,
-    value: PropTypes.string,
-    readOnly: PropTypes.bool,
-    size: PropTypes.string,
-    type: PropTypes.string,
-    placeholder: PropTypes.string,
-    showClear: PropTypes.bool,
-    showEye: PropTypes.bool,
-    error: PropTypes.bool,
-    message: PropTypes.string,
-    onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    onKeyDown: PropTypes.func,
-    onPressEnter: PropTypes.func
   }
 
   static getDerivedStateFromProps(nextProps: InputProps) {
@@ -231,13 +204,14 @@ class Input extends React.PureComponent<InputProps, InputStates> {
 
   public render () {
     const { type, value, domProps, inputState } = this.state
-    const { className, message, placeholder, showClear, showEye } = this.props
+    const { size, className, message, placeholder, showClear, showEye } = this.props
     const theme = this.props.type
     const props = pick(this.props, domProps) as IdomProps
 
     return (
       <Wrapper
         theme={theme}
+        size={size}
         state={inputState}
         className={className}
         placeholder={placeholder}
@@ -257,10 +231,13 @@ class Input extends React.PureComponent<InputProps, InputStates> {
           ref={this.input}
           {...props}
         />
-        <StyledWrapperIcon>
+        <StyledIcon
+          showClear={showClear}
+          showEye={showEye}
+        >
           {showClear && <Icon type='close' onClick={this.handleClear.bind(this)} />}
-          {!showClear && (theme === 'line-pwd' || theme === 'box-pwd') && showEye && <Icon type={type === 'text' ? 'eye-close' : 'eye-open'} onClick={this.handleEye.bind(this)} />}
-        </StyledWrapperIcon>
+          {!showClear && (theme === 'line-pwd' || theme === 'box-pwd') && showEye && <Icon type={type === 'text' ? 'eye-open' : 'eye-close'} onClick={this.handleEye.bind(this)} />}
+        </StyledIcon>
       </Wrapper>
     )
   }

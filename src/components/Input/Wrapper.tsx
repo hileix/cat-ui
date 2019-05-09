@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { StyledWrapper, StyledWrapperBorder, StyledWrapperPlaceholder, StyledWrapperMsg } from './styled'
-import { Ttheme, TinputState } from './Input.d'
+import { TSize, Ttheme, TinputState } from './Input.d'
 
 export interface IWrapperProps {
+  size?: TSize;
   theme?: Ttheme;
   state?: TinputState;
   className?: string;
@@ -15,10 +16,11 @@ export interface IWrapperProps {
 
 class Wrapper extends React.PureComponent<IWrapperProps, any> {
   public render () {
-    const { className, theme, state, placeholder, message, showClear, showEye, children } = this.props
+    const { className, size, theme, state, placeholder, message, showClear, showEye, children } = this.props
 
     return (
       <StyledWrapper
+        size={size}
         theme={theme}
         state={state}
         showClear={showClear}

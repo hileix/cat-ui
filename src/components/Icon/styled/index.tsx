@@ -4,12 +4,12 @@ import { primaryBtnColor } from '../../../styles/theme'
 const StyledIcon = createGlobalStyle`
   @font-face {
     font-family: 'Himalaya';  /* project id 1121757 */
-    src: url('//at.alicdn.com/t/font_1121757_kuwt3rs6gji.eot');
-    src: url('//at.alicdn.com/t/font_1121757_kuwt3rs6gji.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_1121757_kuwt3rs6gji.woff2') format('woff2'),
-    url('//at.alicdn.com/t/font_1121757_kuwt3rs6gji.woff') format('woff'),
-    url('//at.alicdn.com/t/font_1121757_kuwt3rs6gji.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_1121757_kuwt3rs6gji.svg#Himalaya') format('svg');
+    src: url('//at.alicdn.com/t/font_1121757_0zn7qwo8z98.eot');
+    src: url('//at.alicdn.com/t/font_1121757_0zn7qwo8z98.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1121757_0zn7qwo8z98.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1121757_0zn7qwo8z98.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1121757_0zn7qwo8z98.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1121757_0zn7qwo8z98.svg#Himalaya') format('svg');
   }
 
 

@@ -10,9 +10,21 @@ class Example extends React.Component {
   render () {
     return (<div className='input-box'>
       <span className='hint' >
-        线型输入框:
+        线型输入框 small:
       </span>
-      <Input className='item' />
+      <Input size='small' />
+      <span className='hint' >
+        线型输入框 normal:
+      </span>
+      <Input size='normal' />
+      <span className='hint' >
+        线型输入框 large:
+      </span>
+      <Input size='large' />
+      <span className='hint'>
+        线型输入框禁用:
+      </span>
+      <Input className='item' disabled />
       <span className='hint' >
         线型输入框带清除按钮:
       </span>
@@ -38,9 +50,17 @@ class Example extends React.Component {
       </span>
       <Input className='item err' value='test value' error message='error msg is xxxx' />
       <span className='hint' >
-        盒子输入框:
+        盒子输入框 small:
       </span>
-      <Input className='item item-box' type='box' />
+      <Input size='small' type='box' />
+      <span className='hint' >
+        盒子输入框 normal:
+      </span>
+      <Input size='normal' type='box' />
+      <span className='hint' >
+        盒子输入框 large:
+      </span>
+      <Input size='large' type='box' />
       <span className='hint' >
         盒子输入框带清除按钮:
       </span>

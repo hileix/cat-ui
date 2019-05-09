@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 import { colorQuaternary, colorTertiary, colorPrimary, colorRedPrimary } from '../../../styles/theme'
+import { IdomProps } from '../Input'
 import { IWrapperProps } from '../Wrapper'
 
 const enum inputStates {
@@ -9,7 +10,19 @@ const enum inputStates {
   error
 }
 
-const StyledInput = styled.input`
+const size_width = {
+  'large': '400px',
+  'normal': '300px',
+  'small': '200px'
+}
+
+const size_height = {
+  'large': '50px',
+  'normal': '40px',
+  'small': '30px'
+}
+
+const StyledInput = styled.input<IdomProps>`
   display: block;
   box-sizing: border-box;
   width: 100%;
@@ -44,16 +57,30 @@ const StyledInput = styled.input`
     line-height: 1;
     color: ${colorTertiary};
   };
+  cursor: ${props => props.disabled && 'not-allowed'}
+`
+
+const StyledIcon = styled.span<IWrapperProps>`
+  cursor: pointer;
+  position: absolute;
+  top: 50%
+  transform: translate(0, -50%);
+  z-index: 1;
+  width: 10px;
+  height: 10px;
+  right: 5.6%;
+  color: ${props => (props.state === inputStates.error ? colorRedPrimary : colorPrimary)};
+  font-size: ${props => props.showClear ? '10px' : '16px'};
 `
 
 const StyledWrapper = styled.div<IWrapperProps>`
   display: inline-block;
-  width: 100%;
-  height: 100%;
+  width: ${props => props.size ? (size_width[props.size] || '100%') : '100%'};
+  height: ${props => props.size ? (size_height[props.size] || '100%') : '100%'};
   position: relative;
   box-sizing: border-box;
   padding-left: ${props => (props.theme === 'box' || props.theme === 'box-pwd' ? '20px' : 0)};
-  padding-right: ${props => (props.showClear && props.showEye ? '5%' : (props.showClear || props.showEye) ? '3.5%' : 0)};
+  padding-right: ${props => props.showClear || props.showEye ? '3.5%' : 0};
 `
 
 const StyledWrapperBorder = styled.span<IWrapperProps>`
@@ -139,17 +166,4 @@ const StyledWrapperMsg = styled.span<IWrapperProps>`
   margin-top: 8px;
 `
 
-const StyledWrapperIcon = styled.span<IWrapperProps>`
-  cursor: pointer;
-  position: absolute;
-  top: 50%
-  transform: translate(0, -50%);
-  z-index: 1;
-  width: 10px;
-  height: 10px;
-  right: 5.6%;
-  color: ${props => (props.state === inputStates.error ? colorRedPrimary : colorPrimary)};
-  font-size: 10px;
-`
-
-export { StyledInput, StyledWrapper, StyledWrapperBorder, StyledWrapperPlaceholder, StyledWrapperMsg, StyledWrapperIcon }
+export { StyledInput, StyledIcon, StyledWrapper, StyledWrapperBorder, StyledWrapperPlaceholder, StyledWrapperMsg }
