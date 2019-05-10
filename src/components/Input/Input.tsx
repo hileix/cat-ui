@@ -22,7 +22,7 @@ export interface InputProps {
   type?: Ttheme;
   /** 占位符 */
   placeholder?: string;
-  /** 是否启用占位符动画 */
+  /** 是否启用原生占位符(无动效) */
   placeholderOrigin?: boolean;
   /** 展示一键清除按钮 */
   showClear?: boolean;

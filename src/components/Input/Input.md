@@ -82,6 +82,10 @@ class Example extends React.Component {
       </span>
       <Input className='item item-box' type='box' placeholder='Please fill number' />
       <span className='hint' >
+        盒子输入框带原生占位符(无动效):
+      </span>
+      <Input className='item item-box' type='box' placeholder='Please fill number' placeholderOrigin />
+      <span className='hint' >
         盒子输入框带默认值:
       </span>
       <Input className='item item-box' type='box' defaultValue='you are awesome' />
