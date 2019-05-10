@@ -54,7 +54,7 @@ const StyledInput = styled.input<IdomProps>`
   &::-webkit-input-placeholder{
     font-size: 16px;
     font-weight: normal;
-    line-height: 1;
+    line-height: 1.5;
     color: ${colorTertiary};
   };
   cursor: ${props => props.disabled && 'not-allowed'}

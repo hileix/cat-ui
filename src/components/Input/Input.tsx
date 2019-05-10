@@ -22,6 +22,8 @@ export interface InputProps {
   type?: Ttheme;
   /** 占位符 */
   placeholder?: string;
+  /** 是否启用占位符动画 */
+  placeholderOrigin?: boolean;
   /** 展示一键清除按钮 */
   showClear?: boolean;
   /** 展示密码和文本切换按钮 */
@@ -69,7 +71,8 @@ class Input extends React.PureComponent<InputProps, InputStates> {
     autoFocus: false,
     disabled: false,
     type: 'line',
-    error: false
+    error: false,
+    placeholderOrigin: false
   }
 
   static getDerivedStateFromProps(nextProps: InputProps) {
@@ -194,7 +197,7 @@ class Input extends React.PureComponent<InputProps, InputStates> {
 
   public render () {
     const { type, value, domProps, inputState } = this.state
-    const { size, className, message, placeholder, showClear, showEye } = this.props
+    const { size, className, message, placeholder, placeholderOrigin, showClear, showEye } = this.props
     const theme = this.props.type
     const props = pick(this.props, domProps) as IdomProps
 
@@ -205,7 +208,7 @@ class Input extends React.PureComponent<InputProps, InputStates> {
         size={size}
         state={inputState}
         className={className}
-        placeholder={placeholder}
+        placeholder={!placeholderOrigin && placeholder}
         message={message}
         showClear={showClear}
         showEye={showEye}
@@ -220,6 +223,7 @@ class Input extends React.PureComponent<InputProps, InputStates> {
           onMouseEnter={this.handleMouseEnter.bind(this)}
           onMouseLeave={this.handleMouseLeave.bind(this)}
           ref={this.input}
+          placeholder={placeholderOrigin ? placeholder : ''}
           {...props}
         />
         <StyledIcon
