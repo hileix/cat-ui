@@ -32,6 +32,14 @@ export interface InputProps {
   error?: boolean;
   /** 输入框消息提示 */
   message?: string;
+  /** 是否能对输入框进行复制、粘贴、剪贴的操作 */
+  clipboardFree?: boolean;
+  /** 是否能对输入框进行复制的操作 */
+  copyFree? : boolean;
+  /** 是否能对输入框进行粘贴的操作 */
+  pasteFree? : boolean;
+  /** 是否能对输入框进行剪贴的操作 */
+  cutFree? : boolean;
   /** 聚焦回调 */
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => any;
   /** 失焦回调 */
@@ -42,6 +50,14 @@ export interface InputProps {
   onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => any;
   /** 按下回车键的回调 */
   onPressEnter?: (e: React.KeyboardEvent<HTMLInputElement>) => any;
+  /** 执行粘贴操作的回调 */
+  onPaste?: (e: React.MouseEvent<HTMLInputElement, MouseEvent> | React.ClipboardEvent<HTMLInputElement>) => any;
+  /** 点击鼠标右键的回调 */
+  onContextMenu?: (e: React.MouseEvent<HTMLInputElement, MouseEvent> | React.ClipboardEvent<HTMLInputElement>) => any;
+  /** 执行复制操作的回调 */
+  onCopy?: (e: React.MouseEvent<HTMLInputElement, MouseEvent> | React.ClipboardEvent<HTMLInputElement>) => any;
+  /** 执行剪切操作的回调 */
+  onCut?: (e: React.MouseEvent<HTMLInputElement, MouseEvent> | React.ClipboardEvent<HTMLInputElement>) => any;
 }
 
 export interface InputStates {
@@ -72,7 +88,11 @@ class Input extends React.PureComponent<InputProps, InputStates> {
     disabled: false,
     type: 'line',
     error: false,
-    placeholderOrigin: false
+    placeholderOrigin: false,
+    clipboardFree: true,
+    copyFree: true,
+    pasteFree: true,
+    cutFree: true
   }
 
   static getDerivedStateFromProps(nextProps: InputProps) {
@@ -99,6 +119,7 @@ class Input extends React.PureComponent<InputProps, InputStates> {
     }
 
     this.input = React.createRef()
+    this.handleContent = this.handleContent.bind(this)
   }
 
   public componentDidMount () {
@@ -107,7 +128,7 @@ class Input extends React.PureComponent<InputProps, InputStates> {
   }
 
   private handleFocus (e: React.FocusEvent<HTMLInputElement>): void {
-    const { domProps, inputState } = this.state
+    const { inputState } = this.state
     // set input active state
     inputState !== inputStates.error && this.setState({
       inputState: inputStates.active
@@ -118,7 +139,7 @@ class Input extends React.PureComponent<InputProps, InputStates> {
   }
 
   private handleBlur (e: React.FocusEvent<HTMLInputElement>): void {
-    const { domProps, inputState } = this.state
+    const { inputState } = this.state
     // set input default state
     inputState !== inputStates.error && this.setState({
       inputState: inputStates.default
@@ -142,25 +163,57 @@ class Input extends React.PureComponent<InputProps, InputStates> {
     }
   }
 
-  private handleMouseEnter (e: React.MouseEvent<HTMLInputElement>) {
+  private handleMouseEnter (e: React.MouseEvent<HTMLInputElement>): void  {
     const { inputState } = this.state
     inputState === inputStates.default && this.setState({
       inputState: inputStates.hover
     })
   }
 
-  private handleMouseLeave (e: React.MouseEvent<HTMLInputElement>) {
+  private handleMouseLeave (e: React.MouseEvent<HTMLInputElement>): void  {
     const { inputState } = this.state
     inputState === inputStates.hover && this.setState({
       inputState: inputStates.default
     })
   }
 
+  private handleContent (e: React.MouseEvent<HTMLInputElement, MouseEvent> | React.ClipboardEvent<HTMLInputElement>): void {
+    const { onPaste, onContextMenu, onCopy, onCut, clipboardFree, copyFree, pasteFree, cutFree } = this.props
+
+    switch (('' + e.type).toLowerCase()) {
+      case 'copy':
+        onCopy && onCopy(e)
+        !copyFree && notFree()
+        break
+      case 'paste':
+        onPaste && onPaste(e)
+        !pasteFree && notFree()
+        break
+      case 'cut':
+        onCut && onCut(e)
+        !cutFree && notFree()
+        break
+      case 'contextmenu':
+        onContextMenu && onContextMenu(e)
+        break
+    }
+
+    !clipboardFree && notFree()
+
+    function notFree () {
+      if (e && e.preventDefault) {
+        e.preventDefault()
+      } else {
+        window.event.returnValue = false
+      }
+    }
+  }
+
   private setValue(
     value: string,
     e: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLElement, MouseEvent>,
     callback?: () => void,
-  ) {
+  ): void  {
     if (!('value' in this.props)) {
       this.setState({ value }, callback);
     }
@@ -222,6 +275,10 @@ class Input extends React.PureComponent<InputProps, InputStates> {
           onKeyDown={this.handleKeyDown.bind(this)}
           onMouseEnter={this.handleMouseEnter.bind(this)}
           onMouseLeave={this.handleMouseLeave.bind(this)}
+          onPaste={this.handleContent}
+          onContextMenu={this.handleContent}
+          onCopy={this.handleContent}
+          onCut={this.handleContent}
           ref={this.input}
           placeholder={placeholderOrigin ? placeholder : ''}
           {...props}

@@ -14,6 +14,22 @@ class Example extends React.Component {
       </span>
       <Input size='small' />
       <span className='hint' >
+        线型输入框 small(不能复制):
+      </span>
+      <Input size='small' copyFree={false} />
+      <span className='hint' >
+        线型输入框 small(不能粘贴):
+      </span>
+      <Input size='small' pasteFree={false} />
+      <span className='hint' >
+        线型输入框 small(不能剪贴):
+      </span>
+      <Input size='small' cutFree={false} />
+      <span className='hint' >
+        线型输入框 small(不能复制+粘贴+剪贴):
+      </span>
+      <Input size='small' clipboardFree={false} />
+      <span className='hint' >
         线型输入框 normal(带自动聚焦):
       </span>
       <Input size='normal' autoFocus />
