@@ -1,14 +1,7 @@
 import styled, { keyframes } from 'styled-components'
 import { colorQuaternary, colorTertiary, colorPrimary, colorRedPrimary } from '../../../styles/theme'
-import { IdomProps } from '../Input'
+import { IdomProps, inputStates } from '../Input'
 import { IWrapperProps } from '../Wrapper'
-
-const enum inputStates {
-  default,
-  hover,
-  active,
-  error
-}
 
 const size_width = {
   'large': '400px',
@@ -34,6 +27,7 @@ const StyledInput = styled.input<IdomProps>`
   background-color: transparent;
   color: ${colorPrimary};
   border: 0;
+  outline: 0;
   &:focus{
     outline: none;
   }
@@ -124,7 +118,7 @@ const StyledWrapperBorder = styled.span<IWrapperProps>`
     };
     return color
   }};
-  border-radius: ${props => (props.theme === 'box' || props.theme === 'box-pwd' ? '4px' : 0)};
+  border-radius: ${props => props.theme === 'textarea' ? '2px' : (props.theme === 'box' || props.theme === 'box-pwd' ? '4px' : 0)};
 `
 
 const flyout = keyframes`
@@ -187,4 +181,22 @@ const StyledWrapperMsg = styled.span<IWrapperProps>`
   margin-top: 8px;
 `
 
-export { StyledInput, StyledIcon, StyledWrapper, StyledWrapperBorder, StyledWrapperPlaceholder, StyledWrapperMsg }
+const StyledTextArea = styled.textarea<IWrapperProps>`
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  font-weight: normal;
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
+  color: ${colorPrimary};
+  border: 0;
+  outline: 0;
+  &:focus{
+    outline: none;
+  }
+`
+
+export { StyledInput, StyledIcon, StyledWrapper, StyledWrapperBorder, StyledWrapperPlaceholder, StyledWrapperMsg, StyledTextArea }

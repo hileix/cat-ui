@@ -12,6 +12,8 @@ export interface IWrapperProps {
   message?: string;
   showClear?: boolean;
   showEye?: boolean;
+  showCount?: boolean;
+  maxlength?: number;
   children?: any;
 }
 

@@ -1,6 +1,8 @@
 Example
 
 ```jsx
+import Input from './Input'
+
 class Example extends React.Component {
   constructor (props) {
     super(props)
@@ -113,6 +115,10 @@ class Example extends React.Component {
         盒子输入框带错误展示和占位符:
       </span>
       <Input className='item item-box err' type='box' value='123123' error message='error msg is yyyy' placeholder='Please fill username' />
+      <span className='hint' >
+        文本域:
+      </span>
+      <Input.TextArea className='item' />
       <style>
         {`
           .input-box {

@@ -1,11 +1,12 @@
 import * as React from 'react'
 import { pick } from 'lodash'
 import { StyledInput, StyledIcon } from './styled'
-import { TSize, Ttheme, TinputState } from './Input.d'
+import { TSize, Ttheme, TinputState, HandleProps } from './Input.d'
 import Wrapper from './Wrapper'
+import Handles from './Handles'
 import Icon from '../Icon'
 
-export interface InputProps {
+export interface InputProps extends HandleProps {
   /** 自动聚焦 */
   autoFocus?: boolean;
   /** 类名 */
@@ -69,13 +70,14 @@ export interface InputStates {
 
 export interface IdomProps {
   disabled?: boolean;
+  [propName: string]: any;
 }
 
 const domProps: IdomProps = {
   disabled: false
 }
 
-const enum inputStates {
+export const enum inputStates {
   default,
   hover,
   active,
@@ -119,7 +121,6 @@ class Input extends React.PureComponent<InputProps, InputStates> {
     }
 
     this.input = React.createRef()
-    this.handleContent = this.handleContent.bind(this)
   }
 
   public componentDidMount () {
@@ -127,121 +128,24 @@ class Input extends React.PureComponent<InputProps, InputStates> {
     if (autoFocus) this.input.current.focus()
   }
 
-  private handleFocus (e: React.FocusEvent<HTMLInputElement>): void {
-    const { inputState } = this.state
-    // set input active state
-    inputState !== inputStates.error && this.setState({
-      inputState: inputStates.active
+  private handleClear (e: React.MouseEvent<HTMLElement, MouseEvent>): void {
+    this.setState({ value: '' }, () => {
+      this.input.current.focus()
     })
-
-    const { onFocus } = this.props
-    onFocus && onFocus(e)
+    // const { onChange } = this.props
+    // if (onChange) {
+    //   let event = e
+    //   event = Object.create(e)
+    //   event.target = this.input.current
+    //   event.currentTarget = this.input.current
+    //   const originalInputValue = this.input.current.value
+    //   this.input.current.value = ''
+    //   onChange(event as React.ChangeEvent<HTMLInputElement>)
+    //   this.input.current.value = originalInputValue
+    // }
   }
 
-  private handleBlur (e: React.FocusEvent<HTMLInputElement>): void {
-    const { inputState } = this.state
-    // set input default state
-    inputState !== inputStates.error && this.setState({
-      inputState: inputStates.default
-    })
-
-    const { onBlur } = this.props
-    onBlur && onBlur(e)
-  }
-
-  private handleChange (e: React.ChangeEvent<HTMLInputElement>): void {
-    this.setValue(e.target.value, e)
-  }
-
-  private handleKeyDown (e: React.KeyboardEvent<HTMLInputElement>): void {
-    const { onPressEnter, onKeyDown } = this.props
-    if (e.keyCode === 13 && onPressEnter) {
-      onPressEnter(e)
-    }
-    if (onKeyDown) {
-      onKeyDown(e)
-    }
-  }
-
-  private handleMouseEnter (e: React.MouseEvent<HTMLInputElement>): void  {
-    const { inputState } = this.state
-    inputState === inputStates.default && this.setState({
-      inputState: inputStates.hover
-    })
-  }
-
-  private handleMouseLeave (e: React.MouseEvent<HTMLInputElement>): void  {
-    const { inputState } = this.state
-    inputState === inputStates.hover && this.setState({
-      inputState: inputStates.default
-    })
-  }
-
-  private handleContent (e: React.MouseEvent<HTMLInputElement, MouseEvent> | React.ClipboardEvent<HTMLInputElement>): void {
-    const { onPaste, onContextMenu, onCopy, onCut, clipboardFree, copyFree, pasteFree, cutFree } = this.props
-
-    switch (('' + e.type).toLowerCase()) {
-      case 'copy':
-        onCopy && onCopy(e)
-        !copyFree && notFree()
-        break
-      case 'paste':
-        onPaste && onPaste(e)
-        !pasteFree && notFree()
-        break
-      case 'cut':
-        onCut && onCut(e)
-        !cutFree && notFree()
-        break
-      case 'contextmenu':
-        onContextMenu && onContextMenu(e)
-        break
-    }
-
-    !clipboardFree && notFree()
-
-    function notFree () {
-      if (e && e.preventDefault) {
-        e.preventDefault()
-      } else {
-        window.event.returnValue = false
-      }
-    }
-  }
-
-  private setValue(
-    value: string,
-    e: React.ChangeEvent<HTMLInputElement> | React.MouseEvent<HTMLElement, MouseEvent>,
-    callback?: () => void,
-  ): void  {
-    if (!('value' in this.props)) {
-      this.setState({ value }, callback);
-    }
-    const { onChange } = this.props
-    if (onChange) {
-      let event = e
-      if (e.type === 'click') {
-        // click clear icon
-        event = Object.create(e)
-        event.target = this.input.current
-        event.currentTarget = this.input.current
-        const originalInputValue = this.input.current.value
-
-        this.input.current.value = ''
-        onChange(event as React.ChangeEvent<HTMLInputElement>)
-        this.input.current.value = originalInputValue;
-        return
-      }
-      onChange(event as React.ChangeEvent<HTMLInputElement>);
-    }
-  }
-
-  protected handleClear (): void {
-    const { value } = this.state
-    value && this.setState({ value: '' })
-  }
-
-  protected handleEye (): void {
+  private handleEye (): void {
     this.setState(prevState => {
       const type = prevState.type === 'text' ? 'password' : 'text'
       return { type }
@@ -250,7 +154,9 @@ class Input extends React.PureComponent<InputProps, InputStates> {
 
   public render () {
     const { type, value, domProps, inputState } = this.state
-    const { size, className, message, placeholder, placeholderOrigin, showClear, showEye } = this.props
+    const { size, className, message, placeholder, placeholderOrigin, showClear, showEye,
+      handleFocus, handleBlur, handleChange, handleKeyDown, handleMouseEnter, handleMouseLeave, handleClipboard
+    } = this.props
     const theme = this.props.type
     const props = pick(this.props, domProps) as IdomProps
 
@@ -267,21 +173,21 @@ class Input extends React.PureComponent<InputProps, InputStates> {
         showEye={showEye}
       >
         <StyledInput
+          {...props}
           type={type}
           value={value}
-          onFocus={this.handleFocus.bind(this)}
-          onBlur={this.handleBlur.bind(this)}
-          onChange={this.handleChange.bind(this)}
-          onKeyDown={this.handleKeyDown.bind(this)}
-          onMouseEnter={this.handleMouseEnter.bind(this)}
-          onMouseLeave={this.handleMouseLeave.bind(this)}
-          onPaste={this.handleContent}
-          onContextMenu={this.handleContent}
-          onCopy={this.handleContent}
-          onCut={this.handleContent}
-          ref={this.input}
+          onFocus={handleFocus.bind(this)}
+          onBlur={handleBlur.bind(this)}
+          onChange={handleChange.bind(this)}
+          onKeyDown={handleKeyDown.bind(this)}
+          onMouseEnter={handleMouseEnter.bind(this)}
+          onMouseLeave={handleMouseLeave.bind(this)}
+          onPaste={handleClipboard.bind(this)}
+          onContextMenu={handleClipboard.bind(this)}
+          onCopy={handleClipboard.bind(this)}
+          onCut={handleClipboard.bind(this)}
           placeholder={placeholderOrigin ? placeholder : ''}
-          {...props}
+          ref={this.input}
         />
         <StyledIcon
           showClear={showClear}
@@ -295,4 +201,4 @@ class Input extends React.PureComponent<InputProps, InputStates> {
   }
 }
 
-export default Input
+export default Handles(Input)
