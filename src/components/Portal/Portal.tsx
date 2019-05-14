@@ -33,6 +33,7 @@ class Portal extends PureComponent<ProtalProps, any> {
   }
 
   getContainer = (selector: string) => {
+    if (!document) { return }
     const node = document.querySelector(selector) || document.body
     return node
   }
