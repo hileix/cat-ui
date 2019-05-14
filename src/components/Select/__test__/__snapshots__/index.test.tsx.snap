@@ -4,15 +4,45 @@ exports[`Select renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-select sc-bdVaJa rOCEJ",
+      "class": "hmly-popover sc-bxivhb jzkpli",
     },
     "children": Array [
       Object {
-        "data": "Select",
+        "attribs": Object {
+          "class": "hmly-popover sc-ifAKCX cFlEyZ",
+        },
+        "children": Array [
+          Object {
+            "attribs": Object {
+              "class": "hmly-select sc-bdVaJa cBMrDb",
+            },
+            "children": Array [],
+            "name": "div",
+            "namespace": "http://www.w3.org/1999/xhtml",
+            "next": null,
+            "parent": [Circular],
+            "prev": null,
+            "type": "tag",
+            "x-attribsNamespace": Object {
+              "class": undefined,
+            },
+            "x-attribsPrefix": Object {
+              "class": undefined,
+            },
+          },
+        ],
+        "name": "div",
+        "namespace": "http://www.w3.org/1999/xhtml",
         "next": null,
         "parent": [Circular],
         "prev": null,
-        "type": "text",
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "class": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "class": undefined,
+        },
       },
     ],
     "name": "div",
