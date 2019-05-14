@@ -37,13 +37,13 @@ class TableHeader extends Component<TableHeaderProps, any> {
 
     return columns.map((elem: any) => {
       // 渲染字符串或函数返回的DOM
-      const elementRender = typeof elem.render === 'function' ? elem.render() : elem.render
+      const elementTitle = typeof elem.title === 'function' ? elem.title() : elem.title
       const hasFilters = !isEmpty(elem.filters)
 
       return (
         <StyledTh key={elem.id} className='table-th'>
           <span className='th-inner'>
-            {elementRender}
+            {elementTitle}
             {hasFilters &&
               <Popover mode='click'>
                 <Popover.Trigger>
