@@ -9,7 +9,11 @@ Enzyme.configure({ adapter: new Adapter() })
 describe('Steps', () => {
   test('renders correctly', () => {
     const wrapper = render(
-      <Steps>Test</Steps>
+      <Steps>
+        <Steps.Step title='step1' />
+        <Steps.Step title='step2' />
+        <Steps.Step title='step3' />
+      </Steps>
     )
     expect(wrapper).toMatchSnapshot()
   })
