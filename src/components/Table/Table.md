@@ -19,10 +19,16 @@ class Example extends React.Component {
     const { currentPage } = this.state
     const columns1 = [{
       id: 'ranking',
-      title: <span>ranking1111</span>
+      title: <span>ranking1111</span>,
+      render: text => <a style={{color: 'red'}} href="javascript:;">{text}</a>
     }, {
       id: 'platforms',
-      title: <span>rplatforms222</span>
+      title: <span>rplatforms222</span>,
+      render: (text, record) => {
+        return (<a style={{color: 'blue'}} href="javascript:;">
+          {text}---{record.rates}
+        </a>)
+      }
     }, {
       id: 'totalListen',
       title: <span>platforms3333</span>

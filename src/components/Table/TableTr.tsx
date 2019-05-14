@@ -24,7 +24,10 @@ class TableTr extends Component<TableTrProps, any> {
       // 渲染字符串或函数返回的DOM
       const result = typeof data[id] === 'function'? data[id]() : data[id]
       return (<StyledTd key={id} className='table-td'>
-        <span>{result}</span>
+        {elem.render
+          ? elem.render(result, data)
+          : <span>{result}</span>
+        }
       </StyledTd>)
     })
   }
