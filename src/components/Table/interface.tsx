@@ -2,8 +2,10 @@ import * as React from 'react'
 
 export interface ColumnProps {
   id: string;
+  /** 表头显示文字 */
+  title: string | React.ReactNode;
   /** 生成复杂数据的渲染函数 */
-  render: string | React.ReactNode;
+  render?: string | React.ReactNode;
    /** 选择全部的文案 */
   filterAllText?: string;
   /** 表头的筛选菜单项 */

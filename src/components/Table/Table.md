@@ -19,16 +19,16 @@ class Example extends React.Component {
     const { currentPage } = this.state
     const columns1 = [{
       id: 'ranking',
-      render: <span>ranking1111</span>
+      title: <span>ranking1111</span>
     }, {
       id: 'platforms',
-      render: <span>rplatforms222</span>
+      title: <span>rplatforms222</span>
     }, {
       id: 'totalListen',
-      render: <span>platforms3333</span>
+      title: <span>platforms3333</span>
     }, {
       id: 'rates',
-      render: <span>platforms444</span>
+      title: <span>platforms444</span>
     }]
 
     const columns2 = [{
@@ -42,16 +42,16 @@ class Example extends React.Component {
         value: 'ranking2',
       }],
       onFilter: (value, record) => record.name.indexOf(value) === 0,
-      render: <span>ranking1111</span>
+      title: <span>ranking1111</span>
     }, {
       id: 'platforms',
-      render: <span>rplatforms222</span>
+      title: <span>rplatforms222</span>
     }, {
       id: 'totalListen',
-      render: <span>platforms3333</span>
+      title: <span>platforms3333</span>
     }, {
       id: 'rates',
-      render: <span>platforms444</span>
+      title: <span>platforms444</span>
     }]
 
     const dataSource = [
