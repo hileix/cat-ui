@@ -196,7 +196,8 @@ const StyledTextArea = styled.textarea<IWrapperProps>`
   outline: 0;
   &:focus{
     outline: none;
-  }
+  };
+  resize:none;
 `
 
 export { StyledInput, StyledIcon, StyledWrapper, StyledWrapperBorder, StyledWrapperPlaceholder, StyledWrapperMsg, StyledTextArea }
