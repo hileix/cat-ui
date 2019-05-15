@@ -36,6 +36,16 @@ class Example extends React.Component {
 
   render () {
     const { field1, field2, field3 } = this.state
+    let field1Error = ''
+    const field1Rule = (field1) => {
+      if (field1.length === 0) {
+        field1Error = '不能为空'
+      }
+      if (field1.length > 10) {
+        field1Error = '长度不能大于10'
+      }
+    }
+
     return (<div className='form-box'>
       <Form 
         className='form1'
@@ -44,7 +54,7 @@ class Example extends React.Component {
 
         <Form.Item
           label='field1'
-          error='field1 is not valid.'>
+          error={field1Error}>
           <Input value={field1} onChange={this.onField1Change} />
         </Form.Item>
 
