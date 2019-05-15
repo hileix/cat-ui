@@ -15,7 +15,7 @@ export interface SelectProps {
   /** 指定当前选中的条目；为空字符串时，显示placeholder */
   value?: string | number;
   /** 选中option时的value变化 */
-  onChange?: any;
+  onChange?: (value?: string | number, text?: any) => {};
 }
 
 /**
@@ -47,24 +47,28 @@ class Select extends Component<SelectProps, any> {
     this.setState({ popoverStatus: value })
   }
 
-  onOptionClick = (value: string | number) => {
+  onOptionClick = (value: string | number, child: any) => {
     const { onChange } = this.props
-    onChange && onChange(value)
+    onChange && onChange(value, child)
   }
 
   render() {
     const self = this
     const { popoverStatus, selectWidth } = this.state
     const { className, style, value, placeholder, children } = this.props
+    let filler = placeholder
     const options =  React.Children.map(children, (element: any, index) => {
       if (!element) { return element }
+      // 显示value值对应的文本内容
+      if (element.props.value === value) {
+        filler = element.props.children
+      }
       return cloneElement(element, {
         key: index,
         onOptionClick: self.onOptionClick
       })
     })
     const isValueEmpty = value === '' || (typeof value === undefined)
-    const filler = isValueEmpty ? placeholder : value
     const classes = classNames('hmly-select', {
       'hmly-select-open': popoverStatus,
       'hmly-select-placeholder': isValueEmpty

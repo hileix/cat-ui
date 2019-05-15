@@ -20,8 +20,8 @@ export interface OptionProps {
 class Option extends Component<OptionProps, any> {
 
   onClick = () => {
-    const { value, onOptionClick } = this.props
-    onOptionClick && onOptionClick(value)
+    const { value, onOptionClick, children } = this.props
+    onOptionClick && onOptionClick(value, children)
   }
 
   render() {
