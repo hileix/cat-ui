@@ -16,7 +16,7 @@ const StyledSelect = styled.div`
   font-style: normal;
   font-stretch: normal;
   letter-spacing: normal;
-  color: #bcbcbc;
+  color: #313646;
   box-sizing: border-box;
   &::after {
     position: absolute;
@@ -31,6 +31,9 @@ const StyledSelect = styled.div`
   }
   &.hmly-select-open::after {
     transform: rotate(180deg);
+  }
+  &.hmly-select-placeholder {
+    color: #bcbcbc;
   }
 `;
 

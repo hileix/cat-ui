@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Component } from 'react'
+import { Component, cloneElement } from 'react'
 import classNames from 'classnames'
 import { StyledSelect, StyledOptionBox } from './styled'
 import Option from './Option'
@@ -12,6 +12,10 @@ export interface SelectProps {
   style?: object;
   /** 默认提示文案 */
   placeholder?: string;
+  /** 指定当前选中的条目；为空字符串时，显示placeholder */
+  value?: string | number;
+  /** 选中option时的value变化 */
+  onChange?: any;
 }
 
 /**
@@ -43,11 +47,27 @@ class Select extends Component<SelectProps, any> {
     this.setState({ popoverStatus: value })
   }
 
+  onOptionClick = (value: string | number) => {
+    const { onChange } = this.props
+    onChange && onChange(value)
+  }
+
   render() {
+    const self = this
     const { popoverStatus, selectWidth } = this.state
-    const { className, style, placeholder, children } = this.props
+    const { className, style, value, placeholder, children } = this.props
+    const options =  React.Children.map(children, (element: any, index) => {
+      if (!element) { return element }
+      return cloneElement(element, {
+        key: index,
+        onOptionClick: self.onOptionClick
+      })
+    })
+    const isValueEmpty = value === '' || (typeof value === undefined)
+    const filler = isValueEmpty ? placeholder : value
     const classes = classNames('hmly-select', {
-      'hmly-select-open': popoverStatus
+      'hmly-select-open': popoverStatus,
+      'hmly-select-placeholder': isValueEmpty
     }, className)
 
     return (
@@ -57,12 +77,12 @@ class Select extends Component<SelectProps, any> {
             ref={this.selectRef}
             className={classes}
             style={style}>
-            {placeholder}
+            {filler}
           </StyledSelect>
         </Popover.Trigger>
         <Popover.Content>
           <StyledOptionBox width={selectWidth}>
-            {children}
+            {options}
           </StyledOptionBox>
         </Popover.Content>
       </Popover>
