@@ -60,7 +60,7 @@ class Select extends Component<SelectProps, any> {
     const options =  React.Children.map(children, (element: any, index) => {
       if (!element) { return element }
       // 显示value值对应的文本内容
-      if (element.props.value === value) {
+      if (element.props && (element.props.value === value)) {
         filler = element.props.children
       }
       return cloneElement(element, {
