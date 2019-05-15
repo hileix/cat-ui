@@ -75,9 +75,7 @@ class Example extends React.Component {
           .select-box .select2 {
             width: 200px;
           }
-          .select-box .select3 {
-            width: 200px;
-          }
+         
           .select-box .select2-box,
           .select-box .select3-box {
             display: inline-block;
