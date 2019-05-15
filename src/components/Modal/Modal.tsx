@@ -101,11 +101,15 @@ class Modal extends PureComponent<ModalProps, any> {
     const nodeBody = document.querySelector('body')
     const nodeFirstDiv = document.querySelector('body > div')
     const { visible } = this.props
+    const hasScroll = document.body.scrollHeight >  document.documentElement.clientHeight
     if (visible) {
       Modal.pools[this.mid] = 1
       Modal.originalBodyStyle = nodeBody.getAttribute('style')
       Modal.originalFirstDivStyle = nodeBody.getAttribute('style')
-      nodeBody.setAttribute('style', 'overflow: hidden; padding-right: 15px;')
+      const bodyStyle = hasScroll
+        ? 'overflow: hidden; padding-right: 15px;'
+        : 'padding-right: 15px;'
+      nodeBody.setAttribute('style', bodyStyle)
       // nodeFirstDiv.setAttribute('style', 'filter: blur(2px);')
     } else {
       Modal.pools[this.mid] = 0
