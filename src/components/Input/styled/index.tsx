@@ -189,6 +189,7 @@ const StyledTextArea = styled.textarea<IWrapperProps>`
   font-size: 16px;
   font-weight: normal;
   position: relative;
+  padding: 10px 15px;
   z-index: 1;
   background-color: transparent;
   color: ${colorPrimary};
@@ -198,7 +199,6 @@ const StyledTextArea = styled.textarea<IWrapperProps>`
     outline: none;
   };
   resize:none;
-  padding: 10px 15px;
 `
 
 export { StyledInput, StyledIcon, StyledWrapper, StyledWrapperBorder, StyledWrapperPlaceholder, StyledWrapperMsg, StyledTextArea }
