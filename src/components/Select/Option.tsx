@@ -10,29 +10,41 @@ export interface OptionProps {
   style?: object;
   /** 当前条目的值 */
   value?: string | number;
-  /** 点击事件的回调 */
+  /** 是否禁用 */
+  disable?: boolean;
+  /** 内部点击事件的回调 */
   onOptionClick?: any;
+  /** 外部点击事件的回调 */
+  onClick?: (value?: string | number, child?: string | React.ReactNode) => {};
 }
 
 /**
  * Option
  */
 class Option extends Component<OptionProps, any> {
+  static defaultProps = {
+    disable: false
+  }
 
-  onClick = () => {
-    const { value, onOptionClick, children } = this.props
-    onOptionClick && onOptionClick(value, children)
+  handleClick = () => {
+    const { value, onOptionClick, onClick, disable, children } = this.props
+    if (!disable && onOptionClick) {
+      onOptionClick(value, children)
+    }
+    onClick && onClick(value, children)
   }
 
   render() {
-    const { className, style, children } = this.props
-    const classes = classNames('hmly-select', className)
+    const { className, style, disable, children } = this.props
+    const classes = classNames('hmly-option', {
+      'hmly-option-disable': disable
+    }, className)
 
     return (
       <StyledOption
         className={classes}
         style={style}
-        onClick={this.onClick}>
+        onClick={this.handleClick}>
         {children}
       </StyledOption>
     )

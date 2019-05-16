@@ -108,7 +108,6 @@ class Example2 extends React.Component {
 
   onOptionClick (value, child) {
     alert(`This is Custom onOptionClick & value is : ${value} & will callback false`)
-    return false
   }
 
   onChange (value, text) {
@@ -128,7 +127,7 @@ class Example2 extends React.Component {
         onChange={this.onChange}>
         <Option value='1' >Option 1</Option>
         <Option value='2' >Option 2</Option>
-        <Option value='3' className="not-allow" onOptionClick={this.onOptionClick}>Option 3</Option>
+        <Option value='3' disable onClick={this.onOptionClick}>Option 3</Option>
       </Select>
       
       <style>
