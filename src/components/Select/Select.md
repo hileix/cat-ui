@@ -90,3 +90,63 @@ class Example extends React.Component {
 
 <Example />
 ```
+
+Select.Option 设置onOptionClick
+
+```jsx
+const Option = Select.Option;
+
+class Example2 extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = { 
+      value: ''
+    }
+    this.onChange = this.onChange.bind(this)
+    this.onOptionClick = this.onOptionClick.bind(this)
+  }
+
+  onOptionClick (value, child) {
+    alert(`This is Custom onOptionClick & value is : ${value} & will callback false`)
+    return false
+  }
+
+  onChange (value, text) {
+    console.log('Example2:onChange', value, text)
+    this.setState({ value: value })
+  }
+
+
+  render () {
+    const { value} = this.state
+
+    return (<div className='select-box'>
+      <Select 
+        className='select' 
+        placeholder='Choose Price'
+        value={value}
+        onChange={this.onChange}>
+        <Option value='1' >Option 1</Option>
+        <Option value='2' >Option 2</Option>
+        <Option value='3' className="not-allow" onOptionClick={this.onOptionClick}>Option 3</Option>
+      </Select>
+      
+      <style>
+        {`
+          .select-box .select {
+            width: 316px;
+            color: #ddf;
+          }
+          .hmly-select.not-allow {
+            cursor: not-allowed;
+            color: #ddd;
+          }
+        `}
+      </style>
+    </div>
+    )
+  }
+}
+
+<Example2 />
+```

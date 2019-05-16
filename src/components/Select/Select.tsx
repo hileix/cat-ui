@@ -65,7 +65,15 @@ class Select extends Component<SelectProps, any> {
       }
       return cloneElement(element, {
         key: index,
-        onOptionClick: self.onOptionClick
+        onOptionClick: (value: string | number, child: any) => {
+          if(element.props.onOptionClick) {
+            let flag = element.props.onOptionClick(value, child)
+            return (flag !== false && flag !== void 0 ) && self.onOptionClick(value, child)
+          } else {
+            return self.onOptionClick(value, child)
+          }
+          
+        }
       })
     })
     const isValueEmpty = value === '' || (typeof value === undefined)
