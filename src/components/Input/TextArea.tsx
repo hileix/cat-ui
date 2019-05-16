@@ -37,6 +37,8 @@ export interface TextAreaProps extends HandleProps {
   pasteFree? : boolean;
   /** 是否能对输入框进行剪贴的操作 */
   cutFree? : boolean;
+  /** textarea style样式 */
+  areaStyle?: object;
   /** 聚焦回调 */
   onFocus?: (e: React.FocusEvent<HTMLTextAreaElement>) => any;
   /** 失焦回调 */
@@ -93,7 +95,8 @@ class TextArea extends React.PureComponent<TextAreaProps, TextAreaStates> {
 
   render () {
     const { value, inputState } = this.state
-    const { className, autosize, showCount, maxlength, handleFocus, handleBlur, handleChange, handleKeyDown, handleMouseEnter, handleMouseLeave, handleClipboard } = this.props
+    const { className, autosize, showCount, maxlength, areaStyle,
+      handleFocus, handleBlur, handleChange, handleKeyDown, handleMouseEnter, handleMouseLeave, handleClipboard } = this.props
     const props = pick(this.props, domProps) as IdomProps
 
     return (
@@ -107,6 +110,7 @@ class TextArea extends React.PureComponent<TextAreaProps, TextAreaStates> {
       >
         <StyledTextArea
           {...props}
+          style={areaStyle}
           onFocus={handleFocus.bind(this)}
           onBlur={handleBlur.bind(this)}
           onChange={handleChange.bind(this)}
