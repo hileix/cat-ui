@@ -12,7 +12,7 @@ class Example extends React.Component {
     this.state = {
       field1: '1',
       field2: '',
-      field3: ''
+      field3: []
     }
     this.onField1Change = this.onField1Change.bind(this)
     this.onField2Change = this.onField2Change.bind(this)
@@ -81,6 +81,7 @@ class Example extends React.Component {
         <Form.Item
           label='field1'
           desc='How much would you like to charge your fans?'
+          tips='field1 tips text'
           error={field1Error}>
           <Input value={field1} onChange={this.onField1Change} />
         </Form.Item>

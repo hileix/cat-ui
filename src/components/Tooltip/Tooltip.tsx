@@ -1,95 +1,32 @@
-import * as React from "react"
+import * as React from 'react'
+import { Component } from 'react'
 import classNames from 'classnames'
-import Popup from '../Popup'
-import './Tooltip.scss'
+import { StyledTooltip } from './styled'
 
-export type TooltipPlacement =
-  | 'top'
-  | 'topLeft'
-  | 'topRight'
-  | 'right'
-  | 'rightTop'
-  | 'rightBottom'
-  | 'bottom'
-  | 'bottomLeft'
-  | 'bottomRight'
-  | 'left'
-  | 'leftTop'
-  | 'leftBottom'
-
-export type TooltipTrigger = 'hover' | 'click' | 'focus'
-
-export interface TooltipOption {
-  /** 前缀 */
-  prefixCls?: string;
+export interface TooltipProps {
   /** 类名 */
   className?: string;
   /** 样式 */
-  style?: React.CSSProperties;
-  /** 位置 */
-  placement?: TooltipPlacement;
-  /** 触发事件名称 */
-  trigger?: TooltipTrigger;
-  /** 触发后要显示的内容 */
-  title?: string | React.ReactNode;
-  /** 触发的对象 */
-  children?: React.ReactNode | string;
+  style?: object;
 }
 
 /**
  * Tooltip
- *
  */
-export default class Tooltip extends React.Component<TooltipOption, any>{
-  static defaultProps = {
-    prefixCls: 'hmly',
-    placement: 'top',
-    trigger: 'hover'
-  }
+class Tooltip extends Component<TooltipProps, any> {
 
-  popup: boolean
-
-  constructor(props: TooltipOption) {
-    super(props);
-    this.state = {
-      popup: false
-    }
-  }
-
-  handleChange = ({popup = false}) => {
-    this.setState({
-      popup
-    })
-  }
-
-  render () {
-    const {
-      prefixCls,
-      className,
-      style,
-      placement,
-      title,
-      trigger,
-      children
-    } = this.props
-    const { popup } = this.state
-    const classes = classNames(`${prefixCls}-pop`, className, {
-      popuped: popup
-    })
+  render() {
+    const { className, style, children } = this.props
+    const classes = classNames('hmly-tooltip', className)
 
     return (
-      <Popup
-        prefixClx={prefixCls}
+      <StyledTooltip
         className={classes}
-        innerCls='hi-children'
-        style={style}
-        placement={placement}
-        title={title}
-        trigger={trigger}
-        onChange={this.handleChange}
-      >
+        style={style}>
         {children}
-      </Popup>
+      </StyledTooltip>
     )
   }
 }
+
+export default Tooltip

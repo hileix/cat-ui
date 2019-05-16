@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { Component } from 'react'
 import classNames from 'classnames'
+import Icon from '../Icon'
 import { StyledFormItem, FormItemLabel, FormItemControl, LabelBox,
-  ControlBox, FormItemDesc } from './styled'
+  ControlBox, FormItemDesc, ItemError } from './styled'
 
 export interface FormItemProps {
   /** 类名 */
@@ -19,6 +20,8 @@ export interface FormItemProps {
   required?: boolean;
   /** 描述信息 */
   desc?: string | React.ReactNode;
+  /** 提示信息 */
+  tips?: string | React.ReactNode;
   /** 错误提示 */
   error?: string | React.ReactNode;
   /** 设置子元素 label htmlFor 属性 */
@@ -43,7 +46,7 @@ class FormItem extends Component<FormItemProps, any> {
   }
 
   render() {
-    const { className, style, label, desc, labelWidth, labelAlign, required,
+    const { className, style, label, desc, tips, labelWidth, labelAlign, required,
       error, children } = this.props
     const classes = classNames('hmly-form-item', className)
     // console.log('FormItem:labelWidth', labelWidth)
@@ -55,6 +58,7 @@ class FormItem extends Component<FormItemProps, any> {
         <LabelBox width={labelWidth}>
           <FormItemLabel>
             {label}
+            {tips && <Icon type='question-circle' />}
           </FormItemLabel>
           {desc && <FormItemDesc>
             {desc}
@@ -64,6 +68,9 @@ class FormItem extends Component<FormItemProps, any> {
           <FormItemControl>
             {children}
           </FormItemControl>
+          {error && <ItemError>
+            {error}
+          </ItemError>}
         </ControlBox>
       </StyledFormItem>
     )

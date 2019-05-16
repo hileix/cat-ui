@@ -12,16 +12,19 @@ const StyledFormItem = styled.div`
 
 const LabelBox = styled.div`
   display: inline-block;
+  vertical-align: top;
   width: ${(props: LabelBoxProps) => props.width};
 `;
 
 const ControlBox = styled.div`
   display: inline-block;
+  vertical-align: top;
 `;
 
 const FormItemLabel = styled.label``;
 
 const FormItemDesc = styled.div`
+  margin-top: 10px;
   opacity: 0.7;
   font-size: 12px;
   font-weight: 600;
@@ -33,5 +36,13 @@ const FormItemDesc = styled.div`
 
 const FormItemControl = styled.div``;
 
+const ItemError = styled.div`
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  font-style: italic;
+  color: #ff8585;
+`;
+
 export { StyledForm, StyledFormItem, FormItemLabel, FormItemControl,
-  FormItemDesc, LabelBox, ControlBox }
+  FormItemDesc, LabelBox, ControlBox, ItemError }
