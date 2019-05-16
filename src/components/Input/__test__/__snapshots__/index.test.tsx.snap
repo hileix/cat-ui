@@ -26,7 +26,7 @@ initialize {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Object {
             "attribs": Object {
-              "class": "sc-bwzfXH dVKVXm",
+              "class": "sc-bwzfXH iDjOIG",
             },
             "children": Array [],
             "name": "span",
@@ -80,7 +80,7 @@ initialize {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Object {
           "attribs": Object {
-            "class": "sc-bwzfXH dVKVXm",
+            "class": "sc-bwzfXH iDjOIG",
           },
           "children": Array [],
           "name": "span",
@@ -131,7 +131,7 @@ initialize {
       },
       Object {
         "attribs": Object {
-          "class": "sc-bwzfXH dVKVXm",
+          "class": "sc-bwzfXH iDjOIG",
         },
         "children": Array [],
         "name": "span",

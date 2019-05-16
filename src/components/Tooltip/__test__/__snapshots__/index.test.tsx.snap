@@ -1,22 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Select renders correctly 1`] = `
+exports[`Tooltip renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-popover sc-bxivhb jzkpli",
+      "class": "hmly-popover sc-htpNat dbWHLM",
     },
     "children": Array [
       Object {
         "attribs": Object {
-          "class": "hmly-popover sc-ifAKCX cFlEyZ",
+          "class": "hmly-popover sc-bxivhb bUZGRr",
         },
         "children": Array [
           Object {
             "attribs": Object {
-              "class": "hmly-select sc-bdVaJa gBmpwe",
+              "class": "hmly-tooltip sc-bdVaJa bDWFJH",
             },
-            "children": Array [],
+            "children": Array [
+              Object {
+                "data": "Test",
+                "next": null,
+                "parent": [Circular],
+                "prev": null,
+                "type": "text",
+              },
+            ],
             "name": "div",
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": null,

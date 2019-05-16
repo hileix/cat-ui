@@ -9,7 +9,14 @@ Enzyme.configure({ adapter: new Adapter() })
 describe('Form', () => {
   test('renders correctly', () => {
     const wrapper = render(
-      <Form>Test</Form>
+      <Form>
+        <Form.Item
+          label='field1'
+          desc='How much would you like to charge your fans?'
+          tips='field1 tips text'
+        >
+        </Form.Item>
+      </Form>
     )
     expect(wrapper).toMatchSnapshot()
   })
