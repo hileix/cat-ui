@@ -62,7 +62,7 @@ const StyledIcon = styled.span<IWrapperProps>`
   z-index: 1;
   width: 10px;
   height: 10px;
-  right: 5.6%;
+  right: 5.5%;
   color: ${props => (props.state === inputStates.error ? colorRedPrimary : colorPrimary)};
   font-size: ${props => props.showClear ? '10px' : '16px'};
 `
@@ -198,6 +198,7 @@ const StyledTextArea = styled.textarea<IWrapperProps>`
     outline: none;
   };
   resize:none;
+  padding: 10px 15px;
 `
 
 export { StyledInput, StyledIcon, StyledWrapper, StyledWrapperBorder, StyledWrapperPlaceholder, StyledWrapperMsg, StyledTextArea }
