@@ -72,6 +72,7 @@ class Example extends React.Component {
     const field1Error = this.checkField1(field1)
     const field2Error = this.checkField2(field2)
     const field3Error = this.checkField3(field3)
+    const submitDisable = Boolean(field1Error || field2Error || field3Error)
 
     return (<div className='form-box'>
       <Form 
@@ -117,7 +118,10 @@ class Example extends React.Component {
         </Form.Item>
 
         <Form.Item>
-          <Button size='md' onClick={this.onSubmit}>
+          <Button 
+            size='md' 
+            disabled={submitDisable}
+            onClick={this.onSubmit}>
             Submit
           </Button>
         </Form.Item>

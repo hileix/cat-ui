@@ -34,27 +34,40 @@ export interface FormItemProps {
  * FormItem
  */
 class FormItem extends Component<FormItemProps, any> {
+  private formItemRef: any;
   constructor (props: FormItemProps) {
     super(props)
     this.state = {
       error: ''
     }
+    this.formItemRef = React.createRef()
   }
 
   static defaultProps = {
     colon: false
   }
 
+  componentDidUpdate () {
+    const { error } = this.props
+    if (Boolean(error)) {
+      const element = this.formItemRef.current
+      element && element.scrollIntoView({ behavior: 'instant', block: 'center' })
+    }
+  }
+
   render() {
     const { className, style, label, desc, tips, labelWidth, labelAlign, required,
       error, children } = this.props
-    const classes = classNames('hmly-form-item', className)
+    const classes = classNames('hmly-form-item', {
+      'hmly-form-item-required': required
+    }, className)
     // console.log('FormItem:labelWidth', labelWidth)
 
     return (
       <StyledFormItem
         className={classes}
-        style={style}>
+        style={style}
+        ref={this.formItemRef}>
         <LabelBox width={labelWidth}>
           <FormItemLabel>
             {label}
