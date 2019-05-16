@@ -3,4 +3,6 @@ import { primaryBtnColor } from '../../../styles/theme'
 
 const StyledTooltip = styled.div``;
 
-export { StyledTooltip }
+const StyledTooltipContent = styled.div``;
+
+export { StyledTooltip, StyledTooltipContent }

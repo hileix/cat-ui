@@ -9,7 +9,7 @@ class Example extends React.Component {
 
   render () {
     return (<div className='tooltip-box'>
-      <Tooltip>
+      <Tooltip content='Tooltip content'>
         test
       </Tooltip>
 
