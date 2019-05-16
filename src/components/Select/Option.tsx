@@ -15,7 +15,7 @@ export interface OptionProps {
   /** 内部点击事件的回调 */
   onOptionClick?: any;
   /** 外部点击事件的回调 */
-  onClick?: any;
+  onClick?: (value?: string | number, child?: string | React.ReactNode) => {};
 }
 
 /**
@@ -25,7 +25,6 @@ class Option extends Component<OptionProps, any> {
   static defaultProps = {
     disable: false
   }
-
 
   handleClick = () => {
     const { value, onOptionClick, onClick, disable, children } = this.props
