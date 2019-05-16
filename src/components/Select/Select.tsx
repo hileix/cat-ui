@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Component } from 'react'
+import { Component, cloneElement } from 'react'
 import classNames from 'classnames'
 import { StyledSelect, StyledOptionBox } from './styled'
 import Option from './Option'
@@ -12,6 +12,10 @@ export interface SelectProps {
   style?: object;
   /** 默认提示文案 */
   placeholder?: string;
+  /** 指定当前选中的条目；为空字符串时，显示placeholder */
+  value?: string | number;
+  /** 选中option时的value变化 */
+  onChange?: (value?: string | number, text?: any) => {};
 }
 
 /**
@@ -24,7 +28,7 @@ class Select extends Component<SelectProps, any> {
   constructor (props: SelectProps) {
     super(props)
     this.state = {
-      popoverStatus: false,
+      isPopOpen: false,
       selectWidth: 'auto'
     }
     this.selectRef = React.createRef()
@@ -40,14 +44,42 @@ class Select extends Component<SelectProps, any> {
   }
 
   onPopoverChange = (value: boolean) => {
-    this.setState({ popoverStatus: value })
+    this.setState({ isPopOpen: value })
+  }
+
+  onOptionClick = (value: string | number, child: any) => {
+    const { onChange } = this.props
+    onChange && onChange(value, child)
   }
 
   render() {
-    const { popoverStatus, selectWidth } = this.state
-    const { className, style, placeholder, children } = this.props
+    const self = this
+    const { isPopOpen, selectWidth } = this.state
+    const { className, style, value, placeholder, children } = this.props
+    let filler = placeholder
+    const options =  React.Children.map(children, (element: any, index) => {
+      if (!element) { return element }
+      // 显示value值对应的文本内容
+      if (element.props && (element.props.value === value)) {
+        filler = element.props.children
+      }
+      return cloneElement(element, {
+        key: index,
+        onOptionClick: (value: string | number, child: any) => {
+          if(element.props.onOptionClick) {
+            let flag = element.props.onOptionClick(value, child)
+            return (flag !== false && flag !== void 0 ) && self.onOptionClick(value, child)
+          } else {
+            return self.onOptionClick(value, child)
+          }
+          
+        }
+      })
+    })
+    const isValueEmpty = value === '' || (typeof value === undefined)
     const classes = classNames('hmly-select', {
-      'hmly-select-open': popoverStatus
+      'hmly-select-open': isPopOpen,
+      'hmly-select-placeholder': isValueEmpty
     }, className)
 
     return (
@@ -57,12 +89,12 @@ class Select extends Component<SelectProps, any> {
             ref={this.selectRef}
             className={classes}
             style={style}>
-            {placeholder}
+            {filler}
           </StyledSelect>
         </Popover.Trigger>
         <Popover.Content>
           <StyledOptionBox width={selectWidth}>
-            {children}
+            {options}
           </StyledOptionBox>
         </Popover.Content>
       </Popover>

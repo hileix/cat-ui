@@ -22,6 +22,7 @@ const StyledPopBox = styled.div`
   font-size: 14px;
   transform-origin: left center;
   animation: .15s ${pageTurning} ease-in;
+  z-index: 9999;
 `
 
 export { StyledPopover, StyledPopoverTrigger, StyledPopoverContent, StyledPopBox }

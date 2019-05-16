@@ -52,6 +52,14 @@ class Modal extends PureComponent<ModalProps, any> {
   static originalBodyStyle: string = '';
   static originalFirstDivStyle: string = '';
   private mid: number
+  static defaultProps = {
+    prefix: 'hmly',
+    theme: 'primary',
+    size: 'md',
+    visible: false,
+    disabled: false,
+    noCloseIcon: false
+  }
 
   constructor (props: ModalProps) {
     super(props)
@@ -61,15 +69,6 @@ class Modal extends PureComponent<ModalProps, any> {
 
   componentDidUpdate () {
     this.setBodyStyle()
-  }
-
-  static defaultProps = {
-    prefix: 'hmly',
-    theme: 'primary',
-    size: 'md',
-    visible: false,
-    disabled: false,
-    noCloseIcon: false
   }
 
   onMaskClick = (e: any) => {
@@ -101,11 +100,15 @@ class Modal extends PureComponent<ModalProps, any> {
     const nodeBody = document.querySelector('body')
     const nodeFirstDiv = document.querySelector('body > div')
     const { visible } = this.props
+    const hasScroll = document.body.scrollHeight >  document.documentElement.clientHeight
     if (visible) {
       Modal.pools[this.mid] = 1
       Modal.originalBodyStyle = nodeBody.getAttribute('style')
       Modal.originalFirstDivStyle = nodeBody.getAttribute('style')
-      nodeBody.setAttribute('style', 'overflow: hidden; padding-right: 15px;')
+      const bodyStyle = hasScroll
+        ? 'overflow: hidden; padding-right: 15px;'
+        : 'padding-right: 15px;'
+      nodeBody.setAttribute('style', bodyStyle)
       // nodeFirstDiv.setAttribute('style', 'filter: blur(2px);')
     } else {
       Modal.pools[this.mid] = 0

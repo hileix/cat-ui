@@ -3,6 +3,8 @@ Example
 
 ```jsx
 import Button from '../Button';
+import Select from '../Select';
+const Option = Select.Option;
 
 class Example extends React.Component {
   constructor (props) {
@@ -91,6 +93,14 @@ class Example extends React.Component {
         noCloseIcon
         onClose={() => this.toggleDialog4(false)}>
         <p>Please ensure that the amount you are redeeming does not exceed the remaining total amount.</p>
+        <Select 
+          className='modal-select' 
+          placeholder='Choose Price'
+          value={'2'}>
+          <Option value='1'>Option 1</Option>
+          <Option value='2'>Option 2</Option>
+          <Option value='3'>Option 3</Option>
+        </Select>
       </Modal>
       <style>
         {`
@@ -102,6 +112,10 @@ class Example extends React.Component {
           }
           .footer .hmly-button + .hmly-button {
             margin-left: 20px;
+          }
+          .modal-select {
+            width: 200px;
+            margin-bottom: 10px;
           }
         `}
       </style>

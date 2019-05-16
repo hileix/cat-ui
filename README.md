@@ -27,6 +27,9 @@ $ yarn run release [版本号] 使用自定义传入的版本号
 
 运行Jest测试
 $ yarn run test
+
+更新快照
+$ jest --updateSnapshot
 ```
 
 ## 使用组件

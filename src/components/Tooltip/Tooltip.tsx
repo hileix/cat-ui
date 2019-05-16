@@ -1,95 +1,68 @@
-import * as React from "react"
+import * as React from 'react'
+import { Component } from 'react'
 import classNames from 'classnames'
-import Popup from '../Popup'
-import './Tooltip.scss'
+import { StyledTooltip, StyledTooltipContent } from './styled'
+import Popover from '../Popover'
 
-export type TooltipPlacement =
-  | 'top'
-  | 'topLeft'
-  | 'topRight'
-  | 'right'
-  | 'rightTop'
-  | 'rightBottom'
-  | 'bottom'
-  | 'bottomLeft'
-  | 'bottomRight'
-  | 'left'
-  | 'leftTop'
-  | 'leftBottom'
-
-export type TooltipTrigger = 'hover' | 'click' | 'focus'
-
-export interface TooltipOption {
-  /** 前缀 */
-  prefixCls?: string;
+export interface TooltipProps {
   /** 类名 */
   className?: string;
   /** 样式 */
-  style?: React.CSSProperties;
-  /** 位置 */
-  placement?: TooltipPlacement;
-  /** 触发事件名称 */
-  trigger?: TooltipTrigger;
-  /** 触发后要显示的内容 */
-  title?: string | React.ReactNode;
-  /** 触发的对象 */
-  children?: React.ReactNode | string;
+  style?: object;
+  /** Tooltip hover后显示的内容 */
+  mode?: 'hover' | 'click';
+  /** Tooltip hover后显示的内容 */
+  content?: string | React.ReactNode;
 }
 
 /**
  * Tooltip
- *
  */
-export default class Tooltip extends React.Component<TooltipOption, any>{
+class Tooltip extends Component<TooltipProps, any> {
   static defaultProps = {
-    prefixCls: 'hmly',
-    placement: 'top',
-    trigger: 'hover'
+    mode: 'hover'
   }
 
-  popup: boolean
-
-  constructor(props: TooltipOption) {
-    super(props);
+  constructor (props: TooltipProps) {
+    super(props)
     this.state = {
-      popup: false
+      isPopOpen: false
     }
   }
 
-  handleChange = ({popup = false}) => {
-    this.setState({
-      popup
-    })
+  componentDidMount () {
+    setTimeout(() => {
+      this.setState({ isPopOpen: true })
+    }, 1000)
   }
 
-  render () {
-    const {
-      prefixCls,
-      className,
-      style,
-      placement,
-      title,
-      trigger,
-      children
-    } = this.props
-    const { popup } = this.state
-    const classes = classNames(`${prefixCls}-pop`, className, {
-      popuped: popup
-    })
+  onPopoverChange = (value: boolean) => {
+    this.setState({ isPopOpen: value })
+  }
+
+  render() {
+    const { className, style, mode, content, children } = this.props
+    const { isPopOpen } = this.state
+    const classes = classNames('hmly-tooltip', className)
 
     return (
-      <Popup
-        prefixClx={prefixCls}
-        className={classes}
-        innerCls='hi-children'
-        style={style}
-        placement={placement}
-        title={title}
-        trigger={trigger}
-        onChange={this.handleChange}
-      >
-        {children}
-      </Popup>
+      <Popover visible={isPopOpen} mode={mode} onChange={this.onPopoverChange}>
+        <Popover.Trigger>
+          <StyledTooltip
+            className={classes}
+            style={style}>
+            {children}
+          </StyledTooltip>
+        </Popover.Trigger>
+        <Popover.Content>
+          <StyledTooltipContent>
+            {content}
+          </StyledTooltipContent>
+        </Popover.Content>
+      </Popover>
+
     )
   }
 }
+
+export default Tooltip
