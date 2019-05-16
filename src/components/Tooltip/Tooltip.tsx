@@ -26,8 +26,14 @@ class Tooltip extends Component<TooltipProps, any> {
   constructor (props: TooltipProps) {
     super(props)
     this.state = {
-      isPopOpen: false,
+      isPopOpen: false
     }
+  }
+
+  componentDidMount () {
+    setTimeout(() => {
+      this.setState({ isPopOpen: true })
+    }, 1000)
   }
 
   onPopoverChange = (value: boolean) => {
@@ -40,7 +46,7 @@ class Tooltip extends Component<TooltipProps, any> {
     const classes = classNames('hmly-tooltip', className)
 
     return (
-      <Popover mode={mode} onChange={this.onPopoverChange}>
+      <Popover visible={isPopOpen} mode={mode} onChange={this.onPopoverChange}>
         <Popover.Trigger>
           <StyledTooltip
             className={classes}
