@@ -3,7 +3,7 @@ import { Component } from 'react'
 import classNames from 'classnames'
 import Icon from '../Icon'
 import { StyledFormItem, FormItemLabel, FormItemControl, LabelBox,
-  ControlBox, FormItemDesc, ItemError } from './styled'
+  ControlBox, FormItemDesc, ItemError, LabelIcon } from './styled'
 
 export interface FormItemProps {
   /** 类名 */
@@ -70,9 +70,9 @@ class FormItem extends Component<FormItemProps, any> {
         <LabelBox width={labelWidth} className={labelBoxClass}>
           <FormItemLabel>
             {label}
-            {tips && <Icon type='question-circle' />}
+            {Boolean(tips) && <LabelIcon type='question-circle' />}
           </FormItemLabel>
-          {desc && <FormItemDesc>
+          {Boolean(desc) && <FormItemDesc>
             {desc}
           </FormItemDesc>}
         </LabelBox>
@@ -80,7 +80,7 @@ class FormItem extends Component<FormItemProps, any> {
           <FormItemControl>
             {children}
           </FormItemControl>
-          {error && <ItemError>
+          {Boolean(error) && <ItemError>
             {error}
           </ItemError>}
         </ControlBox>

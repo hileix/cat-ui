@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { primaryBtnColor } from '../../../styles/theme'
 import { LabelBoxProps, ControlBoxProps } from '../interface'
+import Icon from '../../Icon'
 
 const StyledForm = styled.form``;
 
@@ -53,5 +54,9 @@ const ItemError = styled.div`
   color: #ff8585;
 `;
 
+const LabelIcon = styled(Icon)`
+  margin-left: 5px;
+`;
+
 export { StyledForm, StyledFormItem, FormItemLabel, FormItemControl,
-  FormItemDesc, LabelBox, ControlBox, ItemError }
+  FormItemDesc, LabelBox, ControlBox, ItemError, LabelIcon }
