@@ -11,9 +11,18 @@ const StyledFormItem = styled.div`
 `;
 
 const LabelBox = styled.div`
+  position: relative;
   display: inline-block;
   vertical-align: top;
   width: ${(props: LabelBoxProps) => props.width};
+  &.hmly-form-label-required::after {
+    content: "*";
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 20px;
+    color: #ff8585;
+  }
 `;
 
 const ControlBox = styled.div`

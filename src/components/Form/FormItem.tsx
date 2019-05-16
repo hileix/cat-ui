@@ -58,9 +58,8 @@ class FormItem extends Component<FormItemProps, any> {
   render() {
     const { className, style, label, desc, tips, labelWidth, labelAlign, required,
       error, children } = this.props
-    const classes = classNames('hmly-form-item', {
-      'hmly-form-item-required': required
-    }, className)
+    const classes = classNames('hmly-form-item', className)
+    const labelBoxClass = classNames({ 'hmly-form-label-required': required })
     // console.log('FormItem:labelWidth', labelWidth)
 
     return (
@@ -68,7 +67,7 @@ class FormItem extends Component<FormItemProps, any> {
         className={classes}
         style={style}
         ref={this.formItemRef}>
-        <LabelBox width={labelWidth}>
+        <LabelBox width={labelWidth} className={labelBoxClass}>
           <FormItemLabel>
             {label}
             {tips && <Icon type='question-circle' />}
