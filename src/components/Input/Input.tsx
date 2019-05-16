@@ -161,11 +161,11 @@ class Input extends React.PureComponent<InputProps, InputStates> {
     }
   }
 
-  private iconMouseDown (): void {
+  private iconForbidBlur (): void {
     this.isIconBlur = true
   }
 
-  private iconMouseUp (): void {
+  private iconAllowBlur (): void {
     this.input.current.focus()
     this.isIconBlur = false
   }
@@ -211,8 +211,10 @@ class Input extends React.PureComponent<InputProps, InputStates> {
           showClear={showClear}
           showEye={showEye}
           style={iconStyle}
-          onMouseDown={this.iconMouseDown.bind(this)}
-          onMouseUp={this.iconMouseUp.bind(this)}
+          onMouseDown={this.iconForbidBlur.bind(this)}
+          onMouseUp={this.iconAllowBlur.bind(this)}
+          onTouchStart={this.iconForbidBlur.bind(this)}
+          onTouchEnd={this.iconAllowBlur.bind(this)}
         >
           {showClear && <Icon type='close' onClick={this.handleClear.bind(this)} />}
           {!showClear && (theme === 'line-pwd' || theme === 'box-pwd') && showEye && <Icon type={type === 'text' ? 'eye-open' : 'eye-close'} onClick={this.handleEye.bind(this)} />}
