@@ -56,6 +56,10 @@ const StyledOption = styled.div`
   &:hover {
     background-color: #eee;
   }
+  &.hmly-option-disable {
+    cursor: not-allowed;
+    color: #ccc;
+  }
 `
 
 export { StyledSelect, StyledOption, StyledOptionBox }
