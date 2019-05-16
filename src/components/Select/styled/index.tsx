@@ -5,8 +5,8 @@ import { StyledOptionBoxProps } from '../interface'
 const StyledSelect = styled.div`
   position: relative;
   width: 100%;
-  height: 46px;
-  padding: 14px;
+  min-width: 50px;
+  padding: 14px 30px 14px 14px;
   line-height: 18px;
   border-radius: 2px;
   border: solid 1px #e2e2e2;
@@ -20,7 +20,7 @@ const StyledSelect = styled.div`
   box-sizing: border-box;
   &::after {
     position: absolute;
-    top: 14px;
+    top: 17px;
     right: 14px;
     content: " ";
     width: 0;

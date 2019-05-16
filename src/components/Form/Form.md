@@ -12,11 +12,14 @@ class Example extends React.Component {
     this.state = {
       field1: '1',
       field2: '',
-      field3: ''
+      field3: []
     }
     this.onField1Change = this.onField1Change.bind(this)
     this.onField2Change = this.onField2Change.bind(this)
     this.onField3Change = this.onField3Change.bind(this)
+    this.checkField1 = this.checkField1.bind(this)
+    this.checkField2 = this.checkField2.bind(this)
+    this.checkField3 = this.checkField3.bind(this)
   }
 
   onField1Change (e) {
@@ -34,26 +37,52 @@ class Example extends React.Component {
     this.setState({ field3: value })
   }
 
+  checkField1 (field1) {
+    let error = ''
+    if (field1.length === 0) {
+      error = '不能为空'
+    } else if (field1.length > 10) {
+      error = '长度不能大于10'
+    }
+    return error
+  }
+
+  checkField2 (field2) {
+    let error = ''
+    if (field2.length === 0) {
+      error = '不能为空'
+    } else if (field2.length > 10) {
+      error = '长度不能大于10'
+    }
+    return error
+  }
+
+  checkField3 (field3) {
+    let error = ''
+    if (field3.length === 0) {
+      error = '不能为空'
+    } else if (field3.length > 10) {
+      error = '长度不能大于10'
+    }
+    return error
+  }
+
   render () {
     const { field1, field2, field3 } = this.state
-    let field1Error = ''
-    const field1Rule = (field1) => {
-      if (field1.length === 0) {
-        field1Error = '不能为空'
-      }
-      if (field1.length > 10) {
-        field1Error = '长度不能大于10'
-      }
-    }
+    const field1Error = this.checkField1(field1)
+    const field2Error = this.checkField2(field2)
+    const field3Error = this.checkField3(field3)
+    const submitDisable = Boolean(field1Error || field2Error || field3Error)
 
     return (<div className='form-box'>
       <Form 
         className='form1'
-        labelCol={{span: 3, offset: 12}}
-        labelAlign='left'>
+        labelWidth='200px'>
 
         <Form.Item
           label='field1'
+          desc='How much would you like to charge your fans?'
+          tips='field1 tips text'
           error={field1Error}>
           <Input value={field1} onChange={this.onField1Change} />
         </Form.Item>
@@ -61,7 +90,7 @@ class Example extends React.Component {
         <Form.Item
           required
           label='field2'
-          error='field2 is not valid.'>
+          error={field2Error}>
           <Radio.Group 
             value={field2} 
             onChange={this.onField2Change}>
@@ -74,9 +103,9 @@ class Example extends React.Component {
         </Form.Item>
         
         <Form.Item
-          help='field3 help text'
           label='field3'
-          error='field3 is not valid.'>
+          desc='field3 help text'
+          error={field3Error}>
           <Checkbox.Group 
             value={field3} 
             onChange= {this.onField3Change}>
@@ -89,7 +118,10 @@ class Example extends React.Component {
         </Form.Item>
 
         <Form.Item>
-          <Button size='md' onClick={this.onSubmit}>
+          <Button 
+            size='md' 
+            disabled={submitDisable}
+            onClick={this.onSubmit}>
             Submit
           </Button>
         </Form.Item>

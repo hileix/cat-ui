@@ -28,7 +28,7 @@ class Select extends Component<SelectProps, any> {
   constructor (props: SelectProps) {
     super(props)
     this.state = {
-      popoverStatus: false,
+      isPopOpen: false,
       selectWidth: 'auto'
     }
     this.selectRef = React.createRef()
@@ -44,7 +44,7 @@ class Select extends Component<SelectProps, any> {
   }
 
   onPopoverChange = (value: boolean) => {
-    this.setState({ popoverStatus: value })
+    this.setState({ isPopOpen: value })
   }
 
   onOptionClick = (value: string | number, child: any) => {
@@ -54,7 +54,7 @@ class Select extends Component<SelectProps, any> {
 
   render() {
     const self = this
-    const { popoverStatus, selectWidth } = this.state
+    const { isPopOpen, selectWidth } = this.state
     const { className, style, value, placeholder, children } = this.props
     let filler = placeholder
     const options =  React.Children.map(children, (element: any, index) => {
@@ -65,12 +65,20 @@ class Select extends Component<SelectProps, any> {
       }
       return cloneElement(element, {
         key: index,
-        onOptionClick: self.onOptionClick
+        onOptionClick: (value: string | number, child: any) => {
+          if(element.props.onOptionClick) {
+            let flag = element.props.onOptionClick(value, child)
+            return (flag !== false && flag !== void 0 ) && self.onOptionClick(value, child)
+          } else {
+            return self.onOptionClick(value, child)
+          }
+          
+        }
       })
     })
     const isValueEmpty = value === '' || (typeof value === undefined)
     const classes = classNames('hmly-select', {
-      'hmly-select-open': popoverStatus,
+      'hmly-select-open': isPopOpen,
       'hmly-select-placeholder': isValueEmpty
     }, className)
 
