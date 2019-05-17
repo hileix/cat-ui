@@ -18,6 +18,8 @@ export interface PopoverContentProps {
   triggerDOM?: any;
   /** 触发类型 */
   mode?: 'click' | 'hover';
+  /** 定位的方向 */
+  position?: 'bottomLeft' | 'topCenter';
   /** toggleVisible */
   toggleVisible?: any;
 }
@@ -32,11 +34,13 @@ const defaultPostion = {
  * PopoverContent
  */
 class PopoverContent extends Component<PopoverContentProps, any> {
+  private contentRef: any;
   constructor (props: PopoverContentProps) {
     super(props)
     this.state = {
-      position: defaultPostion
+      positionStyle: defaultPostion
     }
+    this.contentRef = React.createRef()
   }
 
   componentDidMount() {
@@ -62,21 +66,33 @@ class PopoverContent extends Component<PopoverContentProps, any> {
   }
 
   adjustPosition = () => {
-    const { visible, triggerDOM } = this.props
-    const { position } =  this.state
+    const { visible, triggerDOM, position } = this.props
     if (!visible || !triggerDOM) { return }
+    const { positionStyle } =  this.state
+    const contentDOM = this.contentRef.current
+    const triggerRect = triggerDOM.getBoundingClientRect()
+    const contentRect = contentDOM.getBoundingClientRect()
 
-    const nodeRect = triggerDOM.getBoundingClientRect()
-    const { left, top, width, height } = nodeRect
+    let newPositionStyle
 
-    const newPosition =  {
-      ...position,
-      left: left,
-      top: window.pageYOffset + top + height
+    switch (position) {
+      case 'topCenter':
+        newPositionStyle =  {
+          ...positionStyle,
+          left: triggerRect.left + (triggerRect.width / 2) - (contentRect.width / 2),
+          top: window.pageYOffset + triggerRect.top - contentRect.height - 5
+        }
+        break
+      case 'bottomLeft':
+      default:
+        newPositionStyle =  {
+          ...positionStyle,
+          left: triggerRect.left,
+          top: window.pageYOffset + triggerRect.top + triggerRect.height
+        }
     }
-    this.setState({ position: newPosition })
-    // console.log('adjustPosition:nodeRect', triggerDOM, nodeRect, newPosition)
 
+    this.setState({ positionStyle: newPositionStyle })
   }
 
   onWindowResize = throttle((evt: any) => {
@@ -102,7 +118,7 @@ class PopoverContent extends Component<PopoverContentProps, any> {
   }
 
   render() {
-    const { position } = this.state
+    const { positionStyle } = this.state
     const { className, style, visible, triggerDOM, children } = this.props
     const classes = classNames('hmly-popover', className)
     // console.log('PopoverContent:render', visible, triggerDOM)
@@ -111,7 +127,8 @@ class PopoverContent extends Component<PopoverContentProps, any> {
     return (
       <Portal visible={visible}>
         <StyledPopBox
-          style={position}
+          ref={this.contentRef}
+          style={positionStyle}
           onMouseEnter={this.handleMouseEnter}
           onMouseLeave={this.handleMouseLeave}>
           <StyledPopoverContent

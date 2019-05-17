@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Component } from 'react'
 import classNames from 'classnames'
 import Icon from '../Icon'
+import Tooltip from '../Tooltip'
 import { StyledFormItem, FormItemLabel, FormItemControl, LabelBox,
   ControlBox, FormItemDesc, ItemError, LabelIcon } from './styled'
 
@@ -53,7 +54,7 @@ class FormItem extends Component<FormItemProps, any> {
       const element = this.formItemRef.current
       const eleRect = element.getBoundingClientRect()
       const { top = 0 } = eleRect
-      // 元素在屏幕视野之外
+      // 表单有错误且元素在屏幕视野之外
       if (element && top < 0) {
         element.scrollIntoView({ behavior: 'instant', block: 'center' })
       }
@@ -75,7 +76,11 @@ class FormItem extends Component<FormItemProps, any> {
         <LabelBox width={labelWidth} className={labelBoxClass}>
           <FormItemLabel>
             {label}
-            {Boolean(tips) && <LabelIcon type='question-circle' />}
+            {Boolean(tips) &&
+              <Tooltip content={tips}>
+                <LabelIcon type='question-circle' />
+              </Tooltip>
+            }
           </FormItemLabel>
           {Boolean(desc) && <FormItemDesc>
             {desc}

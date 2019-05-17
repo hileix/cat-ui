@@ -32,11 +32,11 @@ export interface PopupOption {
 
 /**
  * Popup弹出层
- * 
+ *
  * Popup组件只是一个壳子，负责组装Trigger和Content，以及计算目标要显示的位置，添加弹出时的过渡、动画等。
- * 
+ *
  * 打开弹层的方式由Trigger控制，比如click, 触发后返回值给Content，由Content决定自己的展示和关闭
- * 
+ *
  */
 class Popup extends React.Component<any, any> {
   static defaultProps = {
@@ -59,7 +59,7 @@ class Popup extends React.Component<any, any> {
     const { onChange } = this.props
     onChange && onChange({popup: true})
   }
-  
+
   handleMouseLeave = () => {
     const { onChange } = this.props
     onChange && onChange({popup: false})

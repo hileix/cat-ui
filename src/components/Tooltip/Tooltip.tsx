@@ -11,29 +11,46 @@ export interface TooltipProps {
   style?: object;
   /** Tooltip hover后显示的内容 */
   mode?: 'hover' | 'click';
+  /** 定位的方向 */
+  position?: 'bottomLeft' | 'topCenter';
   /** Tooltip hover后显示的内容 */
   content?: string | React.ReactNode;
 }
 
 /**
- * Tooltip
+ * 文字提示
  */
 class Tooltip extends Component<TooltipProps, any> {
+  private contentRef: any;
   static defaultProps = {
-    mode: 'hover'
+    mode: 'hover',
+    position: 'topCenter'
   }
 
   constructor (props: TooltipProps) {
     super(props)
     this.state = {
-      isPopOpen: false
+      isPopOpen: false,
+      tipLeft: 0,
     }
+    this.contentRef = React.createRef()
   }
 
-  componentDidMount () {
-    setTimeout(() => {
-      this.setState({ isPopOpen: true })
-    }, 1000)
+  // componentDidMount () {
+  //   setTimeout(() => {
+  //     this.setState({ isPopOpen: true })
+  //   }, 1000)
+  // }
+
+  componentDidUpdate () {
+    const contentDOM = this.contentRef.current
+    if (!contentDOM) { return }
+    const { isPopOpen, tipLeft } = this.state
+    if (isPopOpen && tipLeft === 0) {
+      const contentRect = contentDOM.getBoundingClientRect()
+      const rectCollection = contentDOM.getClientRects()
+      this.setState({ tipLeft: contentRect.width / 2 - 8 })
+    }
   }
 
   onPopoverChange = (value: boolean) => {
@@ -41,21 +58,33 @@ class Tooltip extends Component<TooltipProps, any> {
   }
 
   render() {
-    const { className, style, mode, content, children } = this.props
-    const { isPopOpen } = this.state
-    const classes = classNames('hmly-tooltip', className)
+    const { className, style, mode, content, position, children } = this.props
+    const { isPopOpen, tipLeft } = this.state
+    const triggerClass = classNames('hmly-tooltip-trigger', className)
+    const contentClass = classNames('hmly-tooltip-content', {
+      [`hmly-tooltip-${position}`]: position
+    })
+
+    // console.log('tipLeft', tipLeft)
 
     return (
-      <Popover visible={isPopOpen} mode={mode} onChange={this.onPopoverChange}>
+      <Popover
+        visible={isPopOpen}
+        mode={mode}
+        position={position}
+        onChange={this.onPopoverChange}>
         <Popover.Trigger>
           <StyledTooltip
-            className={classes}
+            className={triggerClass}
             style={style}>
             {children}
           </StyledTooltip>
         </Popover.Trigger>
         <Popover.Content>
-          <StyledTooltipContent>
+          <StyledTooltipContent
+            ref={this.contentRef}
+            className={contentClass}
+            left={tipLeft}>
             {content}
           </StyledTooltipContent>
         </Popover.Content>

@@ -6,6 +6,10 @@ import Button from '../Button';
 import Checkbox from '../Checkbox';
 import Input from '../Input';
 import Radio from '../Radio';
+import Select from '../Select';
+import Tooltip from '../Tooltip';
+
+const Option = Select.Option;
 
 class Example extends React.Component {
   constructor (props) {
@@ -15,55 +19,47 @@ class Example extends React.Component {
       field2: '',
       field3: [],
       field4: '',
+      field5: '',
       fieldError: {}
     }
-    this.onField1Change = this.onField1Change.bind(this)
+    this.onFieldChange = this.onFieldChange.bind(this)
     this.onField2Change = this.onField2Change.bind(this)
-    this.onField3Change = this.onField3Change.bind(this)
-    this.onField4Change = this.onField4Change.bind(this)
     this.checkField1 = this.checkField1.bind(this)
     this.checkField2 = this.checkField2.bind(this)
     this.checkField3 = this.checkField3.bind(this)
     this.checkField4 = this.checkField4.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
+    this.checkFunc = this.checkFunc.bind(this)
   }
 
-  onField1Change (e) {
+  // 字段及校验函数的映射
+  checkFunc (field) {
+    return {
+      field1: this.checkField1,
+      field2: this.checkField2,
+      field3: this.checkField3,
+      field4: this.checkField4,
+    }[field] || _.noop
+  }
+
+  // 字段改变的通用回调函数
+  onFieldChange (field, value,) {
     const { fieldError } = this.state
-    const newValue = e.target.value
+    const errorType = field + 'Error'
+    const errorMsg = this.checkFunc(field)(value)
     const newFieldError = { 
       ...fieldError, 
-      field1Error: this.checkField1(newValue) 
+      [errorType]: errorMsg
     }
-    this.setState({ field1: newValue, fieldError: newFieldError })
+    this.setState({ 
+      [field]: value, 
+      fieldError: newFieldError 
+    })
   }
 
   onField2Change (value) {
-    const { fieldError } = this.state
-    const newFieldError = { 
-      ...fieldError, 
-      field2Error: this.checkField2(value) 
-    }
-    this.setState({ field2: value, fieldError: newFieldError })
-  }
-
-  onField3Change (value) {
-    const { fieldError } = this.state
-    const newFieldError = { 
-      ...fieldError, 
-      field3Error: this.checkField3(value) 
-    }
-    this.setState({ field3: value, fieldError: newFieldError })
-  }
-
-  onField4Change (e) {
-    const { fieldError } = this.state
-    const newValue = e.target.value
-    const newFieldError = { 
-      ...fieldError, 
-      field4Error: this.checkField4(newValue) 
-    }
-    this.setState({ field4: newValue, fieldError: newFieldError })
+    console.log('do other things...')
+    this.onFieldChange('field2', value)
   }
 
   checkField1 (field1) {
@@ -97,8 +93,8 @@ class Example extends React.Component {
   }
 
   onSubmit () {
-    const { field1, field2, field3, field4 } = this.state
-    const params = { field1, field2, field3, field4 }
+    const { field1, field2, field3, field4, field5 } = this.state
+    const params = { field1, field2, field3, field4, field5 }
     const fieldError = {
       field1Error: this.checkField1(field1),
       field2Error: this.checkField2(field2),
@@ -108,14 +104,20 @@ class Example extends React.Component {
     const isInvalid = _.some(fieldError, function(error) { 
       return Boolean(error)
     })
-
     this.setState({ fieldError: fieldError })
-    console.log('onSubmit', params, fieldError, isInvalid)
+    
+    if (!isInvalid) {
+      alert(`onSubmit ${JSON.stringify(params)}`)
+    }
+    console.log('onSubmit', params, isInvalid)
   }
 
   render () {
-    const { field1, field2, field3, field4, fieldError } = this.state
-    const { field1Error, field2Error, field3Error, field4Error } = fieldError
+    const { field1, field2, field3, field4, field5, fieldError } = this.state
+    const { field1Error, field2Error, field3Error, field4Error, field5Error } = fieldError
+
+    const isFullField3 = field2 === 3
+    const isShowField4 = field2 === 1
 
     return (<div className='form-box'>
       <h3>不禁用提交按钮</h3>
@@ -132,12 +134,13 @@ class Example extends React.Component {
           <Input 
             value={field1} 
             error={field1Error}
-            onChange={this.onField1Change} />
+            onChange={(e) => {this.onFieldChange('field1', e.target.value)}} />
         </Form.Item>
 
         <Form.Item
           required
           label='field2'
+          tips='field2 tips text field2 tips text'
           error={field2Error}>
           <Radio.Group 
             value={field2} 
@@ -156,24 +159,46 @@ class Example extends React.Component {
           error={field3Error}>
           <Checkbox.Group 
             value={field3} 
-            onChange= {this.onField3Change}>
+            onChange={(value) => {this.onFieldChange('field3',value)}}>
             <Checkbox value={'A'}>A</Checkbox>
             <Checkbox value={'B'}>B</Checkbox>
             <Checkbox value={'C'}>C</Checkbox>
-            <Checkbox disabled value='D'>D</Checkbox>
-            <Checkbox value={'E'}>E</Checkbox>
+            {isFullField3 && <React.Fragment>
+              <Checkbox disabled value='D'>D</Checkbox>
+              <Checkbox value={'E'}>E</Checkbox>
+            </React.Fragment>}
+            <Checkbox value={'F'}>F</Checkbox>
           </Checkbox.Group>
         </Form.Item>
 
+        {isShowField4 &&
+          <Form.Item
+            label='field4'
+            desc='How much would you like to charge your fans?'
+            tips='tips'
+            error={field4Error}>
+            <Input 
+              value={field4}
+              error={field4Error} 
+              onChange={(e) => {this.onFieldChange('field4', e.target.value)}} />
+          </Form.Item>
+        }
+
         <Form.Item
-          label='field4'
+          label='field5'
           desc='How much would you like to charge your fans?'
-          tips='field4 tips text'
-          error={field4Error}>
-          <Input 
-            value={field4}
-            error={field4Error} 
-            onChange={this.onField4Change} />
+          tips='tips'
+          error={field5Error}>
+          <Select 
+            className='select' 
+            placeholder='Choose Price'
+            value={field5}
+            onChange={(value) => {this.onFieldChange('field5',value)}}>
+            <Option value='1' >Option 1</Option>
+            <Option value='2' >Option 2</Option>
+            <Option value='3' disable>Option 3</Option>
+            <Option value='4'>Option 4</Option>
+          </Select>
         </Form.Item>
 
         <Form.Item>

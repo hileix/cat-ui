@@ -6,7 +6,7 @@ const styledComponentsTransformer = createStyledComponentsTransformer();
 
 module.exports = {
   components: 'src/components/[A-Z]*/index.ts',
-  // ignore: ['**/styled/*.tsx', '**/PortalContent.tsx', '**/TabPanel.tsx'], // 不显示的组件
+  ignore: ['**/TooltipOld/*.tsx'], // 不显示的组件
   defaultExample: true,
   resolver: require('react-docgen').resolver.findAllComponentDefinitions,
   propsParser: require('react-docgen-typescript').withDefaultConfig({ propFilter: { skipPropsWithoutDoc: true } }).parse,
