@@ -18,7 +18,7 @@ export interface TooltipProps {
 }
 
 /**
- * Tooltip
+ * 文字提示
  */
 class Tooltip extends Component<TooltipProps, any> {
   static defaultProps = {
