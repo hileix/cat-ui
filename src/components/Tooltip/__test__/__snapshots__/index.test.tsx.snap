@@ -14,7 +14,7 @@ initialize {
         "children": Array [
           Object {
             "attribs": Object {
-              "class": "hmly-tooltip sc-bdVaJa bDWFJH",
+              "class": "hmly-tooltip-trigger sc-bdVaJa bDWFJH",
             },
             "children": Array [
               Object {

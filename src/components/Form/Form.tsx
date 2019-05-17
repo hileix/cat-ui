@@ -34,8 +34,8 @@ class Form extends Component<FormProps, any> {
       if (!element) { return element }
 
       const child = element.props.children
-      const componentType = child.type.name
-      console.log('componentType', componentType)
+      // const componentType = child.type.name
+      // console.log('componentType', componentType)
       // if (kindOf(type, PopoverTrigger)) {
       //   result.trigger = child
       // } else if (kindOf(type, PopoverContent)) {
