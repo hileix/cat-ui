@@ -46,7 +46,7 @@ class CheckboxGroup extends Component<CheckboxGroupProps, any> {
 
       return cloneElement(element, {
         onChange: self.onCheckboxChange,
-        key: index,
+        key: value,
         checked: value.indexOf(element.props.value) > -1,
         disabled: disabled,
         readOnly: readOnly

@@ -167,6 +167,7 @@ class Example extends React.Component {
               <Checkbox disabled value='D'>D</Checkbox>
               <Checkbox value={'E'}>E</Checkbox>
             </React.Fragment>}
+            <Checkbox value={'F'}>F</Checkbox>
           </Checkbox.Group>
         </Form.Item>
 
