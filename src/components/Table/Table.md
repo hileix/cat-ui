@@ -165,3 +165,54 @@ class Example extends React.Component {
 
 <Example />
 ```
+
+
+### Table组件数据更新
+
+```jsx
+import Button from '../Button'
+class Example2 extends React.Component {
+  constructor (props) {
+    super(props)
+    let columns = [{
+      id: 'id',
+      title: <span>id</span>,
+    },{
+      id: 'name',
+      title: <span>name</span>,
+    }]
+    this.state = {
+      dataSource: [],
+      columns
+    }
+    this.reflush = this.reflush.bind(this)
+  }
+
+  reflush () {
+    this.setState({
+      dataSource: [{
+        id: 1, 
+        name: 'aa'
+      },{
+        id: 2, 
+        name: 'bb'
+      }]
+    })
+  }
+
+  render () {
+    console.log(this.state.dataSource)
+    return (
+      <div>
+        <Button onClick={this.reflush}> 更新Table数据 </Button>
+        <Table 
+        columns={this.state.columns}
+        dataSource={this.state.dataSource}
+        empty={''}
+        />
+      </div>
+    )
+  }
+}
+<Example2 />
+```
