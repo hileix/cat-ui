@@ -13,7 +13,7 @@ const StyledTooltipContent = styled.div`
   box-sizing: border-box;
   &.hmly-tooltip-topCenter::after {
     position: absolute;
-    top: ${(props: StyledTooltipContentProps) => props.top + 'px'};
+    bottom: -8px;
     left: ${(props: StyledTooltipContentProps) => props.left + 'px'};
     content: " ";
     width: 0;

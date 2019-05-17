@@ -31,30 +31,25 @@ class Tooltip extends Component<TooltipProps, any> {
     super(props)
     this.state = {
       isPopOpen: false,
-      tipTop: 0,
       tipLeft: 0,
     }
     this.contentRef = React.createRef()
   }
 
-  componentDidMount () {
-    setTimeout(() => {
-      this.setState({ isPopOpen: true })
-    }, 1000)
-  }
+  // componentDidMount () {
+  //   setTimeout(() => {
+  //     this.setState({ isPopOpen: true })
+  //   }, 1000)
+  // }
 
   componentDidUpdate () {
     const contentDOM = this.contentRef.current
     if (!contentDOM) { return }
-    const { isPopOpen, tipTop, tipLeft } = this.state
-    if (isPopOpen && tipTop === 0 && tipLeft === 0) {
+    const { isPopOpen, tipLeft } = this.state
+    if (isPopOpen && tipLeft === 0) {
       const contentRect = contentDOM.getBoundingClientRect()
       const rectCollection = contentDOM.getClientRects()
-      this.setState({
-        tipTop: contentRect.height,
-        tipLeft: contentRect.width / 2 - 8
-      })
-      console.log('contentRect', contentDOM, contentRect, rectCollection)
+      this.setState({ tipLeft: contentRect.width / 2 - 8 })
     }
   }
 
@@ -64,13 +59,13 @@ class Tooltip extends Component<TooltipProps, any> {
 
   render() {
     const { className, style, mode, content, position, children } = this.props
-    const { isPopOpen, tipTop, tipLeft } = this.state
+    const { isPopOpen, tipLeft } = this.state
     const triggerClass = classNames('hmly-tooltip-trigger', className)
     const contentClass = classNames('hmly-tooltip-content', {
       [`hmly-tooltip-${position}`]: position
     })
 
-    // console.log('tipTop, tipLeft', tipTop, tipLeft)
+    // console.log('tipLeft', tipLeft)
 
     return (
       <Popover
@@ -89,7 +84,6 @@ class Tooltip extends Component<TooltipProps, any> {
           <StyledTooltipContent
             ref={this.contentRef}
             className={contentClass}
-            top={tipTop}
             left={tipLeft}>
             {content}
           </StyledTooltipContent>
