@@ -3,6 +3,7 @@ import { Component, cloneElement } from 'react'
 import classNames from 'classnames'
 import { StyledForm } from './styled'
 import FormItem from './FormItem'
+import kindOf from '../../utils/kindOf'
 
 export interface FormProps {
   /** 类名 */
@@ -31,6 +32,15 @@ class Form extends Component<FormProps, any> {
     const classes = classNames('hmly-form', className)
     const items = React.Children.map(children, (element: any, index) => {
       if (!element) { return element }
+
+      const child = element.props.children
+      const componentType = child.type.name
+      console.log('componentType', componentType)
+      // if (kindOf(type, PopoverTrigger)) {
+      //   result.trigger = child
+      // } else if (kindOf(type, PopoverContent)) {
+      //   result.content = child
+      // }
 
       return cloneElement(element, {
         key: index,
