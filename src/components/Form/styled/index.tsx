@@ -7,7 +7,7 @@ const StyledForm = styled.form``;
 
 const StyledFormItem = styled.div`
   & + & {
-    margin-top: 30px;
+    margin-top: 20px;
   }
 `;
 
@@ -20,7 +20,7 @@ const LabelBox = styled.div`
     content: "*";
     position: absolute;
     top: 0;
-    right: 20px;
+    left: -15px;
     font-size: 20px;
     color: #ff8585;
   }
@@ -29,6 +29,7 @@ const LabelBox = styled.div`
 const ControlBox = styled.div`
   display: inline-block;
   vertical-align: top;
+  min-height: 60px;
 `;
 
 const FormItemLabel = styled.label``;

@@ -51,7 +51,12 @@ class FormItem extends Component<FormItemProps, any> {
     const { error } = this.props
     if (Boolean(error)) {
       const element = this.formItemRef.current
-      element && element.scrollIntoView({ behavior: 'instant', block: 'center' })
+      const eleRect = element.getBoundingClientRect()
+      const { top = 0 } = eleRect
+      // 元素在屏幕视野之外
+      if (element && top < 0) {
+        element.scrollIntoView({ behavior: 'instant', block: 'center' })
+      }
     }
   }
 
