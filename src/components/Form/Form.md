@@ -92,21 +92,17 @@ class Example extends React.Component {
   onSubmit () {
     const { field1, field2, field3, field4 } = this.state
     const params = { field1, field2, field3, field4 }
-    const field1Error = this.checkField1(field1)
-    const field2Error = this.checkField2(field2)
-    const field3Error = this.checkField3(field3)
-    const field4Error = this.checkField3(field4)
     const fieldError = {
       field1Error: this.checkField1(field1),
       field2Error: this.checkField2(field2),
       field3Error: this.checkField3(field3),
       field4Error: this.checkField4(field4),
     }
-    this.setState({ fieldError: fieldError })
-
     const isInvalid = _.some(fieldError, function(error) { 
       return Boolean(error)
     })
+
+    this.setState({ fieldError: fieldError })
 
     console.log('onSubmit', params, fieldError, isInvalid)
   }
