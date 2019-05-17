@@ -20,7 +20,7 @@ const LabelBox = styled.div`
     content: "*";
     position: absolute;
     top: 0;
-    right: 20px;
+    left: -15px;
     font-size: 20px;
     color: #ff8585;
   }
