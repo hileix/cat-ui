@@ -47,6 +47,16 @@ class Table extends Component<TableProps, any> {
     }
   }
 
+  static getDerivedStateFromProps(nextProps: TableProps) {
+    if ('dataSource' in nextProps) {
+      return {
+        filterDataSource: nextProps.dataSource,
+        currentPageData: nextProps.dataSource
+      }
+    }
+    return null
+  }
+
   componentDidMount () {
     if (this.hasPagination()) {
       const { pagination } = this.props
