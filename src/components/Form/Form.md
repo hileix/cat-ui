@@ -36,7 +36,6 @@ class Example extends React.Component {
       field1Error: this.checkField1(newValue) 
     }
     this.setState({ field1: newValue, fieldError: newFieldError })
-    console.log('Example:onField1Change', newFieldError)
   }
 
   onField2Change (value) {
@@ -46,7 +45,6 @@ class Example extends React.Component {
       field2Error: this.checkField2(value) 
     }
     this.setState({ field2: value, fieldError: newFieldError })
-    console.log('Example:onField2Change', value)
   }
 
   onField3Change (value) {
@@ -56,7 +54,6 @@ class Example extends React.Component {
       field3Error: this.checkField3(value) 
     }
     this.setState({ field3: value, fieldError: newFieldError })
-    console.log('Example:onField3Change', value)
   }
 
   onField4Change (e) {
@@ -67,7 +64,6 @@ class Example extends React.Component {
       field4Error: this.checkField4(newValue) 
     }
     this.setState({ field4: newValue, fieldError: newFieldError })
-    console.log('Example:onField4Change', newValue, newFieldError)
   }
 
   checkField1 (field1) {
@@ -91,22 +87,12 @@ class Example extends React.Component {
   }
 
   checkField3 (field3) {
-    let error = ''
-    if (field3.length === 0) {
-      error = '不能为空'
-    } else if (field3.length > 10) {
-      error = '长度不能大于10'
-    }
+    const error = field3.length > 10 ? '长度不能大于10' : ''
     return error
   }
 
   checkField4 (field4) {
-    let error = ''
-    if (field4.length === 0) {
-      error = '不能为空'
-    } else if (field4.length > 10) {
-      error = '长度不能大于10'
-    }
+    const error = field4.length > 10 ? '长度不能大于10' : ''
     return error
   }
 
@@ -124,7 +110,6 @@ class Example extends React.Component {
     })
 
     this.setState({ fieldError: fieldError })
-
     console.log('onSubmit', params, fieldError, isInvalid)
   }
 
