@@ -29,24 +29,45 @@ class Example extends React.Component {
   }
 
   onField1Change (e) {
-    console.log('Example:onField1Change', e.target.value)
-    const field1Error = this.checkField1(e.target.value)
-    this.setState({ field1: e.target.value })
+    const { fieldError } = this.state
+    const newValue = e.target.value
+    const newFieldError = { 
+      ...fieldError, 
+      field1Error: this.checkField1(newValue) 
+    }
+    this.setState({ field1: newValue, fieldError: newFieldError })
+    console.log('Example:onField1Change', newFieldError)
   }
 
   onField2Change (value) {
+    const { fieldError } = this.state
+    const newFieldError = { 
+      ...fieldError, 
+      field2Error: this.checkField2(value) 
+    }
+    this.setState({ field2: value, fieldError: newFieldError })
     console.log('Example:onField2Change', value)
-    this.setState({ field2: value })
   }
 
   onField3Change (value) {
+    const { fieldError } = this.state
+    const newFieldError = { 
+      ...fieldError, 
+      field3Error: this.checkField3(value) 
+    }
+    this.setState({ field3: value, fieldError: newFieldError })
     console.log('Example:onField3Change', value)
-    this.setState({ field3: value })
   }
 
   onField4Change (e) {
-    console.log('Example:onField4Change', e.target.value)
-    this.setState({ field4: e.target.value })
+    const { fieldError } = this.state
+    const newValue = e.target.value
+    const newFieldError = { 
+      ...fieldError, 
+      field4Error: this.checkField4(newValue) 
+    }
+    this.setState({ field4: newValue, fieldError: newFieldError })
+    console.log('Example:onField4Change', newValue, newFieldError)
   }
 
   checkField1 (field1) {
