@@ -103,10 +103,6 @@ class Example extends React.Component {
       field4Error: this.checkField4(field4),
     }
     this.setState({ fieldError: fieldError })
-   
-    // for (let error in fieldError) {
-    //   console.log('error', error)
-    // }
 
     const isInvalid = _.some(fieldError, function(error) { 
       return Boolean(error)
