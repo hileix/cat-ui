@@ -10,6 +10,7 @@ const StyledTooltipContent = styled.div`
   background-color: #eee;
   max-width: 500px;
   word-wrap:break-word;
+  box-sizing: border-box;
   &.hmly-tooltip-topCenter::after {
     position: absolute;
     top: ${(props: StyledTooltipContentProps) => props.top + 'px'};

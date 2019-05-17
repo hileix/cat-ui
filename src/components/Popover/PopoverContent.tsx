@@ -72,6 +72,8 @@ class PopoverContent extends Component<PopoverContentProps, any> {
     const contentDOM = this.contentRef.current
     const triggerRect = triggerDOM.getBoundingClientRect()
     const contentRect = contentDOM.getBoundingClientRect()
+
+    console.log('adjustPosition:contentRect', contentRect)
     let newPositionStyle
 
     switch (position) {
