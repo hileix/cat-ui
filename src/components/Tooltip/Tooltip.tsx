@@ -46,7 +46,11 @@ class Tooltip extends Component<TooltipProps, any> {
     const classes = classNames('hmly-tooltip', className)
 
     return (
-      <Popover visible={isPopOpen} mode={mode} onChange={this.onPopoverChange}>
+      <Popover
+        visible={isPopOpen}
+        mode={mode}
+        position='topCenter'
+        onChange={this.onPopoverChange}>
         <Popover.Trigger>
           <StyledTooltip
             className={classes}
