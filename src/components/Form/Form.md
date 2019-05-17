@@ -108,9 +108,12 @@ class Example extends React.Component {
     const isInvalid = _.some(fieldError, function(error) { 
       return Boolean(error)
     })
-
     this.setState({ fieldError: fieldError })
-    console.log('onSubmit', params, fieldError, isInvalid)
+    
+    if (!isInvalid) {
+      alert(`onSubmit ${JSON.stringify(params)}`)
+    }
+    console.log('onSubmit', params, isInvalid)
   }
 
   render () {
