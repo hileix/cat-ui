@@ -21,6 +21,7 @@ export interface TooltipProps {
  * 文字提示
  */
 class Tooltip extends Component<TooltipProps, any> {
+  private contentRef: any;
   static defaultProps = {
     mode: 'hover',
     position: 'topCenter'
@@ -29,15 +30,25 @@ class Tooltip extends Component<TooltipProps, any> {
   constructor (props: TooltipProps) {
     super(props)
     this.state = {
-      isPopOpen: false
+      isPopOpen: false,
+      tipTop: 0,
+      tipLeft: 0,
     }
+    this.contentRef = React.createRef()
   }
 
-  // componentDidMount () {
-  //   setTimeout(() => {
-  //     this.setState({ isPopOpen: true })
-  //   }, 1000)
-  // }
+  componentDidUpdate () {
+    const contentDOM = this.contentRef.current
+    if (!contentDOM) { return }
+    const { isPopOpen, tipTop, tipLeft } = this.state
+    const contentRect = contentDOM.getBoundingClientRect()
+    if (isPopOpen && tipTop === 0 && tipLeft === 0) {
+      this.setState({
+        tipTop: contentRect.height,
+        tipLeft: contentRect.width / 2 - 8
+      })
+    }
+  }
 
   onPopoverChange = (value: boolean) => {
     this.setState({ isPopOpen: value })
@@ -45,7 +56,7 @@ class Tooltip extends Component<TooltipProps, any> {
 
   render() {
     const { className, style, mode, content, position, children } = this.props
-    const { isPopOpen } = this.state
+    const { isPopOpen, tipTop, tipLeft } = this.state
     const triggerClass = classNames('hmly-tooltip-trigger', className)
     const contentClass = classNames('hmly-tooltip-content', {
       [`hmly-tooltip-${position}`]: position
@@ -65,7 +76,11 @@ class Tooltip extends Component<TooltipProps, any> {
           </StyledTooltip>
         </Popover.Trigger>
         <Popover.Content>
-          <StyledTooltipContent className={contentClass}>
+          <StyledTooltipContent
+            ref={this.contentRef}
+            className={contentClass}
+            top={tipTop}
+            left={tipLeft}>
             {content}
           </StyledTooltipContent>
         </Popover.Content>

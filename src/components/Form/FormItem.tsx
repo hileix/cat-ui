@@ -54,7 +54,7 @@ class FormItem extends Component<FormItemProps, any> {
       const element = this.formItemRef.current
       const eleRect = element.getBoundingClientRect()
       const { top = 0 } = eleRect
-      // 元素在屏幕视野之外
+      // 表单有错误且元素在屏幕视野之外
       if (element && top < 0) {
         element.scrollIntoView({ behavior: 'instant', block: 'center' })
       }
