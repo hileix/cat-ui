@@ -33,11 +33,11 @@ class Tooltip extends Component<TooltipProps, any> {
     }
   }
 
-  componentDidMount () {
-    setTimeout(() => {
-      this.setState({ isPopOpen: true })
-    }, 1000)
-  }
+  // componentDidMount () {
+  //   setTimeout(() => {
+  //     this.setState({ isPopOpen: true })
+  //   }, 1000)
+  // }
 
   onPopoverChange = (value: boolean) => {
     this.setState({ isPopOpen: value })

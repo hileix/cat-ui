@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Component } from 'react'
 import classNames from 'classnames'
 import Icon from '../Icon'
+import Tooltip from '../Tooltip'
 import { StyledFormItem, FormItemLabel, FormItemControl, LabelBox,
   ControlBox, FormItemDesc, ItemError, LabelIcon } from './styled'
 
@@ -75,7 +76,11 @@ class FormItem extends Component<FormItemProps, any> {
         <LabelBox width={labelWidth} className={labelBoxClass}>
           <FormItemLabel>
             {label}
-            {Boolean(tips) && <LabelIcon type='question-circle' />}
+            {Boolean(tips) &&
+              <Tooltip content={tips}>
+                <LabelIcon type='question-circle' />
+              </Tooltip>
+            }
           </FormItemLabel>
           {Boolean(desc) && <FormItemDesc>
             {desc}

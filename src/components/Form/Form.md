@@ -6,6 +6,7 @@ import Button from '../Button';
 import Checkbox from '../Checkbox';
 import Input from '../Input';
 import Radio from '../Radio';
+import Tooltip from '../Tooltip';
 
 class Example extends React.Component {
   constructor (props) {
@@ -141,6 +142,7 @@ class Example extends React.Component {
         <Form.Item
           required
           label='field2'
+          tips='field2 tips text field2 tips text'
           error={field2Error}>
           <Radio.Group 
             value={field2} 
@@ -171,7 +173,7 @@ class Example extends React.Component {
         <Form.Item
           label='field4'
           desc='How much would you like to charge your fans?'
-          tips='field4 tips text'
+          tips='tips'
           error={field4Error}>
           <Input 
             value={field4}

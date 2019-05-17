@@ -9,13 +9,13 @@ const StyledTooltipContent = styled.div`
   background-color: #eee;
   &.hmly-tooltip-topCenter::after {
     position: absolute;
-    top: 30px;
+    top: 27px;
     left: calc(50% - 6px);
     content: " ";
     width: 0;
     height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
     border-top: 10px solid #eee;
   }
 `;
