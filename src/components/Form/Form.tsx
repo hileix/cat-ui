@@ -89,7 +89,7 @@ class Form extends Component<FormProps, any> {
           key: 'childrenElement',
           onClick: self.onSubmitClick
         })
-        // element.props.children = item
+        element.props.children = item
       }
       return cloneElement(element, {
         key: index,
