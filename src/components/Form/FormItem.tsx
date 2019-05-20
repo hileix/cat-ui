@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { Component } from 'react'
+import { Component, cloneElement } from 'react'
 import classNames from 'classnames'
+import * as noop from 'lodash/noop'
 import Icon from '../Icon'
 import Tooltip from '../Tooltip'
 import { StyledFormItem, FormItemLabel, FormItemControl, LabelBox,
@@ -23,8 +24,8 @@ export interface FormItemProps {
   desc?: string | React.ReactNode;
   /** 提示信息 */
   tips?: string | React.ReactNode;
-  /** 错误提示 */
-  error?: string | React.ReactNode;
+  /** 校验规则 */
+  check?: (field?: any) => {};
   /** 设置子元素 label htmlFor 属性 */
   htmlFor?: string;
   /** 是否显示 label 后面的冒号 */
@@ -49,7 +50,7 @@ class FormItem extends Component<FormItemProps, any> {
   }
 
   componentDidUpdate () {
-    const { error } = this.props
+    const { error } = this.state
     if (Boolean(error)) {
       const element = this.formItemRef.current
       const eleRect = element.getBoundingClientRect()
@@ -61,12 +62,28 @@ class FormItem extends Component<FormItemProps, any> {
     }
   }
 
+  onItemChange = (value: any) => {
+    const { check = noop, children } = this.props
+    const { props = {} } = children as React.ReactElement<any>
+    const { onChange } = props
+    const error = check(value)
+    this.setState({ error: error })
+    // console.log('FormItem:onItemChange', value, check, this.props)
+    console.log('FormItem:onItemChange:error', value, error)
+    onChange && onChange(value)
+  }
+
   render() {
-    const { className, style, label, desc, tips, labelWidth, labelAlign, required,
-      error, children } = this.props
+    const self = this
+    const { error } = this.state
+    const { className, style, label, desc, tips, labelWidth, labelAlign,
+      required, children } = this.props
     const classes = classNames('hmly-form-item', className)
     const labelBoxClass = classNames({ 'hmly-form-label-required': required })
-    // console.log('FormItem:labelWidth', labelWidth)
+    const item = cloneElement(children as React.ReactElement<any>, {
+      key: 'childrenElement',
+      onChange: self.onItemChange
+    })
 
     return (
       <StyledFormItem
@@ -88,7 +105,7 @@ class FormItem extends Component<FormItemProps, any> {
         </LabelBox>
         <ControlBox>
           <FormItemControl>
-            {children}
+            {item}
           </FormItemControl>
           {Boolean(error) && <ItemError>
             {error}

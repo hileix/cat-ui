@@ -214,7 +214,7 @@ class Example2 extends React.Component {
   }
 
   render () {
-    console.log(this.state.dataSource)
+    // console.log(this.state.dataSource)
     return (
       <div>
         <Button onClick={this.reflush}> 更新Table数据 </Button>

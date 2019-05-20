@@ -28,10 +28,6 @@ class Form extends Component<FormProps, any> {
     colon: false
   }
 
-  componentDidMount () {
-    console.log('Form:componentDidMount')
-  }
-
   // 字段及校验函数的映射
   checkFunc = (field: string) => {
     // return {
@@ -66,7 +62,7 @@ class Form extends Component<FormProps, any> {
 
       const child = element.props.children
       const componentType = child.type.name
-      console.log('componentType', componentType)
+      // console.log('componentType', componentType)
       // if (kindOf(type, PopoverTrigger)) {
       //   result.trigger = child
       // } else if (kindOf(type, PopoverContent)) {

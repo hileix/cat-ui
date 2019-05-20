@@ -22,99 +22,62 @@ class Example extends React.Component {
       field5: '',
       fieldError: {}
     }
-    this.onFieldChange = this.onFieldChange.bind(this)
     this.onField2Change = this.onField2Change.bind(this)
     this.checkField1 = this.checkField1.bind(this)
     this.checkField2 = this.checkField2.bind(this)
     this.checkField3 = this.checkField3.bind(this)
     this.checkField4 = this.checkField4.bind(this)
+    this.checkField5 = this.checkField5.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
-    this.checkFunc = this.checkFunc.bind(this)
-  }
-
-  // 字段及校验函数的映射
-  checkFunc (field) {
-    return {
-      field1: this.checkField1,
-      field2: this.checkField2,
-      field3: this.checkField3,
-      field4: this.checkField4,
-    }[field] || _.noop
-  }
-
-  // 字段改变的通用回调函数
-  onFieldChange (field, value) {
-    const { fieldError } = this.state
-    const errorType = field + 'Error'
-    const errorMsg = this.checkFunc(field)(value)
-    const newFieldError = { 
-      ...fieldError, 
-      [errorType]: errorMsg
-    }
-    this.setState({ 
-      [field]: value, 
-      fieldError: newFieldError 
-    })
   }
 
   onField2Change (value) {
-    console.log('do other things...')
-    this.onFieldChange('field2', value)
+    console.log('onField2Change', value)
   }
 
   checkField1 (field1) {
-    let error = ''
-    if (field1.length === 0) {
-      error = '不能为空'
-    } else if (field1.length > 10) {
-      error = '长度不能大于10'
-    }
+    const isInvalid = value.length === 0 || value.length > 10
+    const error = isInvalid ? '长度不能大于10' : ''
     return error
   }
 
-  checkField2 (field2) {
-    let error = ''
-    if (field2.length === 0) {
-      error = '不能为空'
-    } else if (field2.length > 10) {
-      error = '长度不能大于10'
-    }
+  checkField2 (value) {
+    const isInvalid = value === 3
+    const error = isInvalid ? '不能选择3' : ''
     return error
   }
 
-  checkField3 (field3) {
-    const error = field3.length > 10 ? '长度不能大于10' : ''
+  checkField3 (value) {
+    const isInvalid = value.length > 10
+    const error = isInvalid ? '长度不能大于10' : ''
     return error
   }
 
-  checkField4 (field4) {
-    const error = field4.length > 10 ? '长度不能大于10' : ''
+  checkField4 (value) {
+    const isInvalid = value.length > 10
+    const error = isInvalid ? '长度不能大于10' : ''
+    return error
+  }
+
+  checkField5 (value) {
+    const isInvalid = value.length > 10
+    const error = isInvalid ? '长度不能大于10' : ''
     return error
   }
 
   onSubmit () {
     const { field1, field2, field3, field4, field5 } = this.state
     const params = { field1, field2, field3, field4, field5 }
-    const fieldError = {
-      field1Error: this.checkField1(field1),
-      field2Error: this.checkField2(field2),
-      field3Error: this.checkField3(field3),
-      field4Error: this.checkField4(field4),
-    }
-    const isInvalid = _.some(fieldError, function(error) { 
-      return Boolean(error)
-    })
-    this.setState({ fieldError: fieldError })
-    
-    if (!isInvalid) {
-      alert(`onSubmit ${JSON.stringify(params)}`)
-    }
-    console.log('onSubmit', params, isInvalid)
+   
+    // if (!isInvalid) {
+    //   alert(`onSubmit ${JSON.stringify(params)}`)
+    // }
+    console.log('onSubmit', params)
   }
 
   render () {
     const { field1, field2, field3, field4, field5, fieldError } = this.state
-    const { field1Error, field2Error, field3Error, field4Error, field5Error } = fieldError
+    const { field1Error, field4Error } = fieldError
 
     const isFullField3 = field2 === 3
     const isShowField4 = field2 === 1
@@ -130,18 +93,15 @@ class Example extends React.Component {
           desc='How much would you like to charge your fans?'
           tips='field1 tips text'
           required
-          error={field1Error}>
-          <Input 
-            value={field1} 
-            error={field1Error}
-            onChange={(e) => {this.onFieldChange('field1', e.target.value)}} />
+          check={this.checkField1}>
+          <Input error={field1Error} />
         </Form.Item>
 
         <Form.Item
           required
           label='field2'
           tips='field2 tips text field2 tips text'
-          error={field2Error}>
+          check={this.checkField2}>
           <Radio.Group 
             onChange={this.onField2Change}>
             <Radio value={1}>1</Radio>
@@ -155,10 +115,8 @@ class Example extends React.Component {
         <Form.Item
           label='field3'
           desc='field3 help text'
-          error={field3Error}>
-          <Checkbox.Group 
-            value={field3} 
-            onChange={(value) => {this.onFieldChange('field3',value)}}>
+          check={this.checkField3}>
+          <Checkbox.Group>
             <Checkbox value={'A'}>A</Checkbox>
             <Checkbox value={'B'}>B</Checkbox>
             <Checkbox value={'C'}>C</Checkbox>
@@ -175,11 +133,8 @@ class Example extends React.Component {
             label='field4'
             desc='How much would you like to charge your fans?'
             tips='tips'
-            error={field4Error}>
-            <Input 
-              value={field4}
-              error={field4Error} 
-              onChange={(e) => {this.onFieldChange('field4', e.target.value)}} />
+            check={this.checkField4}>
+            <Input error={field4Error} />
           </Form.Item>
         }
 
@@ -187,12 +142,10 @@ class Example extends React.Component {
           label='field5'
           desc='How much would you like to charge your fans?'
           tips='tips'
-          error={field5Error}>
+          check={this.checkField5}>
           <Select 
             className='select' 
-            placeholder='Choose Price'
-            value={field5}
-            onChange={(value) => {this.onFieldChange('field5',value)}}>
+            placeholder='Choose Price'>
             <Option value='1' >Option 1</Option>
             <Option value='2' >Option 2</Option>
             <Option value='3' disable>Option 3</Option>
