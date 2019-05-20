@@ -22,6 +22,8 @@ export interface ButtonProps {
   block?: boolean;
   /** 尺寸 */
   size?: 'sm' | 'md' | 'lg';
+  /** 设置按钮载入状态 */
+  loading?: boolean;
   /** 设置按钮的图标类型 */
   icon?: string;
   /** 子元素 */
@@ -41,7 +43,8 @@ class Button extends PureComponent<ButtonProps, any> {
     htmlType: 'button',
     theme: 'primary',
     size: 'lg',
-    disabled: false
+    disabled: false,
+    loading: false
   }
 
   constructor (props: ButtonProps) {
