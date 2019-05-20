@@ -35,7 +35,7 @@ class CheckboxGroup extends Component<CheckboxGroupProps, any> {
       value = props.defaultValue
     }
     this.state = {
-      value: []
+      value: value
     }
   }
 

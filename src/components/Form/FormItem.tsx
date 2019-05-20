@@ -12,6 +12,8 @@ export interface FormItemProps {
   className?: string;
   /** 样式 */
   style?: object;
+  /** 字段名称 */
+  name?: string;
   /** label */
   label?: string | React.ReactNode;
   /** label 标签布局 */
@@ -26,6 +28,8 @@ export interface FormItemProps {
   tips?: string | React.ReactNode;
   /** 校验规则 */
   check?: (field?: any) => {};
+  /** 字段改变的回调函数 */
+  onFieldChange?: (field?: string, value?: any) => {};
   /** 设置子元素 label htmlFor 属性 */
   htmlFor?: string;
   /** 是否显示 label 后面的冒号 */
@@ -40,6 +44,7 @@ class FormItem extends Component<FormItemProps, any> {
   constructor (props: FormItemProps) {
     super(props)
     this.state = {
+      value: '',
       error: ''
     }
     this.formItemRef = React.createRef()
@@ -47,6 +52,18 @@ class FormItem extends Component<FormItemProps, any> {
 
   static defaultProps = {
     colon: false
+  }
+
+  componentDidMount () {
+    const { children } = this.props
+    const { props = {} } = children as React.ReactElement<any>
+    const { defaultValue, value } = props
+    if ('value' in props) {
+      this.setState({ value: value })
+    } else if ('defaultValue' in props) {
+      this.setState({ value: defaultValue })
+    }
+    // console.log('FormItem:componentDidMount', defaultValue, value)
   }
 
   componentDidUpdate () {
@@ -63,14 +80,20 @@ class FormItem extends Component<FormItemProps, any> {
   }
 
   onItemChange = (value: any) => {
-    const { check = noop, children } = this.props
-    const { props = {} } = children as React.ReactElement<any>
+    const { check = noop, name, onFieldChange, children } = this.props
+    const { props = {}, type = {}  } = children as React.ReactElement<any>
     const { onChange } = props
+    // const { name: typeName } = type
+    // console.log('name', typeName)
+    // if (componentType === 'Input') {
+    //   value = value.target.value
+    // }
     const error = check(value)
     this.setState({ error: error })
     // console.log('FormItem:onItemChange', value, check, this.props)
     console.log('FormItem:onItemChange:error', value, error)
     onChange && onChange(value)
+    onFieldChange && onFieldChange(name, value)
   }
 
   render() {

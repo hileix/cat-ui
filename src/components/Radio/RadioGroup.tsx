@@ -35,7 +35,7 @@ class RadioGroup extends Component<RadioGroupProps, any> {
       value = props.defaultValue
     }
     this.state = {
-      value: ''
+      value: value
     }
   }
 

@@ -17,6 +17,8 @@ export interface FormProps {
   labelWidth?: string | number;
   /** 配置 Form.Item 的 colon 的默认值 */
   colon?: boolean;
+  /** 获取表单values和errors的回调函数 */
+  getFormFields?: (values?: object, errors?: object) => {};
 }
 
 /**
@@ -28,33 +30,45 @@ class Form extends Component<FormProps, any> {
     colon: false
   }
 
-  // 字段及校验函数的映射
-  checkFunc = (field: string) => {
-    // return {
-    //   field1: this.checkField1,
-    //   field2: this.checkField2,
-    //   field3: this.checkField3,
-    //   field4: this.checkField4,
-    // }[field] || noop
-    return noop
+  constructor (props: FormProps) {
+    super(props)
+    this.state = {}
   }
 
-  // 字段改变的通用回调函数
-  onFieldChange = (field: string, value: any)  => {
-    const { fieldError } = this.state
-    const errorType = field + 'Error'
-    const errorMsg = this.checkFunc(field)(value)
-    const newFieldError = {
-      ...fieldError,
-      [errorType]: errorMsg
-    }
-    this.setState({
-      [field]: value,
-      fieldError: newFieldError
+  componentDidMount () {
+    const { children } = this.props
+    React.Children.map(children, (element: any, index) => {
+      if (!element) { return element }
+      const child = element.props.children
+      const componentType = child.type.name
+      const { name, defaultValue, value } = element.props
+      // console.log('Form:componentType', componentType)
+
+      switch (componentType) {
+        case 'CheckboxGroup':
+          this.setState({ [name]: [] })
+          break
+        case 'Select':
+        default:
+          this.setState({ [name]: '' })
+          break
+      }
     })
   }
 
+  componentDidUpdate() {
+    const { getFormFields } = this.props
+    // console.log('FormItem:componentDidUpdate', this.state)
+    getFormFields && getFormFields(this.state, {})
+  }
+
+  // 字段改变的回调函数
+  onFieldChange = (field?: string, value?: any)  => {
+    this.setState({ [field]: value })
+  }
+
   render() {
+    const self = this
     const { className, style, labelWidth, labelAlign, children } = this.props
     const classes = classNames('hmly-form', className)
     const items = React.Children.map(children, (element: any, index) => {
@@ -72,10 +86,12 @@ class Form extends Component<FormProps, any> {
       return cloneElement(element, {
         key: index,
         labelWidth: labelWidth,
-        labelAlign: labelAlign
+        labelAlign: labelAlign,
+        onFieldChange: self.onFieldChange
       })
     })
 
+    console.log('Form:render', this.state)
 
     return (
       <StyledForm

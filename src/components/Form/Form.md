@@ -28,11 +28,13 @@ class Example extends React.Component {
     this.checkField3 = this.checkField3.bind(this)
     this.checkField4 = this.checkField4.bind(this)
     this.checkField5 = this.checkField5.bind(this)
+    this.getFormData = this.getFormData.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
 
   onField2Change (value) {
     console.log('onField2Change', value)
+    this.setState({ field2: value })
   }
 
   checkField1 (field1) {
@@ -65,6 +67,10 @@ class Example extends React.Component {
     return error
   }
 
+  getFormData (values, errors) {
+    console.log('Example:getFormData', values, errors)
+  }
+
   onSubmit () {
     const { field1, field2, field3, field4, field5 } = this.state
     const params = { field1, field2, field3, field4, field5 }
@@ -86,9 +92,11 @@ class Example extends React.Component {
       <h3>不禁用提交按钮</h3>
       <Form 
         className='form1'
-        labelWidth='200px'>
+        labelWidth='200px'
+        getFormFields={this.getFormData}>
 
         <Form.Item
+          name='username'
           label='field1'
           desc='How much would you like to charge your fans?'
           tips='field1 tips text'
@@ -98,11 +106,13 @@ class Example extends React.Component {
         </Form.Item>
 
         <Form.Item
+          name='type'
           required
           label='field2'
           tips='field2 tips text field2 tips text'
           check={this.checkField2}>
           <Radio.Group 
+            defaultValue={2}
             onChange={this.onField2Change}>
             <Radio value={1}>1</Radio>
             <Radio value={2}>2</Radio>
@@ -113,6 +123,7 @@ class Example extends React.Component {
         </Form.Item>
         
         <Form.Item
+          name='tag'
           label='field3'
           desc='field3 help text'
           check={this.checkField3}>
@@ -130,6 +141,7 @@ class Example extends React.Component {
 
         {isShowField4 &&
           <Form.Item
+            name='desc'
             label='field4'
             desc='How much would you like to charge your fans?'
             tips='tips'
@@ -139,6 +151,7 @@ class Example extends React.Component {
         }
 
         <Form.Item
+          name='area'
           label='field5'
           desc='How much would you like to charge your fans?'
           tips='tips'
