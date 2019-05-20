@@ -31,7 +31,7 @@ class Example extends React.Component {
         <Radio value={5} shape='hook'>5</Radio>
       </Radio.Group>
 
-      <h3>没有value值得Radio.Group</h3>
+      <h3>没有value值的Radio.Group</h3>
       <Radio.Group>
         <Radio value={1}>1</Radio>
         <Radio value={2}>2</Radio>

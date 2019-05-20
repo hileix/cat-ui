@@ -14,8 +14,10 @@ export interface CheckboxGroupProps {
   readOnly?: boolean;
   /** 是否选中 */
   checked?: boolean;
+  /** 默认值，仅在初始化有效 */
+  defaultValue?: any;
   /** 值 */
-  value: Array<any>;
+  value?: Array<any>;
   /** 选项变化时的回调函数 */
   onChange?: any;
 }
@@ -24,9 +26,30 @@ export interface CheckboxGroupProps {
  * CheckboxGroup
  */
 class CheckboxGroup extends Component<CheckboxGroupProps, any> {
+  constructor (props: CheckboxGroupProps) {
+    super(props)
+    let value = []
+    if ('value' in props) {
+      value = props.value
+    } else if ('defaultValue' in props) {
+      value = props.defaultValue
+    }
+    this.state = {
+      value: []
+    }
+  }
+
+  static getDerivedStateFromProps (nextProps: CheckboxGroupProps) {
+    if ('value' in nextProps) {
+      return {
+        value: nextProps.value
+      }
+    } else { return null }
+  }
 
   onCheckboxChange = (e: any) => {
-    const { value, onChange } = this.props
+    const { value } = this.state
+    const { onChange } = this.props
     const newValue = e.target.value
     const optionIndex = value.indexOf(newValue)
     if (optionIndex === -1) {
@@ -34,12 +57,17 @@ class CheckboxGroup extends Component<CheckboxGroupProps, any> {
     } else {
       value.splice(optionIndex, 1)
     }
+    // 是否有value值传递下来
+    if (!('value' in this.props)) {
+      this.setState({ value })
+    }
     onChange && onChange(value)
   }
 
   render() {
     const self = this
-    const { className, style, disabled, readOnly, checked, value, children } = this.props
+    const { value } = this.state
+    const { className, style, disabled, readOnly, checked, children } = this.props
     const classes = classNames('hmly-Checkbox-group', className)
     const Checkboxs = React.Children.map(children, (element: any, index) => {
       if (!element) { return element }
