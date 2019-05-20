@@ -43,7 +43,7 @@ class Example extends React.Component {
   }
 
   // 字段改变的通用回调函数
-  onFieldChange (field, value,) {
+  onFieldChange (field, value) {
     const { fieldError } = this.state
     const errorType = field + 'Error'
     const errorMsg = this.checkFunc(field)(value)
@@ -143,7 +143,6 @@ class Example extends React.Component {
           tips='field2 tips text field2 tips text'
           error={field2Error}>
           <Radio.Group 
-            value={field2} 
             onChange={this.onField2Change}>
             <Radio value={1}>1</Radio>
             <Radio value={2}>2</Radio>
