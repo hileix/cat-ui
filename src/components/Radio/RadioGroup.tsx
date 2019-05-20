@@ -15,9 +15,9 @@ export interface RadioGroupProps {
   /** 是否选中 */
   checked?: boolean;
   /** 默认值，仅在初始化有效 */
-  defaultValue?: any;
+  defaultValue?: string | number;
   /** 值 */
-  value?: any;
+  value?: string | number;
   /** 选项变化时的回调函数	 */
   onChange?: any;
 }
@@ -28,7 +28,7 @@ export interface RadioGroupProps {
 class RadioGroup extends Component<RadioGroupProps, any> {
   constructor (props: RadioGroupProps) {
     super(props)
-    let value = ''
+    let value: string | number = ''
     if ('value' in props) {
       value = props.value
     } else if ('defaultValue' in props) {

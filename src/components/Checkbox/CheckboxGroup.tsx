@@ -15,7 +15,7 @@ export interface CheckboxGroupProps {
   /** 是否选中 */
   checked?: boolean;
   /** 默认值，仅在初始化有效 */
-  defaultValue?: any;
+  defaultValue?: Array<any>;
   /** 值 */
   value?: Array<any>;
   /** 选项变化时的回调函数 */

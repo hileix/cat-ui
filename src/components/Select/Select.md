@@ -67,6 +67,15 @@ class Example extends React.Component {
         </Select>
       </div>
 
+      <h3>没有value值的Select</h3>
+      <Select 
+        className='select4' 
+        placeholder='Choose Price'>
+        <Option value='1' >Option 1</Option>
+        <Option value='2' >Option 2</Option>
+        <Option value='3' disable onClick={this.onOptionClick}>Option 3</Option>
+      </Select>
+
       <style>
         {`
           .select-box .select1 {
