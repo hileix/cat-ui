@@ -45,6 +45,8 @@ class Form extends Component<FormProps, any> {
       // console.log('Form:componentType', componentType)
 
       switch (componentType) {
+        case 'Button':
+          console.log('Button')
         case 'CheckboxGroup':
           this.setState({ [name]: [] })
           break
@@ -67,6 +69,11 @@ class Form extends Component<FormProps, any> {
     this.setState({ [field]: value })
   }
 
+  // 提交按钮的点击回调函数
+  onSubmitClick = (values?: object, errors?: object)  => {
+    console.log('Form:onSubmitClick')
+  }
+
   render() {
     const self = this
     const { className, style, labelWidth, labelAlign, children } = this.props
@@ -76,13 +83,14 @@ class Form extends Component<FormProps, any> {
 
       const child = element.props.children
       const componentType = child.type.name
-      // console.log('componentType', componentType)
-      // if (kindOf(type, PopoverTrigger)) {
-      //   result.trigger = child
-      // } else if (kindOf(type, PopoverContent)) {
-      //   result.content = child
-      // }
-
+      console.log('componentType', child)
+      if (componentType === 'Button') {
+        const item = cloneElement(child as React.ReactElement<any>, {
+          key: 'childrenElement',
+          onClick: self.onSubmitClick
+        })
+        // element.props.children = item
+      }
       return cloneElement(element, {
         key: index,
         labelWidth: labelWidth,

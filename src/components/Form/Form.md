@@ -78,7 +78,7 @@ class Example extends React.Component {
     // if (!isInvalid) {
     //   alert(`onSubmit ${JSON.stringify(params)}`)
     // }
-    console.log('onSubmit', params)
+    console.log('Example:onSubmit', params)
   }
 
   render () {
