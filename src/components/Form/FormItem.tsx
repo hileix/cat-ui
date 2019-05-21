@@ -36,6 +36,10 @@ export interface FormItemProps {
   htmlFor?: string;
   /** 是否显示 label 后面的冒号 */
   colon?: boolean;
+  /** values */
+  values?: any;
+  /** errors */
+  errors?: any;
 }
 
 /**
@@ -45,10 +49,6 @@ class FormItem extends Component<FormItemProps, any> {
   private formItemRef: any;
   constructor (props: FormItemProps) {
     super(props)
-    this.state = {
-      value: '',
-      error: ''
-    }
     this.formItemRef = React.createRef()
   }
 
@@ -57,19 +57,20 @@ class FormItem extends Component<FormItemProps, any> {
   }
 
   componentDidMount () {
-    const { children } = this.props
-    const { props = {} } = children as React.ReactElement<any>
-    const { defaultValue, value } = props
-    if ('value' in props) {
-      this.setState({ value: value })
-    } else if ('defaultValue' in props) {
-      this.setState({ value: defaultValue })
-    }
+    // const { children } = this.props
+    // const { props = {} } = children as React.ReactElement<any>
+    // const { defaultValue, value } = props
+    // if ('value' in props) {
+    //   this.setState({ value: value })
+    // } else if ('defaultValue' in props) {
+    //   this.setState({ value: defaultValue })
+    // }
     // console.log('FormItem:componentDidMount', defaultValue, value)
   }
 
   componentDidUpdate () {
-    const { error } = this.state
+    const { name, errors } = this.props
+    const error = errors[name]
     if (Boolean(error)) {
       const element = this.formItemRef.current
       const eleRect = element.getBoundingClientRect()
@@ -86,10 +87,9 @@ class FormItem extends Component<FormItemProps, any> {
     const { props = {}, type = {}  } = children as React.ReactElement<any>
     const { onChange } = props
     const error = check(value)
-    this.setState({ error: error })
     onChange && onChange(value)
     onFieldChange && onFieldChange(name, value, error)
-    console.log('FormItem:handleItemChange:error', check, value, error)
+    // console.log('FormItem:handleItemChange:error', check, value, error)
   }
 
   // 提交按钮的点击回调函数
@@ -102,11 +102,13 @@ class FormItem extends Component<FormItemProps, any> {
 
   render() {
     const self = this
-    const { error } = this.state
-    const { className, style, label, desc, tips, labelWidth, labelAlign,
-      required, children } = this.props
+    // const { value, error } = this.state
+    const { className, style, name, label, desc, tips, labelWidth, labelAlign,
+      required, values, errors, children } = this.props
     const classes = classNames('hmly-form-item', className)
     const labelBoxClass = classNames({ 'hmly-form-label-required': required })
+    const value = values[name]
+    const error = errors[name]
     const { type: {name: componentType} } = children as any
     let item
     if (componentType === 'Button') {
@@ -124,6 +126,9 @@ class FormItem extends Component<FormItemProps, any> {
         onChange: self.handleItemChange
       })
     }
+
+    // const e1 = this.handleItemChange(value)
+    // console.log('FormItem', value, error)
 
     return (
       <StyledFormItem

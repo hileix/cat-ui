@@ -90,6 +90,7 @@ class Form extends Component<FormProps, any> {
 
   render() {
     const self = this
+    const { values, errors } = this.state
     const { className, style, labelWidth, labelAlign, children } = this.props
     const classes = classNames('hmly-form', className)
     const items = React.Children.map(children, (element: any, index) => {
@@ -99,7 +100,9 @@ class Form extends Component<FormProps, any> {
         labelWidth: labelWidth,
         labelAlign: labelAlign,
         onFieldChange: self.onFieldChange,
-        onSubmitClick: self.onSubmitClick
+        onSubmitClick: self.onSubmitClick,
+        values: values,
+        errors: errors
       })
     })
 
