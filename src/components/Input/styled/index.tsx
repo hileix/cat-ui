@@ -169,7 +169,6 @@ const StyledWrapperPlaceholder = styled.span<IWrapperProps>`
   line-height: 1;
   letter-spacing: 0.75px;
   color: ${colorTertiary};
-  transition: all .3s;
   animation: ${props => ((props.state === inputStates.active || props.value) ? flyout : flyin)} .2s ease-out forwards;
 `
 

@@ -95,7 +95,7 @@ class TextArea extends React.PureComponent<TextAreaProps, TextAreaStates> {
 
   render () {
     const { value, inputState } = this.state
-    const { className, autosize, showCount, maxlength, areaStyle,
+    const { className, message, showCount, maxlength, areaStyle,
       handleFocus, handleBlur, handleChange, handleKeyDown, handleMouseEnter, handleMouseLeave, handleClipboard } = this.props
     const props = pick(this.props, domProps) as IdomProps
 
@@ -105,11 +105,13 @@ class TextArea extends React.PureComponent<TextAreaProps, TextAreaStates> {
         theme='textarea'
         state={inputState}
         className={className}
+        message={message}
         showCount={showCount}
         maxlength={maxlength}
       >
         <StyledTextArea
           {...props}
+          value={value}
           style={areaStyle}
           onFocus={handleFocus.bind(this)}
           onBlur={handleBlur.bind(this)}
