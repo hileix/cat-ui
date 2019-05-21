@@ -15,15 +15,12 @@ class Example extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      field1: '',
-      field2: '',
-      field3: [],
-      field4: '',
-      field5: '',
-      fieldError: {}
+      payment: 'a',
+      fieldsError: {}
     }
     this.onField2Change = this.onField2Change.bind(this)
-    this.checkField1 = this.checkField1.bind(this)
+    this.onPaymentChange = this.onPaymentChange.bind(this)
+    this.checkDesc = this.checkDesc.bind(this)
     this.checkField2 = this.checkField2.bind(this)
     this.checkField3 = this.checkField3.bind(this)
     this.checkField4 = this.checkField4.bind(this)
@@ -37,10 +34,14 @@ class Example extends React.Component {
     this.setState({ field2: value })
   }
 
-  checkField1 (value) {
+  onPaymentChange (value) {
+    this.setState({ payment: value })
+  }
+
+  checkDesc (value) {
     const isInvalid = value.length === 0 || value.length > 10
     const error = isInvalid ? '长度需要大于0，小于10' : ''
-    console.log('Example:checkField1', value, isInvalid)
+    console.log('Example:checkDesc', value, isInvalid)
     return error
   }
 
@@ -87,11 +88,11 @@ class Example extends React.Component {
   }
 
   render () {
-    const { field1, field2, field3, field4, field5, fieldError } = this.state
-    const { field1Error, field4Error } = fieldError
+    const { field1, field2, field3, field4, field5, payment, fieldsError } = this.state
+    const { field1Error, field4Error } = fieldsError
 
     const isFullField3 = field2 === 3
-    const isShowField4 = field2 === 1
+    const isShowBenefits = payment === 'b'
 
     return (<div className='form-box'>
       <h3>不禁用提交按钮</h3>
@@ -101,19 +102,36 @@ class Example extends React.Component {
         getFormFields={this.getFormData}>
 
         <Form.Item
-          name='username'
-          label='field1'
+          name='desc'
+          label='Description'
           desc='How much would you like to charge your fans?'
           tips='field1 tips text'
           required
-          check={this.checkField1}>
+          check={this.checkDesc}>
           <Input error={field1Error} />
         </Form.Item>
 
         <Form.Item
-          name='type'
+          name='price'
+          label='Price'
+          desc='How much would you like to charge your fans?'
+          tips='tips'
           required
-          label='field2'
+          check={this.checkField5}>
+          <Select 
+            className='select' 
+            placeholder='Choose Price'>
+            <Option value='1' >Option 1</Option>
+            <Option value='2' >Option 2</Option>
+            <Option value='3' disable>Option 3</Option>
+            <Option value='4'>Option 4</Option>
+          </Select>
+        </Form.Item>
+
+        <Form.Item
+          name='visibility'
+          required
+          label='Earning Visibility'
           tips='field2 tips text field2 tips text'
           check={this.checkField2}>
           <Radio.Group 
@@ -126,48 +144,48 @@ class Example extends React.Component {
             <Radio value={5} shape='hook'>5</Radio>
           </Radio.Group>
         </Form.Item>
-        
-        <Form.Item
-          name='tag'
-          label='field3'
-          desc='field3 help text'
-          check={this.checkField3}>
-          <Checkbox.Group>
-            <Checkbox value={'A'}>A</Checkbox>
-            <Checkbox value={'B'}>B</Checkbox>
-            <Checkbox value={'C'}>C</Checkbox>
-            {isFullField3 && <React.Fragment>
-              <Checkbox disabled value='D'>D</Checkbox>
-              <Checkbox value={'E'}>E</Checkbox>
-            </React.Fragment>}
-            <Checkbox value={'F'}>F</Checkbox>
-          </Checkbox.Group>
-        </Form.Item>
 
         <Form.Item
-          name='desc'
-          label='field4'
+          name='payment'
+          label='Payment'
+          tips='field2 tips text field2 tips text'
+          check={this.checkField2}>
+          <Radio.Group 
+            defaultValue={'a'}
+            onChange={this.onPaymentChange}>
+            <Radio value={'a'}>a</Radio>
+            <Radio value={'b'}>b</Radio>
+            <Radio value={'c'}>c</Radio>
+            <Radio value={'d'}>d</Radio>
+          </Radio.Group>
+        </Form.Item>
+        
+        {isShowBenefits && 
+          <Form.Item
+            name='benefits'
+            label='Benefits'
+            desc='field3 help text'
+            check={this.checkField3}>
+            <Checkbox.Group>
+              <Checkbox value={'A'}>A</Checkbox>
+              <Checkbox value={'B'}>B</Checkbox>
+              <Checkbox value={'C'}>C</Checkbox>
+              {isFullField3 && <React.Fragment>
+                <Checkbox disabled value='D'>D</Checkbox>
+                <Checkbox value={'E'}>E</Checkbox>
+              </React.Fragment>}
+              <Checkbox value={'F'}>F</Checkbox>
+            </Checkbox.Group>
+          </Form.Item>
+        }
+
+        <Form.Item
+          name='method'
+          label='Method'
           desc='How much would you like to charge your fans?'
           tips='tips'
-          required
           check={this.checkField4}>
           <Input error={field4Error} />
-        </Form.Item>
-
-        <Form.Item
-          name='area'
-          label='field5'
-          desc='How much would you like to charge your fans?'
-          tips='tips'
-          check={this.checkField5}>
-          <Select 
-            className='select' 
-            placeholder='Choose Price'>
-            <Option value='1' >Option 1</Option>
-            <Option value='2' >Option 2</Option>
-            <Option value='3' disable>Option 3</Option>
-            <Option value='4'>Option 4</Option>
-          </Select>
         </Form.Item>
 
         <Form.Item>
