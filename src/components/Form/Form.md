@@ -68,7 +68,7 @@ class Example extends React.Component {
   }
 
   getFormData (values, errors) {
-    console.log('Example:getFormData', values, errors)
+    // console.log('Example:getFormData', values, errors)
   }
 
   onSubmit (values, errors) {

@@ -6,7 +6,6 @@ import Icon from '../Icon'
 import Tooltip from '../Tooltip'
 import { StyledFormItem, FormItemLabel, FormItemControl, LabelBox,
   ControlBox, FormItemDesc, ItemError, LabelIcon } from './styled'
-
 export interface FormItemProps {
   /** 类名 */
   className?: string;
@@ -85,26 +84,19 @@ class FormItem extends Component<FormItemProps, any> {
     const { check = noop, name, onFieldChange, children } = this.props
     const { props = {}, type = {}  } = children as React.ReactElement<any>
     const { onChange } = props
-    // const { name: typeName } = type
-    // console.log('name', typeName)
-    // if (componentType === 'Input') {
-    //   value = value.target.value
-    // }
     const error = check(value)
     this.setState({ error: error })
-    // console.log('FormItem:handleItemChange', value, check, this.props)
-    console.log('FormItem:handleItemChange:error', value, error)
     onChange && onChange(value)
     onFieldChange && onFieldChange(name, value, error)
+    // console.log('FormItem:handleItemChange:error', value, error)
   }
 
   // 提交按钮的点击回调函数
   handleSubmitClick = (e: any)  => {
     const { children, onSubmitClick } = this.props
     const { props: {onClick} } = children as any
-    console.log('FormItem:handleSubmitClick')
     onSubmitClick(onClick)
-    // onClick && onClick(e)
+    // console.log('FormItem:handleSubmitClick')
   }
 
   render() {

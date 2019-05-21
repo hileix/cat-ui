@@ -100,7 +100,7 @@ class Form extends Component<FormProps, any> {
       })
     })
 
-    console.log('Form:render', this.state)
+    // console.log('Form:render', this.state)
 
     return (
       <StyledForm
