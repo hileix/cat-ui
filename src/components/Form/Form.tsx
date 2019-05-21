@@ -34,7 +34,8 @@ class Form extends Component<FormProps, any> {
     super(props)
     this.state = {
       values: {},
-      errors: {}
+      errors: {},
+      isCheck: false
     }
   }
 
@@ -45,7 +46,8 @@ class Form extends Component<FormProps, any> {
       const { values, errors } = this.state
       const child = element.props.children
       const componentType = child.type.name
-      const { name, defaultValue, value } = element.props
+      const { name } = element.props
+      // console.log('Form:componentDidMount:1', componentType, name)
       switch (componentType) {
         case 'Button':
           break
@@ -53,14 +55,20 @@ class Form extends Component<FormProps, any> {
           values[name] = []
           errors[name] = ''
           break
+        case 'RadioGroup':
         case 'Select':
         default:
           values[name] = ''
           errors[name] = ''
           break
       }
-      // console.log('Form:componentType', componentType, errors)
+      if ('value' in child.props) {
+        values[name] = child.props.value
+      } else if ('defaultValue' in child.props) {
+        values[name] = child.props.defaultValue
+      }
       this.setState({ values: values, errors: errors })
+      // console.log('Form:componentType:2', values, errors)
     })
   }
 
@@ -73,24 +81,34 @@ class Form extends Component<FormProps, any> {
   // 字段改变的回调函数
   onFieldChange = (field: string, value: any, error: string)  => {
     const { values, errors } = this.state
-    values[field] = value
-    errors[field] = error
+    if (field) {
+      values[field] = value
+      errors[field] = error
+      field && this.setState({ values, errors })
+    }
     // const newValues = { ...values, [field]: value }
-    // const newErrors = { ...errors,[field]: error }
+    // const newErrors = { ...errors, [field]: error }
+    // this.setState({ values: newValues, errors: newErrors }
     // console.log('Form:onFieldChange:1', field, value, error)
-    this.setState({ values, errors })
+    // console.log('Form:onFieldChange:2', values, errors, values[field])
   }
 
   // 提交按钮的点击回调函数
   onSubmitClick = (fn?: (values?: any, errors?: any) => {})  => {
     const { values, errors } = this.state
-    console.log('Form:onSubmitClick', values, errors)
-    fn(values, errors)
+    this.setState({ isCheck: true }, () => {
+      fn(values, errors)
+    })
+  }
+
+  // 改变Form的isCheck属性
+  toggleIsCheck = (isCheck: boolean) => {
+    this.setState({ isCheck: isCheck })
   }
 
   render() {
     const self = this
-    const { values, errors } = this.state
+    const { values, errors, isCheck } = this.state
     const { className, style, labelWidth, labelAlign, children } = this.props
     const classes = classNames('hmly-form', className)
     const items = React.Children.map(children, (element: any, index) => {
@@ -101,6 +119,8 @@ class Form extends Component<FormProps, any> {
         labelAlign: labelAlign,
         onFieldChange: self.onFieldChange,
         onSubmitClick: self.onSubmitClick,
+        toggleIsCheck: self.toggleIsCheck,
+        isCheck: isCheck,
         values: values,
         errors: errors
       })

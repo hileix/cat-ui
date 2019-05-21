@@ -32,14 +32,18 @@ export interface FormItemProps {
   onFieldChange?: (field: string, value: any, error: string) => {};
   /** 点击submit按钮的回调函数 */
   onSubmitClick?: (fn?: (values?: any, errors?: any) => {}) => {};
+  /** 改变Form的isCheck属性 */
+  toggleIsCheck?: (isCheck: boolean) => {};
   /** 设置子元素 label htmlFor 属性 */
   htmlFor?: string;
   /** 是否显示 label 后面的冒号 */
   colon?: boolean;
-  /** values */
+  /** values列表 */
   values?: any;
-  /** errors */
+  /** errors列表 */
   errors?: any;
+  /** 是否去校验字段 */
+  isCheck?: boolean;
 }
 
 /**
@@ -61,16 +65,24 @@ class FormItem extends Component<FormItemProps, any> {
     // const { props = {} } = children as React.ReactElement<any>
     // const { defaultValue, value } = props
     // if ('value' in props) {
-    //   this.setState({ value: value })
+    //   this.handleItemChange(value)
+    //   console.log('FormItem:componentDidMount:value', value)
     // } else if ('defaultValue' in props) {
-    //   this.setState({ value: defaultValue })
+    //   this.handleItemChange(defaultValue)
+    //   console.log('FormItem:componentDidMount:defaultValue', defaultValue)
     // }
     // console.log('FormItem:componentDidMount', defaultValue, value)
   }
 
   componentDidUpdate () {
-    const { name, errors } = this.props
+    const { name, values, errors, isCheck, toggleIsCheck } = this.props
+    const value = values[name]
     const error = errors[name]
+    // console.log('FormItem:componentDidUpdate:value', isCheck, Boolean(error))
+    if (isCheck) {
+      this.handleItemChange(value)
+      toggleIsCheck(false)
+    }
     if (Boolean(error)) {
       const element = this.formItemRef.current
       const eleRect = element.getBoundingClientRect()
@@ -89,7 +101,7 @@ class FormItem extends Component<FormItemProps, any> {
     const error = check(value)
     onChange && onChange(value)
     onFieldChange && onFieldChange(name, value, error)
-    // console.log('FormItem:handleItemChange:error', check, value, error)
+    // console.log('FormItem:handleItemChange:error', value, error)
   }
 
   // 提交按钮的点击回调函数

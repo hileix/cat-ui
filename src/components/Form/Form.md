@@ -39,8 +39,8 @@ class Example extends React.Component {
 
   checkField1 (value) {
     const isInvalid = value.length === 0 || value.length > 10
-    const error = isInvalid ? '长度不能大于10' : ''
-    console.log('checkField1', value, isInvalid)
+    const error = isInvalid ? '长度需要大于0，小于10' : ''
+    console.log('Example:checkField1', value, isInvalid)
     return error
   }
 
@@ -57,8 +57,8 @@ class Example extends React.Component {
   }
 
   checkField4 (value) {
-    const isInvalid = value.length > 10
-    const error = isInvalid ? '长度不能大于10' : ''
+    const isInvalid = value.length === 0 || value.length > 10
+    const error = isInvalid ? '长度需要大于0，小于10' : ''
     return error
   }
 
@@ -69,18 +69,21 @@ class Example extends React.Component {
   }
 
   getFormData (values, errors) {
-    // console.log('Example:getFormData', values, errors)
+    console.log('Example:getFormData', values, errors)
   }
 
   onSubmit (values, errors) {
     const { area, tag, type, desc, username } = values
     const params = { area, tag, type, desc, username }
    
-    // if (!isInvalid) {
-    //   alert(`onSubmit ${JSON.stringify(params)}`)
-    // }
-    console.log('Example:onSubmit:values, errors', values, errors)
-    console.log('Example:onSubmit:params', params)
+    const isInvalid = _.some(errors, (error) => {
+      return Boolean(error)
+    })
+    if (!isInvalid) {
+      alert(`onSubmit ${JSON.stringify(params)}`)
+    }
+    console.log('Example:onSubmit:values, errors', values, errors, isInvalid)
+    console.log('Example:onSubmit:params', params, type, errors.username)
   }
 
   render () {
@@ -146,6 +149,7 @@ class Example extends React.Component {
           label='field4'
           desc='How much would you like to charge your fans?'
           tips='tips'
+          required
           check={this.checkField4}>
           <Input error={field4Error} />
         </Form.Item>
