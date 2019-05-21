@@ -62,6 +62,7 @@ class Form extends Component<FormProps, any> {
           errors[name] = ''
           break
       }
+      // 设置的组件的初始化默认值
       if ('value' in child.props) {
         values[name] = child.props.value
       } else if ('defaultValue' in child.props) {
@@ -73,7 +74,7 @@ class Form extends Component<FormProps, any> {
   }
 
   componentDidUpdate() {
-    const { getFormFields } = this.props
+    // const { getFormFields } = this.props
     // console.log('FormItem:componentDidUpdate', this.state)
     // getFormFields && getFormFields(this.state, {})
   }
@@ -81,16 +82,12 @@ class Form extends Component<FormProps, any> {
   // 字段改变的回调函数
   onFieldChange = (field: string, value: any, error: string)  => {
     const { values, errors } = this.state
+    // 必须有字段名称
     if (field) {
       values[field] = value
       errors[field] = error
       field && this.setState({ values, errors })
     }
-    // const newValues = { ...values, [field]: value }
-    // const newErrors = { ...errors, [field]: error }
-    // this.setState({ values: newValues, errors: newErrors }
-    // console.log('Form:onFieldChange:1', field, value, error)
-    // console.log('Form:onFieldChange:2', values, errors, values[field])
   }
 
   // 提交按钮的点击回调函数
@@ -112,7 +109,7 @@ class Form extends Component<FormProps, any> {
     const { className, style, labelWidth, labelAlign, children } = this.props
     const classes = classNames('hmly-form', className)
     const items = React.Children.map(children, (element: any, index) => {
-      if (!element) { return element }
+      if (!element) { return }
       return cloneElement(element, {
         key: index,
         labelWidth: labelWidth,
