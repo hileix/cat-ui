@@ -6,6 +6,7 @@ import Icon from '../Icon'
 import Tooltip from '../Tooltip'
 import { StyledFormItem, FormItemLabel, FormItemControl, LabelBox,
   ControlBox, FormItemDesc, ItemError, LabelIcon } from './styled'
+
 export interface FormItemProps {
   /** 类名 */
   className?: string;
