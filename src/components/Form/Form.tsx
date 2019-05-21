@@ -47,7 +47,7 @@ class Form extends Component<FormProps, any> {
       const child = element.props.children
       const componentType = child.type.name
       const { name } = element.props
-      // console.log('Form:componentDidMount:1', componentType, name)
+      // 根据不同组件类型初始化values、errors列表
       switch (componentType) {
         case 'Button':
           break
@@ -62,13 +62,14 @@ class Form extends Component<FormProps, any> {
           errors[name] = ''
           break
       }
-      // 设置的组件的初始化默认值
+      // 根据value或defaultValue初始化values、errors列表
       if ('value' in child.props) {
         values[name] = child.props.value
       } else if ('defaultValue' in child.props) {
         values[name] = child.props.defaultValue
       }
       this.setState({ values: values, errors: errors })
+      // console.log('Form:componentDidMount:1', componentType, name)
       // console.log('Form:componentType:2', values, errors)
     })
   }
