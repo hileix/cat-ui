@@ -75,10 +75,10 @@ class Example extends React.Component {
   onSubmit (values, errors) {
     const { area, tag, type, desc, username } = values
     const params = { area, tag, type, desc, username }
-   
     const isInvalid = _.some(errors, (error) => {
       return Boolean(error)
     })
+
     if (!isInvalid) {
       alert(`onSubmit ${JSON.stringify(params)}`)
     }
