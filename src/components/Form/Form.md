@@ -15,23 +15,24 @@ class Example extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
+      visibility: 2,
       payment: 'a',
       fieldsError: {}
     }
-    this.onField2Change = this.onField2Change.bind(this)
+    this.onVisibilityChange = this.onVisibilityChange.bind(this)
     this.onPaymentChange = this.onPaymentChange.bind(this)
     this.checkDesc = this.checkDesc.bind(this)
-    this.checkField2 = this.checkField2.bind(this)
-    this.checkField3 = this.checkField3.bind(this)
-    this.checkField4 = this.checkField4.bind(this)
-    this.checkField5 = this.checkField5.bind(this)
+    this.checkPrice = this.checkPrice.bind(this)
+    this.checkVisibility = this.checkVisibility.bind(this)
+    this.checkPayment = this.checkPayment.bind(this)
+    this.checkBenefits = this.checkBenefits.bind(this)
+    this.checkMethod = this.checkMethod.bind(this)
     this.getFormData = this.getFormData.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
   }
 
-  onField2Change (value) {
-    // console.log('Example:onField2Change', value)
-    this.setState({ field2: value })
+  onVisibilityChange (value) {
+    this.setState({ visibility: value })
   }
 
   onPaymentChange (value) {
@@ -41,29 +42,34 @@ class Example extends React.Component {
   checkDesc (value) {
     const isInvalid = value.length === 0 || value.length > 10
     const error = isInvalid ? '长度需要大于0，小于10' : ''
-    console.log('Example:checkDesc', value, isInvalid)
     return error
   }
 
-  checkField2 (value) {
+  checkVisibility (value) {
     const isInvalid = value === 3
     const error = isInvalid ? '不能选择3' : ''
     return error
   }
 
-  checkField3 (value) {
+  checkPayment (value) {
+    const isInvalid = value === 3
+    const error = isInvalid ? '不能选择3' : ''
+    return error
+  }
+
+  checkBenefits (value) {
     const isInvalid = value.length > 10
     const error = isInvalid ? '长度不能大于10' : ''
     return error
   }
 
-  checkField4 (value) {
+  checkMethod (value) {
     const isInvalid = value.length === 0 || value.length > 10
     const error = isInvalid ? '长度需要大于0，小于10' : ''
     return error
   }
 
-  checkField5 (value) {
+  checkPrice (value) {
     const isInvalid = value.length > 10
     const error = isInvalid ? '长度不能大于10' : ''
     return error
@@ -74,24 +80,24 @@ class Example extends React.Component {
   }
 
   onSubmit (values, errors) {
-    const { area, tag, type, desc, username } = values
-    const params = { area, tag, type, desc, username }
+    const { desc, price, visibility, payment, benefits, method } = values
+    const params = { desc, price, visibility, payment, benefits, method }
     const isInvalid = _.some(errors, (error) => {
       return Boolean(error)
     })
 
     if (!isInvalid) {
-      alert(`onSubmit ${JSON.stringify(params)}`)
+      // alert(`onSubmit ${JSON.stringify(params)}`)
+      console.log('Example:onSubmit:params', isInvalid, params)
     }
-    console.log('Example:onSubmit:values, errors', values, errors, isInvalid)
-    console.log('Example:onSubmit:params', params, type, errors.username)
+    // console.log('Example:onSubmit:values, errors', values, errors)
   }
 
   render () {
-    const { field1, field2, field3, field4, field5, payment, fieldsError } = this.state
-    const { field1Error, field4Error } = fieldsError
+    const { payment, visibility, fieldsError } = this.state
+    const { descError, methodError } = fieldsError
 
-    const isFullField3 = field2 === 3
+    const isFullPayment = visibility === 1
     const isShowBenefits = payment === 'b'
 
     return (<div className='form-box'>
@@ -108,7 +114,7 @@ class Example extends React.Component {
           tips='field1 tips text'
           required
           check={this.checkDesc}>
-          <Input error={field1Error} />
+          <Input error={descError} />
         </Form.Item>
 
         <Form.Item
@@ -117,14 +123,14 @@ class Example extends React.Component {
           desc='How much would you like to charge your fans?'
           tips='tips'
           required
-          check={this.checkField5}>
+          check={this.checkPrice}>
           <Select 
             className='select' 
             placeholder='Choose Price'>
-            <Option value='1' >Option 1</Option>
-            <Option value='2' >Option 2</Option>
-            <Option value='3' disable>Option 3</Option>
-            <Option value='4'>Option 4</Option>
+            <Option value='10'>10</Option>
+            <Option value='20'>20</Option>
+            <Option value='30'disable>30</Option>
+            <Option value='40'>40</Option>
           </Select>
         </Form.Item>
 
@@ -133,10 +139,10 @@ class Example extends React.Component {
           required
           label='Earning Visibility'
           tips='field2 tips text field2 tips text'
-          check={this.checkField2}>
+          check={this.checkVisibility}>
           <Radio.Group 
-            defaultValue={2}
-            onChange={this.onField2Change}>
+            defaultValue={visibility}
+            onChange={this.onVisibilityChange}>
             <Radio value={1}>1</Radio>
             <Radio value={2}>2</Radio>
             <Radio value={3}>3</Radio>
@@ -149,14 +155,18 @@ class Example extends React.Component {
           name='payment'
           label='Payment'
           tips='field2 tips text field2 tips text'
-          check={this.checkField2}>
+          check={this.checkPayment}>
           <Radio.Group 
-            defaultValue={'a'}
+            defaultValue={payment}
             onChange={this.onPaymentChange}>
             <Radio value={'a'}>a</Radio>
             <Radio value={'b'}>b</Radio>
             <Radio value={'c'}>c</Radio>
             <Radio value={'d'}>d</Radio>
+            {isFullPayment && <React.Fragment>
+              <Radio value={'e'}>e</Radio>
+              <Radio value={'f'}>f</Radio>
+            </React.Fragment>}
           </Radio.Group>
         </Form.Item>
         
@@ -165,16 +175,12 @@ class Example extends React.Component {
             name='benefits'
             label='Benefits'
             desc='field3 help text'
-            check={this.checkField3}>
+            check={this.checkBenefits}>
             <Checkbox.Group>
-              <Checkbox value={'A'}>A</Checkbox>
-              <Checkbox value={'B'}>B</Checkbox>
-              <Checkbox value={'C'}>C</Checkbox>
-              {isFullField3 && <React.Fragment>
-                <Checkbox disabled value='D'>D</Checkbox>
-                <Checkbox value={'E'}>E</Checkbox>
-              </React.Fragment>}
-              <Checkbox value={'F'}>F</Checkbox>
+              <Checkbox value={'a'}>A</Checkbox>
+              <Checkbox value={'b'}>B</Checkbox>
+              <Checkbox value={'c'}>C</Checkbox>
+              <Checkbox value={'d'}>d</Checkbox>
             </Checkbox.Group>
           </Form.Item>
         }
@@ -184,8 +190,8 @@ class Example extends React.Component {
           label='Method'
           desc='How much would you like to charge your fans?'
           tips='tips'
-          check={this.checkField4}>
-          <Input error={field4Error} />
+          check={this.checkMethod}>
+          <Input error={methodError} />
         </Form.Item>
 
         <Form.Item>
