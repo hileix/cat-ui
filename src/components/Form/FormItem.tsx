@@ -29,7 +29,9 @@ export interface FormItemProps {
   /** 校验规则 */
   check?: (field?: any) => {};
   /** 字段改变的回调函数 */
-  onFieldChange?: (field?: string, value?: any) => {};
+  onFieldChange?: (field: string, value: any, error: string) => {};
+  /** 点击submit按钮的回调函数 */
+  onSubmitClick?: (fn?: (values?: any, errors?: any) => {}) => {};
   /** 设置子元素 label htmlFor 属性 */
   htmlFor?: string;
   /** 是否显示 label 后面的冒号 */
@@ -79,7 +81,7 @@ class FormItem extends Component<FormItemProps, any> {
     }
   }
 
-  onItemChange = (value: any) => {
+  handleItemChange = (value: any) => {
     const { check = noop, name, onFieldChange, children } = this.props
     const { props = {}, type = {}  } = children as React.ReactElement<any>
     const { onChange } = props
@@ -90,10 +92,19 @@ class FormItem extends Component<FormItemProps, any> {
     // }
     const error = check(value)
     this.setState({ error: error })
-    // console.log('FormItem:onItemChange', value, check, this.props)
-    console.log('FormItem:onItemChange:error', value, error)
+    // console.log('FormItem:handleItemChange', value, check, this.props)
+    console.log('FormItem:handleItemChange:error', value, error)
     onChange && onChange(value)
-    onFieldChange && onFieldChange(name, value)
+    onFieldChange && onFieldChange(name, value, error)
+  }
+
+  // 提交按钮的点击回调函数
+  handleSubmitClick = (e: any)  => {
+    const { children, onSubmitClick } = this.props
+    const { props: {onClick} } = children as any
+    console.log('FormItem:handleSubmitClick')
+    onSubmitClick(onClick)
+    // onClick && onClick(e)
   }
 
   render() {
@@ -103,10 +114,16 @@ class FormItem extends Component<FormItemProps, any> {
       required, children } = this.props
     const classes = classNames('hmly-form-item', className)
     const labelBoxClass = classNames({ 'hmly-form-label-required': required })
-    const item = cloneElement(children as React.ReactElement<any>, {
-      key: 'childrenElement',
-      onChange: self.onItemChange
+    const { type: {name: componentType} } = children as any
+    let item = cloneElement(children as React.ReactElement<any>, {
+      onChange: self.handleItemChange
     })
+    if (componentType === 'Button') {
+      item = cloneElement(children as React.ReactElement<any>, {
+        onChange: self.handleItemChange,
+        onClick: self.handleSubmitClick
+      })
+    }
 
     return (
       <StyledFormItem

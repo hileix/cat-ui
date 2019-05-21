@@ -37,7 +37,7 @@ class Example extends React.Component {
     this.setState({ field2: value })
   }
 
-  checkField1 (field1) {
+  checkField1 (value) {
     const isInvalid = value.length === 0 || value.length > 10
     const error = isInvalid ? '长度不能大于10' : ''
     return error
@@ -71,14 +71,15 @@ class Example extends React.Component {
     console.log('Example:getFormData', values, errors)
   }
 
-  onSubmit () {
-    const { field1, field2, field3, field4, field5 } = this.state
-    const params = { field1, field2, field3, field4, field5 }
+  onSubmit (values, errors) {
+    const { area, tag, type, desc, username } = values
+    const params = { area, tag, type, desc, username }
    
     // if (!isInvalid) {
     //   alert(`onSubmit ${JSON.stringify(params)}`)
     // }
-    console.log('Example:onSubmit', params)
+    console.log('Example:onSubmit:values, errors', values, errors)
+    console.log('Example:onSubmit:params', params)
   }
 
   render () {
@@ -139,16 +140,14 @@ class Example extends React.Component {
           </Checkbox.Group>
         </Form.Item>
 
-        {isShowField4 &&
-          <Form.Item
-            name='desc'
-            label='field4'
-            desc='How much would you like to charge your fans?'
-            tips='tips'
-            check={this.checkField4}>
-            <Input error={field4Error} />
-          </Form.Item>
-        }
+        <Form.Item
+          name='desc'
+          label='field4'
+          desc='How much would you like to charge your fans?'
+          tips='tips'
+          check={this.checkField4}>
+          <Input error={field4Error} />
+        </Form.Item>
 
         <Form.Item
           name='area'

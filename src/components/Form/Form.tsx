@@ -32,29 +32,35 @@ class Form extends Component<FormProps, any> {
 
   constructor (props: FormProps) {
     super(props)
-    this.state = {}
+    this.state = {
+      values: {},
+      errors: {}
+    }
   }
 
   componentDidMount () {
     const { children } = this.props
     React.Children.map(children, (element: any, index) => {
-      if (!element) { return element }
+      if (!element) { return }
+      const { values, errors } = this.state
       const child = element.props.children
       const componentType = child.type.name
       const { name, defaultValue, value } = element.props
-      // console.log('Form:componentType', componentType)
-
       switch (componentType) {
         case 'Button':
-          console.log('Button')
+          break
         case 'CheckboxGroup':
-          this.setState({ [name]: [] })
+          values[name] = []
+          errors[name] = ''
           break
         case 'Select':
         default:
-          this.setState({ [name]: '' })
+          values[name] = ''
+          errors[name] = ''
           break
       }
+      // console.log('Form:componentType', componentType, errors)
+      this.setState({ values: values, errors: errors })
     })
   }
 
@@ -65,13 +71,18 @@ class Form extends Component<FormProps, any> {
   }
 
   // 字段改变的回调函数
-  onFieldChange = (field?: string, value?: any)  => {
-    this.setState({ [field]: value })
+  onFieldChange = (field: string, value: any, error: string)  => {
+    const { values, errors } = this.state
+    values[field] = value
+    errors[field] = error
+    this.setState({ values: errors })
   }
 
   // 提交按钮的点击回调函数
-  onSubmitClick = (values?: object, errors?: object)  => {
-    console.log('Form:onSubmitClick')
+  onSubmitClick = (fn?: (values?: any, errors?: any) => {})  => {
+    const { values, errors } = this.state
+    console.log('Form:onSubmitClick', values, errors)
+    fn(values, errors)
   }
 
   render() {
@@ -80,22 +91,12 @@ class Form extends Component<FormProps, any> {
     const classes = classNames('hmly-form', className)
     const items = React.Children.map(children, (element: any, index) => {
       if (!element) { return element }
-
-      const child = element.props.children
-      const componentType = child.type.name
-      console.log('componentType', child)
-      if (componentType === 'Button') {
-        const item = cloneElement(child as React.ReactElement<any>, {
-          key: 'childrenElement',
-          onClick: self.onSubmitClick
-        })
-        element.props.children = item
-      }
       return cloneElement(element, {
         key: index,
         labelWidth: labelWidth,
         labelAlign: labelAlign,
-        onFieldChange: self.onFieldChange
+        onFieldChange: self.onFieldChange,
+        onSubmitClick: self.onSubmitClick
       })
     })
 
