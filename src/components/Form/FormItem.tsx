@@ -51,34 +51,20 @@ export interface FormItemProps {
  */
 class FormItem extends Component<FormItemProps, any> {
   private formItemRef: any;
-  constructor (props: FormItemProps) {
-    super(props)
-    this.formItemRef = React.createRef()
-  }
-
   static defaultProps = {
     colon: false
   }
 
-  componentDidMount () {
-    // const { children } = this.props
-    // const { props = {} } = children as React.ReactElement<any>
-    // const { defaultValue, value } = props
-    // if ('value' in props) {
-    //   this.handleItemChange(value)
-    //   console.log('FormItem:componentDidMount:value', value)
-    // } else if ('defaultValue' in props) {
-    //   this.handleItemChange(defaultValue)
-    //   console.log('FormItem:componentDidMount:defaultValue', defaultValue)
-    // }
-    // console.log('FormItem:componentDidMount', defaultValue, value)
+  constructor (props: FormItemProps) {
+    super(props)
+    this.formItemRef = React.createRef()
   }
 
   componentDidUpdate () {
     const { name, values, errors, isCheck, toggleIsCheck } = this.props
     const value = values[name]
     const error = errors[name]
-    // console.log('FormItem:componentDidUpdate:value', isCheck, Boolean(error))
+    // 去校验表单
     if (isCheck) {
       this.handleItemChange(value)
       toggleIsCheck(false)
@@ -92,11 +78,13 @@ class FormItem extends Component<FormItemProps, any> {
         element.scrollIntoView({ behavior: 'instant', block: 'center' })
       }
     }
+    // console.log('FormItem:componentDidUpdate:value', isCheck, Boolean(error))
   }
 
+  // 拦截每个Item的onChange事件
   handleItemChange = (value: any) => {
     const { check = noop, name, onFieldChange, children } = this.props
-    const { props = {}, type = {}  } = children as React.ReactElement<any>
+    const { props = {} } = children as React.ReactElement<any>
     const { onChange } = props
     const error = check(value)
     onChange && onChange(value)
@@ -104,7 +92,7 @@ class FormItem extends Component<FormItemProps, any> {
     // console.log('FormItem:handleItemChange:error', value, error)
   }
 
-  // 提交按钮的点击回调函数
+  // 拦截提交按钮的onClick事件
   handleSubmitClick = (e: any)  => {
     const { children, onSubmitClick } = this.props
     const { props: {onClick} } = children as any
@@ -114,9 +102,8 @@ class FormItem extends Component<FormItemProps, any> {
 
   render() {
     const self = this
-    // const { value, error } = this.state
-    const { className, style, name, label, desc, tips, labelWidth, labelAlign,
-      required, values, errors, children } = this.props
+    const { className, style, name, label, desc, tips, labelWidth,
+      labelAlign, required, values, errors, children } = this.props
     const classes = classNames('hmly-form-item', className)
     const labelBoxClass = classNames({ 'hmly-form-label-required': required })
     const value = values[name]
@@ -139,7 +126,6 @@ class FormItem extends Component<FormItemProps, any> {
       })
     }
 
-    // const e1 = this.handleItemChange(value)
     // console.log('FormItem', value, error)
 
     return (
