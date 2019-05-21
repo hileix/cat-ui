@@ -87,7 +87,7 @@ class FormItem extends Component<FormItemProps, any> {
     const { props = {} } = children as React.ReactElement<any>
     const { onChange } = props
     const error = check(value)
-    onChange && onChange(value)
+    onChange && onChange(value, error)
     onFieldChange && onFieldChange(name, value, error)
     // console.log('FormItem:handleItemChange:error', value, error)
   }

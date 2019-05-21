@@ -31,11 +31,11 @@ class Example extends React.Component {
     this.onSubmit = this.onSubmit.bind(this)
   }
 
-  onVisibilityChange (value) {
+  onVisibilityChange (value, error) {
     this.setState({ visibility: value })
   }
 
-  onPaymentChange (value) {
+  onPaymentChange (value, error) {
     this.setState({ payment: value })
   }
 
