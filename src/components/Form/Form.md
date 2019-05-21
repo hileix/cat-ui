@@ -33,13 +33,14 @@ class Example extends React.Component {
   }
 
   onField2Change (value) {
-    console.log('onField2Change', value)
+    // console.log('Example:onField2Change', value)
     this.setState({ field2: value })
   }
 
   checkField1 (value) {
     const isInvalid = value.length === 0 || value.length > 10
     const error = isInvalid ? '长度不能大于10' : ''
+    console.log('checkField1', value, isInvalid)
     return error
   }
 

@@ -67,7 +67,7 @@ class Form extends Component<FormProps, any> {
   componentDidUpdate() {
     const { getFormFields } = this.props
     // console.log('FormItem:componentDidUpdate', this.state)
-    getFormFields && getFormFields(this.state, {})
+    // getFormFields && getFormFields(this.state, {})
   }
 
   // 字段改变的回调函数
@@ -75,7 +75,10 @@ class Form extends Component<FormProps, any> {
     const { values, errors } = this.state
     values[field] = value
     errors[field] = error
-    this.setState({ values: errors })
+    // const newValues = { ...values, [field]: value }
+    // const newErrors = { ...errors,[field]: error }
+    // console.log('Form:onFieldChange:1', field, value, error)
+    this.setState({ values, errors })
   }
 
   // 提交按钮的点击回调函数

@@ -12,7 +12,7 @@ export interface FormItemProps {
   /** 样式 */
   style?: object;
   /** 字段名称 */
-  name?: string;
+  name: string;
   /** label */
   label?: string | React.ReactNode;
   /** label 标签布局 */
@@ -88,7 +88,7 @@ class FormItem extends Component<FormItemProps, any> {
     this.setState({ error: error })
     onChange && onChange(value)
     onFieldChange && onFieldChange(name, value, error)
-    // console.log('FormItem:handleItemChange:error', value, error)
+    console.log('FormItem:handleItemChange:error', check, value, error)
   }
 
   // 提交按钮的点击回调函数
@@ -107,13 +107,20 @@ class FormItem extends Component<FormItemProps, any> {
     const classes = classNames('hmly-form-item', className)
     const labelBoxClass = classNames({ 'hmly-form-label-required': required })
     const { type: {name: componentType} } = children as any
-    let item = cloneElement(children as React.ReactElement<any>, {
-      onChange: self.handleItemChange
-    })
+    let item
     if (componentType === 'Button') {
       item = cloneElement(children as React.ReactElement<any>, {
         onChange: self.handleItemChange,
         onClick: self.handleSubmitClick
+      })
+    } else if (componentType === 'Input') {
+      item = cloneElement(children as React.ReactElement<any>, {
+        onChange: (e: any) => {self.handleItemChange(e.target.value)},
+        onClick: self.handleSubmitClick
+      })
+    } else {
+      item = cloneElement(children as React.ReactElement<any>, {
+        onChange: self.handleItemChange
       })
     }
 
