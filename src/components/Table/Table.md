@@ -8,11 +8,21 @@ class Example extends React.Component {
       currentPage: 2
     }
     this.onPageChange = this.onPageChange.bind(this)
+    this.onFilterChange2 = this.onFilterChange2.bind(this)
+    this.onPageChang3 = this.onPageChang3.bind(this)
   }
 
   onPageChange (page) {
     console.log('Example:onPageChange', page)
     this.setState({ currentPage: page })
+  }
+
+  onFilterChange2 (id, value) {
+    console.log('Example:onFilterChange2', id, value)
+  }
+
+  onPageChang3 (page) {
+    console.log('Example:onPageChang3', page)
   }
 
   render () {
@@ -125,6 +135,7 @@ class Example extends React.Component {
       <Table
         columns={columns2}
         dataSource={dataSource}
+        onFilterChange={this.onFilterChange2}
         emptyText='空的模板' />
 
       <h3>有分页的Table</h3>
@@ -132,7 +143,9 @@ class Example extends React.Component {
         columns={columns2}
         dataSource={dataSource}
         emptyText='空的模板'
-        pagination={pagination1} />
+        pagination={pagination1}
+        onFilterChange={this.onFilterChange2}
+        onPageChange={this.onPageChang3} />
 
       <h3>align=center的Table</h3>
       <Table
@@ -201,7 +214,7 @@ class Example2 extends React.Component {
   }
 
   render () {
-    console.log(this.state.dataSource)
+    // console.log(this.state.dataSource)
     return (
       <div>
         <Button onClick={this.reflush}> 更新Table数据 </Button>

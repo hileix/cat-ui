@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Component, cloneElement } from 'react'
 import classNames from 'classnames'
+import * as noop from 'lodash/noop'
 import { StyledForm } from './styled'
 import FormItem from './FormItem'
 import kindOf from '../../utils/kindOf'
@@ -16,6 +17,8 @@ export interface FormProps {
   labelWidth?: string | number;
   /** 配置 Form.Item 的 colon 的默认值 */
   colon?: boolean;
+  /** 获取表单values和errors的回调函数 */
+  getFormFields?: (values?: object, errors?: object) => {};
 }
 
 /**
@@ -27,28 +30,101 @@ class Form extends Component<FormProps, any> {
     colon: false
   }
 
+  constructor (props: FormProps) {
+    super(props)
+    this.state = {
+      values: {},
+      errors: {},
+      isCheck: false
+    }
+  }
+
+  componentDidMount () {
+    const { children } = this.props
+    React.Children.map(children, (element: any, index) => {
+      if (!element) { return }
+      const { values, errors } = this.state
+      const child = element.props.children
+      const componentType = child.type.name
+      const { name } = element.props
+      // 根据不同组件类型初始化values、errors列表
+      switch (componentType) {
+        case 'Button':
+          break
+        case 'CheckboxGroup':
+          values[name] = []
+          errors[name] = ''
+          break
+        case 'RadioGroup':
+        case 'Select':
+        default:
+          values[name] = ''
+          errors[name] = ''
+          break
+      }
+      // 根据value或defaultValue初始化values、errors列表
+      if ('value' in child.props) {
+        values[name] = child.props.value
+      } else if ('defaultValue' in child.props) {
+        values[name] = child.props.defaultValue
+      }
+      this.setState({ values: values, errors: errors })
+      // console.log('Form:componentDidMount:1', componentType, name)
+      // console.log('Form:componentType:2', values, errors)
+    })
+  }
+
+  componentDidUpdate() {
+    // const { getFormFields } = this.props
+    // console.log('FormItem:componentDidUpdate', this.state)
+    // getFormFields && getFormFields(this.state, {})
+  }
+
+  // 字段改变的回调函数
+  onFieldChange = (field: string, value: any, error: string)  => {
+    const { values, errors } = this.state
+    // 必须有字段名称
+    if (field) {
+      values[field] = value
+      errors[field] = error
+      field && this.setState({ values, errors })
+    }
+  }
+
+  // 提交按钮的点击回调函数
+  onSubmitClick = (fn?: (values?: any, errors?: any) => {})  => {
+    const { values, errors } = this.state
+    this.setState({ isCheck: true }, () => {
+      fn(values, errors)
+    })
+  }
+
+  // 改变Form的isCheck属性
+  toggleIsCheck = (isCheck: boolean) => {
+    this.setState({ isCheck: isCheck })
+  }
+
   render() {
+    const self = this
+    const { values, errors, isCheck } = this.state
     const { className, style, labelWidth, labelAlign, children } = this.props
     const classes = classNames('hmly-form', className)
     const items = React.Children.map(children, (element: any, index) => {
-      if (!element) { return element }
-
-      const child = element.props.children
-      // const componentType = child.type.name
-      // console.log('componentType', componentType)
-      // if (kindOf(type, PopoverTrigger)) {
-      //   result.trigger = child
-      // } else if (kindOf(type, PopoverContent)) {
-      //   result.content = child
-      // }
-
+      if (!element) { return }
       return cloneElement(element, {
         key: index,
         labelWidth: labelWidth,
-        labelAlign: labelAlign
+        labelAlign: labelAlign,
+        onFieldChange: self.onFieldChange,
+        onSubmitClick: self.onSubmitClick,
+        toggleIsCheck: self.toggleIsCheck,
+        isCheck: isCheck,
+        values: values,
+        errors: errors
       })
     })
 
+    // console.log('Form:render', this.state)
 
     return (
       <StyledForm

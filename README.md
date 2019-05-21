@@ -29,6 +29,8 @@ $ yarn run release [版本号] 使用自定义传入的版本号
 $ yarn run test
 
 更新快照
+$ yarn run update:snapshot
+或者
 $ jest --updateSnapshot
 ```
 

@@ -14,7 +14,7 @@ initialize {
         "children": Array [
           Object {
             "attribs": Object {
-              "class": "hmly-select sc-bdVaJa gBmpwe",
+              "class": "hmly-select hmly-select-placeholder sc-bdVaJa gBmpwe",
             },
             "children": Array [],
             "name": "div",

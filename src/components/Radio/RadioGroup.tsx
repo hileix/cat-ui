@@ -14,8 +14,10 @@ export interface RadioGroupProps {
   readOnly?: boolean;
   /** 是否选中 */
   checked?: boolean;
+  /** 默认值，仅在初始化有效 */
+  defaultValue?: string | number;
   /** 值 */
-  value?: any;
+  value?: string | number;
   /** 选项变化时的回调函数	 */
   onChange?: any;
 }
@@ -24,25 +26,43 @@ export interface RadioGroupProps {
  * RadioGroup
  */
 class RadioGroup extends Component<RadioGroupProps, any> {
-
-  handleChange = (e: any) => {
-    console.log('handleChange')
+  constructor (props: RadioGroupProps) {
+    super(props)
+    let value: string | number = ''
+    if ('value' in props) {
+      value = props.value
+    } else if ('defaultValue' in props) {
+      value = props.defaultValue
+    }
+    this.state = {
+      value: value
+    }
   }
 
-  handleClick = (e: any) => {
-    console.log('handleClick')
+  static getDerivedStateFromProps (nextProps: RadioGroupProps) {
+    if ('value' in nextProps) {
+      return {
+        value: nextProps.value
+      }
+    } else { return null }
   }
 
   onRadioChange = (e: any) => {
     const { value } = e.target
-    const onChange = this.props.onChange
-    console.log('RadioGroup:onRadioChange', value)
+    const { onChange } = this.props
+    // 是否有value值传递下来
+    if (!('value' in this.props)) {
+      this.setState({
+        value: value
+      })
+    }
     onChange && onChange(value)
   }
 
   render() {
     const self = this
-    const { className, style, disabled, readOnly, checked, value, children } = this.props
+    const { value } = this.state
+    const { className, style, disabled, readOnly, checked, children } = this.props
     const classes = classNames('hmly-radio-group', className)
     const radios = React.Children.map(children, (element: any, index) => {
       if (!element) { return element }

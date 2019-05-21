@@ -1,6 +1,6 @@
 {
   "name": "@xmly/cat-ui",
-  "version": "0.0.88",
+  "version": "0.0.89",
   "main": "lib/components/index.js",
   "license": "ISC",
   "repository": {
@@ -17,6 +17,7 @@
     "new": "./scripts/new-component.sh",
     "build": "tsc --build && yarn run test",
     "test": "jest",
+    "update:snapshot": "jest --updateSnapshot",
     "styleguidist:build": "styleguidist build && yarn run test",
     "styleguidist:publish": "yarn && yarn run styleguidist:build && pm2 reload cat-ui-styleguidist",
     "styleguidist:start": "NODE_ENV=test pm2 start ./server.js --name=cat-ui-styleguidist",

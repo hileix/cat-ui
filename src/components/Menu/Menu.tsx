@@ -26,7 +26,6 @@ export interface MenuProps {
 class Menu extends Component<MenuProps, any> {
   static Item: typeof MenuItem
   static SubMenu: typeof SubMenu
-
   static defaultProps = {
     mode: 'pop'
   }

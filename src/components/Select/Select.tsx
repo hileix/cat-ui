@@ -12,6 +12,8 @@ export interface SelectProps {
   style?: object;
   /** 默认提示文案 */
   placeholder?: string;
+  /** 默认值，仅在初始化有效 */
+  defaultValue?: string | number;
   /** 指定当前选中的条目；为空字符串时，显示placeholder */
   value?: string | number;
   /** 选中option时的value变化 */
@@ -27,11 +29,26 @@ class Select extends Component<SelectProps, any> {
 
   constructor (props: SelectProps) {
     super(props)
+    let value: string | number = ''
+    if ('value' in props) {
+      value = props.value
+    } else if ('defaultValue' in props) {
+      value = props.defaultValue
+    }
     this.state = {
       isPopOpen: false,
-      selectWidth: 'auto'
+      selectWidth: 'auto',
+      value: value
     }
     this.selectRef = React.createRef()
+  }
+
+  static getDerivedStateFromProps (nextProps: SelectProps) {
+    if ('value' in nextProps) {
+      return {
+        value: nextProps.value
+      }
+    } else { return null }
   }
 
   componentDidMount () {
@@ -49,13 +66,19 @@ class Select extends Component<SelectProps, any> {
 
   onOptionClick = (value: string | number, child: any) => {
     const { onChange } = this.props
+    // 是否有value值传递下来
+    if (!('value' in this.props)) {
+      this.setState({
+        value: value
+      })
+    }
     onChange && onChange(value, child)
   }
 
   render() {
     const self = this
-    const { isPopOpen, selectWidth } = this.state
-    const { className, style, value, placeholder, children } = this.props
+    const { isPopOpen, selectWidth, value } = this.state
+    const { className, style, placeholder, children } = this.props
     let filler = placeholder
     const options =  React.Children.map(children, (element: any, index) => {
       if (!element) { return element }
