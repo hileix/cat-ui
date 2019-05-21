@@ -61,11 +61,11 @@ class FormItem extends Component<FormItemProps, any> {
   }
 
   componentDidUpdate () {
-    const { name, values, errors, isCheck, toggleIsCheck } = this.props
+    const { name, required, values, errors, isCheck, toggleIsCheck } = this.props
     const value = values[name]
     const error = errors[name]
     // 去校验表单
-    if (isCheck) {
+    if (required && isCheck) {
       this.handleItemChange(value)
       toggleIsCheck(false)
     }
@@ -83,11 +83,11 @@ class FormItem extends Component<FormItemProps, any> {
 
   // 拦截每个Item的onChange事件
   handleItemChange = (value: any) => {
-    const { check = noop, name, onFieldChange, children } = this.props
+    const { name, check = noop, required, onFieldChange, children } = this.props
     const { props = {} } = children as React.ReactElement<any>
     const { onChange } = props
     const error = check(value)
-    onChange && onChange(value)
+    onChange && onChange(value, error)
     onFieldChange && onFieldChange(name, value, error)
     // console.log('FormItem:handleItemChange:error', value, error)
   }
