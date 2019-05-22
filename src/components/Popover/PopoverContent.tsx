@@ -92,6 +92,7 @@ class PopoverContent extends Component<PopoverContentProps, any> {
         }
     }
 
+    console.log('newPositionStyle', newPositionStyle, window.pageYOffset, triggerRect.top, triggerRect.height)
     this.setState({ positionStyle: newPositionStyle })
   }
 
