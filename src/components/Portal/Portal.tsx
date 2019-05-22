@@ -32,6 +32,27 @@ class Portal extends PureComponent<ProtalProps, any> {
     selector: 'body'
   }
 
+  constructor (props: ProtalProps) {
+    super(props)
+    this.state = {
+      isInited: false
+    }
+  }
+
+  componentDidMount () {
+    const { visible } = this.props
+    if (visible) {
+      this.setState({ isInited: true})
+    }
+  }
+
+  componentDidUpdate (prevProps: ProtalProps) {
+    const isNotEqual = prevProps.visible !== this.props.visible
+    if (this.props.visible && isNotEqual) {
+      this.setState({ isInited: true})
+    }
+  }
+
   getContainer = (selector: string) => {
     if (!document) { return }
     const node = document.querySelector(selector) || document.body
@@ -40,15 +61,16 @@ class Portal extends PureComponent<ProtalProps, any> {
 
   render() {
     const { selector, onMount, onUnmount, render, visible, children } = this.props
+    const { isInited } = this.state
     const domNode = this.getContainer(selector)
     const content = render ? render() : children
 
-    // console.log('Portal:render', visible, domNode)
-    if (!visible) { return null}
+    // 初始化组件时，若visible为false，isInited表示Portal未初始化过，不用挂载组件到DOM上
+    if (!visible && !isInited) { return null}
     if (!domNode) { return null }
 
     return ReactDOM.createPortal(
-      <PortalContent onMount={onMount} onUnmount={onUnmount}>
+      <PortalContent visible={visible} onMount={onMount} onUnmount={onUnmount}>
         {content}
       </PortalContent>,
       domNode

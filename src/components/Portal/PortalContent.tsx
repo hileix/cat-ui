@@ -1,7 +1,10 @@
 import * as React from 'react'
 import { Component } from 'react'
+import { StyledPortalContent } from './styled'
 
 export interface ProtalProps {
+  /** 弹层是否可见 */
+  visible?: boolean;
   /** children 被 mount 之后的回调函数 */
   onMount?: () => {};
   /** children 被 unmount 之后的回调函数 */
@@ -14,23 +17,22 @@ class PortalContent extends Component<ProtalProps, any> {
   }
 
   componentDidMount() {
-    const { onMount } = this.props;
-
-    onMount && onMount();
+    const { onMount } = this.props
+    onMount && onMount()
   }
 
   componentWillUnmount() {
-    const { onUnmount } = this.props;
-
-    onUnmount && onUnmount();
+    const { onUnmount } = this.props
+    onUnmount && onUnmount()
   }
 
-
   render() {
+    const { visible } = this.props
+    // console.log('PortalContent:visible', visible)
 
-    return (<React.Fragment>
+    return (<StyledPortalContent visible={visible}>
       {this.props.children}
-    </React.Fragment>)
+    </StyledPortalContent>)
   }
 }
 
