@@ -24,7 +24,7 @@ export interface PopoverContentProps {
   toggleVisible?: any;
 }
 
-const defaultPostion = {
+const defaultPostionStyle = {
   position: 'absolute',
   top: 0,
   left: 0,
@@ -38,7 +38,7 @@ class PopoverContent extends Component<PopoverContentProps, any> {
   constructor (props: PopoverContentProps) {
     super(props)
     this.state = {
-      positionStyle: defaultPostion
+      positionStyle: defaultPostionStyle
     }
     this.contentRef = React.createRef()
   }
