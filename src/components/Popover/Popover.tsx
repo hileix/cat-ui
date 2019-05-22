@@ -17,7 +17,7 @@ export interface PopoverProps {
   /** 触发类型 */
   mode: 'click' | 'hover';
   /** 定位的方向 */
-  position?: 'bottomLeft' | 'topCenter';
+  position?: 'bottomLeft' | 'bottomCenter' | 'bottomRight' | 'topLeft' | 'topCenter' | 'topRight';
   /** X轴的偏移量 */
   offsetX?: number;
   /** X轴的偏移量 */

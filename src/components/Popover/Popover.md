@@ -136,7 +136,7 @@ class Example extends React.Component {
       </Popover>
 
       <h3>省略号Icon的Menu Popover</h3>
-      <Popover mode='click'>
+      <Popover mode='click' position='bottomRight'>
         <Popover.Trigger>
           <Icon type='more' style={{cursor: 'pointer'}} />
         </Popover.Trigger>
@@ -156,6 +156,32 @@ class Example extends React.Component {
                 <Icon type='delete' style={{marginRight: '10px'}} />Delete
               </Menu.Item>
             </Menu>
+          </div>
+        </Popover.Content>
+      </Popover>
+
+      <h3>position='bottomCenter'的Popover</h3>
+      <Popover mode='click' position='bottomCenter'>
+        <Popover.Trigger>
+          <Button>点击打开</Button>
+        </Popover.Trigger>
+        <Popover.Content>
+          <div className='pop-content'>
+            <p>通用的触发式弹层组件, 可以自定义定位算法、触发方式以及弹层显示方式。</p>
+            <p>向下弹出的弹层组件</p>
+          </div>
+        </Popover.Content>
+      </Popover>
+
+      <h3>position='bottomRight'的Popover</h3>
+      <Popover mode='click' position='bottomRight'>
+        <Popover.Trigger>
+          <Button>点击打开</Button>
+        </Popover.Trigger>
+        <Popover.Content>
+          <div className='pop-content'>
+            <p>通用的触发式弹层组件, 可以自定义定位算法、触发方式以及弹层显示方式。</p>
+            <p>向下弹出的弹层组件</p>
           </div>
         </Popover.Content>
       </Popover>

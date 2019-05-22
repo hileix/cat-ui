@@ -19,7 +19,7 @@ export interface PopoverContentProps {
   /** 触发类型 */
   mode?: 'click' | 'hover';
   /** 定位的方向 */
-  position?: 'bottomLeft' | 'topCenter';
+  position?: 'bottomLeft' | 'bottomCenter' | 'bottomRight' | 'topLeft' | 'topCenter' | 'topRight';
   /** X轴的偏移量 */
   offsetX?: number;
   /** X轴的偏移量 */
@@ -57,9 +57,11 @@ class PopoverContent extends Component<PopoverContentProps, any> {
   }
 
   componentDidUpdate(prevProps: PopoverContentProps) {
-    if (this.props.visible && prevProps.visible !== this.props.visible) {
-      // reset position mark
-      // this.positionReady = false;
+    if (this.props.visible && (prevProps.visible !== this.props.visible)) {
+      // console.log('componentDidUpdate')
+      // setTimeout(() => {
+      //   this.adjustPosition()
+      // }, 250)
       this.adjustPosition()
     }
   }
@@ -85,6 +87,21 @@ class PopoverContent extends Component<PopoverContentProps, any> {
           ...positionStyle,
           left: triggerRect.left + (triggerRect.width / 2) - (contentRect.width / 2) + offsetX,
           top: window.pageYOffset + triggerRect.top - contentRect.height - 5 + offsetY
+        }
+        break
+      case 'bottomCenter':
+        newPositionStyle =  {
+          ...positionStyle,
+          left: triggerRect.left + (triggerRect.width / 2) - (contentRect.width / 2) + offsetX,
+          top: window.pageYOffset + triggerRect.top + triggerRect.height + offsetY
+        }
+        break
+      case 'bottomRight':
+        // console.log('bottomRight', triggerRect.left, contentRect.width, offsetX)
+        newPositionStyle =  {
+          ...positionStyle,
+          left: triggerRect.left - contentRect.width + offsetX,
+          top: window.pageYOffset + triggerRect.top + triggerRect.height + offsetY
         }
         break
       case 'bottomLeft':
