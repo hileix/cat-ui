@@ -43,6 +43,7 @@ class Portal extends PureComponent<ProtalProps, any> {
     const domNode = this.getContainer(selector)
     const content = render ? render() : children
 
+    // console.log('Portal:render', visible, domNode)
     if (!visible) { return null}
     if (!domNode) { return null }
 
