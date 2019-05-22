@@ -18,6 +18,10 @@ export interface PopoverProps {
   mode: 'click' | 'hover';
   /** 定位的方向 */
   position?: 'bottomLeft' | 'topCenter';
+  /** X轴的偏移量 */
+  offsetX?: number;
+  /** X轴的偏移量 */
+  offsetY?: number;
   /** 打开或关闭的回调函数 */
   onChange?: any;
 }
@@ -31,7 +35,9 @@ class Popover extends Component<PopoverProps, any> {
   static Content: typeof PopoverContent;
   static defaultProps = {
     mode: 'click',
-    position: 'bottomLeft'
+    position: 'bottomLeft',
+    offsetX: 0,
+    offsetY: 0
   }
 
   constructor (props: PopoverProps) {
@@ -119,12 +125,14 @@ class Popover extends Component<PopoverProps, any> {
   }
 
   renderContent = (content: any) => {
-    const { mode, position } = this.props
+    const { mode, position, offsetX, offsetY } = this.props
     const { visible } = this.state
     return React.cloneElement(content, {
       visible: visible,
       mode: mode,
       position: position,
+      offsetX: offsetX,
+      offsetY: offsetY,
       open: this.open,
       close: this.close,
       triggerDOM: this.popoverRef.current,
