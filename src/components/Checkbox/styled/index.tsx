@@ -74,6 +74,8 @@ const CheckboxInput = styled.input`
   z-index: 1;
   opacity: 0;
   padding: 0;
+  width: 50px;
+  height: 20px;
   box-sizing: border-box;
   color: ${(props: CheckboxInputProps) => props.disabled ? 'rgba(0,0,0,.25)': ''};
   cursor: ${(props: CheckboxInputProps) => props.disabled ? 'not-allowed': 'pointer'};

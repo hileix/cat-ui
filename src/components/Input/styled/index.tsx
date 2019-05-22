@@ -62,7 +62,7 @@ const StyledIcon = styled.span<IWrapperProps>`
   z-index: 1;
   width: 10px;
   height: 10px;
-  right: 5.6%;
+  right: 5.5%;
   color: ${props => (props.state === inputStates.error ? colorRedPrimary : colorPrimary)};
   font-size: ${props => props.showClear ? '10px' : '16px'};
 `
@@ -169,7 +169,6 @@ const StyledWrapperPlaceholder = styled.span<IWrapperProps>`
   line-height: 1;
   letter-spacing: 0.75px;
   color: ${colorTertiary};
-  transition: all .3s;
   animation: ${props => ((props.state === inputStates.active || props.value) ? flyout : flyin)} .2s ease-out forwards;
 `
 
@@ -189,6 +188,7 @@ const StyledTextArea = styled.textarea<IWrapperProps>`
   font-size: 16px;
   font-weight: normal;
   position: relative;
+  padding: 10px 15px;
   z-index: 1;
   background-color: transparent;
   color: ${colorPrimary};

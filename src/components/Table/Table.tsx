@@ -21,6 +21,10 @@ export interface TableProps {
   align?: 'left' | 'center';
   /** 分页参数 */
   pagination: PaginationProps;
+  /** 筛选栏的回调函数 */
+  onFilterChange?: (id?: any, value?: any) => {};
+  /** 翻页的回调函数 */
+  onPageChange?: (page?: number) => {};
   /** 自定义的空模板 */
   empty?: React.ReactNode;
   /** 空模板的文案 */
@@ -45,6 +49,16 @@ class Table extends Component<TableProps, any> {
       filterDataSource: props.dataSource,
       currentPageData: props.dataSource
     }
+  }
+
+  static getDerivedStateFromProps(nextProps: TableProps) {
+    if ('dataSource' in nextProps) {
+      return {
+        filterDataSource: nextProps.dataSource,
+        currentPageData: nextProps.dataSource
+      }
+    }
+    return null
   }
 
   componentDidMount () {
@@ -77,37 +91,43 @@ class Table extends Component<TableProps, any> {
 
   // 选择了筛选栏之后的回调函数
   onFilterSelect = (id: any, value: any) => {
-    const { dataSource } = this.props
+    const { dataSource, onFilterChange } = this.props
+    onFilterChange && onFilterChange(id, value)
     const _filterKeys = { id: id, value: value }
-    // 筛选dataSource，当前值等于filterKeys或者未选择filterKeys
-    const filterDataSource = dataSource.filter((elem, index) => {
-      if (elem[id] === value || value === '') {
-        return elem
-      }
-    })
-    // 是否需要分页
-    if (this.hasPagination()) {
-      // 选择筛选栏时，应该跳至第一页
-      this.onPaginationChange(1)
-      this.setState({
-        filterKeys: _filterKeys,
-        filterDataSource: filterDataSource,
-        pageTotal: filterDataSource.length
-      }, () => {
-        this.pagingDataSource()
-      })
-    } else {
-      this.setState({
-        filterKeys: _filterKeys,
-        filterDataSource: filterDataSource,
-        currentPageData: filterDataSource
-      })
-    }
+    this.setState({ filterKeys: _filterKeys })
+    // 暂时注释掉Table内部翻页
+    // const _filterKeys = { id: id, value: value }
+    // // 筛选dataSource，当前值等于filterKeys或者未选择filterKeys
+    // const filterDataSource = dataSource.filter((elem, index) => {
+    //   if (elem[id] === value || value === '') {
+    //     return elem
+    //   }
+    // })
+    // // 是否需要分页
+    // if (this.hasPagination()) {
+    //   // 选择筛选栏时，应该跳至第一页
+    //   this.onPaginationChange(1)
+    //   this.setState({
+    //     filterKeys: _filterKeys,
+    //     filterDataSource: filterDataSource,
+    //     pageTotal: filterDataSource.length
+    //   }, () => {
+    //     this.pagingDataSource()
+    //   })
+    // } else {
+    //   this.setState({
+    //     filterKeys: _filterKeys,
+    //     filterDataSource: filterDataSource,
+    //     currentPageData: filterDataSource
+    //   })
+    // }
   }
 
   // 分页点击之后的回调函数
   onPaginationChange = (page: number) => {
-    const { pagination } = this.props
+    const { pagination, onPageChange } = this.props
+    onPageChange && onPageChange(page)
+    // 暂时注释掉Table内部翻页
     const { onChange } = pagination
     onChange && onChange(page)
     this.pagingDataSource(page)

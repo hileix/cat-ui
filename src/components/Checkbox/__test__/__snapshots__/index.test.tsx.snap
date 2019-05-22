@@ -21,7 +21,7 @@ initialize {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Object {
               "attribs": Object {
-                "class": "sc-bxivhb kMDilc",
+                "class": "sc-bxivhb ixELdd",
               },
               "children": Array [],
               "name": "input",
@@ -49,7 +49,7 @@ initialize {
           },
           Object {
             "attribs": Object {
-              "class": "sc-bxivhb kMDilc",
+              "class": "sc-bxivhb ixELdd",
             },
             "children": Array [],
             "name": "input",
@@ -152,7 +152,7 @@ initialize {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Object {
                 "attribs": Object {
-                  "class": "sc-bxivhb kMDilc",
+                  "class": "sc-bxivhb ixELdd",
                 },
                 "children": Array [],
                 "name": "input",
@@ -180,7 +180,7 @@ initialize {
             },
             Object {
               "attribs": Object {
-                "class": "sc-bxivhb kMDilc",
+                "class": "sc-bxivhb ixELdd",
               },
               "children": Array [],
               "name": "input",

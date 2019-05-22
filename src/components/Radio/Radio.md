@@ -31,6 +31,24 @@ class Example extends React.Component {
         <Radio value={5} shape='hook'>5</Radio>
       </Radio.Group>
 
+      <h3>没有value值的Radio.Group</h3>
+      <Radio.Group>
+        <Radio value={1}>1</Radio>
+        <Radio value={2}>2</Radio>
+        <Radio value={3}>3</Radio>
+        <Radio disabled value={4}>4</Radio>
+        <Radio value={5} shape='hook'>5</Radio>
+      </Radio.Group>
+
+      <h3>defaultValue的Radio.Group</h3>
+      <Radio.Group defaultValue={2}>
+        <Radio value={1}>1</Radio>
+        <Radio value={2}>2</Radio>
+        <Radio value={3}>3</Radio>
+        <Radio disabled value={4}>4</Radio>
+        <Radio value={5} shape='hook'>5</Radio>
+      </Radio.Group>
+
       <style>
         {`
           .radio-box {

@@ -16,6 +16,8 @@ export interface PopoverProps {
   visible?: boolean;
   /** 触发类型 */
   mode: 'click' | 'hover';
+  /** 定位的方向 */
+  position?: 'bottomLeft' | 'topCenter';
   /** 打开或关闭的回调函数 */
   onChange?: any;
 }
@@ -28,7 +30,8 @@ class Popover extends Component<PopoverProps, any> {
   static Trigger: typeof PopoverTrigger;
   static Content: typeof PopoverContent;
   static defaultProps = {
-    mode: 'click'
+    mode: 'click',
+    position: 'bottomLeft'
   }
 
   constructor (props: PopoverProps) {
@@ -116,11 +119,12 @@ class Popover extends Component<PopoverProps, any> {
   }
 
   renderContent = (content: any) => {
-    const { mode } = this.props
+    const { mode, position } = this.props
     const { visible } = this.state
     return React.cloneElement(content, {
       visible: visible,
       mode: mode,
+      position: position,
       open: this.open,
       close: this.close,
       triggerDOM: this.popoverRef.current,

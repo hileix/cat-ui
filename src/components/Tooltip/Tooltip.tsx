@@ -1,95 +1,97 @@
-import * as React from "react"
+import * as React from 'react'
+import { Component } from 'react'
 import classNames from 'classnames'
-import Popup from '../Popup'
-import './Tooltip.scss'
+import { StyledTooltip, StyledTooltipContent } from './styled'
+import Popover from '../Popover'
 
-export type TooltipPlacement =
-  | 'top'
-  | 'topLeft'
-  | 'topRight'
-  | 'right'
-  | 'rightTop'
-  | 'rightBottom'
-  | 'bottom'
-  | 'bottomLeft'
-  | 'bottomRight'
-  | 'left'
-  | 'leftTop'
-  | 'leftBottom'
-
-export type TooltipTrigger = 'hover' | 'click' | 'focus'
-
-export interface TooltipOption {
-  /** 前缀 */
-  prefixCls?: string;
+export interface TooltipProps {
   /** 类名 */
   className?: string;
   /** 样式 */
-  style?: React.CSSProperties;
-  /** 位置 */
-  placement?: TooltipPlacement;
-  /** 触发事件名称 */
-  trigger?: TooltipTrigger;
-  /** 触发后要显示的内容 */
-  title?: string | React.ReactNode;
-  /** 触发的对象 */
-  children?: React.ReactNode | string;
+  style?: object;
+  /** Tooltip hover后显示的内容 */
+  mode?: 'hover' | 'click';
+  /** 定位的方向 */
+  position?: 'bottomLeft' | 'topCenter';
+  /** Tooltip hover后显示的内容 */
+  content?: string | React.ReactNode;
 }
 
 /**
- * Tooltip
- *
+ * 文字提示
  */
-export default class Tooltip extends React.Component<TooltipOption, any>{
+class Tooltip extends Component<TooltipProps, any> {
+  private contentRef: any;
   static defaultProps = {
-    prefixCls: 'hmly',
-    placement: 'top',
-    trigger: 'hover'
+    mode: 'hover',
+    position: 'topCenter'
   }
 
-  popup: boolean
-
-  constructor(props: TooltipOption) {
-    super(props);
+  constructor (props: TooltipProps) {
+    super(props)
     this.state = {
-      popup: false
+      isPopOpen: false,
+      tipLeft: 0,
+    }
+    this.contentRef = React.createRef()
+  }
+
+  // componentDidMount () {
+  //   setTimeout(() => {
+  //     this.setState({ isPopOpen: true })
+  //   }, 1000)
+  // }
+
+  componentDidUpdate () {
+    const contentDOM = this.contentRef.current
+    if (!contentDOM) { return }
+    const { isPopOpen, tipLeft } = this.state
+    if (isPopOpen && tipLeft === 0) {
+      const contentRect = contentDOM.getBoundingClientRect()
+      const rectCollection = contentDOM.getClientRects()
+      this.setState({ tipLeft: contentRect.width / 2 - 8 })
     }
   }
 
-  handleChange = ({popup = false}) => {
-    this.setState({
-      popup
-    })
+  onPopoverChange = (value: boolean) => {
+    this.setState({ isPopOpen: value })
   }
 
-  render () {
-    const {
-      prefixCls,
-      className,
-      style,
-      placement,
-      title,
-      trigger,
-      children
-    } = this.props
-    const { popup } = this.state
-    const classes = classNames(`${prefixCls}-pop`, className, {
-      popuped: popup
+  render() {
+    const { className, style, mode, content, position, children } = this.props
+    const { isPopOpen, tipLeft } = this.state
+    const triggerClass = classNames('hmly-tooltip-trigger', className)
+    const contentClass = classNames('hmly-tooltip-content', {
+      [`hmly-tooltip-${position}`]: position
     })
 
+    // console.log('tipLeft', tipLeft)
+
     return (
-      <Popup
-        prefixClx={prefixCls}
-        className={classes}
-        innerCls='hi-children'
-        style={style}
-        placement={placement}
-        title={title}
-        trigger={trigger}
-        onChange={this.handleChange}
-      >
-        {children}
-      </Popup>
+      <Popover
+        visible={isPopOpen}
+        mode={mode}
+        position={position}
+        onChange={this.onPopoverChange}>
+        <Popover.Trigger>
+          <StyledTooltip
+            className={triggerClass}
+            style={style}>
+            {children}
+          </StyledTooltip>
+        </Popover.Trigger>
+        <Popover.Content>
+          <StyledTooltipContent
+            ref={this.contentRef}
+            className={contentClass}
+            left={tipLeft}>
+            {content}
+          </StyledTooltipContent>
+        </Popover.Content>
+      </Popover>
+
     )
   }
 }
+
+export default Tooltip

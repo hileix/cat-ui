@@ -41,6 +41,8 @@ export interface InputProps extends HandleProps {
   pasteFree? : boolean;
   /** 是否能对输入框进行剪贴的操作 */
   cutFree? : boolean;
+  /** icon style样式 */
+  iconStyle?: object;
   /** 聚焦回调 */
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => any;
   /** 失焦回调 */
@@ -107,6 +109,7 @@ class Input extends React.PureComponent<InputProps, InputStates> {
   }
 
   private input: React.RefObject<HTMLInputElement>;
+  private isIconBlur: boolean;
 
   public constructor (props: InputProps) {
     super(props)
@@ -121,6 +124,7 @@ class Input extends React.PureComponent<InputProps, InputStates> {
     }
 
     this.input = React.createRef()
+    this.isIconBlur = false
   }
 
   public componentDidMount () {
@@ -129,20 +133,18 @@ class Input extends React.PureComponent<InputProps, InputStates> {
   }
 
   private handleClear (e: React.MouseEvent<HTMLElement, MouseEvent>): void {
-    this.setState({ value: '' }, () => {
-      this.input.current.focus()
-    })
-    // const { onChange } = this.props
-    // if (onChange) {
-    //   let event = e
-    //   event = Object.create(e)
-    //   event.target = this.input.current
-    //   event.currentTarget = this.input.current
-    //   const originalInputValue = this.input.current.value
-    //   this.input.current.value = ''
-    //   onChange(event as React.ChangeEvent<HTMLInputElement>)
-    //   this.input.current.value = originalInputValue
-    // }
+    this.setState({ value: '' })
+    const { onChange } = this.props
+    if (onChange) {
+      let event = e
+      event = Object.create(e)
+      event.target = this.input.current
+      event.currentTarget = this.input.current
+      const originalInputValue = this.input.current.value
+      this.input.current.value = ''
+      onChange(event as any)
+      this.input.current.value = originalInputValue
+    }
   }
 
   private handleEye (): void {
@@ -152,10 +154,26 @@ class Input extends React.PureComponent<InputProps, InputStates> {
     })
   }
 
+  private handleBlur (e: React.FocusEvent<HTMLInputElement>): void {
+    if (!this.isIconBlur) {
+      const { handleBlur } = this.props
+      handleBlur.call(this, e)
+    }
+  }
+
+  private iconForbidBlur (): void {
+    this.isIconBlur = true
+  }
+
+  private iconAllowBlur (): void {
+    this.input.current.focus()
+    this.isIconBlur = false
+  }
+
   public render () {
     const { type, value, domProps, inputState } = this.state
-    const { size, className, message, placeholder, placeholderOrigin, showClear, showEye,
-      handleFocus, handleBlur, handleChange, handleKeyDown, handleMouseEnter, handleMouseLeave, handleClipboard
+    const { size, className, message, placeholder, placeholderOrigin, showClear, showEye, iconStyle,
+      handleFocus, handleChange, handleKeyDown, handleMouseEnter, handleMouseLeave, handleClipboard
     } = this.props
     const theme = this.props.type
     const props = pick(this.props, domProps) as IdomProps
@@ -177,7 +195,7 @@ class Input extends React.PureComponent<InputProps, InputStates> {
           type={type}
           value={value}
           onFocus={handleFocus.bind(this)}
-          onBlur={handleBlur.bind(this)}
+          onBlur={this.handleBlur.bind(this)}
           onChange={handleChange.bind(this)}
           onKeyDown={handleKeyDown.bind(this)}
           onMouseEnter={handleMouseEnter.bind(this)}
@@ -192,6 +210,11 @@ class Input extends React.PureComponent<InputProps, InputStates> {
         <StyledIcon
           showClear={showClear}
           showEye={showEye}
+          style={iconStyle}
+          onMouseDown={this.iconForbidBlur.bind(this)}
+          onMouseUp={this.iconAllowBlur.bind(this)}
+          onTouchStart={this.iconForbidBlur.bind(this)}
+          onTouchEnd={this.iconAllowBlur.bind(this)}
         >
           {showClear && <Icon type='close' onClick={this.handleClear.bind(this)} />}
           {!showClear && (theme === 'line-pwd' || theme === 'box-pwd') && showEye && <Icon type={type === 'text' ? 'eye-open' : 'eye-close'} onClick={this.handleEye.bind(this)} />}
