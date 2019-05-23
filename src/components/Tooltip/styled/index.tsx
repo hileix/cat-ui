@@ -6,12 +6,21 @@ const StyledTooltip = styled.div``;
 
 const StyledTooltipContent = styled.div`
   position: relative;
-  padding: 5px;
-  background-color: #eee;
-  max-width: 500px;
+  padding: 9px 12px;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(1px);
+  box-shadow: 0 2px 5px 0
+  border-radius: 3px;
+  max-width: ${(props: StyledTooltipContentProps) => props.width + 'px'};
   word-wrap:break-word;
   box-sizing: border-box;
-  &.hmly-tooltip-topCenter::after {
+  font-size: 12px;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: rgba(255, 255, 255, 0.9);
+  /* &.hmly-tooltip-topCenter::after {
     position: absolute;
     bottom: -8px;
     left: ${(props: StyledTooltipContentProps) => props.left + 'px'};
@@ -20,8 +29,8 @@ const StyledTooltipContent = styled.div`
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-top: 10px solid #eee;
-  }
+    border-top: 10px solid rgba(0, 0, 0, 0.7);
+  } */
 `;
 
 export { StyledTooltip, StyledTooltipContent }
