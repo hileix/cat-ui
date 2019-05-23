@@ -20,9 +20,9 @@ const StyledTooltipContent = styled.div`
   line-height: 1.5;
   letter-spacing: normal;
   color: rgba(255, 255, 255, 0.9);
-  /* &.hmly-tooltip-topCenter::after {
+  &.hmly-tooltip-topCenter::after {
     position: absolute;
-    bottom: -8px;
+    bottom: -10px;
     left: ${(props: StyledTooltipContentProps) => props.left + 'px'};
     content: " ";
     width: 0;
@@ -30,7 +30,7 @@ const StyledTooltipContent = styled.div`
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-top: 10px solid rgba(0, 0, 0, 0.7);
-  } */
+  }
 `;
 
 export { StyledTooltip, StyledTooltipContent }

@@ -86,7 +86,7 @@ class PopoverContent extends Component<PopoverContentProps, any> {
         newPositionStyle =  {
           ...positionStyle,
           left: triggerRect.left + (triggerRect.width / 2) - (contentRect.width / 2) + offsetX,
-          top: window.pageYOffset + triggerRect.top - contentRect.height - 5 + offsetY
+          top: window.pageYOffset + triggerRect.top - contentRect.height - 10 + offsetY
         }
         break
       case 'bottomCenter':
