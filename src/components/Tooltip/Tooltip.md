@@ -41,6 +41,13 @@ class Example extends React.Component {
         content字数很长，自动换行
       </Tooltip>
 
+      <Tooltip
+        position='bottomLeft'
+        width={200}
+        content={content4}>
+        content字数很长，自动换行
+      </Tooltip>
+
       <style>
         {`
           .tooltip-box .tooltip1 {

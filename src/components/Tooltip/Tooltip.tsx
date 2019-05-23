@@ -12,7 +12,9 @@ export interface TooltipProps {
   /** Tooltip hover后显示的内容 */
   mode?: 'hover' | 'click';
   /** 定位的方向 */
-  position?: 'bottomLeft' | 'topCenter';
+  position?: 'bottomLeft' | 'bottomCenter' | 'bottomRight' | 'topLeft' | 'topCenter' | 'topRight';
+  /** Tooltip 宽度 */
+  width?: number;
   /** Tooltip hover后显示的内容 */
   content?: string | React.ReactNode;
 }
@@ -24,7 +26,8 @@ class Tooltip extends Component<TooltipProps, any> {
   private contentRef: any;
   static defaultProps = {
     mode: 'hover',
-    position: 'topCenter'
+    position: 'topCenter',
+    width: 500
   }
 
   constructor (props: TooltipProps) {
@@ -58,7 +61,7 @@ class Tooltip extends Component<TooltipProps, any> {
   }
 
   render() {
-    const { className, style, mode, content, position, children } = this.props
+    const { className, style, mode, content, position, width, children } = this.props
     const { isPopOpen, tipLeft } = this.state
     const triggerClass = classNames('hmly-tooltip-trigger', className)
     const contentClass = classNames('hmly-tooltip-content', {
@@ -84,7 +87,8 @@ class Tooltip extends Component<TooltipProps, any> {
           <StyledTooltipContent
             ref={this.contentRef}
             className={contentClass}
-            left={tipLeft}>
+            left={tipLeft}
+            width={width}>
             {content}
           </StyledTooltipContent>
         </Popover.Content>
