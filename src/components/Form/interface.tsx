@@ -10,3 +10,7 @@ export interface ControlBoxProps {
   span?: number;
   offset?: number;
 }
+
+export interface FormItemLabelProps {
+  hasTips?: boolean
+}

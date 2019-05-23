@@ -116,7 +116,7 @@ class Form extends Component<FormProps, any> {
   render() {
     const self = this
     const { values, errors, isCheck } = this.state
-    const { className, style, labelWidth, labelAlign, labelOffset, children } = this.props
+    const { className, style, labelWidth, labelAlign, labelOffset, colon, children } = this.props
     const classes = classNames('hmly-form', className)
     const items = React.Children.map(children, (element: any, index) => {
       if (!element) { return }
@@ -131,6 +131,7 @@ class Form extends Component<FormProps, any> {
           onFieldChange: self.onFieldChange,
           toggleIsCheck: self.toggleIsCheck,
           isCheck: isCheck,
+          colon: colon,
           values: values,
           errors: errors
         })

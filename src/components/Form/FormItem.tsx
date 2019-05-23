@@ -95,11 +95,15 @@ class FormItem extends Component<FormItemProps, any> {
   render() {
     const self = this
     const { className, style, name, label, desc, tips, labelWidth,
-      labelAlign, labelOffset, required, values, errors, children } = this.props
+      labelAlign, labelOffset, required, values, errors, colon, children } = this.props
     const classes = classNames('hmly-form-item', className)
-    const labelClass = classNames({ 'hmly-form-label-required': required })
+    const labelClass = classNames({
+      'hmly-form-label-required': required,
+      'hmly-form-label-colon': colon
+    })
     const value = values[name]
     const error = errors[name]
+    const hasTips = Boolean(tips)
     const { type: {name: componentType} } = children as any
     let item
     if (componentType === 'Input') {
@@ -125,7 +129,7 @@ class FormItem extends Component<FormItemProps, any> {
           offset={labelOffset}>
           <FormItemLabel className={labelClass}>
             {label}
-            {Boolean(tips) &&
+            {hasTips &&
               <Tooltip content={tips}>
                 <LabelIcon type='question-circle' />
               </Tooltip>

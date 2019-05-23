@@ -108,13 +108,13 @@ class Example extends React.Component {
         labelAlign='right'
         labelWidth='200px'
         labelOffset='50px'
+        colon
         onSubmit={this.onFormSubmit}>
 
         <Form.Item
           name='desc'
           label='Description'
           desc='How much would you like to charge your fans?'
-          tips='field1 tips text'
           required
           check={this.checkDesc}>
           <Input error={descError} />
@@ -124,7 +124,6 @@ class Example extends React.Component {
           name='price'
           label='Price'
           desc='How much would you like to charge your fans?'
-          tips='tips'
           required
           check={this.checkPrice}>
           <Select 

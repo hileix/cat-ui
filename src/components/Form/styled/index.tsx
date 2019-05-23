@@ -1,40 +1,48 @@
 import styled from 'styled-components'
 import { primaryBtnColor } from '../../../styles/theme'
-import { LabelBoxProps, ControlBoxProps } from '../interface'
+import { LabelBoxProps, ControlBoxProps, FormItemLabelProps } from '../interface'
 import Icon from '../../Icon'
 
 const StyledForm = styled.form``;
 
 const StyledFormItem = styled.div`
   & + & {
-    margin-top: 20px;
+    margin-top: 30px;
   }
 `;
 
 const LabelBox = styled.div`
   display: inline-block;
-  vertical-align: top;
+  vertical-align: middle;
   text-align: ${(props: LabelBoxProps) => props.align};
   margin-right: ${(props: LabelBoxProps) => props.offset};
   width: ${(props: LabelBoxProps) => props.width};
-
+  /* min-height: 50px; */
 `;
 
 const ControlBox = styled.div`
   display: inline-block;
-  vertical-align: top;
-  min-height: 60px;
+  vertical-align: middle;
+  /* min-height: 50px; */
 `;
 
 const FormItemLabel = styled.label`
   position: relative;
-  &.hmly-form-label-required::after {
+  &.hmly-form-label-required::before {
     content: "*";
     position: absolute;
     top: 0;
     left: -15px;
     font-size: 20px;
     color: #ff8585;
+  }
+  &.hmly-form-label-colon::after {
+    content: ":";
+    position: absolute;
+    top: -4px;
+    right: -8px;
+    font-size: 20px;
+    color: #313646;
   }
 `;
 
