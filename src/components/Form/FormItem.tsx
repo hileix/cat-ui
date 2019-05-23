@@ -30,8 +30,6 @@ export interface FormItemProps {
   check?: (field?: any) => {};
   /** 字段改变的回调函数 */
   onFieldChange?: (field: string, value: any, error: string) => {};
-  /** 点击submit按钮的回调函数 */
-  onSubmitClick?: (fn?: (values?: any, errors?: any) => {}) => {};
   /** 改变Form的isCheck属性 */
   toggleIsCheck?: (isCheck: boolean) => {};
   /** 设置子元素 label htmlFor 属性 */
@@ -92,14 +90,6 @@ class FormItem extends Component<FormItemProps, any> {
     // console.log('FormItem:handleItemChange:error', value, error)
   }
 
-  // 拦截提交按钮的onClick事件
-  handleSubmitClick = (e: any)  => {
-    const { children, onSubmitClick } = this.props
-    const { props: {onClick} } = children as any
-    onSubmitClick(onClick)
-    // console.log('FormItem:handleSubmitClick')
-  }
-
   render() {
     const self = this
     const { className, style, name, label, desc, tips, labelWidth,
@@ -110,15 +100,9 @@ class FormItem extends Component<FormItemProps, any> {
     const error = errors[name]
     const { type: {name: componentType} } = children as any
     let item
-    if (componentType === 'Button') {
+    if (componentType === 'Input') {
       item = cloneElement(children as React.ReactElement<any>, {
-        onChange: self.handleItemChange,
-        onClick: self.handleSubmitClick
-      })
-    } else if (componentType === 'Input') {
-      item = cloneElement(children as React.ReactElement<any>, {
-        onChange: (e: any) => {self.handleItemChange(e.target.value)},
-        onClick: self.handleSubmitClick
+        onChange: (e: any) => {self.handleItemChange(e.target.value)}
       })
     } else {
       item = cloneElement(children as React.ReactElement<any>, {

@@ -17,8 +17,8 @@ export interface FormProps {
   labelWidth?: string | number;
   /** 配置 Form.Item 的 colon 的默认值 */
   colon?: boolean;
-  /** 获取表单values和errors的回调函数 */
-  getFormFields?: (values?: object, errors?: object) => {};
+  /** 表单提交的回调函数 */
+  onSubmit?: (values?: object, errors?: object) => {};
 }
 
 /**
@@ -74,12 +74,6 @@ class Form extends Component<FormProps, any> {
     })
   }
 
-  componentDidUpdate() {
-    // const { getFormFields } = this.props
-    // console.log('FormItem:componentDidUpdate', this.state)
-    // getFormFields && getFormFields(this.state, {})
-  }
-
   // 字段改变的回调函数
   onFieldChange = (field: string, value: any, error: string)  => {
     const { values, errors } = this.state
@@ -104,6 +98,15 @@ class Form extends Component<FormProps, any> {
     this.setState({ isCheck: isCheck })
   }
 
+  onFormSubmit = (e: any) => {
+    e.preventDefault()
+    const { onSubmit } = this.props
+    const { values, errors } = this.state
+    this.setState({ isCheck: true }, () => {
+      onSubmit && onSubmit(values, errors)
+    })
+  }
+
   render() {
     const self = this
     const { values, errors, isCheck } = this.state
@@ -116,7 +119,6 @@ class Form extends Component<FormProps, any> {
         labelWidth: labelWidth,
         labelAlign: labelAlign,
         onFieldChange: self.onFieldChange,
-        onSubmitClick: self.onSubmitClick,
         toggleIsCheck: self.toggleIsCheck,
         isCheck: isCheck,
         values: values,
@@ -129,7 +131,8 @@ class Form extends Component<FormProps, any> {
     return (
       <StyledForm
         className={classes}
-        style={style}>
+        style={style}
+        onSubmit={this.onFormSubmit}>
         {items}
       </StyledForm>
     )

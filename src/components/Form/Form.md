@@ -27,8 +27,7 @@ class Example extends React.Component {
     this.checkPayment = this.checkPayment.bind(this)
     this.checkBenefits = this.checkBenefits.bind(this)
     this.checkMethod = this.checkMethod.bind(this)
-    this.getFormData = this.getFormData.bind(this)
-    this.onSubmit = this.onSubmit.bind(this)
+    this.onFormSubmit = this.onFormSubmit.bind(this)
   }
 
   onVisibilityChange (value, error) {
@@ -75,11 +74,7 @@ class Example extends React.Component {
     return error
   }
 
-  getFormData (values, errors) {
-    console.log('Example:getFormData', values, errors)
-  }
-
-  onSubmit (values, errors) {
+  onFormSubmit (values, errors) {
     const { desc, price, visibility, payment, benefits, method } = values
     const params = { desc, price, visibility, payment, benefits, method }
     const isInvalid = _.some(errors, (error) => {
@@ -87,10 +82,10 @@ class Example extends React.Component {
     })
 
     if (!isInvalid) {
-      // alert(`onSubmit ${JSON.stringify(params)}`)
-      console.log('Example:onSubmit:params', isInvalid, params)
+      alert(`onFormSubmit ${JSON.stringify(params)}`)
+      // console.log('Example:onFormSubmit:params', isInvalid, params)
     }
-    // console.log('Example:onSubmit:values, errors', values, errors)
+    console.log('Example:onFormSubmit:values, errors', values, errors)
   }
 
   render () {
@@ -105,7 +100,7 @@ class Example extends React.Component {
       <Form 
         className='form1'
         labelWidth='200px'
-        getFormFields={this.getFormData}>
+        onSubmit={this.onFormSubmit}>
 
         <Form.Item
           name='desc'
@@ -197,7 +192,7 @@ class Example extends React.Component {
         <Form.Item>
           <Button 
             size='md' 
-            onClick={this.onSubmit}>
+            htmlType='submit'>
             Submit
           </Button>
         </Form.Item>
