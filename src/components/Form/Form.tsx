@@ -47,6 +47,9 @@ class Form extends Component<FormProps, any> {
     const { children } = this.props
     React.Children.map(children, (element: any, index) => {
       if (!element) { return }
+      const isNotComponent = typeof element.type === 'string'
+      const wrapComponentType = isNotComponent ? '' : element.type.name
+      if (isNotComponent || wrapComponentType !== 'FormItem') { return }
       const { values, errors } = this.state
       const child = element.props.children
       const componentType = child.type.name
@@ -73,8 +76,6 @@ class Form extends Component<FormProps, any> {
         values[name] = child.props.defaultValue
       }
       this.setState({ values: values, errors: errors })
-      // console.log('Form:componentDidMount:1', componentType, name)
-      // console.log('Form:componentType:2', values, errors)
     })
   }
 
@@ -102,6 +103,7 @@ class Form extends Component<FormProps, any> {
     this.setState({ isCheck: isCheck })
   }
 
+  // 表单提交的回调函数
   onFormSubmit = (e: any) => {
     e.preventDefault()
     const { onSubmit } = this.props
@@ -118,17 +120,23 @@ class Form extends Component<FormProps, any> {
     const classes = classNames('hmly-form', className)
     const items = React.Children.map(children, (element: any, index) => {
       if (!element) { return }
-      return cloneElement(element, {
-        key: index,
-        labelWidth: labelWidth,
-        labelAlign: labelAlign,
-        labelOffset: labelOffset,
-        onFieldChange: self.onFieldChange,
-        toggleIsCheck: self.toggleIsCheck,
-        isCheck: isCheck,
-        values: values,
-        errors: errors
-      })
+      const isNotComponent = typeof element.type === 'string'
+      const wrapComponentType = isNotComponent ? '' :  element.type.name
+      if (wrapComponentType === 'FormItem') {
+        return cloneElement(element, {
+          key: index,
+          labelWidth: labelWidth,
+          labelAlign: labelAlign,
+          labelOffset: labelOffset,
+          onFieldChange: self.onFieldChange,
+          toggleIsCheck: self.toggleIsCheck,
+          isCheck: isCheck,
+          values: values,
+          errors: errors
+        })
+      } else {
+        return element
+      }
     })
 
     // console.log('Form:render', this.state)
