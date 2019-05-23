@@ -16,6 +16,7 @@ const StyledTooltipContent = styled.div`
   box-sizing: border-box;
   font-size: 12px;
   font-style: normal;
+  font-weight: 600;
   font-stretch: normal;
   line-height: 1.5;
   letter-spacing: normal;
