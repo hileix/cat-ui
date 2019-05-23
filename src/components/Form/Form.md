@@ -1,3 +1,8 @@
+
+必须得有一个`Button`的`htmlType='submit'`才能触发`Form`组件`onSubmit`回调函数
+
+`Form.Item`的`check`属性，传入一个回调函数，校验该字段。返回值为字符串，空字符串为没有错误，否则返回错误文案
+
 Example
 
 ```jsx
@@ -96,7 +101,8 @@ class Example extends React.Component {
     const isShowBenefits = payment === 'b'
 
     return (<div className='form-box'>
-      <h3>不禁用提交按钮</h3>
+      <h3>示例表单</h3>
+
       <Form 
         className='form1'
         labelAlign='right'
