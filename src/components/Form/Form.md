@@ -99,7 +99,9 @@ class Example extends React.Component {
       <h3>不禁用提交按钮</h3>
       <Form 
         className='form1'
+        labelAlign='right'
         labelWidth='200px'
+        labelOffset='50px'
         onSubmit={this.onFormSubmit}>
 
         <Form.Item

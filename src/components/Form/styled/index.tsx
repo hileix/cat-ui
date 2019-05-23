@@ -12,10 +12,22 @@ const StyledFormItem = styled.div`
 `;
 
 const LabelBox = styled.div`
-  position: relative;
   display: inline-block;
   vertical-align: top;
+  text-align: ${(props: LabelBoxProps) => props.align};
+  margin-right: ${(props: LabelBoxProps) => props.offset};
   width: ${(props: LabelBoxProps) => props.width};
+
+`;
+
+const ControlBox = styled.div`
+  display: inline-block;
+  vertical-align: top;
+  min-height: 60px;
+`;
+
+const FormItemLabel = styled.label`
+  position: relative;
   &.hmly-form-label-required::after {
     content: "*";
     position: absolute;
@@ -25,14 +37,6 @@ const LabelBox = styled.div`
     color: #ff8585;
   }
 `;
-
-const ControlBox = styled.div`
-  display: inline-block;
-  vertical-align: top;
-  min-height: 60px;
-`;
-
-const FormItemLabel = styled.label``;
 
 const FormItemDesc = styled.div`
   margin-top: 10px;
