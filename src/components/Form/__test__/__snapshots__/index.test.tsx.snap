@@ -14,13 +14,14 @@ initialize {
         "children": Array [
           Object {
             "attribs": Object {
-              "class": "hmly-form-label-required sc-htpNat eKVxxj",
+              "class": "sc-htpNat idntSy",
+              "offset": "0",
               "width": "200px",
             },
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "sc-ifAKCX cFlEyZ",
+                  "class": "hmly-form-label-required sc-ifAKCX iHbmok",
                 },
                 "children": Array [
                   Object {
@@ -243,7 +244,7 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "sc-ifAKCX cFlEyZ",
+                    "class": "hmly-form-label-required sc-ifAKCX iHbmok",
                   },
                   "children": Array [
                     Object {
@@ -678,10 +679,12 @@ initialize {
             "type": "tag",
             "x-attribsNamespace": Object {
               "class": undefined,
+              "offset": undefined,
               "width": undefined,
             },
             "x-attribsPrefix": Object {
               "class": undefined,
+              "offset": undefined,
               "width": undefined,
             },
           },
@@ -918,13 +921,14 @@ initialize {
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
-                "class": "hmly-form-label-required sc-htpNat eKVxxj",
+                "class": "sc-htpNat idntSy",
+                "offset": "0",
                 "width": "200px",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "sc-ifAKCX cFlEyZ",
+                    "class": "hmly-form-label-required sc-ifAKCX iHbmok",
                   },
                   "children": Array [
                     Object {
@@ -1147,7 +1151,7 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "sc-ifAKCX cFlEyZ",
+                      "class": "hmly-form-label-required sc-ifAKCX iHbmok",
                     },
                     "children": Array [
                       Object {
@@ -1343,10 +1347,12 @@ initialize {
               "type": "tag",
               "x-attribsNamespace": Object {
                 "class": undefined,
+                "offset": undefined,
                 "width": undefined,
               },
               "x-attribsPrefix": Object {
                 "class": undefined,
+                "offset": undefined,
                 "width": undefined,
               },
             },
