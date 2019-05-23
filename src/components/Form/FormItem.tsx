@@ -19,7 +19,9 @@ export interface FormItemProps {
   /** label 标签布局 */
   labelWidth?: string | number;
   /** label 标签的文本对齐方式 */
-  labelAlign?: object;
+  labelAlign?: string;
+  /** label的向右偏移量 */
+  labelOffset?: string | number;
   /** 是否必填 */
   required?: boolean;
   /** 描述信息 */
@@ -93,9 +95,9 @@ class FormItem extends Component<FormItemProps, any> {
   render() {
     const self = this
     const { className, style, name, label, desc, tips, labelWidth,
-      labelAlign, required, values, errors, children } = this.props
+      labelAlign, labelOffset, required, values, errors, children } = this.props
     const classes = classNames('hmly-form-item', className)
-    const labelBoxClass = classNames({ 'hmly-form-label-required': required })
+    const labelClass = classNames({ 'hmly-form-label-required': required })
     const value = values[name]
     const error = errors[name]
     const { type: {name: componentType} } = children as any
@@ -117,8 +119,11 @@ class FormItem extends Component<FormItemProps, any> {
         className={classes}
         style={style}
         ref={this.formItemRef}>
-        <LabelBox width={labelWidth} className={labelBoxClass}>
-          <FormItemLabel>
+        <LabelBox
+          width={labelWidth}
+          align={labelAlign}
+          offset={labelOffset}>
+          <FormItemLabel className={labelClass}>
             {label}
             {Boolean(tips) &&
               <Tooltip content={tips}>

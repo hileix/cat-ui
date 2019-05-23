@@ -1,6 +1,8 @@
 
 export interface LabelBoxProps {
+  align?: string;
   width?: number | string;
+  offset?: number | string;
   required?: boolean;
 }
 

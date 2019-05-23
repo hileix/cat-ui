@@ -12,9 +12,11 @@ export interface FormProps {
   /** 样式 */
   style?: object;
   /** label 标签的文本对齐方式 */
-  labelAlign?: object;
+  labelAlign?: string;
   /** label 标签布局 */
   labelWidth?: string | number;
+  /** label的向右偏移量 */
+  labelOffset?: string | number;
   /** 配置 Form.Item 的 colon 的默认值 */
   colon?: boolean;
   /** 表单提交的回调函数 */
@@ -27,7 +29,9 @@ export interface FormProps {
 class Form extends Component<FormProps, any> {
   static Item: typeof FormItem;
   static defaultProps = {
-    colon: false
+    colon: false,
+    labelAlign: 'left',
+    labelOffset: 0
   }
 
   constructor (props: FormProps) {
@@ -110,7 +114,7 @@ class Form extends Component<FormProps, any> {
   render() {
     const self = this
     const { values, errors, isCheck } = this.state
-    const { className, style, labelWidth, labelAlign, children } = this.props
+    const { className, style, labelWidth, labelAlign, labelOffset, children } = this.props
     const classes = classNames('hmly-form', className)
     const items = React.Children.map(children, (element: any, index) => {
       if (!element) { return }
@@ -118,6 +122,7 @@ class Form extends Component<FormProps, any> {
         key: index,
         labelWidth: labelWidth,
         labelAlign: labelAlign,
+        labelOffset: labelOffset,
         onFieldChange: self.onFieldChange,
         toggleIsCheck: self.toggleIsCheck,
         isCheck: isCheck,
