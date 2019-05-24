@@ -152,7 +152,6 @@ class Example extends React.Component {
 
       <h3>align=center && 可拖拽的 的Table</h3>
       <Table
-        draggable
         columns={columns1}
         dataSource={dataSource}
         align='center'

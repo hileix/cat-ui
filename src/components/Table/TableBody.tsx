@@ -45,7 +45,7 @@ class TableBody extends Component<TableBodyProps, any> {
   }
 
   render() {
-    const { columns, currentPageData, align, empty, emptyText } = this.props
+    const { columns, currentPageData, draggable, empty, emptyText } = this.props
     // const classes = classNames('hmly-table-row', `hmly-table-row-${align}`)
     const trs = this.renderTrs()
     const colSpan = columns.length
@@ -57,7 +57,14 @@ class TableBody extends Component<TableBodyProps, any> {
             colSpan={colSpan}
             empty={empty}
             emptyText={emptyText} />
-          : (trs)
+          : <React.Fragment>
+            {draggable
+              ? <Dragger>
+                {trs}
+              </Dragger>
+              : trs
+            }
+          </React.Fragment>
         }
       </tbody>
     )
