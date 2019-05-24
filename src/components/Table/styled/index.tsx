@@ -44,6 +44,11 @@ const StyledTd = styled.td`
   color: #4a4a4a;
 `;
 
+const StyledTdInner = styled.div`
+  display: flex;
+  align-items: center;
+`
+
 const StyledTh = styled.th`
   position: relative;
   vertical-align: middle;
@@ -102,4 +107,4 @@ const StyledPaginationBox = styled.div`
 `;
 
 export { StyledTableBox, StyledTableHeader, StyledTr, StyledTd, StyledTh,
-  EmptyInner, EmptyImage, StyledFilter, StyledPaginationBox }
+  EmptyInner, EmptyImage, StyledFilter, StyledPaginationBox, StyledTdInner }

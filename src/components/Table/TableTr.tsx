@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Component } from 'react'
 import classNames from 'classnames'
-import { StyledTr, StyledTd } from './styled'
+import { StyledTr, StyledTd, StyledTdInner } from './styled'
 import { ColumnProps } from './interface'
 
 export interface TableTrProps {
@@ -26,7 +26,7 @@ class TableTr extends Component<TableTrProps, any> {
       return (<StyledTd key={id} className='table-td'>
         {elem.render
           ? elem.render(result, data)
-          : <span>{result}</span>
+          : <StyledTdInner>{result}</StyledTdInner>
         }
       </StyledTd>)
     })

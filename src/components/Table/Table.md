@@ -99,8 +99,11 @@ class Example extends React.Component {
       }, {
         ranking: 'ranking1',
         platforms: 'name6',
-        totalListen: 'number4',
-        rates: 'rate3'
+        totalListen: (<div className='action'>
+          <p>111111</p>
+          <p>22222</p>
+        </div>),
+        rates: (<span className='action'>...</span>)
       }
     ]
 
