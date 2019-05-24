@@ -5,10 +5,15 @@ class Example extends React.Component {
   constructor (props) {
     super(props)
     this.state = {}
+    this.draggedElement = this.draggedElement.bind(this)
     this.onDragStart = this.onDragStart.bind(this)
     this.onDragOver = this.onDragOver.bind(this)
     this.onDragEnd = this.onDragEnd.bind(this)
     this.onSort = this.onSort.bind(this)
+  }
+
+  draggedElement (element) {
+    // console.log('Example:draggedElement', element)
   }
 
   onDragStart (e) {
@@ -29,18 +34,6 @@ class Example extends React.Component {
 
   render () {
     return (<div className='dragger-box'>
-      {/*
-      <Dragger
-        draggedElement={this.draggedElement}
-        onDragStart={this.onDragStart}
-        onDragOver={this.onDragOver}
-        onDragEnd={this.onDragEnd}
-        onSort={this.onSort}>
-        <div id={1} className='item'>1</div>
-        <div id={2} className='item'>2</div>
-        <div id={3} className='item'>3</div>
-        <div id={4} className='item'>4</div>
-      */}
       <Dragger
         draggedElement={this.draggedElement}
         onDragStart={this.onDragStart}

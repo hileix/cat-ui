@@ -7,7 +7,7 @@ import { StyledTableBox } from './styled'
 import { ColumnProps, FilterKeysProps, PaginationProps } from './interface'
 import TableTr from './TableTr'
 import Empty from './Empty'
-
+import Dragger from '../Dragger'
 import EmptyImg from './styled/empty.png'
 
 export interface TableBodyProps {
@@ -17,6 +17,8 @@ export interface TableBodyProps {
   currentPageData?: Array<any>;
   /** 对齐 */
   align?: string;
+  /** 是否可拖拽的 */
+  draggable?: boolean;
   /** 自定义的空模板 */
   empty?: React.ReactNode;
   /** 空模板的文案 */

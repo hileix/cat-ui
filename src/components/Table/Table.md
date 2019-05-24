@@ -150,8 +150,9 @@ class Example extends React.Component {
         onFilterChange={this.onFilterChange2}
         onPageChange={this.onPageChang3} />
 
-      <h3>align=center的Table</h3>
+      <h3>align=center && 可拖拽的 的Table</h3>
       <Table
+        draggable
         columns={columns1}
         dataSource={dataSource}
         align='center'

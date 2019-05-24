@@ -19,6 +19,8 @@ export interface TableProps {
   dataSource: Array<any>;
   /** 对齐 */
   align?: 'left' | 'center';
+  /** 是否可拖拽的 */
+  draggable?: boolean;
   /** 分页参数 */
   pagination: PaginationProps;
   /** 筛选栏的回调函数 */
@@ -38,7 +40,8 @@ class Table extends Component<TableProps, any> {
   static defaultProps = {
     align: 'left',
     emptyText: '',
-    pagination: {}
+    pagination: {},
+    draggable: false
   }
 
   constructor (props: TableProps) {
@@ -135,7 +138,7 @@ class Table extends Component<TableProps, any> {
 
   render() {
     const { filterKeys, currentPageData, pageTotal } = this.state
-    const { className, style, columns, align, pagination, empty, emptyText } = this.props
+    const { className, style, columns, align, draggable, pagination, empty, emptyText } = this.props
     const { current, pageSize } = pagination
     const classes = classNames('hmly-table', className)
     // console.log('Table:render', pageSize)
@@ -153,6 +156,7 @@ class Table extends Component<TableProps, any> {
           <TableBody
             align={align}
             columns={columns}
+            draggable={draggable}
             currentPageData={currentPageData}
             empty={empty}
             emptyText={emptyText} />

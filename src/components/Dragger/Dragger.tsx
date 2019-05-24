@@ -9,7 +9,7 @@ export interface DraggerProps {
   className?: string;
   /** 样式 */
   style?: object;
-  /**  */
+  /** 获取被拖拽的元素  */
   draggedElement?: any;
   /**  */
   onDragStart?: any;
@@ -17,8 +17,8 @@ export interface DraggerProps {
   onDragOver?: any;
   /**  */
   onDragEnd?: any;
-  /**  */
-  onSort?: any;
+  /** 返回排序后的id列表 */
+  onSort?: (ids?: Array<any>) => {};
 }
 
 /**
