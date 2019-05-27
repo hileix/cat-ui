@@ -2,6 +2,7 @@ Example
 
 ```jsx
 import Button from '../Button';
+import Input from '../Input';
 import Icon from '../Icon';
 import Menu from '../Menu';
 
@@ -159,6 +160,7 @@ class Example extends React.Component {
               </Menu.Item>
               <Menu.Item fixed onClick={this.onDeleteClick}>
                 <Icon type='delete' style={{marginRight: '10px'}} />Delete
+                <Input />
               </Menu.Item>
             </Menu>
           </div>

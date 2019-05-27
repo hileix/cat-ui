@@ -59,7 +59,19 @@ class Popover extends Component<PopoverProps, any> {
   }
 
   componentDidMount () {
-    window.addEventListener('click', this.removePopover)
+    const { visible } = this.state
+    if (visible) {
+      window.addEventListener('click', this.removePopover)
+    }
+  }
+
+  componentDidUpdate () {
+    const { visible } = this.state
+    if (visible) {
+      window.addEventListener('click', this.removePopover)
+    } else {
+      window.removeEventListener('click', this.removePopover)
+    }
   }
 
   componentWillUnmount () {
@@ -83,8 +95,9 @@ class Popover extends Component<PopoverProps, any> {
   removePopover = (e: any) => {
     const { visible } = this.state
     const node = e.target
+    const fixedNode = node.closest('[data-fixed]')
     const triggerDOM = this.popoverRef.current
-    const isNotFixed = !node.dataset.fixed
+    const isNotFixed = fixedNode ? (fixedNode.dataset.fixed !== 'true') : true
     const isNotContains = triggerDOM.contains(node) === false
 
     // // 如果点击的节点不在popup中或者有fixed属性
