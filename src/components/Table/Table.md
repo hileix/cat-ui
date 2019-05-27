@@ -10,6 +10,7 @@ class Example extends React.Component {
     this.onPageChange = this.onPageChange.bind(this)
     this.onFilterChange2 = this.onFilterChange2.bind(this)
     this.onPageChang3 = this.onPageChang3.bind(this)
+    this.onSort1 = this.onSort1.bind(this)
   }
 
   onPageChange (page) {
@@ -23,6 +24,10 @@ class Example extends React.Component {
 
   onPageChang3 (page) {
     console.log('Example:onPageChang3', page)
+  }
+
+  onSort1 (ids) {
+    console.log('Example:onSort1', ids)
   }
 
   render () {
@@ -72,32 +77,38 @@ class Example extends React.Component {
 
     const dataSource = [
       {
+        id: 'id11',
         ranking: 'ranking1',
         platforms: 'name1',
         totalListen: 'number1',
         rates: 'rate1'
       }, {
-        ranking: 'ranking1',
+        id: 'id12',
+        ranking: 'ranking2',
         platforms: 'name2',
         totalListen: 'number1',
         rates: 'rate1'
       }, {
-        ranking: 'ranking2',
+        id: 'id13',
+        ranking: 'ranking3',
         platforms: 'name3',
         totalListen: 'number2',
         rates: 'rate2'
       }, {
-        ranking: 'ranking3',
+        id: 'id14',
+        ranking: 'ranking4',
         platforms: 'name4',
         totalListen: 'number3',
         rates: 'rate3'
       }, {
-        ranking: 'ranking3',
+        id: 'id15',
+        ranking: 'ranking5',
         platforms: 'name5',
         totalListen: 'number4',
         rates: 'rate3'
       }, {
-        ranking: 'ranking1',
+        id: 'id16',
+        ranking: 'ranking6',
         platforms: 'name6',
         totalListen: (<div className='action'>
           <p>111111</p>
@@ -122,6 +133,8 @@ class Example extends React.Component {
     return (<div className='table-box'>
       <h3>基础Table</h3>
       <Table
+        draggable
+        onSort={this.onSort1}
         columns={columns1}
         dataSource={dataSource}
         emptyText='空的模板' />
@@ -150,7 +163,7 @@ class Example extends React.Component {
         onFilterChange={this.onFilterChange2}
         onPageChange={this.onPageChang3} />
 
-      <h3>align=center的Table</h3>
+      <h3>align=center && 可拖拽的 的Table</h3>
       <Table
         columns={columns1}
         dataSource={dataSource}

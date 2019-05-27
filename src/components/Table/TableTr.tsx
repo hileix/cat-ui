@@ -11,12 +11,41 @@ export interface TableTrProps {
   data?: any;
   /** 对齐 */
   align?: string;
+  /** 是否可拖拽的 */
+  draggable?: boolean;
+  /** id */
+  id?: string | number;
+  /** order */
+  order?: string | number;
+  /** onDragStart */
+  onDragStart?: any;
+  /** onDragEnd */
+  onDragEnd?: any;
 }
 
 /**
  * TableTr
  */
 class TableTr extends Component<TableTrProps, any> {
+  constructor (props: TableTrProps) {
+    super(props)
+    this.state = {
+      dragging: false
+    }
+  }
+
+  handleDragStart = (e: any) => {
+    const { onDragStart } = this.props
+    onDragStart && onDragStart(e)
+    this.setState({ dragging: true })
+  }
+
+  handleDragEnd = (e: any) => {
+    const { onDragEnd } = this.props
+    onDragEnd && onDragEnd(e)
+    this.setState({ dragging: false })
+  }
+
   renderTds = () => {
     const { columns, data } = this.props
     return columns.map((elem: any) => {
@@ -33,12 +62,23 @@ class TableTr extends Component<TableTrProps, any> {
   }
 
   render() {
-    const { align } = this.props
-    const classes = classNames('hmly-table-row', `hmly-table-row-${align}`)
+    const { dragging } = this.state
+    const { align, draggable, data, order } = this.props
+    const { id } = data
+    const classes = classNames('hmly-table-row', `hmly-table-row-${align}`,
+      {'hmly-table-row-dragging': dragging}
+    )
     const tds = this.renderTds()
+    // console.log('id', id)
 
     return (
-      <StyledTr className={classes}>
+      <StyledTr
+        draggable={draggable}
+        data-order={order}
+        id={id}
+        onDragStart={this.handleDragStart}
+        onDragEnd={this.handleDragEnd}
+        className={classes}>
         {tds}
       </StyledTr>
     )
