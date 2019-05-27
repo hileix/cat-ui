@@ -57,6 +57,7 @@ class Table extends Component<TableProps, any> {
 
   constructor (props: TableProps) {
     super(props)
+    console.log('constructor', props.dataSource)
     this.state = {
       filterKeys: {},
       pageTotal: 0,
@@ -174,6 +175,7 @@ class Table extends Component<TableProps, any> {
       draggedElement, onDragEnd, onSort } = this.props
     const { current, pageSize } = pagination
     const classes = classNames('hmly-table', className)
+    console.log('currentPageData', currentPageData)
 
     return (
       <StyledTableBox
