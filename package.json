@@ -1,6 +1,6 @@
 {
   "name": "@xmly/cat-ui",
-  "version": "0.0.101",
+  "version": "0.0.102",
   "main": "lib/components/index.js",
   "license": "ISC",
   "repository": {

@@ -130,11 +130,16 @@ class Example extends React.Component {
       onChange: this.onPageChange
     }
 
+    const pagination2 = {
+      current: currentPage,
+      total: 100,
+      pageSize: 10,
+      onChange: this.onPageChange
+    }
+
     return (<div className='table-box'>
       <h3>基础Table</h3>
       <Table
-        draggable
-        onSort={this.onSort1}
         columns={columns1}
         dataSource={dataSource}
         emptyText='空的模板' />
@@ -165,8 +170,12 @@ class Example extends React.Component {
 
       <h3>align=center && 可拖拽的 的Table</h3>
       <Table
+        draggable
+        onSort={this.onSort1}
         columns={columns1}
         dataSource={dataSource}
+        pagination={pagination2}
+        onPageChange={this.onPageChang3}
         align='center'
         emptyText='空的模板' />
 

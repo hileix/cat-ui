@@ -87,6 +87,8 @@ class Table extends Component<TableProps, any> {
   componentDidUpdate (prevProps: TableProps) {
     const { dataSource } = this.props
     const { dataSource: prevDataSource } = prevProps
+    console.log('componentDidUpdate:1', !isEqual(dataSource, prevDataSource))
+    console.log('componentDidUpdate:2', dataSource, prevDataSource)
     if (!isEqual(dataSource, prevDataSource)) {
       this.setState({
         filterDataSource: dataSource,
