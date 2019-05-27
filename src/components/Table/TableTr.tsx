@@ -66,7 +66,8 @@ class TableTr extends Component<TableTrProps, any> {
     const { align, draggable, data, order } = this.props
     const { id } = data
     const classes = classNames('hmly-table-row', `hmly-table-row-${align}`,
-      {'hmly-table-row-dragging': dragging}
+      {'hmly-table-row-dragging': dragging},
+      {'hmly-table-row-draggable': draggable}
     )
     const tds = this.renderTds()
     // console.log('id', id)

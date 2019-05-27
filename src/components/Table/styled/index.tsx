@@ -30,6 +30,9 @@ const StyledTr = styled.tr`
   &.hmly-table-row-center {
     text-align: center;
   }
+  &.hmly-table-row-draggable {
+    cursor: move;
+  }
 `;
 
 const StyledTd = styled.td`
