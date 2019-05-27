@@ -31,6 +31,16 @@ export interface TableProps {
   empty?: React.ReactNode;
   /** 空模板的文案 */
   emptyText?: string;
+  /** 获取被拖拽的元素  */
+  draggedElement?: any;
+  /**  */
+  onDragStart?: any;
+  /**  */
+  onDragOver?: any;
+  /**  */
+  onDragEnd?: any;
+  /** 返回排序后的id列表 */
+  onSort?: (ids?: Array<any>) => {};
 }
 
 /**
@@ -54,15 +64,15 @@ class Table extends Component<TableProps, any> {
     }
   }
 
-  static getDerivedStateFromProps(nextProps: TableProps) {
-    if ('dataSource' in nextProps) {
-      return {
-        filterDataSource: nextProps.dataSource,
-        currentPageData: nextProps.dataSource
-      }
-    }
-    return null
-  }
+  // static getDerivedStateFromProps(nextProps: TableProps) {
+  //   if ('dataSource' in nextProps) {
+  //     return {
+  //       filterDataSource: nextProps.dataSource,
+  //       currentPageData: nextProps.dataSource
+  //     }
+  //   }
+  //   return null
+  // }
 
   componentDidMount () {
     if (this.hasPagination()) {
@@ -136,12 +146,17 @@ class Table extends Component<TableProps, any> {
     this.pagingDataSource(page)
   }
 
+  // 拖拽事件之后的回调
+  onDragChange = (nodes: any) => {
+    this.setState({ currentPageData: nodes })
+  }
+
   render() {
     const { filterKeys, currentPageData, pageTotal } = this.state
-    const { className, style, columns, align, draggable, pagination, empty, emptyText } = this.props
+    const { className, style, columns, align, draggable, pagination, empty, emptyText,
+      draggedElement, onDragEnd, onSort } = this.props
     const { current, pageSize } = pagination
     const classes = classNames('hmly-table', className)
-    // console.log('Table:render', pageSize)
 
     return (
       <StyledTableBox
@@ -159,7 +174,11 @@ class Table extends Component<TableProps, any> {
             draggable={draggable}
             currentPageData={currentPageData}
             empty={empty}
-            emptyText={emptyText} />
+            emptyText={emptyText}
+            draggedElement={draggedElement}
+            onSort={onSort}
+            onDragEnd={onDragEnd}
+            onDragChange={this.onDragChange} />
         </table>
         {this.hasPagination() && <StyledPaginationBox>
           <Pagination

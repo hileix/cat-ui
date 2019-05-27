@@ -23,23 +23,92 @@ export interface TableBodyProps {
   empty?: React.ReactNode;
   /** 空模板的文案 */
   emptyText?: string;
+  /** onDragChange */
+  onDragChange?: any;
+  /** 获取被拖拽的元素  */
+  draggedElement?: any;
+  /**  */
+  onDragStart?: any;
+  /**  */
+  onDragOver?: any;
+  /**  */
+  onDragEnd?: any;
+  /** 返回排序后的id列表 */
+  onSort?: (ids?: Array<any>) => {};
 }
 
 /**
  * TableBody
  */
 class TableBody extends Component<TableBodyProps, any> {
+  private draggerRef: any
+  private dragged: any
+  private over: any
+
+  constructor (props: TableBodyProps) {
+    super(props)
+    this.state = {}
+    this.draggerRef = React.createRef()
+  }
+
+  dragStart = (event: any) => {
+    const { onDragStart } = this.props
+    this.dragged = event.currentTarget
+    onDragStart && onDragStart(event)
+  }
+
+  dragOver = (event: any) => {
+    const { onDragOver } = this.props
+    event.preventDefault()
+    this.over = event.target.closest('.hmly-table-row')
+
+    // 若未找到安放的DOM元素，则设为本身
+    if (this.over === null) {
+      this.over = this.dragged
+    }
+    onDragOver && onDragOver(event)
+  }
+
+  dragEnd = (event: any) => {
+    const { currentPageData, draggedElement, onDragEnd, onSort, onDragChange } = this.props
+    let from = Number(this.dragged.dataset.order)
+    let to = Number(this.over.dataset.order)
+    let childrenNode = Array.from(currentPageData)
+    let draggedNode = childrenNode.splice(from - 1, 1)[0]
+    childrenNode.splice(to - 1, 0, draggedNode)
+
+    // 返回拖拽的DOM
+    let _draggedEleIndex = childrenNode.indexOf(draggedNode)
+    let draggerDOM = this.draggerRef.current
+    let _draggedEle = draggerDOM.querySelector(`:nth-child(${_draggedEleIndex + 1})`)
+
+    // 返回排序后的id
+    let sortedIds: Array<any> = []
+    childrenNode.forEach((element: any, index) => {
+      sortedIds.push(element.id)
+    })
+
+    onDragChange && onDragChange(childrenNode)
+    draggedElement && draggedElement(_draggedEle)
+    onSort && onSort(sortedIds)
+    onDragEnd && onDragEnd(event)
+  }
 
   renderTrs = () => {
-    const { columns, currentPageData, align } = this.props
+    const self = this
+    const { columns, currentPageData, align, draggable } = this.props
 
     return currentPageData.map((element, index) => {
       return (
         <TableTr
           key={index}
+          order={index + 1}
           columns={columns}
           data={element}
-          align={align} />
+          align={align}
+          draggable={draggable}
+          onDragStart={self.dragStart}
+          onDragEnd={self.dragEnd} />
       )
     })
   }
@@ -51,20 +120,13 @@ class TableBody extends Component<TableBodyProps, any> {
     const colSpan = columns.length
 
     return (
-      <tbody>
+      <tbody ref={this.draggerRef} onDragOver={this.dragOver}>
         {currentPageData.length === 0
           ? <Empty
             colSpan={colSpan}
             empty={empty}
             emptyText={emptyText} />
-          : <React.Fragment>
-            {draggable
-              ? <Dragger>
-                {trs}
-              </Dragger>
-              : trs
-            }
-          </React.Fragment>
+          : trs
         }
       </tbody>
     )
