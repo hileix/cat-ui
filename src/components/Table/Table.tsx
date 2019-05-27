@@ -57,7 +57,6 @@ class Table extends Component<TableProps, any> {
 
   constructor (props: TableProps) {
     super(props)
-    console.log('constructor', props.dataSource)
     this.state = {
       filterKeys: {},
       pageTotal: 0,
@@ -77,22 +76,19 @@ class Table extends Component<TableProps, any> {
   // }
 
   componentDidMount () {
-    console.log('componentDidMount', this.props)
     if (this.hasPagination()) {
       const { pagination } = this.props
       const { total = 0 } = pagination
       this.setState({ pageTotal: total })
-      this.pagingDataSource()
+      // 暂时注释掉内部分页
+      // this.pagingDataSource()
     }
   }
 
   componentDidUpdate (prevProps: TableProps) {
     const { dataSource } = this.props
     const { dataSource: prevDataSource } = prevProps
-    // console.log('componentDidUpdate:1', !isEqual(dataSource, prevDataSource))
-    // console.log('componentDidUpdate:2', dataSource, prevProps.dataSource)
-    // console.log('componentDidUpdate:3', this.props)
-    // console.log('componentDidUpdate:4', prevProps)
+    // 比对两次dataSource
     if (!isEqual(dataSource, prevDataSource)) {
       this.setState({
         filterDataSource: dataSource,
@@ -175,7 +171,6 @@ class Table extends Component<TableProps, any> {
       draggedElement, onDragEnd, onSort } = this.props
     const { current, pageSize } = pagination
     const classes = classNames('hmly-table', className)
-    console.log('currentPageData', currentPageData)
 
     return (
       <StyledTableBox
