@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Component } from 'react'
 import classNames from 'classnames'
 import * as isEmpty from 'lodash/isEmpty'
+import * as isEqual from 'lodash/isEqual'
 import { StyledTableBox, StyledPaginationBox } from './styled'
 import { ColumnProps, PaginationProps } from './interface'
 import TableHeader from './TableHeader'
@@ -80,6 +81,17 @@ class Table extends Component<TableProps, any> {
       const { total = 0 } = pagination
       this.setState({ pageTotal: total })
       this.pagingDataSource()
+    }
+  }
+
+  componentDidUpdate (prevProps) {
+    const { dataSource } = this.props
+    const { dataSource: prevDataSource } = prevProps
+    if (!isEqual(dataSource, prevDataSource)) {
+      this.setState({
+        filterDataSource: dataSource,
+        currentPageData: dataSource
+       })
     }
   }
 
