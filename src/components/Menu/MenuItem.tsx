@@ -20,12 +20,18 @@ export interface MenuItemProps {
   onClick?: any;
   /** Menu改变事件的回调 */
   onMenuChange?: any;
+  /** 是否有data-fixed属性 */
+  fixed?: boolean;
 }
 
 /**
  * MenuItem
  */
 class MenuItem extends Component<MenuItemProps, any> {
+  static defaultProps = {
+    fixed: false
+  }
+
   onItemClick = (e: any) => {
     const { onClick, onMenuChange, id } = this.props
     onClick && onClick(e)
@@ -33,7 +39,7 @@ class MenuItem extends Component<MenuItemProps, any> {
   }
 
   render() {
-    const { className, style, mode, checked, children } = this.props
+    const { className, style, mode, checked, fixed, children } = this.props
     const classes = classNames('hmly-menu-item', {
       [`hmly-menu-item-${mode}`]: mode,
       [`hmly-menu-item-checked`]: checked
@@ -42,6 +48,7 @@ class MenuItem extends Component<MenuItemProps, any> {
 
     return (
       <StyledMenuItem
+        data-fixed={fixed}
         className={classes}
         style={style}
         onClick={this.onItemClick}>

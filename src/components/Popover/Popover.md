@@ -16,6 +16,7 @@ class Example extends React.Component {
     this.showPopover2 = this.showPopover2.bind(this)
     this.closePopover2 = this.closePopover2.bind(this)
     this.onItem1Click = this.onItem1Click.bind(this)
+    this.onDeleteClick = this.onDeleteClick.bind(this)
   }
 
   onVisibleChange2 () {
@@ -37,6 +38,10 @@ class Example extends React.Component {
 
   onItem1Click () {
     console.log('onItem1Click')
+  }
+
+  onDeleteClick () {
+    console.log('onDeleteClick')
   }
 
   render () {
@@ -152,7 +157,7 @@ class Example extends React.Component {
               <Menu.Item>
                 <Icon type='download' style={{marginRight: '10px'}} />Download
               </Menu.Item>
-              <Menu.Item>
+              <Menu.Item fixed onClick={this.onDeleteClick}>
                 <Icon type='delete' style={{marginRight: '10px'}} />Delete
               </Menu.Item>
             </Menu>

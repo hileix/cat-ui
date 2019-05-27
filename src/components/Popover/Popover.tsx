@@ -84,9 +84,11 @@ class Popover extends Component<PopoverProps, any> {
     const { visible } = this.state
     const node = e.target
     const triggerDOM = this.popoverRef.current
+    const isNotFixed = !node.dataset.fixed
+    const isNotContains = triggerDOM.contains(node) === false
 
-    // // 如果点击的节点不在popup中或者有clickRemove属性
-    if (visible && triggerDOM.contains(node) === false) {
+    // // 如果点击的节点不在popup中或者有fixed属性
+    if (visible && isNotContains && isNotFixed) {
       this.toggleVisible(false)
     }
   }
