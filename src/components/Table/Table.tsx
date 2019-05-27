@@ -84,7 +84,7 @@ class Table extends Component<TableProps, any> {
     }
   }
 
-  componentDidUpdate (prevProps) {
+  componentDidUpdate (prevProps: TableProps) {
     const { dataSource } = this.props
     const { dataSource: prevDataSource } = prevProps
     if (!isEqual(dataSource, prevDataSource)) {
