@@ -41,7 +41,7 @@ export interface TableProps {
   /**  */
   onDragEnd?: any;
   /** 返回排序后的id列表 */
-  onSort?: (ids?: Array<any>, id?: any) => {};
+  onSort?: (ids?: Array<any>, activeId?: any) => {};
 }
 
 /**
