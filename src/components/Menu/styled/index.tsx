@@ -33,6 +33,10 @@ const StyledMenuItem = styled.li`
     font-weight: bold;
     color: #3a3a3a;
   }
+  &.hmly-menu-item-disabled {
+    color: #ccc;
+    cursor: not-allowed;
+  }
 `;
 
 const StyledSubMenu = styled.li`

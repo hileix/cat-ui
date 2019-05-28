@@ -56,7 +56,7 @@ class Example extends React.Component {
         <Menu mode='pop' className='menu2'>
           <Menu.Item><Icon type='edit' />Edit</Menu.Item>
           <Menu.Item><Icon type='share1' />Share</Menu.Item>
-          <Menu.Item><Icon type='download' />Download</Menu.Item>
+          <Menu.Item disabled onClick={this.onItem1Click}><Icon type='download' />Download</Menu.Item>
           <Menu.Item><Icon type='delete' />Delete</Menu.Item>
         </Menu>
       </div>

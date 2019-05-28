@@ -29,20 +29,24 @@ export interface MenuItemProps {
  */
 class MenuItem extends Component<MenuItemProps, any> {
   static defaultProps = {
-    fixed: false
+    fixed: false,
+    disabled: false
   }
 
   onItemClick = (e: any) => {
-    const { onClick, onMenuChange, id } = this.props
-    onClick && onClick(e)
-    onMenuChange && onMenuChange(id)
+    const { onClick, onMenuChange, id, disabled } = this.props
+    if (!disabled) {
+      onClick && onClick(e)
+      onMenuChange && onMenuChange(id)
+    }
   }
 
   render() {
-    const { className, style, mode, checked, fixed, children } = this.props
+    const { className, style, mode, checked, fixed, disabled, children } = this.props
     const classes = classNames('hmly-menu-item', {
       [`hmly-menu-item-${mode}`]: mode,
-      [`hmly-menu-item-checked`]: checked
+      [`hmly-menu-item-checked`]: checked,
+      [`hmly-menu-item-disabled`]: disabled
     }, className)
     // console.log('MenuItem', mode, children)
 
