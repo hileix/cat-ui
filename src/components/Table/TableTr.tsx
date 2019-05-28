@@ -41,8 +41,9 @@ class TableTr extends Component<TableTrProps, any> {
   }
 
   handleDragEnd = (e: any) => {
-    const { onDragEnd } = this.props
-    onDragEnd && onDragEnd(e)
+    const { onDragEnd, data } = this.props
+    const { id } = data
+    onDragEnd && onDragEnd(e, id)
     this.setState({ dragging: false })
   }
 
@@ -76,7 +77,6 @@ class TableTr extends Component<TableTrProps, any> {
       <StyledTr
         draggable={draggable}
         data-order={order}
-        id={id}
         onDragStart={this.handleDragStart}
         onDragEnd={this.handleDragEnd}
         className={classes}>

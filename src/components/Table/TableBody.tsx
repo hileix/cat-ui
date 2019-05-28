@@ -34,7 +34,7 @@ export interface TableBodyProps {
   /**  */
   onDragEnd?: any;
   /** 返回排序后的id列表 */
-  onSort?: (ids?: Array<any>) => {};
+  onSort?: (ids?: Array<any>, id?: any) => {};
 }
 
 /**
@@ -69,7 +69,7 @@ class TableBody extends Component<TableBodyProps, any> {
     onDragOver && onDragOver(event)
   }
 
-  dragEnd = (event: any) => {
+  dragEnd = (event: any, id: any) => {
     const { currentPageData, draggedElement, onDragEnd, onSort, onDragChange } = this.props
     let from = Number(this.dragged.dataset.order)
     let to = Number(this.over.dataset.order)
@@ -90,7 +90,7 @@ class TableBody extends Component<TableBodyProps, any> {
 
     onDragChange && onDragChange(childrenNode)
     draggedElement && draggedElement(_draggedEle)
-    onSort && onSort(sortedIds)
+    onSort && onSort(sortedIds, id)
     onDragEnd && onDragEnd(event)
   }
 

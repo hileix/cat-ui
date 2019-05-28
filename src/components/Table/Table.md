@@ -26,8 +26,8 @@ class Example extends React.Component {
     console.log('Example:onPageChang3', page)
   }
 
-  onSort1 (ids) {
-    console.log('Example:onSort1', ids)
+  onSort1 (ids, id) {
+    console.log('Example:onSort1', ids, id)
   }
 
   render () {
