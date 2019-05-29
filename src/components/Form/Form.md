@@ -108,7 +108,6 @@ class Example extends React.Component {
         labelAlign='right'
         labelWidth='200px'
         labelOffset='50px'
-        colon
         onSubmit={this.onFormSubmit}>
 
         <Form.Item

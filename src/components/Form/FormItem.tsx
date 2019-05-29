@@ -99,7 +99,7 @@ class FormItem extends Component<FormItemProps, any> {
     const classes = classNames('hmly-form-item', className)
     const labelClass = classNames({
       'hmly-form-label-required': required,
-      'hmly-form-label-colon': colon
+      'hmly-form-label-colon': colon && name
     })
     const value = values[name]
     const error = errors[name]
