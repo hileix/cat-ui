@@ -77,7 +77,7 @@ class PopoverContent extends Component<PopoverContentProps, any> {
     const { positionStyle } =  this.state
     const contentDOM = this.contentRef.current
     const triggerRect = triggerDOM.getBoundingClientRect()
-    const contentRect = contentDOM.getBoundingClientRect()
+    // const contentRect = contentDOM.getBoundingClientRect()
     const { clientWidth: contentWidth, clientHeight: contentHeight } = contentDOM as HTMLElement
     const { clientWidth: triggerWidth, clientHeight: triggerHeight } = triggerDOM as HTMLElement
 
