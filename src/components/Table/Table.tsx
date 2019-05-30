@@ -168,9 +168,10 @@ class Table extends Component<TableProps, any> {
   render() {
     const { filterKeys, currentPageData, pageTotal } = this.state
     const { className, style, columns, align, draggable, pagination, empty, emptyText,
-      draggedElement, onDragEnd, onSort } = this.props
+      draggedElement, onDragEnd, onSort, dataSource } = this.props
     const { current, pageSize } = pagination
     const classes = classNames('hmly-table', className)
+    const showPagination = this.hasPagination() && (dataSource.length > 0)
 
     return (
       <StyledTableBox
@@ -194,7 +195,7 @@ class Table extends Component<TableProps, any> {
             onDragEnd={onDragEnd}
             onDragChange={this.onDragChange} />
         </table>
-        {this.hasPagination() && <StyledPaginationBox>
+        {showPagination && <StyledPaginationBox>
           <Pagination
             current={current}
             total={pageTotal}
