@@ -24,10 +24,6 @@ export interface TableProps {
   draggable?: boolean;
   /** 分页参数 */
   pagination: PaginationProps;
-  /** 筛选栏的回调函数 */
-  onFilterChange?: (id?: any, value?: any) => {};
-  /** 翻页的回调函数 */
-  onPageChange?: (page?: number) => {};
   /** 自定义的空模板 */
   empty?: React.ReactNode;
   /** 空模板的文案 */
@@ -40,6 +36,10 @@ export interface TableProps {
   onDragOver?: any;
   /**  */
   onDragEnd?: any;
+  /** 筛选栏的回调函数 */
+  onFilterChange?: (id?: any, value?: any) => {};
+  /** 翻页的回调函数 */
+  onPageChange?: (page?: number) => {};
   /** 返回排序后的id列表 */
   onSort?: (ids?: Array<any>, activeId?: any) => {};
 }
