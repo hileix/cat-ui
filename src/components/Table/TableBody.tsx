@@ -69,11 +69,25 @@ class TableBody extends Component<TableBodyProps, any> {
     onDragOver && onDragOver(event)
   }
 
+  onDragEnter = (event: any) => {
+    const node = event.target.closest('.hmly-table-row')
+    const newStyle = 'transform: translateY(10px);'
+    node.setAttribute('style', newStyle)
+  }
+
+  onDragLeave = (event: any) => {
+    const node = event.target.closest('.hmly-table-row')
+    node.removeAttribute('style')
+  }
+
   dragEnd = (event: any, activeId: any) => {
     const { currentPageData, draggedElement, onDragEnd, onSort, onDragChange } = this.props
     let from = Number(this.dragged.dataset.order)
     let to = Number(this.over.dataset.order)
     let childrenNode = Array.from(currentPageData)
+
+    this.over.removeAttribute('style')
+    console.log('dragEnd', this.dragged)
 
     // 排序前的id列表
     let ids: Array<any> = []
@@ -129,7 +143,11 @@ class TableBody extends Component<TableBodyProps, any> {
     const colSpan = columns.length
 
     return (
-      <tbody ref={this.draggerRef} onDragOver={this.dragOver}>
+      <tbody
+        ref={this.draggerRef}
+        onDragOver={this.dragOver}
+        onDragEnter={this.onDragEnter}
+        onDragLeave={this.onDragLeave}>
         {currentPageData.length === 0
           ? <Empty
             colSpan={colSpan}
