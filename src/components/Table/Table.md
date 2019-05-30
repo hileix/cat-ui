@@ -84,6 +84,7 @@ class Example extends React.Component {
         rates: 'rate1'
       }, {
         id: 'id12',
+        draggable: false,
         ranking: 'ranking2',
         platforms: 'name2',
         totalListen: 'number1',

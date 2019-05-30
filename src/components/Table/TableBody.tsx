@@ -106,8 +106,8 @@ class TableBody extends Component<TableBodyProps, any> {
   renderTrs = () => {
     const self = this
     const { columns, currentPageData, align, draggable } = this.props
-
     return currentPageData.map((element, index) => {
+      const trDraggable = ('draggable' in element) ? element.draggable : draggable
       return (
         <TableTr
           key={index}
@@ -115,7 +115,7 @@ class TableBody extends Component<TableBodyProps, any> {
           columns={columns}
           data={element}
           align={align}
-          draggable={draggable}
+          draggable={trDraggable}
           onDragStart={self.dragStart}
           onDragEnd={self.dragEnd} />
       )
