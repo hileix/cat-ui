@@ -100,9 +100,7 @@ class TableBody extends Component<TableBodyProps, any> {
     onDragChange && onDragChange(childrenNode)
     draggedElement && draggedElement(_draggedEle)
     onDragEnd && onDragEnd(event)
-    if (onSort && isMoved) {
-      onSort(sortedIds, activeId)
-    }
+    if (onSort && isMoved) { onSort(sortedIds, activeId) }
   }
 
   renderTrs = () => {
