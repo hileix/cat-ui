@@ -87,7 +87,6 @@ class TableBody extends Component<TableBodyProps, any> {
     let childrenNode = Array.from(currentPageData)
 
     this.over.removeAttribute('style')
-    console.log('dragEnd', this.dragged)
 
     // 排序前的id列表
     let ids: Array<any> = []
