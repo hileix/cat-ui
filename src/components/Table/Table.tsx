@@ -41,7 +41,7 @@ export interface TableProps {
   /** 翻页的回调函数 */
   onPageChange?: (page?: number) => {};
   /** 返回排序后的id列表 */
-  onSort?: (ids?: Array<any>, activeId?: any) => {};
+  onSort?: (sortedIds?: Array<any>, activeId?: any) => {};
 }
 
 /**

@@ -34,7 +34,7 @@ export interface TableBodyProps {
   /**  */
   onDragEnd?: any;
   /** 返回排序后的id列表 */
-  onSort?: (ids?: Array<any>, activeId?: any) => {};
+  onSort?: (sortedIds?: Array<any>, activeId?: any) => {};
 }
 
 /**
@@ -74,6 +74,13 @@ class TableBody extends Component<TableBodyProps, any> {
     let from = Number(this.dragged.dataset.order)
     let to = Number(this.over.dataset.order)
     let childrenNode = Array.from(currentPageData)
+
+    // 排序前的id列表
+    let ids: Array<any> = []
+    childrenNode.forEach((element: any, index) => {
+      ids.push(element.id)
+    })
+
     let draggedNode = childrenNode.splice(from - 1, 1)[0]
     childrenNode.splice(to - 1, 0, draggedNode)
 
@@ -82,16 +89,20 @@ class TableBody extends Component<TableBodyProps, any> {
     let draggerDOM = this.draggerRef.current
     let _draggedEle = draggerDOM.querySelector(`:nth-child(${_draggedEleIndex + 1})`)
 
-    // 返回排序后的id
+    // 返回排序后的id列表
     let sortedIds: Array<any> = []
     childrenNode.forEach((element: any, index) => {
       sortedIds.push(element.id)
     })
 
+    const isMoved = JSON.stringify(sortedIds) !== JSON.stringify(ids)
+
     onDragChange && onDragChange(childrenNode)
     draggedElement && draggedElement(_draggedEle)
-    onSort && onSort(sortedIds, activeId)
     onDragEnd && onDragEnd(event)
+    if (onSort && isMoved) {
+      onSort(sortedIds, activeId)
+    }
   }
 
   renderTrs = () => {
