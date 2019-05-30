@@ -181,7 +181,7 @@ class Example extends React.Component {
       </Popover>
 
       <h3>position='bottomRight'的Popover</h3>
-      <Popover mode='click' position='bottomRight'>
+      <Popover mode='click' position='bottomCenter'>
         <Popover.Trigger>
           <Button>点击打开</Button>
         </Popover.Trigger>

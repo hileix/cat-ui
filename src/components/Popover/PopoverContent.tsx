@@ -78,30 +78,31 @@ class PopoverContent extends Component<PopoverContentProps, any> {
     const contentDOM = this.contentRef.current
     const triggerRect = triggerDOM.getBoundingClientRect()
     const contentRect = contentDOM.getBoundingClientRect()
+    const { clientWidth: contentWidth, clientHeight: contentHeight } = contentDOM as HTMLElement
+    const { clientWidth: triggerWidth, clientHeight: triggerHeight } = triggerDOM as HTMLElement
 
     let newPositionStyle
 
     switch (position) {
       case 'topCenter':
-        newPositionStyle =  {
+        newPositionStyle = {
           ...positionStyle,
-          left: triggerRect.left + (triggerRect.width / 2) - (contentRect.width / 2) + offsetX,
-          top: window.pageYOffset + triggerRect.top - contentRect.height - 10 + offsetY
+          left: triggerRect.left + (triggerWidth / 2) - (contentWidth / 2) + offsetX,
+          top: window.pageYOffset + triggerRect.top - contentHeight - 10 + offsetY
         }
         break
       case 'bottomCenter':
-        newPositionStyle =  {
+        newPositionStyle = {
           ...positionStyle,
-          left: triggerRect.left + (triggerRect.width / 2) - (contentRect.width / 2) + offsetX,
-          top: window.pageYOffset + triggerRect.top + triggerRect.height + offsetY
+          left: triggerRect.left + (triggerWidth / 2) - (contentWidth / 2) + offsetX,
+          top: window.pageYOffset + triggerRect.top + triggerHeight + offsetY
         }
         break
       case 'bottomRight':
-        // console.log('bottomRight', triggerRect.left, contentRect.width, offsetX)
-        newPositionStyle =  {
+        newPositionStyle = {
           ...positionStyle,
-          left: triggerRect.left - contentRect.width + offsetX,
-          top: window.pageYOffset + triggerRect.top + triggerRect.height + offsetY
+          left: triggerRect.left - contentWidth + offsetX,
+          top: window.pageYOffset + triggerRect.top + triggerHeight + offsetY
         }
         break
       case 'bottomLeft':
@@ -109,7 +110,7 @@ class PopoverContent extends Component<PopoverContentProps, any> {
         newPositionStyle =  {
           ...positionStyle,
           left: triggerRect.left + offsetX,
-          top: window.pageYOffset + triggerRect.top + triggerRect.height + offsetY
+          top: window.pageYOffset + triggerRect.top + triggerHeight + offsetY
         }
     }
 
