@@ -37,7 +37,7 @@ export interface TableProps {
   /**  */
   onDragEnd?: any;
   /** 筛选栏的回调函数 */
-  onFilterChange?: (id?: any, value?: any) => {};
+  onFilterChange?: (id?: any, key?: any) => {};
   /** 翻页的回调函数 */
   onPageChange?: (page?: number) => {};
   /** 返回排序后的id列表 */
@@ -117,16 +117,16 @@ class Table extends Component<TableProps, any> {
   }
 
   // 选择了筛选栏之后的回调函数
-  onFilterSelect = (id: any, value: any) => {
+  onFilterSelect = (id: any, key: any) => {
     const { dataSource, onFilterChange } = this.props
-    onFilterChange && onFilterChange(id, value)
-    const _filterKeys = { id: id, value: value }
+    onFilterChange && onFilterChange(id, key)
+    const _filterKeys = { id: id, key: key }
     this.setState({ filterKeys: _filterKeys })
     // 暂时注释掉Table内部翻页
-    // const _filterKeys = { id: id, value: value }
+    // const _filterKeys = { id: id, key: key }
     // // 筛选dataSource，当前值等于filterKeys或者未选择filterKeys
     // const filterDataSource = dataSource.filter((elem, index) => {
-    //   if (elem[id] === value || value === '') {
+    //   if (elem[id] === key || key === '') {
     //     return elem
     //   }
     // })

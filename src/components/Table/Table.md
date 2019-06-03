@@ -54,14 +54,17 @@ class Example extends React.Component {
 
     const columns2 = [{
       id: 'ranking',
+      defaultFilterKey: 0,
       filters: [{
+        text: 'all',
+        key: 0,
+      }, {
         text: 'ranking1',
-        value: 'ranking1',
+        key: 'ranking1',
       }, {
         text: 'ranking2',
-        value: 'ranking2',
+        key: 'ranking2',
       }],
-      onFilter: (value, record) => record.name.indexOf(value) === 0,
       title: <span>ranking1111</span>
     }, {
       id: 'platforms',

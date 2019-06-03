@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { primaryBtnColor } from '../../../styles/theme'
-import { EmptyInnerProps, StyledTableHeaderProps } from '../interface'
+import { EmptyInnerProps, StyledTableHeaderProps, StyledFilterProps } from '../interface'
 import Icon from '../../Icon'
 
 const StyledTableBox = styled.div`
@@ -102,6 +102,7 @@ const StyledFilter = styled(Icon)`
   cursor: pointer;
   margin-left: 5px;
   vertical-align: middle;
+  color: ${(props: StyledFilterProps) => props.active ? '#4a4a4a': '#9b9b9b'};
 `;
 
 const StyledPaginationBox = styled.div`

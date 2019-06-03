@@ -22,7 +22,11 @@ export interface StyledTableHeaderProps {
 
 export interface FilterKeysProps {
   id?: string | number;
-  value?: string | number;
+  key?: string | number;
+}
+
+export interface StyledFilterProps {
+  active?: boolean;
 }
 
 export interface PaginationProps {
