@@ -34,7 +34,7 @@ class TableHeader extends Component<TableHeaderProps, any> {
     const { columns, filterKeys } = this.props
     const { id = '', key = '' } = filterKeys
 
-    // console.log('renderTds:filterKeys', filterKeys)
+    console.log('renderTds:filterKeys', filterKeys)
 
     return columns.map((elem: any) => {
       // 渲染字符串或函数返回的DOM
@@ -43,6 +43,8 @@ class TableHeader extends Component<TableHeaderProps, any> {
       const isUseDFKey = ((id !== elem.id) && ('defaultFilterKey' in elem))
       const checkedKey = isUseDFKey ? elem.defaultFilterKey : key
       const isFilterActive = !(isUseDFKey || (elem.defaultFilterKey === key))
+
+      console.log('renderTds:columns', elem.filters)
 
       return (
         <StyledTh key={elem.id} className='table-th'>
@@ -58,6 +60,7 @@ class TableHeader extends Component<TableHeaderProps, any> {
                     <Menu key={checkedKey} mode='pop' className='menu1'>
                       {elem.filters.map((item: any) => {
                         const filterChecked = item.key === checkedKey
+                        console.log('elem.filters:map', item)
                         return (<Menu.Item
                           key={item.key}
                           onClick={() => {self.onFilterClick(elem.id, item.key)}}>
