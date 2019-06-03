@@ -6,8 +6,6 @@ export interface ColumnProps {
   title: string | React.ReactNode;
   /** 生成复杂数据的渲染函数 */
   render?: string | React.ReactNode;
-   /** 选择全部的文案 */
-  filterAllText?: string;
   /** 表头的筛选菜单项 */
   filters?: Array<any>;
   /** 本地模式下，确定筛选的运行函数 */
