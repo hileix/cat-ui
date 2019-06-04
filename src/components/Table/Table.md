@@ -5,12 +5,20 @@ class Example extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      currentPage: 2
+      currentPage: 2,
+      isDraggable: true
     }
     this.onPageChange = this.onPageChange.bind(this)
     this.onFilterChange2 = this.onFilterChange2.bind(this)
     this.onPageChang3 = this.onPageChang3.bind(this)
     this.onSort1 = this.onSort1.bind(this)
+  }
+
+  componentDidMount() {
+    // setTimeout(() => {
+    //   this.setState({ isDraggable: false })
+    //   console.log('isDraggable: false')
+    // }, 10000)
   }
 
   onPageChange (page) {
@@ -31,7 +39,7 @@ class Example extends React.Component {
   }
 
   render () {
-    const { currentPage } = this.state
+    const { currentPage, isDraggable } = this.state
     const columns1 = [{
       id: 'ranking',
       title: <span>ranking1111</span>,
@@ -173,7 +181,7 @@ class Example extends React.Component {
 
       <h3>align=center && 可拖拽的 的Table</h3>
       <Table
-        draggable
+        draggable={isDraggable}
         onSort={this.onSort1}
         columns={columns1}
         dataSource={dataSource}

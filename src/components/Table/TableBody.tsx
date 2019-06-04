@@ -119,6 +119,7 @@ class TableBody extends Component<TableBodyProps, any> {
   renderTrs = () => {
     const self = this
     const { columns, currentPageData, align, draggable } = this.props
+    console.log('TableBody:renderTrs:draggable', draggable)
     return currentPageData.map((element, index) => {
       const trDraggable = ('draggable' in element) ? element.draggable : draggable
       return (
