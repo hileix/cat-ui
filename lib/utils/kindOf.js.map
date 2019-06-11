@@ -1,1 +1,1 @@
-{"version":3,"file":"kindOf.js","sourceRoot":"","sources":["../../src/utils/kindOf.ts"],"names":[],"mappings":";;AAGA,SAAwB,MAAM,CAAC,WAA8B,EAAE,IAAc;IAC3E,OAAO,CACL,WAAW,KAAK,IAAI;QACpB,CAAC,WAAW,IAAK,WAAmB,CAAC,SAAS,YAAY,IAAI,CAAC,CAChE,CAAC;AACJ,CAAC;AALD,yBAKC"}
+{"version":3,"file":"kindOf.js","sourceRoot":"","sources":["../../src/utils/kindOf.ts"],"names":[],"mappings":";;AAAA;;GAEG;AACH,SAAwB,MAAM,CAAC,WAA8B,EAAE,IAAc;IAC3E,OAAO,CACL,WAAW,KAAK,IAAI;QACpB,CAAC,WAAW,IAAK,WAAmB,CAAC,SAAS,YAAY,IAAI,CAAC,CAChE,CAAC;AACJ,CAAC;AALD,yBAKC"}
