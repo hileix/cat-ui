@@ -3,7 +3,7 @@ import { PureComponent } from 'react'
 import classNames from 'classnames'
 import { StyledIcon } from './styled'
 import {compatible} from './compatible'
-export {IconType} from './IconTypeEnum'
+import {IconType} from './IconTypeEnum'
 
 export interface IconProps {
   /** 类名 */
@@ -20,6 +20,7 @@ export interface IconProps {
  * 图标
  */
 class Icon extends PureComponent<IconProps, any> {
+  static IconType = IconType
   handleClick = (event: any) => {
     const { onClick } = this.props
     onClick && onClick(event)
