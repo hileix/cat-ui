@@ -11,6 +11,7 @@
     "skipLibCheck": true,
     "outDir": "lib",
     "jsx": "react",
+    "declaration": true,
     "experimentalDecorators": true
   },
   "include": [
