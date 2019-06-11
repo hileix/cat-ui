@@ -26,7 +26,8 @@
     "lint:fix": "npm run lint -- --fix",
     "prettier:base": "prettier --parser typescript --single-quote --trailing-comma none",
     "prettier:check": "npm run prettier:base -- -l \"src/**/*.{ts,tsx}\"",
-    "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\""
+    "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\"",
+    "update:icon": "node ./scripts/updateIcon/index.js --code=jmuw9sfqs2"
   },
   "dependencies": {
     "classnames": "^2.2.6",
@@ -68,6 +69,7 @@
     "jsdom": "^14.0.0",
     "lint-staged": "^8.1.5",
     "mini-css-extract-plugin": "^0.5.0",
+    "node-fetch": "^2.6.0",
     "node-sass": "^4.11.0",
     "prettier": "^1.16.4",
     "react-docgen-typescript": "^1.12.3",

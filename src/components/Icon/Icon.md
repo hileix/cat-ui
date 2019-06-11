@@ -1,3 +1,247 @@
+new Examplate 
+
+
+```jsx
+import {IconType} from './Icon'
+let NewIcon = () =>{
+  return (
+    <div className="icon-box">
+      
+<div className='icon-item'>
+  <Icon type={IconType.close} />
+  close
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.down} />
+  down
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.right} />
+  right
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.left} />
+  left
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.up} />
+  up
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.instagram} />
+  instagram
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.twitter} />
+  twitter
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.facebook} />
+  facebook
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.locked} />
+  locked
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.unlocked} />
+  unlocked
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.volumeLow} />
+  volume-low
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.volumeHigh} />
+  volume-high
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.volumeMuted} />
+  volume-muted
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.loopList} />
+  loop-list
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.loopSingle} />
+  loop-single
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.shuffle} />
+  shuffle
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.question} />
+  question
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.pause} />
+  pause
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.playerNext} />
+  player-next
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.play} />
+  play
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.playerPrev} />
+  player-prev
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.sortDown} />
+  sort-down
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.playlist} />
+  playlist
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.sortUp} />
+  sort-up
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.share} />
+  share
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.liked} />
+  liked
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.like} />
+  like
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.visible} />
+  visible
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.invisible} />
+  invisible
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.drag} />
+  drag
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.dragMouse} />
+  drag-mouse
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.upload} />
+  upload
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.enter} />
+  enter
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.edit} />
+  edit
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.download} />
+  download
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.stats} />
+  stats
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.delete} />
+  delete
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.more} />
+  more
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.filter} />
+  filter
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.people} />
+  people
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.disc} />
+  disc
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.forward} />
+  forward
+</div>
+
+<div className='icon-item'>
+  <Icon type={IconType.backward} />
+  backward
+</div>
+
+      <style>
+        {`
+          .icon-box .hmly-icon {
+            margin-right: 10px;
+          }
+          .icon-box .icon-item {
+            display: inline-block;
+            width: 20%;
+            margin-bottom: 20px;
+          }
+        `}
+      </style>
+    </div>
+  )
+}
+<NewIcon />
+```
+
+   
+ 
 Example
 
 ```jsx
@@ -157,3 +401,4 @@ class Example extends React.Component {
 
 <Example />
 ```
+

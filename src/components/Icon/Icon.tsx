@@ -2,6 +2,8 @@ import * as React from 'react'
 import { PureComponent } from 'react'
 import classNames from 'classnames'
 import { StyledIcon } from './styled'
+import {compatible} from './compatible'
+export {IconType} from './IconTypeEnum'
 
 export interface IconProps {
   /** 类名 */
@@ -25,7 +27,8 @@ class Icon extends PureComponent<IconProps, any> {
 
   render() {
     const { className, style, type } = this.props
-    const classes = classNames('hmly-icon', `hmly-icon-${type}`, className)
+    console.log(compatible(type))
+    const classes = classNames('hmly-icon', `hmly-icon-${compatible(type)}`, className)
 
     return (<React.Fragment>
       <i
