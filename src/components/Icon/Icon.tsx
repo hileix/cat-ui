@@ -11,7 +11,7 @@ export interface IconProps {
   /** 样式 */
   style?: object;
   /** 图标类型 */
-  type: string;
+  type: string|IconType;
   /** 点击按钮时的回调 */
   onClick?: any;
 }
@@ -20,7 +20,7 @@ export interface IconProps {
  * 图标
  */
 class Icon extends PureComponent<IconProps, any> {
-  static IconType = IconType
+  static Type = IconType
   handleClick = (event: any) => {
     const { onClick } = this.props
     onClick && onClick(event)
@@ -28,7 +28,6 @@ class Icon extends PureComponent<IconProps, any> {
 
   render() {
     const { className, style, type } = this.props
-    console.log(compatible(type))
     const classes = classNames('hmly-icon', `hmly-icon-${compatible(type)}`, className)
 
     return (<React.Fragment>

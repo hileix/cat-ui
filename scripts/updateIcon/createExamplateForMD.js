@@ -1,4 +1,7 @@
 
+/**
+ * 根据iconfont code 创建  src/components/Icon/Icon.md文件
+ */
 const getBase64Array = require('./processJS').getBase64Array
 const path = require('path')
 const fs = require('fs')
@@ -180,7 +183,7 @@ let createExamplate = async function (code) {
 
     icons.push(`
     <div className='icon-item'>
-      <Icon type={IconType.${key}} />
+      <Icon type={Icon.IconType.${key}} />
       ${type}
     </div>
     `)
@@ -189,8 +192,11 @@ let createExamplate = async function (code) {
 
 
   let newTemplate = `
+    引入\`Icon\`后
+
+    可以使用\`Icon.Type.\`来查看已有的icon
+
     \`\`\`jsx
-    import {IconType} from './Icon'
     let NewIcon = () =>{
       return (
         <div className="icon-box">
@@ -214,6 +220,7 @@ let createExamplate = async function (code) {
     \`\`\`
 
   `
+  // 去除每行前面的空格， 以满足markdown  ```语法
   newTemplate = newTemplate.replace(/(\n)(\s{4})/gm, '\n')
   fs.writeFileSync(mdFilePath, `new Examplate \n\n${newTemplate} \n ${oldTemplate}`)
 }
