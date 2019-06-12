@@ -34,6 +34,17 @@ $ yarn run update:snapshot
 $ jest --updateSnapshot
 ```
 
+更新icon
+
+第一步 登录iconfont.cn 获取code(hash)
+
+第二步 将code添加至package.json --> script -->  update:icon .... --code=xxx
+
+第三步 执行 yarn run update:icon
+
+示例如下:
+![](./doc/images/update-icon.gif)
+
 ## 使用组件
 
 ``` jsx

@@ -10,6 +10,7 @@ async function run (){
   if(!code) {
      console.log('请提供code,去iconfont.cn获取,例如: //at.alicdn.com/t/font_1236545_jmuw9sfqs2.css')
      console.log('code就是jmuw9sfqs2, 需要在package.json script--> update:icon -->  替换--code=jmuw9sfqs2')
+     console.log('若只是修改了更新icon的脚本内容，则需手动清除./scripts/updateIcon/.old.code.txt中的code')
      return 
   }
   await updateIconStyleFile(code)
