@@ -183,7 +183,7 @@ let createExamplate = async function (code) {
 
     icons.push(`
     <div className='icon-item'>
-      <Icon type={Icon.IconType.${key}} />
+      <Icon type={Icon.Type.${key}} />
       ${type}
     </div>
     `)

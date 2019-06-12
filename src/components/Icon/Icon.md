@@ -1,223 +1,225 @@
 new Examplate 
 
 
-```jsx
+引入`Icon`后
+ 可以使用`Icon.Type.`来查看已有的icon
+ ```jsx
 let NewIcon = () =>{
   return (
     <div className="icon-box">
       
 <div className='icon-item'>
-  <Icon type={Icon.IconType.close} />
+  <Icon type={Icon.Type.close} />
   close
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.down} />
+  <Icon type={Icon.Type.down} />
   down
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.right} />
+  <Icon type={Icon.Type.right} />
   right
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.left} />
+  <Icon type={Icon.Type.left} />
   left
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.up} />
+  <Icon type={Icon.Type.up} />
   up
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.instagram} />
+  <Icon type={Icon.Type.instagram} />
   instagram
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.twitter} />
+  <Icon type={Icon.Type.twitter} />
   twitter
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.facebook} />
+  <Icon type={Icon.Type.facebook} />
   facebook
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.locked} />
+  <Icon type={Icon.Type.locked} />
   locked
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.unlocked} />
+  <Icon type={Icon.Type.unlocked} />
   unlocked
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.volumeLow} />
+  <Icon type={Icon.Type.volumeLow} />
   volume-low
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.volumeHigh} />
+  <Icon type={Icon.Type.volumeHigh} />
   volume-high
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.volumeMuted} />
+  <Icon type={Icon.Type.volumeMuted} />
   volume-muted
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.loopList} />
+  <Icon type={Icon.Type.loopList} />
   loop-list
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.loopSingle} />
+  <Icon type={Icon.Type.loopSingle} />
   loop-single
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.shuffle} />
+  <Icon type={Icon.Type.shuffle} />
   shuffle
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.question} />
+  <Icon type={Icon.Type.question} />
   question
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.pause} />
+  <Icon type={Icon.Type.pause} />
   pause
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.playerNext} />
+  <Icon type={Icon.Type.playerNext} />
   player-next
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.play} />
+  <Icon type={Icon.Type.play} />
   play
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.playerPrev} />
+  <Icon type={Icon.Type.playerPrev} />
   player-prev
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.sortDown} />
+  <Icon type={Icon.Type.sortDown} />
   sort-down
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.playlist} />
+  <Icon type={Icon.Type.playlist} />
   playlist
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.sortUp} />
+  <Icon type={Icon.Type.sortUp} />
   sort-up
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.share} />
+  <Icon type={Icon.Type.share} />
   share
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.liked} />
+  <Icon type={Icon.Type.liked} />
   liked
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.like} />
+  <Icon type={Icon.Type.like} />
   like
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.visible} />
+  <Icon type={Icon.Type.visible} />
   visible
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.invisible} />
+  <Icon type={Icon.Type.invisible} />
   invisible
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.drag} />
+  <Icon type={Icon.Type.drag} />
   drag
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.dragMouse} />
+  <Icon type={Icon.Type.dragMouse} />
   drag-mouse
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.upload} />
+  <Icon type={Icon.Type.upload} />
   upload
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.enter} />
+  <Icon type={Icon.Type.enter} />
   enter
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.edit} />
+  <Icon type={Icon.Type.edit} />
   edit
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.download} />
+  <Icon type={Icon.Type.download} />
   download
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.stats} />
+  <Icon type={Icon.Type.stats} />
   stats
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.delete} />
+  <Icon type={Icon.Type.delete} />
   delete
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.more} />
+  <Icon type={Icon.Type.more} />
   more
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.filter} />
+  <Icon type={Icon.Type.filter} />
   filter
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.people} />
+  <Icon type={Icon.Type.people} />
   people
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.disc} />
+  <Icon type={Icon.Type.disc} />
   disc
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.forward} />
+  <Icon type={Icon.Type.forward} />
   forward
 </div>
 
 <div className='icon-item'>
-  <Icon type={Icon.IconType.backward} />
+  <Icon type={Icon.Type.backward} />
   backward
 </div>
 
