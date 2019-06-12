@@ -544,7 +544,7 @@ exports[`Icon props: type 13`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-icon hmly-icon-undefined",
+      "class": "hmly-icon hmly-icon-crown",
     },
     "children": Array [],
     "name": "i",
@@ -589,7 +589,7 @@ exports[`Icon props: type 14`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-icon hmly-icon-undefined",
+      "class": "hmly-icon hmly-icon-early-access",
     },
     "children": Array [],
     "name": "i",
@@ -634,7 +634,7 @@ exports[`Icon props: type 15`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-icon hmly-icon-undefined",
+      "class": "hmly-icon hmly-icon-hi-circle",
     },
     "children": Array [],
     "name": "i",
@@ -679,7 +679,7 @@ exports[`Icon props: type 16`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-icon hmly-icon-undefined",
+      "class": "hmly-icon hmly-icon-ad-free",
     },
     "children": Array [],
     "name": "i",

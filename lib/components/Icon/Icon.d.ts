@@ -6,7 +6,7 @@ export interface IconProps {
     /** 样式 */
     style?: object;
     /** 图标类型 */
-    type: string;
+    type: string | IconType;
     /** 点击按钮时的回调 */
     onClick?: any;
 }
@@ -14,7 +14,7 @@ export interface IconProps {
  * 图标
  */
 declare class Icon extends PureComponent<IconProps, any> {
-    static IconType: typeof IconType;
+    static Type: typeof IconType;
     handleClick: (event: any) => void;
     render(): JSX.Element;
 }
