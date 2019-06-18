@@ -223,6 +223,16 @@ let NewIcon = () =>{
   backward
 </div>
 
+<div className='icon-item'>
+  <Icon type={Icon.Type.decrease} />
+  decrease
+</div>
+
+<div className='icon-item'>
+  <Icon type={Icon.Type.increase} />
+  increase
+</div>
+
       <style>
         {`
           .icon-box .hmly-icon {
