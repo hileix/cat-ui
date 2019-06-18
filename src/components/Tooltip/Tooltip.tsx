@@ -27,7 +27,7 @@ class Tooltip extends Component<TooltipProps, any> {
   static defaultProps = {
     mode: 'hover',
     position: 'topCenter',
-    width: 500
+    width: 400
   }
 
   constructor (props: TooltipProps) {
