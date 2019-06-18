@@ -25,7 +25,7 @@ declare class Tooltip extends Component<TooltipProps, any> {
         width: number;
     };
     constructor(props: TooltipProps);
-    componentDidUpdate(): void;
+    componentDidUpdate(prevProps: TooltipProps, prevState: any): void;
     onPopoverChange: (value: boolean) => void;
     render(): JSX.Element;
 }
