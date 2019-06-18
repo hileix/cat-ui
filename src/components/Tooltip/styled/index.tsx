@@ -8,8 +8,7 @@ const StyledTooltipContent = styled.div`
   position: relative;
   padding: 9px 12px;
   background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(1px);
-  box-shadow: 0 2px 5px 0
+  box-shadow: 0 2px 5px 0;
   border-radius: 3px;
   max-width: ${(props: StyledTooltipContentProps) => props.width + 'px'};
   word-wrap:break-word;

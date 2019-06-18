@@ -20,25 +20,25 @@ class Example extends React.Component {
       <Tooltip 
         className='tooltip1' 
         content={content1}>
-        content=string
+        string
       </Tooltip>
 
       <Tooltip
         className='tooltip1' 
         content={content2}>
-        content=Rect.ReactNode
+        Rect.ReactNode
       </Tooltip>
 
       <Tooltip
         className='tooltip1' 
         content={content3}>
-        content字数很短
+        字数很短
       </Tooltip>
 
       <Tooltip
         className='tooltip1' 
         content={content4}>
-        content字数很长，自动换行
+        con
       </Tooltip>
 
       <Tooltip

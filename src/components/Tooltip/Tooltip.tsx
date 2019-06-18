@@ -45,14 +45,13 @@ class Tooltip extends Component<TooltipProps, any> {
   //   }, 1000)
   // }
 
-  componentDidUpdate () {
+  componentDidUpdate (prevProps: TooltipProps, prevState: any) {
     const contentDOM = this.contentRef.current
     if (!contentDOM) { return }
-    const { isPopOpen, tipLeft } = this.state
-    if (isPopOpen && tipLeft === 0) {
-      const contentRect = contentDOM.getBoundingClientRect()
-      const rectCollection = contentDOM.getClientRects()
-      this.setState({ tipLeft: contentRect.width / 2 - 8 })
+    const { isPopOpen } = this.state
+    if (isPopOpen && !prevState.isPopOpen) {
+      const newTipLeft = (contentDOM.clientWidth - 20) / 2
+      this.setState({ tipLeft: newTipLeft })
     }
   }
 
@@ -68,7 +67,7 @@ class Tooltip extends Component<TooltipProps, any> {
       [`hmly-tooltip-${position}`]: position
     })
 
-    // console.log('tipLeft', tipLeft)
+    console.log('tipLeft', tipLeft, width)
 
     return (
       <Popover
