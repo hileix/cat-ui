@@ -67,7 +67,7 @@ class Tooltip extends Component<TooltipProps, any> {
       [`hmly-tooltip-${position}`]: position
     })
 
-    console.log('tipLeft', tipLeft, width)
+    // console.log('tipLeft', tipLeft, width)
 
     return (
       <Popover
