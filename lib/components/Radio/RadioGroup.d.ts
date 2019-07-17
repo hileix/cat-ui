@@ -15,6 +15,8 @@ export interface RadioGroupProps {
     defaultValue?: string | number;
     /** 值 */
     value?: string | number;
+    /** 布局 */
+    layout?: 'vertical' | 'horizontal';
     /** 选项变化时的回调函数	 */
     onChange?: any;
 }
@@ -22,6 +24,9 @@ export interface RadioGroupProps {
  * RadioGroup
  */
 declare class RadioGroup extends Component<RadioGroupProps, any> {
+    static defaultProps: {
+        layout: string;
+    };
     constructor(props: RadioGroupProps);
     static getDerivedStateFromProps(nextProps: RadioGroupProps): {
         value: React.ReactText;

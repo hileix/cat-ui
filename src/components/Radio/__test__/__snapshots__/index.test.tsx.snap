@@ -4,12 +4,12 @@ exports[`Radio renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-radio sc-bdVaJa hpCdaW",
+      "class": "hmly-radio horizontal sc-bdVaJa bifcGp",
     },
     "children": Array [
       Object {
         "attribs": Object {
-          "class": "sc-bwzfXH kRVDnx",
+          "class": "horizontal sc-bwzfXH bngRRi",
         },
         "children": Array [
           Object {
@@ -87,7 +87,7 @@ initialize {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Object {
           "attribs": Object {
-            "class": "sc-ifAKCX fDuulD",
+            "class": "horizontal sc-ifAKCX bstQpk",
           },
           "children": Array [
             Object {
@@ -123,7 +123,7 @@ initialize {
       },
       Object {
         "attribs": Object {
-          "class": "sc-ifAKCX fDuulD",
+          "class": "horizontal sc-ifAKCX bstQpk",
         },
         "children": Array [
           Object {
@@ -140,7 +140,7 @@ initialize {
         "parent": [Circular],
         "prev": Object {
           "attribs": Object {
-            "class": "sc-bwzfXH kRVDnx",
+            "class": "horizontal sc-bwzfXH bngRRi",
           },
           "children": Array [
             Object {

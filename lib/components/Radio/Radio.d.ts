@@ -13,6 +13,8 @@ export interface RadioProps {
     checked?: boolean;
     /** 值 */
     value?: any;
+    /** 布局 */
+    layout?: 'vertical' | 'horizontal';
     /** 选项变化时的回调函数	 */
     onChange?: any;
 }
@@ -20,6 +22,9 @@ export interface RadioProps {
  * 单选框
  */
 declare class Radio extends Component<RadioProps, any> {
+    static defaultProps: {
+        layout: string;
+    };
     static Group: typeof RadioGroup;
     handleChange: (e: any) => void;
     handleClick: (e: any) => void;
