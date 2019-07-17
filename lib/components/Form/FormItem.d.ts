@@ -15,6 +15,8 @@ export interface FormItemProps {
     labelAlign?: string;
     /** label的向右偏移量 */
     labelOffset?: string | number;
+    /** label的向上偏移量 */
+    labelMarginTop?: string | number;
     /** 是否必填 */
     required?: boolean;
     /** 描述信息 */
@@ -45,6 +47,7 @@ declare class FormItem extends Component<FormItemProps, any> {
     private formItemRef;
     static defaultProps: {
         colon: boolean;
+        labelMarginTop: number;
     };
     constructor(props: FormItemProps);
     componentDidUpdate(): void;

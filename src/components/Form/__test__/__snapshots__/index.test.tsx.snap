@@ -14,7 +14,7 @@ initialize {
         "children": Array [
           Object {
             "attribs": Object {
-              "class": "sc-htpNat hehveh",
+              "class": "sc-htpNat lkCMug",
               "offset": "0",
               "width": "200px",
             },
@@ -921,7 +921,7 @@ initialize {
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
-                "class": "sc-htpNat hehveh",
+                "class": "sc-htpNat lkCMug",
                 "offset": "0",
                 "width": "200px",
               },
