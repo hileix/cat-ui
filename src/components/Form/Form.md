@@ -123,6 +123,7 @@ class Example extends React.Component {
           name='price'
           label='Price'
           desc='How much would you like to charge your fans?'
+          labelMarginTop='10px'
           required
           check={this.checkPrice}>
           <Select 

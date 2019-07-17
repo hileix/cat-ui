@@ -22,6 +22,8 @@ export interface FormItemProps {
   labelAlign?: string;
   /** label的向右偏移量 */
   labelOffset?: string | number;
+  /** label的向上偏移量 */
+  labelMarginTop?: string | number;
   /** 是否必填 */
   required?: boolean;
   /** 描述信息 */
@@ -52,7 +54,8 @@ export interface FormItemProps {
 class FormItem extends Component<FormItemProps, any> {
   private formItemRef: any;
   static defaultProps = {
-    colon: false
+    colon: false,
+    labelMarginTop: 0
   }
 
   constructor (props: FormItemProps) {
@@ -95,7 +98,7 @@ class FormItem extends Component<FormItemProps, any> {
   render() {
     const self = this
     const { className, style, name, label, desc, tips, labelWidth,
-      labelAlign, labelOffset, required, values, errors, colon, children } = this.props
+      labelAlign, labelOffset, labelMarginTop, required, values, errors, colon, children } = this.props
     const classes = classNames('hmly-form-item', className)
     const labelClass = classNames({
       'hmly-form-label-required': required,
@@ -126,7 +129,8 @@ class FormItem extends Component<FormItemProps, any> {
         <LabelBox
           width={labelWidth}
           align={labelAlign}
-          offset={labelOffset}>
+          offset={labelOffset}
+          marginTop={labelMarginTop}>
           <FormItemLabel className={labelClass}>
             {label}
             {hasTips &&

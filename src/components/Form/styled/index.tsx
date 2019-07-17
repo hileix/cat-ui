@@ -16,6 +16,7 @@ const LabelBox = styled.div`
   vertical-align: middle;
   text-align: ${(props: LabelBoxProps) => props.align};
   margin-right: ${(props: LabelBoxProps) => props.offset};
+  margin-top: ${(props: LabelBoxProps) => props.marginTop};
   width: ${(props: LabelBoxProps) => props.width};
   /* min-height: 50px; */
 `;

@@ -4,6 +4,7 @@ export interface LabelBoxProps {
   width?: number | string;
   offset?: number | string;
   required?: boolean;
+  marginTop?: number | string;
 }
 
 export interface ControlBoxProps {
