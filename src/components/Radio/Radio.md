@@ -23,9 +23,15 @@ class Example extends React.Component {
       <Radio checked value={2}>2</Radio>
       
       <h3>Radio.Group</h3>
-      <Radio.Group value={activeId1} onChange={this.onRadioChange}>
-        <Radio value={1}>1</Radio>
-        <Radio value={2}>2</Radio>
+      <Radio.Group layout='vertical' value={activeId1} onChange={this.onRadioChange}>
+        <Radio value={1}>
+          1
+          <div>desc desc desc</div>
+        </Radio>
+        <Radio value={2}>
+          2
+          <div>desc desc desc</div>
+        </Radio>
         <Radio value={3}>3</Radio>
         <Radio disabled value={4}>4</Radio>
         <Radio value={5} shape='hook'>5</Radio>

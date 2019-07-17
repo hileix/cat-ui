@@ -18,6 +18,8 @@ export interface RadioGroupProps {
   defaultValue?: string | number;
   /** 值 */
   value?: string | number;
+  /** 布局 */
+  layout?: 'vertical' | 'horizontal'
   /** 选项变化时的回调函数	 */
   onChange?: any;
 }
@@ -26,6 +28,10 @@ export interface RadioGroupProps {
  * RadioGroup
  */
 class RadioGroup extends Component<RadioGroupProps, any> {
+  static defaultProps = {
+    layout: 'horizontal'
+  }
+
   constructor (props: RadioGroupProps) {
     super(props)
     let value: string | number = ''
@@ -62,13 +68,14 @@ class RadioGroup extends Component<RadioGroupProps, any> {
   render() {
     const self = this
     const { value } = this.state
-    const { className, style, disabled, readOnly, checked, children } = this.props
+    const { className, style, layout, disabled, readOnly, checked, children } = this.props
     const classes = classNames('hmly-radio-group', className)
     const radios = React.Children.map(children, (element: any, index) => {
       if (!element) { return element }
       return cloneElement(element, {
-        onChange: self.onRadioChange,
         key: index,
+        layout: layout,
+        onChange: self.onRadioChange,
         checked: value === element.props.value
       })
     })

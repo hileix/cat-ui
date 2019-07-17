@@ -17,6 +17,8 @@ export interface RadioProps {
   checked?: boolean;
   /** 值 */
   value?: any;
+  /** 布局 */
+  layout?: 'vertical' | 'horizontal'
   /** 选项变化时的回调函数	 */
   onChange?: any;
 }
@@ -25,6 +27,10 @@ export interface RadioProps {
  * 单选框
  */
 class Radio extends Component<RadioProps, any> {
+  static defaultProps = {
+    layout: 'horizontal'
+  }
+
   static Group: typeof RadioGroup
 
   handleChange = (e: any) => {
@@ -51,14 +57,14 @@ class Radio extends Component<RadioProps, any> {
   }
 
   render() {
-    const { className, style, disabled, readOnly, checked, value, children } = this.props
-    const classes = classNames('hmly-radio', className)
+    const { className, style, disabled, readOnly, checked, value, layout, children } = this.props
+    const classes = classNames('hmly-radio', className, `${layout}`)
 
     return (
       <StyledRadioBox
         className={classes}
         style={style}>
-        <StyledRadio>
+        <StyledRadio className={layout}>
           <RadioInner
             checked={checked}
             disabled={disabled} />
@@ -71,7 +77,8 @@ class Radio extends Component<RadioProps, any> {
             onChange={this.handleChange} />
         </StyledRadio>
         <RadioSlot
-          disabled={disabled}>
+          disabled={disabled}
+          className={layout}>
           {children}
         </RadioSlot>
       </StyledRadioBox>
