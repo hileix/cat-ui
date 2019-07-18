@@ -1,4 +1,4 @@
-import { PureComponent } from 'react';
+import { Component } from 'react';
 export interface DraggerItemProps {
     /** 类名 */
     className?: string;
@@ -16,7 +16,7 @@ export interface DraggerItemProps {
 /**
  * DraggerItem
  */
-declare class DraggerItem extends PureComponent<DraggerItemProps, any> {
+declare class DraggerItem extends Component<DraggerItemProps, any> {
     constructor(props: DraggerItemProps);
     handleDragStart: (e: any) => void;
     handleDragEnd: (e: any) => void;

@@ -1,4 +1,4 @@
-import { PureComponent } from 'react';
+import { Component } from 'react';
 import DraggerItem from './DraggerItem';
 export interface DraggerProps {
     /** 类名 */
@@ -19,7 +19,7 @@ export interface DraggerProps {
 /**
  * 拖拽器
  */
-declare class Dragger extends PureComponent<DraggerProps, any> {
+declare class Dragger extends Component<DraggerProps, any> {
     private draggerRef;
     private dragged;
     private over;
