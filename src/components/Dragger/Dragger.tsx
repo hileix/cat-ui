@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { PureComponent, cloneElement } from 'react'
+import { Component, cloneElement } from 'react'
 import classNames from 'classnames'
 import { StyledDragger } from './styled'
 import DraggerItem from './DraggerItem'
@@ -24,7 +24,7 @@ export interface DraggerProps {
 /**
  * 拖拽器
  */
-class Dragger extends PureComponent<DraggerProps, any> {
+class Dragger extends Component<DraggerProps, any> {
   private draggerRef: any
   private dragged: any
   private over: any

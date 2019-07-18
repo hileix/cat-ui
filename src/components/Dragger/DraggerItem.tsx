@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { PureComponent } from 'react'
+import { Component } from 'react'
 import classNames from 'classnames'
 import { StyledDraggerItem } from './styled'
 
@@ -21,7 +21,7 @@ export interface DraggerItemProps {
 /**
  * DraggerItem
  */
-class DraggerItem extends PureComponent<DraggerItemProps, any> {
+class DraggerItem extends Component<DraggerItemProps, any> {
   constructor (props: DraggerItemProps) {
     super(props)
     this.state = {
