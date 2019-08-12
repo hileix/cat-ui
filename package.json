@@ -1,6 +1,6 @@
 {
   "name": "@xmly/cat-ui",
-  "version": "0.0.131",
+  "version": "0.0.132",
   "main": "lib/components/index.js",
   "license": "ISC",
   "repository": {
@@ -27,7 +27,7 @@
     "prettier:base": "prettier --parser typescript --single-quote --trailing-comma none",
     "prettier:check": "npm run prettier:base -- -l \"src/**/*.{ts,tsx}\"",
     "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\"",
-    "update:icon": "node ./scripts/updateIcon/index.js --code=vbclmjwrg0i"
+    "update:icon": "node ./scripts/updateIcon/index.js --code=xgsazuemfwn"
   },
   "dependencies": {
     "classnames": "^2.2.6",
