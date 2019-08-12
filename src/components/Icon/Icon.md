@@ -233,6 +233,11 @@ let NewIcon = () =>{
   increase
 </div>
 
+<div className='icon-item'>
+  <Icon type={Icon.Type.search} />
+  search
+</div>
+
       <style>
         {`
           .icon-box .hmly-icon {
