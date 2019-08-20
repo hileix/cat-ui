@@ -23,7 +23,7 @@
     "styleguidist:start": "NODE_ENV=test pm2 start ./server.js --name=cat-ui-styleguidist",
     "styleguidist:stop": "pm2 stop cat-ui-styleguidist",
     "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
-    "lint:fix": "npm run lint -- --fix",
+    "lint:fix": "npm run lint -- --fix ",
     "prettier:base": "prettier --parser typescript --single-quote --trailing-comma none",
     "prettier:check": "npm run prettier:base -- -l \"src/**/*.{ts,tsx}\"",
     "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\"",
