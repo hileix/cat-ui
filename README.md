@@ -43,7 +43,7 @@ $ jest --updateSnapshot
 第三步 执行 yarn run update:icon
 
 示例如下:
-![](./doc/images/update-icon.gif)
+![](./docs/images/update-icon.gif)
 
 ## 使用组件
 
