@@ -35,13 +35,12 @@ export interface ${input}Props {
 class ${input} extends Component<${input}Props, any> {
 
   render() {
-    const { className, style, children } = this.props
-    const classes = classNames('hmly-${lowerInput}', className)
+    const { children, ...restProps } = this.props
 
     return (
       <Styled${input}
-        className={classes}
-        style={style}>
+        {...restProps}
+      >
         {children}
       </Styled${input}>
     )
