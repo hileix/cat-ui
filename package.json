@@ -38,7 +38,9 @@
     "react-dom": "^16.8.4",
     "styled-components": "^4.2.0"
   },
-  "files": ["lib/**"],
+  "files": [
+    "lib/**"
+  ],
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@babel/plugin-proposal-class-properties": "^7.3.4",
@@ -60,6 +62,7 @@
     "awesome-typescript-loader": "^5.2.1",
     "babel-preset-env": "^1.7.0",
     "css-loader": "^2.1.1",
+    "cz-emoji": "^1.1.2",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "file-loader": "^3.0.1",
@@ -85,5 +88,117 @@
     "url-loader": "^1.1.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
+  },
+  "config": {
+    "cz-emoji": {
+      "types": [
+        {
+          "emoji": "✨",
+          "code": "✨",
+          "description": "Introducing new features.",
+          "name": "feature"
+        },
+        {
+          "emoji": "🐛",
+          "code": "🐛",
+          "description": "Fixing a bug.",
+          "name": "fix"
+        },
+        {
+          "emoji": "💄",
+          "code": "💄",
+          "description": "Updating the UI and style files.",
+          "name": "ui"
+        },
+        {
+          "emoji": "⚡️",
+          "code": ":zap:",
+          "description": "Improving performance.",
+          "name": "perf"
+        },
+        {
+          "emoji": "📝",
+          "code": "📝",
+          "description": "Writing docs.",
+          "name": "docs"
+        },
+        {
+          "emoji": "♻️ ",
+          "code": "♻️",
+          "description": "Refactoring code.",
+          "name": "refactor"
+        },
+        {
+          "emoji": "✏️ ",
+          "code": "✏️",
+          "description": "A chore change.",
+          "name": "chore"
+        },
+        {
+          "emoji": "🔧",
+          "code": "🔧",
+          "description": "Changing configuration files.",
+          "name": "config"
+        },
+        {
+          "emoji": "⚙️ ",
+          "code": "⚙️ ",
+          "description": "Changing configuration ci.",
+          "name": "ci"
+        },
+        {
+          "emoji": "🔥",
+          "code": "🔥",
+          "description": "Removing code or files.",
+          "name": "prune"
+        },
+        {
+          "emoji": "🔖",
+          "code": "🔖",
+          "description": "Releasing / Version tags.",
+          "name": "release"
+        },
+        {
+          "emoji": "👷",
+          "code": "👷",
+          "description": "Adding CI build system.",
+          "name": "ci"
+        },
+        {
+          "emoji": "➕",
+          "code": "➕",
+          "description": "Adding a dependency.",
+          "name": "dep-add"
+        },
+        {
+          "emoji": "💩",
+          "code": "💩",
+          "description": "Writing bad code that needs to be improved.",
+          "name": "poo"
+        },
+        {
+          "emoji": "🚚",
+          "code": "🚚",
+          "description": "Moving or renaming files.",
+          "name": "mv"
+        },
+        {
+          "emoji": "🙈",
+          "entity": "🙈",
+          "code": ":see_no_evil:",
+          "description": "Adding or updating a .gitignore file",
+          "name": "see-no-evil"
+        },
+        {
+          "emoji": "⬆️",
+          "code": "⬆️",
+          "description": "Upgrading dependencies.",
+          "name": "upgrade"
+        }
+      ]
+    },
+    "commitizen": {
+      "path": "./node_modules/cz-emoji"
+    }
   }
 }
