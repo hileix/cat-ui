@@ -8,6 +8,7 @@ const StyledTag = styled.span`
   border-radius: ${smallRadius};
   padding: 0 4px;
   font-size: 12px;
+  line-height: 18px;
   color: ${(props: TagProps) => props.textColor || textColor};
   border: 1px solid ${(props: TagProps) => props.borderColor || borderColor};
   background-color: ${(props: TagProps) => props.bgColor || '#fff'}
