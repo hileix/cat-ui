@@ -4,18 +4,30 @@ exports[`Avatar renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "sc-bdVaJa bDWFJH",
+      "class": "hmly-avatar hmly-avatar hmly-avatar-image sc-bdVaJa kKAJIC",
+      "prefix": "hmly-avatar",
     },
     "children": Array [
       Object {
-        "data": "Test",
+        "attribs": Object {
+          "src": "http://cdn.himalaya.com/8c205ad6954541c99f7fd77008ff6479.jpg?x-oss-process=image/resize,w_300,h_300&auth_key=4102416000-1234-0-b5602166a98343b7e7f8f58d645d6d3e",
+        },
+        "children": Array [],
+        "name": "img",
+        "namespace": "http://www.w3.org/1999/xhtml",
         "next": null,
         "parent": [Circular],
         "prev": null,
-        "type": "text",
+        "type": "tag",
+        "x-attribsNamespace": Object {
+          "src": undefined,
+        },
+        "x-attribsPrefix": Object {
+          "src": undefined,
+        },
       },
     ],
-    "name": "div",
+    "name": "span",
     "namespace": "http://www.w3.org/1999/xhtml",
     "next": null,
     "parent": null,
@@ -37,9 +49,11 @@ initialize {
     "type": "tag",
     "x-attribsNamespace": Object {
       "class": undefined,
+      "prefix": undefined,
     },
     "x-attribsPrefix": Object {
       "class": undefined,
+      "prefix": undefined,
     },
   },
   "_root": [Circular],
