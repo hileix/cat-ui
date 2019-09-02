@@ -6,7 +6,7 @@ import { TagProps } from '../Tag';
 const StyledTag = styled.span`
   display: inline-block;
   border-radius: ${smallRadius};
-  padding: 1px 4px;
+  padding: 0 4px;
   font-size: 12px;
   color: ${(props: TagProps) => props.textColor || textColor};
   border: 1px solid ${(props: TagProps) => props.borderColor || borderColor};
