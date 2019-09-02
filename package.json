@@ -192,8 +192,14 @@
         {
           "emoji": "⬆️",
           "code": "⬆️",
-          "description": "Upgrading dependencies.",
+          "description": " Upgrading dependencies.",
           "name": "upgrade"
+        },
+        {
+          "emoji": "✅",
+          "code": "✅",
+          "description": "Adding tests.",
+          "name": "test"
         }
       ]
     },
