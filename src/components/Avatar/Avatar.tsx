@@ -34,7 +34,7 @@ export interface AvatarProps {
 class Avatar extends Component<AvatarProps, any> {
 
   handleImgLoadError = (e: any) =>{
-    this.props.onError(e)
+    this.props.onError && this.props.onError(e)
   }
 
   render() {
