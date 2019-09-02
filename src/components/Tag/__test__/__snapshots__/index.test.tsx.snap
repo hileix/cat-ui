@@ -4,7 +4,7 @@ exports[`Tag props:bgColor 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "sc-bdVaJa lmkVFj",
+      "class": "sc-bdVaJa gZJQVV",
     },
     "children": Array [
       Object {
@@ -57,7 +57,7 @@ exports[`Tag props:borderColor 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "sc-bdVaJa yyuIn",
+      "class": "sc-bdVaJa bVhWQC",
     },
     "children": Array [
       Object {
@@ -110,7 +110,7 @@ exports[`Tag props:textColor 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "sc-bdVaJa dExdkH",
+      "class": "sc-bdVaJa ksFGyZ",
     },
     "children": Array [
       Object {
@@ -163,7 +163,7 @@ exports[`Tag renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "sc-bdVaJa PZKXt",
+      "class": "sc-bdVaJa jHnbHC",
     },
     "children": Array [
       Object {
