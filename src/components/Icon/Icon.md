@@ -238,6 +238,11 @@ let NewIcon = () =>{
   search
 </div>
 
+<div className='icon-item'>
+  <Icon type={Icon.Type.add} />
+  add
+</div>
+
       <style>
         {`
           .icon-box .hmly-icon {
