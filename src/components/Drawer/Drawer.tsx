@@ -1,10 +1,11 @@
-import * as React from 'react'
-import * as ReactDOM from 'react-dom'
-import { Component } from 'react'
-import classNames from 'classnames'
-import { StyledDrawer } from './styled'
-import * as PropTypes from 'prop-types'
-import { canUseDOM } from '../../utils/index'
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { Component } from 'react';
+import classNames from 'classnames';
+import { StyledDrawer } from './styled';
+import * as PropTypes from 'prop-types';
+import getScrollBarSize from '../../utils/getScrollBarSize';
+import { canUseDOM } from '../../utils/index';
 
 export type PlacementType = 'right'
 
@@ -27,7 +28,6 @@ export interface DrawerProps {
   onClose?: () => void;
   /** 抽屉所在的位置 */
   placement?: PlacementType;
-  
 }
 
 /**
@@ -57,10 +57,13 @@ const Drawer = ({
   }
 
   const parentDOM = getContainer()
-  // 修复父节点滚动条在 drawer 出现时不会消失的 bug
   parentDOM.style.overflow = '';
+  parentDOM.style.width = '';
   if (visible) {
+    // 修复父节点滚动条在 drawer 出现时不会消失的 bug
     parentDOM.style.overflow = 'hidden';
+    // 修复滚动条由有到无时视图抖动的 bug
+    parentDOM.style.width = `${parentDOM.offsetWidth - getScrollBarSize()}px`;
   }
 
   const content = (
