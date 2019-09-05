@@ -10,23 +10,24 @@ export type PlacementType = 'right'
 
 export interface DrawerProps {
   /** 类名 */
-  className?: string
+  className?: string;
   /** 样式 */
-  style?: object
+  style?: object;
   /** 是否显示 */
-  visible?: boolean
+  visible?: boolean;
   /** 获取抽屉所在的 dom 节点 */
-  getContainer?: () => HTMLElement
+  getContainer?: () => HTMLElement;
   /** children */
-  children?: React.ReactChildren | string
+  children?: React.ReactChildren | string;
   /** 类名前缀 */
-  prefix?: string
+  prefix?: string;
   /** 是否显示遮罩 */
-  mask?: boolean
+  mask?: boolean;
   /** 关闭的回调 */
-  onClose?: () => void
+  onClose?: () => void;
   /** 抽屉所在的位置 */
-  placement?: PlacementType
+  placement?: PlacementType;
+  
 }
 
 /**
@@ -55,6 +56,13 @@ const Drawer = ({
     onClose && onClose()
   }
 
+  const parentDOM = getContainer()
+  // 修复父节点滚动条在 drawer 出现时不会消失的 bug
+  parentDOM.style.overflow = '';
+  if (visible) {
+    parentDOM.style.overflow = 'hidden';
+  }
+
   const content = (
     <StyledDrawer className={classes} style={style}>
       {mask && (
@@ -77,7 +85,7 @@ const Drawer = ({
       </div>
     </StyledDrawer>
   )
-  return ReactDOM.createPortal(content, getContainer())
+  return ReactDOM.createPortal(content, parentDOM)
 }
 
 Drawer.propTypes = {
