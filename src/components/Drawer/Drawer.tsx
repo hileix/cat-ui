@@ -28,6 +28,8 @@ export interface DrawerProps {
   onClose?: () => void;
   /** 抽屉所在的位置 */
   placement?: PlacementType;
+  /** 关闭时是否销毁 Drawer 里的子元素 */
+  destroyOnClose: boolean;
 }
 
 /**
@@ -41,12 +43,15 @@ const Drawer = ({
   mask,
   onClose,
   placement,
-  style
+  style,
+  destroyOnClose
 }: DrawerProps) => {
   // 服务端渲染返回 null
   if (!canUseDOM()) {
     return null
   }
+
+
 
   const classes = classNames(`${prefix}-drawer`, {
     [`${prefix}-drawer--hide`]: !visible
@@ -64,6 +69,14 @@ const Drawer = ({
     parentDOM.style.overflow = 'hidden';
     // 修复滚动条由有到无时视图抖动的 bug
     parentDOM.style.width = `${parentDOM.offsetWidth - getScrollBarSize()}px`;
+  }
+
+
+  let contentChildren: React.ReactChildren | string;
+  if (destroyOnClose && !visible) {
+    contentChildren = null;
+  } else {
+    contentChildren = children;
   }
 
   const content = (
@@ -84,24 +97,27 @@ const Drawer = ({
           [`${prefix}-drawer__content--hide`]: !visible
         })}
       >
-        {children}
+        {contentChildren}
       </div>
     </StyledDrawer>
   )
+
   return ReactDOM.createPortal(content, parentDOM)
 }
 
 Drawer.propTypes = {
   visible: PropTypes.bool.isRequired,
   getContainer: PropTypes.func,
-  onClose: PropTypes.func
+  onClose: PropTypes.func,
+  destroyOnClose: PropTypes.bool,
 }
 
 Drawer.defaultProps = {
   getContainer: () => document.body,
   prefix: 'hmly',
   mask: true,
-  placement: 'right'
+  placement: 'right',
+  destroyOnClose: false
 }
 
 export default Drawer
