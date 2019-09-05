@@ -105,7 +105,7 @@ class Portal extends PureComponent<ProtalProps, any> {
   render() {
     // 在服务端不渲染
     if (!canUseDOM()) {
-      return
+      return null
     }
     const { selector, onMount, onUnmount, render, visible, children } = this.props
     const { isInited } = this.state
@@ -113,7 +113,7 @@ class Portal extends PureComponent<ProtalProps, any> {
     const domNode = this.getContainer(selector)
     const content = render ? render() : children
 
-    // 初始化组件时，若visible为false，isInited表示Portal未初始化过，不用挂载组件到DOM上
+    // 初始化组件时，若 visible 为 false，isInited 表示 Portal 未初始化过，不用挂载组件到 DOM 上
     if (!visible && !isInited) { return null }
     if (!domNode) { return null }
 
