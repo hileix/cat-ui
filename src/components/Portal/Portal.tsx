@@ -3,6 +3,7 @@ import { PureComponent } from 'react'
 import * as ReactDOM from 'react-dom'
 import memoizeOne from 'memoize-one'
 import PortalContent from './PortalContent'
+import * as PropTypes from 'prop-types';
 
 /**
  * 是否可以使用 dom
@@ -16,7 +17,7 @@ export interface ProtalProps {
   className?: string;
   /** 样式 */
   style?: object;
-  /** 样式 */
+  /** 容器的 css 选择器 */
   selector?: string;
   /** 子元素 */
   children?: React.ReactNode;
@@ -35,6 +36,39 @@ export interface ProtalProps {
  */
 
 class Portal extends PureComponent<ProtalProps, any> {
+  static propTypes = {
+    /**
+     * 容器的 css 选择器
+     * 默认：'body'
+     */
+    selector: PropTypes.string,
+
+    /**
+     * 弹层是否显示
+     * 默认：-
+     */
+    visible: PropTypes.bool.isRequired,
+
+    /**
+     * 返回 Portal 需要渲染的内容，优先级高于 children
+     * 默认：-
+     */
+    render: PropTypes.func,
+
+    /**
+     * children 被 mout 后的回调
+     * 默认：-
+     */
+    onMount: PropTypes.func,
+
+    /**
+     * children 被 unmount 后的回调
+     * 默认：-
+     */
+    onUnmount: PropTypes.func,
+  }
+
+
   static defaultProps = {
     selector: 'body'
   }
