@@ -3,7 +3,7 @@ import * as debounce from 'lodash/debounce'
 import { PureComponent } from 'react'
 // import * as PropTypes from 'prop-types'
 import classNames from 'classnames'
-import { StyledButton } from './styled'
+// import { StyledButton } from './styled'
 
 export interface ButtonProps {
   /** 前缀 */
@@ -47,13 +47,13 @@ class Button extends PureComponent<ButtonProps, any> {
     loading: false
   }
 
-  constructor (props: ButtonProps) {
+  constructor(props: ButtonProps) {
     super(props)
     this.state = {}
     this.buttonRef = React.createRef()
   }
 
-  componentDidMount () {
+  componentDidMount() {
     const btnDOM = this.buttonRef.current
     this.originalBtnStyle = btnDOM.getAttribute('style') ? btnDOM.getAttribute('style') : ''
     // console.log('componentDidMount', debounce)
@@ -106,19 +106,22 @@ class Button extends PureComponent<ButtonProps, any> {
       [`${prefix}-button-disabled`]: disabled
     }, className)
 
-    return (<StyledButton
-      ref={this.buttonRef}
-      className={classes}
-      style={style}
-      type={htmlType}
-      disabled={disabled}
-      onClick={this.handleClick}
-      onMouseEnter={this.setBtnUp}
-      onMouseLeave={this.onMouseLeave}
-      onMouseDown={this.setBtnDown}
-      onMouseUp={this.setBtnUp}>
-      {children}
-    </StyledButton>)
+    return (
+      <button
+        ref={this.buttonRef}
+        className={classes}
+        style={style}
+        type={htmlType}
+        disabled={disabled}
+        onClick={this.handleClick}
+        onMouseEnter={this.setBtnUp}
+        onMouseLeave={this.onMouseLeave}
+        onMouseDown={this.setBtnDown}
+        onMouseUp={this.setBtnUp}
+      >
+        {children}
+      </button>
+    )
   }
 }
 

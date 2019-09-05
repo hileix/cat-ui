@@ -4,7 +4,7 @@ exports[`Button props: block 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-button hmly-button-primary hmly-button-lg hmly-button-block sc-bdVaJa hGulYG",
+      "class": "hmly-button hmly-button-primary hmly-button-lg hmly-button-block",
       "type": "button",
     },
     "children": Array [
@@ -60,7 +60,7 @@ exports[`Button props: disabled 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-button hmly-button-primary hmly-button-lg hmly-button-disabled sc-bdVaJa hGulYG",
+      "class": "hmly-button hmly-button-primary hmly-button-lg hmly-button-disabled",
       "disabled": "",
       "type": "button",
     },
@@ -119,7 +119,7 @@ exports[`Button props: size 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-button hmly-button-primary hmly-button-sm sc-bdVaJa hGulYG",
+      "class": "hmly-button hmly-button-primary hmly-button-sm",
       "type": "button",
     },
     "children": Array [
@@ -175,7 +175,7 @@ exports[`Button props: size 2`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-button hmly-button-primary hmly-button-md sc-bdVaJa hGulYG",
+      "class": "hmly-button hmly-button-primary hmly-button-md",
       "type": "button",
     },
     "children": Array [
@@ -231,7 +231,7 @@ exports[`Button props: size 3`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-button hmly-button-primary hmly-button-lg sc-bdVaJa hGulYG",
+      "class": "hmly-button hmly-button-primary hmly-button-lg",
       "type": "button",
     },
     "children": Array [
@@ -287,7 +287,7 @@ exports[`Button props: theme 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-button hmly-button-primary hmly-button-lg sc-bdVaJa hGulYG",
+      "class": "hmly-button hmly-button-primary hmly-button-lg",
       "type": "button",
     },
     "children": Array [
@@ -343,7 +343,7 @@ exports[`Button props: theme 2`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-button hmly-button-yellow hmly-button-lg sc-bdVaJa hGulYG",
+      "class": "hmly-button hmly-button-yellow hmly-button-lg",
       "type": "button",
     },
     "children": Array [
@@ -399,7 +399,7 @@ exports[`Button props: theme 3`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-button hmly-button-white-primary hmly-button-lg sc-bdVaJa hGulYG",
+      "class": "hmly-button hmly-button-white-primary hmly-button-lg",
       "type": "button",
     },
     "children": Array [
@@ -455,7 +455,7 @@ exports[`Button props: theme 4`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-button hmly-button-white-cyan hmly-button-lg sc-bdVaJa hGulYG",
+      "class": "hmly-button hmly-button-white-cyan hmly-button-lg",
       "type": "button",
     },
     "children": Array [
@@ -511,7 +511,7 @@ exports[`Button props: theme 5`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-button hmly-button-borderless hmly-button-lg sc-bdVaJa hGulYG",
+      "class": "hmly-button hmly-button-borderless hmly-button-lg",
       "type": "button",
     },
     "children": Array [
@@ -567,7 +567,7 @@ exports[`Button renders characters: Chinese, Japanese 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-button hmly-button-primary hmly-button-lg sc-bdVaJa hGulYG",
+      "class": "hmly-button hmly-button-primary hmly-button-lg",
       "type": "button",
     },
     "children": Array [
@@ -623,7 +623,7 @@ exports[`Button renders characters: Chinese, Japanese 2`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-button hmly-button-primary hmly-button-lg sc-bdVaJa hGulYG",
+      "class": "hmly-button hmly-button-primary hmly-button-lg",
       "type": "button",
     },
     "children": Array [
@@ -679,7 +679,7 @@ exports[`Button renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-button hmly-button-primary hmly-button-lg sc-bdVaJa hGulYG",
+      "class": "hmly-button hmly-button-primary hmly-button-lg",
       "type": "button",
     },
     "children": Array [
