@@ -4,13 +4,7 @@ import * as ReactDOM from 'react-dom'
 import memoizeOne from 'memoize-one'
 import PortalContent from './PortalContent'
 import * as PropTypes from 'prop-types';
-
-/**
- * 是否可以使用 dom
- */
-const canUseDOM = (): boolean => {
-  return !!(typeof window !== 'undefined');
-}
+import { canUseDOM } from '../../utils/index';
 
 export interface ProtalProps {
   /** 类名 */
