@@ -4,6 +4,13 @@ import * as ReactDOM from 'react-dom'
 import memoizeOne from 'memoize-one'
 import PortalContent from './PortalContent'
 
+/**
+ * 是否可以使用 dom
+ */
+const canUseDOM = (): boolean => {
+  return !!(typeof window !== 'undefined');
+}
+
 export interface ProtalProps {
   /** 类名 */
   className?: string;
@@ -32,41 +39,48 @@ class Portal extends PureComponent<ProtalProps, any> {
     selector: 'body'
   }
 
-  constructor (props: ProtalProps) {
+  constructor(props: ProtalProps) {
     super(props)
     this.state = {
       isInited: false
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     const { visible } = this.props
     if (visible) {
-      this.setState({ isInited: true})
+      this.setState({ isInited: true })
     }
   }
 
-  componentDidUpdate (prevProps: ProtalProps) {
+  componentDidUpdate(prevProps: ProtalProps) {
     const isNotEqual = prevProps.visible !== this.props.visible
     if (this.props.visible && isNotEqual) {
-      this.setState({ isInited: true})
+      this.setState({ isInited: true })
     }
   }
 
-  getContainer = (selector: string) => {
-    if (typeof document === 'undefined') { return }
-    const node = document.querySelector(selector) || document.body
-    return node
+  getContainer = (selector: string): HTMLElement => {
+    let domNode: HTMLElement
+    if (selector) {
+      domNode = document.querySelector(selector)
+    }
+    return domNode || document.body
   }
 
   render() {
+    // 在服务端不渲染
+    if (!canUseDOM()) {
+      return
+    }
     const { selector, onMount, onUnmount, render, visible, children } = this.props
     const { isInited } = this.state
+
     const domNode = this.getContainer(selector)
     const content = render ? render() : children
 
     // 初始化组件时，若visible为false，isInited表示Portal未初始化过，不用挂载组件到DOM上
-    if (!visible && !isInited) { return null}
+    if (!visible && !isInited) { return null }
     if (!domNode) { return null }
 
     return ReactDOM.createPortal(
