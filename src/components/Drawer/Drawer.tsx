@@ -52,14 +52,44 @@ const Drawer = ({
   if (!canUseDOM()) {
     return null
   }
-
   const [parentDOM, setParentDOM] = useState(null);
+  const [originStyles, setOriginStyles] = useState(null);
 
+  // 首次 render
   useEffect(() => {
+    console.log(1);
     const parentDOM = getContainer();
     setParentDOM(parentDOM);
-  }, [getContainer])
-  
+    const styles = getComputedStyle(parentDOM, null);
+    console.log({ position: styles.position, overflow: styles.overflow });
+    setOriginStyles({ position: styles.position, overflow: styles.overflow, overflowY: styles.overflowY });
+  }, [])
+
+  // visible 变化时
+  useEffect(() => {
+    console.log(2);
+    if (originStyles) {
+      // 显示，则加上样式
+      if (visible) {
+        console.log({ originStyles });
+        if (originStyles.position === 'static') {
+          parentDOM.style.position = 'relative';
+        }
+        if (originStyles.overflow !== 'hidden') {
+          // 是否有 scroll bar
+          if (['auto', 'scroll'].includes(originStyles.overflowY)) {
+            parentDOM.style.overflow = 'hidden';
+            parentDOM.style.width = `${parentDOM.offsetWidth - getScrollBarSize()}px`;
+          }
+        }
+      } else {
+        // 隐藏，则还原样式
+        parentDOM.style.overflow = originStyles.overflow;
+      }
+    }
+  }, [visible])
+
+
   if (!parentDOM) {
     return null;
   }
@@ -72,14 +102,14 @@ const Drawer = ({
     onClose && onClose()
   }
 
-  parentDOM.style.overflow = '';
-  parentDOM.style.width = '';
-  if (visible) {
-    // 修复父节点滚动条在 drawer 出现时不会消失的 bug
-    parentDOM.style.overflow = 'hidden';
-    // 修复滚动条由有到无时视图抖动的 bug
-    parentDOM.style.width = `${parentDOM.offsetWidth - getScrollBarSize()}px`;
-  }
+  // parentDOM.style.overflow = '';
+  // parentDOM.style.width = '';
+  // if (visible) {
+  //   // 修复父节点滚动条在 drawer 出现时不会消失的 bug
+  //   parentDOM.style.overflow = 'hidden';
+  //   // 修复滚动条由有到无时视图抖动的 bug
+  //   parentDOM.style.width = `${parentDOM.offsetWidth - getScrollBarSize()}px`;
+  // }
 
 
   let contentChildren: React.ReactChildren | string;
