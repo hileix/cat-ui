@@ -29,8 +29,10 @@ export interface DrawerProps {
   /** 抽屉所在的位置 */
   placement?: PlacementType;
   /** 关闭时是否销毁 Drawer 里的子元素 */
-  destroyOnClose: boolean;
+  destroyOnClose?: boolean;
 }
+
+const { useState, useEffect } = React
 
 /**
  * 抽屉组件
@@ -51,17 +53,25 @@ const Drawer = ({
     return null
   }
 
+  const [parentDOM, setParentDOM] = useState(null);
 
+  useEffect(() => {
+    const parentDOM = getContainer();
+    setParentDOM(parentDOM);
+  }, [getContainer])
+  
+  if (!parentDOM) {
+    return null;
+  }
 
   const classes = classNames(`${prefix}-drawer`, {
     [`${prefix}-drawer--hide`]: !visible
-  })
+  });
 
   const handleClose = () => {
     onClose && onClose()
   }
 
-  const parentDOM = getContainer()
   parentDOM.style.overflow = '';
   parentDOM.style.width = '';
   if (visible) {
