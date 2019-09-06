@@ -1,32 +1,35 @@
-import * as React from 'react'
-import * as ReactDOM from 'react-dom'
-import { Component } from 'react'
-import classNames from 'classnames'
-import { StyledDrawer } from './styled'
-import * as PropTypes from 'prop-types'
-import { canUseDOM } from '../../utils/index'
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { Component } from 'react';
+import classNames from 'classnames';
+import { StyledDrawer } from './styled';
+import * as PropTypes from 'prop-types';
+import getScrollBarSize from '../../utils/getScrollBarSize';
+import { canUseDOM } from '../../utils/index';
 
 export type PlacementType = 'right'
 
 export interface DrawerProps {
   /** 类名 */
-  className?: string
+  className?: string;
   /** 样式 */
-  style?: object
+  style?: object;
   /** 是否显示 */
-  visible?: boolean
+  visible?: boolean;
   /** 获取抽屉所在的 dom 节点 */
-  getContainer?: () => HTMLElement
+  getContainer?: () => HTMLElement;
   /** children */
-  children?: React.ReactChildren | string
+  children?: React.ReactChildren | string;
   /** 类名前缀 */
-  prefix?: string
+  prefix?: string;
   /** 是否显示遮罩 */
-  mask?: boolean
+  mask?: boolean;
   /** 关闭的回调 */
-  onClose?: () => void
+  onClose?: () => void;
   /** 抽屉所在的位置 */
-  placement?: PlacementType
+  placement?: PlacementType;
+  /** 关闭时是否销毁 Drawer 里的子元素 */
+  destroyOnClose: boolean;
 }
 
 /**
@@ -40,12 +43,15 @@ const Drawer = ({
   mask,
   onClose,
   placement,
-  style
+  style,
+  destroyOnClose
 }: DrawerProps) => {
   // 服务端渲染返回 null
   if (!canUseDOM()) {
     return null
   }
+
+
 
   const classes = classNames(`${prefix}-drawer`, {
     [`${prefix}-drawer--hide`]: !visible
@@ -53,6 +59,24 @@ const Drawer = ({
 
   const handleClose = () => {
     onClose && onClose()
+  }
+
+  const parentDOM = getContainer()
+  parentDOM.style.overflow = '';
+  parentDOM.style.width = '';
+  if (visible) {
+    // 修复父节点滚动条在 drawer 出现时不会消失的 bug
+    parentDOM.style.overflow = 'hidden';
+    // 修复滚动条由有到无时视图抖动的 bug
+    parentDOM.style.width = `${parentDOM.offsetWidth - getScrollBarSize()}px`;
+  }
+
+
+  let contentChildren: React.ReactChildren | string;
+  if (destroyOnClose && !visible) {
+    contentChildren = null;
+  } else {
+    contentChildren = children;
   }
 
   const content = (
@@ -73,24 +97,27 @@ const Drawer = ({
           [`${prefix}-drawer__content--hide`]: !visible
         })}
       >
-        {children}
+        {contentChildren}
       </div>
     </StyledDrawer>
   )
-  return ReactDOM.createPortal(content, getContainer())
+
+  return ReactDOM.createPortal(content, parentDOM)
 }
 
 Drawer.propTypes = {
   visible: PropTypes.bool.isRequired,
   getContainer: PropTypes.func,
-  onClose: PropTypes.func
+  onClose: PropTypes.func,
+  destroyOnClose: PropTypes.bool,
 }
 
 Drawer.defaultProps = {
   getContainer: () => document.body,
   prefix: 'hmly',
   mask: true,
-  placement: 'right'
+  placement: 'right',
+  destroyOnClose: false
 }
 
 export default Drawer
