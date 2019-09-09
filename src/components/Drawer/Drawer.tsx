@@ -208,7 +208,7 @@ class Drawer extends Component<DrawerProps, DrawerStateInterface> {
     }
 
     const { parentDOM } = this.state
-    const { prefix, visible, destroyOnClose, children, style, mask, placement } = this.props
+    const { prefix, visible, destroyOnClose, children, style, mask, placement, className } = this.props
 
     if (!parentDOM) {
       return null;
@@ -226,7 +226,7 @@ class Drawer extends Component<DrawerProps, DrawerStateInterface> {
     }
 
     const content = (
-      <StyledDrawer className={classes} style={style}>
+      <StyledDrawer className={classes}>
         {mask && (
           <div
             className={classNames(`${prefix}-drawer__mask`, {
@@ -238,10 +238,11 @@ class Drawer extends Component<DrawerProps, DrawerStateInterface> {
         )}
 
         <div
-          className={classNames(`${prefix}-drawer__content`, {
+          className={classNames(className, `${prefix}-drawer__content`, {
             [`${prefix}-drawer__content--${placement}`]: true,
             [`${prefix}-drawer__content--hide`]: !visible
           })}
+          style={style}
         >
           {contentChildren}
         </div>

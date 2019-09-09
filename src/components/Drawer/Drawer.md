@@ -26,7 +26,7 @@ class Example extends React.Component {
       <div className='drawer-box'>
         <div>
           <div id='drawer-wrapper-2'>
-            <Drawer visible={visible2} onClose={() => this.setState({ visible2: false })} mask={true}>
+            <Drawer className='my-drawer' style={{ width: 200 }} visible={visible2} onClose={() => this.setState({ visible2: false })} mask={true}>
               <div style={{ width: 100, padding: 16 }}>
                 test
               </div>
