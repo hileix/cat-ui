@@ -41,19 +41,12 @@ class Example extends React.Component {
       <Button onClick={this.onClick1} theme='white-primary'>
         Message.success
       </Button>
-      <Button onClick={this.onClick2}>
-        Message.error
-      </Button>
-      <Button onClick={this.onClick3} theme='borderless'>
-        Message.info
-      </Button>
       <Button onClick={this.onClick4} theme='yellow'>
         Message.warn
       </Button>
-      <Button onClick={this.onClick5} theme='white-cyan'>
-        Message.loading
+      <Button onClick={this.onClick2}>
+        Message.error
       </Button>
-
       <style>
         {`
           .message-box {

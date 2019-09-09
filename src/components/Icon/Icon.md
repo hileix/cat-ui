@@ -243,6 +243,21 @@ let NewIcon = () =>{
   add
 </div>
 
+<div className='icon-item'>
+  <Icon type={Icon.Type.error} />
+  error
+</div>
+
+<div className='icon-item'>
+  <Icon type={Icon.Type.success} />
+  success
+</div>
+
+<div className='icon-item'>
+  <Icon type={Icon.Type.warning} />
+  warning
+</div>
+
       <style>
         {`
           .icon-box .hmly-icon {
