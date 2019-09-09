@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { primaryBtnColor } from '../../../styles/theme'
 
 const StyledDrawer = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: 1000;
   left: 0;
   top: 0;
@@ -31,7 +31,7 @@ const StyledDrawer = styled.div`
     opacity: 0;
   }
   .hmly-drawer__content {
-    position: absolute;
+    position: fixed;
     box-shadow: 0 0 30px 0 rgba(75, 76, 77, 0.5);
   }
   .hmly-drawer__content--right {
