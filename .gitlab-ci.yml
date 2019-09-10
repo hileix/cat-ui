@@ -34,6 +34,6 @@ deploy:
     name: master
     url: http://test.himalaya.com
   only:
-    - master
+    - v1
   tags:
     - fe-common
