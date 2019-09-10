@@ -27,7 +27,7 @@
     "prettier:base": "prettier --parser typescript --single-quote --trailing-comma none",
     "prettier:check": "npm run prettier:base -- -l \"src/**/*.{ts,tsx}\"",
     "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\"",
-    "update:icon": "node ./scripts/updateIcon/index.js --code=d4iatsmp9w4"
+    "update:icon": "node ./scripts/updateIcon/index.js --code=6wfba7pz5h"
   },
   "dependencies": {
     "classnames": "^2.2.6",
