@@ -15,6 +15,7 @@ deploy:
   stage: deploy
   script:
     - git checkout .
+    - git checkout v1
     - git clean -fd
     - git pull origin v1
     - git status
