@@ -13,37 +13,31 @@ export interface MessageTypeProps {
   style?: object;
 }
 
+export type MessageType = 'success' | 'warn' | 'error';
+
 /**
  * 全局提示
  */
 class Message {
-
   static success(text: string, duration?: number, callback?: () => void) {
     return Message.show('success', text, duration, callback)
-  }
-
-  static error(text: string, duration?: number, callback?: () => void) {
-    return Message.show('error', text, duration, callback)
-  }
-
-  static info(text: string, duration?: number, callback?: () => void) {
-    return Message.show('info', text, duration, callback)
   }
 
   static warn(text: string, duration?: number, callback?: () => void) {
     return Message.show('warn', text, duration, callback)
   }
 
-  static loading(text: string, duration?: number, callback?: () => void) {
-    return Message.show('loading', text, duration, callback)
+  static error(text: string, duration?: number, callback?: () => void) {
+    return Message.show('error', text, duration, callback)
   }
 
-  static show (type?: string, text?: string, duration = 3000, callback = noop) {
+  static show(type?: MessageType, text?: string, duration = 3000, callback = noop) {
     const container = document.createElement('div')
     ReactDOM.render(
       <MessageContent
         text={text}
-        type={type} />,
+        type={type}
+      />,
       container
     )
 
