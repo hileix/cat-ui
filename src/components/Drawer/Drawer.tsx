@@ -39,6 +39,8 @@ export interface DrawerStateInterface {
   originStyles: Object | null;
 }
 
+const TIMEOUT = 300;
+
 
 class Drawer extends Component<DrawerProps, DrawerStateInterface> {
   static propTypes = {
@@ -88,31 +90,26 @@ class Drawer extends Component<DrawerProps, DrawerStateInterface> {
       return null;
     }
 
-    const classes = classNames(`${prefix}-drawer`, {
-      [`${prefix}-drawer--hide`]: !visible
-    });
-
-    let contentChildren: React.ReactChildren | string;
-    if (destroyOnClose && !visible) {
-      contentChildren = null;
-    } else {
-      contentChildren = children;
-    }
-
     const content = (
-      <StyledDrawer className={classes}>
+      <StyledDrawer className={classNames(`${prefix}-drawer`)}>
         {mask && (
-          <div
-            className={classNames(`${prefix}-drawer__mask`, {
-              [`${prefix}-drawer__mask--show`]: mask && visible,
-              [`${prefix}-drawer__mask--hide`]: mask && !visible
-            })}
-            onClick={this.handleClose}
-          />
+          <CSSTransition
+            timeout={TIMEOUT}
+            in={visible}
+            classNames={`${prefix}-drawer__mask`}
+            unmountOnExit
+            mountOnEnter
+            appear
+          >
+            <div
+              className={`${prefix}-drawer__mask`}
+              onClick={this.handleClose}
+            />
+          </CSSTransition>
         )}
 
         <CSSTransition
-          timeout={300}
+          timeout={TIMEOUT}
           in={visible}
           classNames={`${prefix}-drawer__content`}
           unmountOnExit={destroyOnClose}
@@ -126,7 +123,7 @@ class Drawer extends Component<DrawerProps, DrawerStateInterface> {
             style={style}
 
           >
-            {contentChildren}
+            {children}
           </div>
         </CSSTransition>
 
