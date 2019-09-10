@@ -9,7 +9,10 @@ variables:
   DOCKER_DRIVER: overlay
 
 before_script:
-  - 'cd /srv/nodejs/cat-ui'
+  - 'cd /srv/nodejs'
+  - 'rm -rf cat-ui'
+  - 'git clone git@gitlab.ximalaya.com:HIFE/cat-ui.git'
+  - 'cd cat-ui'
 
 deploy:
   stage: deploy
