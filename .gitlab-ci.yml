@@ -14,6 +14,7 @@ before_script:
 deploy:
   stage: deploy
   script:
+    - yarn run styleguidist:stop
     - git checkout .
     - git checkout v1
     - git clean -fd
