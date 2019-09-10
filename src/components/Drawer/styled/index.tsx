@@ -65,7 +65,6 @@ const StyledDrawer = styled.div`
   .hmly-drawer__content {
     transform: translateZ(0);
     position: fixed;
-    box-shadow: 0 0 30px 0 rgba(75, 76, 77, 0.5);
     transition: 0.3s;
   }
 
@@ -74,9 +73,11 @@ const StyledDrawer = styled.div`
   }
   .hmly-drawer__content-appear-active {
     transform: translateX(0);
+    box-shadow: 0 0 30px 0 rgba(75, 76, 77, 0.5);
   }
   .hmly-drawer__content-appear-done {
     transform: translateX(0);
+    box-shadow: 0 0 30px 0 rgba(75, 76, 77, 0.5);
   }
 
 
@@ -85,13 +86,16 @@ const StyledDrawer = styled.div`
   }
   .hmly-drawer__content-enter-active {
     transform: translateX(0);
+    box-shadow: 0 0 30px 0 rgba(75, 76, 77, 0.5);
   }
   .hmly-drawer__content-enter-done {
     transform: translateX(0);
+    box-shadow: 0 0 30px 0 rgba(75, 76, 77, 0.5);
   }
 
   .hmly-drawer__content-exit {
     transform: translateX(0);
+    box-shadow: 0 0 30px 0 rgba(75, 76, 77, 0.5);
   }
   .hmly-drawer__content-exit-active {
     transform: translateX(100%);
