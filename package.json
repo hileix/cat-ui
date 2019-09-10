@@ -28,13 +28,10 @@
     "prettier:check": "npm run prettier:base -- -l \"src/**/*.{ts,tsx}\"",
     "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\"",
     "update:icon": "node ./scripts/updateIcon/index.js --code=6wfba7pz5h"
-<<<<<<< HEAD
-=======
   },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
->>>>>>> ce98904c9b7e24f4816a6816d0b3a79d8c02cc97
   },
   "dependencies": {
     "classnames": "^2.2.6",
