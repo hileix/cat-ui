@@ -28,7 +28,7 @@
     "storybook:build": "yarn run test && yarn run build:storybook",
     "storybook:start": "NODE_ENV=test pm2 start ./server.js --name=cat-ui-storybook",
     "storybook:stop": "pm2 stop cat-ui-storybook",
-    "storybook:publish": "yarn && yarn run storybook:build && pm2 reload cat-ui-storybook",
+    "storybook:publish": "yarn && yarn run storybook:build && yarn run storybook:stop && yarn run storybook:start",
 
     "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
     "lint:fix": "npm run lint -- --fix ",
