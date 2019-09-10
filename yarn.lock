@@ -579,6 +579,13 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@babel/runtime@^7.5.5":
+  version "7.6.0"
+  resolved "http://xnpm.ximalaya.com/@babel%2fruntime/-/runtime-7.6.0.tgz#4fc1d642a9fd0299754e8b5de62c631cf5568205"
+  integrity sha1-T8HWQqn9Apl1Totd5ixjHPVWggU=
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
 "@babel/template@^7.0.0", "@babel/template@^7.1.0", "@babel/template@^7.2.2", "@babel/template@^7.4.0":
   version "7.4.0"
   resolved "http://xnpm.ximalaya.com/@babel%2ftemplate/-/template-7.4.0.tgz#12474e9c077bae585c5d835a95c0b0b790c25c8b"
@@ -879,6 +886,13 @@
 "@types/react-test-renderer@^16.8.1":
   version "16.8.1"
   resolved "http://xnpm.ximalaya.com/@types%2freact-test-renderer/-/react-test-renderer-16.8.1.tgz#96f3ce45a3a41c94eca532a99103dd3042c9d055"
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-transition-group@^4.2.2":
+  version "4.2.2"
+  resolved "http://xnpm.ximalaya.com/@types%2freact-transition-group/-/react-transition-group-4.2.2.tgz#8c851c4598a23a3a34173069fb4c5c9e41c02e3f"
+  integrity sha1-jIUcRZiiOjo0FzBp+0xcnkHALj8=
   dependencies:
     "@types/react" "*"
 
@@ -2779,6 +2793,11 @@ csstype@^2.2.0:
   version "2.6.3"
   resolved "http://xnpm.ximalaya.com/csstype/-/csstype-2.6.3.tgz#b701e5968245bf9b08d54ac83d00b624e622a9fa"
 
+csstype@^2.6.6:
+  version "2.6.6"
+  resolved "http://xnpm.ximalaya.com/csstype/-/csstype-2.6.6.tgz#c34f8226a94bbb10c32cc0d714afdf942291fc41"
+  integrity sha512-RpFbQGUE74iyPgvr46U9t1xoQBM8T4BL8SxrN66Le2xYAPSaDJJKeztV3awugusb3g3G9iL8StmkBBXhcbbXhg==
+
 currently-unhandled@^0.4.1:
   version "0.4.1"
   resolved "http://xnpm.ximalaya.com/currently-unhandled/-/currently-unhandled-0.4.1.tgz#988df33feab191ef799a61369dd76c17adf957ea"
@@ -3038,6 +3057,14 @@ doctrine@^3.0.0:
   resolved "http://xnpm.ximalaya.com/doctrine/-/doctrine-3.0.0.tgz#addebead72a6574db783639dc87a121773973961"
   dependencies:
     esutils "^2.0.2"
+
+dom-helpers@^5.0.1:
+  version "5.1.0"
+  resolved "http://xnpm.ximalaya.com/dom-helpers/-/dom-helpers-5.1.0.tgz#57a726de04abcc2a8bbfe664b3e21c584bde514e"
+  integrity sha1-V6cm3gSrzCqLv+Zks+IcWEveUU4=
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    csstype "^2.6.6"
 
 dom-serializer@0, dom-serializer@~0.1.0:
   version "0.1.1"
@@ -7126,6 +7153,16 @@ react-test-renderer@^16.0.0-0:
     prop-types "^15.6.2"
     react-is "^16.8.5"
     scheduler "^0.13.5"
+
+react-transition-group@^4.3.0:
+  version "4.3.0"
+  resolved "http://xnpm.ximalaya.com/react-transition-group/-/react-transition-group-4.3.0.tgz#fea832e386cf8796c58b61874a3319704f5ce683"
+  integrity sha1-/qgy44bPh5bFi2GHSjMZcE9c5oM=
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    dom-helpers "^5.0.1"
+    loose-envify "^1.4.0"
+    prop-types "^15.6.2"
 
 react@^16.9.0:
   version "16.9.0"

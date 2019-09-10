@@ -31,20 +31,49 @@ const StyledDrawer = styled.div`
     opacity: 0;
   }
   .hmly-drawer__content {
+    transform: translateZ(0);
     position: fixed;
     box-shadow: 0 0 30px 0 rgba(75, 76, 77, 0.5);
   }
+  .hmly-drawer__content-appear {
+    transform: translateX(100%);
+  }
+  .hmly-drawer__content-appear-active {
+    transform: translateX(0);
+  }
+  .hmly-drawer__content-appear-done {
+    transform: translateX(0);
+  }
+
+
+  .hmly-drawer__content-enter {
+    transform: translateX(100%);
+  }
+  .hmly-drawer__content-enter-active {
+    transform: translateX(0);
+  }
+  .hmly-drawer__content-enter-done {
+    transform: translateX(0);
+  }
+
+  .hmly-drawer__content-exit {
+    transform: translateX(0);
+  }
+  .hmly-drawer__content-exit-active {
+    transform: translateX(100%);
+  }
+  .hmly-drawer__content-exit-done {
+    transform: translateX(100%);
+  }
+
+  
+
   .hmly-drawer__content--right {
     right: 0;
     top: 0;
     bottom: 0;
     background: #fff;
     transition: 0.3s;
-  }
-  .hmly-drawer__content--hide {
-    /* 开启 GPU 加速 */
-    transform: translateZ(0);
-    transform: translateX(100%);
   }
 `;
 
