@@ -19,17 +19,14 @@
     "new": "./scripts/new-component.sh",
     "test": "jest",
     "update:snapshot": "jest --updateSnapshot",
-
     "styleguidist:build": "styleguidist build && yarn run test",
     "styleguidist:publish": "yarn && yarn run styleguidist:build && pm2 reload cat-ui-styleguidist",
     "styleguidist:start": "NODE_ENV=test pm2 start ./server.js --name=cat-ui-styleguidist",
     "styleguidist:stop": "pm2 stop cat-ui-styleguidist",
-
     "storybook:build": "yarn run test && yarn run build:storybook",
     "storybook:start": "NODE_ENV=test pm2 start ./server.js --name=cat-ui-storybook",
     "storybook:stop": "pm2 stop cat-ui-storybook",
     "storybook:publish": "yarn && yarn run storybook:build && yarn run storybook:start",
-
     "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
     "lint:fix": "npm run lint -- --fix ",
     "prettier:base": "prettier --parser typescript --single-quote --trailing-comma none",
@@ -41,13 +38,15 @@
     "build:storybook": "build-storybook -o storybook",
     "build": "npm run test && rm -rf lib styles && npm run build:ts && npm run build:css"
   },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
   "dependencies": {
     "classnames": "^2.2.6",
     "lodash": "^4.17.11",
     "memoize-one": "^5.0.2",
     "prop-types": "^15.7.2",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
     "styled-components": "^4.2.0"
   },
   "files": [
@@ -101,8 +100,10 @@
     "mini-css-extract-plugin": "^0.5.0",
     "node-fetch": "^2.6.0",
     "prettier": "^1.16.4",
+    "react": "^16.9.0",
     "react-docgen-typescript": "^1.12.3",
     "react-docgen-typescript-loader": "^3.2.0",
+    "react-dom": "^16.9.0",
     "react-styleguidist": "^9.0.3",
     "sass": "1.22.10",
     "sass-loader": "^7.1.0",
