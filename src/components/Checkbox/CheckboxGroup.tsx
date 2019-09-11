@@ -40,7 +40,6 @@ class CheckboxGroup extends Component<CheckboxGroupProps, any> {
 
   static getDerivedStateFromProps(nextProps: CheckboxGroupProps) {
     if ('value' in nextProps) {
-      console.log('nextValue:', nextProps.value);
       return {
         value: nextProps.value
       };
@@ -83,14 +82,11 @@ class CheckboxGroup extends Component<CheckboxGroupProps, any> {
       if (!element) {
         return element;
       }
-
       const checked = value.indexOf(element.props.value) > -1;
-      console.log({ value, checked });
-
       return cloneElement(element, {
         onChange: this.onCheckboxChange,
         key: value,
-        checked: checked,
+        checked,
         disabled: disabled,
         readOnly: readOnly
       });

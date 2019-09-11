@@ -28,11 +28,8 @@ const Demo2 = () => {
   const [value, setValue] = useState(['A']);
 
   const handleChange = value => {
-    console.log('value:', value);
     setValue(value);
   };
-
-  console.log({ value });
 
   return (
     <Checkbox.Group value={value} onChange={handleChange}>
@@ -47,6 +44,27 @@ const Demo2 = () => {
   );
 };
 
+const Demo3 = () => {
+  const [value, setValue] = useState(['A']);
+
+  const handleChange = value => {
+    setValue(value);
+  };
+
+  return (
+    <Checkbox.Group disabled value={value} onChange={handleChange}>
+      <Checkbox value={'A'}>A</Checkbox>
+      <Checkbox value={'B'}>B</Checkbox>
+      <Checkbox value={'C'}>C</Checkbox>
+      <Checkbox disabled value="D">
+        D
+      </Checkbox>
+      <Checkbox value={'E'}>E</Checkbox>
+    </Checkbox.Group>
+  );
+};
+
 storiesOf('Checkbox 多选框', module)
   .add('Checkbox', () => <Demo1 />)
-  .add('Checkbox.Group', () => <Demo2 />);
+  .add('Checkbox.Group', () => <Demo2 />)
+  .add('Checkbox.Group 禁用', () => <Demo3 />);
