@@ -1,0 +1,49 @@
+.hmly-avatar {
+  position      : relative;
+  display       : inline-block;
+  overflow      : hidden;
+  color         : #ffffff;
+  white-space   : nowrap;
+  text-align    : center;
+  vertical-align: middle;
+  background    : #ccc;
+  width         : 32px;
+  height        : 32px;
+  line-height   : 32px;
+
+  &-image {
+    background: transparent;
+  }
+
+  &-string {
+    position        : absolute;
+    left            : 50%;
+    transform-origin: 0 center;
+  }
+
+  &-circle {
+    border-radius: 50%;
+  }
+
+  &-lg {
+    width      : 40px;
+    height     : 40px;
+    line-height: 40px;
+  }
+
+  &-sm {
+    width      : 24px;
+    height     : 24px;
+    line-height: 24px;
+  }
+
+  &-square {
+    border-radius: 4px;
+  }
+
+  &>img {
+    display: block;
+    width  : 100%;
+    height : 100%;
+  }
+}
