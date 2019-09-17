@@ -1,8 +1,7 @@
-import * as React from 'react'
-import { Component, cloneElement } from 'react'
-import classNames from 'classnames'
-import { StyledDragger } from './styled'
-import DraggerItem from './DraggerItem'
+import * as React from 'react';
+import { Component, cloneElement } from 'react';
+import classNames from 'classnames';
+import DraggerItem from './DraggerItem';
 
 export interface DraggerProps {
   /** 类名 */
@@ -25,97 +24,102 @@ export interface DraggerProps {
  * 拖拽器
  */
 class Dragger extends Component<DraggerProps, any> {
-  private draggerRef: any
-  private dragged: any
-  private over: any
-  static Item: typeof DraggerItem
+  private draggerRef: any;
+  private dragged: any;
+  private over: any;
+  static Item = DraggerItem;
 
-  constructor (props: DraggerProps) {
-    super(props)
+  constructor(props: DraggerProps) {
+    super(props);
     this.state = {
       childrenNode: []
-    }
-    this.draggerRef = React.createRef()
+    };
+    this.draggerRef = React.createRef();
   }
 
   componentDidMount = () => {
-    const { children } = this.props
+    const { children } = this.props;
     this.setState({
       childrenNode: children
-    })
-  }
+    });
+  };
 
   dragStart = (event: any) => {
-    const { onDragStart } = this.props
-    this.dragged = event.currentTarget
-    onDragStart && onDragStart(event)
-  }
+    const { onDragStart } = this.props;
+    this.dragged = event.currentTarget;
+    onDragStart && onDragStart(event);
+  };
 
   dragOver = (event: any) => {
-    const { onDragOver } = this.props
-    event.preventDefault()
-    this.over = event.target.closest('.hmly-dragger-item')
+    const { onDragOver } = this.props;
+    event.preventDefault();
+    this.over = event.target.closest('.hmly-dragger-item');
 
     // 若未找到安放的DOM元素，则设为本身
     if (this.over === null) {
-      this.over = this.dragged
+      this.over = this.dragged;
     }
-    onDragOver && onDragOver(event)
-  }
+    onDragOver && onDragOver(event);
+  };
 
   dragEnd = (event: any) => {
-    const { childrenNode } = this.state
-    const { draggedElement, onDragEnd, onSort } = this.props
-    let from = Number(this.dragged.dataset.order)
-    let to = Number(this.over.dataset.order)
-    let _childrenNode = Array.from(childrenNode)
-    let draggedNode = _childrenNode.splice(from - 1, 1)[0]
+    const { childrenNode } = this.state;
+    const { draggedElement, onDragEnd, onSort } = this.props;
+    let from = Number(this.dragged.dataset.order);
+    let to = Number(this.over.dataset.order);
+    let _childrenNode = Array.from(childrenNode);
+    let draggedNode = _childrenNode.splice(from - 1, 1)[0];
 
-    _childrenNode.splice(to - 1, 0, draggedNode)
+    _childrenNode.splice(to - 1, 0, draggedNode);
 
     // 返回拖拽的DOM
-    let _draggedEleIndex = _childrenNode.indexOf(draggedNode)
-    let draggerDOM = this.draggerRef.current
-    let _draggedEle = draggerDOM.querySelector(`:nth-child(${_draggedEleIndex + 1})`)
+    let _draggedEleIndex = _childrenNode.indexOf(draggedNode);
+    let draggerDOM = this.draggerRef.current;
+    let _draggedEle = draggerDOM.querySelector(
+      `:nth-child(${_draggedEleIndex + 1})`
+    );
 
     // 返回排序后的id
-    let sortedIds: Array<any> = []
+    let sortedIds: Array<any> = [];
     _childrenNode.forEach((element: any, index) => {
-      sortedIds.push(element.props.id)
-    })
+      sortedIds.push(element.props.id);
+    });
 
-    this.setState({ childrenNode: _childrenNode })
+    this.setState({ childrenNode: _childrenNode });
 
-    draggedElement && draggedElement(_draggedEle)
-    onSort && onSort(sortedIds)
-    onDragEnd && onDragEnd(event)
-  }
+    draggedElement && draggedElement(_draggedEle);
+    onSort && onSort(sortedIds);
+    onDragEnd && onDragEnd(event);
+  };
 
   render() {
-    const self = this
-    const { childrenNode } = this.state
-    const { className, style } = this.props
-    const classes = classNames('hmly-dragger', className)
+    const self = this;
+    const { childrenNode } = this.state;
+    const { className, style } = this.props;
+    const classes = classNames('hmly-dragger', className);
     const items = React.Children.map(childrenNode, (element: any, index) => {
-        if (!element) { return element }
-        return cloneElement(element, {
-          key: index,
-          order: index + 1,
-          onDragStart: self.dragStart,
-          onDragEnd: self.dragEnd
-        })
-    })
+      if (!element) {
+        return element;
+      }
+      return cloneElement(element, {
+        key: index,
+        order: index + 1,
+        onDragStart: self.dragStart,
+        onDragEnd: self.dragEnd
+      });
+    });
 
     return (
-      <StyledDragger
+      <div
         ref={this.draggerRef}
         className={classes}
         style={style}
-        onDragOver={self.dragOver}>
+        onDragOver={self.dragOver}
+      >
         {items}
-      </StyledDragger>
-    )
+      </div>
+    );
   }
 }
 
-export default Dragger
+export default Dragger;
