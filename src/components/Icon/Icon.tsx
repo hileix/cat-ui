@@ -1,9 +1,7 @@
-import * as React from 'react'
-import { PureComponent } from 'react'
-import classNames from 'classnames'
-import { StyledIcon } from './styled'
-import {compatible} from './compatible'
-import {IconType} from './IconTypeEnum'
+import * as React from 'react';
+import classNames from 'classnames';
+import { compatible } from './compatible';
+import { IconType } from './IconTypeEnum';
 
 export interface IconProps {
   /** 类名 */
@@ -11,7 +9,7 @@ export interface IconProps {
   /** 样式 */
   style?: object;
   /** 图标类型 */
-  type: string|IconType;
+  type: string | IconType;
   /** 点击按钮时的回调 */
   onClick?: any;
 }
@@ -19,26 +17,16 @@ export interface IconProps {
 /**
  * 图标
  */
-class Icon extends PureComponent<IconProps, any> {
-  static Type = IconType
-  handleClick = (event: any) => {
-    const { onClick } = this.props
-    onClick && onClick(event)
-  }
+const Icon = ({ className, type, ...otherProps }: IconProps) => {
+  const classes = classNames(
+    'hmly-icon',
+    `hmly-icon-${compatible(type)}`,
+    className
+  );
 
-  render() {
-    const { className, style, type } = this.props
-    const classes = classNames('hmly-icon', `hmly-icon-${compatible(type)}`, className)
+  return <i className={classes} {...otherProps} />;
+};
 
-    return (<React.Fragment>
-      <i
-        className={classes}
-        style={style}
-        onClick={this.handleClick} />
-      <StyledIcon />
-    </React.Fragment>
-    )
-  }
-}
+Icon.Type = IconType;
 
-export default Icon
+export default Icon;
