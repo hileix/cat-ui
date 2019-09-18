@@ -1,0 +1,25 @@
+.icon-stories {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 16px;
+}
+
+.single-icon {
+  width: 140px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 8px;
+  transition: 0.2s;
+  border-radius: 4px;
+  &:hover {
+    background: #4da7f6;
+    color: #fff;
+  }
+  &__icon {
+    font-size: 24px;
+  }
+}

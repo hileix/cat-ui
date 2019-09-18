@@ -6,6 +6,7 @@ node_modules
 /build
 /styleguide
 /storybook
+/.vscode
 
 # misc
 .DS_Store

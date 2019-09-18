@@ -17,7 +17,7 @@ let getIconfontCss = async function (code) {
 
 let updateIconStyleFile = async function (code) {
   let css = await getIconfontCss(code)
-  css = css.replace(/"(\\)/g, '"$1$1').replace(/\.iconfont/, '.hmly-icon')
+  css = css.replace(/\.iconfont/, '.hmly-icon')
 
   let tempate = `
     // 该文件有模板生成，不要手动修改文件，具体查看scipts/updateIcon/processCss
