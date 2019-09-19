@@ -1,6 +1,6 @@
-import * as React from 'react'
-import { StyledStep } from './styled'
-import classnames from '../../utils/classnames'
+import * as React from 'react';
+import { StyledStep } from './styled';
+import classnames from '../../utils/classnames';
 
 export interface StepProps {
   /** 当前步 */
@@ -23,38 +23,44 @@ export interface StepProps {
   total?: number;
 }
 
-export interface StepStates {
+export interface StepStates {}
 
-}
-
-export const prefix = 'hmly-steps-step'
+export const prefix = 'hmly-steps-step';
 
 class Step extends React.PureComponent<StepProps, StepStates> {
   render() {
-    const { current, direction, theme, stepNumber, title, description, total, isLast } = this.props
-    const suffix = +current === +stepNumber ? 'current' : +current > +stepNumber ? 'active' : ''
-    const classes = classnames({ prefix, theme, suffix })
+    const {
+      current,
+      direction,
+      theme,
+      stepNumber,
+      title,
+      description,
+      total,
+      isLast
+    } = this.props;
+    const suffix =
+      +current === +stepNumber
+        ? 'current'
+        : +current > +stepNumber
+        ? 'active'
+        : '';
+    const classes = classnames({ prefix, theme, suffix });
 
     return (
-      <StyledStep
-        className={classes()}
-      >
+      <section className={classes()}>
         <div className={`${classes('icon')}`}>
-          <span className={classes('icon-index')}>
-            { stepNumber }
-          </span>
+          <span className={classes('icon-index')}>{stepNumber}</span>
         </div>
         <div className={classes('content')}>
-          <div className={`${classes('content-title')}`}>
-            { title }
-          </div>
+          <div className={`${classes('content-title')}`}>{title}</div>
           <div className={`${classes('content-description')}`}>
-            { description }
+            {description}
           </div>
         </div>
-      </StyledStep>
-    )
+      </section>
+    );
   }
 }
 
-export default Step
+export default Step;
