@@ -1,9 +1,8 @@
-import * as React from 'react'
-import { Component, cloneElement } from 'react'
-import classNames from 'classnames'
-import { StyledSelect, StyledOptionBox } from './styled'
-import Option from './Option'
-import Popover from '../Popover'
+import * as React from 'react';
+import { Component, cloneElement } from 'react';
+import classNames from 'classnames';
+import Option from './Option';
+import Popover from '../Popover';
 
 export interface SelectProps {
   /** 类名 */
@@ -24,97 +23,107 @@ export interface SelectProps {
  * 下拉选择
  */
 class Select extends Component<SelectProps, any> {
-  static Option: typeof Option
+  static Option: typeof Option;
   private selectRef: any;
 
-  constructor (props: SelectProps) {
-    super(props)
-    let value: string | number = ''
+  constructor(props: SelectProps) {
+    super(props);
+    let value: string | number = '';
     if ('value' in props) {
-      value = props.value
+      value = props.value;
     } else if ('defaultValue' in props) {
-      value = props.defaultValue
+      value = props.defaultValue;
     }
     this.state = {
       isPopOpen: false,
       selectWidth: 'auto',
       value: value
-    }
-    this.selectRef = React.createRef()
+    };
+    this.selectRef = React.createRef();
   }
 
-  static getDerivedStateFromProps (nextProps: SelectProps) {
+  static getDerivedStateFromProps(nextProps: SelectProps) {
     if ('value' in nextProps) {
       return {
         value: nextProps.value
-      }
-    } else { return null }
+      };
+    } else {
+      return null;
+    }
   }
 
-  componentDidMount () {
-    const selectDOM = this.selectRef.current
+  componentDidMount() {
+    const selectDOM = this.selectRef.current;
     if (selectDOM) {
-      const selectRect = selectDOM.getBoundingClientRect()
-      const { width } = selectRect
-      this.setState({ selectWidth: width + 'px' })
+      const selectRect = selectDOM.getBoundingClientRect();
+      const { width } = selectRect;
+      this.setState({ selectWidth: width + 'px' });
     }
   }
 
   onPopoverChange = (value: boolean) => {
-    this.setState({ isPopOpen: value })
-  }
+    this.setState({ isPopOpen: value });
+  };
 
   onOptionClick = (value: string | number, child: any) => {
-    const { onChange } = this.props
+    const { onChange } = this.props;
     // 是否有value值传递下来
     if (!('value' in this.props)) {
       this.setState({
         value: value
-      })
+      });
     }
-    onChange && onChange(value, child)
-  }
+    onChange && onChange(value, child);
+  };
 
   render() {
-    const self = this
-    const { isPopOpen, selectWidth, value } = this.state
-    const { className, style, placeholder, children } = this.props
-    let filler = placeholder
-    const options =  React.Children.map(children, (element: any, index) => {
-      if (!element) { return element }
+    const self = this;
+    const { isPopOpen, selectWidth, value } = this.state;
+    const { className, style, placeholder, children } = this.props;
+    let filler = placeholder;
+    const options = React.Children.map(children, (element: any, index) => {
+      if (!element) {
+        return element;
+      }
       // 显示value值对应的文本内容
-      if (element.props && (element.props.value === value)) {
-        filler = element.props.children
+      if (element.props && element.props.value === value) {
+        filler = element.props.children;
       }
       return cloneElement(element, {
         key: index,
         onOptionClick: self.onOptionClick
-      })
-    })
-    const isValueEmpty = value === '' || (typeof value === undefined)
-    const classes = classNames('hmly-select', {
-      'hmly-select-open': isPopOpen,
-      'hmly-select-placeholder': isValueEmpty
-    }, className)
+      });
+    });
+    const isValueEmpty = value === '' || typeof value === undefined;
+
+    const prefix = 'hmly-select';
+    const classes = classNames(
+      prefix,
+      {
+        [`${prefix}--open`]: isPopOpen,
+        [`${prefix}--placeholder`]: isValueEmpty
+      },
+      className
+    );
 
     return (
-      <Popover mode='click' onChange={this.onPopoverChange}>
+      <Popover mode="click" onChange={this.onPopoverChange}>
         <Popover.Trigger>
-          <StyledSelect
-            ref={this.selectRef}
-            className={classes}
-            style={style}>
+          <div ref={this.selectRef} className={classes} style={style}>
             {filler}
-          </StyledSelect>
+          </div>
         </Popover.Trigger>
         <Popover.Content>
-          <StyledOptionBox width={selectWidth}>
+          <div
+            className={classNames(`${prefix}__options-wrapper`)}
+            style={{ width: selectWidth }}
+          >
             {options}
-          </StyledOptionBox>
+          </div>
         </Popover.Content>
       </Popover>
-    )
+    );
   }
 }
 
-export default Select
+export default Select;
