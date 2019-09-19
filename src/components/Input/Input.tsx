@@ -1,10 +1,10 @@
-import * as React from 'react'
-import { pick } from 'lodash'
-import { StyledInput, StyledIcon } from './styled'
-import { TSize, Ttheme, TinputState, HandleProps } from './Input.d'
-import Wrapper from './Wrapper'
-import Handles from './Handles'
-import Icon from '../Icon'
+import * as React from 'react';
+import { pick } from 'lodash';
+import { TSize, Ttheme, TinputState, HandleProps } from './Input.d';
+import Wrapper from './Wrapper';
+import Handles from './Handles';
+import Icon from '../Icon';
+import classNames from 'classnames';
 
 export interface InputProps extends HandleProps {
   /** 自动聚焦 */
@@ -36,11 +36,11 @@ export interface InputProps extends HandleProps {
   /** 是否能对输入框进行复制、粘贴、剪贴的操作 */
   clipboardFree?: boolean;
   /** 是否能对输入框进行复制的操作 */
-  copyFree? : boolean;
+  copyFree?: boolean;
   /** 是否能对输入框进行粘贴的操作 */
-  pasteFree? : boolean;
+  pasteFree?: boolean;
   /** 是否能对输入框进行剪贴的操作 */
-  cutFree? : boolean;
+  cutFree?: boolean;
   /** icon style样式 */
   iconStyle?: object;
   /** 聚焦回调 */
@@ -54,13 +54,29 @@ export interface InputProps extends HandleProps {
   /** 按下回车键的回调 */
   onPressEnter?: (e: React.KeyboardEvent<HTMLInputElement>) => any;
   /** 执行粘贴操作的回调 */
-  onPaste?: (e: React.MouseEvent<HTMLInputElement, MouseEvent> | React.ClipboardEvent<HTMLInputElement>) => any;
+  onPaste?: (
+    e:
+      | React.MouseEvent<HTMLInputElement, MouseEvent>
+      | React.ClipboardEvent<HTMLInputElement>
+  ) => any;
   /** 点击鼠标右键的回调 */
-  onContextMenu?: (e: React.MouseEvent<HTMLInputElement, MouseEvent> | React.ClipboardEvent<HTMLInputElement>) => any;
+  onContextMenu?: (
+    e:
+      | React.MouseEvent<HTMLInputElement, MouseEvent>
+      | React.ClipboardEvent<HTMLInputElement>
+  ) => any;
   /** 执行复制操作的回调 */
-  onCopy?: (e: React.MouseEvent<HTMLInputElement, MouseEvent> | React.ClipboardEvent<HTMLInputElement>) => any;
+  onCopy?: (
+    e:
+      | React.MouseEvent<HTMLInputElement, MouseEvent>
+      | React.ClipboardEvent<HTMLInputElement>
+  ) => any;
   /** 执行剪切操作的回调 */
-  onCut?: (e: React.MouseEvent<HTMLInputElement, MouseEvent> | React.ClipboardEvent<HTMLInputElement>) => any;
+  onCut?: (
+    e:
+      | React.MouseEvent<HTMLInputElement, MouseEvent>
+      | React.ClipboardEvent<HTMLInputElement>
+  ) => any;
 }
 
 export interface InputStates {
@@ -77,7 +93,7 @@ export interface IdomProps {
 
 const domProps: IdomProps = {
   disabled: false
-}
+};
 
 export const enum inputStates {
   default,
@@ -97,86 +113,109 @@ class Input extends React.PureComponent<InputProps, InputStates> {
     copyFree: true,
     pasteFree: true,
     cutFree: true
-  }
+  };
 
   static getDerivedStateFromProps(nextProps: InputProps) {
     if ('value' in nextProps) {
       return {
         value: nextProps.value
-      }
+      };
     }
-    return null
+    return null;
   }
 
   private input: React.RefObject<HTMLInputElement>;
   private isIconBlur: boolean;
 
-  public constructor (props: InputProps) {
-    super(props)
-    const type = typeof props.type === 'undefined' ? 'text' : (props.type === 'line-pwd' || props.type === 'box-pwd' ? 'password' : 'text')
-    const value = (typeof props.value === 'undefined' ? props.defaultValue : props.value) || ''
-    const inputState = props.error ? inputStates.error : inputStates.default
+  public constructor(props: InputProps) {
+    super(props);
+    const type =
+      typeof props.type === 'undefined'
+        ? 'text'
+        : props.type === 'line-pwd' || props.type === 'box-pwd'
+        ? 'password'
+        : 'text';
+    const value =
+      (typeof props.value === 'undefined' ? props.defaultValue : props.value) ||
+      '';
+    const inputState = props.error ? inputStates.error : inputStates.default;
     this.state = {
       type,
       value,
       domProps: Object.keys(domProps),
       inputState
-    }
+    };
 
-    this.input = React.createRef()
-    this.isIconBlur = false
+    this.input = React.createRef();
+    this.isIconBlur = false;
   }
 
-  public componentDidMount () {
-    const { autoFocus } = this.props
-    if (autoFocus) this.input.current.focus()
+  public componentDidMount() {
+    const { autoFocus } = this.props;
+    if (autoFocus) this.input.current.focus();
   }
 
-  private handleClear (e: React.MouseEvent<HTMLElement, MouseEvent>): void {
-    this.setState({ value: '' })
-    const { onChange } = this.props
+  private handleClear(e: React.MouseEvent<HTMLElement, MouseEvent>): void {
+    this.setState({ value: '' });
+    const { onChange } = this.props;
     if (onChange) {
-      let event = e
-      event = Object.create(e)
-      event.target = this.input.current
-      event.currentTarget = this.input.current
-      const originalInputValue = this.input.current.value
-      this.input.current.value = ''
-      onChange(event as any)
-      this.input.current.value = originalInputValue
+      let event = e;
+      event = Object.create(e);
+      event.target = this.input.current;
+      event.currentTarget = this.input.current;
+      const originalInputValue = this.input.current.value;
+      this.input.current.value = '';
+      onChange(event as any);
+      this.input.current.value = originalInputValue;
     }
   }
 
-  private handleEye (): void {
+  private handleEye(): void {
     this.setState(prevState => {
-      const type = prevState.type === 'text' ? 'password' : 'text'
-      return { type }
-    })
+      const type = prevState.type === 'text' ? 'password' : 'text';
+      return { type };
+    });
   }
 
-  private handleBlur (e: React.FocusEvent<HTMLInputElement>): void {
+  private handleBlur(e: React.FocusEvent<HTMLInputElement>): void {
     if (!this.isIconBlur) {
-      const { handleBlur } = this.props
-      handleBlur.call(this, e)
+      const { handleBlur } = this.props;
+      handleBlur.call(this, e);
     }
   }
 
-  private iconForbidBlur (): void {
-    this.isIconBlur = true
+  private iconForbidBlur(): void {
+    this.isIconBlur = true;
   }
 
-  private iconAllowBlur (): void {
-    this.input.current.focus()
-    this.isIconBlur = false
+  private iconAllowBlur(): void {
+    this.input.current.focus();
+    this.isIconBlur = false;
   }
 
-  public render () {
-    const { type, value, domProps, inputState } = this.state
-    const { size, className, message, placeholder, placeholderOrigin, showClear, showEye, iconStyle,
-      handleFocus, handleChange, handleKeyDown, handleMouseEnter, handleMouseLeave, handleClipboard
-    } = this.props
-    const theme = this.props.type
-    const props = pick(this.props, domProps) as IdomProps
+  public render() {
+    const { type, value, domProps, inputState } = this.state;
+    const {
+      size,
+      className,
+      message,
+      placeholder,
+      placeholderOrigin,
+      showClear,
+      showEye,
+      iconStyle,
+      handleFocus,
+      handleChange,
+      handleKeyDown,
+      handleMouseEnter,
+      handleMouseLeave,
+      handleClipboard,
+      disabled
+    } = this.props;
+    const theme = this.props.type;
+    const props = pick(this.props, domProps) as IdomProps;
+    const prefix = 'hmly-input';
+    const iconPrefix = 'hmly-input-icon';
 
     return (
       <Wrapper
@@ -190,8 +229,10 @@ class Input extends React.PureComponent<InputProps, InputStates> {
         showClear={showClear}
         showEye={showEye}
       >
-        <StyledInput
-          {...props}
+        <input
+          className={classNames(prefix, {
+            [`${prefix}--disabled`]: disabled
+          })}
           type={type}
           value={value}
           onFocus={handleFocus.bind(this)}
@@ -206,22 +247,34 @@ class Input extends React.PureComponent<InputProps, InputStates> {
           onCut={handleClipboard.bind(this)}
           placeholder={placeholderOrigin ? placeholder : ''}
           ref={this.input}
+          {...props}
         />
-        <StyledIcon
-          showClear={showClear}
-          showEye={showEye}
+        <span
+          className={classNames(iconPrefix, {
+            [`${iconPrefix}--error`]: inputState === 3,
+            [`${iconPrefix}--show-clear`]: showClear
+          })}
           style={iconStyle}
           onMouseDown={this.iconForbidBlur.bind(this)}
           onMouseUp={this.iconAllowBlur.bind(this)}
           onTouchStart={this.iconForbidBlur.bind(this)}
           onTouchEnd={this.iconAllowBlur.bind(this)}
         >
-          {showClear && <Icon type='close' onClick={this.handleClear.bind(this)} />}
-          {!showClear && (theme === 'line-pwd' || theme === 'box-pwd') && showEye && <Icon type={type === 'text' ? 'eye-open' : 'eye-close'} onClick={this.handleEye.bind(this)} />}
-        </StyledIcon>
+          {showClear && (
+            <Icon type="close" onClick={this.handleClear.bind(this)} />
+          )}
+          {!showClear &&
+            (theme === 'line-pwd' || theme === 'box-pwd') &&
+            showEye && (
+              <Icon
+                type={type === 'text' ? 'eye-open' : 'eye-close'}
+                onClick={this.handleEye.bind(this)}
+              />
+            )}
+        </span>
       </Wrapper>
-    )
+    );
   }
 }
 
-export default Handles(Input)
+export default Handles(Input);

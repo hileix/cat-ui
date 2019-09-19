@@ -1,10 +1,10 @@
-import * as React from 'react'
-import { pick } from 'lodash'
-import { IdomProps, inputStates } from './Input'
-import { TinputState, HandleProps } from './Input.d'
-import { StyledTextArea } from './styled'
-import Wrapper from './Wrapper'
-import Handles from './Handles'
+import * as React from 'react';
+import { pick } from 'lodash';
+import { IdomProps, inputStates } from './Input';
+import { TinputState, HandleProps } from './Input.d';
+import Wrapper from './Wrapper';
+import Handles from './Handles';
+import classNames from 'classnames';
 
 export interface TextAreaProps extends HandleProps {
   /** 自动聚焦 */
@@ -32,11 +32,11 @@ export interface TextAreaProps extends HandleProps {
   /** 是否能对输入框进行复制、粘贴、剪贴的操作 */
   clipboardFree?: boolean;
   /** 是否能对输入框进行复制的操作 */
-  copyFree? : boolean;
+  copyFree?: boolean;
   /** 是否能对输入框进行粘贴的操作 */
-  pasteFree? : boolean;
+  pasteFree?: boolean;
   /** 是否能对输入框进行剪贴的操作 */
-  cutFree? : boolean;
+  cutFree?: boolean;
   /** textarea style样式 */
   areaStyle?: object;
   /** 聚焦回调 */
@@ -50,13 +50,29 @@ export interface TextAreaProps extends HandleProps {
   /** 按下回车键的回调 */
   onPressEnter?: (e: React.KeyboardEvent<HTMLTextAreaElement>) => any;
   /** 执行粘贴操作的回调 */
-  onPaste?: (e: React.MouseEvent<HTMLTextAreaElement, MouseEvent> | React.ClipboardEvent<HTMLTextAreaElement>) => any;
+  onPaste?: (
+    e:
+      | React.MouseEvent<HTMLTextAreaElement, MouseEvent>
+      | React.ClipboardEvent<HTMLTextAreaElement>
+  ) => any;
   /** 点击鼠标右键的回调 */
-  onContextMenu?: (e: React.MouseEvent<HTMLTextAreaElement, MouseEvent> | React.ClipboardEvent<HTMLTextAreaElement>) => any;
+  onContextMenu?: (
+    e:
+      | React.MouseEvent<HTMLTextAreaElement, MouseEvent>
+      | React.ClipboardEvent<HTMLTextAreaElement>
+  ) => any;
   /** 执行复制操作的回调 */
-  onCopy?: (e: React.MouseEvent<HTMLTextAreaElement, MouseEvent> | React.ClipboardEvent<HTMLTextAreaElement>) => any;
+  onCopy?: (
+    e:
+      | React.MouseEvent<HTMLTextAreaElement, MouseEvent>
+      | React.ClipboardEvent<HTMLTextAreaElement>
+  ) => any;
   /** 执行剪切操作的回调 */
-  onCut?: (e: React.MouseEvent<HTMLTextAreaElement, MouseEvent> | React.ClipboardEvent<HTMLTextAreaElement>) => any;
+  onCut?: (
+    e:
+      | React.MouseEvent<HTMLTextAreaElement, MouseEvent>
+      | React.ClipboardEvent<HTMLTextAreaElement>
+  ) => any;
 }
 
 export interface TextAreaStates {
@@ -69,7 +85,7 @@ const domProps: IdomProps = {
   maxlength: 500,
   placeholder: '',
   readonly: false
-}
+};
 
 class TextArea extends React.PureComponent<TextAreaProps, TextAreaStates> {
   static defaultProps = {
@@ -81,36 +97,52 @@ class TextArea extends React.PureComponent<TextAreaProps, TextAreaStates> {
     copyFree: true,
     pasteFree: true,
     cutFree: true
-  }
+  };
 
-  constructor (props: TextAreaProps) {
-    super(props)
-    const value = (typeof props.value === 'undefined' ? props.defaultValue : props.value) || ''
-    const inputState = props.error ? inputStates.error : inputStates.default
+  constructor(props: TextAreaProps) {
+    super(props);
+    const value =
+      (typeof props.value === 'undefined' ? props.defaultValue : props.value) ||
+      '';
+    const inputState = props.error ? inputStates.error : inputStates.default;
     this.state = {
       value,
       inputState
-    }
+    };
   }
 
-  render () {
-    const { value, inputState } = this.state
-    const { className, message, showCount, maxlength, areaStyle,
-      handleFocus, handleBlur, handleChange, handleKeyDown, handleMouseEnter, handleMouseLeave, handleClipboard } = this.props
-    const props = pick(this.props, domProps) as IdomProps
+  render() {
+    const { value, inputState } = this.state;
+    const {
+      className,
+      message,
+      showCount,
+      maxlength,
+      areaStyle,
+      handleFocus,
+      handleBlur,
+      handleChange,
+      handleKeyDown,
+      handleMouseEnter,
+      handleMouseLeave,
+      handleClipboard
+    } = this.props;
+    const props = pick(this.props, domProps) as IdomProps;
+    const prefix = 'hmly-textarea';
+    const classes = classNames(prefix);
 
     return (
       <Wrapper
         value={value}
-        theme='textarea'
+        theme="textarea"
         state={inputState}
         className={className}
         message={message}
         showCount={showCount}
         maxlength={maxlength}
       >
-        <StyledTextArea
-          {...props}
+        <textarea
+          className={classes}
           value={value}
           style={areaStyle}
           onFocus={handleFocus.bind(this)}
@@ -123,10 +155,11 @@ class TextArea extends React.PureComponent<TextAreaProps, TextAreaStates> {
           onContextMenu={handleClipboard.bind(this)}
           onCopy={handleClipboard.bind(this)}
           onCut={handleClipboard.bind(this)}
+          {...props}
         />
       </Wrapper>
-    )
+    );
   }
 }
 
-export default Handles(TextArea)
+export default Handles(TextArea);
