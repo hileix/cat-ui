@@ -1,10 +1,8 @@
-import * as React from 'react'
-import { PureComponent } from 'react'
-// import * as PropTypes from 'prop-types'
-import classNames from 'classnames'
-import Portal from '../Portal'
-import { Button, Icon } from '../../components'
-import { ModalBox, StyledModal, ModalHeader, ModalBody, ModalFooter, CloseBox, Background } from './styled/index'
+import * as React from 'react';
+import { PureComponent } from 'react';
+import classNames from 'classnames';
+import Portal from '../Portal';
+import { Button, Icon } from '../../components';
 
 export interface ModalProps {
   /** 前缀 */
@@ -51,7 +49,7 @@ class Modal extends PureComponent<ModalProps, any> {
   static pools: Array<number> = [];
   static originalBodyStyle: string = '';
   static originalFirstDivStyle: string = '';
-  private mid: number
+  private mid: number;
   static defaultProps = {
     prefix: 'hmly',
     theme: 'primary',
@@ -59,65 +57,66 @@ class Modal extends PureComponent<ModalProps, any> {
     visible: false,
     disabled: false,
     noCloseIcon: false
+  };
+
+  constructor(props: ModalProps) {
+    super(props);
+    this.mid = Modal.modalId++;
+    Modal.pools.push(0);
   }
 
-  constructor (props: ModalProps) {
-    super(props)
-    this.mid = Modal.modalId++
-    Modal.pools.push(0)
-  }
-
-  componentDidUpdate () {
-    this.setBodyStyle()
+  componentDidUpdate() {
+    this.setBodyStyle();
   }
 
   onMaskClick = (e: any) => {
-    const { onClose } = this.props
+    const { onClose } = this.props;
     if (e.target === e.currentTarget) {
-      onClose && onClose(e)
+      onClose && onClose(e);
     }
-  }
+  };
 
   handleCancle = (e: any) => {
-    const { onClose } = this.props
+    const { onClose } = this.props;
     if (onClose) {
-      onClose(e)
+      onClose(e);
     } else {
-      this.onMaskClick(e)
+      this.onMaskClick(e);
     }
-  }
+  };
 
   handleOk = (e: any) => {
-    const { onOk } = this.props
+    const { onOk } = this.props;
     if (onOk) {
-      onOk(e)
+      onOk(e);
     } else {
-      this.onMaskClick(e)
+      this.onMaskClick(e);
     }
-  }
+  };
 
   setBodyStyle = () => {
-    const nodeBody = document.querySelector('body')
-    const nodeFirstDiv = document.querySelector('body > div')
-    const { visible } = this.props
-    const hasScroll = document.body.scrollHeight >  document.documentElement.clientHeight
+    const nodeBody = document.querySelector('body');
+    const nodeFirstDiv = document.querySelector('body > div');
+    const { visible } = this.props;
+    const hasScroll =
+      document.body.scrollHeight > document.documentElement.clientHeight;
     if (visible) {
-      Modal.pools[this.mid] = 1
-      Modal.originalBodyStyle = nodeBody.getAttribute('style')
-      Modal.originalFirstDivStyle = nodeBody.getAttribute('style')
+      Modal.pools[this.mid] = 1;
+      Modal.originalBodyStyle = nodeBody.getAttribute('style');
+      Modal.originalFirstDivStyle = nodeBody.getAttribute('style');
       const bodyStyle = hasScroll
         ? 'overflow: hidden; padding-right: 15px;'
-        : 'padding-right: 15px;'
-      nodeBody.setAttribute('style', bodyStyle)
+        : 'padding-right: 15px;';
+      nodeBody.setAttribute('style', bodyStyle);
       // nodeFirstDiv.setAttribute('style', 'filter: blur(2px);')
     } else {
-      Modal.pools[this.mid] = 0
+      Modal.pools[this.mid] = 0;
       if (Modal.pools.indexOf(1) === -1) {
         // 背景层不可滑动
         if (Modal.originalBodyStyle) {
-          nodeBody.setAttribute('style', Modal.originalBodyStyle)
+          nodeBody.setAttribute('style', Modal.originalBodyStyle);
         } else {
-          nodeBody.removeAttribute('style')
+          nodeBody.removeAttribute('style');
         }
         // 背景层模糊
         // if (Modal.originalFirstDivStyle) {
@@ -127,55 +126,86 @@ class Modal extends PureComponent<ModalProps, any> {
         // }
       }
     }
-  }
+  };
 
   renderFooter = () => {
-    const { footer, okText, cancelText, align } = this.props
+    const { footer, okText, cancelText, align } = this.props;
+
     if (footer) {
-      return footer
+      return footer;
     } else {
-      return (<ModalFooter align={align}>
-        {cancelText.length > 0 && <Button
-          theme='white-primary'
-          onClick={this.handleCancle}>
-          {cancelText}
-        </Button>}
-        <Button onClick={this.handleOk}>
-          {okText}
-        </Button>
-      </ModalFooter>)
+      const footerPrefix = 'hmly-modal__footer';
+
+      return (
+        <div
+          className={classNames(footerPrefix, {
+            [`${footerPrefix}--center`]: align
+          })}
+        >
+          {cancelText.length > 0 && (
+            <Button theme="white-primary" onClick={this.handleCancle}>
+              {cancelText}
+            </Button>
+          )}
+          <Button onClick={this.handleOk}>{okText}</Button>
+        </div>
+      );
     }
-  }
+  };
 
   render() {
-    const { prefix, className, style, theme, size, width, disabled, visible,
-      title, okText, cancelText, align, noCloseIcon, children, ...others } = this.props
-    const classes = classNames(`${prefix}-modal`, {
-      [`${prefix}-modal-${size}`]: size,
-      [`${prefix}-modal-${align}`]: align,
-    }, className)
-    const modalFooter = this.renderFooter()
+    const {
+      prefix,
+      className,
+      style,
+      theme,
+      size,
+      width,
+      disabled,
+      visible,
+      title,
+      okText,
+      cancelText,
+      align,
+      noCloseIcon,
+      children,
+      ...others
+    } = this.props;
+    const modalPrefix = 'hmly-modal';
 
-    return (<Portal visible={visible}>
-      <ModalBox>
-        <Background onClick={this.onMaskClick} />
-        <StyledModal
-          className={classes}
-          style={style}>
-          <ModalHeader>
-            {title}
-            {!noCloseIcon && <CloseBox>
-              <Icon type='close' onClick={this.onMaskClick} />
-            </CloseBox>}
-          </ModalHeader>
-          <ModalBody>
-            {children}
-          </ModalBody>
-          {modalFooter}
-        </StyledModal>
-      </ModalBox>
-    </Portal>)
+    const classes = classNames(
+      modalPrefix,
+      {
+        [`${modalPrefix}--${size}`]: size,
+        [`${modalPrefix}--${align}`]: align
+      },
+      className
+    );
+    const modalFooter = this.renderFooter();
+
+    return (
+      <Portal visible={visible}>
+        <div>
+          <div
+            className={`${modalPrefix}__background`}
+            onClick={this.onMaskClick}
+          />
+          <div className={classes} style={style}>
+            <div className={`${modalPrefix}__header`}>
+              {title}
+              {!noCloseIcon && (
+                <div className={`${modalPrefix}__close`}>
+                  <Icon type="close" onClick={this.onMaskClick} />
+                </div>
+              )}
+            </div>
+            <div className={`${modalPrefix}__body`}>{children}</div>
+            {modalFooter}
+          </div>
+        </div>
+      </Portal>
+    );
   }
 }
 
-export default Modal
+export default Modal;
