@@ -1,7 +1,6 @@
-import * as React from 'react'
-import { PureComponent } from 'react'
-import classNames from 'classnames'
-import { StyledPageItem } from './styled'
+import * as React from 'react';
+import { PureComponent } from 'react';
+import classNames from 'classnames';
 
 export interface PageItemProps {
   /** 类名 */
@@ -21,24 +20,27 @@ export interface PageItemProps {
  */
 class PageItem extends PureComponent<PageItemProps, any> {
   handleClick = () => {
-    const { onItemClick, value } = this.props
-    onItemClick && onItemClick(value)
-  }
+    const { onItemClick, value } = this.props;
+    onItemClick && onItemClick(value);
+  };
 
   render() {
-    const { className, style, active, value, children } = this.props
-    const classes = classNames('hmly-page-item', className)
+    const { className, style, active, value, children } = this.props;
+    const prefix = 'hmly-pagination__item';
+    const classes = classNames(
+      prefix,
+      {
+        [`${prefix}--active`]: active
+      },
+      className
+    );
 
     return (
-      <StyledPageItem
-        className={classes}
-        style={style}
-        active={active}
-        onClick={this.handleClick}>
+      <div className={classes} style={style} onClick={this.handleClick}>
         {children}
-      </StyledPageItem>
-    )
+      </div>
+    );
   }
 }
 
-export default PageItem
+export default PageItem;
