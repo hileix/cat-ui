@@ -1,4 +1,3 @@
-
 .hmly-slider {
   position: relative;
   right: 0;
@@ -46,7 +45,7 @@
     background-color: transparent;
     touch-action: pan-x;
     cursor: pointer;
-    transition: all .1s ease;
+    transition: all 0.1s ease;
 
     .circle {
       width: 10px;
