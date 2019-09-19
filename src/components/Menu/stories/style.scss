@@ -1,0 +1,65 @@
+.menu-box .menu-unit {
+  display: inline-block;
+  width: 25%;
+}
+.menu-box .menu1 {
+  width: 200px;
+  border: 1px solid #eee;
+}
+.menu-box .menu2 {
+  width: 200px;
+  border: 1px solid #eee;
+}
+.menu-box .menu3 {
+  width: 200px;
+  border: 1px solid #eee;
+}
+.menu-box .menu3 .item3 {
+  height: 55px;
+  line-height: 55px;
+}
+.menu-box .menu3 .item3:hover {
+  color: red;
+}
+.menu-box .menu4 .item4.hmly-menu-item-checked::before {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  content: '';
+  width: 4px;
+  height: 40px;
+  background-color: #ff4444;
+}
+.menu-box .menu5 .item5.hmly-menu-item-checked::before {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  content: '';
+  width: 4px;
+  height: 40px;
+  background-color: #ff4444;
+}
+.menu-box .menu6 .item6.hmly-menu-item-checked::before {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  content: '';
+  width: 4px;
+  height: 40px;
+  background-color: #ffba0f;
+}
+.menu-box .menu7 .item7.hmly-menu-item-checked::before {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  content: '';
+  width: 4px;
+  height: 40px;
+  background-color: rgba(83, 118, 130, 0.8);
+}
+.menu-box .menu4 .item4:hover {
+  background: #fff;
+}
+.menu-box .hmly-icon {
+  margin-right: 10px;
+}

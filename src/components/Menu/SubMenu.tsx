@@ -1,9 +1,8 @@
-import * as React from 'react'
-import { Component, cloneElement } from 'react'
-import classNames from 'classnames'
-import * as noop from 'lodash/noop'
-import AnimateHeight from './AnimateHeight'
-import { StyledSubMenu, SubMenuTitle, InlineSubMenu, PopSubMenuBox, PopSubMenu } from './styled'
+import * as React from 'react';
+import { Component, cloneElement } from 'react';
+import classNames from 'classnames';
+import * as noop from 'lodash/noop';
+import AnimateHeight from './AnimateHeight';
 
 export interface SubMenuProps {
   /** 类名 */
@@ -34,159 +33,180 @@ export interface SubMenuProps {
  * SubMenu
  */
 class SubMenu extends Component<SubMenuProps, any> {
-  private enterTimer: number
-  private leaveTimer: number
-  private popSubMenuRef: any
-  private popSubMenuWidth: number | string = 'auto'
-  private popSubMenuRight: number | string = 'auto'
+  private enterTimer: number;
+  private leaveTimer: number;
+  private popSubMenuRef: any;
+  private popSubMenuWidth: number | string = 'auto';
+  private popSubMenuRight: number | string = 'auto';
 
-  constructor (props: SubMenuProps) {
-    super(props)
+  constructor(props: SubMenuProps) {
+    super(props);
     this.state = {
       isPopVisible: false,
       isInlineExpand: false
-    }
-    this.popSubMenuRef = React.createRef()
+    };
+    this.popSubMenuRef = React.createRef();
   }
 
-  componentWillUnmount () {
-    clearTimeout(this.leaveTimer)
-    clearTimeout(this.enterTimer)
+  componentWillUnmount() {
+    clearTimeout(this.leaveTimer);
+    clearTimeout(this.enterTimer);
   }
 
   onSubMenuClick = (e: any) => {
-    const { onClick, onMenuChange, id } = this.props
-    onClick && onClick(e)
-    onMenuChange && onMenuChange(id)
-  }
+    const { onClick, onMenuChange, id } = this.props;
+    onClick && onClick(e);
+    onMenuChange && onMenuChange(id);
+  };
 
   onSubMenuTitleClick = () => {
-    const { isInlineExpand } = this.state
-    const { mode, onSwitchMenu, backHeader, children } = this.props
+    const { isInlineExpand } = this.state;
+    const { mode, onSwitchMenu, backHeader, children } = this.props;
     if (mode === 'inline') {
-      this.setState({ isInlineExpand: !isInlineExpand })
+      this.setState({ isInlineExpand: !isInlineExpand });
     }
     if (mode === 'replace') {
-      onSwitchMenu && onSwitchMenu(children, backHeader)
+      onSwitchMenu && onSwitchMenu(children, backHeader);
     }
-  }
+  };
 
   onMouseEnter = () => {
-    const { mode } = this.props
-    if (mode !== 'pop') { return }
+    const { mode } = this.props;
+    if (mode !== 'pop') {
+      return;
+    }
     if (this.leaveTimer) {
-      clearTimeout(this.leaveTimer)
+      clearTimeout(this.leaveTimer);
     }
     this.enterTimer = setTimeout(() => {
-      this.setState({ isPopVisible: true })
-    }, 200)
-  }
+      this.setState({ isPopVisible: true });
+    }, 200);
+  };
 
   onMouseLeave = () => {
-    const { mode } = this.props
-    if (mode !== 'pop') { return }
+    const { mode } = this.props;
+    if (mode !== 'pop') {
+      return;
+    }
     if (this.enterTimer) {
-      clearTimeout(this.enterTimer)
+      clearTimeout(this.enterTimer);
     }
     this.leaveTimer = setTimeout(() => {
-      this.setState({ isPopVisible: false })
-    }, 200)
-  }
+      this.setState({ isPopVisible: false });
+    }, 200);
+  };
 
   renderContent = () => {
-    const { mode, title, checked, children } = this.props
-    const { isPopVisible, isInlineExpand } = this.state
-    let subMenuItems = null
+    const { mode, title, checked, children } = this.props;
+    const { isPopVisible, isInlineExpand } = this.state;
+    let subMenuItems = null;
+
+    const prefix = 'hmly-submenu__title';
     const classes = classNames({
-      [`hmly-submenu-title-${mode}`]: mode,
-      'hmly-submenu-title-expand': isInlineExpand
-    })
+      [`${prefix}--${mode}`]: mode,
+      [`${prefix}--expand`]: isInlineExpand
+    });
+
     const subMenuTitle = (
-      <SubMenuTitle className={classes} onClick={this.onSubMenuTitleClick}>
+      <div className={classes} onClick={this.onSubMenuTitleClick}>
         {title}
-      </SubMenuTitle>
-    )
+      </div>
+    );
+
     const items = React.Children.map(children, (element: any, index) => {
-      if (!element) { return element }
+      if (!element) {
+        return element;
+      }
       return cloneElement(element, {
         key: index,
         id: element.key,
         mode: mode
-      })
-    })
-
-    // console.log('renderContent:isInlineExpand', mode, isInlineExpand)
+      });
+    });
 
     // 行内内嵌
     if (mode === 'inline') {
+      const prefix = 'hmly-submenu--inline';
       subMenuItems = (
         <React.Fragment>
           {subMenuTitle}
-          <AnimateHeight
-            duration={200}
-            height={isInlineExpand ? 'auto' : 0}>
-            <InlineSubMenu height={isInlineExpand ? 'auto' : 0}>
+          <AnimateHeight duration={200} height={isInlineExpand ? 'auto' : 0}>
+            <ul
+              className={classNames(prefix, {
+                [`${prefix}--expand`]: isInlineExpand
+              })}
+            >
               {items}
-            </InlineSubMenu>
+            </ul>
           </AnimateHeight>
         </React.Fragment>
-      )
+      );
     }
+
     // 扩展弹出
     if (mode === 'pop') {
-      const popDOM = this.popSubMenuRef.current
-      const popRect = popDOM && popDOM.getBoundingClientRect()
-      const { width = 'auto' } = popRect || {}
+      const popDOM = this.popSubMenuRef.current;
+      const popRect = popDOM && popDOM.getBoundingClientRect();
+      const { width = 'auto' } = popRect || {};
       if (this.popSubMenuWidth === 'auto' && width !== 'auto') {
-        this.popSubMenuWidth = width + 'px'
-        this.popSubMenuRight = '-' + this.popSubMenuWidth
+        this.popSubMenuWidth = width + 'px';
+        this.popSubMenuRight = '-' + this.popSubMenuWidth;
       }
+
+      const popPrefix = 'hmly-submenu__pop';
       subMenuItems = (
         <React.Fragment>
           {subMenuTitle}
-          {isPopVisible && <PopSubMenuBox
-            ref={this.popSubMenuRef}
-            right={this.popSubMenuRight}
-            width={this.popSubMenuWidth}>
-            <PopSubMenu>
-              {items}
-            </PopSubMenu>
-          </PopSubMenuBox>}
+          {isPopVisible && (
+            <div
+              className={classNames(popPrefix)}
+              style={{
+                right: this.popSubMenuRight,
+                width: this.popSubMenuWidth
+              }}
+              ref={this.popSubMenuRef}
+            >
+              <ul className="hmly-submenu__pop-menu">{items}</ul>
+            </div>
+          )}
         </React.Fragment>
-      )
+      );
     }
+
     // 原地替换
     if (mode === 'replace') {
-      subMenuItems = (
-        <React.Fragment>
-          {subMenuTitle}
-        </React.Fragment>
-      )
+      subMenuItems = <React.Fragment>{subMenuTitle}</React.Fragment>;
     }
-    return subMenuItems
-  }
+
+    return subMenuItems;
+  };
 
   render() {
-    const { className, style, mode, title, checked, children } = this.props
-    const classes = classNames('hmly-submenu', {
-      [`hmly-submenu-${mode}`]: mode,
-      [`hmly-submenu-checked`]: checked
-    }, className)
+    const { className, style, mode, title, checked, children } = this.props;
 
-    const subMenuItems = this.renderContent()
-    // console.log('subMenuItems', mode, subMenuItems)
+    const prefix = 'hmly-submenu';
+    const classes = classNames(
+      prefix,
+      {
+        [`${prefix}--${mode}`]: mode,
+        [`${prefix}-checked`]: checked
+      },
+      className
+    );
+    const subMenuItems = this.renderContent();
 
     return (
-      <StyledSubMenu
+      <li
         className={classes}
         style={style}
         onMouseEnter={this.onMouseEnter}
         onMouseLeave={this.onMouseLeave}
-        onClick={this.onSubMenuClick}>
+        onClick={this.onSubMenuClick}
+      >
         {subMenuItems}
-      </StyledSubMenu>
-    )
+      </li>
+    );
   }
 }
 
-export default SubMenu
+export default SubMenu;

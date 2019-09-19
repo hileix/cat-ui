@@ -1,7 +1,6 @@
-import * as React from 'react'
-import { Component } from 'react'
-import classNames from 'classnames'
-import { StyledMenuItem } from './styled'
+import * as React from 'react';
+import { Component } from 'react';
+import classNames from 'classnames';
 
 export interface MenuItemProps {
   /** 类名 */
@@ -31,35 +30,49 @@ class MenuItem extends Component<MenuItemProps, any> {
   static defaultProps = {
     fixed: false,
     disabled: false
-  }
+  };
 
   onItemClick = (e: any) => {
-    const { onClick, onMenuChange, id, disabled } = this.props
+    const { onClick, onMenuChange, id, disabled } = this.props;
     if (!disabled) {
-      onClick && onClick(e)
-      onMenuChange && onMenuChange(id)
+      onClick && onClick(e);
+      onMenuChange && onMenuChange(id);
     }
-  }
+  };
 
   render() {
-    const { className, style, mode, checked, fixed, disabled, children } = this.props
-    const classes = classNames('hmly-menu-item', {
-      [`hmly-menu-item-${mode}`]: mode,
-      [`hmly-menu-item-checked`]: checked,
-      [`hmly-menu-item-disabled`]: disabled
-    }, className)
-    // console.log('MenuItem', mode, children)
+    const {
+      className,
+      style,
+      mode,
+      checked,
+      fixed,
+      disabled,
+      children
+    } = this.props;
+
+    const prefix = 'hmly-menu__item';
+    const classes = classNames(
+      'hmly-menu__item',
+      {
+        [`${prefix}--${mode}`]: mode,
+        [`${prefix}--checked`]: checked,
+        [`${prefix}--disabled`]: disabled
+      },
+      className
+    );
 
     return (
-      <StyledMenuItem
+      <li
         data-fixed={fixed}
         className={classes}
         style={style}
-        onClick={this.onItemClick}>
+        onClick={this.onItemClick}
+      >
         {children}
-      </StyledMenuItem>
-    )
+      </li>
+    );
   }
 }
 
-export default MenuItem
+export default MenuItem;
