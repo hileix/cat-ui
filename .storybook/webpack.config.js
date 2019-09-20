@@ -7,7 +7,7 @@ module.exports = async ({ config, mode }) => {
   // 'PRODUCTION' is used when building the static version of storybook.
   config.module.rules.push({
     test: /\.stories\.js?$/,
-    loaders: [require.resolve('@storybook/addon-storysource/loader')],
+    loaders: [require.resolve('@storybook/source-loader')],
     enforce: 'pre',
   });
 
@@ -31,6 +31,7 @@ module.exports = async ({ config, mode }) => {
     ],
   });
   config.resolve.extensions.push('.ts', '.tsx');
+  return config;
 
   return config;
 };
