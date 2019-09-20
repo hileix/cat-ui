@@ -1,8 +1,7 @@
-import * as React from 'react'
-import classNames from 'classnames'
-import { Component } from 'react'
-import { noop } from 'lodash'
-import { StyledSwitch } from './styled'
+import * as React from 'react';
+import classNames from 'classnames';
+import { Component } from 'react';
+import { noop } from 'lodash';
 
 export interface SwitchProps {
   /** 类名 */
@@ -39,7 +38,7 @@ export interface SwitchProps {
 class Switch extends Component<SwitchProps, any> {
   private switchRef: any;
   private node: any;
-  [key:string]: any; 
+  [key: string]: any;
 
   static defaultProps = {
     // checkedChildren: '',
@@ -48,94 +47,109 @@ class Switch extends Component<SwitchProps, any> {
     defaultChecked: false,
     onChange: noop,
     onClick: noop
-  }
+  };
 
-  constructor (props: SwitchProps) {
-    super(props)
-    let checked = false
+  constructor(props: SwitchProps) {
+    super(props);
+    let checked = false;
     if ('checked' in props) {
-      checked = !!props.checked
+      checked = !!props.checked;
     } else {
-      checked = !!props.defaultChecked
+      checked = !!props.defaultChecked;
     }
-    this.state = { checked }
-    this.switchRef = React.createRef()
+    this.state = { checked };
+    this.switchRef = React.createRef();
   }
 
-  componentDidMount () {
-    const { autoFocus, disabled } = this.props
-    this.node = this.switchRef.current
+  componentDidMount() {
+    const { autoFocus, disabled } = this.props;
+    this.node = this.switchRef.current;
     if (autoFocus && !disabled) {
-      this.focus()
+      this.focus();
     }
   }
 
   static getDerivedStateFromProps(nextProps: SwitchProps) {
     if ('checked' in nextProps) {
-      return { checked: !!nextProps.checked }
+      return { checked: !!nextProps.checked };
     }
-    return null
+    return null;
   }
 
-  setChecked (checked: any) {
+  setChecked(checked: any) {
     if (this.props.disabled) {
-      return
+      return;
     }
     if (!('checked' in this.props)) {
-      this.setState({ checked })
+      this.setState({ checked });
     }
-    this.props.onChange(checked)
+    this.props.onChange(checked);
   }
 
   toggle: React.MouseEventHandler<HTMLButtonElement> = () => {
-    const { onClick } = this.props
-    const checked = !this.state.checked
-    this.setChecked(checked)
-    onClick(checked)
-  }
+    const { onClick } = this.props;
+    const checked = !this.state.checked;
+    this.setChecked(checked);
+    onClick(checked);
+  };
 
   handleKeyDown = (e: any) => {
-    if (e.keyCode === 37) { // Left
-      this.setChecked(false)
-    } else if (e.keyCode === 39) { // Right
-      this.setChecked(true)
+    if (e.keyCode === 37) {
+      // Left
+      this.setChecked(false);
+    } else if (e.keyCode === 39) {
+      // Right
+      this.setChecked(true);
     }
-  }
+  };
 
   // Handle auto focus when click switch in Chrome
   handleMouseUp = (e: any) => {
     if (this.node) {
-      this.node.blur()
+      this.node.blur();
     }
     if (this.props.onMouseUp) {
-      this.props.onMouseUp(e)
+      this.props.onMouseUp(e);
     }
-  }
+  };
 
   focus = () => {
-    this.node.focus()
-  }
+    this.node.focus();
+  };
 
   blur = () => {
-    this.node.blur()
-  }
+    this.node.blur();
+  };
 
   saveNode = (node: any) => {
-    this.node = node
-  }
+    this.node = node;
+  };
 
-  render () {
-    const { className, disabled, loadingIcon, checkedChildren, unCheckedChildren, ...restProps } = this.props
-    const checked = this.state.checked
-    const calsses = classNames('hmly-switch', className, {
-      'hmly-switch-checked': checked,
-      'hmly-switch-disabled': disabled
-    })
+  render() {
+    const {
+      className,
+      disabled,
+      loadingIcon,
+      checkedChildren,
+      unCheckedChildren,
+      ...restProps
+    } = this.props;
+    const checked = this.state.checked;
+
+    const prefix = 'hmly-switch';
+    const calsses = classNames(
+      prefix,
+      {
+        'hmly-switch--checked': checked,
+        'hmly-switch--disabled': disabled
+      },
+      className
+    );
     return (
-      <StyledSwitch
+      <button
         {...restProps}
-        type='button'
-        role='switch'
+        type="button"
+        role="switch"
         aria-checked={checked}
         disabled={disabled}
         className={calsses}
@@ -145,12 +159,12 @@ class Switch extends Component<SwitchProps, any> {
         onMouseUp={this.handleMouseUp}
       >
         {loadingIcon}
-        <span className='hmly-switch-inner'>
+        <span className="hmly-switch__inner">
           {checked ? checkedChildren : unCheckedChildren}
         </span>
-      </StyledSwitch>
-    )
+      </button>
+    );
   }
 }
 
-export default Switch
+export default Switch;
