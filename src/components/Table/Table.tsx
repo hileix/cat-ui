@@ -1,13 +1,12 @@
-import * as React from 'react'
-import { Component } from 'react'
-import classNames from 'classnames'
-import * as isEmpty from 'lodash/isEmpty'
-import * as isEqual from 'lodash/isEqual'
-import { StyledTableBox, StyledPaginationBox } from './styled'
-import { ColumnProps, PaginationProps } from './interface'
-import TableHeader from './TableHeader'
-import TableBody from './TableBody'
-import Pagination from '../Pagination'
+import * as React from 'react';
+import { Component } from 'react';
+import classNames from 'classnames';
+import * as isEmpty from 'lodash/isEmpty';
+import * as isEqual from 'lodash/isEqual';
+import { ColumnProps, PaginationProps } from './interface';
+import TableHeader from './TableHeader';
+import TableBody from './TableBody';
+import Pagination from '../Pagination';
 
 export interface TableProps {
   /** 类名 */
@@ -53,16 +52,16 @@ class Table extends Component<TableProps, any> {
     emptyText: '',
     pagination: {},
     draggable: false
-  }
+  };
 
-  constructor (props: TableProps) {
-    super(props)
+  constructor(props: TableProps) {
+    super(props);
     this.state = {
       filterKeys: {},
       pageTotal: 0,
       filterDataSource: props.dataSource,
       currentPageData: props.dataSource
-    }
+    };
   }
 
   // static getDerivedStateFromProps(nextProps: TableProps) {
@@ -75,53 +74,53 @@ class Table extends Component<TableProps, any> {
   //   return null
   // }
 
-  componentDidMount () {
+  componentDidMount() {
     if (this.hasPagination()) {
-      const { pagination } = this.props
-      const { total = 0 } = pagination
-      this.setState({ pageTotal: total })
+      const { pagination } = this.props;
+      const { total = 0 } = pagination;
+      this.setState({ pageTotal: total });
       // 暂时注释掉内部分页
       // this.pagingDataSource()
     }
   }
 
-  componentDidUpdate (prevProps: TableProps) {
-    const { dataSource } = this.props
-    const { dataSource: prevDataSource } = prevProps
+  componentDidUpdate(prevProps: TableProps) {
+    const { dataSource } = this.props;
+    const { dataSource: prevDataSource } = prevProps;
     // 比对两次dataSource
     if (!isEqual(dataSource, prevDataSource)) {
       this.setState({
         filterDataSource: dataSource,
         currentPageData: dataSource
-       })
+      });
     }
   }
 
   hasPagination = () => {
-    return !isEmpty(this.props.pagination)
-  }
+    return !isEmpty(this.props.pagination);
+  };
 
   // 对数据进行分页
   pagingDataSource = (currentArg?: number) => {
-    const { pagination } = this.props
-    const { filterDataSource } = this.state
-    const { current, pageSize } = pagination
+    const { pagination } = this.props;
+    const { filterDataSource } = this.state;
+    const { current, pageSize } = pagination;
     // 优先采用传入的current
-    const currentPage = currentArg || current
-    const begin = (currentPage - 1) * pageSize
+    const currentPage = currentArg || current;
+    const begin = (currentPage - 1) * pageSize;
     // 分页后当前页面显示的数据
-    const currentPageData = filterDataSource.slice(begin, begin + pageSize)
+    const currentPageData = filterDataSource.slice(begin, begin + pageSize);
     if (this.hasPagination()) {
-      this.setState({ currentPageData: currentPageData })
+      this.setState({ currentPageData: currentPageData });
     }
-  }
+  };
 
   // 选择了筛选栏之后的回调函数
   onFilterSelect = (id: any, key: any) => {
-    const { dataSource, onFilterChange } = this.props
-    onFilterChange && onFilterChange(id, key)
-    const _filterKeys = { id: id, key: key }
-    this.setState({ filterKeys: _filterKeys })
+    const { dataSource, onFilterChange } = this.props;
+    onFilterChange && onFilterChange(id, key);
+    const _filterKeys = { id: id, key: key };
+    this.setState({ filterKeys: _filterKeys });
     // 暂时注释掉Table内部翻页
     // const _filterKeys = { id: id, key: key }
     // // 筛选dataSource，当前值等于filterKeys或者未选择filterKeys
@@ -148,41 +147,53 @@ class Table extends Component<TableProps, any> {
     //     currentPageData: filterDataSource
     //   })
     // }
-  }
+  };
 
   // 分页点击之后的回调函数
   onPaginationChange = (page: number) => {
-    const { pagination, onPageChange } = this.props
-    onPageChange && onPageChange(page)
+    const { pagination, onPageChange } = this.props;
+    onPageChange && onPageChange(page);
     // 暂时注释掉Table内部翻页
-    const { onChange } = pagination
-    onChange && onChange(page)
-    this.pagingDataSource(page)
-  }
+    const { onChange } = pagination;
+    onChange && onChange(page);
+    this.pagingDataSource(page);
+  };
 
   // 拖拽事件之后的回调
   onDragChange = (nodes: any) => {
-    this.setState({ currentPageData: nodes })
-  }
+    this.setState({ currentPageData: nodes });
+  };
 
   render() {
-    const { filterKeys, currentPageData, pageTotal } = this.state
-    const { className, style, columns, align, draggable, pagination, empty, emptyText,
-      draggedElement, onDragEnd, onSort, dataSource } = this.props
-    const { current, pageSize } = pagination
-    const classes = classNames('hmly-table', className)
-    const showPagination = this.hasPagination() && (dataSource.length > 0)
+    const { filterKeys, currentPageData, pageTotal } = this.state;
+    const {
+      className,
+      style,
+      columns,
+      align,
+      draggable,
+      pagination,
+      empty,
+      emptyText,
+      draggedElement,
+      onDragEnd,
+      onSort,
+      dataSource
+    } = this.props;
+    const { current, pageSize } = pagination;
+    const prefix = 'hmly-table';
+    const classes = classNames(prefix, className);
+    const showPagination = this.hasPagination() && dataSource.length > 0;
 
     return (
-      <StyledTableBox
-        className={classes}
-        style={style}>
-        <table className='table'>
+      <div className={classes} style={style}>
+        <table className={`${prefix}__table`}>
           <TableHeader
             align={align}
             columns={columns}
             filterKeys={filterKeys}
-            onFilterSelect={this.onFilterSelect} />
+            onFilterSelect={this.onFilterSelect}
+          />
           <TableBody
             align={align}
             columns={columns}
@@ -193,18 +204,22 @@ class Table extends Component<TableProps, any> {
             draggedElement={draggedElement}
             onSort={onSort}
             onDragEnd={onDragEnd}
-            onDragChange={this.onDragChange} />
+            onDragChange={this.onDragChange}
+          />
         </table>
-        {showPagination && <StyledPaginationBox>
-          <Pagination
-            current={current}
-            total={pageTotal}
-            pageSize={pageSize}
-            onChange={this.onPaginationChange} />
-        </StyledPaginationBox>}
-      </StyledTableBox>
-    )
+        {showPagination && (
+          <div className={classNames(`${prefix}__pagination`)}>
+            <Pagination
+              current={current}
+              total={pageTotal}
+              pageSize={pageSize}
+              onChange={this.onPaginationChange}
+            />
+          </div>
+        )}
+      </div>
+    );
   }
 }
 
-export default Table
+export default Table;

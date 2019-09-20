@@ -1,7 +1,5 @@
-import * as React from 'react'
-import { PureComponent } from 'react'
-import { EmptyInner, EmptyImage } from './styled'
-// import * as EmptyBgImg from './styled/empty.png'
+import * as React from 'react';
+import { PureComponent } from 'react';
 
 export interface EmptyProps {
   /** 空单元格可横跨的列数 */
@@ -17,7 +15,7 @@ export interface EmptyProps {
  */
 class Empty extends PureComponent<EmptyProps, any> {
   render() {
-    const { colSpan, empty, emptyText } = this.props
+    const { colSpan, empty, emptyText } = this.props;
 
     // const defaultEmpty = (<EmptyInner image={EmptyBgImg}>
     //   <span className='content'>
@@ -31,13 +29,13 @@ class Empty extends PureComponent<EmptyProps, any> {
     // const emptyDOM = empty ? empty : defaultEmpty
 
     return (
-      <tr className='hmly-table-row'>
-        <td colSpan={colSpan} className='table-td-empty'>
+      <tr className="hmly-table-row">
+        <td colSpan={colSpan} className="table-td-empty">
           {empty}
         </td>
       </tr>
-    )
+    );
   }
 }
 
-export default Empty
+export default Empty;
