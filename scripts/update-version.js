@@ -6,6 +6,7 @@ const chalk = require('chalk');
 const fs = require('fs');
 const path = require('path');
 const { spawnSync, spawn } = require('child_process');
+const execa = require('execa');
 const oldVersion = pkg.version;
 const log = console.log;
 
@@ -43,7 +44,7 @@ async function start() {
 
   publish();
 
-  deployToGitPage();
+  // deployToGitPage();
 
 
 }
@@ -110,7 +111,7 @@ function modifiedVersion(version) {
  */
 function publish() {
   tipMessage('开始 publish：', 'start');
-  const sp = spawn('npm', ['run', 'publish'], { encoding: 'utf8' });
+  const sp = spawn('npm', ['publish'], { encoding: 'utf8' });
   sp.stdout.on('data', (data) => {
     console.log(`${data}`);
   });
