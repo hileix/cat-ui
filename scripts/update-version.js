@@ -123,26 +123,11 @@ function publish() {
  */
 function gitPush() {
   tipMessage('开始 git add/commit/push：', 'start');
-  try {
-    let result = execSync('git add .', {
-      encoding: 'utf8'
-    });
-    console.log(result);
 
-    result = execSync('git commit -m "Modified version"', {
-      encoding: 'utf8'
-    });
-    console.log(result);
+  execCommand('git add .');
+  execCommand('git commit -m "Modified version"');
+  execCommand('git push origin master');
 
-    result = execSync('git push origin master', {
-      encoding: 'utf8'
-    });
-    console.log(result);
-
-  } catch (err) {
-    tipMessage(`git add/commit/push 失败：${err.message}`, 'fail');
-    process.exit(1);
-  }
   tipMessage('git add/commit/push 成功！', 'success');
   process.exit(1);
 }
@@ -160,4 +145,23 @@ function tipMessage(text, type) {
   } else if (type === 'fail') {
     log(chalk.red(`------${text}`))
   }
+}
+
+
+/**
+ * 执行命令且打印相关的命令以及命令执行后的返回值
+ * @param {string} command 命令
+ */
+function execCommand(command) {
+  log(command);
+  let result;
+  try {
+    result = execSync(command, {
+      encoding: 'utf8'
+    });
+  } catch (err) {
+    log(chalk.red(err.message));
+    process.exit(1);
+  }
+  log(result);
 }
