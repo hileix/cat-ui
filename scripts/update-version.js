@@ -5,6 +5,7 @@ const semver = require('semver');
 const chalk = require('chalk');
 const fs = require('fs');
 const path = require('path');
+const { spawnSync } = require('child_process');
 const oldVersion = pkg.version;
 const log = console.log;
 
@@ -21,7 +22,28 @@ const questionOne = {
   choices: ['主要版本', '次要版本', '修订号']
 };
 
+
+validateBranch();
+process.exit(1);
+
+
 start();
+
+
+/**
+ * 验证是否是在主分支（只能在主分支发布）
+ */
+function validateBranch() {
+  const result = spawnSync('git', ['rev-parse', '--abbrev-ref', 'HEAD'], {
+    encoding: 'utf8'
+  });
+  const currentBranch = result.stdout.trim();
+  if ('master'.indexOf(currentBranch) === -1) {
+    log(chalk.red(`当前为 ${chalk.green(currentBranch)} 分支，请在 ${chalk.green('master')} 分支进行发布`));
+    process.exit(1);
+  }
+}
+
 
 // 开始
 async function start() {
@@ -54,7 +76,9 @@ function modifiedVersion(version) {
   log(chalk.blue('------开始修改版本号：'))
   pkg.version = version;
   try {
-    fs.writeFileSync(__dirname, '../package.json', JSON.stringify(pkg, null, 2));
+    fs.writeFileSync(path.join(__dirname, '../package.json'), JSON.stringify(pkg, null, 2), {
+      encoding: ''
+    });
   } catch (err) {
     log(chalk.red(err.message));
     log(chalk.red('------修改版本号失败！'))
@@ -62,4 +86,10 @@ function modifiedVersion(version) {
     process.exit(1);
   }
   log(chalk.green('------修改版本号成功！'))
+}
+
+function gitPush() {
+  spawnSync('git', ['add', '.']);
+  spawnSync('git', ['commit', '-m', '"modify version and publish"']);
+  spawnSync('git', ['push', 'origin', '']);
 }
