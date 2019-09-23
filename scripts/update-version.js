@@ -111,7 +111,7 @@ function modifiedVersion(version) {
 function publish() {
   tipMessage('开始 publish：', 'start');
   const sp = spawn('npm', ['run', 'publish'], { encoding: 'utf8' });
-  ls.stdout.on('data', (data) => {
+  sp.stdout.on('data', (data) => {
     console.log(`${data}`);
   });
 }
