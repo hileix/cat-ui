@@ -14,9 +14,11 @@
     line-height: 1.5;
     letter-spacing: normal;
     color: rgba(255, 255, 255, 0.9);
-    &--topCenter {
+    &--topCenter::after {
       position: absolute;
+      left: 50%;
       bottom: -10px;
+      transform: translateX(-50%);
       content: ' ';
       width: 0;
       height: 0;

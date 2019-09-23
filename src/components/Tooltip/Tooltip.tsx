@@ -79,11 +79,7 @@ class Tooltip extends Component<TooltipProps, any> {
       contentPrefix,
       `${contentPrefix}--${position}`
     );
-
     const newStyle: React.CSSProperties = { maxWidth: width };
-    if (tipLeft) {
-      newStyle.left = tipLeft;
-    }
 
     return (
       <Popover
