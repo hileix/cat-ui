@@ -106,7 +106,10 @@ function modifiedVersion(version) {
 function gitPush() {
   spawnSync('git', ['add', '.']);
   spawnSync('git', ['commit', '-m', 'Modified version']);
-  spawnSync('git', ['push', 'origin', 'master']);
+  const sp = spawnSync('git', ['push', 'origin', 'master']);
+  sp.stdout.on('data', (data) => {
+    console.log(`${data}`);
+  });
 }
 
 /**
