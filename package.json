@@ -1,6 +1,6 @@
 {
   "name": "hife-catui",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "main": "lib/components/index.js",
   "license": "MIT",
   "repository": {
@@ -14,7 +14,6 @@
     "old:start": "tsc && styleguidist server",
     "dev": "start-storybook",
     "start": "start-storybook",
-    "release": "./scripts/release.sh",
     "css:build": "./scripts/build-css.sh",
     "new": "./scripts/new-component.sh",
     "test": "jest",
@@ -37,7 +36,7 @@
     "update:snapshot": "jest --updateSnapshot",
     "build": "npm run test && rm -rf lib styles && npm run build:ts && npm run build:css",
     "deploy:gitpage": "storybook-to-ghpages -o storybook",
-    "publish": "npm run build && node ./scripts/update-version.js && deploy:gitpage"
+    "release": "npm run build && node ./scripts/update-version.js && deploy:gitpage"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

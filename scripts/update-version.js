@@ -107,7 +107,7 @@ function modifiedVersion(version) {
  */
 function publish() {
   tipMessage('开始 publish：', 'start');
-  execCommand('npm publish');
+  execCommand('npm publish --access public');
   tipMessage('publish 成功', 'success');
 }
 
