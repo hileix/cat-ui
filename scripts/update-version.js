@@ -110,9 +110,15 @@ async function publish() {
 
   // const { stdout } = await execa('npm', ['publish']);
   // console.log(stdout);
-  const sp = spawnSync('npm', ['publish'], { encoding: 'utf8' });
+  let sp;
+  try {
+    const sp = spawnSync('npm', ['publish'], { encoding: 'utf8' });
+  } catch (err) {
+    tipMessage(`publish 失败：${err.message}`, 'fail');
+    process.exit(1);
+  }
   const s = sp.stdout
-  console.log('ss:', s.length);
+  console.log('ss:', s);
 
 }
 
