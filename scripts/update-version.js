@@ -131,11 +131,11 @@ function gitPush() {
  */
 function tipMessage(text, type) {
   if (type === 'start') {
-    log(chalk.blue(`------${text}`));
+    log(chalk.blue(`\n------${text}\n`));
   } else if (type === 'success') {
-    log(chalk.green(`------${text}`));
+    log(chalk.green(`\n------${text}\n`));
   } else if (type === 'fail') {
-    log(chalk.red(`------${text}`))
+    log(chalk.red(`\n------${text}\n`))
   }
 }
 
@@ -145,7 +145,7 @@ function tipMessage(text, type) {
  * @param {string} command 命令
  */
 function execCommand(command) {
-  log(command);
+  log(`\n${command}`);
   let result;
   try {
     result = execSync(command, {
