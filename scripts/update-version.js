@@ -5,7 +5,7 @@ const semver = require('semver');
 const chalk = require('chalk');
 const fs = require('fs');
 const path = require('path');
-const { spawnSync } = require('child_process');
+const { spawnSync, spawn } = require('child_process');
 const oldVersion = pkg.version;
 const log = console.log;
 
