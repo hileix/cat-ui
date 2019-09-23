@@ -124,13 +124,19 @@ function publish() {
 function gitPush() {
   tipMessage('开始 git add/commit/push：', 'start');
   try {
-    let result = execSync('git add .');
+    let result = execSync('git add .', {
+      encoding: 'utf8'
+    });
     console.log(result);
 
-    result = execSync('git commit -m "Modified version"');
+    result = execSync('git commit -m "Modified version"', {
+      encoding: 'utf8'
+    });
     console.log(result);
 
-    result = execSync('git push origin master');
+    result = execSync('git push origin master', {
+      encoding: 'utf8'
+    });
     console.log(result);
 
   } catch (err) {
