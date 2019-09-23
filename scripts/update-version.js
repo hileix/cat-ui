@@ -108,9 +108,11 @@ function modifiedVersion(version) {
 async function publish() {
   tipMessage('开始 publish：', 'start');
 
-  const { stdout } = await execa('npm', ['publish']);
-  console.log(stdout);
-  // const sp = spawnSync('npm', ['publish'], { encoding: 'utf8' });
+  // const { stdout } = await execa('npm', ['publish']);
+  // console.log(stdout);
+  const sp = spawnSync('npm', ['publish'], { encoding: 'utf8' });
+  const s = sp.stdout
+  console.log('ss:', s);
 
 }
 
