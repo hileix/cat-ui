@@ -107,12 +107,9 @@ function modifiedVersion(version) {
  */
 async function publish() {
   tipMessage('开始 publish：', 'start');
-
-  // const { stdout } = await execa('npm', ['publish']);
-  // console.log(stdout);
   let sp;
   try {
-    const sp = spawnSync('npm', ['publish'], { encoding: 'utf8' });
+    sp = spawnSync('npm', ['publish'], { encoding: 'utf8' });
   } catch (err) {
     tipMessage(`publish 失败：${err.message}`, 'fail');
     process.exit(1);
