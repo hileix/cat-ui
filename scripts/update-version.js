@@ -107,15 +107,8 @@ function modifiedVersion(version) {
  */
 function publish() {
   tipMessage('开始 publish：', 'start');
-  let sp;
-  try {
-    sp = spawnSync('npm', ['publish'], { encoding: 'utf8' });
-  } catch (err) {
-    tipMessage(`publish 失败：${err.message}`, 'fail');
-    process.exit(1);
-  }
-  const s = sp.stdout
-  console.log('ss:', s);
+  execCommand('npm publish');
+  tipMessage('publish 成功', 'success');
 }
 
 /**
