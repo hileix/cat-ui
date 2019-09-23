@@ -108,7 +108,7 @@ function modifiedVersion(version) {
 function publish() {
   tipMessage('开始 publish：', 'start');
   const sp = spawnSync('npm', ['publish'], { encoding: 'utf8' });
-  console.log(sp.output[1]);
+  console.log(typeof sp.output[1]);
   
 }
 
