@@ -4,17 +4,17 @@ exports[`Select renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-popover sc-bxivhb jzkpli",
+      "class": "hmly-popover",
     },
     "children": Array [
       Object {
         "attribs": Object {
-          "class": "hmly-popover sc-ifAKCX cFlEyZ",
+          "class": "hmly-popover__trigger",
         },
         "children": Array [
           Object {
             "attribs": Object {
-              "class": "hmly-select hmly-select-placeholder sc-bdVaJa gBmpwe",
+              "class": "hmly-select hmly-select--placeholder",
             },
             "children": Array [],
             "name": "div",

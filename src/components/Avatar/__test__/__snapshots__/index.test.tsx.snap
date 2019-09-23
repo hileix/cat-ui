@@ -4,7 +4,7 @@ exports[`Avatar renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-avatar hmly-avatar hmly-avatar-image sc-bdVaJa kKAJIC",
+      "class": "hmly-avatar hmly-avatar-image",
       "prefix": "hmly-avatar",
     },
     "children": Array [
