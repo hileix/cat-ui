@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, addDecorator } from '@storybook/react';
 import { actions } from '@storybook/addon-actions';
 import Button from '../Button';
-import '../styled/Button.scss';
+import '../../../styles/button.scss';
 import { withInfo } from '@storybook/addon-info';
 import './style.scss';
 
