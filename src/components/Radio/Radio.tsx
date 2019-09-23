@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Component } from 'react';
 import classNames from 'classnames';
 import RadioGroup from './RadioGroup';
-import { RadioInner, RadioInput, RadioSlot } from './styled';
 
 export interface RadioProps {
   /** 类名 */
@@ -104,9 +103,17 @@ class Radio extends Component<RadioProps, any> {
             onChange={this.handleChange}
           />
         </span>
-        <RadioSlot disabled={disabled} className={layout}>
+        <span
+          className={classNames(
+            'hmly-radio__label',
+            `hmly-radio__label--${layout}`,
+            {
+              [`hmly-radio__label--disabled`]: disabled
+            }
+          )}
+        >
           {children}
-        </RadioSlot>
+        </span>
       </div>
     );
   }

@@ -120,4 +120,24 @@
     border-width: 1px;
     border-style: solid;
   }
+
+  &__label {
+    display: inline-block;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    margin-top: -2px;
+    padding-left: 13px;
+    font-size: 14px;
+    line-height: 24px;
+    cursor: pointer;
+    box-sizing: border-box;
+    vertical-align: middle;
+    &--disabled {
+      color: rgba(0, 0, 0, 0.25);
+      cursor: not-allowed;
+    }
+    &--vertical {
+      vertical-align: top;
+    }
+  }
 }

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Component } from 'react';
 import classNames from 'classnames';
-import { StyledTooltipContent } from './styled';
 import Popover from '../Popover';
 
 export interface TooltipProps {

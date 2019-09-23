@@ -1,7 +1,6 @@
-import * as React from 'react'
-import { Component, cloneElement } from 'react'
-import classNames from 'classnames'
-import { StyledRadioGroup } from './styled'
+import * as React from 'react';
+import { Component, cloneElement } from 'react';
+import classNames from 'classnames';
 
 export interface RadioGroupProps {
   /** 类名 */
@@ -19,7 +18,7 @@ export interface RadioGroupProps {
   /** 值 */
   value?: string | number;
   /** 布局 */
-  layout?: 'vertical' | 'horizontal'
+  layout?: 'vertical' | 'horizontal';
   /** 选项变化时的回调函数	 */
   onChange?: any;
 }
@@ -30,64 +29,74 @@ export interface RadioGroupProps {
 class RadioGroup extends Component<RadioGroupProps, any> {
   static defaultProps = {
     layout: 'horizontal'
-  }
+  };
 
-  constructor (props: RadioGroupProps) {
-    super(props)
-    let value: string | number = ''
+  constructor(props: RadioGroupProps) {
+    super(props);
+    let value: string | number = '';
     if ('value' in props) {
-      value = props.value
+      value = props.value;
     } else if ('defaultValue' in props) {
-      value = props.defaultValue
+      value = props.defaultValue;
     }
     this.state = {
       value: value
-    }
+    };
   }
 
-  static getDerivedStateFromProps (nextProps: RadioGroupProps) {
+  static getDerivedStateFromProps(nextProps: RadioGroupProps) {
     if ('value' in nextProps) {
       return {
         value: nextProps.value
-      }
-    } else { return null }
+      };
+    } else {
+      return null;
+    }
   }
 
   onRadioChange = (e: any) => {
-    const { value } = e.target
-    const { onChange } = this.props
+    const { value } = e.target;
+    const { onChange } = this.props;
     // 是否有value值传递下来
     if (!('value' in this.props)) {
       this.setState({
         value: value
-      })
+      });
     }
-    onChange && onChange(value)
-  }
+    onChange && onChange(value);
+  };
 
   render() {
-    const self = this
-    const { value } = this.state
-    const { className, style, layout, disabled, readOnly, checked, children } = this.props
-    const classes = classNames('hmly-radio-group', className)
+    const self = this;
+    const { value } = this.state;
+    const {
+      className,
+      style,
+      layout,
+      disabled,
+      readOnly,
+      checked,
+      children
+    } = this.props;
+    const classes = classNames('hmly-radio-group', className);
     const radios = React.Children.map(children, (element: any, index) => {
-      if (!element) { return element }
+      if (!element) {
+        return element;
+      }
       return cloneElement(element, {
         key: index,
         layout: layout,
         onChange: self.onRadioChange,
         checked: value === element.props.value
-      })
-    })
+      });
+    });
 
     return (
-      <StyledRadioGroup
-        className={classes}
-        style={style}>
+      <div className={classes} style={style}>
         {radios}
-      </StyledRadioGroup>
-    )
+      </div>
+    );
   }
 }
 
-export default RadioGroup
+export default RadioGroup;

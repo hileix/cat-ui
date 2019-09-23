@@ -1,6 +1,5 @@
-import * as React from 'react'
-import { Component } from 'react'
-import { StyledTabPanel } from './styled'
+import * as React from 'react';
+import { Component } from 'react';
 
 export interface TabPanelProps {
   /** 类名 */
@@ -17,15 +16,10 @@ export interface TabPanelProps {
  * TabPanel
  */
 class TabPanel extends Component<TabPanelProps, any> {
-
   render() {
-    const { children } = this.props
-    return (
-      <StyledTabPanel>
-        {children}
-      </StyledTabPanel>
-    )
+    const { children } = this.props;
+    return <div>{children}</div>;
   }
 }
 
-export default TabPanel
+export default TabPanel;
