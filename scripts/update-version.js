@@ -113,6 +113,7 @@ function gitPush() {
     tipMessage(`git add/commit/push 失败：${err.message}`, 'fail');
     process.exit(1);
   }
+  console.log({sp})
   console.log(sp.stdout);
 }
 
