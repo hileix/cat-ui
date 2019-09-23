@@ -1,6 +1,6 @@
 {
   "name": "catui",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "main": "lib/components/index.js",
   "license": "MIT",
   "repository": {
@@ -37,7 +37,7 @@
     "update:snapshot": "jest --updateSnapshot",
     "build": "npm run test && rm -rf lib styles && npm run build:ts && npm run build:css",
     "deploy:gitpage": "storybook-to-ghpages -o storybook",
-    "publish": "npm run build && node ./scripts/update-version.js"
+    "publish": "npm run build && node ./scripts/update-version.js && deploy:gitpage"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
