@@ -41,6 +41,10 @@ async function start() {
 
   gitPush();
 
+  publish();
+
+  deployToGitPage();
+
 
 }
 
@@ -100,10 +104,23 @@ function modifiedVersion(version) {
   tipMessage('修改版本号成功！', 'success')
 }
 
+
+/**
+ * 发布到 npm
+ */
+function publish() {
+  tipMessage('开始 publish：', 'start');
+  const sp = spawn('npm', ['run', 'publish'], { encoding: 'utf8' });
+  ls.stdout.on('data', (data) => {
+    console.log(`${data}`);
+  });
+}
+
 /**
  * 将修改的 package.json push
  */
 function gitPush() {
+  tipMessage('开始 git add/commit/push：', 'start');
   let sp;
   try {
     spawnSync('git', ['add', '.'], { encoding: 'utf8' });
