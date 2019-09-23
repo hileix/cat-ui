@@ -112,7 +112,7 @@ async function publish() {
   // console.log(stdout);
   const sp = spawnSync('npm', ['publish'], { encoding: 'utf8' });
   const s = sp.stdout
-  console.log('ss:', s);
+  console.log('ss:', s.length);
 
 }
 
