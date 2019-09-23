@@ -157,11 +157,11 @@ class Slider extends Component<SliderOption, any> {
 
     return (
       <div className={classes} ref={this.refSlider}>
-        <div className="slider-rail" />
-        <div className="slider-track" style={trackStyle} />
-        <div className="slider-handle-wrap">
-          <div className="slider-handle" style={handleStyle} title={value}>
-            <div className="circle" />
+        <div className='slider-rail' />
+        <div className='slider-track' style={trackStyle} />
+        <div className='slider-handle-wrap'>
+          <div className='slider-handle' style={handleStyle} title={value}>
+            <div className='circle' />
           </div>
         </div>
       </div>

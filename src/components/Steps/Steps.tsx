@@ -53,7 +53,7 @@ class Steps extends React.PureComponent<StepsProps, StepsStates> {
     );
 
     return (
-      <section className={classes('hmly-steps', className)} style={style}>
+      <section className={classes(className)} style={style}>
         {StepChildren}
       </section>
     );

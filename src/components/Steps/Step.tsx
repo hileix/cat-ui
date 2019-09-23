@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { StyledStep } from './styled';
 import classnames from '../../utils/classnames';
 
 export interface StepProps {
@@ -25,7 +24,7 @@ export interface StepProps {
 
 export interface StepStates {}
 
-export const prefix = 'hmly-steps-step';
+export const prefix = 'hmly-steps__step';
 
 class Step extends React.PureComponent<StepProps, StepStates> {
   render() {
