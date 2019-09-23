@@ -122,7 +122,6 @@ function gitPush() {
   execCommand('git push origin master');
 
   tipMessage('git add/commit/push 成功！', 'success');
-  process.exit(1);
 }
 
 /**
