@@ -43,10 +43,6 @@ async function start() {
   gitPush();
 
   publish();
-
-  // deployToGitPage();
-
-
 }
 
 
