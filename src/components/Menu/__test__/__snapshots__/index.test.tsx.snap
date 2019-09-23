@@ -4,12 +4,12 @@ exports[`Menu renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-menu hmly-menu-pop menu1 sc-bdVaJa dSMDdb",
+      "class": "hmly-menu hmly-menu-pop menu1",
     },
     "children": Array [
       Object {
         "attribs": Object {
-          "class": "hmly-menu-item hmly-menu-item-pop sc-bwzfXH bfHbC",
+          "class": "hmly-menu__item hmly-menu__item--pop",
           "data-fixed": "false",
         },
         "children": Array [
@@ -25,7 +25,7 @@ initialize {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Object {
           "attribs": Object {
-            "class": "hmly-menu-item hmly-menu-item-pop sc-bwzfXH bfHbC",
+            "class": "hmly-menu__item hmly-menu__item--pop",
             "data-fixed": "false",
           },
           "children": Array [
@@ -41,7 +41,7 @@ initialize {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Object {
             "attribs": Object {
-              "class": "hmly-menu-item hmly-menu-item-pop sc-bwzfXH bfHbC",
+              "class": "hmly-menu__item hmly-menu__item--pop",
               "data-fixed": "false",
             },
             "children": Array [
@@ -57,7 +57,7 @@ initialize {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Object {
               "attribs": Object {
-                "class": "hmly-menu-item hmly-menu-item-pop sc-bwzfXH bfHbC",
+                "class": "hmly-menu__item hmly-menu__item--pop",
                 "data-fixed": "false",
               },
               "children": Array [
@@ -122,7 +122,7 @@ initialize {
       },
       Object {
         "attribs": Object {
-          "class": "hmly-menu-item hmly-menu-item-pop sc-bwzfXH bfHbC",
+          "class": "hmly-menu__item hmly-menu__item--pop",
           "data-fixed": "false",
         },
         "children": Array [
@@ -138,7 +138,7 @@ initialize {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Object {
           "attribs": Object {
-            "class": "hmly-menu-item hmly-menu-item-pop sc-bwzfXH bfHbC",
+            "class": "hmly-menu__item hmly-menu__item--pop",
             "data-fixed": "false",
           },
           "children": Array [
@@ -154,7 +154,7 @@ initialize {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Object {
             "attribs": Object {
-              "class": "hmly-menu-item hmly-menu-item-pop sc-bwzfXH bfHbC",
+              "class": "hmly-menu__item hmly-menu__item--pop",
               "data-fixed": "false",
             },
             "children": Array [
@@ -196,7 +196,7 @@ initialize {
         "parent": [Circular],
         "prev": Object {
           "attribs": Object {
-            "class": "hmly-menu-item hmly-menu-item-pop sc-bwzfXH bfHbC",
+            "class": "hmly-menu__item hmly-menu__item--pop",
             "data-fixed": "false",
           },
           "children": Array [
@@ -235,7 +235,7 @@ initialize {
       },
       Object {
         "attribs": Object {
-          "class": "hmly-menu-item hmly-menu-item-pop sc-bwzfXH bfHbC",
+          "class": "hmly-menu__item hmly-menu__item--pop",
           "data-fixed": "false",
         },
         "children": Array [
@@ -251,7 +251,7 @@ initialize {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Object {
           "attribs": Object {
-            "class": "hmly-menu-item hmly-menu-item-pop sc-bwzfXH bfHbC",
+            "class": "hmly-menu__item hmly-menu__item--pop",
             "data-fixed": "false",
           },
           "children": Array [
@@ -281,7 +281,7 @@ initialize {
         "parent": [Circular],
         "prev": Object {
           "attribs": Object {
-            "class": "hmly-menu-item hmly-menu-item-pop sc-bwzfXH bfHbC",
+            "class": "hmly-menu__item hmly-menu__item--pop",
             "data-fixed": "false",
           },
           "children": Array [
@@ -299,7 +299,7 @@ initialize {
           "parent": [Circular],
           "prev": Object {
             "attribs": Object {
-              "class": "hmly-menu-item hmly-menu-item-pop sc-bwzfXH bfHbC",
+              "class": "hmly-menu__item hmly-menu__item--pop",
               "data-fixed": "false",
             },
             "children": Array [
@@ -348,7 +348,7 @@ initialize {
       },
       Object {
         "attribs": Object {
-          "class": "hmly-menu-item hmly-menu-item-pop sc-bwzfXH bfHbC",
+          "class": "hmly-menu__item hmly-menu__item--pop",
           "data-fixed": "false",
         },
         "children": Array [
@@ -366,7 +366,7 @@ initialize {
         "parent": [Circular],
         "prev": Object {
           "attribs": Object {
-            "class": "hmly-menu-item hmly-menu-item-pop sc-bwzfXH bfHbC",
+            "class": "hmly-menu__item hmly-menu__item--pop",
             "data-fixed": "false",
           },
           "children": Array [
@@ -384,7 +384,7 @@ initialize {
           "parent": [Circular],
           "prev": Object {
             "attribs": Object {
-              "class": "hmly-menu-item hmly-menu-item-pop sc-bwzfXH bfHbC",
+              "class": "hmly-menu__item hmly-menu__item--pop",
               "data-fixed": "false",
             },
             "children": Array [
@@ -402,7 +402,7 @@ initialize {
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
-                "class": "hmly-menu-item hmly-menu-item-pop sc-bwzfXH bfHbC",
+                "class": "hmly-menu__item hmly-menu__item--pop",
                 "data-fixed": "false",
               },
               "children": Array [

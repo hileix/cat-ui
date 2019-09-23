@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { PureComponent } from 'react'
-import Tooltip from '../Tooltip'
-import Icon from '../Icon'
+import * as React from 'react';
+import { PureComponent } from 'react';
+import Tooltip from '../Tooltip';
+import Icon from '../Icon';
 
 export interface QuestionProps {
   /** 类名 */
@@ -17,14 +17,14 @@ export interface QuestionProps {
  */
 class Question extends PureComponent<QuestionProps, any> {
   render() {
-    const { className, style, tips } = this.props
+    const { className, style, tips } = this.props;
 
     return (
       <Tooltip content={tips}>
-        <Icon type='question' className={className} style={style} />
+        <Icon type="question" className={className} style={style} />
       </Tooltip>
-    )
+    );
   }
 }
 
-export default Question
+export default Question;

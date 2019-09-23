@@ -4,7 +4,7 @@ exports[`Dragger renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-dragger sc-bdVaJa ezHuYs",
+      "class": "hmly-dragger",
     },
     "children": Array [],
     "name": "div",

@@ -1,7 +1,6 @@
-import * as React from 'react'
-import { Component } from 'react'
-import classNames from 'classnames'
-import { StyledOption } from './styled'
+import * as React from 'react';
+import { Component } from 'react';
+import classNames from 'classnames';
 
 export interface OptionProps {
   /** 类名 */
@@ -24,31 +23,32 @@ export interface OptionProps {
 class Option extends Component<OptionProps, any> {
   static defaultProps = {
     disable: false
-  }
+  };
 
   handleClick = () => {
-    const { value, onOptionClick, onClick, disable, children } = this.props
+    const { value, onOptionClick, onClick, disable, children } = this.props;
     if (!disable && onOptionClick) {
-      onOptionClick(value, children)
+      onOptionClick(value, children);
     }
-    onClick && onClick(value, children)
-  }
+    onClick && onClick(value, children);
+  };
 
   render() {
-    const { className, style, disable, children } = this.props
-    const classes = classNames('hmly-option', {
-      'hmly-option-disable': disable
-    }, className)
+    const { className, style, disable, children } = this.props;
+    const classes = classNames(
+      'hmly-option',
+      {
+        'hmly-option--disable': disable
+      },
+      className
+    );
 
     return (
-      <StyledOption
-        className={classes}
-        style={style}
-        onClick={this.handleClick}>
+      <div className={classes} style={style} onClick={this.handleClick}>
         {children}
-      </StyledOption>
-    )
+      </div>
+    );
   }
 }
 
-export default Option
+export default Option;

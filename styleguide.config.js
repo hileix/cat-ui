@@ -26,9 +26,9 @@ module.exports = {
         test: /(\.ts|\.tsx)$/,
         use: [ {
           loader: 'awesome-typescript-loader',
-          options: {
-            getCustomTransformers: () => ({ before: [styledComponentsTransformer] })
-          },
+          // options: {
+          //   getCustomTransformers: () => ({ before: [styledComponentsTransformer] })
+          // },
         }],
         exclude: /node_modules/,
       }, {

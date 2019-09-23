@@ -1,7 +1,6 @@
-import * as React from 'react'
-import { Component } from 'react'
-import classNames from 'classnames'
-import { StyledDraggerItem } from './styled'
+import * as React from 'react';
+import { Component } from 'react';
+import classNames from 'classnames';
 
 export interface DraggerItemProps {
   /** 类名 */
@@ -22,44 +21,49 @@ export interface DraggerItemProps {
  * DraggerItem
  */
 class DraggerItem extends Component<DraggerItemProps, any> {
-  constructor (props: DraggerItemProps) {
-    super(props)
+  constructor(props: DraggerItemProps) {
+    super(props);
     this.state = {
       dragging: false
-    }
+    };
   }
 
   handleDragStart = (e: any) => {
-    const { onDragStart } = this.props
-    onDragStart && onDragStart(e)
-    this.setState({ dragging: true })
-  }
+    const { onDragStart } = this.props;
+    onDragStart && onDragStart(e);
+    this.setState({ dragging: true });
+  };
 
   handleDragEnd = (e: any) => {
-    const { onDragEnd } = this.props
-    onDragEnd && onDragEnd(e)
-    this.setState({ dragging: false })
-  }
+    const { onDragEnd } = this.props;
+    onDragEnd && onDragEnd(e);
+    this.setState({ dragging: false });
+  };
 
   render() {
-    const { dragging } = this.state
-    const { className, style, order, children } = this.props
-    const classes = classNames('hmly-dragger-item', {
-      'hmly-dragger-item-dragging': dragging
-    }, className)
+    const { dragging } = this.state;
+    const { className, style, order, children } = this.props;
+    const classes = classNames(
+      'hmly-dragger__item',
+      {
+        'hmly-dragger__item--dragging': dragging
+      },
+      className
+    );
 
     return (
-      <StyledDraggerItem
+      <div
         draggable
         data-order={order}
         onDragStart={this.handleDragStart}
         onDragEnd={this.handleDragEnd}
         className={classes}
-        style={style}>
-        { children }
-      </StyledDraggerItem>
-    )
+        style={style}
+      >
+        {children}
+      </div>
+    );
   }
 }
 
-export default DraggerItem
+export default DraggerItem;

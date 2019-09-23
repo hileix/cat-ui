@@ -5,6 +5,8 @@ node_modules
 # Build directory
 /build
 /styleguide
+/storybook
+/.vscode
 
 # misc
 .DS_Store
@@ -19,3 +21,4 @@ yarn-error.log*
 
 # ignore build target dir
 lib/**
+styles/**

@@ -1,7 +1,6 @@
-import * as React from 'react'
-import { PureComponent } from 'react'
-import classNames from 'classnames'
-import { StyledAnimateHeight } from './styled'
+import * as React from 'react';
+import { PureComponent } from 'react';
+import classNames from 'classnames';
 
 export interface AnimateHeightProps {
   /** 类名 */
@@ -18,41 +17,44 @@ export interface AnimateHeightProps {
  * AnimateHeight
  */
 class AnimateHeight extends PureComponent<AnimateHeightProps, any> {
-  constructor (props: AnimateHeightProps) {
-    super(props)
+  constructor(props: AnimateHeightProps) {
+    super(props);
     this.state = {
       overflow: 'visible'
-    }
+    };
   }
 
   static defaultProps = {
     duration: 250,
     easing: 'ease'
-  }
+  };
 
   render() {
-    const { className, style = {}, height, duration, easing, children } = this.props
-    const { overflow } = this.state
-    const classes = classNames('hmly-animate', className)
+    const {
+      className,
+      style = {},
+      height,
+      duration,
+      easing,
+      children
+    } = this.props;
+    const { overflow } = this.state;
+    const classes = classNames('hmly-animate', className);
 
     const userTransition = style.transition ? `${style.transition},` : '';
     const transitionString = `${userTransition} height ${duration}ms ${easing}`;
     const componentStyle = {
       ...style,
       height,
-      overflow: overflow || style.overflow,
+      overflow: overflow || style.overflow
     };
 
-    // console.log('AnimateHeight:render', height, componentStyle)
-
     return (
-      <StyledAnimateHeight
-        className={classes}
-        style={componentStyle}>
+      <div className={classes} style={componentStyle}>
         {children}
-      </StyledAnimateHeight>
-    )
+      </div>
+    );
   }
 }
 
-export default AnimateHeight
+export default AnimateHeight;

@@ -2,10 +2,10 @@ var express = require('express')
 var path = require('path')
 
 var app = express()
-app.use(express.static('styleguide'))
+app.use(express.static('storybook'))
 
 app.get('*', function (request, response) {
-  response.sendFile(path.resolve(__dirname, 'styleguide', 'index.html'))
+  response.sendFile(path.resolve(__dirname, 'storybook', 'index.html'))
 })
 
 app.listen(6060, function () {

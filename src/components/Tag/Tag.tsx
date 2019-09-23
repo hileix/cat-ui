@@ -1,13 +1,12 @@
-import * as React from 'react'
-import { Component } from 'react'
-import { StyledTag } from './styled'
-import * as PropTypes from 'prop-types'
+import * as React from 'react';
+import * as PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 export type Props = {
   textColor?: string;
   bgColor?: string;
   borderColor?: string;
-}
+};
 
 export interface TagProps {
   /** 文字 */
@@ -24,13 +23,33 @@ export interface TagProps {
   style?: React.CSSProperties;
 }
 
-function Tag({ children, ...restProps }: Partial<TagProps>) {
+function Tag({
+  children,
+  textColor,
+  bgColor,
+  borderColor,
+  style,
+  className,
+  ...restProps
+}: Partial<TagProps>) {
+  const newStyle: React.CSSProperties = { ...style };
+  if (textColor) {
+    newStyle.color = textColor;
+  }
+  if (bgColor) {
+    newStyle.backgroundColor = bgColor;
+  }
+  if (borderColor) {
+    newStyle.borderColor = bgColor;
+  }
+  const prefix = 'hmly-tag';
+  const classes = classNames(prefix, className);
 
   return (
-    <StyledTag {...restProps}>
+    <span className={classes} style={newStyle} {...restProps}>
       {children}
-    </StyledTag>
-  )
+    </span>
+  );
 }
 
 Tag.propTypes = {
@@ -40,7 +59,6 @@ Tag.propTypes = {
   borderColor: PropTypes.string,
   className: PropTypes.string,
   style: PropTypes.object
-}
+};
 
-
-export default Tag
+export default Tag;

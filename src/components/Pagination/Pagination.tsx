@@ -1,11 +1,10 @@
-import * as React from 'react'
-import { Component } from 'react'
-import classNames from 'classnames'
-// import * as memoize from 'memoize-one'
-import memoizeOne from 'memoize-one'
-import * as isNumber from 'lodash/isNumber'
-import { StyledPagination, StyledIcon } from './styled'
-import PageItem from './PageItem'
+import * as React from 'react';
+import { Component } from 'react';
+import classNames from 'classnames';
+import memoizeOne from 'memoize-one';
+import * as isNumber from 'lodash/isNumber';
+import PageItem from './PageItem';
+import Icon from '../Icon';
 
 export interface PaginationProps {
   /** 类名 */
@@ -30,89 +29,101 @@ export interface PaginationProps {
 class Pagination extends Component<PaginationProps, any> {
   static defaultProps = {
     pageSize: 10
-  }
+  };
 
-  constructor (props: PaginationProps) {
-    super(props)
-    this.state = {}
+  constructor(props: PaginationProps) {
+    super(props);
+    this.state = {};
   }
 
   onItemClick = (value: number) => {
-    const { onChange } = this.props
-    onChange && onChange(value)
-  }
+    const { onChange } = this.props;
+    onChange && onChange(value);
+  };
 
   onPrevClick = () => {
-    const { onChange, pageSize, current } = this.props
+    const { onChange, pageSize, current } = this.props;
     // 不是第一个
     if (current > 1) {
-      onChange && onChange(current - 1, pageSize)
+      onChange && onChange(current - 1, pageSize);
     }
-  }
+  };
 
   onNextClick = () => {
-    const { onChange, pageSize, current, total } = this.props
-    const pageNum = Math.ceil(total / pageSize)
+    const { onChange, pageSize, current, total } = this.props;
+    const pageNum = Math.ceil(total / pageSize);
     // 不是最后一个
     if (current < pageNum) {
-      onChange && onChange(current + 1, pageSize)
+      onChange && onChange(current + 1, pageSize);
     }
-  }
+  };
 
   // 计算带省略号的页码
-  calculateShowPages = (current: number, pageNum: number, bufferSize: number) => {
-    let res: Array<number | string> = [current]
+  calculateShowPages = (
+    current: number,
+    pageNum: number,
+    bufferSize: number
+  ) => {
+    let res: Array<number | string> = [current];
     for (let i = 1; i <= bufferSize; i++) {
-      if (current - i > 1)  { res = [current - i, ...res] }
-      if (current + i < pageNum)  { res = [...res, (current + i)] }
-    }
-    if (current - (bufferSize + 1) > 1) { res = ['...', ...res] }
-    if (current > 1) { res = [1, ...res] }
-    if (current + bufferSize + 1 < pageNum) { res = [...res, ' ...']}
-    if (current < pageNum) { res = [...res, pageNum] }
-    return res
-  }
-
-  renderItems = memoizeOne((current: number, total: number, pageSize: number) => {
-    const pageNum = Math.ceil(total / pageSize)
-    const res = this.calculateShowPages(current, pageNum, 2)
-    return res.map((element, index) => {
-      if (isNumber(element)) {
-        return (
-          <PageItem
-            key={element}
-            value={element}
-            active={current === element}
-            onItemClick={this.onItemClick}>
-            {element}
-          </PageItem>
-        )
-      } else {
-        return (<StyledIcon key={`more+${index}`} type='more' />)
+      if (current - i > 1) {
+        res = [current - i, ...res];
       }
-    })
-  })
+      if (current + i < pageNum) {
+        res = [...res, current + i];
+      }
+    }
+    if (current - (bufferSize + 1) > 1) {
+      res = ['...', ...res];
+    }
+    if (current > 1) {
+      res = [1, ...res];
+    }
+    if (current + bufferSize + 1 < pageNum) {
+      res = [...res, ' ...'];
+    }
+    if (current < pageNum) {
+      res = [...res, pageNum];
+    }
+    return res;
+  };
+
+  renderItems = memoizeOne(
+    (current: number, total: number, pageSize: number) => {
+      const pageNum = Math.ceil(total / pageSize);
+      const res = this.calculateShowPages(current, pageNum, 2);
+      return res.map((element, index) => {
+        if (isNumber(element)) {
+          return (
+            <PageItem
+              key={element}
+              value={element}
+              active={current === element}
+              onItemClick={this.onItemClick}
+            >
+              {element}
+            </PageItem>
+          );
+        } else {
+          return <Icon key={`more+${index}`} type="more" />;
+        }
+      });
+    }
+  );
 
   render() {
-    const { className, style, current, total, pageSize } = this.props
-    const classes = classNames('hmly-pagination', className)
-    const items = this.renderItems(current, total, pageSize)
-    // console.log('current, total, pageSize', memoizeOne)
+    const { className, style, current, total, pageSize } = this.props;
+    const classes = classNames('hmly-pagination', className);
+    const items = this.renderItems(current, total, pageSize);
 
     return (
-      <StyledPagination
-        className={classes}
-        style={style}>
-        <StyledIcon
-          type='prev'
-          onClick={this.onPrevClick} />
+      <div className={classes} style={style}>
+        <Icon type="prev" onClick={this.onPrevClick} />
         {items}
-        <StyledIcon
-          type='next'
-          onClick={this.onNextClick} />
-      </StyledPagination>
-    )
+        <Icon type="next" onClick={this.onNextClick} />
+      </div>
+    );
   }
 }
 
-export default Pagination
+export default Pagination;

@@ -4,19 +4,19 @@ exports[`Input renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "sc-htpNat fyIPwl",
+      "class": "hmly-input-wrapper hmly-input-wrapper--line hmly-input-wrapper--default",
     },
     "children": Array [
       Object {
         "attribs": Object {
-          "class": "sc-bxivhb eZetFS",
+          "class": "hmly-input-wrapper-border hmly-input-wrapper-border--line hmly-input-wrapper-border--default",
         },
         "children": Array [],
         "name": "span",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Object {
           "attribs": Object {
-            "class": "sc-bdVaJa kSZXUM",
+            "class": "hmly-input",
             "placeholder": "",
             "type": "text",
             "value": "",
@@ -26,7 +26,7 @@ initialize {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Object {
             "attribs": Object {
-              "class": "sc-bwzfXH iDjOIG",
+              "class": "hmly-input-icon",
             },
             "children": Array [],
             "name": "span",
@@ -70,7 +70,7 @@ initialize {
       },
       Object {
         "attribs": Object {
-          "class": "sc-bdVaJa kSZXUM",
+          "class": "hmly-input",
           "placeholder": "",
           "type": "text",
           "value": "",
@@ -80,7 +80,7 @@ initialize {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Object {
           "attribs": Object {
-            "class": "sc-bwzfXH iDjOIG",
+            "class": "hmly-input-icon",
           },
           "children": Array [],
           "name": "span",
@@ -99,7 +99,7 @@ initialize {
         "parent": [Circular],
         "prev": Object {
           "attribs": Object {
-            "class": "sc-bxivhb eZetFS",
+            "class": "hmly-input-wrapper-border hmly-input-wrapper-border--line hmly-input-wrapper-border--default",
           },
           "children": Array [],
           "name": "span",
@@ -131,7 +131,7 @@ initialize {
       },
       Object {
         "attribs": Object {
-          "class": "sc-bwzfXH iDjOIG",
+          "class": "hmly-input-icon",
         },
         "children": Array [],
         "name": "span",
@@ -140,7 +140,7 @@ initialize {
         "parent": [Circular],
         "prev": Object {
           "attribs": Object {
-            "class": "sc-bdVaJa kSZXUM",
+            "class": "hmly-input",
             "placeholder": "",
             "type": "text",
             "value": "",
@@ -152,7 +152,7 @@ initialize {
           "parent": [Circular],
           "prev": Object {
             "attribs": Object {
-              "class": "sc-bxivhb eZetFS",
+              "class": "hmly-input-wrapper-border hmly-input-wrapper-border--line hmly-input-wrapper-border--default",
             },
             "children": Array [],
             "name": "span",

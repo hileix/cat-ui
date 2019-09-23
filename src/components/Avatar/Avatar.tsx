@@ -1,7 +1,6 @@
-import * as React from 'react'
-import { Component } from 'react'
-import classNames from 'classnames'
-import { StyledAvatar } from './styled'
+import * as React from 'react';
+import { Component } from 'react';
+import classNames from 'classnames';
 
 export interface AvatarProps {
   /** 类名 */
@@ -25,7 +24,7 @@ export interface AvatarProps {
 
   prefix?: string;
 
-  onError?: (e: any)=> boolean;
+  onError?: (e: any) => boolean;
 }
 
 /**
@@ -38,28 +37,41 @@ class Avatar extends Component<AvatarProps, any> {
   }
 
   render() {
-    const { prefix = 'hmly-avatar',shape, className, children, src, alt,srcSet, size, onError, ...restProps } = this.props
-    if(!src) return null
+    const {
+      prefix = 'hmly-avatar',
+      shape,
+      className,
+      children,
+      src,
+      alt,
+      srcSet,
+      size,
+      onError,
+      ...restProps
+    } = this.props;
+    if (!src) return null;
 
-    const sizeCls = classNames(`${prefix}`, {
+    const sizeCls = classNames({
       [`${prefix}-lg`]: size === 'large',
-      [`${prefix}-sm`]: size === 'small',
-    })
+      [`${prefix}-sm`]: size === 'small'
+    });
 
     const classes = classNames(prefix, className, sizeCls, {
       [`${prefix}-${shape}`]: shape,
-      [`${prefix}-image`]: src,
+      [`${prefix}-image`]: src
     });
-    
-    
+
     return (
-      <StyledAvatar className={classes} prefix={prefix}
-        {...restProps}
-      >
-        <img src={src} alt={alt} srcSet={srcSet} onError={this.handleImgLoadError} />
-      </StyledAvatar>
-    )
+      <span className={classes} prefix={prefix} {...restProps}>
+        <img
+          src={src}
+          alt={alt}
+          srcSet={srcSet}
+          onError={this.handleImgLoadError}
+        />
+      </span>
+    );
   }
 }
 
-export default Avatar
+export default Avatar;

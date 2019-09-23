@@ -1,8 +1,7 @@
-import * as React from 'react'
-import { Component } from 'react'
-import classNames from 'classnames'
-import CheckboxGroup from './CheckboxGroup'
-import { StyledCheckboxBox, StyledCheckbox, CheckboxInner, CheckboxInput, CheckboxSlot } from './styled'
+import * as React from 'react';
+import { Component } from 'react';
+import classNames from 'classnames';
+import CheckboxGroup from './CheckboxGroup';
 
 export interface CheckboxProps {
   /** 类名 */
@@ -25,58 +24,74 @@ export interface CheckboxProps {
  * 多选框
  */
 class Checkbox extends Component<CheckboxProps, any> {
-  static Group: typeof CheckboxGroup
-
-  handleChange = (e: any) => {
-    // console.log('handleChange')
-  }
+  static Group = CheckboxGroup;
 
   handleClick = (e: any) => {
-    const { disabled, onChange } = this.props
-    if (disabled) { return }
+    const { disabled, onChange } = this.props;
+    if (disabled) {
+      return;
+    }
 
-    onChange && onChange({
-      target: {
-        ...this.props,
-        checked: e.target.checked
-      },
-      stopPropagation () {
-        e.stopPropagation()
-      },
-      preventDefault () {
-        e.preventDefault()
-      },
-      nativeEvent: e.nativeEvent
-    })
-  }
+    onChange &&
+      onChange({
+        target: {
+          ...this.props,
+          checked: e.target.checked
+        },
+        stopPropagation() {
+          e.stopPropagation();
+        },
+        preventDefault() {
+          e.preventDefault();
+        },
+        nativeEvent: e.nativeEvent
+      });
+  };
 
   render() {
-    const { className, style, disabled, readOnly, checked, value, children } = this.props
-    const classes = classNames('hmly-checkbox', className)
+    const {
+      className,
+      style,
+      disabled,
+      readOnly,
+      checked,
+      value,
+      children,
+      onChange
+    } = this.props;
+    const classes = classNames('hmly-checkbox', className);
 
     return (
-      <StyledCheckboxBox
-        className={classes}
-        style={style}>
-        <StyledCheckbox>
-          <CheckboxInner
-            checked={checked}
-            disabled={disabled} />
-          <CheckboxInput
+      <div className={classes} style={style}>
+        <span className="hmly-checkbox__wrapper">
+          <span
+            className={classNames('hmly-checkbox__inner', {
+              'hmly-checkbox__inner--checked': checked,
+              'hmly-checkbox__inner--disabled': disabled
+            })}
+          />
+          <input
+            className={classNames('hmly-checkbox__input', {
+              'hmly-checkbox__input--disabled': disabled
+            })}
             value={value}
             checked={checked}
             disabled={disabled}
             readOnly={readOnly}
             onClick={this.handleClick}
-            onChange={this.handleChange} />
-        </StyledCheckbox>
-        <CheckboxSlot
-          disabled={disabled}>
+            onChange={onChange}
+          />
+        </span>
+        <span
+          className={classNames('hmly-checkbox__label', {
+            'hmly-checkbox__label--disabled': disabled
+          })}
+        >
           {children}
-        </CheckboxSlot>
-      </StyledCheckboxBox>
-    )
+        </span>
+      </div>
+    );
   }
 }
 
-export default Checkbox
+export default Checkbox;

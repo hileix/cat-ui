@@ -1,20 +1,23 @@
 /**
  * 创建 枚举文件
  */
-const path = require('path')
-const fs = require('fs')
-const getBase64Array = require('./processJS').getBase64Array
+const path = require('path');
+const fs = require('fs');
+const getBase64Array = require('./processJS').getBase64Array;
 
-let enumFilePath = path.join(__dirname, '../../', 'src', 'components', 'Icon','IconTypeEnum.ts')
+let enumFilePath = path.join(__dirname, '../../', 'src', 'components', 'Icon', 'IconTypeEnum.ts');
+const iconTypesJsonPath = path.join(__dirname, '../../', 'src/components/Icon/stories/iconTypes.json');
 
 let createEnumFile = async function (code) {
   let arr = await getBase64Array(code)
-  let types = []
-  types = arr.map((value)=>{
+  let types = [], iconTypes = [];
+  types = arr.map((value) => {
     let type = value.id.replace('hmly-icon-', '')
-    let key = type.replace(/-(.{1})/g, function(all, _key){
+    let key = type.replace(/-(.{1})/g, function (all, _key) {
       return _key.toUpperCase()
     })
+    iconTypes.push(type);
+
     return `
     /**  
      * ![](${value.base64})
@@ -30,15 +33,13 @@ let createEnumFile = async function (code) {
     ${types.join('')}
   }
   `
-  
-  fs.writeFileSync(enumFilePath, template)
-  console.log('created enum file success')
+  const iconTypesJsonTemplate = JSON.stringify(iconTypes, null, 2);
+
+  fs.writeFileSync(enumFilePath, template);
+  fs.writeFileSync(iconTypesJsonPath, iconTypesJsonTemplate);
+  console.log('created enum file success');
 }
 
 module.exports = {
   createEnumFile
 }
-
-// createEnumFile("jmuw9sfqs2").then((data)=>{
-     
-//  })

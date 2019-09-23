@@ -4,7 +4,8 @@ exports[`Tag props:bgColor 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "sc-bdVaJa gZJQVV",
+      "class": "hmly-tag",
+      "style": "background-color:#ff6c6c",
     },
     "children": Array [
       Object {
@@ -37,9 +38,11 @@ initialize {
     "type": "tag",
     "x-attribsNamespace": Object {
       "class": undefined,
+      "style": undefined,
     },
     "x-attribsPrefix": Object {
       "class": undefined,
+      "style": undefined,
     },
   },
   "_root": [Circular],
@@ -57,7 +60,7 @@ exports[`Tag props:borderColor 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "sc-bdVaJa bVhWQC",
+      "class": "hmly-tag",
     },
     "children": Array [
       Object {
@@ -110,7 +113,8 @@ exports[`Tag props:textColor 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "sc-bdVaJa ksFGyZ",
+      "class": "hmly-tag",
+      "style": "color:#ff6c6c",
     },
     "children": Array [
       Object {
@@ -143,9 +147,11 @@ initialize {
     "type": "tag",
     "x-attribsNamespace": Object {
       "class": undefined,
+      "style": undefined,
     },
     "x-attribsPrefix": Object {
       "class": undefined,
+      "style": undefined,
     },
   },
   "_root": [Circular],
@@ -163,7 +169,7 @@ exports[`Tag renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "sc-bdVaJa jHnbHC",
+      "class": "hmly-tag",
     },
     "children": Array [
       Object {

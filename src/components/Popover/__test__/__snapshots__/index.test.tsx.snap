@@ -4,12 +4,12 @@ exports[`Popover renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-popover sc-bdVaJa bSrzPW",
+      "class": "hmly-popover",
     },
     "children": Array [
       Object {
         "attribs": Object {
-          "class": "hmly-popover sc-bwzfXH uTxCW",
+          "class": "hmly-popover__trigger",
         },
         "children": Array [
           Object {

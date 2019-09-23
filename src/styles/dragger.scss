@@ -1,0 +1,8 @@
+.hmly-dragger {
+  &__item {
+    cursor: pointer;
+    &--dragging {
+      box-shadow: 0 2px 8px 0 rgba(74, 74, 74, 0.3);
+    }
+  }
+}
