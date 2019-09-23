@@ -111,11 +111,9 @@ function modifiedVersion(version) {
  */
 function publish() {
   tipMessage('开始 publish：', 'start');
-  const npm = spawn('npm', ['publish'], { encoding: 'utf8' });
-  npm.stdout.on('data', (data) => {
-    console.log('data');
-    console.log(`${data}`);
-  });
+  const sp = spawnSync('npm', ['publish'], { encoding: 'utf8' });
+  console.log(sp.stdout);
+  
 }
 
 /**
