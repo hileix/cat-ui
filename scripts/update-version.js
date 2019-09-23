@@ -5,7 +5,7 @@ const semver = require('semver');
 const chalk = require('chalk');
 const fs = require('fs');
 const path = require('path');
-const { spawnSync, spawn } = require('child_process');
+const { spawnSync, spawn, execSync } = require('child_process');
 const execa = require('execa');
 const oldVersion = pkg.version;
 const log = console.log;
@@ -105,7 +105,7 @@ function modifiedVersion(version) {
 /**
  * 发布到 npm
  */
-async function publish() {
+function publish() {
   tipMessage('开始 publish：', 'start');
   let sp;
   try {
@@ -116,7 +116,6 @@ async function publish() {
   }
   const s = sp.stdout
   console.log('ss:', s);
-
 }
 
 /**
@@ -124,16 +123,22 @@ async function publish() {
  */
 function gitPush() {
   tipMessage('开始 git add/commit/push：', 'start');
-  let sp;
   try {
-    spawnSync('git', ['add', '.'], { encoding: 'utf8' });
-    spawnSync('git', ['commit', '-m', 'Modified version'], { encoding: 'utf8' });
-    sp = spawnSync('git', ['push', 'origin', 'master'], { encoding: 'utf8' });
+    let result = execSync('git add .');
+    console.log(result);
+
+    result = execSync('git commit -m "Modified version"');
+    console.log(result);
+
+    result = execSync('git push origin master');
+    console.log(result);
+
   } catch (err) {
     tipMessage(`git add/commit/push 失败：${err.message}`, 'fail');
     process.exit(1);
   }
   tipMessage('git add/commit/push 成功！', 'success');
+  process.exit(1);
 }
 
 /**
