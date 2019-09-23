@@ -1,6 +1,6 @@
 {
   "name": "catui",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "main": "lib/components/index.js",
   "license": "MIT",
   "repository": {
