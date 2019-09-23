@@ -81,7 +81,6 @@ async function generateNewVersion() {
   return { isConfirmed: answers.isConfirmed, newVersion };
 }
 
-
 /**
  * 修改版本号
  * @param {string} version 版本号
@@ -106,8 +105,8 @@ function modifiedVersion(version) {
  */
 function gitPush() {
   spawnSync('git', ['add', '.']);
-  spawnSync('git', ['commit', '-m', '"modify version and publish"']);
-  spawnSync('git', ['push', 'origin', '']);
+  spawnSync('git', ['commit', '-m', 'Modified version']);
+  spawnSync('git', ['push', 'origin', 'master']);
 }
 
 /**
