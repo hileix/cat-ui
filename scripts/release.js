@@ -38,7 +38,7 @@ async function start() {
 
   modifiedVersion(newVersion);
 
-  gitPush();
+  gitPush(newVersion);
 
   publish();
 }
@@ -126,13 +126,19 @@ function publish() {
 
 /**
  * 将修改的 package.json push
+ * @param {string} version release 版本
  */
-function gitPush() {
+function gitPush(version) {
   tipMessage('开始 git add/commit/push：', 'start');
 
+  // push branch
   execCommand('git add .');
-  execCommand('git commit -m "Modified version"');
+  execCommand(`git commit -m "Release v${version}"`);
   execCommand('git push origin master');
+
+  // push tag
+  execCommand(`git tag ${version}`);
+  execCommand(`git push origin ${version}`);
 
   tipMessage('git add/commit/push 成功！', 'success');
 }
