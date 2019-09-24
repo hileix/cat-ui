@@ -22,3 +22,7 @@ yarn-error.log*
 # ignore build target dir
 lib/**
 styles/**
+
+# lock
+yarn.lock
+package-lock.json
