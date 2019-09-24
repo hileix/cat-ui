@@ -36,7 +36,7 @@
     "update:snapshot": "jest --updateSnapshot",
     "build": "npm run test && rm -rf lib styles && npm run build:ts && npm run build:css",
     "deploy:gitpage": "storybook-to-ghpages -o storybook",
-    "release": "npm run build && node ./scripts/update-version.js && npm run deploy:gitpage"
+    "release": "npm run build && node ./scripts/release.js && npm run deploy:gitpage"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

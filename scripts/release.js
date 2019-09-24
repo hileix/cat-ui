@@ -25,12 +25,10 @@ const questionOne = {
 
 start();
 
-
-
-
-// 开始
 async function start() {
   validateBranch();
+
+  validateCommit();
 
   const { isConfirmed, newVersion } = await generateNewVersion();
 
@@ -44,7 +42,6 @@ async function start() {
 
   publish();
 }
-
 
 /**
  * 验证是否是在主分支（只能在主分支发布）
@@ -60,6 +57,23 @@ function validateBranch() {
     process.exit(1);
   }
   tipMessage('分支验证成功！', 'success');
+}
+
+/**
+ * 验证是否有未提交的
+ */
+function validateCommit() {
+  tipMessage('开始验证是否有未 commit 的文件：', 'start');
+  const result = spawnSync('git', ['status'], {
+    encoding: 'utf8'
+  });
+  const out = result.stdout.trim();
+  const msg = 'Changes not staged for commit';
+  if (out.indexOf(msg) !== -1) {
+    tipMessage(`当前有文件未 commit，请先 commit！`, 'fail');
+    process.exit(1);
+  }
+  tipMessage('验证成功！', 'success');
 }
 
 /**
@@ -101,7 +115,6 @@ function modifiedVersion(version) {
   tipMessage('修改版本号成功！', 'success')
 }
 
-
 /**
  * 发布到 npm
  */
@@ -138,7 +151,6 @@ function tipMessage(text, type) {
     log(chalk.red(`\n------${text}\n`))
   }
 }
-
 
 /**
  * 执行命令且打印相关的命令以及命令执行后的返回值
