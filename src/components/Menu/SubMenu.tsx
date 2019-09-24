@@ -78,7 +78,7 @@ class SubMenu extends Component<SubMenuProps, any> {
     if (this.leaveTimer) {
       clearTimeout(this.leaveTimer);
     }
-    this.enterTimer = setTimeout(() => {
+    this.enterTimer = window.setTimeout(() => {
       this.setState({ isPopVisible: true });
     }, 200);
   };
@@ -91,7 +91,7 @@ class SubMenu extends Component<SubMenuProps, any> {
     if (this.enterTimer) {
       clearTimeout(this.enterTimer);
     }
-    this.leaveTimer = setTimeout(() => {
+    this.leaveTimer = window.setTimeout(() => {
       this.setState({ isPopVisible: false });
     }, 200);
   };
