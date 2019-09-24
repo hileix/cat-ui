@@ -20,8 +20,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # ignore build target dir
-lib/**
-styles/**
+/lib
+/styles
 
 # lock
 yarn.lock
