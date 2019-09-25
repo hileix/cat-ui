@@ -13,7 +13,7 @@ addDecorator(withInfo);
 
 const SingleIcon = ({ type }) => {
   return (
-    <div className='single-icon' data-clipboard-text={`<Icon type=${`"${type}"`}>`}>
+    <div className='single-icon' data-clipboard-text={`<Icon type=${`"${type}"`} />`}>
       <Icon type={type} className='single-icon__icon'></Icon>
       <span>{type}</span>
     </div>
