@@ -12,9 +12,9 @@ export interface MessageContentProps {
 }
 
 const IconTypeMap = {
-  success: Icon.Type.success,
-  warn: Icon.Type.warning,
-  error: Icon.Type.error
+  success: 'success',
+  warn: 'warn',
+  error: 'error'
 };
 
 class MessageContent extends Component<MessageContentProps, any> {
