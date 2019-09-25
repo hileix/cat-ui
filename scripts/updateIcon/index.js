@@ -17,7 +17,6 @@ async function run (){
   await getBase64Array(code)
   await getBase64Array(code)
   await createEnumFile(code)
-  await createExamplate(code)
   return code
 }
 
