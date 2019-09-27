@@ -214,8 +214,8 @@ class Input extends React.PureComponent<InputProps, InputStates> {
     } = this.props;
     const theme = this.props.type;
     const props = pick(this.props, domProps) as IdomProps;
-    const prefix = 'hmly-input';
-    const iconPrefix = 'hmly-input-icon';
+    const prefix = 'cat-input';
+    const iconPrefix = 'cat-input-icon';
 
     return (
       <Wrapper

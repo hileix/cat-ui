@@ -4,22 +4,22 @@ exports[`Steps renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-steps",
+      "class": "cat-steps",
     },
     "children": Array [
       Object {
         "attribs": Object {
-          "class": "hmly-steps__step",
+          "class": "cat-steps__step",
         },
         "children": Array [
           Object {
             "attribs": Object {
-              "class": "hmly-steps__step-icon",
+              "class": "cat-steps__step-icon",
             },
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "hmly-steps__step-icon-index",
+                  "class": "cat-steps__step-icon-index",
                 },
                 "children": Array [
                   Object {
@@ -48,12 +48,12 @@ initialize {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Object {
               "attribs": Object {
-                "class": "hmly-steps__step-content",
+                "class": "cat-steps__step-content",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-content-title",
+                    "class": "cat-steps__step-content-title",
                   },
                   "children": Array [
                     Object {
@@ -68,7 +68,7 @@ initialize {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-description",
+                      "class": "cat-steps__step-content-description",
                     },
                     "children": Array [],
                     "name": "div",
@@ -96,7 +96,7 @@ initialize {
                 },
                 Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-content-description",
+                    "class": "cat-steps__step-content-description",
                   },
                   "children": Array [],
                   "name": "div",
@@ -105,7 +105,7 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-title",
+                      "class": "cat-steps__step-content-title",
                     },
                     "children": Array [
                       Object {
@@ -163,12 +163,12 @@ initialize {
           },
           Object {
             "attribs": Object {
-              "class": "hmly-steps__step-content",
+              "class": "cat-steps__step-content",
             },
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "hmly-steps__step-content-title",
+                  "class": "cat-steps__step-content-title",
                 },
                 "children": Array [
                   Object {
@@ -183,7 +183,7 @@ initialize {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-content-description",
+                    "class": "cat-steps__step-content-description",
                   },
                   "children": Array [],
                   "name": "div",
@@ -211,7 +211,7 @@ initialize {
               },
               Object {
                 "attribs": Object {
-                  "class": "hmly-steps__step-content-description",
+                  "class": "cat-steps__step-content-description",
                 },
                 "children": Array [],
                 "name": "div",
@@ -220,7 +220,7 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-content-title",
+                    "class": "cat-steps__step-content-title",
                   },
                   "children": Array [
                     Object {
@@ -259,12 +259,12 @@ initialize {
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
-                "class": "hmly-steps__step-icon",
+                "class": "cat-steps__step-icon",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-icon-index",
+                    "class": "cat-steps__step-icon-index",
                   },
                   "children": Array [
                     Object {
@@ -315,17 +315,17 @@ initialize {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Object {
           "attribs": Object {
-            "class": "hmly-steps__step",
+            "class": "cat-steps__step",
           },
           "children": Array [
             Object {
               "attribs": Object {
-                "class": "hmly-steps__step-icon",
+                "class": "cat-steps__step-icon",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-icon-index",
+                    "class": "cat-steps__step-icon-index",
                   },
                   "children": Array [
                     Object {
@@ -354,12 +354,12 @@ initialize {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Object {
                 "attribs": Object {
-                  "class": "hmly-steps__step-content",
+                  "class": "cat-steps__step-content",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-title",
+                      "class": "cat-steps__step-content-title",
                     },
                     "children": Array [
                       Object {
@@ -374,7 +374,7 @@ initialize {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Object {
                       "attribs": Object {
-                        "class": "hmly-steps__step-content-description",
+                        "class": "cat-steps__step-content-description",
                       },
                       "children": Array [],
                       "name": "div",
@@ -402,7 +402,7 @@ initialize {
                   },
                   Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-description",
+                      "class": "cat-steps__step-content-description",
                     },
                     "children": Array [],
                     "name": "div",
@@ -411,7 +411,7 @@ initialize {
                     "parent": [Circular],
                     "prev": Object {
                       "attribs": Object {
-                        "class": "hmly-steps__step-content-title",
+                        "class": "cat-steps__step-content-title",
                       },
                       "children": Array [
                         Object {
@@ -469,12 +469,12 @@ initialize {
             },
             Object {
               "attribs": Object {
-                "class": "hmly-steps__step-content",
+                "class": "cat-steps__step-content",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-content-title",
+                    "class": "cat-steps__step-content-title",
                   },
                   "children": Array [
                     Object {
@@ -489,7 +489,7 @@ initialize {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-description",
+                      "class": "cat-steps__step-content-description",
                     },
                     "children": Array [],
                     "name": "div",
@@ -517,7 +517,7 @@ initialize {
                 },
                 Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-content-description",
+                    "class": "cat-steps__step-content-description",
                   },
                   "children": Array [],
                   "name": "div",
@@ -526,7 +526,7 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-title",
+                      "class": "cat-steps__step-content-title",
                     },
                     "children": Array [
                       Object {
@@ -565,12 +565,12 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
-                  "class": "hmly-steps__step-icon",
+                  "class": "cat-steps__step-icon",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-icon-index",
+                      "class": "cat-steps__step-icon-index",
                     },
                     "children": Array [
                       Object {
@@ -621,17 +621,17 @@ initialize {
           "namespace": "http://www.w3.org/1999/xhtml",
           "next": Object {
             "attribs": Object {
-              "class": "hmly-steps__step",
+              "class": "cat-steps__step",
             },
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "hmly-steps__step-icon",
+                  "class": "cat-steps__step-icon",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-icon-index",
+                      "class": "cat-steps__step-icon-index",
                     },
                     "children": Array [
                       Object {
@@ -660,12 +660,12 @@ initialize {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-content",
+                    "class": "cat-steps__step-content",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "hmly-steps__step-content-title",
+                        "class": "cat-steps__step-content-title",
                       },
                       "children": Array [
                         Object {
@@ -680,7 +680,7 @@ initialize {
                       "namespace": "http://www.w3.org/1999/xhtml",
                       "next": Object {
                         "attribs": Object {
-                          "class": "hmly-steps__step-content-description",
+                          "class": "cat-steps__step-content-description",
                         },
                         "children": Array [],
                         "name": "div",
@@ -708,7 +708,7 @@ initialize {
                     },
                     Object {
                       "attribs": Object {
-                        "class": "hmly-steps__step-content-description",
+                        "class": "cat-steps__step-content-description",
                       },
                       "children": Array [],
                       "name": "div",
@@ -717,7 +717,7 @@ initialize {
                       "parent": [Circular],
                       "prev": Object {
                         "attribs": Object {
-                          "class": "hmly-steps__step-content-title",
+                          "class": "cat-steps__step-content-title",
                         },
                         "children": Array [
                           Object {
@@ -775,12 +775,12 @@ initialize {
               },
               Object {
                 "attribs": Object {
-                  "class": "hmly-steps__step-content",
+                  "class": "cat-steps__step-content",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-title",
+                      "class": "cat-steps__step-content-title",
                     },
                     "children": Array [
                       Object {
@@ -795,7 +795,7 @@ initialize {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Object {
                       "attribs": Object {
-                        "class": "hmly-steps__step-content-description",
+                        "class": "cat-steps__step-content-description",
                       },
                       "children": Array [],
                       "name": "div",
@@ -823,7 +823,7 @@ initialize {
                   },
                   Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-description",
+                      "class": "cat-steps__step-content-description",
                     },
                     "children": Array [],
                     "name": "div",
@@ -832,7 +832,7 @@ initialize {
                     "parent": [Circular],
                     "prev": Object {
                       "attribs": Object {
-                        "class": "hmly-steps__step-content-title",
+                        "class": "cat-steps__step-content-title",
                       },
                       "children": Array [
                         Object {
@@ -871,12 +871,12 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-icon",
+                    "class": "cat-steps__step-icon",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "hmly-steps__step-icon-index",
+                        "class": "cat-steps__step-icon-index",
                       },
                       "children": Array [
                         Object {
@@ -958,17 +958,17 @@ initialize {
       },
       Object {
         "attribs": Object {
-          "class": "hmly-steps__step",
+          "class": "cat-steps__step",
         },
         "children": Array [
           Object {
             "attribs": Object {
-              "class": "hmly-steps__step-icon",
+              "class": "cat-steps__step-icon",
             },
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "hmly-steps__step-icon-index",
+                  "class": "cat-steps__step-icon-index",
                 },
                 "children": Array [
                   Object {
@@ -997,12 +997,12 @@ initialize {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Object {
               "attribs": Object {
-                "class": "hmly-steps__step-content",
+                "class": "cat-steps__step-content",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-content-title",
+                    "class": "cat-steps__step-content-title",
                   },
                   "children": Array [
                     Object {
@@ -1017,7 +1017,7 @@ initialize {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-description",
+                      "class": "cat-steps__step-content-description",
                     },
                     "children": Array [],
                     "name": "div",
@@ -1045,7 +1045,7 @@ initialize {
                 },
                 Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-content-description",
+                    "class": "cat-steps__step-content-description",
                   },
                   "children": Array [],
                   "name": "div",
@@ -1054,7 +1054,7 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-title",
+                      "class": "cat-steps__step-content-title",
                     },
                     "children": Array [
                       Object {
@@ -1112,12 +1112,12 @@ initialize {
           },
           Object {
             "attribs": Object {
-              "class": "hmly-steps__step-content",
+              "class": "cat-steps__step-content",
             },
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "hmly-steps__step-content-title",
+                  "class": "cat-steps__step-content-title",
                 },
                 "children": Array [
                   Object {
@@ -1132,7 +1132,7 @@ initialize {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-content-description",
+                    "class": "cat-steps__step-content-description",
                   },
                   "children": Array [],
                   "name": "div",
@@ -1160,7 +1160,7 @@ initialize {
               },
               Object {
                 "attribs": Object {
-                  "class": "hmly-steps__step-content-description",
+                  "class": "cat-steps__step-content-description",
                 },
                 "children": Array [],
                 "name": "div",
@@ -1169,7 +1169,7 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-content-title",
+                    "class": "cat-steps__step-content-title",
                   },
                   "children": Array [
                     Object {
@@ -1208,12 +1208,12 @@ initialize {
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
-                "class": "hmly-steps__step-icon",
+                "class": "cat-steps__step-icon",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-icon-index",
+                    "class": "cat-steps__step-icon-index",
                   },
                   "children": Array [
                     Object {
@@ -1264,17 +1264,17 @@ initialize {
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Object {
           "attribs": Object {
-            "class": "hmly-steps__step",
+            "class": "cat-steps__step",
           },
           "children": Array [
             Object {
               "attribs": Object {
-                "class": "hmly-steps__step-icon",
+                "class": "cat-steps__step-icon",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-icon-index",
+                    "class": "cat-steps__step-icon-index",
                   },
                   "children": Array [
                     Object {
@@ -1303,12 +1303,12 @@ initialize {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Object {
                 "attribs": Object {
-                  "class": "hmly-steps__step-content",
+                  "class": "cat-steps__step-content",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-title",
+                      "class": "cat-steps__step-content-title",
                     },
                     "children": Array [
                       Object {
@@ -1323,7 +1323,7 @@ initialize {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Object {
                       "attribs": Object {
-                        "class": "hmly-steps__step-content-description",
+                        "class": "cat-steps__step-content-description",
                       },
                       "children": Array [],
                       "name": "div",
@@ -1351,7 +1351,7 @@ initialize {
                   },
                   Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-description",
+                      "class": "cat-steps__step-content-description",
                     },
                     "children": Array [],
                     "name": "div",
@@ -1360,7 +1360,7 @@ initialize {
                     "parent": [Circular],
                     "prev": Object {
                       "attribs": Object {
-                        "class": "hmly-steps__step-content-title",
+                        "class": "cat-steps__step-content-title",
                       },
                       "children": Array [
                         Object {
@@ -1418,12 +1418,12 @@ initialize {
             },
             Object {
               "attribs": Object {
-                "class": "hmly-steps__step-content",
+                "class": "cat-steps__step-content",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-content-title",
+                    "class": "cat-steps__step-content-title",
                   },
                   "children": Array [
                     Object {
@@ -1438,7 +1438,7 @@ initialize {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-description",
+                      "class": "cat-steps__step-content-description",
                     },
                     "children": Array [],
                     "name": "div",
@@ -1466,7 +1466,7 @@ initialize {
                 },
                 Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-content-description",
+                    "class": "cat-steps__step-content-description",
                   },
                   "children": Array [],
                   "name": "div",
@@ -1475,7 +1475,7 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-title",
+                      "class": "cat-steps__step-content-title",
                     },
                     "children": Array [
                       Object {
@@ -1514,12 +1514,12 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
-                  "class": "hmly-steps__step-icon",
+                  "class": "cat-steps__step-icon",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-icon-index",
+                      "class": "cat-steps__step-icon-index",
                     },
                     "children": Array [
                       Object {
@@ -1582,17 +1582,17 @@ initialize {
         "parent": [Circular],
         "prev": Object {
           "attribs": Object {
-            "class": "hmly-steps__step",
+            "class": "cat-steps__step",
           },
           "children": Array [
             Object {
               "attribs": Object {
-                "class": "hmly-steps__step-icon",
+                "class": "cat-steps__step-icon",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-icon-index",
+                    "class": "cat-steps__step-icon-index",
                   },
                   "children": Array [
                     Object {
@@ -1621,12 +1621,12 @@ initialize {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Object {
                 "attribs": Object {
-                  "class": "hmly-steps__step-content",
+                  "class": "cat-steps__step-content",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-title",
+                      "class": "cat-steps__step-content-title",
                     },
                     "children": Array [
                       Object {
@@ -1641,7 +1641,7 @@ initialize {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Object {
                       "attribs": Object {
-                        "class": "hmly-steps__step-content-description",
+                        "class": "cat-steps__step-content-description",
                       },
                       "children": Array [],
                       "name": "div",
@@ -1669,7 +1669,7 @@ initialize {
                   },
                   Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-description",
+                      "class": "cat-steps__step-content-description",
                     },
                     "children": Array [],
                     "name": "div",
@@ -1678,7 +1678,7 @@ initialize {
                     "parent": [Circular],
                     "prev": Object {
                       "attribs": Object {
-                        "class": "hmly-steps__step-content-title",
+                        "class": "cat-steps__step-content-title",
                       },
                       "children": Array [
                         Object {
@@ -1736,12 +1736,12 @@ initialize {
             },
             Object {
               "attribs": Object {
-                "class": "hmly-steps__step-content",
+                "class": "cat-steps__step-content",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-content-title",
+                    "class": "cat-steps__step-content-title",
                   },
                   "children": Array [
                     Object {
@@ -1756,7 +1756,7 @@ initialize {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-description",
+                      "class": "cat-steps__step-content-description",
                     },
                     "children": Array [],
                     "name": "div",
@@ -1784,7 +1784,7 @@ initialize {
                 },
                 Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-content-description",
+                    "class": "cat-steps__step-content-description",
                   },
                   "children": Array [],
                   "name": "div",
@@ -1793,7 +1793,7 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-title",
+                      "class": "cat-steps__step-content-title",
                     },
                     "children": Array [
                       Object {
@@ -1832,12 +1832,12 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
-                  "class": "hmly-steps__step-icon",
+                  "class": "cat-steps__step-icon",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-icon-index",
+                      "class": "cat-steps__step-icon-index",
                     },
                     "children": Array [
                       Object {
@@ -1907,17 +1907,17 @@ initialize {
       },
       Object {
         "attribs": Object {
-          "class": "hmly-steps__step",
+          "class": "cat-steps__step",
         },
         "children": Array [
           Object {
             "attribs": Object {
-              "class": "hmly-steps__step-icon",
+              "class": "cat-steps__step-icon",
             },
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "hmly-steps__step-icon-index",
+                  "class": "cat-steps__step-icon-index",
                 },
                 "children": Array [
                   Object {
@@ -1946,12 +1946,12 @@ initialize {
             "namespace": "http://www.w3.org/1999/xhtml",
             "next": Object {
               "attribs": Object {
-                "class": "hmly-steps__step-content",
+                "class": "cat-steps__step-content",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-content-title",
+                    "class": "cat-steps__step-content-title",
                   },
                   "children": Array [
                     Object {
@@ -1966,7 +1966,7 @@ initialize {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-description",
+                      "class": "cat-steps__step-content-description",
                     },
                     "children": Array [],
                     "name": "div",
@@ -1994,7 +1994,7 @@ initialize {
                 },
                 Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-content-description",
+                    "class": "cat-steps__step-content-description",
                   },
                   "children": Array [],
                   "name": "div",
@@ -2003,7 +2003,7 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-title",
+                      "class": "cat-steps__step-content-title",
                     },
                     "children": Array [
                       Object {
@@ -2061,12 +2061,12 @@ initialize {
           },
           Object {
             "attribs": Object {
-              "class": "hmly-steps__step-content",
+              "class": "cat-steps__step-content",
             },
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "hmly-steps__step-content-title",
+                  "class": "cat-steps__step-content-title",
                 },
                 "children": Array [
                   Object {
@@ -2081,7 +2081,7 @@ initialize {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-content-description",
+                    "class": "cat-steps__step-content-description",
                   },
                   "children": Array [],
                   "name": "div",
@@ -2109,7 +2109,7 @@ initialize {
               },
               Object {
                 "attribs": Object {
-                  "class": "hmly-steps__step-content-description",
+                  "class": "cat-steps__step-content-description",
                 },
                 "children": Array [],
                 "name": "div",
@@ -2118,7 +2118,7 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-content-title",
+                    "class": "cat-steps__step-content-title",
                   },
                   "children": Array [
                     Object {
@@ -2157,12 +2157,12 @@ initialize {
             "parent": [Circular],
             "prev": Object {
               "attribs": Object {
-                "class": "hmly-steps__step-icon",
+                "class": "cat-steps__step-icon",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-icon-index",
+                    "class": "cat-steps__step-icon-index",
                   },
                   "children": Array [
                     Object {
@@ -2215,17 +2215,17 @@ initialize {
         "parent": [Circular],
         "prev": Object {
           "attribs": Object {
-            "class": "hmly-steps__step",
+            "class": "cat-steps__step",
           },
           "children": Array [
             Object {
               "attribs": Object {
-                "class": "hmly-steps__step-icon",
+                "class": "cat-steps__step-icon",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-icon-index",
+                    "class": "cat-steps__step-icon-index",
                   },
                   "children": Array [
                     Object {
@@ -2254,12 +2254,12 @@ initialize {
               "namespace": "http://www.w3.org/1999/xhtml",
               "next": Object {
                 "attribs": Object {
-                  "class": "hmly-steps__step-content",
+                  "class": "cat-steps__step-content",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-title",
+                      "class": "cat-steps__step-content-title",
                     },
                     "children": Array [
                       Object {
@@ -2274,7 +2274,7 @@ initialize {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Object {
                       "attribs": Object {
-                        "class": "hmly-steps__step-content-description",
+                        "class": "cat-steps__step-content-description",
                       },
                       "children": Array [],
                       "name": "div",
@@ -2302,7 +2302,7 @@ initialize {
                   },
                   Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-description",
+                      "class": "cat-steps__step-content-description",
                     },
                     "children": Array [],
                     "name": "div",
@@ -2311,7 +2311,7 @@ initialize {
                     "parent": [Circular],
                     "prev": Object {
                       "attribs": Object {
-                        "class": "hmly-steps__step-content-title",
+                        "class": "cat-steps__step-content-title",
                       },
                       "children": Array [
                         Object {
@@ -2369,12 +2369,12 @@ initialize {
             },
             Object {
               "attribs": Object {
-                "class": "hmly-steps__step-content",
+                "class": "cat-steps__step-content",
               },
               "children": Array [
                 Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-content-title",
+                    "class": "cat-steps__step-content-title",
                   },
                   "children": Array [
                     Object {
@@ -2389,7 +2389,7 @@ initialize {
                   "namespace": "http://www.w3.org/1999/xhtml",
                   "next": Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-description",
+                      "class": "cat-steps__step-content-description",
                     },
                     "children": Array [],
                     "name": "div",
@@ -2417,7 +2417,7 @@ initialize {
                 },
                 Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-content-description",
+                    "class": "cat-steps__step-content-description",
                   },
                   "children": Array [],
                   "name": "div",
@@ -2426,7 +2426,7 @@ initialize {
                   "parent": [Circular],
                   "prev": Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-title",
+                      "class": "cat-steps__step-content-title",
                     },
                     "children": Array [
                       Object {
@@ -2465,12 +2465,12 @@ initialize {
               "parent": [Circular],
               "prev": Object {
                 "attribs": Object {
-                  "class": "hmly-steps__step-icon",
+                  "class": "cat-steps__step-icon",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-icon-index",
+                      "class": "cat-steps__step-icon-index",
                     },
                     "children": Array [
                       Object {
@@ -2523,17 +2523,17 @@ initialize {
           "parent": [Circular],
           "prev": Object {
             "attribs": Object {
-              "class": "hmly-steps__step",
+              "class": "cat-steps__step",
             },
             "children": Array [
               Object {
                 "attribs": Object {
-                  "class": "hmly-steps__step-icon",
+                  "class": "cat-steps__step-icon",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-icon-index",
+                      "class": "cat-steps__step-icon-index",
                     },
                     "children": Array [
                       Object {
@@ -2562,12 +2562,12 @@ initialize {
                 "namespace": "http://www.w3.org/1999/xhtml",
                 "next": Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-content",
+                    "class": "cat-steps__step-content",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "hmly-steps__step-content-title",
+                        "class": "cat-steps__step-content-title",
                       },
                       "children": Array [
                         Object {
@@ -2582,7 +2582,7 @@ initialize {
                       "namespace": "http://www.w3.org/1999/xhtml",
                       "next": Object {
                         "attribs": Object {
-                          "class": "hmly-steps__step-content-description",
+                          "class": "cat-steps__step-content-description",
                         },
                         "children": Array [],
                         "name": "div",
@@ -2610,7 +2610,7 @@ initialize {
                     },
                     Object {
                       "attribs": Object {
-                        "class": "hmly-steps__step-content-description",
+                        "class": "cat-steps__step-content-description",
                       },
                       "children": Array [],
                       "name": "div",
@@ -2619,7 +2619,7 @@ initialize {
                       "parent": [Circular],
                       "prev": Object {
                         "attribs": Object {
-                          "class": "hmly-steps__step-content-title",
+                          "class": "cat-steps__step-content-title",
                         },
                         "children": Array [
                           Object {
@@ -2677,12 +2677,12 @@ initialize {
               },
               Object {
                 "attribs": Object {
-                  "class": "hmly-steps__step-content",
+                  "class": "cat-steps__step-content",
                 },
                 "children": Array [
                   Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-title",
+                      "class": "cat-steps__step-content-title",
                     },
                     "children": Array [
                       Object {
@@ -2697,7 +2697,7 @@ initialize {
                     "namespace": "http://www.w3.org/1999/xhtml",
                     "next": Object {
                       "attribs": Object {
-                        "class": "hmly-steps__step-content-description",
+                        "class": "cat-steps__step-content-description",
                       },
                       "children": Array [],
                       "name": "div",
@@ -2725,7 +2725,7 @@ initialize {
                   },
                   Object {
                     "attribs": Object {
-                      "class": "hmly-steps__step-content-description",
+                      "class": "cat-steps__step-content-description",
                     },
                     "children": Array [],
                     "name": "div",
@@ -2734,7 +2734,7 @@ initialize {
                     "parent": [Circular],
                     "prev": Object {
                       "attribs": Object {
-                        "class": "hmly-steps__step-content-title",
+                        "class": "cat-steps__step-content-title",
                       },
                       "children": Array [
                         Object {
@@ -2773,12 +2773,12 @@ initialize {
                 "parent": [Circular],
                 "prev": Object {
                   "attribs": Object {
-                    "class": "hmly-steps__step-icon",
+                    "class": "cat-steps__step-icon",
                   },
                   "children": Array [
                     Object {
                       "attribs": Object {
-                        "class": "hmly-steps__step-icon-index",
+                        "class": "cat-steps__step-icon-index",
                       },
                       "children": Array [
                         Object {

@@ -66,7 +66,7 @@ class Menu extends Component<MenuProps, any> {
     const { activeMenu, activeHeader, isSubMenu } = this.state;
     const { className, style, mode, activeKey, children } = this.props;
 
-    const prefix = 'hmly-menu';
+    const prefix = 'cat-menu';
     const classes = classNames(
       prefix,
       {

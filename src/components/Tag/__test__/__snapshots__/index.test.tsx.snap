@@ -4,7 +4,7 @@ exports[`Tag props:bgColor 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-tag",
+      "class": "cat-tag",
       "style": "background-color:#ff6c6c",
     },
     "children": Array [
@@ -60,7 +60,7 @@ exports[`Tag props:borderColor 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-tag",
+      "class": "cat-tag",
     },
     "children": Array [
       Object {
@@ -113,7 +113,7 @@ exports[`Tag props:textColor 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-tag",
+      "class": "cat-tag",
       "style": "color:#ff6c6c",
     },
     "children": Array [
@@ -169,7 +169,7 @@ exports[`Tag renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-tag",
+      "class": "cat-tag",
     },
     "children": Array [
       Object {

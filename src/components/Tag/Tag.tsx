@@ -42,7 +42,7 @@ function Tag({
   if (borderColor) {
     newStyle.borderColor = bgColor;
   }
-  const prefix = 'hmly-tag';
+  const prefix = 'cat-tag';
   const classes = classNames(prefix, className);
 
   return (

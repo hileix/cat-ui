@@ -71,9 +71,9 @@ class Tooltip extends Component<TooltipProps, any> {
       children
     } = this.props;
     const { isPopOpen, tipLeft } = this.state;
-    const triggerClass = classNames('hmly-tooltip-trigger', className);
+    const triggerClass = classNames('cat-tooltip-trigger', className);
 
-    const contentPrefix = 'hmly-tooltip__content';
+    const contentPrefix = 'cat-tooltip__content';
     const contentClass = classNames(
       contentPrefix,
       `${contentPrefix}--${position}`

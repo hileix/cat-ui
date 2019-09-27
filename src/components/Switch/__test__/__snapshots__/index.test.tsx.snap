@@ -5,14 +5,14 @@ initialize {
   "0": Object {
     "attribs": Object {
       "aria-checked": "false",
-      "class": "hmly-switch",
+      "class": "cat-switch",
       "role": "switch",
       "type": "button",
     },
     "children": Array [
       Object {
         "attribs": Object {
-          "class": "hmly-switch__inner",
+          "class": "cat-switch__inner",
         },
         "children": Array [],
         "name": "span",

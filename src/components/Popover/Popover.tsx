@@ -161,7 +161,7 @@ class Popover extends Component<PopoverProps, any> {
   render() {
     const { className, style, children } = this.props;
     const { visible } = this.state;
-    const classes = classNames('hmly-popover', className);
+    const classes = classNames('cat-popover', className);
     const { trigger, content } = this.genTriggerContent();
 
     return (

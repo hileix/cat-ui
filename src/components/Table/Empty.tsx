@@ -29,7 +29,7 @@ class Empty extends PureComponent<EmptyProps, any> {
     // const emptyDOM = empty ? empty : defaultEmpty
 
     return (
-      <tr className="hmly-table-row">
+      <tr className="cat-table-row">
         <td colSpan={colSpan} className="table-td-empty">
           {empty}
         </td>

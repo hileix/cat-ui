@@ -43,7 +43,7 @@ class Button extends PureComponent<ButtonProps, any> {
   private buttonRef: any;
   private originalBtnStyle: string = '';
   static defaultProps = {
-    prefix: 'hmly',
+    prefix: 'cat',
     htmlType: 'button',
     theme: 'primary',
     size: 'lg',

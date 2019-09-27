@@ -4,17 +4,17 @@ exports[`Tooltip renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-popover",
+      "class": "cat-popover",
     },
     "children": Array [
       Object {
         "attribs": Object {
-          "class": "hmly-popover__trigger",
+          "class": "cat-popover__trigger",
         },
         "children": Array [
           Object {
             "attribs": Object {
-              "class": "hmly-tooltip-trigger",
+              "class": "cat-tooltip-trigger",
             },
             "children": Array [
               Object {

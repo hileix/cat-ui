@@ -32,10 +32,10 @@ class Wrapper extends React.PureComponent<IWrapperProps, any> {
       children
     } = this.props;
 
-    const prefix = 'hmly-input-wrapper';
+    const prefix = 'cat-input-wrapper';
 
     const classes = classNames(
-      'hmly-input-wrapper',
+      'cat-input-wrapper',
       {
         [`${prefix}--large`]: size === 'large',
         [`${prefix}--normal`]: size === 'normal',
@@ -55,9 +55,9 @@ class Wrapper extends React.PureComponent<IWrapperProps, any> {
       className
     );
 
-    const borderPrefix = 'hmly-input-wrapper-border';
-    const placeholderPrefix = 'hmly-input-wrapper-placeholder';
-    const messagePrefix = 'hmly-input-wrapper-message';
+    const borderPrefix = 'cat-input-wrapper-border';
+    const placeholderPrefix = 'cat-input-wrapper-placeholder';
+    const messagePrefix = 'cat-input-wrapper-message';
 
     return (
       <div className={classes}>

@@ -145,7 +145,7 @@ class Example2 extends React.Component {
             width: 316px;
             color: #ddf;
           }
-          .hmly-select.not-allow {
+          .cat-select.not-allow {
             cursor: not-allowed;
             color: #ddd;
           }

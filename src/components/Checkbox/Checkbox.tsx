@@ -59,20 +59,20 @@ class Checkbox extends Component<CheckboxProps, any> {
       children,
       onChange
     } = this.props;
-    const classes = classNames('hmly-checkbox', className);
+    const classes = classNames('cat-checkbox', className);
 
     return (
       <div className={classes} style={style}>
-        <span className="hmly-checkbox__wrapper">
+        <span className="cat-checkbox__wrapper">
           <span
-            className={classNames('hmly-checkbox__inner', {
-              'hmly-checkbox__inner--checked': checked,
-              'hmly-checkbox__inner--disabled': disabled
+            className={classNames('cat-checkbox__inner', {
+              'cat-checkbox__inner--checked': checked,
+              'cat-checkbox__inner--disabled': disabled
             })}
           />
           <input
-            className={classNames('hmly-checkbox__input', {
-              'hmly-checkbox__input--disabled': disabled
+            className={classNames('cat-checkbox__input', {
+              'cat-checkbox__input--disabled': disabled
             })}
             value={value}
             checked={checked}
@@ -83,8 +83,8 @@ class Checkbox extends Component<CheckboxProps, any> {
           />
         </span>
         <span
-          className={classNames('hmly-checkbox__label', {
-            'hmly-checkbox__label--disabled': disabled
+          className={classNames('cat-checkbox__label', {
+            'cat-checkbox__label--disabled': disabled
           })}
         >
           {children}

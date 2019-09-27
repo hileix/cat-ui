@@ -96,7 +96,7 @@ class Select extends Component<SelectProps, any> {
     });
     const isValueEmpty = value === '' || typeof value === undefined;
 
-    const prefix = 'hmly-select';
+    const prefix = 'cat-select';
     const classes = classNames(
       prefix,
       {

@@ -51,9 +51,9 @@ class MenuItem extends Component<MenuItemProps, any> {
       children
     } = this.props;
 
-    const prefix = 'hmly-menu__item';
+    const prefix = 'cat-menu__item';
     const classes = classNames(
-      'hmly-menu__item',
+      'cat-menu__item',
       {
         [`${prefix}--${mode}`]: mode,
         [`${prefix}--checked`]: checked,

@@ -18,7 +18,7 @@ export interface LoadingProps {
 }
 
 const Loading = ({ visible, className, ...restProps }: LoadingProps) => {
-  const prefix = 'hmly-loading';
+  const prefix = 'cat-loading';
   const classes = classNames(
     prefix,
     {

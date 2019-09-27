@@ -42,7 +42,7 @@ class TableHeader extends Component<TableHeaderProps, any> {
       const checkedKey = isUseDFKey ? elem.defaultFilterKey : key;
       const isFilterActive = !(isUseDFKey || elem.defaultFilterKey === key);
 
-      const prefix = 'hmly-table__header-th';
+      const prefix = 'cat-table__header-th';
       return (
         <th key={elem.id} className={`${prefix}`}>
           <span className={`${prefix}-inner`}>
@@ -52,8 +52,8 @@ class TableHeader extends Component<TableHeaderProps, any> {
                 <Popover.Trigger>
                   <Icon
                     type="filter"
-                    className={classNames('hmly-table__header-filter-icon', {
-                      'hmly-table__header-filter-icon--active': isFilterActive
+                    className={classNames('cat-table__header-filter-icon', {
+                      'cat-table__header-filter-icon--active': isFilterActive
                     })}
                   />
                 </Popover.Trigger>
@@ -88,10 +88,10 @@ class TableHeader extends Component<TableHeaderProps, any> {
 
   render() {
     const { align } = this.props;
-    const trPrefix = 'hmly-table__header-tr';
+    const trPrefix = 'cat-table__header-tr';
     const trClasses = classNames(trPrefix, `${trPrefix}--${align}`);
     const tds = this.renderTds();
-    const prefix = 'hmly-header';
+    const prefix = 'cat-header';
 
     return (
       <thead className={classNames(prefix, `${prefix}--${align}`)}>

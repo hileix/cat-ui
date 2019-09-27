@@ -70,7 +70,7 @@ class Radio extends Component<RadioProps, any> {
       children
     } = this.props;
 
-    const prefix = 'hmly-radio';
+    const prefix = 'cat-radio';
     const classes = classNames(
       `${prefix}-wrapper`,
       `${prefix}-wrapper--${layout}`,
@@ -105,10 +105,10 @@ class Radio extends Component<RadioProps, any> {
         </span>
         <span
           className={classNames(
-            'hmly-radio__label',
-            `hmly-radio__label--${layout}`,
+            'cat-radio__label',
+            `cat-radio__label--${layout}`,
             {
-              [`hmly-radio__label--disabled`]: disabled
+              [`cat-radio__label--disabled`]: disabled
             }
           )}
         >

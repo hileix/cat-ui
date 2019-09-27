@@ -1,6 +1,6 @@
 @import "./color.scss";
 
-.hmly-button {
+.cat-button {
   display       : inline-block;
   border-radius : 4px;
   font-style    : normal;
@@ -19,26 +19,26 @@
     text-decoration: none;
   }
 
-  &.hmly-button-sm {
+  &.cat-button-sm {
     padding    : 5px 12px;
     font-size  : 14px;
     font-weight: normal;
   }
 
-  &.hmly-button-md {
+  &.cat-button-md {
     padding    : 9px 24px;
     font-size  : 14px;
     font-weight: 600;
   }
 
-  &.hmly-button-lg {
+  &.cat-button-lg {
     padding    : 12px 36px;
     font-size  : 16px;
     font-weight: bold;
   }
 
-  &.hmly-button-primary,
-  &.hmly-button-primary-up {
+  &.cat-button-primary,
+  &.cat-button-primary-up {
     background-color: $primary-color;
     color           : #ffffff;
 
@@ -47,18 +47,18 @@
     }
   }
 
-  &.hmly-button-primary-up {
+  &.cat-button-primary-up {
     &:hover {
       box-shadow: 0 6px 16px 0 rgba(255, 68, 68, 0.5);
     }
   }
 
-  &.hmly-button-yellow {
+  &.cat-button-yellow {
     background-color: $premium-color;
     color           : #ffffff;
   }
 
-  &.hmly-button-white-primary {
+  &.cat-button-white-primary {
     background-color: #ffffff;
     color           : #9b9b9b;
     border          : 1px solid rgba(83, 118, 130, 0.8);
@@ -69,7 +69,7 @@
     }
   }
 
-  &.hmly-button-white-cyan {
+  &.cat-button-white-cyan {
     background-color: #ffffff;
     color           : $primary-color;
     border          : 1px solid $primary-color;
@@ -80,7 +80,7 @@
     }
   }
 
-  &.hmly-button-borderless {
+  &.cat-button-borderless {
     color: #9b9b9b;
 
     &:hover {
@@ -88,11 +88,11 @@
     }
   }
 
-  &.hmly-button-block {
+  &.cat-button-block {
     width: 100%;
   }
 
-  &.hmly-button-disabled {
+  &.cat-button-disabled {
     background-color: #eeeeee;
     color           : #bcbcbc;
     cursor          : not-allowed;

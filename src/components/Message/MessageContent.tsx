@@ -20,7 +20,7 @@ const IconTypeMap = {
 class MessageContent extends Component<MessageContentProps, any> {
   render() {
     const { text, type } = this.props;
-    const prefix = 'hmly-message';
+    const prefix = 'cat-message';
     const classes = classNames(prefix, {
       [`${prefix}--success`]: type === 'success',
       [`${prefix}--warn`]: type === 'warn',

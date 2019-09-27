@@ -51,7 +51,7 @@ class Modal extends PureComponent<ModalProps, any> {
   static originalFirstDivStyle: string = '';
   private mid: number;
   static defaultProps = {
-    prefix: 'hmly',
+    prefix: 'cat',
     theme: 'primary',
     size: 'md',
     visible: false,
@@ -134,7 +134,7 @@ class Modal extends PureComponent<ModalProps, any> {
     if (footer) {
       return footer;
     } else {
-      const footerPrefix = 'hmly-modal__footer';
+      const footerPrefix = 'cat-modal__footer';
 
       return (
         <div
@@ -171,7 +171,7 @@ class Modal extends PureComponent<ModalProps, any> {
       children,
       ...others
     } = this.props;
-    const modalPrefix = 'hmly-modal';
+    const modalPrefix = 'cat-modal';
 
     const classes = classNames(
       modalPrefix,

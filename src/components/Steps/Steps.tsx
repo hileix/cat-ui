@@ -34,7 +34,7 @@ class Steps extends React.PureComponent<StepsProps, StepsStates> {
       style,
       children
     } = this.props;
-    const classes = classnames({ prefix: 'hmly-steps', theme });
+    const classes = classnames({ prefix: 'cat-steps', theme });
     const StepChildren = React.Children.map(
       children,
       (child: any, index: number) => {

@@ -24,7 +24,7 @@ export interface StepProps {
 
 export interface StepStates {}
 
-export const prefix = 'hmly-steps__step';
+export const prefix = 'cat-steps__step';
 
 class Step extends React.PureComponent<StepProps, StepStates> {
   render() {

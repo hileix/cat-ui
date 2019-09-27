@@ -13,7 +13,7 @@
   }
 }
 
-.hmly-menu {
+.cat-menu {
   list-style: none;
   padding: 0;
   &--submenu {
@@ -76,7 +76,7 @@
   }
 }
 
-.hmly-submenu {
+.cat-submenu {
   height: auto;
   position: relative;
   &--inline {
@@ -157,6 +157,6 @@
   }
 }
 
-.hmly-submenu__title--inline.hmly-submenu__title--expand::after {
+.cat-submenu__title--inline.cat-submenu__title--expand::after {
   transform: rotate(-45deg);
 }

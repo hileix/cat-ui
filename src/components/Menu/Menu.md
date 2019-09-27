@@ -192,7 +192,7 @@ class Example extends React.Component {
           .menu-box .menu3 .item3:hover {
             color: red;
           }
-          .menu-box .menu4 .item4.hmly-menu-item-checked::before {
+          .menu-box .menu4 .item4.cat-menu-item-checked::before {
             position: absolute;
             top: 0px;
             left: 0px;
@@ -201,7 +201,7 @@ class Example extends React.Component {
             height: 40px;
             background-color: #ff4444;
           }
-          .menu-box .menu5 .item5.hmly-menu-item-checked::before {
+          .menu-box .menu5 .item5.cat-menu-item-checked::before {
             position: absolute;
             top: 0px;
             left: 0px;
@@ -210,7 +210,7 @@ class Example extends React.Component {
             height: 40px;
             background-color: #ff4444;
           }
-          .menu-box .menu6 .item6.hmly-menu-item-checked::before {
+          .menu-box .menu6 .item6.cat-menu-item-checked::before {
             position: absolute;
             top: 0px;
             left: 0px;
@@ -219,7 +219,7 @@ class Example extends React.Component {
             height: 40px;
             background-color: #ffba0f;
           }
-          .menu-box .menu7 .item7.hmly-menu-item-checked::before {
+          .menu-box .menu7 .item7.cat-menu-item-checked::before {
             position: absolute;
             top: 0px;
             left: 0px;
@@ -231,7 +231,7 @@ class Example extends React.Component {
           .menu-box .menu4 .item4:hover {
             background: #fff;
           }
-          .menu-box .hmly-icon {
+          .menu-box .cat-icon {
             margin-right: 10px;
           }
         `}

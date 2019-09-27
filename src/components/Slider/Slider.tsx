@@ -30,7 +30,7 @@ export interface SliderOption {
 class Slider extends Component<SliderOption, any> {
   static defaultProps = {
     className: '',
-    prefixCls: 'hmly',
+    prefixCls: 'cat',
     theme: '',
     defaultValue: 0
   };

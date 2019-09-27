@@ -49,7 +49,7 @@ class Drawer extends Component<DrawerProps, DrawerStateInterface> {
 
   static defaultProps = {
     getContainer: () => document.body,
-    prefix: 'hmly',
+    prefix: 'cat',
     mask: true,
     placement: 'right',
     destroyOnClose: false

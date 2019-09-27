@@ -1,4 +1,4 @@
-.hmly-slider {
+.cat-slider {
   position: relative;
   right: 0;
   height: 14px;
@@ -73,13 +73,13 @@
   }
 
   &.dragging,
-  &.hmly-slider-inside {
+  &.cat-slider-inside {
     .slider-handle {
       transition: none !important;
     }
   }
 
-  &.hmly-slider-volume {
+  &.cat-slider-volume {
     .slider-rail {
       border-radius: 2px;
       background-color: #fff;

@@ -41,7 +41,7 @@ class Example extends React.Component {
             heitht: 300px;
             background-color: #eee;
           }
-          .portal-box .hmly-button + .hmly-button {
+          .portal-box .cat-button + .cat-button {
             margin-left: 20px;
           }
         `}

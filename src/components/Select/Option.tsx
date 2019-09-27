@@ -36,9 +36,9 @@ class Option extends Component<OptionProps, any> {
   render() {
     const { className, style, disable, children } = this.props;
     const classes = classNames(
-      'hmly-option',
+      'cat-option',
       {
-        'hmly-option--disable': disable
+        'cat-option--disable': disable
       },
       className
     );

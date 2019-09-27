@@ -28,7 +28,7 @@ class PortalContent extends Component<ProtalProps, any> {
 
   render() {
     const { visible } = this.props;
-    const prefix = 'hmly-portal__content';
+    const prefix = 'cat-portal__content';
 
     return (
       <div

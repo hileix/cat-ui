@@ -19,8 +19,8 @@ export interface IconProps {
  */
 const Icon = ({ className, type, ...otherProps }: IconProps) => {
   const classes = classNames(
-    'hmly-icon',
-    `hmly-icon-${compatible(type)}`,
+    'cat-icon',
+    `cat-icon-${compatible(type)}`,
     className
   );
 

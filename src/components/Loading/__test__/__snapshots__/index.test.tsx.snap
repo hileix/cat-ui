@@ -4,7 +4,7 @@ exports[`Loading props: visible=false 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-loading hmly-loading--hide",
+      "class": "cat-loading cat-loading--hide",
     },
     "children": Array [
       Object {
@@ -330,7 +330,7 @@ exports[`Loading props: visible=true 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-loading hmly-loading--hide",
+      "class": "cat-loading cat-loading--hide",
     },
     "children": Array [
       Object {

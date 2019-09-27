@@ -19,7 +19,7 @@
   }
 }
 
-.hmly-switch {
+.cat-switch {
   position: relative;
   display: inline-block;
   box-sizing: border-box;
@@ -71,7 +71,7 @@
   }
 
   &--checked {
-    .hmly-switch__inner {
+    .cat-switch__inner {
       left: 6px;
     }
   }

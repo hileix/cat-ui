@@ -181,7 +181,7 @@ class Table extends Component<TableProps, any> {
       dataSource
     } = this.props;
     const { current, pageSize } = pagination;
-    const prefix = 'hmly-table';
+    const prefix = 'cat-table';
     const classes = classNames(prefix, className);
     const showPagination = this.hasPagination() && dataSource.length > 0;
 

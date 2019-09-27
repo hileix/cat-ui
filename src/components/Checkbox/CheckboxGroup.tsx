@@ -77,7 +77,7 @@ class CheckboxGroup extends Component<CheckboxGroupProps, any> {
       checked,
       children
     } = this.props;
-    const classes = classNames('hmly-checkbox-group', className);
+    const classes = classNames('cat-checkbox-group', className);
     const Checkboxs = React.Children.map(children, (element: any, index) => {
       if (!element) {
         return element;

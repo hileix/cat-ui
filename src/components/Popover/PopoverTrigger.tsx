@@ -42,7 +42,7 @@ class PopoverTrigger extends Component<PopoverTriggerProps, any> {
 
   render() {
     const { className, style, children } = this.props;
-    const classes = classNames('hmly-popover__trigger', className);
+    const classes = classNames('cat-popover__trigger', className);
 
     return (
       <div

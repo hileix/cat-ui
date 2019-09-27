@@ -101,7 +101,7 @@ class SubMenu extends Component<SubMenuProps, any> {
     const { isPopVisible, isInlineExpand } = this.state;
     let subMenuItems = null;
 
-    const prefix = 'hmly-submenu__title';
+    const prefix = 'cat-submenu__title';
     const classes = classNames({
       [`${prefix}--${mode}`]: mode,
       [`${prefix}--expand`]: isInlineExpand
@@ -126,7 +126,7 @@ class SubMenu extends Component<SubMenuProps, any> {
 
     // 行内内嵌
     if (mode === 'inline') {
-      const prefix = 'hmly-submenu--inline';
+      const prefix = 'cat-submenu--inline';
       subMenuItems = (
         <React.Fragment>
           {subMenuTitle}
@@ -153,7 +153,7 @@ class SubMenu extends Component<SubMenuProps, any> {
         this.popSubMenuRight = '-' + this.popSubMenuWidth;
       }
 
-      const popPrefix = 'hmly-submenu__pop';
+      const popPrefix = 'cat-submenu__pop';
       subMenuItems = (
         <React.Fragment>
           {subMenuTitle}
@@ -166,7 +166,7 @@ class SubMenu extends Component<SubMenuProps, any> {
               }}
               ref={this.popSubMenuRef}
             >
-              <ul className="hmly-submenu__pop-menu">{items}</ul>
+              <ul className="cat-submenu__pop-menu">{items}</ul>
             </div>
           )}
         </React.Fragment>
@@ -184,7 +184,7 @@ class SubMenu extends Component<SubMenuProps, any> {
   render() {
     const { className, style, mode, title, checked, children } = this.props;
 
-    const prefix = 'hmly-submenu';
+    const prefix = 'cat-submenu';
     const classes = classNames(
       prefix,
       {

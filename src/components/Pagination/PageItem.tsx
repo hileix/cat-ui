@@ -26,7 +26,7 @@ class PageItem extends PureComponent<PageItemProps, any> {
 
   render() {
     const { className, style, active, value, children } = this.props;
-    const prefix = 'hmly-pagination__item';
+    const prefix = 'cat-pagination__item';
     const classes = classNames(
       prefix,
       {

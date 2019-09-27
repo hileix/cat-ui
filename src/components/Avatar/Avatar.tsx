@@ -38,7 +38,7 @@ class Avatar extends Component<AvatarProps, any> {
 
   render() {
     const {
-      prefix = 'hmly-avatar',
+      prefix = 'cat-avatar',
       shape,
       className,
       children,

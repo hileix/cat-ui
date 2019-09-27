@@ -44,9 +44,9 @@ class DraggerItem extends Component<DraggerItemProps, any> {
     const { dragging } = this.state;
     const { className, style, order, children } = this.props;
     const classes = classNames(
-      'hmly-dragger__item',
+      'cat-dragger__item',
       {
-        'hmly-dragger__item--dragging': dragging
+        'cat-dragger__item--dragging': dragging
       },
       className
     );

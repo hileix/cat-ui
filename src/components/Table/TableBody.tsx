@@ -54,7 +54,7 @@ class TableBody extends Component<TableBodyProps, any> {
   dragOver = (event: any) => {
     const { onDragOver } = this.props;
     event.preventDefault();
-    this.over = event.target.closest('.hmly-table-row');
+    this.over = event.target.closest('.cat-table-row');
 
     // 若未找到安放的DOM元素，则设为本身
     if (this.over === null) {
@@ -64,13 +64,13 @@ class TableBody extends Component<TableBodyProps, any> {
   };
 
   onDragEnter = (event: any) => {
-    const node = event.target.closest('.hmly-table-row');
+    const node = event.target.closest('.cat-table-row');
     const newStyle = 'transform: translateY(10px);';
     node.setAttribute('style', newStyle);
   };
 
   onDragLeave = (event: any) => {
-    const node = event.target.closest('.hmly-table-row');
+    const node = event.target.closest('.cat-table-row');
     node.removeAttribute('style');
   };
 

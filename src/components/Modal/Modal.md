@@ -104,13 +104,13 @@ class Example extends React.Component {
       </Modal>
       <style>
         {`
-          .modal-box .hmly-button + .hmly-button {
+          .modal-box .cat-button + .cat-button {
             margin-left: 20px;
           }
           .footer {
             float: right;
           }
-          .footer .hmly-button + .hmly-button {
+          .footer .cat-button + .cat-button {
             margin-left: 20px;
           }
           .modal-select {

@@ -64,7 +64,7 @@ class Example extends React.Component {
             width: 300px;
             background-color: #eee;
           }
-          .dragger-box .hmly-dragger-item + .hmly-dragger-item {
+          .dragger-box .cat-dragger-item + .cat-dragger-item {
             margin-top: 10px;
           }
         `}

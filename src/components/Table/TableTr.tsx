@@ -48,7 +48,7 @@ class TableTr extends Component<TableTrProps, any> {
 
   renderTds = () => {
     const { columns, data } = this.props;
-    const prefix = 'hmly-table__col';
+    const prefix = 'cat-table__col';
     return columns.map((elem: any) => {
       const id = elem.id;
       // 渲染字符串或函数返回的DOM
@@ -58,7 +58,7 @@ class TableTr extends Component<TableTrProps, any> {
           {elem.render ? (
             elem.render(result, data)
           ) : (
-            <div className="hmly-table__col-inner">{result}</div>
+            <div className="cat-table__col-inner">{result}</div>
           )}
         </td>
       );
@@ -70,7 +70,7 @@ class TableTr extends Component<TableTrProps, any> {
     const { align, draggable, data, order } = this.props;
     const { id } = data;
 
-    const prefix = 'hmly-table__row';
+    const prefix = 'cat-table__row';
     const classes = classNames(prefix, `${prefix}--${align}`, {
       [`${prefix}-dragging`]: dragging,
       [`${prefix}--draggable`]: draggable

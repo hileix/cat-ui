@@ -157,13 +157,13 @@ class PopoverContent extends Component<PopoverContentProps, any> {
     const { positionStyle } = this.state;
     const { className, style, visible, triggerDOM, children } = this.props;
 
-    const prefix = 'hmly-popover__content';
+    const prefix = 'cat-popover__content';
     const classes = classNames(prefix, className);
 
     return (
       <Portal visible={visible}>
         <div
-          className="hmly-popover__pop"
+          className="cat-popover__pop"
           ref={this.contentRef}
           style={positionStyle}
           onMouseEnter={this.handleMouseEnter}

@@ -113,7 +113,7 @@ class Pagination extends Component<PaginationProps, any> {
 
   render() {
     const { className, style, current, total, pageSize } = this.props;
-    const classes = classNames('hmly-pagination', className);
+    const classes = classNames('cat-pagination', className);
     const items = this.renderItems(current, total, pageSize);
 
     return (

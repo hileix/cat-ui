@@ -45,7 +45,7 @@ class Tabs extends PureComponent<TabsProps, any> {
 
   renderNav = (navs: Object[]) => {
     const { activeId } = this.props;
-    const prefix = 'hmly-tabs__nav';
+    const prefix = 'cat-tabs__nav';
     return navs.map((element: any) => {
       const classes = activeId === element.id ? 'active' : '';
       const isElement = React.isValidElement(element.tab);
@@ -83,7 +83,7 @@ class Tabs extends PureComponent<TabsProps, any> {
 
   renderContent = (contents: any) => {
     const { activeId } = this.props;
-    const prefix = 'hmly-tabs__content';
+    const prefix = 'cat-tabs__content';
     return contents.map((element: any, index: number) => {
       const { id } = element.props;
       return (
@@ -103,7 +103,7 @@ class Tabs extends PureComponent<TabsProps, any> {
     const { className, style } = this.props;
     const { navs, contents } = this.genNavsContents();
 
-    const prefix = 'hmly-tabs';
+    const prefix = 'cat-tabs';
 
     return (
       <div className={prefix} style={style}>

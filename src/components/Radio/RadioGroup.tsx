@@ -78,7 +78,7 @@ class RadioGroup extends Component<RadioGroupProps, any> {
       checked,
       children
     } = this.props;
-    const classes = classNames('hmly-radio-group', className);
+    const classes = classNames('cat-radio-group', className);
     const radios = React.Children.map(children, (element: any, index) => {
       if (!element) {
         return element;

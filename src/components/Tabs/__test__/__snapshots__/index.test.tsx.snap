@@ -4,19 +4,19 @@ exports[`Tabs renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "hmly-tabs",
+      "class": "cat-tabs",
     },
     "children": Array [
       Object {
         "attribs": Object {
-          "class": "hmly-tabs__nav-wrapper",
+          "class": "cat-tabs__nav-wrapper",
         },
         "children": Array [],
         "name": "div",
         "namespace": "http://www.w3.org/1999/xhtml",
         "next": Object {
           "attribs": Object {
-            "class": "hmly-tabs__content-wrapper",
+            "class": "cat-tabs__content-wrapper",
           },
           "children": Array [],
           "name": "div",
@@ -44,7 +44,7 @@ initialize {
       },
       Object {
         "attribs": Object {
-          "class": "hmly-tabs__content-wrapper",
+          "class": "cat-tabs__content-wrapper",
         },
         "children": Array [],
         "name": "div",
@@ -53,7 +53,7 @@ initialize {
         "parent": [Circular],
         "prev": Object {
           "attribs": Object {
-            "class": "hmly-tabs__nav-wrapper",
+            "class": "cat-tabs__nav-wrapper",
           },
           "children": Array [],
           "name": "div",

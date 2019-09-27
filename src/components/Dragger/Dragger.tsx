@@ -53,7 +53,7 @@ class Dragger extends Component<DraggerProps, any> {
   dragOver = (event: any) => {
     const { onDragOver } = this.props;
     event.preventDefault();
-    this.over = event.target.closest('.hmly-dragger-item');
+    this.over = event.target.closest('.cat-dragger-item');
 
     // 若未找到安放的DOM元素，则设为本身
     if (this.over === null) {
@@ -96,7 +96,7 @@ class Dragger extends Component<DraggerProps, any> {
     const self = this;
     const { childrenNode } = this.state;
     const { className, style } = this.props;
-    const classes = classNames('hmly-dragger', className);
+    const classes = classNames('cat-dragger', className);
     const items = React.Children.map(childrenNode, (element: any, index) => {
       if (!element) {
         return element;

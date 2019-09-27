@@ -128,7 +128,7 @@ class TextArea extends React.PureComponent<TextAreaProps, TextAreaStates> {
       handleClipboard
     } = this.props;
     const props = pick(this.props, domProps) as IdomProps;
-    const prefix = 'hmly-textarea';
+    const prefix = 'cat-textarea';
     const classes = classNames(prefix);
 
     return (

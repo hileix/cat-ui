@@ -39,7 +39,7 @@ class AnimateHeight extends PureComponent<AnimateHeightProps, any> {
       children
     } = this.props;
     const { overflow } = this.state;
-    const classes = classNames('hmly-animate', className);
+    const classes = classNames('cat-animate', className);
 
     const userTransition = style.transition ? `${style.transition},` : '';
     const transitionString = `${userTransition} height ${duration}ms ${easing}`;

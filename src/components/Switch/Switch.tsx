@@ -136,12 +136,12 @@ class Switch extends Component<SwitchProps, any> {
     } = this.props;
     const checked = this.state.checked;
 
-    const prefix = 'hmly-switch';
+    const prefix = 'cat-switch';
     const calsses = classNames(
       prefix,
       {
-        'hmly-switch--checked': checked,
-        'hmly-switch--disabled': disabled
+        'cat-switch--checked': checked,
+        'cat-switch--disabled': disabled
       },
       className
     );
@@ -159,7 +159,7 @@ class Switch extends Component<SwitchProps, any> {
         onMouseUp={this.handleMouseUp}
       >
         {loadingIcon}
-        <span className="hmly-switch__inner">
+        <span className="cat-switch__inner">
           {checked ? checkedChildren : unCheckedChildren}
         </span>
       </button>
