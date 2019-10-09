@@ -16,6 +16,8 @@ export type MessageType = 'success' | 'warn' | 'error';
  * 全局提示
  */
 class Message {
+  static displayName = 'Message';
+
   static success(text: string, duration?: number, callback?: () => void) {
     return Message.show('success', text, duration, callback);
   }
