@@ -1,4 +1,5 @@
 import { configure, addParameters, addDecorator } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
 
 const req = require.context('../src/components', true, /\.stories\.js$/);
 
@@ -23,7 +24,7 @@ addParameters({
      * display panel that shows addon configurations
      * @type {Boolean}
      */
-    showPanel: false,
+    showPanel: true,
     /**
      * where to show the addon panel
      * @type {('bottom'|'right')}
