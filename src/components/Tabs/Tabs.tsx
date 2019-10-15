@@ -11,7 +11,7 @@ export interface TabsProps {
   /** 激活的tab-key */
   activeId?: string | number;
   /** 选中的tab改变时 */
-  onChange?: (id: string | number) => {};
+  onChange?: (id: string | number) => void;
 }
 
 /**
