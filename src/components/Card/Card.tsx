@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Component } from 'react';
+import classNames from 'classnames';
 
 export interface CardProps {
   /** 类名 */
@@ -16,7 +17,7 @@ class Card extends Component<CardProps, any> {
     const { className, children, ...restProps } = this.props;
 
     return (
-      <div className='cat-card' {...restProps}>
+      <div className={classNames('cat-card', className)} {...restProps}>
         {children}
       </div>
     );
