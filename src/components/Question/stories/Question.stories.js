@@ -4,10 +4,7 @@ import { actions } from '@storybook/addon-actions';
 import Question from '../index';
 import '../../../styles/question.scss';
 import './style.scss';
-import { withInfo } from '@storybook/addon-info';
-
-
-addDecorator(withInfo);
+import markdown from '../README.md';
 
 const Demo1 = () => {
   const content1 = 'Tooltip content'
@@ -37,4 +34,8 @@ const Demo1 = () => {
 };
 
 storiesOf('Question 文字提示', module)
-  .add('Question', () => <Demo1 />)
+  .add('Question', () => <Demo1 />, {
+    notes: {
+      markdown,
+    }
+  })

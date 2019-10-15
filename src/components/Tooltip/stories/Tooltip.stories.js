@@ -4,9 +4,7 @@ import { actions } from '@storybook/addon-actions';
 import Tooltip from '../index';
 import '../../../styles/tooltip.scss';
 import './style.scss';
-import { withInfo } from '@storybook/addon-info';
-
-addDecorator(withInfo);
+import markdown from '../README.md';
 
 const Demo1 = () => {
   const content1 = 'Tooltip content'
@@ -53,4 +51,8 @@ const Demo1 = () => {
 }
 
 storiesOf('Tooltip 文字提示', module)
-  .add('Tooltip', () => <Demo1 />);
+  .add('Tooltip', () => <Demo1 />, {
+    notes: {
+      markdown,
+    }
+  });

@@ -4,11 +4,9 @@ import { actions } from '@storybook/addon-actions';
 import Tabs from '../index';
 import '../../../styles/tabs.scss';
 import './style.scss';
-import { withInfo } from '@storybook/addon-info';
+import markdown from '../README.md';
 
 const TabPanel = Tabs.TabPanel;
-
-addDecorator(withInfo);
 
 const Demo1 = () => {
   const [activeId1, setActiveId1] = useState('a');
@@ -69,4 +67,8 @@ const Demo1 = () => {
 
 
 storiesOf('Tabs 标签页', module)
-  .add('Tabs', () => <Demo1 />);
+  .add('Tabs', () => <Demo1 />, {
+    notes: {
+      markdown
+    }
+  });
