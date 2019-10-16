@@ -76,4 +76,12 @@
       display: block;
     }
   }
+
+  &__navs {
+    display: inline-block;
+  }
+
+  &__extra-content {
+    float: right;
+  }
 }

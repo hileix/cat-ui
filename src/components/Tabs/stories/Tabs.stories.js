@@ -5,12 +5,14 @@ import Tabs from '../index';
 import '../../../styles/tabs.scss';
 import './style.scss';
 import markdown from '../README.md';
+import Button from '../../Button';
 
 const TabPanel = Tabs.TabPanel;
 
 const Demo1 = () => {
   const [activeId1, setActiveId1] = useState('a');
   const [activeId2, setActiveId2] = useState('d');
+  const [activeId3, setActiveId3] = useState('c');
 
   const onTabChange1 = (id) => {
     setActiveId1(id);
@@ -18,6 +20,10 @@ const Demo1 = () => {
 
   const onTabChange2 = (id) => {
     setActiveId2(id);
+  }
+
+  const onTabChange3 = (id) => {
+    setActiveId3(id);
   }
 
   return (
@@ -59,6 +65,33 @@ const Demo1 = () => {
         <TabPanel
           id='f'
           tab={(<span>选项<span>tooltip</span></span>)}>
+        </TabPanel>
+      </Tabs>
+
+      <h3>tab bar 上额外的元素</h3>
+
+      <Tabs
+        activeId={activeId3}
+        onChange={onTabChange3}
+        tabBarExtraContent={<Button>tabBarExtraContent</Button>}
+      >
+        <TabPanel
+          id='a'
+          tab='选项1'
+        >
+          选项1内容
+        </TabPanel>
+        <TabPanel
+          id='b'
+          tab='选项2'>
+          选项2内容
+
+        </TabPanel>
+        <TabPanel
+          id='c'
+          tab='选项3'>
+          选项3内容
+
         </TabPanel>
       </Tabs>
     </div>
