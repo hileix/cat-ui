@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { storiesOf, addDecorator } from '@storybook/react';
 import { actions } from '@storybook/addon-actions';
 import Guidance from '../Guidance';
-import '../../../styles/Guidance.scss';
+import '../../../styles/guidance.scss';
 import markdown from '../README.md';
 
 
@@ -18,7 +18,7 @@ const Demo1 = () => {
   return null;
 
   // return (
-  //   <Guidance activeKey={activeKey} onChange={handleChange}>
+  //   <Guidance activeKey={activeKey} onNext={handleChange}>
   //     <GuidanceStep key='1' selector={'.selector-1'}>步骤1</GuidanceStep>
   //     <GuidanceStep key='2' selector={'.selector-2'}>步骤2</GuidanceStep>
   //     <GuidanceStep key='3' selector={'.selector-3'}>步骤3</GuidanceStep>
