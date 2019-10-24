@@ -44,5 +44,10 @@
   "backward",
   "decrease",
   "increase",
-  "search"
+  "search",
+  "add",
+  "error",
+  "success",
+  "warning",
+  "copy"
 ]

@@ -30,7 +30,7 @@
     "prettier:base": "prettier --parser typescript --single-quote --trailing-comma none",
     "prettier:check": "npm run prettier:base -- -l \"src/**/*.{ts,tsx}\"",
     "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\"",
-    "update:icon": "node ./scripts/updateIcon/index.js --inspect --code=xgsazuemfwn",
+    "update:icon": "node ./scripts/updateIcon/index.js --inspect --code=4wo8x4568jv",
     "build:css": "sass --color --no-source-map src/styles:styles",
     "build:ts": "tsc --build",
     "update:snapshot": "jest --updateSnapshot",
