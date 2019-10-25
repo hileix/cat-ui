@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { storiesOf, addDecorator } from '@storybook/react';
 import { actions } from '@storybook/addon-actions';
 import Question from '../index';
-import '../../../styles/question.scss';
+import '../../../styles/index.scss';
 import './style.scss';
 import markdown from '../README.md';
 

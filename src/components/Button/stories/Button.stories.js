@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, addDecorator } from '@storybook/react';
 import { actions } from '@storybook/addon-actions';
 import Button from '../Button';
-import '../../../styles/button.scss';
+import '../../../styles/index.scss';
 import './style.scss';
 import markdown from '../README.md';
 

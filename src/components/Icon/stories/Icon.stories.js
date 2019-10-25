@@ -2,14 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { storiesOf, addDecorator } from '@storybook/react';
 import { actions } from '@storybook/addon-actions';
 import Icon from '../Icon';
-import '../../../styles/icon.scss';
+import '../../../styles/index.scss';
 import './style.scss';
-import { withInfo } from '@storybook/addon-info';
 import iconTypes from './iconTypes';
 import ClipboardJS from 'clipboard';
 import Message from '../../Message'
 
-addDecorator(withInfo);
 
 const SingleIcon = ({ type }) => {
   return (

@@ -2,11 +2,8 @@ import React, { useState } from 'react';
 import { storiesOf, addDecorator } from '@storybook/react';
 import { actions } from '@storybook/addon-actions';
 import Steps from '../index';
-import '../../../styles/steps.scss';
+import '../../../styles/index.scss';
 import './style.scss';
-import { withInfo } from '@storybook/addon-info';
-
-addDecorator(withInfo);
 
 const Demo1 = () => {
   const [value, setValue] = useState(0)

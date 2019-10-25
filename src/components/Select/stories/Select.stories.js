@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { storiesOf, addDecorator } from '@storybook/react';
 import { actions } from '@storybook/addon-actions';
 import Select from '../index';
-import '../../../styles/select.scss';
+import '../../../styles/index.scss';
 import './style.scss';
 import { withInfo } from '@storybook/addon-info';
 

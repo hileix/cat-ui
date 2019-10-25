@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { storiesOf, addDecorator } from '@storybook/react';
 import { actions } from '@storybook/addon-actions';
 import Checkbox from '../Checkbox';
-import '../../../styles/checkbox.scss';
+import '../../../styles/index.scss';
 import { withInfo } from '@storybook/addon-info';
 
 addDecorator(withInfo);

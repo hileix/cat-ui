@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { storiesOf, addDecorator } from '@storybook/react';
 import { actions } from '@storybook/addon-actions';
 import Popover from '../index';
-import '../../../styles/popover.scss';
+import '../../../styles/index.scss';
 import './style.scss';
 import { withInfo } from '@storybook/addon-info';
 import Menu from '../../Menu';
