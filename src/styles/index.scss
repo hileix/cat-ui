@@ -1,5 +1,7 @@
-@import './color.scss';
+@import './common/normalize.scss';
+@import './common/reset.scss';
 
+@import './color.scss';
 @import './avatar.scss';
 @import './button.scss';
 @import './dragger.scss';
@@ -24,3 +26,6 @@
 @import './drawer.scss';
 @import './loading.scss';
 @import './card.scss';
+@import './element-select.scss';
+@import './checkbox.scss';
+@import './switch.scss';
