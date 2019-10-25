@@ -3,9 +3,7 @@ import { storiesOf, addDecorator } from '@storybook/react';
 import { actions } from '@storybook/addon-actions';
 import Avatar from '../Avatar';
 import '../../../styles/avatar.scss';
-import { withInfo } from '@storybook/addon-info';
-
-addDecorator(withInfo);
+import markdown from '../README.md';
 
 storiesOf('Avatar 头像', module).add('small', () => (
   <Avatar
@@ -16,4 +14,8 @@ storiesOf('Avatar 头像', module).add('small', () => (
   >
     test
   </Avatar>
-));
+), {
+  notes: {
+    markdown
+  }
+});

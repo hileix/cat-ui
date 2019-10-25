@@ -3,10 +3,8 @@ import { storiesOf, addDecorator } from '@storybook/react';
 import { actions } from '@storybook/addon-actions';
 import Button from '../Button';
 import '../../../styles/button.scss';
-import { withInfo } from '@storybook/addon-info';
 import './style.scss';
-
-addDecorator(withInfo);
+import markdown from '../README.md';
 
 const Demo1 = () => {
   const handleClick = (e) => {
@@ -50,5 +48,9 @@ const Demo1 = () => {
 
 
 storiesOf('Button 按钮', module)
-  .add('Button', () => <Demo1 />)
+  .add('Button', () => <Demo1 />, {
+    notes: {
+      markdown
+    }
+  })
 
