@@ -38,13 +38,13 @@ export interface GuidanceProps {
    */
   nextText?: string;
   /**
-   * 选中的元素的样式
-   */
-  selectedElementStyle?: object;
-  /**
    * 选中的元素的类名
    */
   selectedElementClassName?: string;
+  /**
+   * 选中的元素的样式
+   */
+  selectedElementStyle?: object;
 }
 
 const DISTANCE_TOP = 12;
@@ -57,6 +57,7 @@ class Guidance extends Component<GuidanceProps, null> {
     className: PropTypes.string,
     style: PropTypes.object,
     activeId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    visible: PropTypes.bool,
     onChange: PropTypes.func,
     nextText: PropTypes.string,
     selectedElementStyle: PropTypes.object,
@@ -65,7 +66,8 @@ class Guidance extends Component<GuidanceProps, null> {
 
   static defaultProps = {
     prefix: 'cat',
-    nextText: 'Next'
+    nextText: 'Next',
+    visible: false
   };
 
   private activeId: number | string; // 激活步骤的 id

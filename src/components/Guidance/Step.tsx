@@ -20,6 +20,10 @@ export interface StepProps {
    * id
    */
   id?: number | string;
+  /**
+   * 该步骤选中元素的 css 选择器
+   */
+  selector?: string;
 }
 
 /**
@@ -30,7 +34,8 @@ class Guidance extends Component<StepProps, null> {
     prefix: PropTypes.string,
     className: PropTypes.string,
     style: PropTypes.object,
-    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    selector: PropTypes.string
   };
   static defaultProps = {
     prefix: 'cat'
