@@ -2,28 +2,53 @@ import React, { useState } from 'react';
 import { storiesOf, addDecorator } from '@storybook/react';
 import { actions } from '@storybook/addon-actions';
 import Guidance from '../Guidance';
-import '../../../styles/guidance.scss';
+import '../../../styles/index.scss';
+import Button from '../../Button'
 import markdown from '../README.md';
-
-
+import './style.scss';
 
 const Demo1 = () => {
+  const [activeId, setActiveId] = useState(1);
+  const [visible, setVisible] = useState(false);
 
-  const [activeKey, setActiveKey] = useState('1')
-
-  const handleChange = (key) => {
-    setActiveKey(key);
+  const handleChange = (activeId) => {
+    if (activeId < 3) {
+      setActiveId(activeId + 1);
+    } else {
+      setActiveId(1);
+      setVisible(false);
+    }
   }
 
-  return null;
+  const handleStartGuidance = () => {
+    setActiveId(1);
+    setVisible(true);
+  }
 
-  // return (
-  //   <Guidance activeKey={activeKey} onNext={handleChange}>
-  //     <GuidanceStep key='1' selector={'.selector-1'}>步骤1</GuidanceStep>
-  //     <GuidanceStep key='2' selector={'.selector-2'}>步骤2</GuidanceStep>
-  //     <GuidanceStep key='3' selector={'.selector-3'}>步骤3</GuidanceStep>
-  //   </Guidance>
-  // );
+
+  return (
+    <div className='guidance-box'>
+      <Button onClick={handleStartGuidance}>开始引导</Button>
+      <p className='guidance-step guidance-step-1'>第 1 步</p>
+      <p className='guidance-step guidance-step-2'>第 2 步</p>
+      <p className='guidance-step guidance-step-3'>第 3 步</p>
+      <Guidance
+        activeId={activeId}
+        visible={visible}
+        onChange={handleChange}
+      >
+        <Guidance.Step id={1} selector='.guidance-step-1'>
+          第一步 ~
+        </Guidance.Step>
+        <Guidance.Step id={2} selector='.guidance-step-2'>
+          第二步 ~~
+        </Guidance.Step>
+        <Guidance.Step id={3} selector='.guidance-step-3'>
+          第三步 ~~~
+        </Guidance.Step>
+      </Guidance>
+    </div>
+  );
 }
 
 

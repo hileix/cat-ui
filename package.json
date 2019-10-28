@@ -17,6 +17,7 @@
     "css:build": "./scripts/build-css.sh",
     "new": "./scripts/new-component.sh",
     "test": "jest",
+    "test:watch": "jest --watch",
     "styleguidist:build": "styleguidist build && yarn run test",
     "styleguidist:publish": "yarn && yarn run styleguidist:build && pm2 reload cat-ui-styleguidist",
     "styleguidist:start": "NODE_ENV=test pm2 start ./server.js --name=cat-ui-styleguidist",
@@ -46,6 +47,7 @@
     "classnames": "^2.2.6",
     "lodash": "^4.17.11",
     "memoize-one": "^5.0.2",
+    "omit.js": "^1.0.2",
     "prop-types": "^15.7.2",
     "react-transition-group": "^4.3.0"
   },

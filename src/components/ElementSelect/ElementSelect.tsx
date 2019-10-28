@@ -1,71 +1,63 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
 import { Component } from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
+import PurePortal from '../PurePortal';
 
 export interface ElementSelectProps {
-  /** 前缀 */
+  /**
+   * 前缀
+   */
   prefix?: string;
-  /** 类名 */
+  /**
+   * 类名
+   */
   className?: string;
-  /** 样式 */
+  /**
+   * 样式
+   */
   style?: object;
-  /** 是否显示 */
+  /**
+   * 是否显示
+   */
   visible?: boolean;
-  /** 选中元素的 css 选择器 */
+  /**
+   * 选中元素的 css 选择器
+   */
   selector?: string;
+  /**
+   * 选中的元素的样式
+   */
+  selectedElementStyle?: object;
+  /**
+   * 选中的元素的类名
+   */
+  selectedElementClassName?: string;
+  /**
+   * 额外的内容
+   */
+  extraContent?: (sizeAndPos: {
+    width: number;
+    height: number;
+    top: number;
+    right: number;
+    bottom: number;
+    left: number;
+  }) => React.ReactNode;
 }
 
-export interface PurePortalProps {
-  children?: React.ReactNode;
-  selector?: string;
-  render?: () => React.ReactNode;
-  onMount?: () => void;
-  onUnmount?: () => void;
+export interface ElementSelectState {
+  /**
+   * 组件是否 didmount 了
+   */
+  isDidmount: boolean;
+  /**
+   * 选中元素的 css 选择器
+   */
+  selector: string;
 }
 
-class PurePortal extends Component<PurePortalProps, any> {
-  static propTypes = {
-    children: PropTypes.node,
-    selector: PropTypes.string
-  };
-  static defaultProps = {
-    selector: 'body'
-  };
-
-  componentDidMount = () => {
-    const { onMount } = this.props;
-    onMount && onMount();
-  };
-
-  componentWillUnmount = () => {
-    const { onUnmount } = this.props;
-    onUnmount && onUnmount();
-  };
-
-  getContainer = (): Element | HTMLElement => {
-    const { selector } = this.props;
-    let dom = document.querySelector(selector);
-    if (!dom) {
-      dom = document.body;
-    }
-    return dom;
-  };
-
-  render() {
-    const { render, children } = this.props;
-    const dom = this.getContainer();
-    let child = children;
-    if (typeof render === 'function') {
-      child = render();
-    }
-    console.log({ child, dom });
-    return ReactDOM.createPortal(child, dom);
-  }
-}
-
-interface PositionInterface {
+export interface PositionInterface {
   eleWidth: number;
   eleHeight: number;
   eleLeft: number;
@@ -75,26 +67,68 @@ interface PositionInterface {
 /**
  * ElementSelect 元素选择
  */
-class ElementSelect extends Component<ElementSelectProps, any> {
+class ElementSelect extends Component<ElementSelectProps, ElementSelectState> {
   static propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
     visible: PropTypes.bool,
-    selector: PropTypes.string
+    selector: PropTypes.string,
+    extraContent: PropTypes.func,
+    selectedElementStyle: PropTypes.object,
+    selectedElementClassName: PropTypes.string
   };
 
   static defaultProps = {
     prefix: 'cat'
   };
 
+  public state = {
+    isDidmount: false, // 是否 didmount 了
+    selector: '', // 选中元素的 css 选择器
+    domRect: null
+  };
+
+  static getDerivedStateFromProps(props, state) {
+    if (!state.isDidmount) {
+      return null;
+    }
+
+    if (state.selector !== props.selector) {
+      const selector = props.selector;
+      const element = document.querySelector<HTMLElement>(selector);
+      if (!element) {
+        throw new Error(
+          `[@hife/catui - ElementSelect Component]: Dom with no ${selector} for selector.`
+        );
+      }
+      const domRect = element.getBoundingClientRect();
+      return {
+        domRect,
+        selector
+      };
+    }
+
+    return null;
+  }
+
+  private domRect: DOMRect | ClientRect;
+
+  componentDidMount = () => {
+    this.setState({ isDidmount: true });
+  };
+
   getSizeAndPosition = (): PositionInterface => {
-    const { selector } = this.props;
-    const element = document.querySelector(selector);
+    const {
+      left: eleLeft,
+      top: eleTop,
+      width: eleWidth,
+      height: eleHeight
+    } = this.state.domRect;
     return {
-      eleWidth: 300,
-      eleHeight: 100,
-      eleLeft: 100,
-      eleTop: 100
+      eleWidth,
+      eleHeight,
+      eleLeft,
+      eleTop
     };
   };
 
@@ -151,6 +185,26 @@ class ElementSelect extends Component<ElementSelectProps, any> {
     return style;
   };
 
+  getExtraContentParams = () => {
+    const { domRect } = this.state;
+    const viewPortWidth = window.innerWidth;
+    const viewPortHeight = window.innerHeight;
+    const width = domRect.width;
+    const height = domRect.height;
+    const left = domRect.left;
+    const top = domRect.top;
+    const right = viewPortWidth - left - width;
+    const bottom = viewPortHeight - top - height;
+    return {
+      width,
+      height,
+      left,
+      top,
+      right,
+      bottom
+    };
+  };
+
   render() {
     const {
       prefix,
@@ -158,10 +212,15 @@ class ElementSelect extends Component<ElementSelectProps, any> {
       children,
       visible,
       selector,
+      selectedElementStyle,
+      selectedElementClassName,
+      extraContent,
       ...restProps
     } = this.props;
+    const { isDidmount } = this.state;
     const classPrefix = `${prefix}-element-select`;
-    if (!visible) {
+
+    if (!visible || !isDidmount) {
       return null;
     }
 
@@ -185,9 +244,13 @@ class ElementSelect extends Component<ElementSelectProps, any> {
             style={this.getMakStyle('left')}
           />
           <div
-            className={`${classPrefix}__element`}
-            style={this.getMakStyle('center')}
+            className={classNames(
+              `${classPrefix}__element`,
+              selectedElementClassName
+            )}
+            style={{ ...selectedElementStyle, ...this.getMakStyle('center') }}
           ></div>
+          {extraContent && extraContent(this.getExtraContentParams())}
         </div>
       </PurePortal>
     );

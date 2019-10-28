@@ -1,3 +1,27 @@
 .cat-guidance {
-  
+  &__extra-content {
+    position: absolute;
+    border-radius: 4px;
+    border: solid 1px #d1d1d1;
+    background-color: rgba(43, 43, 43, 0.95);
+    padding: 16px 16px 20px;
+    color: #fff;
+  }
+  &__extra-content-text {
+    font-size: 14px;
+  }
+  &__extra-content-footer {
+    margin-top: 16px;
+    button {
+      cursor: pointer;
+      font-size: 12px;
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 4px;
+      border: solid 1px #ffffff;
+      outline: none;
+      background-color: rgba(43, 43, 43, 0.95);
+      float: right;
+    }
+  }
 }
