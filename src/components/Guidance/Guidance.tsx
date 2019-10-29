@@ -70,6 +70,8 @@ class Guidance extends Component<GuidanceProps, null> {
     visible: false
   };
 
+  static Step: typeof Step;
+
   private activeId: number | string; // 激活步骤的 id
 
   handleNextClick = () => {
