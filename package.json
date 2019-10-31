@@ -54,7 +54,8 @@
   },
   "files": [
     "lib/**",
-    "styles/**"
+    "styles/**",
+    "src/styles"
   ],
   "devDependencies": {
     "@babel/core": "^7.6.0",
