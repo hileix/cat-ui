@@ -37,13 +37,13 @@ const Demo1 = () => {
         visible={visible}
         onChange={handleChange}
       >
-        <Guidance.Step id={1} selector='.guidance-step-1'>
+        <Guidance.Step id={1} selector='.guidance-step-1' className='step-1' style={{ background: 'red' }}>
           第一步 ~
         </Guidance.Step>
-        <Guidance.Step id={2} selector='.guidance-step-2'>
+        <Guidance.Step id={2} selector='.guidance-step-2' className='step-2' style={{ height: 300 }}>
           第二步 ~~
         </Guidance.Step>
-        <Guidance.Step id={3} selector='.guidance-step-3'>
+        <Guidance.Step id={3} selector='.guidance-step-3' style={{ width: 300 }}>
           第三步 ~~~
         </Guidance.Step>
       </Guidance>

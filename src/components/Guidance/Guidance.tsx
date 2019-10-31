@@ -3,6 +3,7 @@ import { Component } from 'react';
 import * as PropTypes from 'prop-types';
 import ElementSelect from '../ElementSelect';
 import Step from './Step';
+import classNames from 'classnames';
 
 export interface GuidanceProps {
   /**
@@ -79,16 +80,21 @@ class Guidance extends Component<GuidanceProps, null> {
     onChange && onChange(this.activeId);
   };
 
-  renderExtraContent = (sizeAndPos, content: React.ReactNode) => {
+  renderExtraContent = (sizeAndPos, stepProps) => {
+    const { style: stepStyle, className, children } = stepProps;
+
     const style: React.CSSProperties = {
       top: sizeAndPos.top + sizeAndPos.height + DISTANCE_TOP,
-      right: sizeAndPos.right
+      right: sizeAndPos.right,
+      ...stepStyle
     };
+
     const { prefix, nextText } = this.props;
     const classPrefix = `${prefix}-guidance__extra-content`;
+
     return (
-      <div className={classPrefix} style={style}>
-        <div className={`${classPrefix}-text`}>{content}</div>
+      <div className={classNames(classPrefix, className)} style={style}>
+        <div className={`${classPrefix}-text`}>{children}</div>
         <div className={`${classPrefix}-footer`}>
           <button onClick={this.handleNextClick}>{nextText}</button>
         </div>
@@ -96,22 +102,16 @@ class Guidance extends Component<GuidanceProps, null> {
     );
   };
 
-  getActiveGuidaneStep = (): {
-    content: React.ReactNode;
-    selector: string;
-  } => {
+  getActiveGuidaneStepProps = () => {
     const { children, activeId } = this.props;
-    let ret = { content: null, selector: '' };
+    let ret;
     React.Children.forEach(children, (child: React.ReactElement) => {
       const isElemet = React.isValidElement(child);
       if (!isElemet || activeId !== child.props.id) {
         return;
       }
       this.activeId = child.props.id;
-      ret = {
-        content: child.props.children,
-        selector: child.props.selector
-      };
+      ret = { ...child.props };
     });
     return ret;
   };
@@ -129,20 +129,20 @@ class Guidance extends Component<GuidanceProps, null> {
       return null;
     }
 
-    const step = this.getActiveGuidaneStep();
+    const stepProps = this.getActiveGuidaneStepProps();
 
-    if (!step.content || !step.selector) {
+    if (!stepProps.children || !stepProps.selector) {
       return null;
     }
 
     return (
       <ElementSelect
-        selector={step.selector}
+        selector={stepProps.selector}
         visible={visible}
         selectedElementStyle={selectedElementStyle}
         selectedElementClassName={selectedElementClassName}
         extraContent={sizeAndPos =>
-          this.renderExtraContent(sizeAndPos, step.content)
+          this.renderExtraContent(sizeAndPos, stepProps)
         }
       />
     );
