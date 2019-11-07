@@ -1,5 +1,4 @@
 .cat-message {
-  max-width: 300px;
   position: fixed;
   top: 0;
   left: 50%;
@@ -12,7 +11,6 @@
   z-index: 9999;
   border-radius: 0 0 4px 4px;
   color: #fff;
-
   &__icon {
     color: #fff;
   }
