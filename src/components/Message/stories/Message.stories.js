@@ -6,6 +6,8 @@ import '../../../styles/index.scss';
 import './style.scss';
 import { withInfo } from '@storybook/addon-info';
 import Button from '../../Button';
+import markdown from '../README.md';
+
 
 addDecorator(withInfo);
 
@@ -40,4 +42,8 @@ const Demo1 = () => {
 };
 
 storiesOf('Message 全局提示', module)
-  .add('Message', () => <Demo1 />)
+  .add('Message', () => <Demo1 />, {
+    notes: {
+      markdown
+    }
+  })
