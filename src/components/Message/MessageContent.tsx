@@ -13,7 +13,7 @@ export interface MessageContentProps {
 
 const IconTypeMap = {
   success: 'success',
-  warn: 'warn',
+  warn: 'warning',
   error: 'error'
 };
 
@@ -32,9 +32,9 @@ class MessageContent extends Component<MessageContentProps, any> {
         <div className={classes}>
           <Icon
             type={IconTypeMap[type]}
-            className={`${prefix}-message__icon`}
+            className={`${prefix}__icon`}
           />
-          <span className={`${prefix}-message__text`}>{text}</span>
+          <span className={`${prefix}__text`}>{text}</span>
         </div>
       </Portal>
     );
