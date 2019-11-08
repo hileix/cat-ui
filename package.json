@@ -1,6 +1,6 @@
 {
   "name": "@hife/catui",
-  "version": "1.13.1",
+  "version": "1.14.1",
   "main": "lib/components/index.js",
   "license": "MIT",
   "repository": {
@@ -44,6 +44,7 @@
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
+    "@hife/utils": "^0.2.1",
     "classnames": "^2.2.6",
     "hoist-non-react-statics": "^3.3.0",
     "lodash": "^4.17.11",

@@ -3,6 +3,7 @@ import { Component } from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import PurePortal from '../PurePortal';
+import { scroll } from '@hife/utils';
 
 export interface ElementSelectProps {
   /**
@@ -44,6 +45,10 @@ export interface ElementSelectProps {
     bottom: number;
     left: number;
   }) => React.ReactNode;
+  /**
+   * 是否禁止页面滑动
+   */
+  isDisableScroll?: boolean;
 }
 
 export interface ElementSelectState {
@@ -85,7 +90,8 @@ class ElementSelect extends Component<ElementSelectProps, ElementSelectState> {
   public state = {
     isDidmount: false, // 是否 didmount 了
     selector: '', // 选中元素的 css 选择器
-    domRect: null
+    domRect: null,
+    isDisableScroll: false
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -115,6 +121,10 @@ class ElementSelect extends Component<ElementSelectProps, ElementSelectState> {
 
   componentDidMount = () => {
     this.setState({ isDidmount: true });
+  };
+
+  handleUnmount = () => {
+    scroll.enableScroll(document.body);
   };
 
   getSizeAndPosition = (): PositionInterface => {
@@ -224,8 +234,10 @@ class ElementSelect extends Component<ElementSelectProps, ElementSelectState> {
       return null;
     }
 
+    scroll.disableScroll(document.body);
+
     return (
-      <PurePortal selector='body'>
+      <PurePortal selector='body' onUnmount={this.handleUnmount}>
         <div className={classPrefix} {...restProps}>
           <div
             className={`${classPrefix}__mask`}

@@ -11,6 +11,10 @@ export interface PurePortalProps {
    * 作为容器的 css 选择器
    */
   selector?: string;
+  /**
+   * unmount 时的回调
+   */
+  onUnmount?: () => void;
 }
 
 /**
@@ -35,7 +39,9 @@ class PurePortal extends React.Component<PurePortalProps, null> {
   };
 
   componentWillUnmount = () => {
+    const { onUnmount } = this.props;
     this.container = null;
+    onUnmount && onUnmount();
   };
 
   getContainer = (): void => {

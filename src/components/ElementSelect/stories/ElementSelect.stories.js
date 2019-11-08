@@ -6,6 +6,7 @@ import Button from '../../Button';
 import '../../../styles/index.scss';
 import markdown from '../README.md';
 import './style.scss';
+import { scroll } from '@hife/utils';
 
 const Demo1 = () => {
   const [visible, setVisible] = useState(true);
@@ -18,13 +19,17 @@ const Demo1 = () => {
     return (
       <div className='element-select-extra-content' style={style}>
         extra content
+        <button onClick={() => setVisible(false)}>隐藏</button>
       </div>
     )
   }
 
   return (
-    <div>
+    <div className='element-select-box'>
       <p className='selected-element'>这是被选中的元素</p>
+      <div>
+        <button onClick={() => setVisible(true)}>显示</button>
+      </div>
       <ElementSelect
         selector='.selected-element'
         visible={visible}
