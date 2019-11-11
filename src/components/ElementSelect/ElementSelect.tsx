@@ -159,9 +159,7 @@ class ElementSelect extends Component<ElementSelectProps, ElementSelectState> {
     } else {
       scroll.enableScroll(document.body);
     }
-
     if (this.props.selector !== prevProps.selector) {
-      console.log('deteched');
       this.detectSelectedElementPosition();
     }
   };
@@ -171,8 +169,10 @@ class ElementSelect extends Component<ElementSelectProps, ElementSelectState> {
   };
 
   detectSelectedElementPosition = () => {
-    const { selector, offset } = this.props;
-
+    const { selector, offset, visible } = this.props;
+    if (!visible) {
+      return;
+    }
     const root = document.documentElement;
     const target = document.querySelector<HTMLElement>(selector);
 
