@@ -49,5 +49,6 @@
   "error",
   "success",
   "warning",
-  "copy"
+  "copy",
+  "camera"
 ]
