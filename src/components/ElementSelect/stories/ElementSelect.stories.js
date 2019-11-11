@@ -8,6 +8,7 @@ import markdown from '../README.md';
 import './style.scss';
 import { scroll } from '@hife/utils';
 
+
 const Demo1 = () => {
   const [visible, setVisible] = useState(true);
 
@@ -19,7 +20,7 @@ const Demo1 = () => {
     return (
       <div className='element-select-extra-content' style={style}>
         extra content
-        <button onClick={() => setVisible(false)}>隐藏</button>
+        {/* <button onClick={() => setVisible(false)}>隐藏</button> */}
       </div>
     )
   }
@@ -35,7 +36,11 @@ const Demo1 = () => {
         visible={visible}
         selectedElementStyle={{ border: '1px solid red' }}
         extraContent={renderExtraContent}
+        offset={120}
       />
+      <div className='element-select-box__content'>
+        element-select-box__content
+      </div>
     </div>
   );
 }

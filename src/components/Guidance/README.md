@@ -22,17 +22,18 @@
 
 ## Guidance API
 
-|           属性           |                  类型                  | 默认值 |       描述        |
-|:------------------------:|:--------------------------------------:|:------:|:-----------------:|
-|          prefix          |                `string`                | `cat`  |     类名前缀      |
-|        className         |                `string`                |   -    |       类名        |
-|          style           |                `object`                |   -    |     行内样式      |
-|         activeId         |           `string` `number`            |   -    |  激活的 step id   |
-|         visible          |               `boolean`                | false  |     是否显示      |
-|         onChange         | `(currentId: number | string) => void` |   -    | step 改变时的回调 |
-|         nextText         |                `string`                | `Next` |   下一步的文案    |
-| selectedElementClassName |                `string`                |   -    | 选中的元素的类名  |
-|   selectedElementStyle   |                `object`                |   -    | 选中的元素的样式  |
+|           属性           |                  类型                  | 默认值 |                描述                |
+|:------------------------:|:--------------------------------------:|:------:|:----------------------------------:|
+|          prefix          |                `string`                | `cat`  |              类名前缀              |
+|        className         |                `string`                |   -    |                类名                |
+|          style           |                `object`                |   -    |              行内样式              |
+|         activeId         |           `string` `number`            |   -    |           激活的 step id           |
+|         visible          |               `boolean`                | false  |              是否显示              |
+|         onChange         | `(currentId: number | string) => void` |   -    |         step 改变时的回调          |
+|         nextText         |                `string`                | `Next` |            下一步的文案            |
+| selectedElementClassName |                `string`                |   -    |          选中的元素的类名          |
+|   selectedElementStyle   |                `object`                |   -    |          选中的元素的样式          |
+|          offset          |                `number`                |  `0`   | 不在视图内时，自动滚动的多余的距离 |
 
 
 ## Guidance.Step API

@@ -16,7 +16,7 @@ const Demo1 = () => {
       setActiveId(activeId + 1);
     } else {
       setActiveId(1);
-      setVisible(false);
+      // setVisible(false);
     }
   }
 
@@ -36,6 +36,7 @@ const Demo1 = () => {
         activeId={activeId}
         visible={visible}
         onChange={handleChange}
+        offset={120}
       >
         <Guidance.Step id={1} selector='.guidance-step-1' className='step-1' style={{ background: 'red' }}>
           第一步 ~

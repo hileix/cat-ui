@@ -3,7 +3,7 @@ import { Component } from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import PurePortal from '../PurePortal';
-import { scroll } from '@hife/utils';
+import { scroll, getViewportSize } from '@hife/utils';
 
 export interface ElementSelectProps {
   /**
@@ -46,9 +46,9 @@ export interface ElementSelectProps {
     left: number;
   }) => React.ReactNode;
   /**
-   * 是否禁止页面滑动
+   * 不在视图内时，自动滚动的多余的距离
    */
-  isDisableScroll?: boolean;
+  offset?: number;
 }
 
 export interface ElementSelectState {
@@ -60,6 +60,8 @@ export interface ElementSelectState {
    * 选中元素的 css 选择器
    */
   selector: string;
+  domRect?: DOMRect | ClientRect;
+  hasDetect?: boolean;
 }
 
 export interface PositionInterface {
@@ -68,6 +70,32 @@ export interface PositionInterface {
   eleLeft: number;
   eleTop: number;
 }
+
+/**
+ * 目标 dom 在垂直方向上是否完全被根 dom 包含
+ * @param root 根 dom
+ * @param target 目标 dom
+ */
+const isExistRoot = (root: HTMLElement, target: HTMLElement): boolean => {
+  const rootRect = root.getBoundingClientRect();
+  const targetRect = target.getBoundingClientRect();
+
+  return targetRect.top <= rootRect.top && targetRect.bottom <= rootRect.bottom;
+};
+
+/**
+ * 获取 dom rect
+ * @param selector css 选择器
+ */
+const getDomRect = (selector: string) => {
+  const element = document.querySelector<HTMLElement>(selector);
+  if (!element) {
+    throw new Error(
+      `[@hife/catui - ElementSelect Component]: Dom with no ${selector} for selector.`
+    );
+  }
+  return element.getBoundingClientRect();
+};
 
 /**
  * ElementSelect 元素选择
@@ -80,34 +108,35 @@ class ElementSelect extends Component<ElementSelectProps, ElementSelectState> {
     selector: PropTypes.string,
     extraContent: PropTypes.func,
     selectedElementStyle: PropTypes.object,
-    selectedElementClassName: PropTypes.string
+    selectedElementClassName: PropTypes.string,
+    offset: PropTypes.number
   };
 
   static defaultProps = {
-    prefix: 'cat'
+    prefix: 'cat',
+    offset: 0
   };
 
   public state = {
     isDidmount: false, // 是否 didmount 了
     selector: '', // 选中元素的 css 选择器
-    domRect: null,
-    isDisableScroll: false
+    hasDetect: false,
+    domRect: null
   };
 
-  static getDerivedStateFromProps(props, state) {
+  public domRect: DOMRect | ClientRect;
+
+  static getDerivedStateFromProps(
+    props: ElementSelectProps,
+    state: ElementSelectState
+  ) {
     if (!state.isDidmount) {
       return null;
     }
 
     if (state.selector !== props.selector) {
       const selector = props.selector;
-      const element = document.querySelector<HTMLElement>(selector);
-      if (!element) {
-        throw new Error(
-          `[@hife/catui - ElementSelect Component]: Dom with no ${selector} for selector.`
-        );
-      }
-      const domRect = element.getBoundingClientRect();
+      const domRect = getDomRect(selector);
       return {
         domRect,
         selector
@@ -117,14 +146,51 @@ class ElementSelect extends Component<ElementSelectProps, ElementSelectState> {
     return null;
   }
 
-  private domRect: DOMRect | ClientRect;
-
   componentDidMount = () => {
     this.setState({ isDidmount: true });
+    setTimeout(() => {
+      this.detectSelectedElementPosition();
+    });
   };
 
-  handleUnmount = () => {
+  componentDidUpdate = prevProps => {
+    if (this.props.visible) {
+      scroll.disableScroll(document.body);
+    } else {
+      scroll.enableScroll(document.body);
+    }
+
+    if (this.props.selector !== prevProps.selector) {
+      console.log('deteched');
+      this.detectSelectedElementPosition();
+    }
+  };
+
+  componentWillUnmount = () => {
     scroll.enableScroll(document.body);
+  };
+
+  detectSelectedElementPosition = () => {
+    const { selector, offset } = this.props;
+
+    const root = document.documentElement;
+    const target = document.querySelector<HTMLElement>(selector);
+
+    // 不在 viewport 中，则滚动
+    if (!isExistRoot(root, target)) {
+      const targetRect = target.getBoundingClientRect();
+
+      const scrollDistance =
+        targetRect.top - getViewportSize().height + targetRect.height;
+
+      const top = root.scrollTop + scrollDistance + offset;
+
+      // document.body 兼容 safari
+      document.documentElement.scrollTop = document.body.scrollTop = top;
+
+      const domRect = getDomRect(selector);
+      this.setState({ domRect });
+    }
   };
 
   getSizeAndPosition = (): PositionInterface => {
@@ -234,10 +300,8 @@ class ElementSelect extends Component<ElementSelectProps, ElementSelectState> {
       return null;
     }
 
-    scroll.disableScroll(document.body);
-
     return (
-      <PurePortal selector='body' onUnmount={this.handleUnmount}>
+      <PurePortal selector='body'>
         <div className={classPrefix} {...restProps}>
           <div
             className={`${classPrefix}__mask`}

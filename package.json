@@ -44,7 +44,7 @@
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
-    "@hife/utils": "^0.2.1",
+    "@hife/utils": "^0.3.0",
     "classnames": "^2.2.6",
     "hoist-non-react-statics": "^3.3.0",
     "lodash": "^4.17.11",

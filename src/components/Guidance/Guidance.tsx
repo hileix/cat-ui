@@ -46,6 +46,10 @@ export interface GuidanceProps {
    * 选中的元素的样式
    */
   selectedElementStyle?: object;
+  /**
+   * 不在视图内时，自动滚动的多余的距离
+   */
+  offset?: number;
 }
 
 const DISTANCE_TOP = 12;
@@ -123,8 +127,10 @@ class Guidance extends Component<GuidanceProps, null> {
       className,
       selectedElementStyle,
       selectedElementClassName,
+      offset,
       ...restProps
     } = this.props;
+
     if (!visible) {
       return null;
     }
@@ -144,6 +150,7 @@ class Guidance extends Component<GuidanceProps, null> {
         extraContent={sizeAndPos =>
           this.renderExtraContent(sizeAndPos, stepProps)
         }
+        offset={offset}
       />
     );
   }
