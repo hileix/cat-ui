@@ -325,7 +325,9 @@ class ElementSelect extends Component<ElementSelectProps, ElementSelectState> {
               selectedElementClassName
             )}
             style={{ ...selectedElementStyle, ...this.getMakStyle('center') }}
-          ></div>
+          >
+            {children}
+          </div>
           {extraContent && extraContent(this.getExtraContentParams())}
         </div>
       </PurePortal>
