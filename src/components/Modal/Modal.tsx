@@ -144,7 +144,13 @@ class Modal extends PureComponent<ModalProps, any> {
           })}
         >
           {cancelText.length > 0 && (
+<<<<<<< HEAD
             <Button onClick={this.handleCancle}>{cancelText}</Button>
+=======
+            <Button theme="white-primary" onClick={this.handleCancle}>
+              {cancelText}
+            </Button>
+>>>>>>> Remove all commits
           )}
           <Button onClick={this.handleOk}>{okText}</Button>
         </div>
@@ -194,7 +200,11 @@ class Modal extends PureComponent<ModalProps, any> {
               {title}
               {!noCloseIcon && (
                 <div className={`${modalPrefix}__close`}>
+<<<<<<< HEAD
                   <Icon type='close' onClick={this.onMaskClick} />
+=======
+                  <Icon type="close" onClick={this.onMaskClick} />
+>>>>>>> Remove all commits
                 </div>
               )}
             </div>

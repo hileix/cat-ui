@@ -3,10 +3,17 @@ import * as ReactDOM from 'react-dom';
 import { Component } from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
+import getScrollBarSize from '../../utils/getScrollBarSize';
 import { canUseDOM } from '../../utils/index';
 import { CSSTransition } from 'react-transition-group';
+import Icon from '../Icon/index';
 
-export type PlacementType = 'right';
+export type PlacementType = 'top'|'right'|'bottom'|'left';
+export type CloseIconStyle = {
+  fontSize: string;
+  top: number;
+  right: number; 
+};
 
 export interface DrawerProps {
   /** 类名 */
@@ -18,7 +25,7 @@ export interface DrawerProps {
   /** 获取抽屉所在的 dom 节点 */
   getContainer?: () => HTMLElement;
   /** children */
-  children?: React.ReactNode;
+  children?: React.ReactChildren | string;
   /** 类名前缀 */
   prefix?: string;
   /** 是否显示遮罩 */
@@ -29,6 +36,8 @@ export interface DrawerProps {
   placement?: PlacementType;
   /** 关闭时是否销毁 Drawer 里的子元素 */
   destroyOnClose?: boolean;
+  /** 是否显示关闭图标 X */
+  closeIcon?: boolean | CloseIconStyle;
 }
 
 export interface DrawerStateInterface {
@@ -51,7 +60,8 @@ class Drawer extends Component<DrawerProps, DrawerStateInterface> {
     prefix: 'cat',
     mask: true,
     placement: 'right',
-    destroyOnClose: false
+    destroyOnClose: false,
+    closeIcon: false
   };
 
   readonly state: DrawerStateInterface = {
@@ -92,12 +102,15 @@ class Drawer extends Component<DrawerProps, DrawerStateInterface> {
       style,
       mask,
       placement,
-      className
+      className,
+      closeIcon
     } = this.props;
 
     if (!parentDOM) {
       return null;
     }
+
+    const closeIconStyle = typeof closeIcon === 'boolean' ? null : closeIcon;
 
     const content = (
       <div className={classNames(`${prefix}-drawer`)}>
@@ -120,18 +133,19 @@ class Drawer extends Component<DrawerProps, DrawerStateInterface> {
         <CSSTransition
           timeout={TIMEOUT}
           in={visible}
-          classNames={`${prefix}-drawer__content`}
+          classNames={`${prefix}-drawer-${placement}__content`}
           unmountOnExit={destroyOnClose}
           mountOnEnter
           appear
         >
           <div
-            className={classNames(className, `${prefix}-drawer__content`, {
+            className={classNames(className, `${prefix}-drawer-${placement}__content`, {
               [`${prefix}-drawer__content--${placement}`]: true
             })}
             style={style}
           >
             {children}
+            {closeIcon && <Icon className={`${prefix}-drawer__close-icon`} style={closeIconStyle} type='close' onClick={this.handleClose}/>}
           </div>
         </CSSTransition>
       </div>
