@@ -1,0 +1,59 @@
+$c-indigo-1: #537682;
+
+@function delay($interval, $count, $index) {
+  @return ($index * $interval) - ($interval * $count);
+}
+
+@mixin global-bg() {
+  background-color: $c-indigo-1;
+}
+
+@mixin global-animation() {
+  animation-fill-mode: both;
+}
+@mixin lines() {
+  @include global-bg();
+
+  width: 3px;
+  height: 24px;
+  border-radius: 2px;
+  margin: 2px;
+}
+@keyframes line-scale-pulse-out {
+  0% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.4);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.cat-loading {
+  display: inline-block;
+  transition: 0.3s;
+  & > div {
+    @include lines();
+    @include global-animation();
+
+    display: inline-block;
+    animation: line-scale-pulse-out 0.9s delay(0.2s, 3, 0) infinite
+      cubic-bezier(0.85, 0.25, 0.37, 0.85);
+
+    &:nth-child(2),
+    &:nth-child(4) {
+      animation-delay: delay(0.2s, 3, 1) !important;
+    }
+
+    &:nth-child(1),
+    &:nth-child(5) {
+      animation-delay: delay(0.2s, 3, 2) !important;
+    }
+  }
+  &--hide {
+    visibility: hidden;
+    opacity: 0;
+  }
+}

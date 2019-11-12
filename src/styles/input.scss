@@ -1,0 +1,218 @@
+$colorQuaternary: #eeeeee;
+$colorTertiary: #bcbcbc;
+$colorSecondary: #9b9b9b;
+$colorPrimary: #4a4a4a;
+$colorPrimaryDarker: #313646;
+$colorPremium: #ffa006;
+$colorRedPrimary: #ff4444;
+
+@keyframes flyout {
+  from {
+    font-size: 16px;
+    color: $colorTertiary;
+    background-color: transparent;
+    transform: translate(0, -50%);
+    top: 50%;
+  }
+  to {
+    font-size: 12px;
+    color: $colorPrimary;
+    background-color: #ffffff;
+    transform: translate(0, 0);
+    top: -15%;
+  }
+}
+
+@keyframes flyin {
+  from {
+    font-size: 12px;
+    color: $colorPrimary;
+    background-color: #ffffff;
+    transform: translate(0, 0);
+    top: -15%;
+  }
+
+  to {
+    font-size: 16px;
+    color: $colorTertiary;
+    background-color: transparent;
+    transform: translate(0, -50%);
+    top: 50%;
+  }
+}
+
+.cat-input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  font-weight: normal;
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
+  color: $colorPrimary;
+  border: 0;
+  outline: 0;
+  &:focus {
+    outline: none;
+  }
+  &::-ms-clear {
+    display: none;
+  }
+  &::-ms-reveal {
+    display: none;
+  }
+  &::-webkit-credentials-auto-fill-button {
+    visibility: hidden;
+    display: none !important;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+  }
+  &::placeholder,
+  &::-webkit-input-placeholder {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.5;
+    color: $colorTertiary;
+  }
+  &--disabled {
+    cursor: not-allowed;
+  }
+
+  &-icon {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 1;
+    width: 10px;
+    height: 10px;
+    right: 5.5%;
+    color: $colorPrimary;
+    &--error {
+      color: $colorRedPrimary;
+    }
+    font-size: 16px;
+    &--show-clear {
+      font-size: 10px;
+    }
+  }
+
+  &-wrapper {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    &--large {
+      width: 400px;
+      height: 50px;
+    }
+    &--normal {
+      width: 300px;
+      height: 40px;
+    }
+    &--small {
+      width: 200px;
+      height: 30px;
+    }
+    &--box,
+    &--box-pwd {
+      padding-left: 20px;
+    }
+    &--show-clear,
+    &--show-eye {
+      padding-right: 3.5%;
+    }
+  }
+  &-wrapper-border {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s;
+    border: 1px solid;
+    &--line,
+    &--line-pwd {
+      border-left: 0;
+      border-right: 0;
+      border-top: 0;
+    }
+    &--default {
+      color: $colorQuaternary;
+    }
+    &--hover {
+      color: $colorTertiary;
+    }
+    &--active {
+      color: $colorPrimary;
+    }
+    &--error {
+      color: $colorRedPrimary;
+    }
+    &--textarea {
+      border-radius: 2px;
+    }
+    &--box,
+    &--box-pwd {
+      border-radius: 4px;
+    }
+  }
+  &-wrapper-placeholder {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    left: 0;
+    padding: 0;
+    transform: translate(0, -50%);
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1;
+    letter-spacing: 0.75px;
+    color: $colorTertiary;
+
+    &--box,
+    &--box-pwd {
+      left: 15px;
+      padding: 0 5px;
+    }
+    animation: flyin 0.2s ease-out forwards;
+    &--active,
+    &--value {
+      animation: flyout 0.2s ease-out forwards;
+    }
+  }
+  &-wrapper-message {
+    display: block;
+    font-size: 12px;
+    color: $colorPrimary;
+    &--error {
+      color: $colorRedPrimary;
+    }
+    font-weight: normal;
+    margin-top: 8px;
+  }
+}
+
+.cat-textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  font-weight: normal;
+  position: relative;
+  padding: 10px 15px;
+  z-index: 1;
+  background-color: transparent;
+  color: $colorPrimary;
+  border: 0;
+  outline: 0;
+  &:focus {
+    outline: none;
+  }
+  resize: none;
+}

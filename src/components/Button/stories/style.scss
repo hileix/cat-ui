@@ -1,0 +1,10 @@
+.button-box .cat-button {
+  margin: 0 20px 20px 20px;
+}
+.button-box .block-box {
+  display: inline-block;
+  width: 280px;
+}
+.button-box .block-box + .block-box {
+  margin-left: 20px;
+}

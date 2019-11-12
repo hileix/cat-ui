@@ -1,0 +1,87 @@
+.cat-tabs {
+  &__nav-wrapper {
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 20px;
+  }
+
+  &__nav {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 12px 0;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    font-size: 18px;
+    color: #4a4a4a;
+
+    &--active {
+      font-weight: bold;
+      &::before {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        content: '';
+        width: 40px;
+        height: 3px;
+        background-color: #ff4444;
+      }
+    }
+
+    & + & {
+      margin-left: 40px;
+    }
+  }
+
+  &__nav-link {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 12px 0;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    font-size: 18px;
+    color: #4a4a4a;
+
+    &--active {
+      font-weight: bold;
+      &::before {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        content: '';
+        width: 40px;
+        height: 3px;
+        background-color: #ff4444;
+      }
+    }
+
+    & + & {
+      margin-left: 40px;
+    }
+
+    padding: 0;
+    & > * {
+      display: inline-block;
+      padding: 12px 0;
+    }
+  }
+
+  &__content {
+    display: none;
+    &--active {
+      display: block;
+    }
+  }
+
+  &__navs {
+    display: inline-block;
+  }
+
+  &__extra-content {
+    float: right;
+  }
+}

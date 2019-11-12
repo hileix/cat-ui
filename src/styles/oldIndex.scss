@@ -1,0 +1,62 @@
+@import './themes.scss';
+
+// all components use the prefix namespace
+$prefix: 'hmly';
+
+// Media queries breakpoints
+$screen-xs: 320px;
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 1024px;
+$screen-xl: 1440px;
+$screen-xxl: 1600px;
+
+/**
+ * 1440px的设计稿：屏幕尺寸 >= 1440px
+ * 1024px的设计稿：1439px >= 屏幕尺寸 >= 1024px
+ * 768px的设计稿：1023px >= 屏幕尺寸 >= 768px
+ * 320px的设计稿：768px > 屏幕尺寸
+**/
+
+@mixin mq($args...) {
+  $media-type: 'only screen';
+  $media-type-key: 'media-type';
+  $args: keywords($args);
+  $expr: '';
+
+  @if map-has-key($args, $media-type-key) {
+    $media-type: map-get($args, $media-type-key);
+    $args: map-remove($args, $media-type-key);
+  }
+
+  @each $key, $value in $args {
+    @if $value {
+      $expr: "#{$expr} and (#{$key}: #{$value})";
+    }
+  }
+
+  @media #{$media-type}#{$expr} {
+    @content;
+  }
+}
+
+// 1024px的设计稿：1439px >= 屏幕尺寸 >= 1024px
+@mixin d1024 {
+  @include mq($max-width: '1439px') {
+    @content;
+  }
+}
+
+// 768px的设计稿：1023px >= 屏幕尺寸 >= 768px
+@mixin d768 {
+  @include mq($max-width: '1023px') {
+    @content;
+  }
+}
+
+// 320px的设计稿：768px > 屏幕尺寸
+@mixin d320 {
+  @include mq($max-width: '767px') {
+    @content;
+  }
+}

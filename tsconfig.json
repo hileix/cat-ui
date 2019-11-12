@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "lib": ["es5", "es6", "es7", "dom"],
+    "noImplicitAny": false,
+    "removeComments": false,
+    "noImplicitReturns": false,
+    "noImplicitThis": false,
+    "sourceMap": false,
+    "skipLibCheck": true,
+    "outDir": "lib",
+    "jsx": "react",
+    "declaration": true,
+    "experimentalDecorators": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "lib",
+    "styleguide"
+  ]
+}
