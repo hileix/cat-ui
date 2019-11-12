@@ -1,0 +1,35 @@
+// 翻页的效果
+@keyframes pageTurning {
+  0% {
+    transform: perspective(200px) rotateX(20deg);
+    opacity: 0;
+  }
+  50% {
+    transform: perspective(200px) rotateX(10deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: perspective(200px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+.cat-popover {
+  display: inline-block;
+  &__content {
+    position: relative;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  &__pop {
+    position: relative;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 14px;
+    transform-origin: left center;
+    animation: 0.15s pageTurning ease-in;
+    z-index: 9999;
+  }
+  &__trigger {}
+}

@@ -1,0 +1,8 @@
+.cat-portal {
+  &__content {
+    display: block;
+    &--hide {
+      display: none;
+    }
+  }
+}

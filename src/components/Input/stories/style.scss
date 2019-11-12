@@ -1,0 +1,27 @@
+.input-box {
+  padding: 5px;
+}
+
+.input-box .item {
+  display: block;
+  width: 200px;
+  height: 50px;
+}
+
+.input-box .hint {
+  display: block;
+  margin: 15px 0;
+}
+
+.input-box .item + .item {
+  margin: 20px 0 0 0;
+}
+
+.input-box .item.err {
+  margin-bottom: 50px;
+}
+
+.input-box .item.item-box {
+  width: 380px;
+  height: 52px;
+}

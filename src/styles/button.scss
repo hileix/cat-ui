@@ -1,0 +1,72 @@
+@import './common/index.scss';
+
+.cat-button {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  border: 1px solid $primary-color;
+  border-radius: 4px;
+  padding: 8px 20px;
+  color: $primary-color;
+  background: #fff;
+  transition: 0.3s;
+  line-height: 1;
+  &:hover {
+    background: $red-2;
+  }
+  &:active {
+    background: $red-3;
+  }
+
+  &--primary {
+    background: $primary-color;
+    color: #fff;
+    &:hover {
+      opacity: 0.8;
+      background: $primary-color;
+    }
+    &:active {
+      opacity: 1;
+      background: $red-7;
+      border-color: $red-7;
+    }
+  }
+  &--link {
+    border: none;
+    background: #fff;
+    &:hover {
+      opacity: 0.8;
+    }
+    &:active {
+      opacity: 1;
+    }
+  }
+  &--sm {
+    padding: 4px 12px;
+  }
+  &--lg {
+    font-size: 18px;
+    padding: 15px 32px;
+  }
+  &--block {
+    display: block;
+    width: 100%;
+  }
+  &--disabled {
+    cursor: not-allowed;
+    color: $gray-6;
+    background: $gray-3;
+    border: none;
+    &:hover {
+      color: $gray-6;
+      background: $gray-3;
+      border: none;
+    }
+    &:active {
+      color: $gray-6;
+      background: $gray-3;
+      border: none;
+    }
+  }
+}
