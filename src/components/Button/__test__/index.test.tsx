@@ -1,17 +1,16 @@
-import * as React from 'react'
-import * as Enzyme from 'enzyme'
-import { render, mount } from 'enzyme'
-import * as Adapter from 'enzyme-adapter-react-16'
-import Button from '../index'
+import * as React from 'react';
+import * as Enzyme from 'enzyme';
+import { render, mount } from 'enzyme';
+import * as Adapter from 'enzyme-adapter-react-16';
+import Button from '../index';
 
-Enzyme.configure({ adapter: new Adapter() })
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('Button', () => {
-
-  // test('renders correctly', () => {
-  //   const wrapper = render(<Button>Button</Button>)
-  //   expect(wrapper).toMatchSnapshot()
-  // })
+  test('renders correctly', () => {
+    const wrapper = render(<Button>Button</Button>);
+    expect(wrapper).toMatchSnapshot();
+  });
 
   // test('renders characters: Chinese, Japanese', () => {
   //   const wrapper1 = render(<Button>按钮</Button>)
@@ -65,5 +64,4 @@ describe('Button', () => {
   //   wrapper.simulate('click')
   //   expect(isClicked).toBe(false)
   // })
-
-})
+});
