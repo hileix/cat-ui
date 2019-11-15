@@ -14,7 +14,6 @@ module.exports = ({ config }) => {
       }
     ],
   });
-  config.resolve.extensions.push('.ts', '.tsx');
 
   // scss
   config.module.rules.push({
@@ -33,13 +32,19 @@ module.exports = ({ config }) => {
     include: path.resolve(__dirname, '../src'),
   });
 
+  // images
+  config.module.rules.push({
+    test: /\.(png|svg|jpg|gif)$/,
+    loaders: ['file-loader']
+  });
+
   // alias
   config.resolve.alias = {
     '@utils': srcPath('utils/'),
     '@components': srcPath('components/')
-  }
+  };
 
-
+  config.resolve.extensions.push('.ts', '.tsx');
 
   return config;
 };
