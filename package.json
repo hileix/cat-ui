@@ -35,9 +35,9 @@
     "build:css": "sass --color --no-source-map src/styles:styles",
     "build:ts": "tsc --build",
     "update:snapshot": "jest --updateSnapshot",
-    "build": "npm run test && rm -rf lib styles && npm run build:ts && npm run build:css",
+    "build": "rm -rf lib styles && npm run build:ts && npm run build:css",
     "deploy:gitpage": "storybook-to-ghpages -o storybook",
-    "release": "npm run build && node ./scripts/release.js && npm run deploy:gitpage"
+    "release": "npm run build && hi-pkg-scripts release v2 && npm run deploy:gitpage"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
