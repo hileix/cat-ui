@@ -29,7 +29,8 @@
 
 ## 需要优先迁移的组件
 - [x] Avatar
-- [ ] Icon
+- [x] Icon
+- [x] Message
 - [ ] Guidance
 - [ ] Question
 - [ ] Button

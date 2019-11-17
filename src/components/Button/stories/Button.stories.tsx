@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Button } from '../../index';
+import { Button } from '@components/index';
 import './style.scss';
 import markdown from '../README.md';
 import DemoWrapper from '@utils/DemoWrapper';

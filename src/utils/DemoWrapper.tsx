@@ -1,5 +1,4 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import { CommonProps } from './commonInterface';
 
@@ -43,7 +42,11 @@ export interface DemoWrapperProps extends CommonProps {
  * demo wrapper
  */
 class DemoWrapper extends React.PureComponent<DemoWrapperProps, null> {
-  static propTypes = {};
+  static propTypes = {
+    title: PropTypes.node,
+    desc: PropTypes.node,
+    children: PropTypes.node
+  };
   static defaultProps = {};
 
   constructor(props: DemoWrapperProps) {
