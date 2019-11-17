@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
-import { commonProps } from '../../utils/commonInterface';
+import { CommonProps } from '../../utils/commonInterface';
 
 export interface ButtonProps extends commonProps {
   /**
