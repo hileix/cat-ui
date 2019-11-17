@@ -19,6 +19,7 @@
       "@utils/*": ["utils/*"],
       "@components/*": ["components/*"]
     },
+    "resolveJsonModule": true
   },
   "include": ["src/**/*"],
   "exclude": [
