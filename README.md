@@ -35,5 +35,5 @@
 - [x] Question
 - [x] Button
 - [x] Tabs
-- [ ] Loading
+- [x] Loading
 - [ ] Modal

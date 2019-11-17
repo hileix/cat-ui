@@ -7,3 +7,4 @@ export { default as Guidance } from './Guidance';
 export { default as Question } from './Question';
 export { default as Tabs } from './Tabs';
 export { default as Loading } from './Loading';
+export { default as Modal } from './Modal';

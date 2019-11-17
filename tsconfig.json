@@ -22,10 +22,5 @@
     "resolveJsonModule": true
   },
   "include": ["src/**/*"],
-  "exclude": [
-    "node_modules",
-    "lib",
-    "src/components/Modal/*",
-    "src/components/**/__test__"
-  ]
+  "exclude": ["node_modules", "lib", "src/components/**/__test__"]
 }

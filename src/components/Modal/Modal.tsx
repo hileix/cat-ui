@@ -39,7 +39,7 @@ export interface ModalProps {
   /** 点击确定回调	 */
   onOk?: (e: any) => {};
   /** 关闭操作回调函数 */
-  onClose: (e: any) => {};
+  onClose: (e: any) => void;
 }
 
 /**
@@ -144,9 +144,7 @@ class Modal extends PureComponent<ModalProps, any> {
           })}
         >
           {cancelText.length > 0 && (
-            <Button theme='white-primary' onClick={this.handleCancle}>
-              {cancelText}
-            </Button>
+            <Button onClick={this.handleCancle}>{cancelText}</Button>
           )}
           <Button onClick={this.handleOk}>{okText}</Button>
         </div>
