@@ -62,6 +62,7 @@
     "@babel/core": "^7.6.4",
     "@storybook/addon-info": "^5.2.6",
     "@storybook/react": "^5.2.5",
+    "@storybook/storybook-deployer": "^2.8.1",
     "@types/classnames": "^2.2.9",
     "@types/jest": "^24.0.21",
     "@types/react-dom": "^16.9.3",

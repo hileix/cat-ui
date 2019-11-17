@@ -36,4 +36,5 @@
 - [x] Button
 - [x] Tabs
 - [x] Loading
-- [ ] Modal
+- [x] Modal
+- [x] Drawer

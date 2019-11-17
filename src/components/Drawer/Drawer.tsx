@@ -3,7 +3,6 @@ import * as ReactDOM from 'react-dom';
 import { Component } from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
-import getScrollBarSize from '../../utils/getScrollBarSize';
 import { canUseDOM } from '../../utils/index';
 import { CSSTransition } from 'react-transition-group';
 
@@ -19,7 +18,7 @@ export interface DrawerProps {
   /** 获取抽屉所在的 dom 节点 */
   getContainer?: () => HTMLElement;
   /** children */
-  children?: React.ReactChildren | string;
+  children?: React.ReactNode;
   /** 类名前缀 */
   prefix?: string;
   /** 是否显示遮罩 */
