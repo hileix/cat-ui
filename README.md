@@ -34,6 +34,6 @@
 - [x] Guidance
 - [x] Question
 - [x] Button
-- [ ] Tabs
+- [x] Tabs
 - [ ] Loading
 - [ ] Modal
