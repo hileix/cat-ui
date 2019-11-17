@@ -21,7 +21,7 @@ class Question extends PureComponent<QuestionProps, any> {
 
     return (
       <Tooltip content={tips}>
-        <Icon type="question" className={className} style={style} />
+        <Icon type='question' className={className} style={style} />
       </Tooltip>
     );
   }
