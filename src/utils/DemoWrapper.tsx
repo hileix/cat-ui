@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
-import { commonProps } from './commonInterface';
+import { CommonProps } from './commonInterface';
 
 const demoWrapperStyle = {
   margin: '0 25px'
@@ -24,7 +24,7 @@ const childrenStyle = {
   margin: 8
 };
 
-export interface DemoWrapperProps extends commonProps {
+export interface DemoWrapperProps extends CommonProps {
   /**
    * demo 的标题
    */

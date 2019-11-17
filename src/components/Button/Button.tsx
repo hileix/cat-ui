@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import { CommonProps } from '../../utils/commonInterface';
 
-export interface ButtonProps extends commonProps {
+export interface ButtonProps extends CommonProps {
   /**
    * 按钮类型
    */
