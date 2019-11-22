@@ -1,61 +1,4 @@
-# cat-ui
-
-喜马拉雅国际版前端基础组件库
-
-## 安装
-
-```shell
-npm install @hife/catui
-```
-
-or
-
-```shell
-yarn add @hife/catui
-```
-
-## 使用
-
-### 1. 在入口中导入 `css` 文件
-
-```js
-// index.js
-import '@hife/catui/styles/index.css';
-```
-
-### 2. 使用组件
-
-```jsx
-import { Button } from "@hife/catui";
-
-const App = () => {
-  return <Button>Add</Button>;
-};
-
-export default App;
-```
-
-## 命令
-
-### 1. 开启开发环境
-
-```shell
-npm start
-```
-
-### 2. 更新 jest snapshot
-
-```shell
-npm run update:snapshot
-```
-
-### 3. 发布
-
-```shell
-npm run release
-```
-
-v2 版本的目标：
+## v2 版本的目标：
 
 1. 按照新的设计规范来规范组件的样式
 
@@ -83,13 +26,19 @@ v2 版本的目标：
 
 - 之前的组件对移动端这一块的适配不足
 
+7. 按需加载
+
+- catui 全局样式不要被单个组件的 scss 引入
 
 ## 需要优先迁移的组件
+
 - [x] Avatar
-- [ ] Guidance
-- [ ] Question
-- [ ] Button
-- [ ] Tabs
-- [ ] Loading
-- [ ] Modal
-- [ ] Icon
+- [x] Icon
+- [x] Message
+- [x] Guidance
+- [x] Question
+- [x] Button
+- [x] Tabs
+- [x] Loading
+- [x] Modal
+- [x] Drawer

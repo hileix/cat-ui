@@ -4,8 +4,8 @@
 
 ```jsx
 <Avatar
-  src="https://raw.githubusercontent.com/sialvsic/static-host/master/public/laptop.png"
-  size="large"
+  src='https://raw.githubusercontent.com/sialvsic/static-host/master/public/laptop.png'
+  size='large'
 />
 ```
 

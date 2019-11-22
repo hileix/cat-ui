@@ -80,7 +80,6 @@ addParameters({
 addDecorator(withInfo({
   header: false,
   source: false,
-
 }));
 
 configure(loadStories, module);
