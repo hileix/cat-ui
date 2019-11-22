@@ -1,4 +1,10 @@
-## v2 版本的目标：
+# v1
+
+1. react-guidelist -> storybook
+2. styled-component -> sass
+3. 添加了一些组件
+
+## v2 版本的目标
 
 1. 按照新的设计规范来规范组件的样式
 

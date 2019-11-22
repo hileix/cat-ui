@@ -9,9 +9,9 @@ import Icon from '../Icon/index';
 
 export type PlacementType = 'top'|'right'|'bottom'|'left';
 export type CloseIconStyle = {
-  fontSize: string;
-  top: number;
-  right: number; 
+  fontSize?: string;
+  top?: number;
+  right?: number;
 };
 
 export interface DrawerProps {
