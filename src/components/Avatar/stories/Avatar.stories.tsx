@@ -32,6 +32,13 @@ storiesOf('Avatar 头像', module)
           />
           <div className='avatar-label'>large</div>
         </div>
+        <div className='avatar-box'>
+          <Avatar
+            src='https://raw.githubusercontent.com/sialvsic/static-host/master/public/laptop.png'
+            size={50}
+          />
+          <div className='avatar-label'>size: 50</div>
+        </div>
       </div>
     ),
     {
