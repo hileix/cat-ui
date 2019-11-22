@@ -7,7 +7,7 @@ import { canUseDOM } from '../../utils/index';
 import { CSSTransition } from 'react-transition-group';
 import Icon from '../Icon/index';
 
-export type PlacementType = 'top'|'right'|'bottom'|'left';
+export type PlacementType = 'top' | 'right' | 'bottom' | 'left';
 export type CloseIconStyle = {
   fontSize?: string;
   top?: number;
@@ -24,14 +24,14 @@ export interface DrawerProps {
   /** 获取抽屉所在的 dom 节点 */
   getContainer?: () => HTMLElement;
   /** children */
-  children?: React.ReactNode
+  children?: React.ReactNode;
   /** 类名前缀 */
   prefix?: string;
   /** 是否显示遮罩 */
   mask?: boolean;
   /** 关闭的回调 */
   onClose?: () => void;
-  /** 抽屉所在的位置 */
+  /** 抽屉打开方向 */
   placement?: PlacementType;
   /** 关闭时是否销毁 Drawer 里的子元素 */
   destroyOnClose?: boolean;
@@ -48,10 +48,17 @@ const TIMEOUT = 300;
 
 class Drawer extends Component<DrawerProps, DrawerStateInterface> {
   static propTypes = {
-    visible: PropTypes.bool.isRequired,
+    className: PropTypes.string,
+    style: PropTypes.object,
+    visible: PropTypes.bool,
     getContainer: PropTypes.func,
+    children: PropTypes.node,
+    prefix: PropTypes.string,
+    mask: PropTypes.bool,
     onClose: PropTypes.func,
-    destroyOnClose: PropTypes.bool
+    placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
+    destroyOnClose: PropTypes.bool,
+    closeIcon: PropTypes.oneOfType([PropTypes.bool, PropTypes.object])
   };
 
   static defaultProps = {
@@ -138,13 +145,24 @@ class Drawer extends Component<DrawerProps, DrawerStateInterface> {
           appear
         >
           <div
-            className={classNames(className, `${prefix}-drawer-${placement}__content`, {
-              [`${prefix}-drawer__content--${placement}`]: true
-            })}
+            className={classNames(
+              className,
+              `${prefix}-drawer-${placement}__content`,
+              {
+                [`${prefix}-drawer__content--${placement}`]: true
+              }
+            )}
             style={style}
           >
             {children}
-            {closeIcon && <Icon className={`${prefix}-drawer__close-icon`} style={closeIconStyle} type='close' onClick={this.handleClose}/>}
+            {closeIcon && (
+              <Icon
+                className={`${prefix}-drawer__close-icon`}
+                style={closeIconStyle}
+                type='close'
+                onClick={this.handleClose}
+              />
+            )}
           </div>
         </CSSTransition>
       </div>
