@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { Component } from 'react';
-import classNames from 'classnames';
+import * as React from "react";
+import { Component } from "react";
+import classNames from "classnames";
 
 export interface AvatarProps {
   /** 类名 */
@@ -8,51 +8,64 @@ export interface AvatarProps {
   /** 样式 */
   style?: object;
   /** 尺寸 */
-  size?: number | 'large' | 'medium' | 'small';
-
+  size?: number | "large" | "medium" | "small";
   /** 形状 */
-  shape?: 'circle' | 'square';
-
+  shape?: "circle" | "square";
   /** 图片地址 */
-  src: string;
+  src?: string;
+  /** 容错图片地址 */
+  fallbackSrc?: string;
   /** 图片名称 */
   alt?: string;
   /** src扩展，会根据ua请求相应的资源 */
   srcSet?: string;
-
-  fit?: 'fill' | 'contain' | 'cover' | 'none' | 'scale-down';
-
+  /** 响应式图片，和srcSet一起使用 */
+  sizes?: string;
+  /** 样式前缀 */
   prefix?: string;
-
+  /** 错误回调 */
   onError?: (e: any) => boolean;
 }
 
 /**
  * Avatar
  */
-class Avatar extends Component<AvatarProps, null> {
+class Avatar extends Component<AvatarProps, any> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loadErr: false,
+      src: props.src
+    };
+  }
+
   handleImgLoadError = (e: any) => {
+    if (this.props.fallbackSrc) {
+      this.setState({
+        src: this.props.fallbackSrc
+      });
+    }
     this.props.onError && this.props.onError(e);
   };
 
   render() {
     const {
-      prefix = 'cat-avatar',
+      prefix = "cat-avatar",
       shape,
       className,
-      children,
       src,
       alt,
       srcSet,
       size,
+      sizes,
+      fallbackSrc,
       onError,
       ...restProps
     } = this.props;
-    if (!src) return null;
 
     const sizeCls = classNames({
-      [`${prefix}-lg`]: size === 'large',
-      [`${prefix}-sm`]: size === 'small'
+      [`${prefix}-lg`]: size === "large",
+      [`${prefix}-sm`]: size === "small"
     });
 
     const classes = classNames(prefix, className, sizeCls, {
@@ -63,9 +76,10 @@ class Avatar extends Component<AvatarProps, null> {
     return (
       <span className={classes} prefix={prefix} {...restProps}>
         <img
-          src={src}
           alt={alt}
           srcSet={srcSet}
+          sizes={sizes}
+          src={this.state.src}
           onError={this.handleImgLoadError}
         />
       </span>

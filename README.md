@@ -26,7 +26,7 @@ import '@hife/catui/styles/index.css';
 ### 2. 使用组件
 
 ```jsx
-import { Button } from '@hife/catui';
+import { Button } from "@hife/catui";
 
 const App = () => {
   return <Button>Add</Button>;
