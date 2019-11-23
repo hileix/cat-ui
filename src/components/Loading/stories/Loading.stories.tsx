@@ -36,6 +36,17 @@ const Demo = () => {
           <span className='loading-wrapper__size-desc'>30px</span>
         </div>
       </DemoWrapper>
+
+      <DemoWrapper title='自定义 loading 颜色' desc='默认 #537682'>
+        <div className='loading-wrapper__size-wrapper'>
+          <Loading visible  />
+          <span className='loading-wrapper__size-desc'>默认颜色</span>
+        </div>
+        <div className='loading-wrapper__size-wrapper'>
+          <Loading visible color='#ff0000' />
+          <span className='loading-wrapper__size-desc'>#ff0000</span>
+        </div>
+      </DemoWrapper>
     </div>
   );
 };

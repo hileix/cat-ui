@@ -14,4 +14,4 @@
 |   style   | `object`  |   -    | 行内样式 |    -     |
 |  visible  | `boolean` |   -    | 是否显示 |    -     |
 |  size  | `number` `string` |   24    | 尺寸（即高度） |    -     |
-
+|  color  | `string` |   `#537682`   | 颜色 |    -     |
