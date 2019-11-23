@@ -5,8 +5,14 @@ import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import { canUseDOM } from '../../utils/index';
 import { CSSTransition } from 'react-transition-group';
+import Icon from '../Icon/index';
 
-export type PlacementType = 'right';
+export type PlacementType = 'top' | 'right' | 'bottom' | 'left';
+export type CloseIconStyle = {
+  fontSize?: string;
+  top?: number;
+  right?: number;
+};
 
 export interface DrawerProps {
   /** 类名 */
@@ -25,10 +31,12 @@ export interface DrawerProps {
   mask?: boolean;
   /** 关闭的回调 */
   onClose?: () => void;
-  /** 抽屉所在的位置 */
+  /** 抽屉打开方向 */
   placement?: PlacementType;
   /** 关闭时是否销毁 Drawer 里的子元素 */
   destroyOnClose?: boolean;
+  /** 是否显示关闭图标 X */
+  closeIcon?: boolean | CloseIconStyle;
 }
 
 export interface DrawerStateInterface {
@@ -40,10 +48,17 @@ const TIMEOUT = 300;
 
 class Drawer extends Component<DrawerProps, DrawerStateInterface> {
   static propTypes = {
-    visible: PropTypes.bool.isRequired,
+    className: PropTypes.string,
+    style: PropTypes.object,
+    visible: PropTypes.bool,
     getContainer: PropTypes.func,
+    children: PropTypes.node,
+    prefix: PropTypes.string,
+    mask: PropTypes.bool,
     onClose: PropTypes.func,
-    destroyOnClose: PropTypes.bool
+    placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
+    destroyOnClose: PropTypes.bool,
+    closeIcon: PropTypes.oneOfType([PropTypes.bool, PropTypes.object])
   };
 
   static defaultProps = {
@@ -51,7 +66,8 @@ class Drawer extends Component<DrawerProps, DrawerStateInterface> {
     prefix: 'cat',
     mask: true,
     placement: 'right',
-    destroyOnClose: false
+    destroyOnClose: false,
+    closeIcon: false
   };
 
   readonly state: DrawerStateInterface = {
@@ -92,12 +108,15 @@ class Drawer extends Component<DrawerProps, DrawerStateInterface> {
       style,
       mask,
       placement,
-      className
+      className,
+      closeIcon
     } = this.props;
 
     if (!parentDOM) {
       return null;
     }
+
+    const closeIconStyle = typeof closeIcon === 'boolean' ? null : closeIcon;
 
     const content = (
       <div className={classNames(`${prefix}-drawer`)}>
@@ -120,18 +139,30 @@ class Drawer extends Component<DrawerProps, DrawerStateInterface> {
         <CSSTransition
           timeout={TIMEOUT}
           in={visible}
-          classNames={`${prefix}-drawer__content`}
+          classNames={`${prefix}-drawer-${placement}__content`}
           unmountOnExit={destroyOnClose}
           mountOnEnter
           appear
         >
           <div
-            className={classNames(className, `${prefix}-drawer__content`, {
-              [`${prefix}-drawer__content--${placement}`]: true
-            })}
+            className={classNames(
+              className,
+              `${prefix}-drawer-${placement}__content`,
+              {
+                [`${prefix}-drawer__content--${placement}`]: true
+              }
+            )}
             style={style}
           >
             {children}
+            {closeIcon && (
+              <Icon
+                className={`${prefix}-drawer__close-icon`}
+                style={closeIconStyle}
+                type='close'
+                onClick={this.handleClose}
+              />
+            )}
           </div>
         </CSSTransition>
       </div>
