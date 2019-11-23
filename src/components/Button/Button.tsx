@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
 import { CommonProps } from '../../utils/commonInterface';
+import Loading from '../Loading';
 
 export interface ButtonProps extends CommonProps {
   /**
@@ -28,7 +29,17 @@ export interface ButtonProps extends CommonProps {
    * 子元素
    */
   children?: React.ReactNode;
+  /**
+   * 按钮是否处于 loading 状态
+   */
+  loading?: boolean;
 }
+
+const loadingSizeMap = {
+  sm: 14,
+  md: 18,
+  lg: 24
+};
 
 /**
  * 按钮
@@ -51,7 +62,8 @@ class Button extends React.PureComponent<
     htmlType: 'button',
     size: 'md',
     disabled: false,
-    block: false
+    block: false,
+    loading: false
   };
 
   constructor(props: ButtonProps) {
@@ -69,6 +81,7 @@ class Button extends React.PureComponent<
       disabled,
       htmlType,
       children,
+      loading,
       ...othersProps
     } = this.props;
     const classes = classNames(
@@ -77,7 +90,8 @@ class Button extends React.PureComponent<
       `${prefix}-button--${size}`,
       {
         [`${prefix}-button--block`]: block,
-        [`${prefix}-button--disabled`]: disabled
+        [`${prefix}-button--disabled`]: disabled,
+        [`${prefix}-button--loading`]: loading
       },
       className
     );
@@ -94,7 +108,15 @@ class Button extends React.PureComponent<
         type={htmlType}
         {...othersProps}
       >
-        {children}
+        {loading && (
+          <Loading
+            visible
+            className={`${prefix}-button__loading`}
+            color={type === 'primary' ? '#fff' : '#537682'}
+            size={loadingSizeMap[size]}
+          />
+        )}
+        <span className={`${prefix}-button__children`}>{children}</span>
       </button>
     );
   }

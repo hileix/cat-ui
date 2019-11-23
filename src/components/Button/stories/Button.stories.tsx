@@ -46,6 +46,19 @@ const Demo = () => {
           block
         </Button>
       </DemoWrapper>
+      <DemoWrapper title='loading 状态' desc='按钮 loading 状态'>
+        <Button size='md' loading className='button-stories__button'>
+          loading
+        </Button>
+        <Button
+          type='primary'
+          size='md'
+          loading
+          className='button-stories__button'
+        >
+          loading
+        </Button>
+      </DemoWrapper>
     </Fragment>
   );
 };
