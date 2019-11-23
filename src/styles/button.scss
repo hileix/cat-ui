@@ -15,6 +15,7 @@
 
   &__children {
     vertical-align: middle;
+    display: inline-block;
   }
 
   &:hover {
@@ -90,5 +91,6 @@
   &__loading {
     margin-right: 6px;
     vertical-align: middle;
+    transition: 0.3s;
   }
 }

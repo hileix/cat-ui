@@ -37,8 +37,8 @@ export interface ButtonProps extends CommonProps {
 
 const loadingSizeMap = {
   sm: 14,
-  md: 18,
-  lg: 24
+  md: 14,
+  lg: 18
 };
 
 /**
