@@ -1,19 +1,18 @@
 .cat-notification-container {
   position: fixed;
   z-index: 9999;
-  margin: 0 20px 24px 0;
+  margin: 0 20px 12px 0;
   right: 20px;
-  bottom: 24px;
+  bottom: 0;
 }
 
 .cat-notification {
-  padding: 24px 66px 12px 24px;
+  padding: 24px 66px 24px 24px;
   border-radius: 8px;
   color: #fff;
   z-index: 9999;
   position: relative;
   margin-bottom: 12px;
-
   transition: 0.3s;
 
   &-appear {
