@@ -87,8 +87,8 @@ class Notification extends React.Component<
             )}
             style={style}
           >
-            <p className={`${classPrefix}__title`}>{title}</p>
-            <p className={`${classPrefix}__content`}>{content}</p>
+            {title && <p className={`${classPrefix}__title`}>{title}</p>}
+            {content && <p className={`${classPrefix}__content`}>{content}</p>}
             <Icon
               type='close'
               className={`${classPrefix}__close`}
