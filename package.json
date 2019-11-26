@@ -1,6 +1,6 @@
 {
   "name": "@hife/catui",
-  "version": "2.0.0",
+  "version": "2.2.0",
   "main": "lib/components/index.js",
   "license": "MIT",
   "repository": {
@@ -37,7 +37,7 @@
     "update:snapshot": "jest --updateSnapshot",
     "build": "rm -rf lib styles && npm run build:ts && npm run build:css",
     "deploy:gitpage": "storybook-to-ghpages -o storybook",
-    "release": "npm run build && hi-pkg-scripts release v2 && npm run deploy:gitpage"
+    "release": "npm run build && hi-pkg-scripts release && npm run deploy:gitpage"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
