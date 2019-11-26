@@ -1,0 +1,64 @@
+.cat-notification-container {
+  position: fixed;
+  z-index: 9999;
+  margin: 0 20px 24px 0;
+  right: 20px;
+  bottom: 24px;
+}
+
+.cat-notification {
+  padding: 24px 66px 12px 24px;
+  border-radius: 8px;
+  color: #fff;
+  z-index: 9999;
+  position: relative;
+  margin-bottom: 12px;
+
+  transition: 0.3s;
+
+  &-appear {
+    transform: translateX(100%);
+    &-active {
+      transform: translateX(0);
+    }
+    &-done {
+      transform: translateX(0);
+    }
+  }
+  &-exit {
+    transform: translateX(0);
+    &-active {
+      transform: translateX(100%);
+    }
+    &-done {
+      transform: translateX(100%);
+    }
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  &__content {
+    font-size: 14px;
+    max-width: 254px;
+  }
+  &__close {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    cursor: pointer;
+  }
+  &--success {
+    box-shadow: 0 4px 12px 0 rgba(0, 153, 255, 0.2);
+    background-color: rgba(0, 153, 255, 0.9);
+  }
+  &--warn {
+    box-shadow: 0 4px 12px 0 rgba(255, 102, 0, 0.2);
+    background-color: rgba(255, 102, 0, 0.9);
+  }
+  &--error {
+    box-shadow: 0 2px 8px 0 rgba(255, 108, 108, 0.3);
+    background-color: rgba(255, 114, 110, 0.9);
+  }
+}
