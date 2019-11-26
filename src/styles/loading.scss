@@ -1,23 +1,15 @@
-$c-indigo-1: #537682;
-
 @function delay($interval, $count, $index) {
   @return ($index * $interval) - ($interval * $count);
-}
-
-@mixin global-bg() {
-  background-color: $c-indigo-1;
 }
 
 @mixin global-animation() {
   animation-fill-mode: both;
 }
 @mixin lines() {
-  @include global-bg();
-
   width: 3px;
-  height: 24px;
+  height: 100%;
   border-radius: 2px;
-  margin: 2px;
+  margin: 0 2px;
 }
 @keyframes line-scale-pulse-out {
   0% {
@@ -34,6 +26,7 @@ $c-indigo-1: #537682;
 .cat-loading {
   display: inline-block;
   transition: 0.3s;
+  line-height: 1;
   & > div {
     @include lines();
     @include global-animation();

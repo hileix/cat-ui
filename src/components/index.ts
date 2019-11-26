@@ -9,3 +9,4 @@ export { default as Tabs } from './Tabs';
 export { default as Loading } from './Loading';
 export { default as Modal } from './Modal';
 export { default as Drawer } from './Drawer';
+export { default as notification } from './notification';

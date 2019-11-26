@@ -5,12 +5,10 @@ import './style.scss';
 import markdown from '../README.md';
 import DemoWrapper from '@utils/DemoWrapper';
 
-const { Fragment } = React;
+const { Fragment, useState, useEffect } = React;
 
 const Demo = () => {
-  const handleClick = e => {
-    console.log('clicked', e);
-  };
+  const [loading, setLoading] = useState(false);
 
   return (
     <Fragment>
@@ -44,6 +42,20 @@ const Demo = () => {
       <DemoWrapper title='block' desc='宽度是否和父级宽度一样'>
         <Button block className='button-stories__button'>
           block
+        </Button>
+      </DemoWrapper>
+      <DemoWrapper title='loading 状态' desc='按钮 loading 状态'>
+        <Button size='md' loading={loading} className='button-stories__button'>
+          loading
+        </Button>
+        <Button
+          // type='primary'
+          size='md'
+          loading
+          className='button-stories__button'
+          onClick={() => setLoading(!loading)}
+        >
+          切换
         </Button>
       </DemoWrapper>
     </Fragment>
