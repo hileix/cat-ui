@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Avatar renders src 1`] = `
+exports[`Avatar renders correctly 1`] = `
 <span
   className="cat-avatar cat-avatar-square cat-avatar-image"
   prefix="cat-avatar"
