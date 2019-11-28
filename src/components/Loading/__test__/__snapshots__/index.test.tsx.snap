@@ -1,5 +1,97 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Loading props: className='my-loading' 1`] = `
+<div
+  class="cat-loading my-loading"
+  style="height:24px;font-size:24px"
+>
+  <div
+    style="background-color:#537682"
+  />
+  <div
+    style="background-color:#537682"
+  />
+  <div
+    style="background-color:#537682"
+  />
+  <div
+    style="background-color:#537682"
+  />
+  <div
+    style="background-color:#537682"
+  />
+</div>
+`;
+
+exports[`Loading props: size={18} 1`] = `
+<div
+  class="cat-loading my-loading"
+  style="height:24px;font-size:24px"
+>
+  <div
+    style="background-color:#537682"
+  />
+  <div
+    style="background-color:#537682"
+  />
+  <div
+    style="background-color:#537682"
+  />
+  <div
+    style="background-color:#537682"
+  />
+  <div
+    style="background-color:#537682"
+  />
+</div>
+`;
+
+exports[`Loading props: visible={false} 1`] = `
+<div
+  class="cat-loading cat-loading--hide"
+  style="height:24px;font-size:24px"
+>
+  <div
+    style="background-color:#537682"
+  />
+  <div
+    style="background-color:#537682"
+  />
+  <div
+    style="background-color:#537682"
+  />
+  <div
+    style="background-color:#537682"
+  />
+  <div
+    style="background-color:#537682"
+  />
+</div>
+`;
+
+exports[`Loading props: visible={true} 1`] = `
+<div
+  class="cat-loading"
+  style="height:24px;font-size:24px"
+>
+  <div
+    style="background-color:#537682"
+  />
+  <div
+    style="background-color:#537682"
+  />
+  <div
+    style="background-color:#537682"
+  />
+  <div
+    style="background-color:#537682"
+  />
+  <div
+    style="background-color:#537682"
+  />
+</div>
+`;
+
 exports[`Loading props: visible=false 1`] = `
 initialize {
   "0": Object {

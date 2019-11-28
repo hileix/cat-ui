@@ -8,20 +8,12 @@
     "url": "git@github.com:hifeteam/cat-ui.git"
   },
   "scripts": {
-    "tsc": "tsc",
-    "styleguidist": "styleguidist",
-    "old:dev": "tsc && styleguidist server",
-    "old:start": "tsc && styleguidist server",
     "dev": "start-storybook",
     "start": "start-storybook",
     "css:build": "./scripts/build-css.sh",
     "new": "./scripts/new-component.sh",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "styleguidist:build": "styleguidist build && yarn run test",
-    "styleguidist:publish": "yarn && yarn run styleguidist:build && pm2 reload cat-ui-styleguidist",
-    "styleguidist:start": "NODE_ENV=test pm2 start ./server.js --name=cat-ui-styleguidist",
-    "styleguidist:stop": "pm2 stop cat-ui-styleguidist",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch --coverage",
     "storybook:build": "yarn run test && yarn run build:storybook",
     "storybook:start": "NODE_ENV=test pm2 start ./server.js --name=cat-ui-storybook",
     "storybook:stop": "pm2 stop cat-ui-storybook",
@@ -64,7 +56,8 @@
     "@storybook/react": "^5.2.5",
     "@storybook/storybook-deployer": "^2.8.1",
     "@types/classnames": "^2.2.9",
-    "@types/jest": "^24.0.21",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.23",
     "@types/react-dom": "^16.9.3",
     "@types/react-transition-group": "^4.2.3",
     "awesome-typescript-loader": "^5.2.1",
@@ -73,7 +66,9 @@
     "cz-emoji": "^1.1.2",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
+    "enzyme-to-json": "^3.4.3",
     "file-loader": "^4.2.0",
+    "fs-extra": "^8.1.0",
     "hi-pkg-scripts": "^0.3.0",
     "jest": "^24.9.0",
     "react": "^16.11.0",
@@ -81,8 +76,8 @@
     "sass": "^1.23.2",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
-    "ts-jest": "^24.1.0",
-    "typescript": "^3.6.4"
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.7.2"
   },
   "config": {
     "cz-emoji": {
