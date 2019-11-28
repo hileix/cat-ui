@@ -8,13 +8,8 @@ const fs = require('fs-extra');
 const existComponents = [
   'Avatar',
   'Button',
-  'Drawer',
-  'Guidance',
-  'Icon',
   'Loading',
-  'Modal',
-  'Question',
-  'Tabs',
+  'Icon',
   'notification'
 ];
 
