@@ -5,13 +5,7 @@ const fs = require('fs-extra');
  * v2 版本存在的组件
  * 只有存在的组件才需要测试
  */
-const existComponents = [
-  'Avatar',
-  'Button',
-  'Loading',
-  'Icon',
-  'notification'
-];
+const existComponents = ['Avatar', 'Button', 'Loading', 'Icon', 'notification'];
 
 function getTestMatch() {
   const testMatch = [];
@@ -30,5 +24,11 @@ module.exports = {
   testEnvironment: 'jsdom',
   collectCoverage: true,
   snapshotSerializers: ['enzyme-to-json/serializer'],
-  testMatch: getTestMatch()
+  testMatch: getTestMatch(),
+  rootDir: 'src',
+  // https://kulshekhar.github.io/ts-jest/user/config/#jest-config-without-helper
+  moduleNameMapper: {
+    '^@utils/(.*)$': '<rootDir>/utils/$1',
+    '^components/(.*)$': '<rootDir>/components/$1'
+  }
 };
