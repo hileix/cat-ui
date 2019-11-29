@@ -3,6 +3,7 @@
 喜马拉雅国际版前端基础组件库
 
 [![Build Status](https://www.travis-ci.org/hifeteam/cat-ui.svg?branch=master)](https://www.travis-ci.org/hifeteam/cat-ui)
+[![codecov](https://codecov.io/gh/hifeteam/cat-ui/branch/master/graph/badge.svg)](https://codecov.io/gh/hifeteam/cat-ui)
 
 ## 版本 2.0 已有组件
 
