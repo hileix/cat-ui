@@ -7,7 +7,7 @@ import * as iconTypes from './iconTypes.json';
 import * as ClipboardJS from 'clipboard';
 import markdown from '../README.md';
 
-import Message from '../../Message';
+import message from '../../message';
 
 const { useEffect } = React;
 
@@ -27,7 +27,7 @@ const Demo = () => {
   useEffect(() => {
     const clipboard = new ClipboardJS('.single-icon');
     clipboard.on('success', function(e: any) {
-      Message.success('Coped!');
+      message.success({ content: 'Coped!' });
     });
   }, []);
 
