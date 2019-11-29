@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-interface NoticeOptions {
+interface NotificationContainerOptions {
   /**
    * 容器类名
    */
@@ -12,8 +12,11 @@ interface NoticeOptions {
   animateTime: number;
 }
 
-class Notice {
-  constructor(options: NoticeOptions) {
+/**
+ * 通知类的组件容器类
+ */
+class NotificationContainer {
+  constructor(options: NotificationContainerOptions) {
     this.options = options;
     const { className } = options;
     const container = document.querySelector(className);
@@ -24,7 +27,7 @@ class Notice {
     }
   }
 
-  options: NoticeOptions;
+  options: NotificationContainerOptions;
 
   container: HTMLDivElement;
   index = 0;
@@ -63,4 +66,4 @@ class Notice {
   }
 }
 
-export default Notice;
+export default NotificationContainer;
