@@ -2,6 +2,8 @@
 
 喜马拉雅国际版前端基础组件库
 
+[![Build Status](https://www.travis-ci.org/hifeteam/cat-ui.svg?branch=master)](https://www.travis-ci.org/hifeteam/cat-ui)
+
 ## 版本 2.0 已有组件
 
 - [x] Avatar
