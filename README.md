@@ -4,6 +4,8 @@
 
 [![Build Status](https://www.travis-ci.org/hifeteam/cat-ui.svg?branch=master)](https://www.travis-ci.org/hifeteam/cat-ui)
 [![codecov](https://codecov.io/gh/hifeteam/cat-ui/branch/master/graph/badge.svg)](https://codecov.io/gh/hifeteam/cat-ui)
+[![HitCount](http://hits.dwyl.io/hifeteam/cat-ui.svg)](http://hits.dwyl.io/hifeteam/cat-ui)
+
 
 [![NPM](https://nodei.co/npm/@hife/catui.png?downloads=true)](https://nodei.co/npm/@hife/catui?downloads=true)
 
