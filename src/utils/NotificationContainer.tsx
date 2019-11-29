@@ -38,7 +38,7 @@ class NotificationContainer {
     return ++this.index;
   };
 
-  remove = (id: string) => {
+  remove = (id: string, callback?: () => void) => {
     const containerObj = this.containerMaps[id];
     if (!containerObj) {
       return;
@@ -47,6 +47,7 @@ class NotificationContainer {
     setTimeout(() => {
       ReactDOM.unmountComponentAtNode(container);
       delete this.containerMaps[id];
+      callback && callback();
     }, this.options.animateTime * 1000);
   };
 
