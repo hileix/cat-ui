@@ -1,16 +1,51 @@
-.cat-message {
+.cat-message-container {
+  width: 100%;
+  height: 0;
   position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+  text-align: center;
+}
+
+.cat-message {
+  display: inline-block;
   text-align: center;
   background-color: #fff;
   padding: 8px 20px;
   font-size: 16px;
   line-height: 24px;
   z-index: 9999;
-  border-radius: 0 0 4px 4px;
+  border-radius: 4px;
   color: #fff;
+  transition: 0.3s;
+  margin-bottom: 12px;
+
+  &-appear {
+    transform: translateY(-100%);
+    opacity: 0;
+    &-active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    &-done {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  &-exit {
+    transform: translateY(0);
+    opacity: 1;
+    &-active {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    &-done {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  }
+
   &__icon {
     color: #fff;
   }

@@ -5,7 +5,14 @@ const fs = require('fs-extra');
  * v2 版本存在的组件
  * 只有存在的组件才需要测试
  */
-const existComponents = ['Avatar', 'Button', 'Loading', 'Icon', 'notification'];
+const existComponents = [
+  'Avatar',
+  'Button',
+  'Loading',
+  'Icon',
+  'notification',
+  'message'
+];
 
 function getTestMatch() {
   const testMatch = [];
