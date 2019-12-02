@@ -7,7 +7,7 @@ import * as iconTypes from './iconTypes.json';
 import * as ClipboardJS from 'clipboard';
 import markdown from '../README.md';
 
-import message from '../../message';
+import message from '../../Message';
 
 const { useEffect } = React;
 
