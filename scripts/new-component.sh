@@ -7,20 +7,18 @@ lowerInput=$(echo $input | tr "[A-Z]" "[a-z]")
 
 mkdir src/components/${input}
 mkdir src/components/${input}/__test__
-mkdir src/components/${input}/styled
+mkdir src/components/${input}/stories
 
 touch src/components/${input}/index.ts
 touch src/components/${input}/${input}.tsx
-touch src/components/${input}/interface.tsx
 touch src/components/${input}/${input}.md
-touch src/components/${input}/styled/index.tsx
 touch src/components/${input}/__test__/index.test.tsx
+touch src/components/${input}/stories/${input}.stories.tsx
 
 # 导入${input}/${input}.tsx默认模块
 echo "import * as React from 'react'
 import { Component } from 'react'
 import classNames from 'classnames'
-import { Styled${input} } from './styled'
 
 export interface ${input}Props {
   /** 类名 */
@@ -38,11 +36,11 @@ class ${input} extends Component<${input}Props, any> {
     const { children, ...restProps } = this.props
 
     return (
-      <Styled${input}
+      <${input}
         {...restProps}
       >
         {children}
-      </Styled${input}>
+      </${input}>
     )
   }
 }
@@ -86,22 +84,10 @@ class Example extends React.Component {
 \`\`\`" >> src/components/${input}/${input}.md
 
 
-# 导入${input}/styled/index.tsx默认模块
-echo "import styled from 'styled-components'
-import { primaryBtnColor } from '../../../styles/theme'
-
-const Styled${input} = styled.div\`\`;
-
-export { Styled${input} }" >> src/components/${input}/styled/index.tsx
-
 # 导入${input}/__test__/index.test.tsx默认模块
-echo "import * as React from 'react'
-import * as Enzyme from 'enzyme'
+echo "import React from 'react'
 import { render, mount } from 'enzyme'
-import * as Adapter from 'enzyme-adapter-react-16'
 import ${input} from '../index'
-
-Enzyme.configure({ adapter: new Adapter() })
 
 describe('${input}', () => {
   test('renders correctly', () => {
@@ -112,6 +98,24 @@ describe('${input}', () => {
   })
 
 })" >> src/components/${input}/__test__/index.test.tsx
+
+# 导入${input}/stories/${input}.stories.tsx默认模块
+echo "import * as React from 'react';
+import { storiesOf } from '@storybook/react';
+import ${input} from '../${input}';
+import '../../../styles/index.scss';
+import './style.scss';
+
+storiesOf('${input}', module)
+  .add(
+    'something',
+    () => (
+      <div>
+        <${input}>
+        </${input}>
+      </div>
+    )
+  )" >> src/components/${input}/stories/${input}.stories.tsx
 
 echo -e "\033[32m \n新建组件成功: ${input}\n \033[0m"
 
