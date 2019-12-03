@@ -11,7 +11,8 @@ const existComponents = [
   'Loading',
   'Icon',
   'notification',
-  'message'
+  'message',
+  'Scroll'
 ];
 
 function getTestMatch() {

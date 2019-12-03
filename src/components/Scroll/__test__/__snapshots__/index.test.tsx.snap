@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Scroll renders correctly 1`] = `
+<ul
+  class="cat-scroll"
+  prefix="cat-scroll"
+>
+  <li
+    class="target-dom-point"
+  >
+    <div>
+      block1
+    </div>
+  </li>
+  <li
+    class="target-dom-point"
+  >
+    <div>
+      block2
+    </div>
+  </li>
+</ul>
+`;

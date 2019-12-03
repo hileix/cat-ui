@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Enzyme from 'enzyme';
 import { shallow } from 'enzyme';
-import * as Adapter from 'enzyme-adapter-react-16';
+import Adapter from 'enzyme-adapter-react-16';
 import Button from '../index';
 
 Enzyme.configure({ adapter: new Adapter() });
