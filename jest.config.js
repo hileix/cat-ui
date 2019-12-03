@@ -31,6 +31,7 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   collectCoverage: true,
+  setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   testMatch: getTestMatch(),
   rootDir: 'src',

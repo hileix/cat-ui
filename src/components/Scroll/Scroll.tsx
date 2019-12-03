@@ -82,6 +82,7 @@ export default class Scroll extends React.Component<ScrollProps, {}> {
     const scrollTop =
       document.documentElement.scrollTop || document.body.scrollTop;
     let pageIndex = 0;
+
     this.pageHeights.forEach(page => {
       if (scrollTop + offset > page.height) {
         pageIndex = page.index;

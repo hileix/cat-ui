@@ -1,10 +1,6 @@
 import * as React from 'react';
-import * as Enzyme from 'enzyme';
 import { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 import Avatar from '../index';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('Avatar', () => {
   test('renders correctly', () => {
