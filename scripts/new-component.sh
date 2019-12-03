@@ -14,6 +14,8 @@ touch src/components/${input}/${input}.tsx
 touch src/components/${input}/${input}.md
 touch src/components/${input}/__test__/index.test.tsx
 touch src/components/${input}/stories/${input}.stories.tsx
+touch src/components/${input}/stories/style.scss
+touch src/styles/${lowerInput}.scss
 
 # 导入${input}/${input}.tsx默认模块
 echo "import * as React from 'react'
@@ -121,3 +123,7 @@ echo -e "\033[32m \n新建组件成功: ${input}\n \033[0m"
 
 # 导入src/components/index.ts默认模块
 echo "export { default as ${input} } from './${input}'" >> src/components/index.ts
+
+# 导入src/styles/index.ts默认模块
+echo "@import './${lowerInput}.scss';" >> src/styles/index.scss
+
