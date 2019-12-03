@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Component, cloneElement } from 'react';
 import classNames from 'classnames';
-import * as noop from 'lodash/noop';
+import noop from 'lodash/noop';
 import AnimateHeight from './AnimateHeight';
 
 export interface SubMenuProps {

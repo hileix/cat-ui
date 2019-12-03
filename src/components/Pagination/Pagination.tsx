@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Component } from 'react';
 import classNames from 'classnames';
 import memoizeOne from 'memoize-one';
-import * as isNumber from 'lodash/isNumber';
+import isNumber from 'lodash/isNumber';
 import PageItem from './PageItem';
 import Icon from '../Icon';
 

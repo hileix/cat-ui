@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Component } from 'react';
 import classNames from 'classnames';
-import * as throttle from 'lodash/throttle';
+import throttle from 'lodash/throttle';
 import Portal from '../Portal';
 
 export interface PopoverContentProps {

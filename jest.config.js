@@ -11,7 +11,8 @@ const existComponents = [
   'Loading',
   'Icon',
   'notification',
-  'message'
+  'message',
+  'Scroll'
 ];
 
 function getTestMatch() {
@@ -30,6 +31,7 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   collectCoverage: true,
+  setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   testMatch: getTestMatch(),
   rootDir: 'src',
