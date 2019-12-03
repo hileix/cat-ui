@@ -7,21 +7,26 @@ interface initParams {
   theme?: string;
 }
 
-export function classnames (params: initParams): Function {
-  const { prefix, suffix, theme } = params
+export function classnames(params: initParams): Function {
+  const { prefix, suffix, theme } = params;
 
-  return memoize(function (value: string, className?: string): string {
-    return classNames({
-      [`${prefix}`]: !!prefix && !value,
-      [`${prefix}-${suffix}`]: !!prefix && !value && !!suffix,
-      [`${prefix}-${theme}`]: !!prefix && !value && !!theme,
-      [`${prefix}-${theme}-${suffix}`]: !!prefix && !value && !!theme && !!suffix,
-      [`${prefix}-${value}`]: !!prefix && !!value,
-      [`${prefix}-${value}-${suffix}`]: !!prefix && !!value && !!suffix,
-      [`${prefix}-${theme}-${value}`]: !!prefix && !!value && !!theme,
-      [`${prefix}-${theme}-${value}-${suffix}`]: !!prefix && !!value && !!theme && !!suffix
-    }, className)
-  })
+  return memoize(function(value: string, className?: string): string {
+    return classNames(
+      {
+        [`${prefix}`]: !!prefix && !value,
+        [`${prefix}-${suffix}`]: !!prefix && !value && !!suffix,
+        [`${prefix}-${theme}`]: !!prefix && !value && !!theme,
+        [`${prefix}-${theme}-${suffix}`]:
+          !!prefix && !value && !!theme && !!suffix,
+        [`${prefix}-${value}`]: !!prefix && !!value,
+        [`${prefix}-${value}-${suffix}`]: !!prefix && !!value && !!suffix,
+        [`${prefix}-${theme}-${value}`]: !!prefix && !!value && !!theme,
+        [`${prefix}-${theme}-${value}-${suffix}`]:
+          !!prefix && !!value && !!theme && !!suffix
+      },
+      className
+    );
+  });
 }
 
-export default classnames
+export default classnames;
