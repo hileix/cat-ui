@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Component } from 'react';
 import classNames from 'classnames';
-import * as isEmpty from 'lodash/isEmpty';
-import * as isEqual from 'lodash/isEqual';
+import isEmpty from 'lodash/isEmpty';
+import isEqual from 'lodash/isEqual';
 import { ColumnProps, PaginationProps } from './interface';
 import TableHeader from './TableHeader';
 import TableBody from './TableBody';

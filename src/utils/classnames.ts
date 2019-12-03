@@ -1,5 +1,5 @@
-import * as classNames from 'classnames'
-const memoize = require('lodash/memoize')
+import classNames from 'classnames';
+const memoize = require('lodash/memoize');
 
 interface initParams {
   prefix: string;

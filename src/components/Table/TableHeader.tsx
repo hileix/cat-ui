@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Component } from 'react';
 import classNames from 'classnames';
 import { ColumnProps, FilterKeysProps } from './interface';
-import * as isEmpty from 'lodash/isEmpty';
+import isEmpty from 'lodash/isEmpty';
 import Popover from '../Popover';
 import Menu from '../Menu';
 import Radio from '../Radio';
