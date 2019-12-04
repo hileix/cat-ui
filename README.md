@@ -12,7 +12,7 @@
 
 - [x] Avatar
 - [x] Icon
-- [x] Message
+- [x] message
 - [x] Guidance
 - [x] Question
 - [x] Button
@@ -55,30 +55,6 @@ const App = () => {
 export default App;
 ```
 
-## 命令
+## 开发流程
 
-### 1. 开启开发环境
-
-```shell
-npm start
-```
-
-### 2. 更新 jest snapshot
-
-```shell
-npm run update:snapshot
-```
-
-### 3. 发布
-
-```shell
-npm run release
-```
-
-## 开发
-
-快速创建新组件文件结构
-
-```shell
-yarn new `ComponentName`
-```
+[开发流程](./docs/开发流程.md)
