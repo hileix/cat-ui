@@ -11,7 +11,7 @@ mkdir src/components/${input}/stories
 
 touch src/components/${input}/index.ts
 touch src/components/${input}/${input}.tsx
-touch src/components/${input}/${input}.md
+touch src/components/${input}/README.md
 touch src/components/${input}/__test__/index.test.tsx
 touch src/components/${input}/stories/${input}.stories.tsx
 touch src/components/${input}/stories/style.scss
@@ -54,7 +54,7 @@ echo "import ${input} from './${input}'
 
 export default ${input}" >> src/components/${input}/index.ts
 
-# 导入${input}/${input}.md默认模块
+# 导入${input}/README.md默认模块
 echo "Example
 
 \`\`\`jsx
@@ -83,7 +83,7 @@ class Example extends React.Component {
 }
 
 <Example />
-\`\`\`" >> src/components/${input}/${input}.md
+\`\`\`" >> src/components/${input}/README.md
 
 
 # 导入${input}/__test__/index.test.tsx默认模块
