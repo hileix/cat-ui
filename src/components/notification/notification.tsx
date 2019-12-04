@@ -1,4 +1,4 @@
-import NotificationContainer from '@utils/NotificationContainer';
+import NotificationContainer from '../../utils/NotificationContainer';
 import Content from './Content';
 
 export type Types = 'success' | 'warn' | 'error';
