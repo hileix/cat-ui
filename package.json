@@ -58,8 +58,8 @@
     "@types/classnames": "^2.2.9",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "^24.0.23",
-    "@types/react-dom": "^16.9.3",
     "@types/lodash": "^4.14.149",
+    "@types/react-dom": "^16.9.3",
     "@types/react-transition-group": "^4.2.3",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
@@ -70,7 +70,7 @@
     "enzyme-to-json": "^3.4.3",
     "file-loader": "^4.2.0",
     "fs-extra": "^8.1.0",
-    "hi-pkg-scripts": "^0.3.0",
+    "hi-pkg-scripts": "^0.6.0",
     "jest": "^24.9.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
@@ -196,6 +196,11 @@
     },
     "commitizen": {
       "path": "./node_modules/cz-emoji"
+    }
+  },
+  "hi-pkg-scripts": {
+    "release": {
+      "generateChangelog": true
     }
   },
   "publishConfig": {
