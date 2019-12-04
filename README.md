@@ -6,7 +6,6 @@
 [![codecov](https://codecov.io/gh/hifeteam/cat-ui/branch/master/graph/badge.svg)](https://codecov.io/gh/hifeteam/cat-ui)
 [![HitCount](http://hits.dwyl.io/hifeteam/cat-ui.svg)](http://hits.dwyl.io/hifeteam/cat-ui)
 
-
 [![NPM](https://nodei.co/npm/@hife/catui.png?downloads=true)](https://nodei.co/npm/@hife/catui?downloads=true)
 
 ## 版本 2.0 已有组件
@@ -74,4 +73,12 @@ npm run update:snapshot
 
 ```shell
 npm run release
+```
+
+## 开发
+
+快速创建新组件文件结构
+
+```shell
+yarn new `ComponentName`
 ```
