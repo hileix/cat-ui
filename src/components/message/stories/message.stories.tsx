@@ -29,7 +29,7 @@ const Demo = () => {
 };
 
 storiesOf('message 全局提示', module).add('message', () => <Demo />, {
-  notes: {
-    markdown
+  info: {
+    text: markdown
   }
 });
