@@ -1,15 +1,21 @@
-# Message 全局提示
+# message 全局提示
 
 ## Example
 
 ```jsx
-Message.success('success');
+message.success('success');
 ```
 
-## Message.fn(text: string, duration?: number, callback?: () => void)
-> fn 为 success/warn/error
+## API
 
-### text:提示信息
-### duration:持续时间
-### callback:消失时的回调
+- notification.success(config)
+- notification.warn(config)
+- notification.error(config)
 
+config 参数如下：
+
+|   属性   |       类型        | 默认值 |     描述     | 是否必填 |
+| :------: | :---------------: | :----: | :----------: | :------: |
+| content  | `React.ReactNode` |   -    |     内容     |    是    |
+| duration |     `number`      |   -    |   持续时间   |    -     |
+| onClose  |   `() => void`    |   -    | 关闭时的回调 |    -     |
