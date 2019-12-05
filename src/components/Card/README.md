@@ -3,7 +3,11 @@
 ## Example
 
 ```jsx
-<Card>Card content</Card>
+<div style={{margin: '20px'}}>
+  <Card style={{width: 200}}>
+    Card component
+  </Card>
+</div>
 ```
 
 ## API
