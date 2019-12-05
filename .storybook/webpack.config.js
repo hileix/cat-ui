@@ -1,18 +1,30 @@
 const path = require('path');
 
 function srcPath(subdir) {
-  return path.join(__dirname, "../src", subdir);
+  return path.join(__dirname, '../src', subdir);
 }
 
 module.exports = ({ config }) => {
+  // *.stories.tsx
+  config.module.rules.push({
+    test: /\.stories\.tsx?$/,
+    loaders: [
+      {
+        loader: require.resolve('@storybook/source-loader'),
+        options: { parser: 'typescript' }
+      }
+    ],
+    enforce: 'pre'
+  });
+
   // ts
   config.module.rules.push({
     test: /\.(ts|tsx)$/,
     use: [
       {
-        loader: require.resolve('awesome-typescript-loader'),
+        loader: require.resolve('awesome-typescript-loader')
       }
-    ],
+    ]
   });
 
   // scss
@@ -25,11 +37,11 @@ module.exports = ({ config }) => {
         loader: 'sass-loader',
         options: {
           // Prefer `dart-sass`
-          implementation: require('sass'),
-        },
+          implementation: require('sass')
+        }
       }
     ],
-    include: path.resolve(__dirname, '../src'),
+    include: path.resolve(__dirname, '../src')
   });
 
   // images
