@@ -1,0 +1,66 @@
+.grid-stories {
+  &__row {
+    margin-top: 8px;
+    background: #e5e5e5;
+  }
+  &__col {
+    background: #4ea7f6;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    &-1-1 {
+      opacity: 1;
+    }
+    &-1-2 {
+      opacity: 0.9;
+    }
+    &-2-1 {
+      opacity: 1;
+    }
+    &-2-2 {
+      opacity: 0.9;
+    }
+    &-2-3 {
+      opacity: 1;
+    }
+    &-4-1 {
+      opacity: 1;
+    }
+    &-4-2 {
+      opacity: 0.9;
+    }
+    &-5-1 {
+      opacity: 1;
+    }
+    &-5-2 {
+      opacity: 0.9;
+    }
+    &-5-3 {
+      opacity: 1;
+    }
+
+    &-6-1 {
+      opacity: 1;
+      height: 80px;
+      line-height: 80px;
+    }
+    &-6-2 {
+      opacity: 0.9;
+      height: 40px;
+      line-height: 40px;
+    }
+    &-6-3 {
+      opacity: 1;
+      height: 60px;
+      line-height: 60px;
+    }
+    &-7-1 {
+      opacity: 1;
+      line-height: 40px;
+    }
+    &-7-2 {
+      opacity: 0.9;
+      line-height: 40px;
+    }
+  }
+}
