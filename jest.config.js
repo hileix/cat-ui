@@ -12,7 +12,8 @@ const existComponents = [
   'Icon',
   'notification',
   'message',
-  'Scroll'
+  'Scroll',
+  'Grid'
 ];
 
 function getTestMatch() {

@@ -1,0 +1,69 @@
+@mixin get-media-style($media-size, $size-name) {
+  @media screen and ($media-size) {
+    @include get-style($size-name);
+  }
+}
+
+@mixin get-style($size-name) {
+  @for $i from 1 through 24 {
+    $percent: 100% / 24 * $i;
+
+    .cat-col--#{$size-name}-span-#{$i} {
+      width: $percent;
+      display: block;
+    }
+    .cat-col--#{$size-name}-offset-#{$i} {
+      margin-left: $percent;
+    }
+    .cat-col--#{$size-name}-order-#{$i} {
+      order: $i;
+    }
+  }
+}
+
+.cat-col {
+  &--span-0 {
+    display: none;
+  }
+}
+@for $i from 1 through 24 {
+  $percent: 100% / 24 * $i;
+
+  .cat-col--span-#{$i} {
+    width: $percent;
+  }
+  .cat-col--offset-#{$i} {
+    margin-left: $percent;
+  }
+  .cat-col--order-#{$i} {
+    order: $i;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  @include get-style(xs);
+}
+
+@media screen and (min-width: 576px) {
+  @include get-style(sm);
+}
+
+@media screen and (min-width: 768px) {
+  @include get-style(md);
+}
+
+@media screen and (min-width: 992px) {
+  @include get-style(lg);
+}
+
+@media screen and (min-width: 1200px) {
+  @include get-style(xl);
+}
+
+@media screen and (min-width: 1600px) {
+  @include get-style(xxl);
+}
+
+@media screen and (min-width: 1920px) {
+  @include get-style(fhd);
+}

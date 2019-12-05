@@ -1,0 +1,18 @@
+$justify-content-values: start, end, center, space-around, space-between;
+$align-items-values: start, center, end;
+
+.cat-row {
+  display: flex;
+}
+
+@each $justify-content-value in $justify-content-values {
+  .cat-row--justify-#{$justify-content-value} {
+    justify-content: $justify-content-value;
+  }
+}
+
+@each $align-items-value in $align-items-values {
+  .cat-row--align-#{$align-items-value} {
+    align-items: $align-items-value;
+  }
+}

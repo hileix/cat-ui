@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders correctly 1`] = `
+<div
+  class="cat-row cat-row--justify-start cat-row--align-start"
+>
+  <div
+    class="cat-col cat-col--span-12 cat-col--offset-0"
+  >
+    col-12
+  </div>
+  <div
+    class="cat-col cat-col--span-12 cat-col--offset-0"
+  >
+    col-12
+  </div>
+</div>
+`;
+
+exports[`Button renders correctly 2`] = `
+<div
+  class="cat-row cat-row--justify-start cat-row--align-start"
+>
+  <div
+    class="cat-col cat-col--span-0 cat-col--offset-0 cat-col--xs-span-6 cat-col--xs-offset-0 cat-col--xs-order-1 cat-col--sm-span-6 cat-col--sm-offset-1 cat-col--sm-order-2"
+  >
+    col-12
+  </div>
+  <div
+    class="cat-col cat-col--span-0 cat-col--offset-0 cat-col--xs-span-6 cat-col--xs-offset-1 cat-col--xs-order-2 cat-col--sm-span-6 cat-col--sm-offset-0 cat-col--sm-order-1"
+  >
+    col-12
+  </div>
+</div>
+`;
