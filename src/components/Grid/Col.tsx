@@ -60,7 +60,7 @@ export interface ColProps {
 /**
  * Col
  */
-class Col extends PureComponent<ColProps, null> {
+class Col extends PureComponent<ColProps> {
   static propTypes = {
     className: PropTypes.string,
     span: PropTypes.number,
