@@ -3,6 +3,7 @@
     "module": "commonjs",
     "target": "es5",
     "lib": ["es5", "es6", "es7", "dom"],
+    "strict": true,
     "noImplicitAny": false,
     "removeComments": false,
     "noImplicitReturns": false,
