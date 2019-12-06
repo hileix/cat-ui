@@ -36,7 +36,7 @@ enum AlignEnum {
 /**
  * Row
  */
-class Row extends Component<RowProps, null> {
+class Row extends Component<RowProps> {
   static propTypes = {
     className: PropTypes.string,
     justify: PropTypes.oneOf([

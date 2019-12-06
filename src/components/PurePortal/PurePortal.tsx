@@ -20,7 +20,7 @@ export interface PurePortalProps {
 /**
  * RaectDOM.createPortal() 的组件化形式
  */
-class PurePortal extends React.Component<PurePortalProps, null> {
+class PurePortal extends React.Component<PurePortalProps> {
   static propTypes = {
     children: PropTypes.node,
     selector: PropTypes.string,

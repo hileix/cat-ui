@@ -45,8 +45,7 @@ const loadingSizeMap = {
  * 按钮
  */
 class Button extends React.PureComponent<
-  ButtonProps & React.DOMAttributes<HTMLButtonElement>,
-  null
+  ButtonProps & React.DOMAttributes<HTMLButtonElement>
 > {
   static propTypes = {
     type: PropTypes.oneOf(['default', 'primary', 'link']),

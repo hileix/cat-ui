@@ -29,7 +29,7 @@ export interface StepProps {
 /**
  * Guidance 引导 step
  */
-class Guidance extends Component<StepProps, null> {
+class Guidance extends Component<StepProps> {
   static propTypes = {
     prefix: PropTypes.string,
     className: PropTypes.string,
