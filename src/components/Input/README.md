@@ -3,7 +3,7 @@ Example
 ```jsx
 import Input from './Input'
 
-class Example extends React.Component {
+class Input extends React.Component {
   constructor (props) {
     super(props)
     this.state = {}
@@ -150,5 +150,5 @@ class Example extends React.Component {
   }
 }
 
-<Example />
+<Input />
 ```
