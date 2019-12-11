@@ -5,6 +5,13 @@ import { genChildProps } from './interface';
 import PopoverTrigger from './PopoverTrigger';
 import PopoverContent from './PopoverContent';
 import kindOf from '../../utils/kindOf';
+import PropTypes from 'prop-types';
+import {
+  ModeType,
+  getModeArray,
+  HorizontalPosition,
+  VerticalPosition
+} from './utils';
 
 export interface PopoverProps {
   /** 类名 */
@@ -14,78 +21,118 @@ export interface PopoverProps {
   /** 弹层是否可见 */
   visible?: boolean;
   /** 触发类型 */
-  mode: 'click' | 'hover';
-  /** 定位的方向 */
-  position?:
-    | 'bottomLeft'
-    | 'bottomCenter'
-    | 'bottomRight'
-    | 'topLeft'
-    | 'topCenter'
-    | 'topRight';
+  mode: ModeType;
+  /**
+   * 触发元素方位
+   */
+  triggerPosition: [HorizontalPosition, VerticalPosition];
+
+  /**
+   * 内容方位
+   */
+  contentPosition: [HorizontalPosition, VerticalPosition];
+
   /** X轴的偏移量 */
   offsetX?: number;
   /** X轴的偏移量 */
   offsetY?: number;
   /** 打开或关闭的回调函数 */
   onChange?: any;
+  selector: string;
+}
+
+export interface PopoverState {
+  visible: boolean;
 }
 
 /**
  * 弹层
  */
-class Popover extends Component<PopoverProps, any> {
+class Popover extends Component<PopoverProps, PopoverState> {
   private popoverRef: any;
+  private triggerRef: any;
   static Trigger: typeof PopoverTrigger;
   static Content: typeof PopoverContent;
+
+  static propTypes = {
+    mode: PropTypes.oneOfType([
+      PropTypes.oneOf(['click', 'touch', 'hover']),
+      PropTypes.array
+    ]),
+    position: PropTypes.oneOf([
+      'bottomLeft',
+      'bottomCenter',
+      'bottomRight',
+      'topLeft',
+      'topCenter',
+      'topRight'
+    ]),
+    offsetX: PropTypes.number,
+    offsetY: PropTypes.number,
+    triggerPosition: PropTypes.array,
+    contentPosition: PropTypes.array
+  };
+
   static defaultProps = {
     mode: 'click',
     position: 'bottomLeft',
     offsetX: 0,
-    offsetY: 0
+    offsetY: 0,
+    triggerPosition: ['left', 'bottom'],
+    contentPosition: ['left', 'top'],
+    selector: 'body'
   };
-
-  constructor(props: PopoverProps) {
-    super(props);
-    this.state = {
-      visible: false
-    };
-    this.popoverRef = React.createRef();
-  }
 
   static getDerivedStateFromProps(nextProps: PopoverProps) {
     if ('visible' in nextProps) {
       return {
         visible: nextProps.visible
       };
-    } else {
-      return null;
     }
+    return null;
   }
 
+  constructor(props: PopoverProps) {
+    super(props);
+    this.popoverRef = React.createRef();
+    this.triggerRef = React.createRef();
+  }
+
+  state = {
+    visible: false
+  };
+
   componentDidMount() {
-    const { visible } = this.state;
-    if (visible) {
-      window.addEventListener('click', this.removePopover);
+    if (this.state.visible) {
+      this.removePopoverEventListener();
     }
   }
 
   componentDidUpdate() {
-    const { visible } = this.state;
-    if (visible) {
-      window.addEventListener('click', this.removePopover);
+    if (this.state.visible) {
+      this.removePopoverEventListener();
     } else {
-      window.removeEventListener('click', this.removePopover);
+      this.removePopoverRemoveEventListener();
     }
   }
 
   componentWillUnmount() {
-    window.removeEventListener('click', this.removePopover);
+    this.removePopoverRemoveEventListener();
   }
 
-  open = () => {};
+  removePopoverEventListener = () => {
+    const modeArray = getModeArray(this.props.mode);
+    modeArray.forEach(item => {
+      document.addEventListener(item, this.removePopover);
+    });
+  };
 
-  close = () => {};
+  removePopoverRemoveEventListener = () => {
+    const modeArray = getModeArray(this.props.mode);
+    modeArray.forEach(item => {
+      document.removeEventListener(item, this.removePopover);
+    });
+  };
 
   toggleVisible = (value: boolean) => {
     const { onChange } = this.props;
@@ -131,36 +178,45 @@ class Popover extends Component<PopoverProps, any> {
     return { trigger, content };
   };
 
+  getTriggerDOM = (triggerDOM: HTMLElement) => {
+    return triggerDOM;
+  };
+
   renderTrigger = (trigger: any) => {
     const { mode } = this.props;
-    const { visible } = this.state;
     return React.cloneElement(trigger, {
       mode: mode,
-      open: this.open,
-      close: this.close,
-      toggleVisible: this.toggleVisible
+      getRef: this.triggerRef,
+      toggleVisible: this.toggleVisible,
+      getTriggerDOM: this.getTriggerDOM
     });
   };
 
   renderContent = (content: any) => {
-    const { mode, position, offsetX, offsetY } = this.props;
+    const {
+      mode,
+      triggerPosition,
+      contentPosition,
+      offsetX,
+      offsetY,
+      selector
+    } = this.props;
     const { visible } = this.state;
     return React.cloneElement(content, {
-      visible: visible,
-      mode: mode,
-      position: position,
-      offsetX: offsetX,
-      offsetY: offsetY,
-      open: this.open,
-      close: this.close,
+      visible,
+      mode,
+      triggerPosition,
+      contentPosition,
+      offsetX,
+      offsetY,
+      selector,
       triggerDOM: this.popoverRef.current,
       toggleVisible: this.toggleVisible
     });
   };
 
   render() {
-    const { className, style, children } = this.props;
-    const { visible } = this.state;
+    const { className, style } = this.props;
     const classes = classNames('cat-popover', className);
     const { trigger, content } = this.genTriggerContent();
 

@@ -38,6 +38,12 @@ class PurePortal extends React.Component<PurePortalProps> {
     this.getContainer();
   };
 
+  componentDidUpdate = (prevProps: PurePortalProps) => {
+    if (prevProps.selector !== this.props.selector) {
+      this.getContainer();
+    }
+  };
+
   componentWillUnmount = () => {
     const { onUnmount } = this.props;
     this.container = null;

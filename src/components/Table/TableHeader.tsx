@@ -48,35 +48,39 @@ class TableHeader extends Component<TableHeaderProps, any> {
           <span className={`${prefix}-inner`}>
             {elementTitle}
             {hasFilters && (
-              <Popover mode="click">
+              <Popover mode='click'>
                 <Popover.Trigger>
                   <Icon
-                    type="filter"
+                    type='filter'
                     className={classNames('cat-table__header-filter-icon', {
                       'cat-table__header-filter-icon--active': isFilterActive
                     })}
                   />
                 </Popover.Trigger>
                 <Popover.Content>
-                  <div className="pop-content-menu">
-                    <Menu key={checkedKey} mode="pop" className="menu1">
-                      {elem.filters.map((item: any) => {
-                        const filterChecked = item.key === checkedKey;
-                        return (
-                          <Menu.Item
-                            key={item.key}
-                            onClick={() => {
-                              self.onFilterClick(elem.id, item.key);
-                            }}
-                          >
-                            <Radio checked={filterChecked} value={item.key}>
-                              {item.text}
-                            </Radio>
-                          </Menu.Item>
-                        );
-                      })}
-                    </Menu>
-                  </div>
+                  {function() {
+                    return (
+                      <div className='pop-content-menu'>
+                        <Menu key={checkedKey} mode='pop' className='menu1'>
+                          {elem.filters.map((item: any) => {
+                            const filterChecked = item.key === checkedKey;
+                            return (
+                              <Menu.Item
+                                key={item.key}
+                                onClick={() => {
+                                  self.onFilterClick(elem.id, item.key);
+                                }}
+                              >
+                                <Radio checked={filterChecked} value={item.key}>
+                                  {item.text}
+                                </Radio>
+                              </Menu.Item>
+                            );
+                          })}
+                        </Menu>
+                      </div>
+                    );
+                  }}
                 </Popover.Content>
               </Popover>
             )}

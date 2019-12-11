@@ -43,7 +43,8 @@
     "memoize-one": "^5.0.2",
     "omit.js": "^1.0.2",
     "prop-types": "^15.7.2",
-    "react-transition-group": "^4.3.0"
+    "react-transition-group": "^4.3.0",
+    "ua-parser-js": "^0.7.20"
   },
   "files": [
     "lib/**",

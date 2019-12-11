@@ -1,57 +1,52 @@
 import * as React from 'react';
 import { Component } from 'react';
 import classNames from 'classnames';
+import { getTriggerEvents, ModeType } from './utils';
 
 export interface PopoverTriggerProps {
-  /** 类名 */
+  /**
+   * 类名
+   */
   className?: string;
-  /** 样式 */
+  /**
+   * 样式
+   */
   style?: object;
-  /** 弹层是否可见 */
+  /**
+   * 弹层是否可见
+   */
   visible?: boolean;
-  /** 触发类型 */
-  mode?: 'click' | 'hover';
-  /** toggleVisible */
-  toggleVisible?: any;
+  /**
+   * 触发类型
+   */
+  mode?: ModeType;
+  /**
+   * toggleVisible
+   */
+  toggleVisible?: (visible: boolean) => void;
+
+  children: React.ReactElement;
 }
 
 /**
  * PopoverTrigger
  */
-class PopoverTrigger extends Component<PopoverTriggerProps, any> {
-  handleClick = () => {
-    const { mode, toggleVisible } = this.props;
-    if (mode === 'click') {
-      toggleVisible(true);
-    }
+class PopoverTrigger extends Component<PopoverTriggerProps> {
+  open = (e: React.MouseEvent) => {
+    this.props.toggleVisible(true);
   };
 
-  handleMouseEnter = () => {
-    const { mode, toggleVisible } = this.props;
-    if (mode === 'hover') {
-      toggleVisible(true);
-    }
-  };
-
-  handleMouseLeave = () => {
-    const { mode, toggleVisible } = this.props;
-    if (mode === 'hover') {
-      toggleVisible(false);
-    }
+  close = () => {
+    this.props.toggleVisible(false);
   };
 
   render() {
-    const { className, style, children } = this.props;
+    const { className, style, children, mode } = this.props;
     const classes = classNames('cat-popover__trigger', className);
+    const triggerEvents = getTriggerEvents(mode, this.open, this.close);
 
     return (
-      <div
-        className={classes}
-        style={style}
-        onClick={this.handleClick}
-        onMouseEnter={this.handleMouseEnter}
-        onMouseLeave={this.handleMouseLeave}
-      >
+      <div className={classes} style={style} {...triggerEvents}>
         {children}
       </div>
     );

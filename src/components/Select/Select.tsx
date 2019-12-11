@@ -107,19 +107,23 @@ class Select extends Component<SelectProps, any> {
     );
 
     return (
-      <Popover mode="click" onChange={this.onPopoverChange}>
+      <Popover mode='click' onChange={this.onPopoverChange}>
         <Popover.Trigger>
           <div ref={this.selectRef} className={classes} style={style}>
             {filler}
           </div>
         </Popover.Trigger>
         <Popover.Content>
-          <div
-            className={classNames(`${prefix}__options-wrapper`)}
-            style={{ width: selectWidth }}
-          >
-            {options}
-          </div>
+          {function() {
+            return (
+              <div
+                className={classNames(`${prefix}__options-wrapper`)}
+                style={{ width: selectWidth }}
+              >
+                {options}
+              </div>
+            );
+          }}
         </Popover.Content>
       </Popover>
     );
