@@ -9,7 +9,6 @@
     top: 50%;
     transform: translate(-50%, -50%);
   }
-
   &__popover-wrapper {
     width: 100%;
     height: 300px;
@@ -41,7 +40,6 @@
       transform: perspective(200px) rotateX(0deg);
       opacity: 1;
     }
-
     &-done {
       transform: perspective(200px) rotateX(0deg);
       opacity: 1;
@@ -56,7 +54,6 @@
       transform: perspective(200px) rotateX(0deg);
       opacity: 1;
     }
-
     &-done {
       transform: perspective(200px) rotateX(0deg);
       opacity: 1;
@@ -71,7 +68,6 @@
       transform: perspective(200px) rotateX(20deg);
       opacity: 0;
     }
-
     &-done {
       transform: perspective(200px) rotateX(20deg);
       opacity: 0;
