@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { Component } from 'react';
-import { noop } from 'lodash';
+import noop from 'lodash/noop';
 
 export interface SwitchProps {
   /** 类名 */
