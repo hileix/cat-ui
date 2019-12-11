@@ -91,7 +91,7 @@ const getDomRect = (selector: string) => {
   const element = document.querySelector<HTMLElement>(selector);
   if (!element) {
     throw new Error(
-      `[@hife/catui - ElementSelect Component]: Dom with no ${selector} for selector.`
+      `[ - ElementSelect Component]: Dom with no ${selector} for selector.`
     );
   }
   return element.getBoundingClientRect();

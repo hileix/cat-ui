@@ -93,9 +93,17 @@ class Tooltip extends Component<TooltipProps, any> {
           </div>
         </Popover.Trigger>
         <Popover.Content>
-          <div ref={this.contentRef} className={contentClass} style={newStyle}>
-            {content}
-          </div>
+          {function() {
+            return (
+              <div
+                ref={this.contentRef}
+                className={contentClass}
+                style={newStyle}
+              >
+                {content}
+              </div>
+            );
+          }}
         </Popover.Content>
       </Popover>
     );
