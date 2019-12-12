@@ -1,110 +1,160 @@
-import * as React from 'react';
+import React from 'react';
 import { Component } from 'react';
 import classNames from 'classnames';
 import Popover from '../Popover';
+import { ModeType, PositionNameType } from '../Popover/interface';
+import { positionNameConvert } from '../Popover/utils';
+import { CSSTransition } from 'react-transition-group';
+import PropTypes from 'prop-types';
+import memoizeOne from 'memoize-one';
 
 export interface TooltipProps {
-  /** 类名 */
-  className?: string;
-  /** 样式 */
-  style?: object;
-  /** Tooltip hover后显示的内容 */
-  mode?: 'hover' | 'click';
-  /** 定位的方向 */
-  position?:
-    | 'bottomLeft'
-    | 'bottomCenter'
-    | 'bottomRight'
-    | 'topLeft'
-    | 'topCenter'
-    | 'topRight';
-  /** Tooltip 宽度 */
-  width?: number;
-  /** Tooltip hover后显示的内容 */
-  content?: string | React.ReactNode;
+  /**
+   * 外部状态控制是否显示
+   */
+  visible?: boolean;
+  /**
+   * 触发显示的模式
+   */
+  mode?: ModeType;
+  /**
+   * 定位的方向
+   */
+  position?: PositionNameType;
+  /**
+   * 弹层最大宽度
+   */
+  maxWidth?: number;
+  /**
+   * 弹层内容
+   */
+  content: React.ReactNode;
+  /**
+   * 触发弹层显示的 children
+   */
+  children: React.ReactElement;
+  /**
+   * 显示或隐藏的回调
+   */
+  onChange?: (visible: boolean) => void;
 }
+
+const OFFSET = 10;
 
 /**
  * 文字提示
  */
-class Tooltip extends Component<TooltipProps, any> {
-  private contentRef: any;
+class Tooltip extends Component<TooltipProps> {
+  static propTypes = {
+    visible: PropTypes.bool,
+    mode: PropTypes.oneOfType([
+      PropTypes.oneOf(['click', 'touch', 'hover']),
+      PropTypes.array
+    ]),
+    position: PropTypes.oneOf([
+      'top',
+      'right',
+      'bottom',
+      'left',
+      'topLeft',
+      'topRight',
+      'rightTop',
+      'rightBottom',
+      'bottomLeft',
+      'bottomRight',
+      'leftTop',
+      'leftBottom'
+    ]),
+    maxWidth: PropTypes.number,
+    content: PropTypes.node,
+    children: PropTypes.node
+  };
   static defaultProps = {
     mode: 'hover',
-    position: 'topCenter',
-    width: 400
+    position: 'top',
+    maxWidth: 400
   };
 
-  constructor(props: TooltipProps) {
-    super(props);
-    this.state = {
-      isPopOpen: false,
-      tipLeft: 0
-    };
-    this.contentRef = React.createRef();
-  }
+  getOffset = memoizeOne((position: PositionNameType): {
+    offsetX: number;
+    offsetY: number;
+  } => {
+    let offsetX: number = 0,
+      offsetY: number = 0;
 
-  componentDidUpdate(prevProps: TooltipProps, prevState: any) {
-    const contentDOM = this.contentRef.current;
-    if (!contentDOM) {
-      return;
-    }
-    const { isPopOpen } = this.state;
-    if (isPopOpen && !prevState.isPopOpen) {
-      const newTipLeft = (contentDOM.clientWidth - 20) / 2;
-      this.setState({ tipLeft: newTipLeft });
-    }
-  }
+    switch (position) {
+      case 'top':
+      case 'topLeft':
+      case 'topRight': {
+        offsetY = -OFFSET;
+        break;
+      }
 
-  onPopoverChange = (value: boolean) => {
-    this.setState({ isPopOpen: value });
+      case 'right':
+      case 'rightTop':
+      case 'rightBottom': {
+        offsetX = OFFSET;
+        break;
+      }
+
+      case 'bottom':
+      case 'bottomLeft':
+      case 'bottomRight': {
+        offsetY = OFFSET;
+        break;
+      }
+
+      case 'left':
+      case 'leftTop':
+      case 'leftBottom': {
+        offsetX = -OFFSET;
+        break;
+      }
+
+      default: {
+        offsetY = -OFFSET;
+      }
+    }
+    return { offsetX, offsetY };
+  });
+
+  renderTooltipContent = (visible: boolean) => {
+    const { content, maxWidth, position } = this.props;
+    const contentPrefix = 'cat-tooltip__content';
+    const classes = classNames(contentPrefix, `${contentPrefix}--${position}`);
+    const newStyle: React.CSSProperties = { maxWidth };
+    return (
+      <CSSTransition
+        timeout={300}
+        in={visible}
+        classNames={`${contentPrefix}--${position}`}
+        unmountOnExit
+        mountOnEnter
+        appear
+      >
+        <div className={classes} style={newStyle}>
+          {content}
+        </div>
+      </CSSTransition>
+    );
   };
 
   render() {
-    const {
-      className,
-      style,
-      mode,
-      content,
-      position,
-      width,
-      children
-    } = this.props;
-    const { isPopOpen, tipLeft } = this.state;
-    const triggerClass = classNames('cat-tooltip-trigger', className);
-
-    const contentPrefix = 'cat-tooltip__content';
-    const contentClass = classNames(
-      contentPrefix,
-      `${contentPrefix}--${position}`
-    );
-    const newStyle: React.CSSProperties = { maxWidth: width };
+    const { mode, children, visible, position } = this.props;
+    const { triggerPosition, contentPosition } = positionNameConvert(position);
+    const { offsetX, offsetY } = this.getOffset(position);
 
     return (
       <Popover
-        visible={isPopOpen}
+        visible={visible}
         mode={mode}
-        position={position}
-        onChange={this.onPopoverChange}
+        triggerPosition={triggerPosition}
+        contentPosition={contentPosition}
+        offsetX={offsetX}
+        offsetY={offsetY}
       >
-        <Popover.Trigger>
-          <div className={triggerClass} style={style}>
-            {children}
-          </div>
-        </Popover.Trigger>
-        <Popover.Content>
-          {function() {
-            return (
-              <div
-                ref={this.contentRef}
-                className={contentClass}
-                style={newStyle}
-              >
-                {content}
-              </div>
-            );
-          }}
-        </Popover.Content>
+        <Popover.Trigger>{children}</Popover.Trigger>
+        <Popover.Content>{this.renderTooltipContent}</Popover.Content>
       </Popover>
     );
   }

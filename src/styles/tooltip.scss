@@ -1,30 +1,206 @@
+@mixin tooltipAnimate($selector, $hide: translateY(4px), $show: translateY(0)) {
+  #{$selector} {
+    transition: 0.3s;
+    &-appear {
+      opacity: 0;
+      transform: $hide;
+      &-active {
+        opacity: 1;
+        transform: $show;
+      }
+      &-done {
+        opacity: 1;
+        transform: $show;
+      }
+    }
+    &-enter {
+      opacity: 0;
+      transform: $hide;
+      &-active {
+        opacity: 1;
+        transform: $show;
+      }
+      &-done {
+        opacity: 1;
+        transform: $show;
+      }
+    }
+    &-exit {
+      opacity: 1;
+      transform: $show;
+      &-active {
+        opacity: 0;
+        transform: $hide;
+      }
+      &-done {
+        opacity: 0;
+        transform: $hide;
+      }
+    }
+  }
+}
+
+@mixin arrow(
+  $selector,
+  $transparent-border-1: border-left,
+  $transparent-border-2: border-right,
+  $black-border: border-top,
+  $position-1: left,
+  $position-1-value: 50%,
+  $position-2: bottom,
+  $position-2-value: -6px,
+  $translate: translateX(-50%)
+) {
+  #{$selector}::after {
+    position: absolute;
+    #{$position-1}: $position-1-value;
+    #{$position-2}: $position-2-value;
+    transform: $translate;
+    content: ' ';
+    width: 0;
+    height: 0;
+    #{$transparent-border-1}: 6px solid transparent;
+    #{$transparent-border-2}: 6px solid transparent;
+    #{$black-border}: 6px solid rgba(0, 0, 0, 0.7);
+  }
+}
+
+/**
+ * 动画样式
+ */
+
+// top
+@include tooltipAnimate($selector: '.cat-tooltip__content--top');
+@include tooltipAnimate($selector: '.cat-tooltip__content--topLeft');
+@include tooltipAnimate($selector: '.cat-tooltip__content--topRight');
+
+// right
+@include tooltipAnimate(
+  '.cat-tooltip__content--right',
+  translateX(-4px),
+  translateX(0)
+);
+@include tooltipAnimate(
+  '.cat-tooltip__content--rightTop',
+  translateX(-4px),
+  translateX(0)
+);
+@include tooltipAnimate(
+  '.cat-tooltip__content--rightBottom',
+  translateX(-4px),
+  translateX(0)
+);
+
+// bottom
+@include tooltipAnimate(
+  '.cat-tooltip__content--bottom',
+  translateY(-4px),
+  translateY(0)
+);
+@include tooltipAnimate(
+  '.cat-tooltip__content--bottomLeft',
+  translateY(-4px),
+  translateY(0)
+);
+@include tooltipAnimate(
+  '.cat-tooltip__content--bottomRight',
+  translateY(-4px),
+  translateY(0)
+);
+
+// left
+@include tooltipAnimate(
+  '.cat-tooltip__content--left',
+  translateX(4px),
+  translateX(0)
+);
+@include tooltipAnimate(
+  '.cat-tooltip__content--leftTop',
+  translateX(4px),
+  translateX(0)
+);
+@include tooltipAnimate(
+  '.cat-tooltip__content--leftBottom',
+  translateX(4px),
+  translateX(0)
+);
+
+/**
+ * 箭头样式
+ */
+
+// top
+@include arrow('.cat-tooltip__content--top');
+@include arrow(
+  '.cat-tooltip__content--topLeft',
+  border-left,
+  border-right,
+  border-top,
+  left,
+  25%,
+  bottom,
+  -6px
+);
+@include arrow(
+  '.cat-tooltip__content--topRight',
+  border-left,
+  border-right,
+  border-top,
+  left,
+  75%,
+  bottom,
+  -6px
+);
+
+// right
+@include arrow(
+  '.cat-tooltip__content--right',
+  border-top,
+  border-bottom,
+  border-right,
+  top,
+  50%,
+  left,
+  -12px,
+  translateY(-50%)
+);
+@include arrow(
+  '.cat-tooltip__content--rightTop',
+  border-top,
+  border-bottom,
+  border-right,
+  top,
+  25%,
+  left,
+  -6px,
+  translateY(-50%)
+);
+@include arrow(
+  '.cat-tooltip__content--rightBottom',
+  border-top,
+  border-bottom,
+  border-right,
+  top,
+  75%,
+  left,
+  -6px,
+  translateY(-50%)
+);
+
 .cat-tooltip {
+  position: relative;
   &__content {
-    position: relative;
-    padding: 9px 12px;
-    background-color: rgba(0, 0, 0, 0.7);
-    box-shadow: 0 2px 5px 0;
-    border-radius: 3px;
-    word-wrap: break-word;
-    box-sizing: border-box;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 600;
-    font-stretch: normal;
-    line-height: 1.5;
-    letter-spacing: normal;
-    color: rgba(255, 255, 255, 0.9);
-    &--topCenter::after {
+    &--right::after {
       position: absolute;
-      left: 50%;
-      bottom: -10px;
-      transform: translateX(-50%);
+      top: 50%;
+      left: -6px;
+      transform: translateY(-50%);
       content: ' ';
       width: 0;
       height: 0;
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
-      border-top: 10px solid rgba(0, 0, 0, 0.7);
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+      border-right: 6px solid rgba(0, 0, 0, 0.7);
     }
   }
 }
