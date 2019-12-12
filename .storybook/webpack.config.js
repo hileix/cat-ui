@@ -26,6 +26,7 @@ module.exports = ({ config }) => {
         options: {
           // Prefer `dart-sass`
           implementation: require('sass'),
+          sourceMap: true
         },
       }
     ],
