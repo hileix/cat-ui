@@ -1,12 +1,6 @@
 import UAParser from 'ua-parser-js';
-
-export type ModeType = Array<'click' | 'hover'> | 'click' | 'hover';
-
-export type HorizontalPosition = 'left' | 'center' | 'right';
-
-export type VerticalPosition = 'top' | 'center' | 'bottom';
-
-export type Position = [HorizontalPosition, VerticalPosition];
+import { ModeType, PositionType, PositionNameType } from './interface';
+import memoizeOne from 'memoize-one';
 
 /**
  * 获取 mode 数组
@@ -25,43 +19,6 @@ export const getModeArray = (mode: ModeType) => {
   }
 
   return modeArray;
-};
-
-/**
- * 获取 trigger 事件对象
- * @param mode trigger 模式
- * @param open 打开的回调
- * @param close 关闭的回调
- */
-export const getTriggerEvents = (
-  mode: ModeType,
-  open: (e: React.MouseEvent) => void,
-  close: (e: React.MouseEvent) => void
-) => {
-  const modeArray = getModeArray(mode);
-  let triggerEvents: {
-    onClick?: (e: React.MouseEvent) => void;
-    onMouseEnter?: (e: React.MouseEvent) => void;
-    onMouseLeave?: (e: React.MouseEvent) => void;
-  } = {};
-  modeArray.forEach(item => {
-    switch (item) {
-      case 'click': {
-        triggerEvents.onClick = open;
-        break;
-      }
-      case 'hover': {
-        triggerEvents.onMouseEnter = open;
-        triggerEvents.onMouseLeave = close;
-        break;
-      }
-      default: {
-        triggerEvents.onClick = open;
-        break;
-      }
-    }
-  });
-  return triggerEvents;
 };
 
 export interface RectObj {
@@ -87,8 +44,8 @@ const bName = parser.getBrowser().name;
 export const getPosition = (
   triggerDOM: HTMLElement,
   contentDOM: HTMLElement,
-  triggerPosition: Position,
-  contentPosition: Position,
+  triggerPosition: PositionType,
+  contentPosition: PositionType,
   offsetX: number,
   offsetY: number,
   containerSelector: string
@@ -214,3 +171,84 @@ export const getPosition = (
 
   return { position, left, top };
 };
+
+/**
+ * 位置名称转换
+ * @param positionName 位置
+ */
+export const positionNameConvert = memoizeOne(
+  (
+    positionName: PositionNameType
+  ): { triggerPosition: PositionType; contentPosition: PositionType } => {
+    let triggerPosition: PositionType, contentPosition: PositionType;
+
+    switch (positionName) {
+      case 'top': {
+        triggerPosition = ['center', 'top'];
+        contentPosition = ['center', 'bottom'];
+        break;
+      }
+      case 'topLeft': {
+        triggerPosition = ['left', 'top'];
+        contentPosition = ['left', 'bottom'];
+        break;
+      }
+      case 'topRight': {
+        triggerPosition = ['right', 'top'];
+        contentPosition = ['right', 'bottom'];
+        break;
+      }
+      case 'right': {
+        triggerPosition = ['right', 'center'];
+        contentPosition = ['left', 'center'];
+        break;
+      }
+      case 'rightTop': {
+        triggerPosition = ['right', 'top'];
+        contentPosition = ['left', 'top'];
+        break;
+      }
+      case 'rightBottom': {
+        triggerPosition = ['right', 'bottom'];
+        contentPosition = ['left', 'bottom'];
+        break;
+      }
+      case 'bottom': {
+        triggerPosition = ['center', 'bottom'];
+        contentPosition = ['center', 'top'];
+        break;
+      }
+      case 'bottomLeft': {
+        triggerPosition = ['left', 'bottom'];
+        contentPosition = ['left', 'top'];
+        break;
+      }
+      case 'bottomRight': {
+        triggerPosition = ['right', 'bottom'];
+        contentPosition = ['right', 'top'];
+        break;
+      }
+      case 'left': {
+        triggerPosition = ['left', 'center'];
+        contentPosition = ['right', 'center'];
+        break;
+      }
+      case 'leftTop': {
+        triggerPosition = ['left', 'top'];
+        contentPosition = ['right', 'top'];
+        break;
+      }
+      case 'leftBottom': {
+        triggerPosition = ['left', 'bottom'];
+        contentPosition = ['right', 'bottom'];
+        break;
+      }
+      default: {
+        triggerPosition = ['center', 'top'];
+        contentPosition = ['center', 'bottom'];
+      }
+    }
+
+    return { triggerPosition, contentPosition };
+  }
+);

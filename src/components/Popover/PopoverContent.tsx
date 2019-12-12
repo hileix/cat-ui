@@ -1,13 +1,10 @@
 import React from 'react';
 import { Component } from 'react';
 import PurePortal from '../PurePortal';
-import {
-  getTriggerEvents,
-  HorizontalPosition,
-  VerticalPosition,
-  getPosition
-} from './utils';
+import { getPosition, getModeArray } from './utils';
+import { PositionType } from './interface';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 export interface PopoverContentProps {
   /**
@@ -17,7 +14,7 @@ export interface PopoverContentProps {
   /**
    * 样式
    */
-  style?: object;
+  style?: React.CSSProperties;
   /**
    * 内容所在容器的 css 选择器
    */
@@ -37,11 +34,11 @@ export interface PopoverContentProps {
   /**
    * 触发元素方位
    */
-  triggerPosition: [HorizontalPosition, VerticalPosition];
+  triggerPosition: PositionType;
   /**
    * 内容方位
    */
-  contentPosition: [HorizontalPosition, VerticalPosition];
+  contentPosition: PositionType;
   /**
    * X轴的偏移量
    */
@@ -94,7 +91,7 @@ class PopoverContent extends Component<
     contentPosition: ['left', 'top']
   };
 
-  private contentRef: React.RefObject<HTMLDivElement>;
+  public contentRef: React.RefObject<HTMLDivElement>;
   constructor(props: PopoverContentProps) {
     super(props);
     this.state = {
@@ -152,18 +149,49 @@ class PopoverContent extends Component<
     this.props.toggleVisible(false);
   };
 
+  getTriggerEvents = () => {
+    const { mode } = this.props;
+    const modeArray = getModeArray(mode);
+    let triggerEvents: {
+      onClick?: (e: React.MouseEvent) => void;
+      onMouseEnter?: (e: React.MouseEvent) => void;
+      onMouseLeave?: (e: React.MouseEvent) => void;
+    } = {};
+    modeArray.forEach(item => {
+      switch (item) {
+        case 'click': {
+          triggerEvents.onClick = this.open;
+          break;
+        }
+        case 'hover': {
+          triggerEvents.onMouseEnter = this.open;
+          triggerEvents.onMouseLeave = this.close;
+          break;
+        }
+        default: {
+          triggerEvents.onClick = this.open;
+          break;
+        }
+      }
+    });
+    return triggerEvents;
+  };
+
   render() {
     const { positionStyle } = this.state;
-    const { visible, children, selector, mode } = this.props;
+    const { className, style, visible, children, selector } = this.props;
 
-    const triggerEvents = getTriggerEvents(mode, this.open, this.close);
+    const classes = classNames('cat-popover__content', className);
+    const styles = { ...style, ...positionStyle };
+
+    const triggerEvents = this.getTriggerEvents();
 
     return (
       <PurePortal selector={selector}>
         <div
-          className='cat-popover__content'
+          className={classes}
           ref={this.contentRef}
-          style={positionStyle}
+          style={styles}
           {...triggerEvents}
         >
           {children(visible)}

@@ -1,27 +1,16 @@
-import * as React from 'react';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { Component, Children } from 'react';
-import classNames from 'classnames';
 import { genChildProps } from './interface';
 import PopoverTrigger from './PopoverTrigger';
 import PopoverContent from './PopoverContent';
 import kindOf from '../../utils/kindOf';
 import PropTypes from 'prop-types';
-import {
-  ModeType,
-  getModeArray,
-  HorizontalPosition,
-  VerticalPosition
-} from './utils';
+import { getModeArray } from './utils';
+import { HorizontalPosition, VerticalPosition, ModeType } from './interface';
+import noop from 'lodash/noop';
 
 export interface PopoverProps {
-  /**
-   * 类名
-   */
-  className?: string;
-  /**
-   * 样式
-   */
-  style?: object;
   /**
    * 弹层所在容器的 css 选择器
    */
@@ -46,81 +35,82 @@ export interface PopoverProps {
    * X轴的偏移量
    *
    */
-  offsetX?: number;
+  offsetX: number;
   /**
    * X轴的偏移量
    */
-  offsetY?: number;
+  offsetY: number;
   /**
    * 打开或关闭的回调函数
    */
-  onChange?: (visible: boolean) => void;
+  onChange: (visible: boolean) => void;
 }
 
 export interface PopoverState {
   visible: boolean;
+  triggerDOM: Element;
 }
 
 /**
  * popover
  */
 class Popover extends Component<PopoverProps, PopoverState> {
-  private popoverRef: React.RefObject<HTMLDivElement>;
   static Trigger: typeof PopoverTrigger;
   static Content: typeof PopoverContent;
 
   static propTypes = {
+    selector: PropTypes.string,
+    visible: PropTypes.bool,
     mode: PropTypes.oneOfType([
       PropTypes.oneOf(['click', 'touch', 'hover']),
       PropTypes.array
     ]),
-    position: PropTypes.oneOf([
-      'bottomLeft',
-      'bottomCenter',
-      'bottomRight',
-      'topLeft',
-      'topCenter',
-      'topRight'
-    ]),
+    triggerPosition: PropTypes.array,
+    contentPosition: PropTypes.array,
     offsetX: PropTypes.number,
     offsetY: PropTypes.number,
-    triggerPosition: PropTypes.array,
-    contentPosition: PropTypes.array
+    onChange: PropTypes.func
   };
 
   static defaultProps = {
+    selector: 'body',
     mode: 'click',
-    position: 'bottomLeft',
-    offsetX: 0,
-    offsetY: 0,
     triggerPosition: ['left', 'bottom'],
     contentPosition: ['left', 'top'],
-    selector: 'body'
+    offsetX: 0,
+    offsetY: 0,
+    onChange: noop
   };
 
   static getDerivedStateFromProps(nextProps: PopoverProps) {
-    if ('visible' in nextProps) {
+    if ('visible' in nextProps && typeof nextProps.visible === 'boolean') {
       return {
         visible: nextProps.visible
       };
     }
+
     return null;
   }
 
-  constructor(props: PopoverProps) {
-    super(props);
-    this.popoverRef = React.createRef();
-  }
-
   state = {
-    visible: false
+    visible: false,
+    triggerDOM: null
   };
 
   componentDidMount() {
     if (this.state.visible) {
       this.removePopoverEventListener();
     }
+    this.setDOM();
   }
+
+  setDOM = () => {
+    const triggerDOM = ReactDOM.findDOMNode(
+      (this.triggerRef as any).childrenRef
+    );
+
+    this.setState({ triggerDOM: triggerDOM as Element });
+  };
 
   componentDidUpdate() {
     if (this.state.visible) {
@@ -148,10 +138,10 @@ class Popover extends Component<PopoverProps, PopoverState> {
     });
   };
 
-  toggleVisible = (value: boolean) => {
+  toggleVisible = (visible: boolean) => {
     const { onChange } = this.props;
-    this.setState({ visible: value });
-    onChange && onChange(value);
+    this.setState({ visible });
+    onChange(visible);
   };
 
   removePopover = () => {
@@ -185,12 +175,17 @@ class Popover extends Component<PopoverProps, PopoverState> {
     return triggerDOM;
   };
 
+  private triggerRef: React.RefObject<PopoverTrigger>;
+  getTriggerRef = (ref: React.RefObject<PopoverTrigger>) => {
+    this.triggerRef = ref;
+  };
+
   renderTrigger = (trigger: React.ReactElement) => {
     const { mode } = this.props;
     return React.cloneElement(trigger, {
+      ref: this.getTriggerRef,
       mode: mode,
-      toggleVisible: this.toggleVisible,
-      getTriggerDOM: this.getTriggerDOM
+      toggleVisible: this.toggleVisible
     });
   };
 
@@ -203,7 +198,7 @@ class Popover extends Component<PopoverProps, PopoverState> {
       offsetY,
       selector
     } = this.props;
-    const { visible } = this.state;
+    const { visible, triggerDOM } = this.state;
     return React.cloneElement(content, {
       visible,
       mode,
@@ -212,22 +207,14 @@ class Popover extends Component<PopoverProps, PopoverState> {
       offsetX,
       offsetY,
       selector,
-      triggerDOM: this.popoverRef.current,
+      triggerDOM,
       toggleVisible: this.toggleVisible
     });
   };
 
   render() {
-    const { className, style } = this.props;
-    const classes = classNames('cat-popover', className);
     const { trigger, content } = this.genTriggerContent();
-
-    return (
-      <div ref={this.popoverRef} className={classes} style={style}>
-        {this.renderTrigger(trigger)}
-        {this.renderContent(content)}
-      </div>
-    );
+    return [this.renderTrigger(trigger), this.renderContent(content)];
   }
 }
 

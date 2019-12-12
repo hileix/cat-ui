@@ -5,7 +5,7 @@ import '../../../styles/index.scss';
 import './style.scss';
 import Button from '../../Button';
 import { CSSTransition } from 'react-transition-group';
-import { Position } from '../utils';
+import { PositionType } from '../interface';
 
 const horizontalOptions = [
   {
@@ -44,17 +44,18 @@ const Demo = () => {
 
   const [mode, setMode] = useState<Array<'click' | 'hover'>>(['click']);
 
-  const [triggerPosition, setTriggerPosition] = useState<Position>([
+  const [triggerPosition, setTriggerPosition] = useState<PositionType>([
     'left',
     'bottom'
   ]);
 
-  const [contentPosition, setContentPosition] = useState<Position>([
+  const [contentPosition, setContentPosition] = useState<PositionType>([
     'left',
     'top'
   ]);
 
   const renderContent = (visible: boolean) => {
+    console.log('render content:', visible);
     return (
       <CSSTransition
         timeout={150}
@@ -71,22 +72,22 @@ const Demo = () => {
 
   const triggerPositionChangeH = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
-    setTriggerPosition([value, triggerPosition[1]] as Position);
+    setTriggerPosition([value, triggerPosition[1]] as PositionType);
   };
 
   const triggerPositionChangeV = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
-    setTriggerPosition([triggerPosition[0], value] as Position);
+    setTriggerPosition([triggerPosition[0], value] as PositionType);
   };
 
   const contentPositionChangeH = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
-    setContentPosition([value, contentPosition[1]] as Position);
+    setContentPosition([value, contentPosition[1]] as PositionType);
   };
 
   const contentPositionChangeV = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
-    setContentPosition([contentPosition[0], value] as Position);
+    setContentPosition([contentPosition[0], value] as PositionType);
   };
 
   return (
@@ -218,11 +219,11 @@ const Demo = () => {
             mode={mode}
             triggerPosition={triggerPosition}
             contentPosition={contentPosition}
-            className='popover-stories__button'
             selector={selector}
+            onChange={(visible: boolean) => console.log('111:', visible)}
           >
             <Popover.Trigger>
-              <Button>trigger</Button>
+              <Button className='popover-stories__button'>trigger</Button>
             </Popover.Trigger>
             <Popover.Content>{renderContent}</Popover.Content>
           </Popover>
