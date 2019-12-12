@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Component, Children, cloneElement } from 'react';
+import { Component, Children } from 'react';
 import classNames from 'classnames';
 import { genChildProps } from './interface';
 import PopoverTrigger from './PopoverTrigger';
@@ -14,31 +14,47 @@ import {
 } from './utils';
 
 export interface PopoverProps {
-  /** 类名 */
+  /**
+   * 类名
+   */
   className?: string;
-  /** 样式 */
+  /**
+   * 样式
+   */
   style?: object;
-  /** 弹层是否可见 */
+  /**
+   * 弹层所在容器的 css 选择器
+   */
+  selector: string;
+  /**
+   * 弹层是否可见
+   */
   visible?: boolean;
-  /** 触发类型 */
+  /**
+   * 触发类型
+   */
   mode: ModeType;
   /**
    * 触发元素方位
    */
   triggerPosition: [HorizontalPosition, VerticalPosition];
-
   /**
    * 内容方位
    */
   contentPosition: [HorizontalPosition, VerticalPosition];
-
-  /** X轴的偏移量 */
+  /**
+   * X轴的偏移量
+   *
+   */
   offsetX?: number;
-  /** X轴的偏移量 */
+  /**
+   * X轴的偏移量
+   */
   offsetY?: number;
-  /** 打开或关闭的回调函数 */
-  onChange?: any;
-  selector: string;
+  /**
+   * 打开或关闭的回调函数
+   */
+  onChange?: (visible: boolean) => void;
 }
 
 export interface PopoverState {
@@ -46,11 +62,10 @@ export interface PopoverState {
 }
 
 /**
- * 弹层
+ * popover
  */
 class Popover extends Component<PopoverProps, PopoverState> {
-  private popoverRef: any;
-  private triggerRef: any;
+  private popoverRef: React.RefObject<HTMLDivElement>;
   static Trigger: typeof PopoverTrigger;
   static Content: typeof PopoverContent;
 
@@ -95,7 +110,6 @@ class Popover extends Component<PopoverProps, PopoverState> {
   constructor(props: PopoverProps) {
     super(props);
     this.popoverRef = React.createRef();
-    this.triggerRef = React.createRef();
   }
 
   state = {
@@ -123,14 +137,14 @@ class Popover extends Component<PopoverProps, PopoverState> {
   removePopoverEventListener = () => {
     const modeArray = getModeArray(this.props.mode);
     modeArray.forEach(item => {
-      document.addEventListener(item, this.removePopover);
+      window.addEventListener(item, this.removePopover);
     });
   };
 
   removePopoverRemoveEventListener = () => {
     const modeArray = getModeArray(this.props.mode);
     modeArray.forEach(item => {
-      document.removeEventListener(item, this.removePopover);
+      window.removeEventListener(item, this.removePopover);
     });
   };
 
@@ -140,18 +154,8 @@ class Popover extends Component<PopoverProps, PopoverState> {
     onChange && onChange(value);
   };
 
-  removePopover = (e: any) => {
-    const { visible } = this.state;
-    const node = e.target;
-    const fixedNode = node.closest('[data-fixed]');
-    const triggerDOM = this.popoverRef.current;
-    const isNotFixed = fixedNode ? fixedNode.dataset.fixed !== 'true' : true;
-    const isNotContains = triggerDOM.contains(node) === false;
-
-    // // 如果点击的节点不在popup中或者有fixed属性
-    if (visible && isNotContains && isNotFixed) {
-      this.toggleVisible(false);
-    }
+  removePopover = () => {
+    this.state.visible && this.toggleVisible(false);
   };
 
   genTriggerContent = () => {
@@ -163,14 +167,13 @@ class Popover extends Component<PopoverProps, PopoverState> {
       );
     }
     const { trigger, content } = childArray.reduce<genChildProps>(
-      (result, child: React.ReactElement<any>) => {
+      (result, child: React.ReactElement) => {
         const type = child.type;
         if (kindOf(type, PopoverTrigger)) {
           result.trigger = child;
         } else if (kindOf(type, PopoverContent)) {
           result.content = child;
         }
-
         return result;
       },
       { trigger: null, content: null }
@@ -182,17 +185,16 @@ class Popover extends Component<PopoverProps, PopoverState> {
     return triggerDOM;
   };
 
-  renderTrigger = (trigger: any) => {
+  renderTrigger = (trigger: React.ReactElement) => {
     const { mode } = this.props;
     return React.cloneElement(trigger, {
       mode: mode,
-      getRef: this.triggerRef,
       toggleVisible: this.toggleVisible,
       getTriggerDOM: this.getTriggerDOM
     });
   };
 
-  renderContent = (content: any) => {
+  renderContent = (content: React.ReactElement) => {
     const {
       mode,
       triggerPosition,

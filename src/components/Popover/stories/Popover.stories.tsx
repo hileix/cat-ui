@@ -42,6 +42,8 @@ const Demo = () => {
 
   const [isRenderBody, setIsRenderBody] = useState(true);
 
+  const [mode, setMode] = useState<Array<'click' | 'hover'>>(['click']);
+
   const [triggerPosition, setTriggerPosition] = useState<Position>([
     'left',
     'bottom'
@@ -165,10 +167,55 @@ const Demo = () => {
         />
       </div>
 
+      <div style={{ marginTop: 16 }}>
+        mode:
+        <label>
+          <input
+            type='checkbox'
+            checked={mode.includes('click')}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              const checked = e.target.checked;
+              if (checked) {
+                setMode(mode.concat('click'));
+              } else {
+                const index = mode.findIndex(mode => mode === 'click');
+                const newMode = [...mode];
+                newMode.splice(index, 1);
+                setMode(newMode);
+              }
+            }}
+          />
+          click
+        </label>
+        <label>
+          <input
+            type='checkbox'
+            checked={mode.includes('hover')}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              const checked = e.target.checked;
+              if (checked) {
+                setMode(mode.concat('hover'));
+              } else {
+                const index = mode.findIndex(mode => mode === 'hover');
+                const newMode = [...mode];
+                newMode.splice(index, 1);
+                setMode(newMode);
+              }
+            }}
+          />
+          hover
+        </label>
+      </div>
+
       <div className='popover-stories__popover-wrapper'>
-        <div style={{ height: isRenderBody ? 290 : 500, width: isRenderBody ? '100%' : '130%' }}>
+        <div
+          style={{
+            height: isRenderBody ? 290 : 500,
+            width: isRenderBody ? '100%' : '130%'
+          }}
+        >
           <Popover
-            mode='click'
+            mode={mode}
             triggerPosition={triggerPosition}
             contentPosition={contentPosition}
             className='popover-stories__button'

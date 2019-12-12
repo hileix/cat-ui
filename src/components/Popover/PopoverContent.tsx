@@ -1,6 +1,5 @@
 import React from 'react';
 import { Component } from 'react';
-import throttle from 'lodash/throttle';
 import PurePortal from '../PurePortal';
 import {
   getTriggerEvents,
@@ -30,7 +29,7 @@ export interface PopoverContentProps {
   /**
    * triggerDOM
    */
-  triggerDOM?: any;
+  triggerDOM?: HTMLElement;
   /**
    * 触发类型
    */
@@ -39,7 +38,6 @@ export interface PopoverContentProps {
    * 触发元素方位
    */
   triggerPosition: [HorizontalPosition, VerticalPosition];
-
   /**
    * 内容方位
    */
@@ -55,18 +53,24 @@ export interface PopoverContentProps {
   /**
    * toggleVisible
    */
-  toggleVisible?: any;
+  toggleVisible?: (visible: boolean) => void;
   /**
    * children
    */
   children: (visible: boolean) => React.ReactNode;
 }
 
-export interface PopoverContentState {
-  positionStyle: { left: number; top: number };
+export interface PositionStyle {
+  position: 'absolute';
+  left: number;
+  top: number;
 }
 
-const defaultPostionStyle = {
+export interface PopoverContentState {
+  positionStyle: PositionStyle;
+}
+
+const defaultPostionStyle: PositionStyle = {
   position: 'absolute',
   top: 0,
   left: 0
@@ -90,7 +94,7 @@ class PopoverContent extends Component<
     contentPosition: ['left', 'top']
   };
 
-  private contentRef: any;
+  private contentRef: React.RefObject<HTMLDivElement>;
   constructor(props: PopoverContentProps) {
     super(props);
     this.state = {
@@ -139,30 +143,12 @@ class PopoverContent extends Component<
     this.setState({ positionStyle });
   };
 
-  handleMouseEnter = () => {
-    const { mode, toggleVisible } = this.props;
-    if (mode === 'hover') {
-      toggleVisible(true);
-    }
-  };
-
-  handleMouseLeave = () => {
-    const { mode, toggleVisible } = this.props;
-    if (mode === 'hover') {
-      toggleVisible(false);
-    }
-  };
-
-  handleClick = (e: React.MouseEvent) => {
+  open = (e: React.MouseEvent) => {
     e.stopPropagation();
-  };
-
-  open = () => {
     this.props.toggleVisible(true);
   };
 
-  close = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  close = () => {
     this.props.toggleVisible(false);
   };
 

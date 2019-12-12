@@ -92,7 +92,7 @@ export const getPosition = (
   offsetX: number,
   offsetY: number,
   containerSelector: string
-): { position: string; left: number; top: number } => {
+): { position: 'absolute'; left: number; top: number } => {
   let containerDOM: HTMLElement;
   if (containerSelector === 'body') {
     containerDOM = document.documentElement;
@@ -123,7 +123,7 @@ export const getPosition = (
 
   let left: number = 0,
     top: number = 0,
-    position = 'absolute';
+    position = 'absolute' as 'absolute';
 
   let baseTop: number = triggerObj.top + containerDOM.scrollTop;
   let baseLeft: number = triggerObj.left + containerDOM.scrollLeft;

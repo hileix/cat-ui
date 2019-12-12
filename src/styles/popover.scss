@@ -16,13 +16,7 @@
 
 .cat-popover {
   display: inline-block;
-  
   &__content {
-    position: relative;
-    border-radius: 4px;
-    background: #fff;
-    font-size: 14px;
-    transform-origin: left center;
     z-index: 8000;
   }
 }

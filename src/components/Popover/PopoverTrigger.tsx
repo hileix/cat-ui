@@ -24,7 +24,9 @@ export interface PopoverTriggerProps {
    * toggleVisible
    */
   toggleVisible?: (visible: boolean) => void;
-
+  /**
+   * children
+   */
   children: React.ReactElement;
 }
 
@@ -33,6 +35,7 @@ export interface PopoverTriggerProps {
  */
 class PopoverTrigger extends Component<PopoverTriggerProps> {
   open = (e: React.MouseEvent) => {
+    e.stopPropagation();
     this.props.toggleVisible(true);
   };
 
