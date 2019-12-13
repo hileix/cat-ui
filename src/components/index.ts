@@ -1,7 +1,5 @@
 console.warn('已全量引入 catui 组件');
 
-import { Row, Col } from './Grid';
-
 export { default as Avatar } from './Avatar';
 export { default as Button } from './Button';
 export { default as Icon } from './Icon';
@@ -16,4 +14,4 @@ export { default as Scroll } from './Scroll';
 export { default as message } from './message';
 export { default as Card } from './Card';
 export { Row, Col } from './Grid';
-
+export { default as Input } from './Input';

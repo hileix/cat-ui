@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { storiesOf, addDecorator } from '@storybook/react';
-import { actions } from '@storybook/addon-actions';
+import { storiesOf } from '@storybook/react';
 import Input from '../index';
 import '../../../styles/index.scss';
 import './style.scss';
-import { withInfo } from '@storybook/addon-info';
+import markdown from '../README.md';
 
-addDecorator(withInfo);
-
-const Demo1 = () => {
+const Demo = () => {
   return (
     <div className='input-box'>
       <span className='hint' >
@@ -125,4 +122,8 @@ const Demo1 = () => {
 };
 
 storiesOf('Input 输入框', module)
-  .add('Input', () => <Demo1 />)
+  .add('Input', () => <Demo />, {
+    info: {
+      text: markdown
+    }
+  })
