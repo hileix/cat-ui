@@ -13,7 +13,8 @@ const existComponents = [
   'notification',
   'message',
   'Scroll',
-  'Grid'
+  'Grid',
+  'Tooltip'
 ];
 
 function getTestMatch() {

@@ -110,10 +110,6 @@ class Tooltip extends Component<TooltipProps> {
         offsetX = -OFFSET;
         break;
       }
-
-      default: {
-        offsetY = -OFFSET;
-      }
     }
     return { offsetX, offsetY };
   });
