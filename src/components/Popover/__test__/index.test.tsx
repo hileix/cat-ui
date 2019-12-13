@@ -1,27 +1,65 @@
-import * as React from 'react'
-import * as Enzyme from 'enzyme'
-import { render, mount } from 'enzyme'
-import * as Adapter from 'enzyme-adapter-react-16'
-import Popover from '../index'
+import React from 'react';
+import { mount } from 'enzyme';
 
-Enzyme.configure({ adapter: new Adapter() })
+import Popover from '../index';
 
 describe('Popover', () => {
   test('renders correctly', () => {
-    const wrapper = render(
-      <Popover mode='click'>
+    const wrapper = mount(
+      <Popover>
         <Popover.Trigger>
-          <span>点击打开</span>
+          <span>popover trigger</span>
         </Popover.Trigger>
         <Popover.Content>
-          <div className='pop-content'>
-            <p>通用的触发式弹层组件, 可以自定义定位算法、触发方式以及弹层显示方式。</p>
-            <p>向下弹出的弹层组件</p>
-          </div>
+          {function() {
+            return <div>popover content</div>;
+          }}
         </Popover.Content>
       </Popover>
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 
-})
+  test('When you click on the popover trigger, the popover content is displayed', () => {
+    const wrapper = mount(
+      <Popover mode='click'>
+        <Popover.Trigger>
+          <span className='my-trigger'>popover trigger</span>
+        </Popover.Trigger>
+        <Popover.Content>
+          {function(visible: boolean) {
+            return (
+              visible && (
+                <div className='my-popover-content'>popover content</div>
+              )
+            );
+          }}
+        </Popover.Content>
+      </Popover>
+    );
+
+    expect(wrapper.exists('.my-popover-content')).toBe(false);
+
+    wrapper.find('.my-trigger').simulate('click');
+
+    expect(wrapper.exists('.my-popover-content')).toBe(true);
+  });
+});
+
+describe('Popover utils', () => {
+  test('renders correctly', () => {
+    const wrapper = mount(
+      <Popover mode='click'>
+        <Popover.Trigger>
+          <span>popover trigger</span>
+        </Popover.Trigger>
+        <Popover.Content>
+          {function() {
+            return <div>popover content</div>;
+          }}
+        </Popover.Content>
+      </Popover>
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+});

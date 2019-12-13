@@ -14,7 +14,9 @@ const existComponents = [
   'message',
   'Scroll',
   'Grid',
-  'Tooltip'
+  'Tooltip',
+  'Popover',
+  'PurePortal'
 ];
 
 function getTestMatch() {
