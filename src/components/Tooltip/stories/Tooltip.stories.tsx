@@ -43,7 +43,7 @@ const Demo = () => {
       <div className='tooltip-stories__demo'>
         <div className='tooltip-stories__wrapper tooltip-stories__top'>
           <Tooltip mode={mode} content={'topLeft'} position='topLeft'>
-            <span className='tooltip-stories__button'>span</span>
+            <Button className='tooltip-stories__button'>topLeft</Button>
           </Tooltip>
           <Tooltip mode={mode} content={'top'} position='top'>
             <Button className='tooltip-stories__button'>top</Button>
