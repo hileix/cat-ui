@@ -48,7 +48,7 @@ class Tooltip extends Component<TooltipProps> {
   static propTypes = {
     visible: PropTypes.bool,
     mode: PropTypes.oneOfType([
-      PropTypes.oneOf(['click', 'touch', 'hover']),
+      PropTypes.oneOf(['click', 'hover']),
       PropTypes.array
     ]),
     position: PropTypes.oneOf([

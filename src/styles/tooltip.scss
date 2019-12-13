@@ -1,3 +1,4 @@
+// 动画
 @mixin tooltipAnimate($selector, $hide: translateY(4px), $show: translateY(0)) {
   #{$selector} {
     transition: 0.3s;
@@ -40,6 +41,7 @@
   }
 }
 
+// 箭头样式
 @mixin arrow(
   $selector,
   $transparent-border-1: border-left,
@@ -161,7 +163,7 @@
   top,
   50%,
   left,
-  -12px,
+  -6px,
   translateY(-50%)
 );
 @include arrow(
@@ -187,20 +189,76 @@
   translateY(-50%)
 );
 
+// bottom
+@include arrow(
+  '.cat-tooltip__content--bottom',
+  border-left,
+  border-right,
+  border-bottom,
+  left,
+  50%,
+  top,
+  -6px,
+  translateX(-50%)
+);
+@include arrow(
+  '.cat-tooltip__content--bottomLeft',
+  border-left,
+  border-right,
+  border-bottom,
+  left,
+  25%,
+  top,
+  -6px,
+  translateX(-50%)
+);
+@include arrow(
+  '.cat-tooltip__content--bottomRight',
+  border-left,
+  border-right,
+  border-bottom,
+  left,
+  75%,
+  top,
+  -6px,
+  translateX(-50%)
+);
+
+// left
+@include arrow(
+  '.cat-tooltip__content--left',
+  border-top,
+  border-bottom,
+  border-left,
+  top,
+  50%,
+  right,
+  -6px,
+  translateY(-50%)
+);
+@include arrow(
+  '.cat-tooltip__content--leftTop',
+  border-top,
+  border-bottom,
+  border-left,
+  top,
+  25%,
+  right,
+  -6px,
+  translateY(-50%)
+);
+@include arrow(
+  '.cat-tooltip__content--leftBottom',
+  border-top,
+  border-bottom,
+  border-left,
+  top,
+  75%,
+  right,
+  -6px,
+  translateY(-50%)
+);
+
 .cat-tooltip {
   position: relative;
-  &__content {
-    &--right::after {
-      position: absolute;
-      top: 50%;
-      left: -6px;
-      transform: translateY(-50%);
-      content: ' ';
-      width: 0;
-      height: 0;
-      border-top: 6px solid transparent;
-      border-bottom: 6px solid transparent;
-      border-right: 6px solid rgba(0, 0, 0, 0.7);
-    }
-  }
 }
