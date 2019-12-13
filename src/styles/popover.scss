@@ -17,19 +17,6 @@
 .cat-popover {
   display: inline-block;
   &__content {
-    position: relative;
-    border: 1px solid #e5e5e5;
-    border-radius: 4px;
-    font-size: 14px;
+    z-index: 8000;
   }
-  &__pop {
-    position: relative;
-    border-radius: 4px;
-    background: #fff;
-    font-size: 14px;
-    transform-origin: left center;
-    animation: 0.15s pageTurning ease-in;
-    z-index: 9999;
-  }
-  &__trigger {}
 }

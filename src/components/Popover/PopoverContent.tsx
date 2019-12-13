@@ -1,37 +1,73 @@
-import * as React from 'react';
+import React from 'react';
 import { Component } from 'react';
+import PurePortal from '../PurePortal';
+import { getPosition, getModeArray } from './utils';
+import { PositionType } from './interface';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import throttle from 'lodash/throttle';
-import Portal from '../Portal';
 
 export interface PopoverContentProps {
-  /** 类名 */
+  /**
+   * 类名
+   */
   className?: string;
-  /** 样式 */
-  style?: object;
-  /** 弹层是否可见 */
+  /**
+   * 样式
+   */
+  style?: React.CSSProperties;
+  /**
+   * 内容所在容器的 css 选择器
+   */
+  selector: string;
+  /**
+   * 弹层是否可见
+   */
   visible?: boolean;
-  /** triggerDOM */
-  triggerDOM?: any;
-  /** 触发类型 */
+  /**
+   * triggerDOM
+   */
+  triggerDOM?: HTMLElement;
+  /**
+   * 触发类型
+   */
   mode?: 'click' | 'hover';
-  /** 定位的方向 */
-  position?:
-    | 'bottomLeft'
-    | 'bottomCenter'
-    | 'bottomRight'
-    | 'topLeft'
-    | 'topCenter'
-    | 'topRight';
-  /** X轴的偏移量 */
+  /**
+   * 触发元素方位
+   */
+  triggerPosition: PositionType;
+  /**
+   * 内容方位
+   */
+  contentPosition: PositionType;
+  /**
+   * X轴的偏移量
+   */
   offsetX?: number;
-  /** X轴的偏移量 */
+  /**
+   * X轴的偏移量
+   */
   offsetY?: number;
-  /** toggleVisible */
-  toggleVisible?: any;
+  /**
+   * toggleVisible
+   */
+  toggleVisible?: (visible: boolean) => void;
+  /**
+   * children
+   */
+  children: (visible: boolean) => React.ReactNode;
 }
 
-const defaultPostionStyle = {
+export interface PositionStyle {
+  position: 'absolute';
+  left: number;
+  top: number;
+}
+
+export interface PopoverContentState {
+  positionStyle: PositionStyle;
+}
+
+const defaultPostionStyle: PositionStyle = {
   position: 'absolute',
   top: 0,
   left: 0
@@ -40,8 +76,22 @@ const defaultPostionStyle = {
 /**
  * PopoverContent
  */
-class PopoverContent extends Component<PopoverContentProps, any> {
-  private contentRef: any;
+class PopoverContent extends Component<
+  PopoverContentProps,
+  PopoverContentState
+> {
+  static propTypes = {
+    triggerPosition: PropTypes.array,
+    contentPosition: PropTypes.array
+  };
+
+  static defaultProps = {
+    selector: 'body',
+    triggerPosition: ['left', 'bottom'],
+    contentPosition: ['left', 'top']
+  };
+
+  public contentRef: React.RefObject<HTMLDivElement>;
   constructor(props: PopoverContentProps) {
     super(props);
     this.state = {
@@ -51,129 +101,102 @@ class PopoverContent extends Component<PopoverContentProps, any> {
   }
 
   componentDidMount() {
-    const { visible } = this.props;
-    if (visible) {
-      this.adjustPosition();
+    if (this.props.visible) {
+      this.setPositionStyle();
     }
-    window.addEventListener('scroll', this.onWindowScroll);
-    window.addEventListener('resize', this.onWindowResize);
   }
 
   componentDidUpdate(prevProps: PopoverContentProps) {
     if (this.props.visible && prevProps.visible !== this.props.visible) {
-      // console.log('componentDidUpdate')
-      // setTimeout(() => {
-      //   this.adjustPosition()
-      // }, 250)
-      this.adjustPosition();
+      this.setPositionStyle();
     }
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.onWindowScroll);
-    window.removeEventListener('resize', this.onWindowResize);
-  }
-
-  adjustPosition = () => {
-    const { visible, triggerDOM, position, offsetX, offsetY } = this.props;
+  setPositionStyle = () => {
+    const {
+      visible,
+      triggerDOM,
+      triggerPosition,
+      contentPosition,
+      selector,
+      offsetX,
+      offsetY
+    } = this.props;
     if (!visible || !triggerDOM) {
       return;
     }
-    const { positionStyle } = this.state;
     const contentDOM = this.contentRef.current;
-    const triggerRect = triggerDOM.getBoundingClientRect();
-    // const contentRect = contentDOM.getBoundingClientRect()
-    const {
-      clientWidth: contentWidth,
-      clientHeight: contentHeight
-    } = contentDOM as HTMLElement;
-    const {
-      clientWidth: triggerWidth,
-      clientHeight: triggerHeight
-    } = triggerDOM as HTMLElement;
 
-    let newPositionStyle;
+    const positionStyle = getPosition(
+      triggerDOM,
+      contentDOM,
+      triggerPosition,
+      contentPosition,
+      offsetX,
+      offsetY,
+      selector
+    );
 
-    switch (position) {
-      case 'topCenter':
-        newPositionStyle = {
-          ...positionStyle,
-          left:
-            triggerRect.left + triggerWidth / 2 - contentWidth / 2 + offsetX,
-          top:
-            window.pageYOffset + triggerRect.top - contentHeight - 10 + offsetY
-        };
-        break;
-      case 'bottomCenter':
-        newPositionStyle = {
-          ...positionStyle,
-          left:
-            triggerRect.left + triggerWidth / 2 - contentWidth / 2 + offsetX,
-          top: window.pageYOffset + triggerRect.top + triggerHeight + offsetY
-        };
-        break;
-      case 'bottomRight':
-        newPositionStyle = {
-          ...positionStyle,
-          left: triggerRect.left - contentWidth + offsetX,
-          top: window.pageYOffset + triggerRect.top + triggerHeight + offsetY
-        };
-        break;
-      case 'bottomLeft':
-      default:
-        newPositionStyle = {
-          ...positionStyle,
-          left: triggerRect.left + offsetX,
-          top: window.pageYOffset + triggerRect.top + triggerHeight + offsetY
-        };
-    }
-
-    this.setState({ positionStyle: newPositionStyle });
+    this.setState({ positionStyle });
   };
 
-  onWindowResize = throttle((evt: any) => {
-    if (this.props.visible) {
-      this.adjustPosition();
-    }
-  }, 16);
-
-  onWindowScroll = throttle(this.adjustPosition, 16);
-
-  handleMouseEnter = () => {
-    const { mode, toggleVisible } = this.props;
-    if (mode === 'hover') {
-      toggleVisible(true);
-    }
+  open = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    this.props.toggleVisible(true);
   };
 
-  handleMouseLeave = () => {
-    const { mode, toggleVisible } = this.props;
-    if (mode === 'hover') {
-      toggleVisible(false);
-    }
+  close = () => {
+    this.props.toggleVisible(false);
+  };
+
+  getTriggerEvents = () => {
+    const { mode } = this.props;
+    const modeArray = getModeArray(mode);
+    let triggerEvents: {
+      onClick?: (e: React.MouseEvent) => void;
+      onMouseEnter?: (e: React.MouseEvent) => void;
+      onMouseLeave?: (e: React.MouseEvent) => void;
+    } = {};
+    modeArray.forEach(item => {
+      switch (item) {
+        case 'click': {
+          triggerEvents.onClick = this.open;
+          break;
+        }
+        case 'hover': {
+          triggerEvents.onMouseEnter = this.open;
+          triggerEvents.onMouseLeave = this.close;
+          break;
+        }
+        default: {
+          triggerEvents.onClick = this.open;
+          break;
+        }
+      }
+    });
+    return triggerEvents;
   };
 
   render() {
     const { positionStyle } = this.state;
-    const { className, style, visible, triggerDOM, children } = this.props;
+    const { className, style, visible, children, selector } = this.props;
 
-    const prefix = 'cat-popover__content';
-    const classes = classNames(prefix, className);
+    const classes = classNames('cat-popover__content', className);
+    const styles = { ...style, ...positionStyle };
+
+    const triggerEvents = this.getTriggerEvents();
 
     return (
-      <Portal visible={visible}>
+      <PurePortal selector={selector}>
         <div
-          className="cat-popover__pop"
+          className={classes}
           ref={this.contentRef}
-          style={positionStyle}
-          onMouseEnter={this.handleMouseEnter}
-          onMouseLeave={this.handleMouseLeave}
+          style={styles}
+          {...triggerEvents}
         >
-          <div className={classes} style={style}>
-            {children}
-          </div>
+          {children(visible)}
         </div>
-      </Portal>
+      </PurePortal>
     );
   }
 }

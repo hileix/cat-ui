@@ -1,86 +1,96 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Popover renders correctly 1`] = `
-initialize {
-  "0": Object {
-    "attribs": Object {
-      "class": "cat-popover",
-    },
-    "children": Array [
-      Object {
-        "attribs": Object {
-          "class": "cat-popover__trigger",
-        },
-        "children": Array [
-          Object {
-            "attribs": Object {},
-            "children": Array [
-              Object {
-                "data": "点击打开",
-                "next": null,
-                "parent": [Circular],
-                "prev": null,
-                "type": "text",
-              },
-            ],
-            "name": "span",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": null,
-            "parent": [Circular],
-            "prev": null,
-            "type": "tag",
-            "x-attribsNamespace": Object {},
-            "x-attribsPrefix": Object {},
-          },
-        ],
-        "name": "div",
-        "namespace": "http://www.w3.org/1999/xhtml",
-        "next": null,
-        "parent": [Circular],
-        "prev": null,
-        "type": "tag",
-        "x-attribsNamespace": Object {
-          "class": undefined,
-        },
-        "x-attribsPrefix": Object {
-          "class": undefined,
-        },
-      },
-    ],
-    "name": "div",
-    "namespace": "http://www.w3.org/1999/xhtml",
-    "next": null,
-    "parent": null,
-    "prev": null,
-    "root": Object {
-      "attribs": Object {},
-      "children": Array [
-        [Circular],
-      ],
-      "name": "root",
-      "namespace": "http://www.w3.org/1999/xhtml",
-      "next": null,
-      "parent": null,
-      "prev": null,
-      "type": "root",
-      "x-attribsNamespace": Object {},
-      "x-attribsPrefix": Object {},
-    },
-    "type": "tag",
-    "x-attribsNamespace": Object {
-      "class": undefined,
-    },
-    "x-attribsPrefix": Object {
-      "class": undefined,
-    },
-  },
-  "_root": [Circular],
-  "length": 1,
-  "options": Object {
-    "decodeEntities": true,
-    "normalizeWhitespace": false,
-    "withDomLvl1": true,
-    "xml": false,
-  },
-}
+<Popover
+  contentPosition={
+    Array [
+      "left",
+      "top",
+    ]
+  }
+  mode="click"
+  offsetX={0}
+  offsetY={0}
+  onChange={[Function]}
+  selector="body"
+  triggerPosition={
+    Array [
+      "left",
+      "bottom",
+    ]
+  }
+>
+  <PopoverTrigger
+    key=".0"
+    mode="click"
+    toggleVisible={[Function]}
+  >
+    <span
+      onClick={[Function]}
+    >
+      popover trigger
+    </span>
+  </PopoverTrigger>
+  <PopoverContent
+    contentPosition={
+      Array [
+        "left",
+        "top",
+      ]
+    }
+    key=".1"
+    mode="click"
+    offsetX={0}
+    offsetY={0}
+    selector="body"
+    toggleVisible={[Function]}
+    triggerDOM={
+      <span>
+        popover trigger
+      </span>
+    }
+    triggerPosition={
+      Array [
+        "left",
+        "bottom",
+      ]
+    }
+    visible={false}
+  >
+    <PurePortal
+      selector="body"
+    >
+      <Portal
+        containerInfo={
+          <body>
+            <div
+              class="cat-popover__content"
+              style="position: absolute; top: 0px; left: 0px;"
+            >
+              <div>
+                popover content
+              </div>
+            </div>
+          </body>
+        }
+      >
+        <div
+          className="cat-popover__content"
+          onClick={[Function]}
+          style={
+            Object {
+              "left": 0,
+              "position": "absolute",
+              "top": 0,
+            }
+          }
+        >
+          <div>
+            popover content
+          </div>
+        </div>
+      </Portal>
+    </PurePortal>
+  </PopoverContent>
+</Popover>
 `;

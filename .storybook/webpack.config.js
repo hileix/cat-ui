@@ -37,8 +37,9 @@ module.exports = ({ config }) => {
         loader: 'sass-loader',
         options: {
           // Prefer `dart-sass`
-          implementation: require('sass')
-        }
+          implementation: require('sass'),
+          sourceMap: true
+        },
       }
     ],
     include: path.resolve(__dirname, '../src')
