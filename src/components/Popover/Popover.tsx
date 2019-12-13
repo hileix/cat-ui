@@ -171,10 +171,6 @@ class Popover extends Component<PopoverProps, PopoverState> {
     return { trigger, content };
   };
 
-  getTriggerDOM = (triggerDOM: HTMLElement) => {
-    return triggerDOM;
-  };
-
   private triggerRef: React.RefObject<PopoverTrigger>;
   getTriggerRef = (ref: React.RefObject<PopoverTrigger>) => {
     this.triggerRef = ref;
