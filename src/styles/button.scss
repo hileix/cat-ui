@@ -1,5 +1,11 @@
 @import './common/index.scss';
 
+@mixin selectRadius($size, $radius) {
+  &.cat-button#{$size} {
+    border-radius: $radius;
+  }
+}
+
 .cat-button {
   display: inline-block;
   outline: none;
@@ -7,12 +13,12 @@
   font-size: 14px;
   border: 1px solid $primary-color;
   border-radius: 4px;
-  padding: 8px 20px;
   color: $primary-color;
   background: #fff;
   transition: 0.3s;
-  line-height: 1;
-
+  line-height: 1.45;
+  height: 32px;
+  font-weight: 400;
   &__children {
     vertical-align: middle;
     display: inline-block;
@@ -55,14 +61,72 @@
     }
   }
 
+  &--golden {
+    background: $yellow-6;
+    color: $gray-1;
+    border: solid 1px $yellow-6;
+    &:hover {
+      opacity: 0.8;
+      background: $yellow-6;
+    }
+
+    &:active {
+      opacity: 1;
+      background: $yellow-6;
+      border-color: $yellow-6;
+    }
+  }
+
+  &--dashed {
+    background: $gray-1;
+    color: $blue-gray-10;
+    border: dashed 1px $blue-gray-10;
+    &:hover {
+      opacity: 0.8;
+      background: $gray-1;
+    }
+
+    &:active {
+      opacity: 1;
+      background: $gray-1;
+      border-color: $blue-gray-10;
+    }
+  }
+
   &--sm {
-    padding: 4px 12px;
+    height: 24px;
+    font-size: 13px;
   }
 
   &--lg {
     font-size: 18px;
-    padding: 15px 32px;
+    height: 40px;
   }
+
+  &--padding-sm {
+    padding: 0px 10px;
+  }
+
+  &--padding-md {
+    padding: 0px 12px;
+  }
+
+  &--padding-lg {
+    padding: 0px 16px;
+  }
+
+  &--circle {
+    border-radius: 50%;
+    padding: auto;
+  }
+
+  &--round {
+    // .cat-ui-round.cat-ui--
+    @include selectRadius('--sm', 12px);
+    @include selectRadius('--md', 16px);
+    @include selectRadius('--lg', 20px);
+  }
+
 
   &--block {
     display: block;
