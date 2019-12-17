@@ -2,7 +2,7 @@
 
 exports[`Button renders correctly 1`] = `
 <button
-  className="cat-button cat-button--default cat-button--md"
+  className="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
   disabled={false}
   style={Object {}}
   type="button"
@@ -17,7 +17,7 @@ exports[`Button renders correctly 1`] = `
 
 exports[`Button renders props:loading 1`] = `
 <button
-  className="cat-button cat-button--default cat-button--md cat-button--loading"
+  className="cat-button cat-button--default cat-button--square cat-button--md cat-button--loading cat-button--padding-md"
   disabled={false}
   style={Object {}}
   type="button"
@@ -38,7 +38,7 @@ exports[`Button renders props:loading 1`] = `
 
 exports[`Button renders props:loading,type 1`] = `
 <button
-  className="cat-button cat-button--primary cat-button--md cat-button--loading"
+  className="cat-button cat-button--primary cat-button--square cat-button--md cat-button--loading cat-button--padding-md"
   disabled={false}
   style={Object {}}
   type="button"

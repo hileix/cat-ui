@@ -8,7 +8,7 @@ export interface ButtonProps extends CommonProps {
   /**
    * 按钮类型
    */
-  type?: 'default' | 'primary' | 'link';
+  type?: 'default' | 'primary' | 'link' | 'dashed' | 'golden';
   /**
    * 原生 button 的 type 属性
    */
@@ -33,6 +33,8 @@ export interface ButtonProps extends CommonProps {
    * 按钮是否处于 loading 状态
    */
   loading?: boolean;
+
+  shape?: 'square' | 'circle' | 'round' ;
 }
 
 const loadingSizeMap = {
@@ -48,12 +50,13 @@ class Button extends React.PureComponent<
   ButtonProps & React.DOMAttributes<HTMLButtonElement>
 > {
   static propTypes = {
-    type: PropTypes.oneOf(['default', 'primary', 'link']),
+    type: PropTypes.oneOf(['default', 'primary', 'link', 'dashed', 'golden']),
     htmlType: PropTypes.string,
     disabled: PropTypes.bool,
     block: PropTypes.bool,
     size: PropTypes.oneOf(['sm', 'md', 'lg']),
-    children: PropTypes.node
+    children: PropTypes.node,
+    shape: PropTypes.oneOf(['square', 'circle', 'round']),
   };
   static defaultProps = {
     prefix: 'cat',
@@ -62,7 +65,8 @@ class Button extends React.PureComponent<
     size: 'md',
     disabled: false,
     block: false,
-    loading: false
+    loading: false,
+    shape: 'square',
   };
 
   constructor(props: ButtonProps) {
@@ -81,16 +85,19 @@ class Button extends React.PureComponent<
       htmlType,
       children,
       loading,
+      shape,
       ...othersProps
     } = this.props;
     const classes = classNames(
       `${prefix}-button`,
       `${prefix}-button--${type}`,
+      `${prefix}-button--${shape}`,
       `${prefix}-button--${size}`,
       {
         [`${prefix}-button--block`]: block,
         [`${prefix}-button--disabled`]: disabled,
-        [`${prefix}-button--loading`]: loading
+        [`${prefix}-button--loading`]: loading,
+        [`${prefix}-button--padding-${size}`]: shape != 'circle'
       },
       className
     );
