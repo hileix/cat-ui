@@ -47,12 +47,6 @@ class PopoverTrigger extends Component<PopoverTriggerProps> {
     this.props.toggleVisible(false);
   };
 
-  public childrenRef: React.LegacyRef<React.ReactElement>;
-
-  getChildrenRef = (ref: React.LegacyRef<React.ReactElement>) => {
-    this.childrenRef = ref;
-  };
-
   handleClick = (e: React.MouseEvent) => {
     if (typeof this.props.children === 'object') {
       const { onClick } = (this.props.children as React.ReactElement).props;
@@ -105,7 +99,6 @@ class PopoverTrigger extends Component<PopoverTriggerProps> {
     const triggerEvents = this.getTriggerEvents();
 
     return React.cloneElement(children, {
-      ref: this.getChildrenRef,
       ...triggerEvents
     });
   }
