@@ -14,3 +14,4 @@ export { default as message } from './message';
 export { default as Card } from './Card';
 export { Row, Col } from './Grid';
 export { default as Input } from './Input';
+export { default as Tooltip } from './Tooltip';
