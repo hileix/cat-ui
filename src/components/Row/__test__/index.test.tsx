@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { render } from 'enzyme';
-import { Row, Col } from '../index';
+import Row from '../index';
+
+const { Col } = Row;
 
 describe('Button', () => {
   test('renders correctly', () => {

@@ -12,6 +12,6 @@ export { default as notification } from './notification';
 export { default as Scroll } from './Scroll';
 export { default as message } from './message';
 export { default as Card } from './Card';
-export { Row, Col } from './Grid';
+export { default as Row } from './Row';
 export { default as Input } from './Input';
 export { default as Tooltip } from './Tooltip';
