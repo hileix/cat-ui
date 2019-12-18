@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import Col from './Col';
 
 type AlignType = 'top' | 'center' | 'bottom';
 
@@ -37,6 +38,7 @@ enum AlignEnum {
  * Row
  */
 class Row extends Component<RowProps> {
+  static Col: typeof Col;
   static propTypes = {
     className: PropTypes.string,
     justify: PropTypes.oneOf([

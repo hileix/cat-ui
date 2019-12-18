@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Row, Col } from '@components/index';
+import { Row } from '@components/index';
 import './style.scss';
 import markdown from '../README.md';
 import DemoWrapper from '@utils/DemoWrapper';
 
 const { Fragment } = React;
+
+const { Col } = Row;
 
 const Demo = () => {
   return (
@@ -125,7 +127,7 @@ const Demo = () => {
   );
 };
 
-storiesOf('Grid 栅格系统', module).add('Row', () => <Demo />, {
+storiesOf('Grid 栅格系统', module).add('Row and Col', () => <Demo />, {
   info: {
     text: markdown
   }
