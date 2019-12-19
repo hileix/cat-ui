@@ -15,3 +15,4 @@ export { default as Card } from './Card';
 export { default as Row } from './Row';
 export { default as Input } from './Input';
 export { default as Tooltip } from './Tooltip';
+export { default as Table } from './Table';
