@@ -1,3 +1,6 @@
+## Release v2.11.3
+- ♻️ (Grid) 修改 Grid 中 Row 和 Col 的导出方式
+
 ## Release v2.11.2
 - 🐛 (Tooltip) 修复 Tooltip 组件样式不全的 bug
 
