@@ -3,7 +3,6 @@ import * as PropTypes from 'prop-types'
 import keycode from 'keycode'
 import { PureComponent, cloneElement } from 'react'
 import classNames from 'classnames'
-import './style/Selection.scss'
 
 export interface ISelectionProps {
   /**
@@ -21,7 +20,7 @@ export interface ISelectionProps {
   /**
    * 是否显示选择菜单
    */
-  open?: boolean;
+  visible?: boolean;
   /**
    * 用于初始化的默认值
    */
@@ -31,9 +30,9 @@ export interface ISelectionProps {
    */
   value?: string | number;
   /**
-   * Option
+   * 子组件
    */
-  children?: Array<React.ReactElement>;
+  children?: any;
   /**
    * 选中一项触发的回调函数
    */
@@ -44,7 +43,7 @@ export interface ISelectionState {
   /**
    * 是否显示当前组件
    */
-  open: boolean,
+  visible: boolean,
   /**
    * 获得焦点项的索引
    */
@@ -65,7 +64,7 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
     prefix: PropTypes.string,
     className: PropTypes.string,
     style: PropTypes.object,
-    open: PropTypes.bool,
+    visible: PropTypes.bool,
     defaultValue: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number
@@ -74,34 +73,35 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
       PropTypes.string,
       PropTypes.number
     ]),
-    children: PropTypes.arrayOf(PropTypes.element),
+    children: PropTypes.node,
     onSelect: PropTypes.func
   };
 
   static defaultProps = {
-    open: true,
+    visible: true,
     prefix: 'cat'
   }
 
   constructor(props: ISelectionProps) {
     super(props)
-    const { open, defaultValue, value, children } = props
+    const { visible, defaultValue, value, children } = props
     const initialValue = defaultValue || value
     let focusIndex
     
-    React.Children.forEach(children, (Option: React.ReactElement, index) => {
+    React.Children.forEach(children, (Option, index) => {
       if (Option.props.value === initialValue) {
         return focusIndex = index
       }
     })
 
     this.state = {
-      open,
+      visible,
       focusIndex,
       selectedIndex: focusIndex,
     }
   }
 
+  private childrenLength = 0
 
   componentDidMount () {
     document.addEventListener('keydown', this.handleKeydown)
@@ -112,9 +112,9 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
   }
 
   static getDerivedStateFromProps(nextProps: ISelectionProps, prevState: ISelectionState) {
-    if (nextProps.open !== prevState.open) {
+    if (nextProps.visible !== prevState.visible) {
       return {
-        open: nextProps.open,
+        visible: nextProps.visible,
         focusIndex: -1
       }
     }
@@ -133,14 +133,13 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
   }
 
   moveFocusIndex = (offset: number) => {
-    const { children } = this.props
     const { focusIndex } = this.state
     let nextIndex = focusIndex + offset
   
-    if (nextIndex === children.length) {
+    if (nextIndex === this.childrenLength) {
       nextIndex = 0
     } else if (nextIndex < 0) {
-      nextIndex = children.length - 1
+      nextIndex = this.childrenLength - 1
     }
 
     this.setState({
@@ -199,10 +198,10 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
   }
 
   handleKeydown = e => {
-    const { open } = this.state
+    const { visible } = this.state
     const keyName = keycode(e)
 
-    if (!open) {
+    if (!visible) {
       return
     }
 
@@ -232,13 +231,16 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
     const { focusIndex, selectedIndex } = this.state
     const classes = classNames(`${prefix}-selection-wrap`, className);
 
+    this.childrenLength = 0
     const Options = React.Children.map(children, (Option: React.ReactElement, index) => {
       if (!Option) {
         return null
       }
 
+      this.childrenLength++
+
       return cloneElement(Option, {
-        key: index,
+        key: Option.props.key || index,
         className: classNames(Option.props.className, {
           'disabled': Option.props.disabled,
           'focus': index === focusIndex,

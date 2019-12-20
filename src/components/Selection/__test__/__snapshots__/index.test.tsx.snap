@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Selection renders correctly 1`] = `
+<Selection
+  open={true}
+  prefix="cat"
+  value="选项 2"
+>
+  <div
+    className="cat-selection-wrap"
+    onKeyDown={[Function]}
+  >
+    <Option
+      className="qwer"
+      index={0}
+      key="0/.0"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      prefix="cat"
+      value="选项 1"
+    >
+      <div
+        className="cat-select-option qwer"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        选项 1
+      </div>
+    </Option>
+    <Option
+      className="focus selected"
+      index={1}
+      key="1/.1"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      prefix="cat"
+      value="选项 2"
+    >
+      <div
+        className="cat-select-option focus selected"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        选项 2
+      </div>
+    </Option>
+    <Option
+      className=""
+      index={2}
+      key="2/.2"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      prefix="cat"
+      value="选项 3"
+    >
+      <div
+        className="cat-select-option"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        选项 3
+      </div>
+    </Option>
+    <Option
+      className=""
+      index={3}
+      key="3/.3"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      prefix="cat"
+      value="选项 4"
+    >
+      <div
+        className="cat-select-option"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        选项 4
+      </div>
+    </Option>
+    <Option
+      className=""
+      index={4}
+      key="4/.4"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      prefix="cat"
+      value="选项 5"
+    >
+      <div
+        className="cat-select-option"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        选项 5
+      </div>
+    </Option>
+  </div>
+</Selection>
+`;

@@ -5,6 +5,8 @@ import Option from '../Option';
 import markdown from '../README.md';
 import '../../../styles/index.scss';
 import './style.scss';
+import './Selection.scss'
+import '../../../styles/Option.scss'
 
 storiesOf('Selection 选择面板', module)
 .add(
@@ -14,12 +16,9 @@ storiesOf('Selection 选择面板', module)
       console.log('Selection:handleSelect', value)
     }
 
-    console.log('Selection.name', Selection.name)
-    console.log('Option.name', Option.name)
-
     return (
       <Selection
-        open={true}
+        visible={true}
         value='选项 2'
         onSelect={handleSelect}
       >

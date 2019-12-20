@@ -2,7 +2,6 @@ import * as React from 'react'
 import * as PropTypes from 'prop-types';
 import { PureComponent } from 'react'
 import classNames from 'classnames'
-import './style/Option.scss'
 
 interface IOptionInfo {
   /**
@@ -47,7 +46,7 @@ export interface IOptionProps {
   /**
    * react element
    */
-  children?: string | React.ReactElement;
+  children?: React.ReactNode;
   /**
    * 点击的回调
    */
@@ -77,10 +76,7 @@ class Option extends PureComponent<IOptionProps, {}> {
     ]),
     index: PropTypes.number,
     disabled: PropTypes.bool,
-    children: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.element
-    ]),
+    children: PropTypes.node,
     onClick: PropTypes.func,
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
@@ -111,7 +107,7 @@ class Option extends PureComponent<IOptionProps, {}> {
 
   render () {
     const { prefix, style, className, value, children } = this.props
-    const classes = classNames(`${prefix}-select-option`, className);
+    const classes = classNames(`${prefix}-select-option`, className)
 
     return (
       <div

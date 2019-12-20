@@ -1760,7 +1760,7 @@
 
 "@types/jest@^24.0.24":
   version "24.0.24"
-  resolved "https://registry.npm.taobao.org/@types/jest/download/@types/jest-24.0.24.tgz#0f2f523dc77cc1bc6bef34eaf287ede887a73f05"
+  resolved "https://registry.npm.taobao.org/@types/jest/download/@types/jest-24.0.24.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fjest%2Fdownload%2F%40types%2Fjest-24.0.24.tgz#0f2f523dc77cc1bc6bef34eaf287ede887a73f05"
   integrity sha1-Dy9SPcd8wbxr7zTq8oft6IenPwU=
   dependencies:
     jest-diff "^24.3.0"
