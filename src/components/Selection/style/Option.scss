@@ -1,0 +1,27 @@
+.cat-select-option {
+  width: 189px;
+  position: relative;
+  padding: 5px 12px;
+  overflow: hidden;
+  color: rgba(0,0,0,0.65);
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  transition: background .3s ease;
+
+  &.focus {
+    background-color: #e6f7ff;
+  }
+
+  &.selected {
+    background-color: #fafafa;
+  }
+
+  &.disabled {
+    color: rgba(0,0,0,0.25);
+    cursor: not-allowed;
+  }
+}

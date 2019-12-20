@@ -53,6 +53,8 @@ export interface InputProps extends HandleProps {
   onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => any;
   /** 按下回车键的回调 */
   onPressEnter?: (e: React.KeyboardEvent<HTMLInputElement>) => any;
+  /** 点击事件*/
+  onClick?: (e: React.MouseEvent<HTMLInputElement>) => any;
   /** 执行粘贴操作的回调 */
   onPaste?: (
     e:
@@ -193,6 +195,11 @@ class Input extends React.PureComponent<InputProps, InputStates> {
     this.isIconBlur = false;
   }
 
+  handleClick = e => {
+    const { onClick } = this.props
+    onClick && onClick(e)
+  }
+
   public render() {
     const { type, value, domProps, inputState } = this.state;
     const {
@@ -245,6 +252,7 @@ class Input extends React.PureComponent<InputProps, InputStates> {
           onContextMenu={handleClipboard.bind(this)}
           onCopy={handleClipboard.bind(this)}
           onCut={handleClipboard.bind(this)}
+          onClick={this.handleClick}
           placeholder={placeholderOrigin ? placeholder : ''}
           ref={this.input}
           {...props}
