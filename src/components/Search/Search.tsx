@@ -1,13 +1,19 @@
 import * as React from 'react'
 import * as PropTypes from 'prop-types'
+import keycode from 'keycode'
 import classNames from 'classnames'
 import Input from '../Input'
 import Selection from '../Selection'
 import Option from '../Selection/Option'
 import Popover from '../Popover'
 import { positionNameConvert } from '../Popover/utils'
+import './style/Search.scss'
 
 export interface ISearchProps {
+  /**
+   * 样式前缀
+   */
+  prefix?: string;
   /**
    * 类名
    */
@@ -17,21 +23,17 @@ export interface ISearchProps {
    */
   style?: object;
   /**
-   * 主题风格
-   */
-  theme?: string;
-  /**
    * 禁用搜索
    */
   disabled?: boolean;
   /**
    * 显示清除按钮
    */
-  showClear?: boolean;
+  allowClear?: boolean;
    /**
    * 显示loading
    */
-  showLoading?: boolean;
+  loading?: boolean;
   /**
    * 自动聚焦
    */
@@ -45,17 +47,21 @@ export interface ISearchProps {
    */
   value?: string;
   /**
-   * 搜索框结果列表
+   * 搜索框结果数据源
    */
-  dataList?: string[];
+  dataSource?: [];
   /**
-   * 搜索框内容发生变化
+   * 搜索框内容发生变化时调用
    */
   onChange?: (value: string) => any;
   /**
-   * 选择某个搜索结果
+   * 搜索补全项的时候调用
    */
-  onSelect?: (selectValue: ISelectValue) => any;
+  onSearch?: (value: string) => any;
+  /**
+   * 被选中时调用，参数为选中项的 value 值
+   */
+  onSelect?: (value: string) => any;
 }
 
 export interface ISelectValue {
@@ -66,50 +72,85 @@ export interface ISelectValue {
 
 class Search extends React.Component<ISearchProps, any> {
   static proptypes = {
+    prefix: PropTypes.string,
     className: PropTypes.string,
     style: PropTypes.object,
-    theme: PropTypes.string,
     disabled: PropTypes.bool,
-    showClear: PropTypes.bool,
+    allowClear: PropTypes.bool,
     autoFocus: PropTypes.bool,
     placeholder: PropTypes.string,
     value: PropTypes.string,
-    dataList: PropTypes.array,
-    showLoading: PropTypes.bool,
+    dataSource: PropTypes.array,
+    loading: PropTypes.bool,
     onChange: PropTypes.func,
     onSelect: PropTypes.func
   }
 
   static defaultProps = {
+    prefix: 'cat',
     disabled: false,
     allowClear: false,
     autoFocus: false,
-    showLoading: false,
+    loading: false,
     placeholder: '',
-    dataList: []
+    dataSource: []
   }
 
   constructor (props) {
     super(props)
     this.state = {
       value: props.value || '',
-      visible: true
+      visible: false
     }
   }
 
-  onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  static getDerivedStateFromProps(nextProps: ISearchProps) {
+    if ('value' in nextProps) {
+      return {
+        value: nextProps.value
+      }
+    }
+    return null
+  }
+
+  handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { onChange } = this.props
+    const value = e.target.value
+
+    if (!('value' in this.props)) {
+      this.setState({
+        value
+      })
+    }
+    
     onChange && onChange(e.target.value)
   }
 
-  onSelect = ({id, title}) => {
-    const { onSelect } = this.props
-    onSelect && onSelect({type: 'byOption', id, value: title})
+  hanldeKeyDown = e => {
+    const { onSearch } = this.props
+    e.persist()
+
+    setTimeout(() => {
+      if (keycode(e) === 'enter') {
+        onSearch && onSearch(this.state.value)
+      }
+    }, 0)
   }
 
-
   handleSelect = (value) => {
-    console.log('Search:handleSelect', value)
+    const { onSelect } = this.props
+
+    if (!('value' in this.props)) {
+      this.setState({
+        value
+      })
+    }
+
+    this.setState({
+      visible: false
+    })
+
+    onSelect && onSelect(value)
   }
 
   handlePopoverChange = (visible) => {
@@ -118,56 +159,47 @@ class Search extends React.Component<ISearchProps, any> {
     })
   }
 
-  renderSelection = (visible: boolean) => {
-    console.log('visible', visible)
-    const { openSelectMenu } = this.state
-
-    if (!visible) {
-      return null
-    }
+  renderSelection = () => {
+    const { dataSource } = this.props
+    const { visible } = this.state
+    let options = dataSource || []
 
     return (
       <Selection
-        value='选项 2'
+        visible={visible}
         onSelect={this.handleSelect}
       >
-        <Option className='qwer' value='选项 1'>
-          <input type="text"/>
-        </Option>
-        <Option value='选项 2' />
-        <Option value='选项 3' />
-        <Option value='选项 4' />
-        <Option value='选项 5' />
+        {options.map(item => (
+          <Option key={item} value={item} />
+        ))}
       </Selection>
     )
   }
 
   render () {
-    // const { id, theme, className = '', value, placeholder, search, allowClear, disabled, autoFocus,
-    //   dataSource = [], showLoading, children, focus = false, max, distance, useTransparent } = this.props
-    const { theme, className = '', value, placeholder, disabled, autoFocus, showLoading, showClear } = this.props
-    // const showSelect = dataSource.length > 0 || showLoading
-    const { visible } = this.state
-    const classes = classNames('search-wrap', {
-      [theme]: focus || value
-    })
+    const { prefix, className = '', placeholder, disabled, autoFocus, loading } = this.props
+    const { value, visible } = this.state
+    const classes = classNames(`${prefix}-search-wrap`, className)
 
     return (
       <div className={classes}>
         <Popover
           mode='click'
-          {...positionNameConvert('bottomLeft')}
           visible={visible}
+          {...positionNameConvert('bottomLeft')}
           onChange={this.handlePopoverChange}
         >
           <Popover.Trigger>
             <Input
-              className={className}
+              className='search-input'
+              type='box'
+              placeholderOrigin
               placeholder={placeholder}
               autoFocus={autoFocus}
               disabled={disabled}
               value={value}
-              onChange={this.onInputChange}
+              onChange={this.handleInputChange}
+              onKeyDown={this.hanldeKeyDown}
             />
           </Popover.Trigger>
           <Popover.Content>

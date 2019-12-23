@@ -3,6 +3,7 @@ import * as PropTypes from 'prop-types'
 import keycode from 'keycode'
 import { PureComponent, cloneElement } from 'react'
 import classNames from 'classnames'
+import '../../styles/Selection.scss'
 
 export interface ISelectionProps {
   /**
@@ -184,6 +185,11 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
   selectCurrentFocusIndex = () => {
     const { onSelect, children } = this.props
     const { focusIndex } = this.state
+
+    if (!children[focusIndex]) {
+      return
+    }
+
     let value = children[focusIndex].props.value
     let disabled = children[focusIndex].props.disabled
 
@@ -228,8 +234,10 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
 
   render () {
     const { prefix, style, className, children } = this.props
-    const { focusIndex, selectedIndex } = this.state
-    const classes = classNames(`${prefix}-selection-wrap`, className);
+    const { visible, focusIndex, selectedIndex } = this.state
+    const classes = classNames(`${prefix}-selection-wrap`, {
+      'visible': visible,
+    }, className);
 
     this.childrenLength = 0
     const Options = React.Children.map(children, (Option: React.ReactElement, index) => {
@@ -240,7 +248,6 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
       this.childrenLength++
 
       return cloneElement(Option, {
-        key: Option.props.key || index,
         className: classNames(Option.props.className, {
           'disabled': Option.props.disabled,
           'focus': index === focusIndex,

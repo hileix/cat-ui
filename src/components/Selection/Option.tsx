@@ -2,6 +2,7 @@ import * as React from 'react'
 import * as PropTypes from 'prop-types';
 import { PureComponent } from 'react'
 import classNames from 'classnames'
+import '../../styles/Option.scss'
 
 interface IOptionInfo {
   /**

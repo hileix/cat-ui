@@ -1,0 +1,9 @@
+.cat-selection-wrap {
+  display: none;
+  width: 189px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  
+  &.visible {
+    display: block;
+  }
+}
