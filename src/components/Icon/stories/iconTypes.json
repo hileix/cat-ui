@@ -50,5 +50,11 @@
   "success",
   "warning",
   "copy",
-  "camera"
+  "camera",
+  "analytics",
+  "income",
+  "dashboard",
+  "merchandise",
+  "episode",
+  "setting"
 ]
