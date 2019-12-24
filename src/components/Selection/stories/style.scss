@@ -1,0 +1,13 @@
+.wrap {
+  position: relative;
+  width: 100%;
+  border-radius: 4px;
+  
+  &.discover-search {
+    display: inline-block;
+  }
+
+  .result {
+    width: 660px
+  }
+}
