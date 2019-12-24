@@ -4,6 +4,7 @@ import Search from '../Search';
 import { ISearchProps } from '../Search' 
 import markdown from '../README.md';
 import '../../../styles/index.scss';
+import '../../../styles/search.scss';
 
 class Demo extends React.Component<ISearchProps, any> {
   constructor(props) {

@@ -9,7 +9,7 @@ describe('Selection', () => {
   test('renders correctly', () => {
     const wrapper = mount(
       <Selection
-        open
+        visible
         value='选项 2'
         onSelect={this.handleSelect}
       >
@@ -18,6 +18,7 @@ describe('Selection', () => {
         <Option value='选项 3' />
         <Option value='选项 4' />
         <Option value='选项 5' />
+        <Option />
       </Selection>
     );
     expect(wrapper).toMatchSnapshot();

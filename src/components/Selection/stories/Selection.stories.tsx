@@ -5,6 +5,8 @@ import Option from '../Option';
 import markdown from '../README.md';
 import '../../../styles/index.scss';
 import './style.scss';
+import '../../../styles/selection.scss'
+import '../../../styles/option.scss'
 
 storiesOf('Selection 选择面板', module)
 .add(

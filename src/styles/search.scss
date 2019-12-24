@@ -1,9 +1,8 @@
-.search-wrap {
-  position: relative;
-  width: 100%;
-  border-radius: 4px;
-
-  .result {
-    width: 660px
+.cat-search-wrap {
+  display: inline-block;
+  .search-input {
+    width: 189px;
+    padding: 6px 10px;
+    font-size: 16px;
   }
 }

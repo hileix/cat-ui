@@ -3,7 +3,6 @@ import * as PropTypes from 'prop-types'
 import keycode from 'keycode'
 import { PureComponent, cloneElement } from 'react'
 import classNames from 'classnames'
-import '../../styles/Selection.scss'
 
 export interface ISelectionProps {
   /**
@@ -241,7 +240,7 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
 
     this.childrenLength = 0
     const Options = React.Children.map(children, (Option: React.ReactElement, index) => {
-      if (!Option) {
+      if (!('value' in Option.props)) {
         return null
       }
 

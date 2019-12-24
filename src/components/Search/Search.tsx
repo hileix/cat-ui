@@ -7,7 +7,6 @@ import Selection from '../Selection'
 import Option from '../Selection/Option'
 import Popover from '../Popover'
 import { positionNameConvert } from '../Popover/utils'
-import './style/Search.scss'
 
 export interface ISearchProps {
   /**
