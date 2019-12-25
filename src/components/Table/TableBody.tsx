@@ -28,7 +28,7 @@ export interface TableBodyProps {
   /**  */
   onDragEnd?: any;
   /** 返回排序后的id列表 */
-  onSort?: (sortedIds?: Array<any>, activeId?: any) => {};
+  onSort?: (sortedIds?: Array<any>, activeId?: any) => void;
 }
 
 /**
@@ -162,8 +162,8 @@ class TableBody extends Component<TableBodyProps, any> {
         {currentPageData.length === 0 ? (
           <Empty colSpan={colSpan} empty={empty} emptyText={emptyText} />
         ) : (
-          trs
-        )}
+            trs
+          )}
       </tbody>
     );
   }
