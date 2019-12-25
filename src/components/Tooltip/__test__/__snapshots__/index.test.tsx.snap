@@ -20,7 +20,9 @@ exports[`Tooltip renders correctly 1`] = `
     ]
   }
 >
-  <PopoverTrigger>
+  <PopoverTrigger
+    disabled={false}
+  >
     <span>
       trigger
     </span>
@@ -65,7 +67,9 @@ exports[`Tooltip renders correctly 2`] = `
     ]
   }
 >
-  <PopoverTrigger>
+  <PopoverTrigger
+    disabled={false}
+  >
     <span>
       trigger
     </span>
@@ -110,7 +114,9 @@ exports[`Tooltip renders correctly 3`] = `
     ]
   }
 >
-  <PopoverTrigger>
+  <PopoverTrigger
+    disabled={false}
+  >
     <span>
       trigger
     </span>
@@ -155,7 +161,9 @@ exports[`Tooltip renders correctly 4`] = `
     ]
   }
 >
-  <PopoverTrigger>
+  <PopoverTrigger
+    disabled={false}
+  >
     <span>
       trigger
     </span>
@@ -200,7 +208,9 @@ exports[`Tooltip renders correctly 5`] = `
     ]
   }
 >
-  <PopoverTrigger>
+  <PopoverTrigger
+    disabled={false}
+  >
     <span>
       trigger
     </span>
@@ -245,7 +255,9 @@ exports[`Tooltip renders correctly 6`] = `
     ]
   }
 >
-  <PopoverTrigger>
+  <PopoverTrigger
+    disabled={false}
+  >
     <span>
       trigger
     </span>
@@ -290,7 +302,9 @@ exports[`Tooltip renders correctly 7`] = `
     ]
   }
 >
-  <PopoverTrigger>
+  <PopoverTrigger
+    disabled={false}
+  >
     <span>
       trigger
     </span>
@@ -335,7 +349,9 @@ exports[`Tooltip renders correctly 8`] = `
     ]
   }
 >
-  <PopoverTrigger>
+  <PopoverTrigger
+    disabled={false}
+  >
     <span>
       trigger
     </span>
@@ -380,7 +396,9 @@ exports[`Tooltip renders correctly 9`] = `
     ]
   }
 >
-  <PopoverTrigger>
+  <PopoverTrigger
+    disabled={false}
+  >
     <span>
       trigger
     </span>
@@ -425,7 +443,9 @@ exports[`Tooltip renders correctly 10`] = `
     ]
   }
 >
-  <PopoverTrigger>
+  <PopoverTrigger
+    disabled={false}
+  >
     <span>
       trigger
     </span>
@@ -470,7 +490,9 @@ exports[`Tooltip renders correctly 11`] = `
     ]
   }
 >
-  <PopoverTrigger>
+  <PopoverTrigger
+    disabled={false}
+  >
     <span>
       trigger
     </span>
@@ -515,7 +537,9 @@ exports[`Tooltip renders correctly 12`] = `
     ]
   }
 >
-  <PopoverTrigger>
+  <PopoverTrigger
+    disabled={false}
+  >
     <span>
       trigger
     </span>

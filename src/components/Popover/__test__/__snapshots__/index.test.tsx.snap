@@ -21,6 +21,7 @@ exports[`Popover renders correctly 1`] = `
   }
 >
   <PopoverTrigger
+    disabled={false}
     key=".0"
     mode="click"
     toggleVisible={[Function]}

@@ -224,6 +224,7 @@ exports[`Select renders correctly 1`] = `
       }
     >
       <PopoverTrigger
+        disabled={false}
         key=".0"
         mode="click"
         toggleVisible={[Function]}
@@ -528,6 +529,7 @@ exports[`Select value 1`] = `
         }
       >
         <PopoverTrigger
+          disabled={false}
           key=".0"
           mode="click"
           toggleVisible={[Function]}
