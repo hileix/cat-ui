@@ -10,6 +10,10 @@ export interface PopoverTriggerProps {
    */
   visible?: boolean;
   /**
+   * 禁用触发器
+   */
+  disabled?: boolean;
+  /**
    * 触发类型
    */
   mode?: ModeType;
@@ -39,6 +43,10 @@ class PopoverTrigger extends Component<PopoverTriggerProps> {
   static defaultProps = {};
 
   open = (e: React.MouseEvent) => {
+    if (this.props.disabled) {
+      return
+    }
+
     e.stopPropagation();
     this.props.toggleVisible(true);
   };

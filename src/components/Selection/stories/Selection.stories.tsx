@@ -29,7 +29,7 @@ storiesOf('Selection 选择面板', module)
           <input placeholder='输入一个选项' type="text"/>
         </Option>
         <Option value='选项 5'>
-          <div>show-list-item</div>
+          <div id='show-list-item'>show-list-item</div>
         </Option>
         <Option value='选项 6'>
           <div>episode-list-item</div>

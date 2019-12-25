@@ -17,3 +17,4 @@ export { default as Input } from './Input';
 export { default as Tooltip } from './Tooltip';
 export { default as Table } from './Table';
 export { default as Search } from './Search';
+export { default as Select } from './Select';
