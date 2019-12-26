@@ -1,3 +1,10 @@
+## Release v2.15.0
+- ✨ (Select) 新增 Select 组件
+
+## Release v2.14.0
+- ✨ (Selection) 新增 Selection 组件
+- ✨ (Search) 新增 Search 组件
+
 ## Release v2.12.0
 - ✨ (Table) 添加 Table 组件
 
