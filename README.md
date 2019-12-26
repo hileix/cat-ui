@@ -22,6 +22,10 @@
 - [x] Drawer
 - [x] notification
 
+## 更新日志
+
+[更新日志](./changelog.md)
+
 ## 安装
 
 ```shell
