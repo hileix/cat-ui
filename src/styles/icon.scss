@@ -1,12 +1,12 @@
 
     // 该文件有模板生成，不要手动修改文件，具体查看scipts/updateIcon/processCss
     @font-face {font-family: "cat-iconfont";
-  src: url('https://at.alicdn.com/t/font_1236545_0bwja652q23.eot?t=1573459811482'); /* IE9 */
-  src: url('https://at.alicdn.com/t/font_1236545_0bwja652q23.eot?t=1573459811482#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  src: url('https://at.alicdn.com/t/font_1236545_352efheunqy.eot?t=1577157251963'); /* IE9 */
+  src: url('https://at.alicdn.com/t/font_1236545_352efheunqy.eot?t=1577157251963#iefix') format('embedded-opentype'), /* IE6-IE8 */
   
-  url('https://at.alicdn.com/t/font_1236545_0bwja652q23.woff?t=1573459811482') format('woff'),
-  url('https://at.alicdn.com/t/font_1236545_0bwja652q23.ttf?t=1573459811482') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-  url('https://at.alicdn.com/t/font_1236545_0bwja652q23.svg?t=1573459811482#iconfont') format('svg'); /* iOS 4.1- */
+  url('https://at.alicdn.com/t/font_1236545_352efheunqy.woff?t=1577157251963') format('woff'),
+  url('https://at.alicdn.com/t/font_1236545_352efheunqy.ttf?t=1577157251963') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('https://at.alicdn.com/t/font_1236545_352efheunqy.svg?t=1577157251963#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 .cat-icon {
@@ -223,6 +223,30 @@
 
 .cat-icon-camera:before {
   content: "\e67b";
+}
+
+.cat-icon-analytics:before {
+  content: "\e67c";
+}
+
+.cat-icon-income:before {
+  content: "\e67d";
+}
+
+.cat-icon-dashboard:before {
+  content: "\e67e";
+}
+
+.cat-icon-merchandise:before {
+  content: "\e67f";
+}
+
+.cat-icon-episode:before {
+  content: "\e680";
+}
+
+.cat-icon-setting:before {
+  content: "\e681";
 }
 
 

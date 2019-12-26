@@ -17,7 +17,10 @@ const existComponents = [
   'Tooltip',
   'Popover',
   'PurePortal',
-  'Modal'
+  'Modal',
+  'Selection',
+  'Search',
+  'Select'
 ];
 
 function getTestMatch() {

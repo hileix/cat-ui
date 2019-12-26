@@ -1758,10 +1758,10 @@
     "@types/istanbul-lib-coverage" "*"
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@^24.0.23":
-  version "24.0.23"
-  resolved "https://registry.npmjs.org/@types/jest/-/jest-24.0.23.tgz#046f8e2ade026fe831623e361a36b6fb9a4463e4"
-  integrity sha512-L7MBvwfNpe7yVPTXLn32df/EK+AMBFAFvZrRuArGs7npEWnlziUXK+5GMIUTI4NIuwok3XibsjXCs5HxviYXjg==
+"@types/jest@^24.0.24":
+  version "24.0.24"
+  resolved "https://registry.npm.taobao.org/@types/jest/download/@types/jest-24.0.24.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fjest%2Fdownload%2F%40types%2Fjest-24.0.24.tgz#0f2f523dc77cc1bc6bef34eaf287ede887a73f05"
+  integrity sha1-Dy9SPcd8wbxr7zTq8oft6IenPwU=
   dependencies:
     jest-diff "^24.3.0"
 
@@ -6909,6 +6909,11 @@ just-extend@^4.0.2:
   resolved "https://registry.npm.taobao.org/just-extend/download/just-extend-4.0.2.tgz#f3f47f7dfca0f989c55410a7ebc8854b07108afc"
   integrity sha1-8/R/ffyg+YnFVBCn68iFSwcQivw=
 
+keycode@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.npm.taobao.org/keycode/download/keycode-2.2.0.tgz#3d0af56dc7b8b8e5cba8d0a97f107204eec22b04"
+  integrity sha1-PQr1bce4uOXLqNCpfxByBO7CKwQ=
+
 keyv@3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/keyv/-/keyv-3.0.0.tgz#44923ba39e68b12a7cec7df6c3268c031f2ef373"
@@ -9941,7 +9946,7 @@ simplebar@^4.2.3:
 
 sinon@^7.5.0:
   version "7.5.0"
-  resolved "https://registry.npm.taobao.org/sinon/download/sinon-7.5.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fsinon%2Fdownload%2Fsinon-7.5.0.tgz#e9488ea466070ea908fd44a3d6478fd4923c67ec"
+  resolved "https://registry.npm.taobao.org/sinon/download/sinon-7.5.0.tgz#e9488ea466070ea908fd44a3d6478fd4923c67ec"
   integrity sha1-6UiOpGYHDqkI/USj1keP1JI8Z+w=
   dependencies:
     "@sinonjs/commons" "^1.4.0"

@@ -140,8 +140,14 @@ class Popover extends Component<PopoverProps, PopoverState> {
 
   toggleVisible = (visible: boolean) => {
     const { onChange } = this.props;
-    this.setState({ visible });
-    onChange(visible);
+    const { visible: prevVisible } = this.state
+
+    if (visible !== prevVisible) {
+      this.setState({
+        visible
+      });
+      onChange(visible);
+    }
   };
 
   removePopover = () => {

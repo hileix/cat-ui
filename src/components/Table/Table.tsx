@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Component } from 'react';
 import classNames from 'classnames';
 import isEmpty from 'lodash/isEmpty';
@@ -36,11 +36,11 @@ export interface TableProps {
   /**  */
   onDragEnd?: any;
   /** 筛选栏的回调函数 */
-  onFilterChange?: (id?: any, key?: any) => {};
+  onFilterChange?: (id?: any, key?: any) => void;
   /** 翻页的回调函数 */
-  onPageChange?: (page?: number) => {};
+  onPageChange?: (page?: number) => void;
   /** 返回排序后的id列表 */
-  onSort?: (sortedIds?: Array<any>, activeId?: any) => {};
+  onSort?: (sortedIds?: Array<any>, activeId?: any) => void;
 }
 
 /**

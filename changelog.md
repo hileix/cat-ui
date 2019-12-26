@@ -1,3 +1,16 @@
+## Release v2.15.0
+- ✨ (Select) 新增 Select 组件
+
+## Release v2.14.0
+- ✨ (Selection) 新增 Selection 组件
+- ✨ (Search) 新增 Search 组件
+
+## Release v2.12.0
+- ✨ (Table) 添加 Table 组件
+
+## Release v2.11.3
+- ♻️ (Grid) 修改 Grid 中 Row 和 Col 的导出方式
+
 ## Release v2.11.2
 - 🐛 (Tooltip) 修复 Tooltip 组件样式不全的 bug
 

@@ -1,0 +1,333 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Option option disabled 1`] = `
+<Selection
+  className="as"
+  defaultValue="选项 1"
+  prefix="cat"
+  visible={false}
+>
+  <div
+    className="cat-selection-wrap as"
+    onKeyDown={[Function]}
+  >
+    <Option
+      className="disabled focus selected"
+      disabled={true}
+      index={0}
+      key=".0"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      prefix="cat"
+      value="选项 1"
+    >
+      <div
+        className="cat-select-option disabled focus selected"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        选项 1
+      </div>
+    </Option>
+    <Option
+      className=""
+      index={1}
+      key=".1"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      prefix="cat"
+      value="选项 2"
+    >
+      <div
+        className="cat-select-option"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        选项 2
+      </div>
+    </Option>
+    <Option
+      className=""
+      index={2}
+      key=".2"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      prefix="cat"
+      value="选项 3"
+    >
+      <div
+        className="cat-select-option"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        选项 3
+      </div>
+    </Option>
+  </div>
+</Selection>
+`;
+
+exports[`Option option mouse event 1`] = `
+<Selection
+  className="as"
+  defaultValue="选项 1"
+  prefix="cat"
+  visible={true}
+>
+  <div
+    className="cat-selection-wrap visible as"
+    onKeyDown={[Function]}
+  >
+    <Option
+      className="my-option selected"
+      index={0}
+      key=".0"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      prefix="cat"
+      value="选项 1"
+    >
+      <div
+        className="cat-select-option my-option selected"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <span
+          id="span"
+        >
+          123
+        </span>
+      </div>
+    </Option>
+    <Option
+      className=""
+      index={1}
+      key=".1"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      prefix="cat"
+      value="选项 2"
+    >
+      <div
+        className="cat-select-option"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        选项 2
+      </div>
+    </Option>
+    <Option
+      className=""
+      index={2}
+      key=".2"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      prefix="cat"
+      value="选项 3"
+    >
+      <div
+        className="cat-select-option"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        选项 3
+      </div>
+    </Option>
+  </div>
+</Selection>
+`;
+
+exports[`Selection keyboard event 1`] = `
+<Selection
+  className="my-selection"
+  defaultValue="选项 1"
+  prefix="cat"
+  value="选项 2"
+  visible={true}
+>
+  <div
+    className="cat-selection-wrap visible my-selection"
+    onKeyDown={[Function]}
+  >
+    <Option
+      className="option-1 selected"
+      index={0}
+      key=".0"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      prefix="cat"
+      value="选项 1"
+    >
+      <div
+        className="cat-select-option option-1 selected"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        选项 1
+      </div>
+    </Option>
+    <Option
+      className="option-2 disabled"
+      disabled={true}
+      index={1}
+      key=".1"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      prefix="cat"
+      value="选项 2"
+    >
+      <div
+        className="cat-select-option option-2 disabled"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        选项 2
+      </div>
+    </Option>
+    <Option
+      className="option-3 focus"
+      index={2}
+      key=".2"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      prefix="cat"
+      value="选项 3"
+    >
+      <div
+        className="cat-select-option option-3 focus"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        选项 3
+      </div>
+    </Option>
+  </div>
+</Selection>
+`;
+
+exports[`Selection renders correctly 1`] = `
+<Selection
+  prefix="cat"
+  value="选项 2"
+  visible={true}
+>
+  <div
+    className="cat-selection-wrap visible"
+    onKeyDown={[Function]}
+  >
+    <Option
+      className="option1"
+      index={0}
+      key=".0"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      prefix="cat"
+      value="选项 1"
+    >
+      <div
+        className="cat-select-option option1"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        选项 1
+      </div>
+    </Option>
+    <Option
+      className="focus selected"
+      index={1}
+      key=".1"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      prefix="cat"
+      value="选项 2"
+    >
+      <div
+        className="cat-select-option focus selected"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        选项 2
+      </div>
+    </Option>
+    <Option
+      className=""
+      index={2}
+      key=".2"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      prefix="cat"
+      value="选项 3"
+    >
+      <div
+        className="cat-select-option"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        选项 3
+      </div>
+    </Option>
+    <Option
+      className=""
+      index={3}
+      key=".3"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      prefix="cat"
+      value="选项 4"
+    >
+      <div
+        className="cat-select-option"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        选项 4
+      </div>
+    </Option>
+    <Option
+      className=""
+      index={4}
+      key=".4"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      prefix="cat"
+      value="选项 5"
+    >
+      <div
+        className="cat-select-option"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        选项 5
+      </div>
+    </Option>
+  </div>
+</Selection>
+`;

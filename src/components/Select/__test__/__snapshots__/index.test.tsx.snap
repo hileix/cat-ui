@@ -1,84 +1,795 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Select disabled 1`] = `
+<Select
+  disabled={true}
+  prefix="cat"
+>
+  <div
+    className="cat-select-wrap"
+  >
+    <Popover
+      contentPosition={
+        Array [
+          "left",
+          "top",
+        ]
+      }
+      mode="click"
+      offsetX={0}
+      offsetY={0}
+      onChange={[Function]}
+      selector="body"
+      triggerPosition={
+        Array [
+          "left",
+          "bottom",
+        ]
+      }
+    >
+      <PopoverTrigger
+        disabled={true}
+        key=".0"
+        mode="click"
+        toggleVisible={[Function]}
+      >
+        <span
+          className="selected-section disabled"
+          onClick={[Function]}
+        >
+          <i
+            className="select-arrow"
+          >
+            <svg
+              aria-hidden="true"
+              className=""
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </i>
+        </span>
+      </PopoverTrigger>
+      <PopoverContent
+        contentPosition={
+          Array [
+            "left",
+            "top",
+          ]
+        }
+        key=".1"
+        mode="click"
+        offsetX={0}
+        offsetY={0}
+        selector="body"
+        toggleVisible={[Function]}
+        triggerDOM={
+          <span
+            class="selected-section disabled"
+          >
+            
+            <i
+              class="select-arrow"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="down"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                />
+              </svg>
+            </i>
+          </span>
+        }
+        triggerPosition={
+          Array [
+            "left",
+            "bottom",
+          ]
+        }
+        visible={false}
+      >
+        <PurePortal
+          selector="body"
+        >
+          <Portal
+            containerInfo={
+              <body>
+                <div
+                  class="cat-popover__content"
+                  style="position: absolute; top: 0px; left: 0px;"
+                >
+                  <div
+                    class="cat-selection-wrap cat-select-selection visible-exit visible-exit-active"
+                  >
+                    <div
+                      class="cat-select-option"
+                    >
+                      Option 1
+                    </div>
+                    <div
+                      class="cat-select-option"
+                    >
+                      Option 2
+                    </div>
+                    <div
+                      class="cat-select-option"
+                    >
+                      Option 3
+                    </div>
+                    <div
+                      class="cat-select-option option-4 selected"
+                    >
+                      Option 4
+                    </div>
+                    <div
+                      class="cat-select-option"
+                    >
+                      Option 5
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="cat-popover__content"
+                  style="position: absolute; top: 0px; left: 0px;"
+                />
+              </body>
+            }
+          >
+            <div
+              className="cat-popover__content"
+              onClick={[Function]}
+              style={
+                Object {
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 0,
+                }
+              }
+            >
+              <CSSTransition
+                appear={true}
+                classNames="visible"
+                in={false}
+                mountOnEnter={true}
+                timeout={300}
+                unmountOnExit={true}
+              >
+                <Transition
+                  appear={true}
+                  enter={true}
+                  exit={true}
+                  in={false}
+                  mountOnEnter={true}
+                  onEnter={[Function]}
+                  onEntered={[Function]}
+                  onEntering={[Function]}
+                  onExit={[Function]}
+                  onExited={[Function]}
+                  onExiting={[Function]}
+                  timeout={300}
+                  unmountOnExit={true}
+                />
+              </CSSTransition>
+            </div>
+          </Portal>
+        </PurePortal>
+      </PopoverContent>
+    </Popover>
+  </div>
+</Select>
+`;
+
 exports[`Select renders correctly 1`] = `
-initialize {
-  "0": Object {
-    "attribs": Object {
-      "class": "cat-popover",
-    },
-    "children": Array [
-      Object {
-        "attribs": Object {
-          "class": "cat-popover__trigger",
-        },
-        "children": Array [
-          Object {
-            "attribs": Object {
-              "class": "cat-select cat-select--placeholder",
-            },
-            "children": Array [],
-            "name": "div",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": null,
-            "parent": [Circular],
-            "prev": null,
-            "type": "tag",
-            "x-attribsNamespace": Object {
-              "class": undefined,
-            },
-            "x-attribsPrefix": Object {
-              "class": undefined,
-            },
-          },
-        ],
-        "name": "div",
-        "namespace": "http://www.w3.org/1999/xhtml",
-        "next": null,
-        "parent": [Circular],
-        "prev": null,
-        "type": "tag",
-        "x-attribsNamespace": Object {
-          "class": undefined,
-        },
-        "x-attribsPrefix": Object {
-          "class": undefined,
-        },
-      },
-    ],
-    "name": "div",
-    "namespace": "http://www.w3.org/1999/xhtml",
-    "next": null,
-    "parent": null,
-    "prev": null,
-    "root": Object {
-      "attribs": Object {},
-      "children": Array [
-        [Circular],
-      ],
-      "name": "root",
-      "namespace": "http://www.w3.org/1999/xhtml",
-      "next": null,
-      "parent": null,
-      "prev": null,
-      "type": "root",
-      "x-attribsNamespace": Object {},
-      "x-attribsPrefix": Object {},
-    },
-    "type": "tag",
-    "x-attribsNamespace": Object {
-      "class": undefined,
-    },
-    "x-attribsPrefix": Object {
-      "class": undefined,
-    },
-  },
-  "_root": [Circular],
-  "length": 1,
-  "options": Object {
-    "decodeEntities": true,
-    "normalizeWhitespace": false,
-    "withDomLvl1": true,
-    "xml": false,
-  },
-}
+<Select
+  className="select-1"
+  onChange={[Function]}
+  onSelect={[Function]}
+  prefix="cat"
+>
+  <div
+    className="cat-select-wrap select-1"
+  >
+    <Popover
+      contentPosition={
+        Array [
+          "left",
+          "top",
+        ]
+      }
+      mode="click"
+      offsetX={0}
+      offsetY={0}
+      onChange={[Function]}
+      selector="body"
+      triggerPosition={
+        Array [
+          "left",
+          "bottom",
+        ]
+      }
+    >
+      <PopoverTrigger
+        disabled={false}
+        key=".0"
+        mode="click"
+        toggleVisible={[Function]}
+      >
+        <span
+          className="selected-section"
+          onClick={[Function]}
+          tabIndex={0}
+        >
+          Option 4
+          <i
+            className="select-arrow"
+          >
+            <svg
+              aria-hidden="true"
+              className=""
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </i>
+        </span>
+      </PopoverTrigger>
+      <PopoverContent
+        contentPosition={
+          Array [
+            "left",
+            "top",
+          ]
+        }
+        key=".1"
+        mode="click"
+        offsetX={0}
+        offsetY={0}
+        selector="body"
+        toggleVisible={[Function]}
+        triggerDOM={
+          <span
+            class="selected-section"
+            tabindex="0"
+          >
+            Option 4
+            <i
+              class="select-arrow"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="down"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                />
+              </svg>
+            </i>
+          </span>
+        }
+        triggerPosition={
+          Array [
+            "left",
+            "bottom",
+          ]
+        }
+        visible={true}
+      >
+        <PurePortal
+          selector="body"
+        >
+          <Portal
+            containerInfo={
+              <body>
+                <div
+                  class="cat-popover__content"
+                  style="position: absolute; top: 0px; left: 0px;"
+                >
+                  <div
+                    class="cat-selection-wrap cat-select-selection visible-exit visible-exit-active"
+                  >
+                    <div
+                      class="cat-select-option"
+                    >
+                      Option 1
+                    </div>
+                    <div
+                      class="cat-select-option"
+                    >
+                      Option 2
+                    </div>
+                    <div
+                      class="cat-select-option"
+                    >
+                      Option 3
+                    </div>
+                    <div
+                      class="cat-select-option option-4 selected"
+                    >
+                      Option 4
+                    </div>
+                    <div
+                      class="cat-select-option"
+                    >
+                      Option 5
+                    </div>
+                  </div>
+                </div>
+              </body>
+            }
+          >
+            <div
+              className="cat-popover__content"
+              onClick={[Function]}
+              style={
+                Object {
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 0,
+                }
+              }
+            >
+              <CSSTransition
+                appear={true}
+                classNames="visible"
+                in={false}
+                mountOnEnter={true}
+                timeout={300}
+                unmountOnExit={true}
+              >
+                <Transition
+                  appear={true}
+                  enter={true}
+                  exit={true}
+                  in={false}
+                  mountOnEnter={true}
+                  onEnter={[Function]}
+                  onEntered={[Function]}
+                  onEntering={[Function]}
+                  onExit={[Function]}
+                  onExited={[Function]}
+                  onExiting={[Function]}
+                  timeout={300}
+                  unmountOnExit={true}
+                >
+                  <Selection
+                    className="cat-select-selection"
+                    defaultValue=""
+                    onSelect={[Function]}
+                    prefix="cat"
+                    visible={false}
+                  >
+                    <div
+                      className="cat-selection-wrap cat-select-selection"
+                      onKeyDown={[Function]}
+                    >
+                      <Option
+                        className=""
+                        index={0}
+                        key=".0"
+                        onClick={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        prefix="cat"
+                        value="Option 1"
+                      >
+                        <div
+                          className="cat-select-option"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                        >
+                          Option 1
+                        </div>
+                      </Option>
+                      <Option
+                        className=""
+                        index={1}
+                        key=".1"
+                        onClick={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        prefix="cat"
+                        value="Option 2"
+                      >
+                        <div
+                          className="cat-select-option"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                        >
+                          Option 2
+                        </div>
+                      </Option>
+                      <Option
+                        className=""
+                        index={2}
+                        key=".2"
+                        onClick={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        prefix="cat"
+                        value="Option 3"
+                      >
+                        <div
+                          className="cat-select-option"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                        >
+                          Option 3
+                        </div>
+                      </Option>
+                      <Option
+                        className="option-4 selected"
+                        index={3}
+                        key=".3"
+                        onClick={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        prefix="cat"
+                        value="Option 4"
+                      >
+                        <div
+                          className="cat-select-option option-4 selected"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                        >
+                          Option 4
+                        </div>
+                      </Option>
+                      <Option
+                        className=""
+                        index={4}
+                        key=".4"
+                        onClick={[Function]}
+                        onMouseEnter={[Function]}
+                        onMouseLeave={[Function]}
+                        prefix="cat"
+                        value="Option 5"
+                      >
+                        <div
+                          className="cat-select-option"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                        >
+                          Option 5
+                        </div>
+                      </Option>
+                    </div>
+                  </Selection>
+                </Transition>
+              </CSSTransition>
+            </div>
+          </Portal>
+        </PurePortal>
+      </PopoverContent>
+    </Popover>
+  </div>
+</Select>
+`;
+
+exports[`Select value 1`] = `
+<Demo>
+  <Select
+    onChange={[Function]}
+    onSelect={[Function]}
+    prefix="cat"
+    value="Option 2"
+  >
+    <div
+      className="cat-select-wrap"
+    >
+      <Popover
+        contentPosition={
+          Array [
+            "left",
+            "top",
+          ]
+        }
+        mode="click"
+        offsetX={0}
+        offsetY={0}
+        onChange={[Function]}
+        selector="body"
+        triggerPosition={
+          Array [
+            "left",
+            "bottom",
+          ]
+        }
+      >
+        <PopoverTrigger
+          disabled={false}
+          key=".0"
+          mode="click"
+          toggleVisible={[Function]}
+        >
+          <span
+            className="selected-section"
+            onClick={[Function]}
+            tabIndex={0}
+          >
+            Option 2
+            <i
+              className="select-arrow"
+            >
+              <svg
+                aria-hidden="true"
+                className=""
+                data-icon="down"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                />
+              </svg>
+            </i>
+          </span>
+        </PopoverTrigger>
+        <PopoverContent
+          contentPosition={
+            Array [
+              "left",
+              "top",
+            ]
+          }
+          key=".1"
+          mode="click"
+          offsetX={0}
+          offsetY={0}
+          selector="body"
+          toggleVisible={[Function]}
+          triggerDOM={
+            <span
+              class="selected-section"
+              tabindex="0"
+            >
+              Option 2
+              <i
+                class="select-arrow"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                  />
+                </svg>
+              </i>
+            </span>
+          }
+          triggerPosition={
+            Array [
+              "left",
+              "bottom",
+            ]
+          }
+          visible={true}
+        >
+          <PurePortal
+            selector="body"
+          >
+            <Portal
+              containerInfo={
+                <body>
+                  <div
+                    class="cat-popover__content"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  >
+                    <div
+                      class="cat-selection-wrap cat-select-selection visible-exit visible-exit-active"
+                    >
+                      <div
+                        class="cat-select-option"
+                      >
+                        Option 1
+                      </div>
+                      <div
+                        class="cat-select-option"
+                      >
+                        Option 2
+                      </div>
+                      <div
+                        class="cat-select-option"
+                      >
+                        Option 3
+                      </div>
+                      <div
+                        class="cat-select-option option-4 selected"
+                      >
+                        Option 4
+                      </div>
+                      <div
+                        class="cat-select-option"
+                      >
+                        Option 5
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="cat-popover__content"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="cat-popover__content"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  >
+                    <div
+                      class="cat-selection-wrap cat-select-selection visible-exit visible-exit-active"
+                    >
+                      <div
+                        class="cat-select-option"
+                      >
+                        Option 1
+                      </div>
+                      <div
+                        class="cat-select-option option-2 selected"
+                      >
+                        Option 2
+                      </div>
+                      <div
+                        class="cat-select-option option-3"
+                      >
+                        Option 3
+                      </div>
+                    </div>
+                  </div>
+                </body>
+              }
+            >
+              <div
+                className="cat-popover__content"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "left": 0,
+                    "position": "absolute",
+                    "top": 0,
+                  }
+                }
+              >
+                <CSSTransition
+                  appear={true}
+                  classNames="visible"
+                  in={false}
+                  mountOnEnter={true}
+                  timeout={300}
+                  unmountOnExit={true}
+                >
+                  <Transition
+                    appear={true}
+                    enter={true}
+                    exit={true}
+                    in={false}
+                    mountOnEnter={true}
+                    onEnter={[Function]}
+                    onEntered={[Function]}
+                    onEntering={[Function]}
+                    onExit={[Function]}
+                    onExited={[Function]}
+                    onExiting={[Function]}
+                    timeout={300}
+                    unmountOnExit={true}
+                  >
+                    <Selection
+                      className="cat-select-selection"
+                      defaultValue="Option 2"
+                      onSelect={[Function]}
+                      prefix="cat"
+                      visible={false}
+                    >
+                      <div
+                        className="cat-selection-wrap cat-select-selection"
+                        onKeyDown={[Function]}
+                      >
+                        <Option
+                          className=""
+                          index={0}
+                          key=".0"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                          prefix="cat"
+                          value="Option 1"
+                        >
+                          <div
+                            className="cat-select-option"
+                            onClick={[Function]}
+                            onMouseEnter={[Function]}
+                            onMouseLeave={[Function]}
+                          >
+                            Option 1
+                          </div>
+                        </Option>
+                        <Option
+                          className="option-2 selected"
+                          index={1}
+                          key=".1"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                          prefix="cat"
+                          value="Option 2"
+                        >
+                          <div
+                            className="cat-select-option option-2 selected"
+                            onClick={[Function]}
+                            onMouseEnter={[Function]}
+                            onMouseLeave={[Function]}
+                          >
+                            Option 2
+                          </div>
+                        </Option>
+                        <Option
+                          className="option-3"
+                          index={2}
+                          key=".2"
+                          onClick={[Function]}
+                          onMouseEnter={[Function]}
+                          onMouseLeave={[Function]}
+                          prefix="cat"
+                          value="Option 3"
+                        >
+                          <div
+                            className="cat-select-option option-3"
+                            onClick={[Function]}
+                            onMouseEnter={[Function]}
+                            onMouseLeave={[Function]}
+                          >
+                            Option 3
+                          </div>
+                        </Option>
+                      </div>
+                    </Selection>
+                  </Transition>
+                </CSSTransition>
+              </div>
+            </Portal>
+          </PurePortal>
+        </PopoverContent>
+      </Popover>
+    </div>
+  </Select>
+</Demo>
 `;

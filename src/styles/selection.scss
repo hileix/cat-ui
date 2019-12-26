@@ -1,0 +1,65 @@
+@mixin selecteAnimate($hide: scaleY(0), $show: scaleY(1)) {
+  display: block;
+  opacity: 0;
+  transform-origin: 0% 0%;
+  transform: $hide;
+  transition: all .3s ease-out;
+
+  &.visible {
+    &-appear {
+      opacity: 0;
+      transform: $hide;
+      &-active {
+        opacity: 1;
+        transform: $show;
+      }
+      &-done {
+        opacity: 1;
+        transform: $show;
+      }
+    }
+
+    &-enter {
+      opacity: 0;
+      transform: $hide;
+      &-active {
+        opacity: 1;
+        transform: $show;
+      }
+      &-done {
+        opacity: 1;
+        transform: $show;
+      }
+    }
+
+    &-exit {
+      opacity: 1;
+      transform: $show;
+      &-active {
+        opacity: 0;
+        transform: $hide;
+      }
+      &-done {
+        opacity: 0;
+        transform: $hide;
+      }
+    }
+  }
+}
+
+.cat-selection-wrap {
+  display: none;
+  width: 189px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  
+  &.visible {
+    display: block;
+  }
+
+  &.cat-select-selection {
+    width: 189px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    @include selecteAnimate(scaleY(0), scaleY(1))
+  }
+}
+

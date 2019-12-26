@@ -7,22 +7,32 @@ import Popover from '../Popover';
 import Menu from '../Menu';
 import Radio from '../Radio';
 import Icon from '../Icon';
+import { CSSTransition } from 'react-transition-group';
+
 
 export interface TableHeaderProps {
-  /** 每一列需要的所有数据 */
+  /** 
+   * 每一列需要的所有数据 
+   */
   columns: Array<ColumnProps>;
-  /** 对齐 */
+  /** 
+   * 对齐 
+   */
   align?: string;
-  /** onFilterSelect */
+  /** 
+   * onFilterSelect 
+   */
   onFilterSelect?: any;
-  /** 筛选的keys */
+  /** 
+   * 筛选的 keys 
+   */
   filterKeys: FilterKeysProps;
 }
 
 /**
  * TableHeader
  */
-class TableHeader extends Component<TableHeaderProps, any> {
+class TableHeader extends Component<TableHeaderProps> {
   onFilterClick = (id: any, key: any) => {
     const { onFilterSelect } = this.props;
     onFilterSelect && onFilterSelect(id, key);
@@ -48,7 +58,7 @@ class TableHeader extends Component<TableHeaderProps, any> {
           <span className={`${prefix}-inner`}>
             {elementTitle}
             {hasFilters && (
-              <Popover mode='click'>
+              <Popover mode='hover'>
                 <Popover.Trigger>
                   <Icon
                     type='filter'
@@ -58,27 +68,36 @@ class TableHeader extends Component<TableHeaderProps, any> {
                   />
                 </Popover.Trigger>
                 <Popover.Content>
-                  {function() {
+                  {function (visible: boolean) {
                     return (
-                      <div className='pop-content-menu'>
-                        <Menu key={checkedKey} mode='pop' className='menu1'>
-                          {elem.filters.map((item: any) => {
-                            const filterChecked = item.key === checkedKey;
-                            return (
-                              <Menu.Item
-                                key={item.key}
-                                onClick={() => {
-                                  self.onFilterClick(elem.id, item.key);
-                                }}
-                              >
-                                <Radio checked={filterChecked} value={item.key}>
-                                  {item.text}
-                                </Radio>
-                              </Menu.Item>
-                            );
-                          })}
-                        </Menu>
-                      </div>
+                      <CSSTransition
+                        timeout={0}
+                        in={visible}
+                        classNames='pop-content-menu'
+                        unmountOnExit
+                        mountOnEnter
+                        appear
+                      >
+                        <div className='pop-content-menu'>
+                          <Menu key={checkedKey} mode='pop' className='menu1'>
+                            {elem.filters.map((item: any) => {
+                              const filterChecked = item.key === checkedKey;
+                              return (
+                                <Menu.Item
+                                  key={item.key}
+                                  onClick={() => {
+                                    self.onFilterClick(elem.id, item.key);
+                                  }}
+                                >
+                                  <Radio checked={filterChecked} value={item.key}>
+                                    {item.text}
+                                  </Radio>
+                                </Menu.Item>
+                              );
+                            })}
+                          </Menu>
+                        </div>
+                      </CSSTransition>
                     );
                   }}
                 </Popover.Content>
@@ -92,14 +111,14 @@ class TableHeader extends Component<TableHeaderProps, any> {
 
   render() {
     const { align } = this.props;
+
+    const prefix = 'cat-table__header';
     const trPrefix = 'cat-table__header-tr';
     const trClasses = classNames(trPrefix, `${trPrefix}--${align}`);
-    const tds = this.renderTds();
-    const prefix = 'cat-header';
 
     return (
       <thead className={classNames(prefix, `${prefix}--${align}`)}>
-        <tr className={trClasses}>{tds}</tr>
+        <tr className={trClasses}>{this.renderTds()}</tr>
       </thead>
     );
   }
