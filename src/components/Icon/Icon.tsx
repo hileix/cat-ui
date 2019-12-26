@@ -11,7 +11,7 @@ export interface IconProps {
   /** 图标类型 */
   type: string | IconType;
   /** 点击按钮时的回调 */
-  onClick?: any;
+  onClick?: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
 }
 
 /**
