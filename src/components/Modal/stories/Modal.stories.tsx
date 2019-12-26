@@ -15,7 +15,7 @@ const Demo1 = () => {
 
   const footer = (
     <div className='footer' style={{ textAlign: 'center' }}>
-      <Button type='primary' onClick={() => this.toggleDialog2(false)}>
+      <Button type='primary' onClick={() => setvisible2(false)}>
         Submit
       </Button>
     </div>
