@@ -1,133 +1,205 @@
-import * as React from 'react';
-import { Component, cloneElement } from 'react';
-import classNames from 'classnames';
-import Option from './Option';
-import Popover from '../Popover';
+import * as React from 'react'
+import * as PropTypes from 'prop-types'
+import { CSSTransition } from 'react-transition-group'
+import classNames from 'classnames'
+import Selection from '../Selection'
+import Option from '../Selection/Option'
+import Popover from '../Popover'
+import { positionNameConvert } from '../Popover/utils'
 
-export interface SelectProps {
-  /** 类名 */
+export interface ISelectProps {
+  /**
+   * 样式前缀
+   */
+  prefix?: string;
+  /**
+   * 类名
+   */
   className?: string;
-  /** 样式 */
+  /**
+   * 样式
+   */
   style?: object;
-  /** 默认提示文案 */
-  placeholder?: string;
-  /** 默认值，仅在初始化有效 */
-  defaultValue?: string | number;
-  /** 指定当前选中的条目；为空字符串时，显示placeholder */
-  value?: string | number;
-  /** 选中option时的value变化 */
-  onChange?: (value?: string | number, text?: any) => {};
+  /**
+   * 禁用搜索
+   */
+  disabled?: boolean;
+  /**
+   * 指定默认选中的项
+   */
+  defaultValue?: string;
+  /**
+   * 指定当前选中的项
+   */
+  value?: string;
+  /**
+   * 选择的项发生变化时调用
+   */
+  onChange?: (value: string) => void;
+  /**
+   * 选择一项时调用
+   */
+  onSelect?: (value: string) => void;
 }
 
-/**
- * 下拉选择
- */
-class Select extends Component<SelectProps, any> {
-  static Option: typeof Option;
-  private selectRef: any;
+export interface ISelectState {
+  /**
+   * 当前选择项的值
+   */
+  value: string;
+  /**
+   * 是否显示选项列表
+   */
+  visible: boolean
+}
 
-  constructor(props: SelectProps) {
-    super(props);
-    let value: string | number = '';
-    if ('value' in props) {
-      value = props.value;
-    } else if ('defaultValue' in props) {
-      value = props.defaultValue;
-    }
-    this.state = {
-      isPopOpen: false,
-      selectWidth: 'auto',
-      value: value
-    };
-    this.selectRef = React.createRef();
+class Select extends React.Component<ISelectProps, ISelectState> {
+  static proptypes = {
+    prefix: PropTypes.string,
+    className: PropTypes.string,
+    style: PropTypes.object,
+    disabled: PropTypes.bool,
+    defaultValue: PropTypes.string,
+    value: PropTypes.string,
+    onChange: PropTypes.func,
+    onSelect: PropTypes.func
   }
 
-  static getDerivedStateFromProps(nextProps: SelectProps) {
+  static defaultProps = {
+    prefix: 'cat'
+  }
+
+  constructor (props) {
+    super(props)
+    const { defaultValue, value } = props
+    this.state = {
+      value: defaultValue || value || '',
+      visible: false
+    }
+  }
+
+  static Option: typeof Option;
+
+  static getDerivedStateFromProps(nextProps: ISelectProps) {
     if ('value' in nextProps) {
       return {
         value: nextProps.value
-      };
-    } else {
-      return null;
+      }
     }
+    return null
   }
 
-  componentDidMount() {
-    const selectDOM = this.selectRef.current;
-    if (selectDOM) {
-      const selectRect = selectDOM.getBoundingClientRect();
-      const { width } = selectRect;
-      this.setState({ selectWidth: width + 'px' });
-    }
+  handlePopoverChange = (visible) => {
+    this.setState({
+      visible
+    })
   }
 
-  onPopoverChange = (value: boolean) => {
-    this.setState({ isPopOpen: value });
-  };
+  handleSelect = (value) => {
+    const { onSelect, onChange } = this.props
 
-  onOptionClick = (value: string | number, child: any) => {
-    const { onChange } = this.props;
-    // 是否有value值传递下来
     if (!('value' in this.props)) {
       this.setState({
-        value: value
-      });
+        value
+      })
     }
-    onChange && onChange(value, child);
-  };
 
-  render() {
-    const self = this;
-    const { isPopOpen, selectWidth, value } = this.state;
-    const { className, style, placeholder, children } = this.props;
-    let filler = placeholder;
-    const options = React.Children.map(children, (element: any, index) => {
-      if (!element) {
-        return element;
-      }
-      // 显示value值对应的文本内容
-      if (element.props && element.props.value === value) {
-        filler = element.props.children;
-      }
-      return cloneElement(element, {
-        key: index,
-        onOptionClick: self.onOptionClick
-      });
-    });
-    const isValueEmpty = value === '' || typeof value === undefined;
+    this.setState({
+      visible: false
+    })
 
-    const prefix = 'cat-select';
-    const classes = classNames(
-      prefix,
-      {
-        [`${prefix}--open`]: isPopOpen,
-        [`${prefix}--placeholder`]: isValueEmpty
-      },
-      className
-    );
+    onSelect && onSelect(value)
+
+    if (value !== this.state.value) {
+      onChange && onChange(value)
+    }
+  }
+
+  renderSelection = () => {
+    const { prefix, defaultValue, value, children } = this.props
+    const { visible } = this.state
 
     return (
-      <Popover mode='click' onChange={this.onPopoverChange}>
-        <Popover.Trigger>
-          <div ref={this.selectRef} className={classes} style={style}>
-            {filler}
-          </div>
-        </Popover.Trigger>
-        <Popover.Content>
-          {function() {
-            return (
-              <div
-                className={classNames(`${prefix}__options-wrapper`)}
-                style={{ width: selectWidth }}
-              >
-                {options}
-              </div>
-            );
-          }}
-        </Popover.Content>
-      </Popover>
-    );
+      <CSSTransition
+        timeout={300}
+        in={visible}
+        classNames='visible'
+        unmountOnExit
+        mountOnEnter
+        appear
+      >
+        <Selection
+          className={`${prefix}-select-selection`}
+          visible={visible}
+          defaultValue={defaultValue || value || ''}
+          onSelect={this.handleSelect}
+        >
+          {children}
+        </Selection>
+      </CSSTransition>
+    )
+  }
+
+  handleClick = () => {
+    const { disabled } = this.props
+
+    if (disabled) {
+      return
+    }
+
+    this.setState((prevState) => ({
+      visible: !prevState.visible
+    }))
+  }
+
+  renderArrow = () => {
+    return (
+      <i className='select-arrow'>
+        <svg viewBox="64 64 896 896" focusable="false" className="" data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+          <path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path>
+        </svg>
+      </i>
+    )
+  }
+
+  render () {
+    const { prefix, style, className = '', disabled } = this.props
+    const { value } = this.state
+    const classes = classNames(`${prefix}-select-wrap`, className)
+    let selectedStyle: React.HTMLAttributes<HTMLSpanElement> = {}
+
+    if (!disabled) {
+      selectedStyle.tabIndex = 0
+    }
+
+    return (
+      <div className={classes} style={style}>
+        <Popover
+          mode='click'
+          {...positionNameConvert('bottomLeft')}
+          onChange={this.handlePopoverChange}
+        >
+          <Popover.Trigger disabled={disabled}>
+          <span
+            className={
+              classNames('selected-section', {
+                'disabled': disabled
+              })
+            }
+            {...selectedStyle}
+            onClick={this.handleClick}
+          >
+            {value}
+            {this.renderArrow()}
+          </span>
+          </Popover.Trigger>
+          <Popover.Content>
+            {this.renderSelection}
+          </Popover.Content>
+        </Popover>
+      </div>
+    )
   }
 }
 
-export default Select;
+export default Select

@@ -1,12 +1,14 @@
-.select-box .select1 {
-  width: 316px;
-}
-.select-box .select2 {
-  width: 200px;
+.select-box {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.select-box .select2-box,
-.select-box .select3-box {
-  display: inline-block;
-  margin-left: 20px;
+.select-item {
+  .title {
+    margin-bottom: 10px;
+  }
 }
+
+

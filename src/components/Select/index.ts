@@ -1,5 +1,5 @@
 import Select from './Select'
-import Option from './Option'
+import Option from '../Selection/Option'
 
 Select.Option = Option
 
