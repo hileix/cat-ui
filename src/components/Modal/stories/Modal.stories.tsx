@@ -4,6 +4,8 @@ import { Modal } from '@components/index';
 import '../../../styles/index.scss';
 import './style.scss';
 import Button from '../../Button';
+import markdown from '../README.md';
+
 
 const { useState } = React;
 
@@ -83,4 +85,8 @@ const Demo1 = () => {
   );
 };
 
-storiesOf('Modal 模态窗', module).add('Modal', () => <Demo1 />);
+storiesOf('Modal 模态窗', module).add('Modal', () => <Demo1 />, {
+  info: {
+    text: markdown
+  }
+});
