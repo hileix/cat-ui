@@ -17,6 +17,7 @@ const existComponents = [
   'Tooltip',
   'Popover',
   'PurePortal',
+  'Modal',
   'Selection',
   'Search',
   'Select'
