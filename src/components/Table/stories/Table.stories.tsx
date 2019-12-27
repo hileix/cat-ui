@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { storiesOf, addDecorator } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
 import Table from '../index';
 import '../../../styles/index.scss';
 import './style.scss';
@@ -32,12 +32,12 @@ const Demo1 = () => {
   const columns1 = [{
     id: 'ranking',
     title: <span>ranking1111</span>,
-    render: text => <a style={{ color: 'red' }} href="javascript:;">{text}</a>
+    render: text => <a style={{ color: 'red' }}>{text}</a>
   }, {
     id: 'platforms',
     title: <span>rplatforms222</span>,
     render: (text, record) => {
-      return (<a style={{ color: 'blue' }} href="javascript:;">
+      return (<a style={{ color: 'blue' }}>
         {text}---{record.rates}
       </a>)
     }
@@ -77,12 +77,15 @@ const Demo1 = () => {
   const dataSource = [
     {
       id: 'id11',
+      key1: 'id11',
       ranking: 'ranking1',
       platforms: 'name1',
       totalListen: 'number1',
       rates: 'rate1'
     }, {
       id: 'id12',
+      key1: 'id12',
+
       draggable: false,
       ranking: 'ranking2',
       platforms: 'name2',
@@ -90,24 +93,30 @@ const Demo1 = () => {
       rates: 'rate1'
     }, {
       id: 'id13',
+      key1: 'id13',
+
       ranking: 'ranking3',
       platforms: 'name3',
       totalListen: 'number2',
       rates: 'rate2'
     }, {
       id: 'id14',
+      key1: 'id14',
       ranking: 'ranking4',
       platforms: 'name4',
       totalListen: 'number3',
       rates: 'rate3'
     }, {
       id: 'id15',
+      key1: 'id15',
+
       ranking: 'ranking5',
       platforms: 'name5',
       totalListen: 'number4',
       rates: 'rate3'
     }, {
       id: 'id16',
+      key1: 'id16',
       ranking: 'ranking6',
       platforms: 'name6',
       totalListen: (<div className='action'>
@@ -138,45 +147,12 @@ const Demo1 = () => {
   }
 
   return (<div className='table-box'>
-    <h3>基础Table</h3>
     <Table
       columns={columns1}
       dataSource={dataSource}
-      emptyText='空的模板' />
-
-
-    <h3>有筛选栏的Table</h3>
-    <Table
-      columns={columns2}
-      dataSource={dataSource}
-      onFilterChange={onFilterChange2}
-      emptyText='空的模板' />
-
-    <h3>有分页的Table</h3>
-    <Table
-      columns={columns2}
-      dataSource={dataSource}
-      emptyText='空的模板'
-      pagination={pagination1}
-      onFilterChange={onFilterChange2}
-      onPageChange={onPageChang3} />
-
-    <h3>align=center && 可拖拽的 的Table</h3>
-    <Table
-      draggable={isDraggable}
-      onSort={onSort1}
-      columns={columns1}
-      dataSource={dataSource}
-      pagination={pagination2}
-      onPageChange={onPageChang3}
-      align='center'
-      emptyText='空的模板' />
-
-    <h3>自定义empty的Table</h3>
-    <Table
-      columns={[]}
-      dataSource={[]}
-      empty={empty}
+      // empty={<div>empty</div>}
+      align='left'
+      rowKey='id'
     />
   </div>
   )

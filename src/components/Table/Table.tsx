@@ -3,58 +3,95 @@ import { Component } from 'react';
 import classNames from 'classnames';
 import isEmpty from 'lodash/isEmpty';
 import isEqual from 'lodash/isEqual';
-import { ColumnProps, PaginationProps } from './interface';
+import { ColumnProps, PaginationProps, Align } from './interface';
 import TableHeader from './TableHeader';
 import TableBody from './TableBody';
 import Pagination from '../Pagination';
+import PropTypes from 'prop-types';
 
-export interface TableProps {
-  /** 类名 */
+
+export interface TableProps<T> {
+  /** 
+   * 类名
+   */
   className?: string;
-  /** 样式 */
-  style?: object;
-  /** 每一列需要的所有数据 */
-  columns: Array<ColumnProps>;
-  /** 每一行需要展示的数据 */
-  dataSource: Array<any>;
-  /** 对齐 */
-  align?: 'left' | 'center';
-  /** 是否可拖拽的 */
+  /** 
+   * 样式 
+   */
+  style?: React.CSSProperties;
+  /** 
+   * 每一列需要的所有数据
+   */
+  columns: ColumnProps<T>[];
+  /** 
+   * 每一行需要展示的数据
+   */
+  dataSource: Array<T>;
+  /** 
+   * 对齐
+   */
+  align?: Align;
+  /** 
+   * 是否可拖拽的
+   */
   draggable?: boolean;
-  /** 分页参数 */
+  /** 
+   * 分页参数
+   */
   pagination: PaginationProps;
-  /** 自定义的空模板 */
+  /** 
+   * 自定义的空模板 
+   */
   empty?: React.ReactNode;
-  /** 空模板的文案 */
-  emptyText?: string;
-  /** 获取被拖拽的元素  */
+  /** 
+   * 获取被拖拽的元素
+   */
   draggedElement?: any;
-  /**  */
+  /**  
+   * 
+   */
   onDragStart?: any;
-  /**  */
+  /**  
+   * 
+   */
   onDragOver?: any;
-  /**  */
+  /**  
+   * 
+   */
   onDragEnd?: any;
-  /** 筛选栏的回调函数 */
+  /** 
+   * 筛选栏的回调函数
+   */
   onFilterChange?: (id?: any, key?: any) => void;
-  /** 翻页的回调函数 */
+  /** 
+   * 翻页的回调函数
+   */
   onPageChange?: (page?: number) => void;
-  /** 返回排序后的id列表 */
+  /** 
+   * 返回排序后的id列表
+   */
   onSort?: (sortedIds?: Array<any>, activeId?: any) => void;
+  /**
+   * 行对应的 key 值
+   */
+  rowKey?: string;
 }
 
 /**
  * 表格（列表）
  */
-class Table extends Component<TableProps, any> {
+class Table<T> extends Component<TableProps<T>, any> {
+  static propTypes = {
+
+  }
+
   static defaultProps = {
     align: 'left',
-    emptyText: '',
     pagination: {},
     draggable: false
   };
 
-  constructor(props: TableProps) {
+  constructor(props: TableProps<T>) {
     super(props);
     this.state = {
       filterKeys: {},
@@ -84,7 +121,7 @@ class Table extends Component<TableProps, any> {
     }
   }
 
-  componentDidUpdate(prevProps: TableProps) {
+  componentDidUpdate(prevProps: TableProps<T>) {
     const { dataSource } = this.props;
     const { dataSource: prevDataSource } = prevProps;
     // 比对两次dataSource
@@ -115,40 +152,6 @@ class Table extends Component<TableProps, any> {
     }
   };
 
-  // 选择了筛选栏之后的回调函数
-  onFilterSelect = (id: any, key: any) => {
-    const { dataSource, onFilterChange } = this.props;
-    onFilterChange && onFilterChange(id, key);
-    const _filterKeys = { id: id, key: key };
-    this.setState({ filterKeys: _filterKeys });
-    // 暂时注释掉Table内部翻页
-    // const _filterKeys = { id: id, key: key }
-    // // 筛选dataSource，当前值等于filterKeys或者未选择filterKeys
-    // const filterDataSource = dataSource.filter((elem, index) => {
-    //   if (elem[id] === key || key === '') {
-    //     return elem
-    //   }
-    // })
-    // // 是否需要分页
-    // if (this.hasPagination()) {
-    //   // 选择筛选栏时，应该跳至第一页
-    //   this.onPaginationChange(1)
-    //   this.setState({
-    //     filterKeys: _filterKeys,
-    //     filterDataSource: filterDataSource,
-    //     pageTotal: filterDataSource.length
-    //   }, () => {
-    //     this.pagingDataSource()
-    //   })
-    // } else {
-    //   this.setState({
-    //     filterKeys: _filterKeys,
-    //     filterDataSource: filterDataSource,
-    //     currentPageData: filterDataSource
-    //   })
-    // }
-  };
-
   // 分页点击之后的回调函数
   onPaginationChange = (page: number) => {
     const { pagination, onPageChange } = this.props;
@@ -174,11 +177,11 @@ class Table extends Component<TableProps, any> {
       draggable,
       pagination,
       empty,
-      emptyText,
       draggedElement,
       onDragEnd,
       onSort,
-      dataSource
+      dataSource,
+      rowKey
     } = this.props;
     const { current, pageSize } = pagination;
     const prefix = 'cat-table';
@@ -191,16 +194,14 @@ class Table extends Component<TableProps, any> {
           <TableHeader
             align={align}
             columns={columns}
-            filterKeys={filterKeys}
-            onFilterSelect={this.onFilterSelect}
           />
           <TableBody
+            rowKey={rowKey}
             align={align}
             columns={columns}
             draggable={draggable}
             currentPageData={currentPageData}
             empty={empty}
-            emptyText={emptyText}
             draggedElement={draggedElement}
             onSort={onSort}
             onDragEnd={onDragEnd}

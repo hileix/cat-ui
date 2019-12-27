@@ -1,47 +1,74 @@
 import * as React from 'react';
 import { Component } from 'react';
-import { ColumnProps } from './interface';
+import { ColumnProps, Align } from './interface';
 import TableTr from './TableTr';
 import Empty from './Empty';
 
-export interface TableBodyProps {
-  /** 每一列需要的所有数据 */
-  columns: Array<ColumnProps>;
-  /** 每一行需要展示的数据	interfaceinterindex */
+export interface TableBodyProps<T> {
+  /**
+   * 行对应的 key 值
+   */
+  rowKey?: string;
+  /** 
+   * 每一列需要的所有数据
+   */
+  columns: Array<ColumnProps<T>>;
+  /** 
+   * 每一行需要展示的数据	interfaceinterindex
+   */
   currentPageData?: Array<any>;
-  /** 对齐 */
-  align?: string;
-  /** 是否可拖拽的 */
+  /** 
+   * 对齐
+   */
+  align?: Align;
+  /** 
+   * 是否可拖拽的
+   */
   draggable?: boolean;
-  /** 自定义的空模板 */
+  /** 
+   * 自定义的空模板
+   */
   empty?: React.ReactNode;
-  /** 空模板的文案 */
+  /** 
+   * 空模板的文案
+   */
   emptyText?: string;
-  /** onDragChange */
+  /** 
+   * onDragChange
+   */
   onDragChange?: any;
-  /** 获取被拖拽的元素  */
+  /** 
+   * 获取被拖拽的元素
+   */
   draggedElement?: any;
-  /**  */
+  /** 
+   * 
+   */
   onDragStart?: any;
-  /**  */
+  /** 
+   * 
+   */
   onDragOver?: any;
-  /**  */
+  /** 
+   * 
+   */
   onDragEnd?: any;
-  /** 返回排序后的id列表 */
+  /** 
+   * 返回排序后的id列表
+   */
   onSort?: (sortedIds?: Array<any>, activeId?: any) => void;
 }
 
 /**
  * TableBody
  */
-class TableBody extends Component<TableBodyProps, any> {
+class TableBody<T> extends Component<TableBodyProps<T>> {
   private draggerRef: any;
   private dragged: any;
   private over: any;
 
-  constructor(props: TableBodyProps) {
+  constructor(props: TableBodyProps<T>) {
     super(props);
-    this.state = {};
     this.draggerRef = React.createRef();
   }
 
@@ -121,21 +148,20 @@ class TableBody extends Component<TableBodyProps, any> {
   };
 
   renderTrs = () => {
-    const self = this;
-    const { columns, currentPageData, align, draggable } = this.props;
-    return currentPageData.map((element, index) => {
+    const { rowKey, columns, currentPageData, align, draggable } = this.props;
+    return currentPageData.map((record, index) => {
       const trDraggable =
-        'draggable' in element ? element.draggable : draggable;
+        'draggable' in record ? record.draggable : draggable;
       return (
         <TableTr
-          key={index}
+          key={record.key || record[rowKey]}
           order={index + 1}
           columns={columns}
-          data={element}
+          record={record}
           align={align}
           draggable={trDraggable}
-          onDragStart={self.dragStart}
-          onDragEnd={self.dragEnd}
+          onDragStart={this.dragStart}
+          onDragEnd={this.dragEnd}
         />
       );
     });
@@ -145,12 +171,8 @@ class TableBody extends Component<TableBodyProps, any> {
     const {
       columns,
       currentPageData,
-      draggable,
       empty,
-      emptyText
     } = this.props;
-    const trs = this.renderTrs();
-    const colSpan = columns.length;
 
     return (
       <tbody
@@ -160,9 +182,9 @@ class TableBody extends Component<TableBodyProps, any> {
         onDragLeave={this.onDragLeave}
       >
         {currentPageData.length === 0 ? (
-          <Empty colSpan={colSpan} empty={empty} emptyText={emptyText} />
+          <Empty colSpan={columns.length} empty={empty} />
         ) : (
-            trs
+            this.renderTrs()
           )}
       </tbody>
     );
