@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 interface NotificationContainerOptions {
   /**
@@ -10,6 +10,10 @@ interface NotificationContainerOptions {
    * 动画时间
    */
   animateTime: number;
+}
+
+export interface ContainerMaps {
+  [key: number]: { container: HTMLDivElement; };
 }
 
 /**
@@ -32,13 +36,13 @@ class NotificationContainer {
   container: HTMLDivElement;
   index = 0;
 
-  containerMaps: object = {};
+  containerMaps: ContainerMaps = {};
 
   createContainerId = () => {
     return ++this.index;
   };
 
-  remove = (id: string, callback?: () => void) => {
+  remove = (id: number, callback?: () => void) => {
     const containerObj = this.containerMaps[id];
     if (!containerObj) {
       return;
