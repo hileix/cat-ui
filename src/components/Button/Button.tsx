@@ -1,6 +1,6 @@
-import * as React from 'react';
+import React from 'react';
 import classNames from 'classnames';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { CommonProps } from '../../utils/commonInterface';
 import Loading from '../Loading';
 
@@ -8,7 +8,7 @@ export interface ButtonProps extends CommonProps {
   /**
    * 按钮类型
    */
-  type?: 'default' | 'primary' | 'link' | 'dashed' | 'golden';
+  type: 'default' | 'primary' | 'link' | 'dashed' | 'golden';
   /**
    * 原生 button 的 type 属性
    */
@@ -16,15 +16,15 @@ export interface ButtonProps extends CommonProps {
   /**
    * 是否禁用
    */
-  disabled?: boolean;
+  disabled: boolean;
   /**
    * 是否将按钮宽度调整为其父宽度
    */
-  block?: boolean;
+  block: boolean;
   /**
    * 尺寸
    */
-  size?: 'sm' | 'md' | 'lg';
+  size: 'sm' | 'md' | 'lg';
   /**
    * 子元素
    */
@@ -32,9 +32,9 @@ export interface ButtonProps extends CommonProps {
   /**
    * 按钮是否处于 loading 状态
    */
-  loading?: boolean;
+  loading: boolean;
 
-  shape?: 'square' | 'circle' | 'round' ;
+  shape: 'square' | 'circle' | 'round' ;
 }
 
 const loadingSizeMap = {
