@@ -1,6 +1,6 @@
-import Tabs from './Tabs'
-import TabPanel from './TabPanel'
+import Tabs from './Tabs';
+import TabPanel from './TabPanel';
 
-Tabs.TabPanel = TabPanel
+Tabs.TabPanel = TabPanel;
 
-export default Tabs
+export default Tabs;
