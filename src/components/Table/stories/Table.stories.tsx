@@ -19,7 +19,7 @@ const Demo1 = () => {
     return {}
   }
 
-  const onPageChang3 = (page: number) => {
+  const onPageChang3 = (page?: number) => {
     console.log('Example:onPageChang3', page)
     return {}
   }
@@ -32,11 +32,11 @@ const Demo1 = () => {
   const columns1 = [{
     id: 'ranking',
     title: <span>ranking1111</span>,
-    render: text => <a style={{ color: 'red' }} href="javascript:;">{text}</a>
+    render: (text: any) => <a style={{ color: 'red' }} href="javascript:;">{text}</a>
   }, {
     id: 'platforms',
     title: <span>rplatforms222</span>,
-    render: (text, record) => {
+    render: (text: any, record: any) => {
       return (<a style={{ color: 'blue' }} href="javascript:;">
         {text}---{record.rates}
       </a>)
