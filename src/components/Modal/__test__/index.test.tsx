@@ -6,10 +6,10 @@ import sinon from 'sinon';
 describe('Modal', () => {
   // reset dom
   afterEach(() => {
-    document.querySelector('body').innerHTML = '';
+    (document.querySelector('body') as any).innerHTML = '';
   });
   beforeEach(() => {
-    document.querySelector('body').innerHTML = '';
+    (document.querySelector('body') as any).innerHTML = '';
   });
 
   test('renders correctly', () => {
