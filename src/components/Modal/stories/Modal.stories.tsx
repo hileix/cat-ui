@@ -4,21 +4,20 @@ import { Modal } from '@components/index';
 import '../../../styles/index.scss';
 import './style.scss';
 import Button from '../../Button';
+import markdown from '../README.md';
+
 
 const { useState } = React;
 
 const Demo1 = () => {
-  const [isOpen1, setisOpen1] = useState(false);
-  const [isOpen2, setisOpen2] = useState(false);
-  const [isOpen3, setisOpen3] = useState(false);
-  const [isOpen4, setisOpen4] = useState(false);
+  const [visible1, setvisible1] = useState(false);
+  const [visible2, setvisible2] = useState(false);
+  const [visible3, setvisible3] = useState(false);
+  const [visible4, setvisible4] = useState(false);
 
   const footer = (
-    <div className='footer'>
-      <Button type='link' onClick={() => setisOpen2(false)}>
-        Cancel
-      </Button>
-      <Button size='md' onClick={() => setisOpen2(false)}>
+    <div className='footer' style={{ textAlign: 'center' }}>
+      <Button type='primary' onClick={() => setvisible2(false)}>
         Submit
       </Button>
     </div>
@@ -26,24 +25,23 @@ const Demo1 = () => {
 
   return (
     <div className='modal-box'>
-      <Button className='modal-button' onClick={() => setisOpen1(true)}>
-        基础Modal
+      <Button className='modal-button' onClick={() => setvisible1(true)}>
+        基础 Modal
       </Button>
-      <Button className='modal-button' onClick={() => setisOpen2(true)}>
-        自定义footer的Modal
+      <Button className='modal-button' onClick={() => setvisible2(true)}>
+        自定义 footer 的Modal
       </Button>
-      <Button className='modal-button' onClick={() => setisOpen3(true)}>
-        align=center的Modal
+      <Button className='modal-button' onClick={() => setvisible3(true)}>
+        关闭 Modal 后自动销毁 children 的 Modal（请打开控制台，查看 DOM）
       </Button>
-      <Button className='modal-button' onClick={() => setisOpen4(true)}>
-        align=center && noCloseIcon的Modal
+      <Button className='modal-button' onClick={() => setvisible4(true)}>
+        没有遮罩
       </Button>
+
       <Modal
         title='Enter the amount you want to redeem'
-        visible={isOpen1}
-        cancelText=''
-        okText='Submit'
-        onClose={() => setisOpen1(false)}
+        visible={visible1}
+        onClose={() => setvisible1(false)}
       >
         <p>
           Please ensure that the amount you are redeeming does not exceed the
@@ -52,12 +50,9 @@ const Demo1 = () => {
       </Modal>
       <Modal
         title='Enter the amount you want to redeem'
-        visible={isOpen2}
-        align='center'
-        cancelText=''
-        okText='Submit'
+        visible={visible2}
         footer={footer}
-        onClose={() => setisOpen2(false)}
+        onClose={() => setvisible2(false)}
       >
         <p>
           Please ensure that the amount you are redeeming does not exceed the
@@ -66,11 +61,9 @@ const Demo1 = () => {
       </Modal>
       <Modal
         title='Enter the amount you want to redeem'
-        visible={isOpen3}
-        align='center'
-        cancelText=''
-        okText='Submit'
-        onClose={() => setisOpen3(false)}
+        visible={visible3}
+        onClose={() => setvisible3(false)}
+        destroyOnClose
       >
         <p>
           Please ensure that the amount you are redeeming does not exceed the
@@ -79,12 +72,9 @@ const Demo1 = () => {
       </Modal>
       <Modal
         title='Enter the amount you want to redeem'
-        visible={isOpen4}
-        align='center'
-        cancelText=''
-        okText='OK'
-        noCloseIcon
-        onClose={() => setisOpen4(false)}
+        visible={visible4}
+        onClose={() => setvisible4(false)}
+        mask={false}
       >
         <p>
           Please ensure that the amount you are redeeming does not exceed the
@@ -95,4 +85,8 @@ const Demo1 = () => {
   );
 };
 
-storiesOf('Modal 模态窗', module).add('Modal', () => <Demo1 />);
+storiesOf('Modal 模态窗', module).add('Modal', () => <Demo1 />, {
+  info: {
+    text: markdown
+  }
+});

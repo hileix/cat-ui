@@ -1,155 +1,166 @@
-import * as React from 'react';
+import React from 'react';
 import { PureComponent } from 'react';
 import classNames from 'classnames';
-import Portal from '../Portal';
+import PurePortal from '../PurePortal';
 import Button from '../Button';
 import Icon from '../Icon';
+import { CSSTransition } from 'react-transition-group';
+import PropTypes from 'prop-types';
+
 
 export interface ModalProps {
-  /** 前缀 */
-  prefix?: string;
-  /** 类名 */
+  /** 
+   * 前缀
+   */
+  prefix: string;
+  /** 
+   * 类名
+   */
   className?: string;
-  /** 样式 */
-  style?: object;
-  /** 主题 */
-  theme?: 'primary' | 'yellow' | 'white-primary' | 'white-cyan';
-  /** 标题 */
-  title?: string | React.ReactNode;
-  /** 对话框是否可见 */
-  visible?: boolean;
-  /** 是否禁用 */
-  disabled?: boolean;
-  /** 尺寸 */
-  size?: 'sm' | 'md' | 'lg';
-  /** 宽度 */
-  width?: number;
-  /** 对齐 */
-  align?: 'left' | 'center';
-  /** 子元素 */
-  children?: React.ReactNode;
-  /** 确认按钮文字 */
-  okText: string | React.ReactNode;
-  /** 取消按钮文字 */
-  cancelText: string;
-  /** 不要关闭按钮的Icon */
+  /** 
+   * 样式 
+   */
+  style?: React.CSSProperties;
+  /** 
+   * 标题 
+   */
+  title?: React.ReactNode;
+  /** 
+   * 是否可见
+   */
+  visible: boolean;
+  /** 
+   * 宽度
+   */
+  width: number;
+  /** 
+   * Modal 中的内容
+   */
+  children: React.ReactNode;
+  /** 
+   * 确认按钮文字
+   */
+  okText?: React.ReactNode;
+  /** 
+   * 取消按钮文字
+   */
+  cancelText?: React.ReactNode;
+  /** 
+   * 不要关闭按钮
+   */
   noCloseIcon: boolean;
-  /** 自定义的ModalFooter */
+  /** 
+   * 自定义的ModalFooter
+   */
   footer?: React.ReactNode;
-  /** 点击确定回调	 */
-  onOk?: (e: any) => {};
-  /** 关闭操作回调函数 */
-  onClose: (e: any) => void;
+  /** 
+   * 点击确定回调
+   */
+  onOk?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  /** 
+   * 关闭操作回调函数
+   */
+  onClose?: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+  /**
+   * 关闭时是否销毁子元素
+   */
+  destroyOnClose: boolean;
+  /**
+   * 是否显示遮罩
+   */
+  mask: boolean;
 }
 
+
+const TIMEOUT = 300;
+
 /**
- * 对话框
+ * Modal 对话框
  */
-class Modal extends PureComponent<ModalProps, any> {
-  static modalId: number = 0;
-  static pools: Array<number> = [];
-  static originalBodyStyle: string = '';
-  static originalFirstDivStyle: string = '';
-  private mid: number;
+class Modal extends PureComponent<ModalProps> {
+  static propTypes = {
+    prefix: PropTypes.string,
+    className: PropTypes.string,
+    style: PropTypes.object,
+    title: PropTypes.node,
+    visible: PropTypes.bool,
+    width: PropTypes.oneOfType([PropTypes.number, PropTypes.string,]),
+    children: PropTypes.node,
+    okText: PropTypes.node,
+    cancelText: PropTypes.node,
+    noCloseIcon: PropTypes.bool,
+    footer: PropTypes.node,
+    onOk: PropTypes.func,
+    onClose: PropTypes.func,
+    destroyOnClose: PropTypes.bool,
+    mask: PropTypes.bool,
+  }
+
   static defaultProps = {
     prefix: 'cat',
-    theme: 'primary',
-    size: 'md',
     visible: false,
-    disabled: false,
-    noCloseIcon: false
+    width: 428,
+    noCloseIcon: false,
+    destroyOnClose: false,
+    mask: true,
+    okText: 'Confirm',
+    cancelText: 'Cancel',
   };
 
-  constructor(props: ModalProps) {
-    super(props);
-    this.mid = Modal.modalId++;
-    Modal.pools.push(0);
+  handleClose = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    const { onClose } = this.props;
+    onClose && onClose(e);
   }
 
-  componentDidUpdate() {
-    this.setBodyStyle();
-  }
-
-  onMaskClick = (e: any) => {
-    const { onClose } = this.props;
-    if (e.target === e.currentTarget) {
-      onClose && onClose(e);
-    }
-  };
-
-  handleCancle = (e: any) => {
-    const { onClose } = this.props;
-    if (onClose) {
-      onClose(e);
-    } else {
-      this.onMaskClick(e);
-    }
-  };
-
-  handleOk = (e: any) => {
+  handleOk = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const { onOk } = this.props;
-    if (onOk) {
-      onOk(e);
-    } else {
-      this.onMaskClick(e);
-    }
+    onOk && onOk(e);
   };
 
-  setBodyStyle = () => {
-    const nodeBody = document.querySelector('body');
-    const nodeFirstDiv = document.querySelector('body > div');
-    const { visible } = this.props;
-    const hasScroll =
-      document.body.scrollHeight > document.documentElement.clientHeight;
-    if (visible) {
-      Modal.pools[this.mid] = 1;
-      Modal.originalBodyStyle = (nodeBody as any).getAttribute('style');
-      Modal.originalFirstDivStyle = (nodeBody as any).getAttribute('style');
-      const bodyStyle = hasScroll
-        ? 'overflow: hidden; padding-right: 15px;'
-        : 'padding-right: 15px;';
-      (nodeBody as any).setAttribute('style', bodyStyle);
-      // nodeFirstDiv.setAttribute('style', 'filter: blur(2px);')
-    } else {
-      Modal.pools[this.mid] = 0;
-      if (Modal.pools.indexOf(1) === -1) {
-        // 背景层不可滑动
-        if (Modal.originalBodyStyle) {
-          (nodeBody as any).setAttribute('style', Modal.originalBodyStyle);
-        } else {
-          (nodeBody as any).removeAttribute('style');
-        }
-        // 背景层模糊
-        // if (Modal.originalFirstDivStyle) {
-        //   nodeFirstDiv.setAttribute('style', Modal.originalFirstDivStyle)
-        // } else {
-        //   nodeFirstDiv.removeAttribute('style')
-        // }
-      }
+  renderHeader = () => {
+    const { prefix, title, noCloseIcon } = this.props;
+
+    if (!title) {
+      return null;
     }
-  };
+
+    const modalPrefix = `${prefix}-modal`;
+
+    return (
+      <div className={`${modalPrefix}__header`}>
+        {title}
+        {!noCloseIcon && (
+          <div className={`${modalPrefix}__close`}>
+            <Icon type='close' onClick={this.handleClose} />
+          </div>
+        )}
+      </div>
+    )
+  }
+
+  renderBody = () => {
+    const { prefix, children } = this.props
+    const modalPrefix = `${prefix}-modal`;
+    return <div className={`${modalPrefix}__body`}>{children}</div>
+  }
 
   renderFooter = () => {
-    const { footer, okText, cancelText, align } = this.props;
+    const { footer, okText, cancelText, } = this.props;
+    const footerPrefix = 'cat-modal__footer';
 
-    if (footer) {
-      return footer;
-    } else {
-      const footerPrefix = 'cat-modal__footer';
-
-      return (
-        <div
-          className={classNames(footerPrefix, {
-            [`${footerPrefix}--center`]: align
-          })}
-        >
-          {cancelText.length > 0 && (
-            <Button onClick={this.handleCancle}>{cancelText}</Button>
-          )}
-          <Button onClick={this.handleOk}>{okText}</Button>
-        </div>
-      );
-    }
+    return (
+      <div
+        className={classNames(footerPrefix, {
+        })}
+      >
+        {footer ? footer : (
+          <>
+            <Button onClick={this.handleClose}>{cancelText}</Button>
+            <Button onClick={this.handleOk} type='primary' className={`${footerPrefix}-confirm`}>{okText}</Button>
+          </>
+        )}
+      </div>
+    );
   };
 
   render() {
@@ -157,52 +168,57 @@ class Modal extends PureComponent<ModalProps, any> {
       prefix,
       className,
       style,
-      theme,
-      size,
-      width,
-      disabled,
       visible,
-      title,
-      okText,
-      cancelText,
-      align,
-      noCloseIcon,
-      children,
-      ...others
+      destroyOnClose,
+      width,
+      mask,
     } = this.props;
-    const modalPrefix = 'cat-modal';
+    const modalPrefix = `${prefix}-modal`;
 
     const classes = classNames(
       modalPrefix,
-      {
-        [`${modalPrefix}--${size}`]: size,
-        [`${modalPrefix}--${align}`]: align
-      },
       className
     );
-    const modalFooter = this.renderFooter();
+
+    let modalStyle: React.CSSProperties = { width };
+    if (style) {
+      modalStyle = { ...modalStyle, ...style };
+    }
 
     return (
-      <Portal visible={visible}>
+      <PurePortal selector='body'>
         <div>
-          <div
-            className={`${modalPrefix}__background`}
-            onClick={this.onMaskClick}
-          />
-          <div className={classes} style={style}>
-            <div className={`${modalPrefix}__header`}>
-              {title}
-              {!noCloseIcon && (
-                <div className={`${modalPrefix}__close`}>
-                  <Icon type='close' onClick={this.onMaskClick} />
-                </div>
-              )}
+          {mask && <CSSTransition
+            timeout={TIMEOUT}
+            in={visible}
+            classNames={`${modalPrefix}__mask`}
+            unmountOnExit={destroyOnClose}
+            mountOnEnter
+            appear
+          >
+            <div
+              className={`${modalPrefix}__mask`}
+              onClick={this.handleClose}
+            />
+          </CSSTransition>}
+
+
+          <CSSTransition
+            timeout={TIMEOUT}
+            in={visible}
+            classNames={modalPrefix}
+            unmountOnExit={destroyOnClose}
+            mountOnEnter
+            appear
+          >
+            <div className={classes} style={modalStyle}>
+              {this.renderHeader()}
+              {this.renderBody()}
+              {this.renderFooter()}
             </div>
-            <div className={`${modalPrefix}__body`}>{children}</div>
-            {modalFooter}
-          </div>
+          </CSSTransition>
         </div>
-      </Portal>
+      </PurePortal>
     );
   }
 }

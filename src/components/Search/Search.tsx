@@ -8,6 +8,11 @@ import Option from '../Selection/Option'
 import Popover from '../Popover'
 import { positionNameConvert } from '../Popover/utils'
 
+interface IDataSource {
+  value: string;
+  render: React.ReactNode
+}
+
 export interface ISearchProps {
   /**
    * 样式前缀
@@ -18,6 +23,10 @@ export interface ISearchProps {
    */
   className?: string;
   /**
+   * 搜索列表样式
+   */
+  selectionClassName?: string;
+  /**
    * 样式
    */
   style?: object;
@@ -25,6 +34,14 @@ export interface ISearchProps {
    * 禁用搜索
    */
   disabled?: boolean;
+  /**
+   * 搜索列表 x 方向偏移
+   */
+  offsetX?: boolean;
+  /**
+   * 搜索列表 y 方向偏移
+   */
+  offsetY?: boolean;
   /**
    * 显示清除按钮
    */
@@ -48,7 +65,7 @@ export interface ISearchProps {
   /**
    * 搜索框结果数据源
    */
-  dataSource?: [];
+  dataSource?: (string | IDataSource)[];
   /**
    * 搜索框内容发生变化时调用
    */
@@ -63,17 +80,19 @@ export interface ISearchProps {
   onSelect?: (value: string) => any;
 }
 
-export interface ISelectValue {
-  type: string;
-  id: number;
+export interface ISearchState {
   value: string;
+  visible: boolean;
 }
 
-class Search extends React.Component<ISearchProps, any> {
+class Search extends React.Component<ISearchProps, ISearchState> {
   static proptypes = {
     prefix: PropTypes.string,
     className: PropTypes.string,
+    selectionClassName: PropTypes.string,
     style: PropTypes.object,
+    offsetX: PropTypes.number,
+    offsetY: PropTypes.number,
     disabled: PropTypes.bool,
     allowClear: PropTypes.bool,
     autoFocus: PropTypes.bool,
@@ -87,13 +106,16 @@ class Search extends React.Component<ISearchProps, any> {
 
   static defaultProps = {
     prefix: 'cat',
+    offsetX: 0,
+    offsetY: 5,
     disabled: false,
     allowClear: false,
     autoFocus: false,
     loading: false,
-    placeholder: '',
-    dataSource: []
+    placeholder: ''
   }
+
+  static Option: typeof Option;
 
   constructor (props: ISearchProps) {
     super(props)
@@ -109,6 +131,7 @@ class Search extends React.Component<ISearchProps, any> {
         value: nextProps.value
       }
     }
+
     return null
   }
 
@@ -127,6 +150,7 @@ class Search extends React.Component<ISearchProps, any> {
 
   hanldeKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const { onSearch } = this.props
+
     e.persist()
 
     setTimeout(() => {
@@ -134,6 +158,16 @@ class Search extends React.Component<ISearchProps, any> {
         onSearch && onSearch(this.state.value)
       }
     }, 0)
+  }
+
+  handleBlur = (e: any) => {
+    e.persist();
+
+    setTimeout(() => {
+      this.setState({
+        visible: false
+      })
+    }, 200);
   }
 
   handleSelect = (value: any) => {
@@ -158,25 +192,47 @@ class Search extends React.Component<ISearchProps, any> {
     })
   }
 
-  renderSelection = () => {
-    const { dataSource } = this.props
-    const { visible } = this.state
-    let options = dataSource || []
+  renderOption = () => {
+    const { dataSource = [], children } = this.props
 
+    if ('dataSource' in this.props) {
+      return dataSource.map(item => {
+        if (typeof item === 'string') {
+          return (
+            <Option key={item} value={item} />
+          )
+        }
+  
+        const { value, render } = item
+  
+        return (
+          <Option key={value} value={value} >
+            {render}
+          </Option>
+        )
+      })
+    }
+
+    return children
+  }
+
+  renderSelection = () => {
+    const { selectionClassName } = this.props
+    const { visible } = this.state
+    
     return (
       <Selection
         visible={visible}
+        className={selectionClassName}
         onSelect={this.handleSelect}
       >
-        {options.map(item => (
-          <Option key={item} value={item} />
-        ))}
+        {this.renderOption()}
       </Selection>
     )
   }
 
   render () {
-    const { prefix, className = '', placeholder, disabled, autoFocus, loading } = this.props
+    const { prefix, className = '', offsetX, offsetY, placeholder, disabled, autoFocus, loading } = this.props
     const { value, visible } = this.state
     const classes = classNames(`${prefix}-search-wrap`, className)
 
@@ -185,6 +241,8 @@ class Search extends React.Component<ISearchProps, any> {
         <Popover
           mode='click'
           visible={visible}
+          offsetX={offsetX}
+          offsetY={offsetY}
           {...positionNameConvert('bottomLeft')}
           onChange={this.handlePopoverChange}
         >
@@ -199,6 +257,7 @@ class Search extends React.Component<ISearchProps, any> {
               value={value}
               onChange={this.handleInputChange}
               onKeyDown={this.hanldeKeyDown}
+              onBlur={this.handleBlur}
             />
           </Popover.Trigger>
           <Popover.Content>
