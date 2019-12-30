@@ -4,7 +4,6 @@ import { render, mount } from 'enzyme'
 import * as Adapter from 'enzyme-adapter-react-16'
 import Tag from '../index'
 
-Enzyme.configure({ adapter: new Adapter() })
 
 describe('Tag', () => {
   test('renders correctly', () => {

@@ -45,16 +45,18 @@ class PopoverTrigger extends Component<PopoverTriggerProps> {
   };
 
   open = (e: React.MouseEvent) => {
-    if (this.props.disabled) {
+    const { disabled, toggleVisible } = this.props
+    if (disabled) {
       return
     }
 
     e.stopPropagation();
-    this.props.toggleVisible(true);
+    toggleVisible && toggleVisible(true);
   };
 
   close = () => {
-    this.props.toggleVisible(false);
+    const { toggleVisible } = this.props;
+    toggleVisible && toggleVisible(false);
   };
 
   handleClick = (e: React.MouseEvent) => {
@@ -86,7 +88,7 @@ class PopoverTrigger extends Component<PopoverTriggerProps> {
 
   getTriggerEvents = () => {
     const { mode } = this.props;
-    const modeArray = getModeArray(mode);
+    const modeArray = getModeArray(mode as ModeType);
     let triggerEvents: {
       onClick?: (e: React.MouseEvent) => void;
       onMouseEnter?: (e: React.MouseEvent) => void;

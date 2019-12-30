@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Guidance } from '@components/index';
 import '../../../styles/index.scss';
@@ -13,9 +13,9 @@ const Demo = () => {
   const [activeId, setActiveId] = useState(1);
   const [visible, setVisible] = useState(false);
 
-  const handleChange = activeId => {
-    if (activeId < 3) {
-      setActiveId(activeId + 1);
+  const handleChange = (activeId: string | number) => {
+    if ((activeId as number) < 3) {
+      setActiveId((activeId as number) + 1);
     } else {
       setActiveId(1);
       // setVisible(false);

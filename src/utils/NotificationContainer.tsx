@@ -13,7 +13,7 @@ interface NotificationContainerOptions {
 }
 
 export interface ContainerMaps {
-  [key: number]: { container: HTMLDivElement; };
+  [key: string]: { container: HTMLDivElement; };
 }
 
 /**
@@ -39,7 +39,7 @@ class NotificationContainer {
   containerMaps: ContainerMaps = {};
 
   createContainerId = () => {
-    return ++this.index;
+    return ++this.index + '';
   };
 
   remove = (id: number, callback?: () => void) => {

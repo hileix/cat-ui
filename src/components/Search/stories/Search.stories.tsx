@@ -7,7 +7,7 @@ import '../../../styles/index.scss';
 import '../../../styles/search.scss';
 
 class Demo extends React.Component<ISearchProps, any> {
-  constructor(props) {
+  constructor(props: ISearchProps) {
     super(props)
     this.state = {
       dataSource: [
@@ -20,7 +20,7 @@ class Demo extends React.Component<ISearchProps, any> {
     }
   }
 
-  handleChange = (value) => {
+  handleChange = (value: any) => {
     console.log('handleChange', value)
     this.setState({
       dataSource: this.generateData()
@@ -36,11 +36,11 @@ class Demo extends React.Component<ISearchProps, any> {
     return dataSource
   }
 
-  handleSelect = (value) => {
+  handleSelect = (value: any) => {
     console.log('handleSelect', value)
   }
 
-  handleSearch = (value) => {
+  handleSearch = (value: any) => {
     console.log('handleSearch', value)
   }
 

@@ -96,7 +96,7 @@ class Col extends PureComponent<ColProps> {
 
     const getMediaClasses = (
       sizeName: string,
-      responsiveProps: ResponsiveProps
+      responsiveProps?: ResponsiveProps
     ) => {
       const prefix = 'cat-col';
       return {

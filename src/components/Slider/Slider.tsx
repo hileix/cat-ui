@@ -48,18 +48,18 @@ class Slider extends Component<SliderOption, any> {
   componentDidMount() {
     const slider = this.refSlider.current;
     if ('ontouchstart' in document) {
-      slider.addEventListener('touchstart', this.onTouchStart);
+      (slider as any).addEventListener('touchstart', this.onTouchStart);
     } else {
-      slider.addEventListener('mousedown', this.onMouseDown);
+      (slider as any).addEventListener('mousedown', this.onMouseDown);
     }
   }
 
   componentWillUnmount() {
     const slider = this.refSlider.current;
     if ('ontouchstart' in document) {
-      slider.removeEventListener('touchstart', this.onTouchStart);
+      (slider as any).removeEventListener('touchstart', this.onTouchStart);
     } else {
-      slider.removeEventListener('mousedown', this.onMouseDown);
+      (slider as any).removeEventListener('mousedown', this.onMouseDown);
     }
   }
 
@@ -70,7 +70,7 @@ class Slider extends Component<SliderOption, any> {
   calcValue = (clientX: number) => {
     const slider = this.refSlider.current;
     let value =
-      (clientX - slider.getBoundingClientRect().left) / slider.offsetWidth;
+      (clientX - (slider as any).getBoundingClientRect().left) / (slider as any).offsetWidth;
     if (value < 0) {
       value = 0;
     } else if (value > 1) {

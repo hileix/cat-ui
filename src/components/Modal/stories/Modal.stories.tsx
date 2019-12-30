@@ -15,10 +15,10 @@ const Demo1 = () => {
 
   const footer = (
     <div className='footer'>
-      <Button type='link' onClick={() => this.toggleDialog2(false)}>
+      <Button type='link' onClick={() => setisOpen2(false)}>
         Cancel
       </Button>
-      <Button size='md' onClick={() => this.toggleDialog2(false)}>
+      <Button size='md' onClick={() => setisOpen2(false)}>
         Submit
       </Button>
     </div>

@@ -25,7 +25,7 @@ export interface RowProps {
   /**
    * flex 布局下的垂直对齐方式
    */
-  align?: AlignType;
+  align: AlignType;
 }
 
 enum AlignEnum {

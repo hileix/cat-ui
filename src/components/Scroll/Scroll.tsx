@@ -1,11 +1,11 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
+import React from 'react';
+import PropTypes from 'prop-types';
 import throttle from "lodash/throttle";
 import classNames from 'classnames';
 
 interface ScrollProps {
-  targetNode?: string;
-  offset?: number;
+  targetNode: string;
+  offset: number;
   prefix?: string;
   className?: string;
   onPageIndexChange?: (index: number) => void;
@@ -19,7 +19,7 @@ type PageHeight = {
   index: number
 }
 
-export default class Scroll extends React.Component<ScrollProps, {}> {
+export default class Scroll extends React.Component<ScrollProps> {
   static propTypes = {
     targetNode: PropTypes.string,
     offset: PropTypes.number,
@@ -42,7 +42,7 @@ export default class Scroll extends React.Component<ScrollProps, {}> {
   private targetNode: string;
   private pageHeights: PageHeight[];
 
-  constructor(props) {
+  constructor(props: ScrollProps) {
     super(props);
     this.targetNode = this.props.targetNode;
     this.scrollHandler = this.scrollHandler.bind(this);

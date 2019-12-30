@@ -12,7 +12,7 @@ storiesOf('Selection 选择面板', module)
 .add(
   'Selection',
   () => {
-    const handleSelect = (value) => {
+    const handleSelect = (value: any) => {
       console.log('Selection:handleSelect', value)
     }
 

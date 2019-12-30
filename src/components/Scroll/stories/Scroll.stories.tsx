@@ -5,7 +5,7 @@ import '../../../styles/index.scss';
 import './style.scss';
 
 const Demo = () => {
-  const onPageIndexChange = (index) => {
+  const onPageIndexChange = (index: number) => {
     console.log(index);
   }
 
@@ -24,7 +24,7 @@ const Demo = () => {
 }
 
 const Demo1 = () => {
-  const onPageIndexChange = (index) => {
+  const onPageIndexChange = (index: number) => {
     console.log('index');
     console.log(index);
   }

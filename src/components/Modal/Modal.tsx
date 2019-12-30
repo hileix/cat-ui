@@ -103,21 +103,21 @@ class Modal extends PureComponent<ModalProps, any> {
       document.body.scrollHeight > document.documentElement.clientHeight;
     if (visible) {
       Modal.pools[this.mid] = 1;
-      Modal.originalBodyStyle = nodeBody.getAttribute('style');
-      Modal.originalFirstDivStyle = nodeBody.getAttribute('style');
+      Modal.originalBodyStyle = (nodeBody as any).getAttribute('style');
+      Modal.originalFirstDivStyle = (nodeBody as any).getAttribute('style');
       const bodyStyle = hasScroll
         ? 'overflow: hidden; padding-right: 15px;'
         : 'padding-right: 15px;';
-      nodeBody.setAttribute('style', bodyStyle);
+      (nodeBody as any).setAttribute('style', bodyStyle);
       // nodeFirstDiv.setAttribute('style', 'filter: blur(2px);')
     } else {
       Modal.pools[this.mid] = 0;
       if (Modal.pools.indexOf(1) === -1) {
         // 背景层不可滑动
         if (Modal.originalBodyStyle) {
-          nodeBody.setAttribute('style', Modal.originalBodyStyle);
+          (nodeBody as any).setAttribute('style', Modal.originalBodyStyle);
         } else {
-          nodeBody.removeAttribute('style');
+          (nodeBody as any).removeAttribute('style');
         }
         // 背景层模糊
         // if (Modal.originalFirstDivStyle) {
