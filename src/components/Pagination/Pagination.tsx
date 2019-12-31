@@ -1,60 +1,84 @@
-import * as React from 'react';
-import { Component } from 'react';
+import React from 'react';
+import { PureComponent } from 'react';
 import classNames from 'classnames';
 import memoizeOne from 'memoize-one';
 import isNumber from 'lodash/isNumber';
 import PageItem from './PageItem';
 import Icon from '../Icon';
+import PropTypes from 'prop-types';
 
 export interface PaginationProps {
-  /** 类名 */
+  /**
+   * 类名前缀
+   */
+  prefix: string;
+  /** 
+   * 类名
+   */
   className?: string;
-  /** 样式 */
-  style?: object;
-  /** 当前页数 */
-  current?: number;
-  /** 数据总数 */
-  total?: number;
-  /** 每页条数 */
-  pageSize?: number;
-  /** 分页大小改变时候的回调函数 */
-  onPageSizeChange?: (current: number) => void;
-  /** 每页条数 */
-  onChange?: (page: number, pageSize?: number) => void;
+  /** 
+   * 样式
+   */
+  style?: React.CSSProperties;
+  /** 
+   * 当前页数
+   */
+  current: number;
+  /** 
+   * 数据总数
+   */
+  total: number;
+  /** 
+   * 每页条数
+   */
+  pageSize: number;
+  /** 
+   * 页码改变的回调。参数是改变后的页码及每页条数
+   */
+  onChange?: (page: number, pageSize: number) => void;
 }
 
 /**
  * 分页
  */
-class Pagination extends Component<PaginationProps, any> {
-  static defaultProps = {
-    pageSize: 10
-  };
+class Pagination extends PureComponent<PaginationProps> {
+  static displayName = 'Pagination';
 
-  constructor(props: PaginationProps) {
-    super(props);
-    this.state = {};
+  static propTypes = {
+    prefix: PropTypes.string,
+    className: PropTypes.string,
+    style: PropTypes.object,
+    current: PropTypes.number,
+    total: PropTypes.number,
+    pageSize: PropTypes.number,
+    onChange: PropTypes.func,
   }
 
-  onItemClick = (value: number) => {
-    const { onChange } = this.props;
-    onChange && onChange(value);
+  static defaultProps = {
+    prefix: 'cat',
+    current: 1,
+    pageSize: 10,
+  };
+
+  handlePageItemClick = (value: number) => {
+    const { onChange, pageSize } = this.props;
+    onChange && onChange(value, pageSize);
   };
 
   onPrevClick = () => {
     const { onChange, pageSize, current } = this.props;
     // 不是第一个
-    if (current as number > 1) {
-      onChange && onChange(current as number - 1, pageSize);
+    if (current > 1) {
+      onChange && onChange(current - 1, pageSize);
     }
   };
 
   onNextClick = () => {
     const { onChange, pageSize, current, total } = this.props;
-    const pageNum = Math.ceil((total as number) / (pageSize as number));
+    const pageNum = Math.ceil((total) / (pageSize));
     // 不是最后一个
-    if (current as number < pageNum) {
-      onChange && onChange(current as number + 1, pageSize);
+    if (current < pageNum) {
+      onChange && onChange(current + 1, pageSize);
     }
   };
 
@@ -63,7 +87,7 @@ class Pagination extends Component<PaginationProps, any> {
     current: number,
     pageNum: number,
     bufferSize: number
-  ) => {
+  ): Array<number | string> => {
     let res: Array<number | string> = [current];
     for (let i = 1; i <= bufferSize; i++) {
       if (current - i > 1) {
@@ -89,38 +113,51 @@ class Pagination extends Component<PaginationProps, any> {
   };
 
   renderItems = memoizeOne(
-    (current: number, total: number, pageSize: number) => {
-      const pageNum = Math.ceil(total / pageSize);
-      const res = this.calculateShowPages(current, pageNum, 2);
-      return res.map((element, index) => {
-        if (isNumber(element)) {
+    (classPrefix: string, current: number, pageNum: number) => {
+      const pageArr = this.calculateShowPages(current, pageNum, 2);
+      return pageArr.map((page, index) => {
+        if (isNumber(page)) {
           return (
             <PageItem
-              key={element}
-              value={element}
-              active={current === element}
-              onItemClick={this.onItemClick}
+              prefix={classPrefix}
+              key={page}
+              value={page}
+              active={current === page}
+              onClick={this.handlePageItemClick}
             >
-              {element}
+              {page}
             </PageItem>
           );
-        } else {
-          return <Icon key={`more+${index}`} type="more" />;
         }
+
+        return <span className={classNames(`${classPrefix}__item`, `${classPrefix}__item--no-hover`)} key={`omit${index}`}>…</ span>;
       });
     }
   );
 
   render() {
-    const { className, style, current, total, pageSize } = this.props;
-    const classes = classNames('cat-pagination', className);
-    const items = this.renderItems(current, total, pageSize);
+    const { prefix, className, style, current, total, pageSize } = this.props;
+    const classPrefix = `${prefix}-pagination`;
+    const classes = classNames(`${classPrefix}`, className);
+    const pageNum = Math.ceil(total / pageSize);
 
     return (
       <div className={classes} style={style}>
-        <Icon type="prev" onClick={this.onPrevClick} />
-        {items}
-        <Icon type="next" onClick={this.onNextClick} />
+        <Icon
+          className={classNames(`${classPrefix}__prev`, {
+            [`${classPrefix}__prev--disabled`]: current === 1
+          })}
+          type="prev"
+          onClick={this.onPrevClick}
+        />
+        {this.renderItems(classPrefix, current, pageNum)}
+        <Icon
+          className={classNames(`${classPrefix}__next`, {
+            [`${classPrefix}__next--disabled`]: current === pageNum
+          })}
+          type="next"
+          onClick={this.onNextClick}
+        />
       </div>
     );
   }

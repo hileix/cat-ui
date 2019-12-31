@@ -1,19 +1,23 @@
+@import './common/index.scss';
+
 .cat-notification-container {
   position: fixed;
-  z-index: 9999;
+  z-index: $z-index-9;
   margin-bottom: 12px;
   right: 20px;
   bottom: 0;
+  text-align: right;
 }
 
 .cat-notification {
+  display: inline-block;
   padding: 24px 66px 24px 24px;
   border-radius: 8px;
   color: #fff;
-  z-index: 9999;
   position: relative;
   margin-bottom: 12px;
   transition: 0.3s;
+  text-align: left;
 
   &-appear {
     transform: translateX(100%);
@@ -47,6 +51,11 @@
     right: 24px;
     top: 24px;
     cursor: pointer;
+  }
+  &--default {
+    color: $gray-10;
+    background-color: #fff;
+    box-shadow: 0 4px 12px 0 rgba(20, 23, 26, 0.1);
   }
   &--success {
     box-shadow: 0 4px 12px 0 rgba(0, 153, 255, 0.2);

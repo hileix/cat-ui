@@ -5,7 +5,7 @@ import PurePortal from '../PurePortal';
 import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 
-export type Types = 'success' | 'warn' | 'error';
+import { Types } from './interface';
 
 const TIMEOUT = 300; // ms
 
@@ -33,7 +33,7 @@ class Content extends React.Component<ContentProps, ContentState> {
     style: PropTypes.object,
     title: PropTypes.node,
     content: PropTypes.node,
-    type: PropTypes.oneOf(['success', 'warn', 'error']),
+    type: PropTypes.oneOf(['default', 'success', 'warn', 'error']),
     selector: PropTypes.string,
     onClose: PropTypes.func,
   }
@@ -75,22 +75,25 @@ class Content extends React.Component<ContentProps, ContentState> {
           mountOnEnter
           appear
         >
-          <div
-            className={classNames(
-              classPrefix,
-              `${classPrefix}--${type}`,
-              className
-            )}
-            style={style}
-          >
-            {title && <p className={`${classPrefix}__title`}>{title}</p>}
-            {content && <p className={`${classPrefix}__content`}>{content}</p>}
-            <Icon
-              type='close'
-              className={`${classPrefix}__close`}
-              onClick={this.handleClose}
-            />
-          </div>
+          <>
+            <div
+              className={classNames(
+                classPrefix,
+                `${classPrefix}--${type}`,
+                className
+              )}
+              style={style}
+            >
+              {title && <p className={`${classPrefix}__title`}>{title}</p>}
+              {content && <p className={`${classPrefix}__content`}>{content}</p>}
+              <Icon
+                type='close'
+                className={`${classPrefix}__close`}
+                onClick={this.handleClose}
+              />
+            </div>
+            <br />
+          </>
         </CSSTransition>
       </PurePortal>
     );

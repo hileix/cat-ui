@@ -5,7 +5,7 @@ import './style.scss';
 import markdown from '../README.md';
 import DemoWrapper from '@utils/DemoWrapper';
 
-const { Fragment, useState } = React;
+const { Fragment } = React;
 
 let i = 0;
 const Demo = () => {
@@ -18,7 +18,13 @@ const Demo = () => {
 
   return (
     <Fragment>
-      <DemoWrapper title='类型' desc='三种类型'>
+      <DemoWrapper title='notification 通知' desc='4 种类型'>
+        <Button
+          onClick={() => handleClick('default')}
+          className='notification-stories__button'
+        >
+          default
+        </Button>
         <Button
           onClick={() => handleClick('success')}
           className='notification-stories__button'

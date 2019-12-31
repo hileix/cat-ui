@@ -7,7 +7,7 @@ describe('notification', () => {
       content: 'success content'
     });
     const dom: any = document.querySelector('.cat-notification-container');
-    expect(dom.childNodes.length).toBe(1);
+    expect(dom.childNodes.length).toBe(2);
   });
 
   test('renders two notification', () => {
@@ -16,7 +16,7 @@ describe('notification', () => {
       content: 'warn content'
     });
     const dom: any = document.querySelector('.cat-notification-container');
-    expect(dom.childNodes.length).toBe(2);
+    expect(dom.childNodes.length).toBe(4);
   });
 
   test('renders three notification', () => {
@@ -25,6 +25,16 @@ describe('notification', () => {
       content: 'error content'
     });
     const dom: any = document.querySelector('.cat-notification-container');
-    expect(dom.childNodes.length).toBe(3);
+    console.log('dom:', dom);
+    expect(dom.childNodes.length).toBe(6);
+  });
+
+  test('renders four notification', () => {
+    notification.default({
+      title: 'defaut title',
+      content: 'default content'
+    });
+    const dom: any = document.querySelector('.cat-notification-container');
+    expect(dom.childNodes.length).toBe(8);
   });
 });

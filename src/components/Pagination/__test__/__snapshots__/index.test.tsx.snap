@@ -1,0 +1,193 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination renders correctly 1`] = `
+<Pagination
+  current={1}
+  pageSize={10}
+  prefix="cat"
+  total={100}
+>
+  <div
+    className="cat-pagination"
+  >
+    <Icon
+      className="cat-pagination__prev cat-pagination__prev--disabled"
+      onClick={[Function]}
+      type="prev"
+    >
+      <i
+        className="cat-icon cat-icon-left cat-pagination__prev cat-pagination__prev--disabled"
+        onClick={[Function]}
+      />
+    </Icon>
+    <PageItem
+      active={true}
+      key="1"
+      onClick={[Function]}
+      prefix="cat-pagination"
+      value={1}
+    >
+      <span
+        className="cat-pagination__item cat-pagination__item--active"
+        onClick={[Function]}
+      >
+        1
+      </span>
+    </PageItem>
+    <PageItem
+      active={false}
+      key="2"
+      onClick={[Function]}
+      prefix="cat-pagination"
+      value={2}
+    >
+      <span
+        className="cat-pagination__item"
+        onClick={[Function]}
+      >
+        2
+      </span>
+    </PageItem>
+    <PageItem
+      active={false}
+      key="3"
+      onClick={[Function]}
+      prefix="cat-pagination"
+      value={3}
+    >
+      <span
+        className="cat-pagination__item"
+        onClick={[Function]}
+      >
+        3
+      </span>
+    </PageItem>
+    <span
+      className="cat-pagination__item cat-pagination__item--no-hover"
+      key="omit3"
+    >
+      …
+    </span>
+    <PageItem
+      active={false}
+      key="10"
+      onClick={[Function]}
+      prefix="cat-pagination"
+      value={10}
+    >
+      <span
+        className="cat-pagination__item"
+        onClick={[Function]}
+      >
+        10
+      </span>
+    </PageItem>
+    <Icon
+      className="cat-pagination__next"
+      onClick={[Function]}
+      type="next"
+    >
+      <i
+        className="cat-icon cat-icon-right cat-pagination__next"
+        onClick={[Function]}
+      />
+    </Icon>
+  </div>
+</Pagination>
+`;
+
+exports[`Pagination renders correctly 2`] = `
+<Pagination
+  current={1}
+  pageSize={10}
+  prefix="cat"
+  total={100}
+>
+  <div
+    className="cat-pagination"
+  >
+    <Icon
+      className="cat-pagination__prev cat-pagination__prev--disabled"
+      onClick={[Function]}
+      type="prev"
+    >
+      <i
+        className="cat-icon cat-icon-left cat-pagination__prev cat-pagination__prev--disabled"
+        onClick={[Function]}
+      />
+    </Icon>
+    <PageItem
+      active={true}
+      key="1"
+      onClick={[Function]}
+      prefix="cat-pagination"
+      value={1}
+    >
+      <span
+        className="cat-pagination__item cat-pagination__item--active"
+        onClick={[Function]}
+      >
+        1
+      </span>
+    </PageItem>
+    <PageItem
+      active={false}
+      key="2"
+      onClick={[Function]}
+      prefix="cat-pagination"
+      value={2}
+    >
+      <span
+        className="cat-pagination__item"
+        onClick={[Function]}
+      >
+        2
+      </span>
+    </PageItem>
+    <PageItem
+      active={false}
+      key="3"
+      onClick={[Function]}
+      prefix="cat-pagination"
+      value={3}
+    >
+      <span
+        className="cat-pagination__item"
+        onClick={[Function]}
+      >
+        3
+      </span>
+    </PageItem>
+    <span
+      className="cat-pagination__item cat-pagination__item--no-hover"
+      key="omit3"
+    >
+      …
+    </span>
+    <PageItem
+      active={false}
+      key="10"
+      onClick={[Function]}
+      prefix="cat-pagination"
+      value={10}
+    >
+      <span
+        className="cat-pagination__item"
+        onClick={[Function]}
+      >
+        10
+      </span>
+    </PageItem>
+    <Icon
+      className="cat-pagination__next"
+      onClick={[Function]}
+      type="next"
+    >
+      <i
+        className="cat-icon cat-icon-right cat-pagination__next"
+        onClick={[Function]}
+      />
+    </Icon>
+  </div>
+</Pagination>
+`;
