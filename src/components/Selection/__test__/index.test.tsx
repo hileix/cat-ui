@@ -8,7 +8,7 @@ import ReactTestUtils from 'react-dom/test-utils';
 
 describe('Option', () => {
   beforeEach(() => {
-    document.querySelector('body').innerHTML = '';
+    (document.querySelector('body') as any).innerHTML = '';
   });
   test('option disabled', () => {
     const wrapper = mount(
@@ -16,7 +16,6 @@ describe('Option', () => {
         visible={false}
         defaultValue='选项 1'
         className='as'
-        onSelect={this.handleSelect}
       >
         <Option disabled value='选项 1' />
         <Option value='选项 2' />
@@ -29,7 +28,7 @@ describe('Option', () => {
 
 describe('Option', () => {
   beforeEach(() => {
-    document.querySelector('body').innerHTML = '';
+    (document.querySelector('body') as any).innerHTML = '';
   });
   test('option mouse event', () => {
     const wrapper = mount(
@@ -37,7 +36,6 @@ describe('Option', () => {
         visible
         defaultValue='选项 1'
         className='as'
-        onSelect={this.handleSelect}
       >
         <Option className='my-option' value='选项 1'>
           <span id='span'>123</span>
@@ -60,7 +58,6 @@ describe('Selection', () => {
       <Selection
         visible
         value='选项 2'
-        onSelect={this.handleSelect}
       >
         <Option className='option1' value='选项 1' />
         <Option value='选项 2' />
@@ -79,7 +76,7 @@ describe('Selection', () => {
 
 describe('Selection', () => {
   beforeEach(() => {
-    document.querySelector('body').innerHTML = '';
+    (document.querySelector('body') as any).innerHTML = '';
   });
   test('keyboard event', () => {
     const wrapper = mount(
@@ -88,7 +85,6 @@ describe('Selection', () => {
         value='选项 2'
         defaultValue='选项 1'
         className='my-selection'
-        onSelect={this.handleSelect}
       >
         <Option className='option-1' value='选项 1' />
         <Option disabled className='option-2' value='选项 2' />

@@ -57,7 +57,7 @@ export const getPosition = (
       containerDOM = document.body;
     }
   } else {
-    containerDOM = document.querySelector(containerSelector);
+    containerDOM = document.querySelector(containerSelector) as HTMLElement;
   }
 
   const containerRect = containerDOM.getBoundingClientRect();

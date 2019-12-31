@@ -1,28 +1,51 @@
-import * as React from 'react';
+import React from 'react';
 import { PureComponent } from 'react';
-import TabPanel from './TabPanel';
+import TabPanel, { TabPanelProps } from './TabPanel';
 import classNames from 'classnames';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+
+export type Children = React.ReactElement<TabPanelProps, typeof TabPanel>;
 
 export interface TabsProps {
-  /** 前缀 */
-  prefix?: string;
-  /** 类名 */
+  /** 
+   * 前缀
+   */
+  prefix: string;
+  /** 
+   * 类名
+   */
   className?: string;
-  /** 样式 */
-  style?: object;
-  /** 激活的tab-key */
-  activeId?: string | number;
-  /** 选中的tab改变时 */
+  /** 
+   * 样式
+   */
+  style?: React.CSSProperties;
+  /** 
+   * 激活的 tab key
+   */
+  activeId: string | number;
+  /** 
+   * 选中的tab改变时
+   */
   onChange?: (id: string | number) => void;
-  /** tab bar 上额外的元素 */
+  /** 
+   * tab bar 上额外的元素 
+   */
   tabBarExtraContent?: React.ReactNode;
+  /**
+   * children
+   */
+  children: Children[]
+}
+
+export interface Nav {
+  id: string | number;
+  tab: React.ReactNode
 }
 
 /**
  * 选项卡
  */
-class Tabs extends PureComponent<TabsProps, any> {
+class Tabs extends PureComponent<TabsProps> {
   static propTypes = {
     prefix: PropTypes.string,
     className: PropTypes.string,
@@ -41,9 +64,9 @@ class Tabs extends PureComponent<TabsProps, any> {
 
   genNavsContents = () => {
     const { children } = this.props;
-    let navs: Object[] = [];
-    let contents: Object[] = [];
-    React.Children.forEach(children, (child: any) => {
+    let navs: Nav[] = [];
+    let contents: Children[] = [];
+    React.Children.forEach(children, (child) => {
       const isElemet = React.isValidElement(child);
       if (!isElemet) {
         return;
@@ -62,10 +85,10 @@ class Tabs extends PureComponent<TabsProps, any> {
     onChange && onChange(id);
   };
 
-  renderNav = (navs: Object[]) => {
+  renderNav = (navs: Nav[]) => {
     const { prefix, activeId } = this.props;
     const classPrefix = `${prefix}-tabs__nav`;
-    return navs.map((element: any) => {
+    return navs.map((element) => {
       const isElement = React.isValidElement(element.tab);
       if (isElement) {
         return (
@@ -99,14 +122,14 @@ class Tabs extends PureComponent<TabsProps, any> {
     });
   };
 
-  renderContent = (contents: any) => {
+  renderContent = (contents: Children[]) => {
     const { prefix, activeId } = this.props;
     const classPrefix = `${prefix}-tabs__content`;
-    return contents.map((element: any, index: number) => {
+    return contents.map((element) => {
       const { id } = element.props;
       return (
         <div
-          key={index}
+          key={id}
           className={classNames(classPrefix, {
             [`${classPrefix}--active`]: activeId === id
           })}

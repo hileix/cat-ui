@@ -7,7 +7,7 @@ import { getModeArray, positionNameConvert, getPosition } from '../utils';
 describe('Popover', () => {
   // reset dom
   afterEach(() => {
-    document.querySelector('body').innerHTML = '';
+    (document.querySelector('body') as any).innerHTML = '';
   });
 
   test('renders correctly', () => {
@@ -149,7 +149,7 @@ describe('Popover', () => {
 describe('Popover utils', () => {
   // reset dom
   afterEach(() => {
-    document.querySelector('body').innerHTML = '';
+    (document.querySelector('body') as any).innerHTML = '';
   });
 
   test('getModeArray', () => {

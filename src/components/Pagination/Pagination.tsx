@@ -44,17 +44,17 @@ class Pagination extends Component<PaginationProps, any> {
   onPrevClick = () => {
     const { onChange, pageSize, current } = this.props;
     // 不是第一个
-    if (current > 1) {
-      onChange && onChange(current - 1, pageSize);
+    if (current as number > 1) {
+      onChange && onChange(current as number - 1, pageSize);
     }
   };
 
   onNextClick = () => {
     const { onChange, pageSize, current, total } = this.props;
-    const pageNum = Math.ceil(total / pageSize);
+    const pageNum = Math.ceil((total as number) / (pageSize as number));
     // 不是最后一个
-    if (current < pageNum) {
-      onChange && onChange(current + 1, pageSize);
+    if (current as number < pageNum) {
+      onChange && onChange(current as number + 1, pageSize);
     }
   };
 

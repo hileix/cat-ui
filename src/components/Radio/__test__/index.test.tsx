@@ -4,8 +4,6 @@ import { render } from 'enzyme'
 import * as Adapter from 'enzyme-adapter-react-16'
 import Radio from '../index'
 
-Enzyme.configure({ adapter: new Adapter() })
-
 describe('Radio', () => {
   test('renders correctly', () => {
     const wrapper = render(

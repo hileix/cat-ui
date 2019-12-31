@@ -84,7 +84,7 @@ class TableBody extends Component<TableBodyProps, any> {
     } = this.props;
     let from = Number(this.dragged.dataset.order);
     let to = Number(this.over.dataset.order);
-    let childrenNode = Array.from(currentPageData);
+    let childrenNode = Array.from(currentPageData as any);
 
     this.over.removeAttribute('style');
 
@@ -123,7 +123,7 @@ class TableBody extends Component<TableBodyProps, any> {
   renderTrs = () => {
     const self = this;
     const { columns, currentPageData, align, draggable } = this.props;
-    return currentPageData.map((element, index) => {
+    return (currentPageData as any[]).map((element, index) => {
       const trDraggable =
         'draggable' in element ? element.draggable : draggable;
       return (
@@ -159,7 +159,7 @@ class TableBody extends Component<TableBodyProps, any> {
         onDragEnter={this.onDragEnter}
         onDragLeave={this.onDragLeave}
       >
-        {currentPageData.length === 0 ? (
+        {(currentPageData as any).length === 0 ? (
           <Empty colSpan={colSpan} empty={empty} emptyText={emptyText} />
         ) : (
             trs

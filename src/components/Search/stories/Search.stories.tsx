@@ -10,7 +10,7 @@ import './style.scss'
 const Option = Search.Option
 
 class Demo extends React.Component<ISearchProps, any> {
-  constructor(props) {
+  constructor(props: ISearchProps) {
     super(props)
     this.state = {
       dataSource1: [
@@ -61,42 +61,42 @@ class Demo extends React.Component<ISearchProps, any> {
     return dataSource1
   }
 
-  handleChange = (value) => {
+  handleChange = (value: any) => {
     console.log('handleChange', value)
     this.setState({
       dataSource1: this.generateData()
     })
   }
 
-  handleSelect = (value) => {
+  handleSelect = (value: any) => {
     console.log('handleSelect', value)
   }
 
-  handleSearch = (value) => {
+  handleSearch = (value: any) => {
     console.log('handleSearch', value)
   }
 
-  handleChange2 = (value) => {
+  handleChange2 = (value: any) => {
     console.log('handleChange 2', value)
   }
 
-  handleSelect2 = (value) => {
+  handleSelect2 = (value: any) => {
     console.log('handleSelect 2', value)
   }
 
-  handleSearch2 = (value) => {
+  handleSearch2 = (value: any) => {
     console.log('handleSearch 2', value)
   }
 
-  handleChange3 = (value) => {
+  handleChange3 = (value: any) => {
     console.log('handleChange 3', value)
   }
 
-  handleSelect3 = (value) => {
+  handleSelect3 = (value: any) => {
     console.log('handleSelect 3', value)
   }
 
-  handleSearch3 = (value) => {
+  handleSearch3 = (value: any) => {
     console.log('handleSearch 3', value)
   }
 

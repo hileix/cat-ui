@@ -107,9 +107,9 @@ class Table extends Component<TableProps, any> {
     const { current, pageSize } = pagination;
     // 优先采用传入的current
     const currentPage = currentArg || current;
-    const begin = (currentPage - 1) * pageSize;
+    const begin = (currentPage as number - 1) * (pageSize as number);
     // 分页后当前页面显示的数据
-    const currentPageData = filterDataSource.slice(begin, begin + pageSize);
+    const currentPageData = filterDataSource.slice(begin, begin + (pageSize as number));
     if (this.hasPagination()) {
       this.setState({ currentPageData: currentPageData });
     }

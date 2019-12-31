@@ -69,7 +69,7 @@ class Select extends React.Component<ISelectProps, ISelectState> {
     prefix: 'cat'
   }
 
-  constructor (props) {
+  constructor (props: ISelectProps) {
     super(props)
     const { defaultValue, value } = props
     this.state = {
@@ -89,13 +89,13 @@ class Select extends React.Component<ISelectProps, ISelectState> {
     return null
   }
 
-  handlePopoverChange = (visible) => {
+  handlePopoverChange = (visible: boolean) => {
     this.setState({
       visible
     })
   }
 
-  handleSelect = (value) => {
+  handleSelect = (value: any) => {
     const { onSelect, onChange } = this.props
 
     if (!('value' in this.props)) {

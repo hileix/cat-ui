@@ -7,7 +7,7 @@ export interface IconProps {
   /** 类名 */
   className?: string;
   /** 样式 */
-  style?: object;
+  style?: React.CSSProperties;
   /** 图标类型 */
   type: string | IconType;
   /** 点击按钮时的回调 */

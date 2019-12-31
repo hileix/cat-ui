@@ -3,10 +3,12 @@
     "module": "commonjs",
     "target": "es5",
     "lib": ["es5", "es6", "es7", "dom"],
-    "noImplicitAny": false,
+
+    "strict": true,
+    "strictPropertyInitialization": false,
+    
     "removeComments": false,
-    "noImplicitReturns": false,
-    "noImplicitThis": false,
+    "noImplicitReturns": true,
     "sourceMap": true,
     "skipLibCheck": true,
     "outDir": "lib",
@@ -22,6 +24,10 @@
     },
     "resolveJsonModule": true
   },
+  // https://github.com/storybookjs/storybook/issues/7829#issuecomment-526860608
+  "awesomeTypescriptLoaderOptions": {
+    "ignoreDiagnostics": [7005]
+  },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "lib", "src/components/**/__test__"]
+  "exclude": ["node_modules", "lib"]
 }

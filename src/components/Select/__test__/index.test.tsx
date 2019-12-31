@@ -8,11 +8,11 @@ const Option = Select.Option
 
 describe('Select', () => {
   test('renders correctly', () => {
-    const handleSelect1 = (value) => {
+    const handleSelect1 = (value: any) => {
       console.log('handleSelect', value)
     }
   
-    const handleChange1 = (value) => {
+    const handleChange1 = (value: any) => {
       console.log('handleChange', value)
     }
 
@@ -55,19 +55,19 @@ describe('Select', () => {
 })
 
 class Demo extends React.Component<ISelectProps, {value: string}> {
-  constructor(props) {
+  constructor(props: ISelectProps) {
     super(props)
     this.state = {
       value: ''
     }
   }
-  handleSelect = (value) => {
+  handleSelect = (value: any) => {
     this.setState({
       value
     })
   }
 
-  handleChange = (value) => {
+  handleChange = (value: any) => {
     this.setState({
       value
     })

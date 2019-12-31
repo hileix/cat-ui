@@ -9,13 +9,14 @@ export interface NotificationConfig {
 }
 
 export interface NotificationInterface {
+  [method: string]: Function;
   open: (type: Types, config: NotificationConfig) => void;
   success: (config: NotificationConfig) => void;
   warn: (config: NotificationConfig) => void;
   error: (config: NotificationConfig) => void;
 }
 
-let notificationInstance: any;
+let notificationInstance: NotificationContainer;
 function getNotificationInstance() {
   if (notificationInstance) {
     return notificationInstance;

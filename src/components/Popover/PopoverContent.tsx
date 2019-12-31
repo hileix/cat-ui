@@ -30,7 +30,7 @@ export interface PopoverContentProps {
   /**
    * 触发类型
    */
-  mode?: 'click' | 'hover';
+  mode: 'click' | 'hover';
   /**
    * 触发元素方位
    */
@@ -40,13 +40,13 @@ export interface PopoverContentProps {
    */
   contentPosition: PositionType;
   /**
-   * X轴的偏移量
+   * X 轴的偏移量
    */
-  offsetX?: number;
+  offsetX: number;
   /**
-   * X轴的偏移量
+   * Y 轴的偏移量
    */
-  offsetY?: number;
+  offsetY: number;
   /**
    * toggleVisible
    */
@@ -88,7 +88,10 @@ class PopoverContent extends Component<
   static defaultProps = {
     selector: 'body',
     triggerPosition: ['left', 'bottom'],
-    contentPosition: ['left', 'top']
+    contentPosition: ['left', 'top'],
+    offsetX: 0,
+    offsetY: 0,
+    mode: 'click'
   };
 
   public contentRef: React.RefObject<HTMLDivElement>;
@@ -127,6 +130,10 @@ class PopoverContent extends Component<
     }
     const contentDOM = this.contentRef.current;
 
+    if (!contentDOM) {
+      return;
+    }
+
     const positionStyle = getPosition(
       triggerDOM,
       contentDOM,
@@ -141,12 +148,14 @@ class PopoverContent extends Component<
   };
 
   open = (e: React.MouseEvent) => {
+    const { toggleVisible } = this.props
     e.stopPropagation();
-    this.props.toggleVisible(true);
+    toggleVisible && toggleVisible(true);
   };
 
   close = () => {
-    this.props.toggleVisible(false);
+    const { toggleVisible } = this.props
+    toggleVisible && toggleVisible(false);
   };
 
   getTriggerEvents = () => {
@@ -194,7 +203,7 @@ class PopoverContent extends Component<
           style={styles}
           {...triggerEvents}
         >
-          {children(visible)}
+          {children(visible as boolean)}
         </div>
       </PurePortal>
     );

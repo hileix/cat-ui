@@ -7,35 +7,35 @@ import './style.scss';
 const Option = Select.Option;
 
 const Demo1 = () => {
-  const handleSelect1 = (value) => {
+  const handleSelect1 = (value: any) => {
     console.log('handleSelect', value)
   }
 
-  const handleChange1 = (value) => {
+  const handleChange1 = (value: any) => {
     console.log('handleChange', value)
   }
 
-  const handleSelect2 = (value) => {
+  const handleSelect2 = (value: any) => {
     console.log('handleSelect', value)
   }
 
-  const handleChange2 = (value) => {
+  const handleChange2 = (value: any) => {
     console.log('handleChange', value)
   }
 
-  const handleSelect3 = (value) => {
+  const handleSelect3 = (value: any) => {
     console.log('handleSelect', value)
   }
 
-  const handleChange3 = (value) => {
+  const handleChange3 = (value: any) => {
     console.log('handleChange', value)
   }
 
-  const handleChange4 = (value) => {
+  const handleChange4 = (value: any) => {
     console.log('handleSelect', value)
   }
 
-  const handleFocus = (value) => {
+  const handleFocus = (value: any) => {
     console.log('handleFocus', value)
   }
 
