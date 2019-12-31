@@ -1,7 +1,5 @@
 import React from 'react';
-import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-
 
 export interface EmptyProps {
   /** 
@@ -17,16 +15,27 @@ export interface EmptyProps {
 /**
  * Empty
  */
-const Empty = ({ colSpan, empty }: EmptyProps) => {
+const Empty: FComponent<EmptyProps> = ({ colSpan, empty }) => {
   const prefix = 'cat-table__empty';
 
   return (
     <tr className={prefix}>
       <td colSpan={colSpan} className={`${prefix}-td`}>
-        {empty ? empty : 'No Data'}
+        {empty}
       </td>
     </tr>
   );
+}
+
+Empty.displayName = 'Empty';
+
+Empty.propTypes = {
+  colSpan: PropTypes.string.isRequired,
+  empty: PropTypes.node,
+}
+
+Empty.defaultProps = {
+  empty: 'No Data'
 }
 
 export default Empty;

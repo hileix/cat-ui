@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Component } from 'react';
 import { ColumnProps, Align } from './interface';
 import TableTr from './TableTr';

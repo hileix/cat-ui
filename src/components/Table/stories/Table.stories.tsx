@@ -5,10 +5,8 @@ import '../../../styles/index.scss';
 import './style.scss';
 
 const Demo1 = () => {
-
   const [currentPage, setCurrentPage] = useState(2);
   const [isDraggable, setIsDraggable] = useState(true);
-
 
   const onPageChange = (page: any) => {
     setCurrentPage(page);
