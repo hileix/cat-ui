@@ -49,7 +49,8 @@
 
 .cat-selection-wrap {
   display: none;
-  width: 189px;
+  width: 100%;
+  min-width: 189px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   
   &.visible {

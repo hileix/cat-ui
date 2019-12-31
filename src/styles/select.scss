@@ -1,7 +1,8 @@
 .cat-select-wrap {
   display: inline-block;
   box-sizing: border-box;
-  width: 189px;
+  width: 100%;
+  min-width: 189px;
   height: 32px;
   line-height: 32px;
   background-color: #fff;
