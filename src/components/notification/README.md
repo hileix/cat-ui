@@ -11,6 +11,7 @@ notification.success({
 
 ## API
 
+- notification.default(config)
 - notification.success(config)
 - notification.warn(config)
 - notification.error(config)
