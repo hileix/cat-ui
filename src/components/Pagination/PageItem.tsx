@@ -1,44 +1,73 @@
-import * as React from 'react';
+import React from 'react';
 import { PureComponent } from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 export interface PageItemProps {
-  /** 类名 */
+  /**
+   * 类名前缀
+   */
+  prefix: string;
+  /** 
+   * 类名
+   */
   className?: string;
-  /** 样式 */
-  style?: object;
-  /** active */
-  active?: boolean;
-  /** value */
-  value?: any;
-  /** onItemClick */
-  onItemClick?: any;
+  /** 
+   * 样式
+   */
+  style?: React.CSSProperties;
+  /** 
+   * 是否被激活
+   */
+  active: boolean;
+  /** 
+   * 值
+   */
+  value: number;
+  /** 
+   * 点击时的回调
+   */
+  onClick?: (value: number) => void;
 }
 
 /**
  * PageItem
  */
-class PageItem extends PureComponent<PageItemProps, any> {
+class PageItem extends PureComponent<PageItemProps> {
+  static displayName = 'PageItem';
+
+  static propTypes = {
+    prefix: PropTypes.string,
+    className: PropTypes.string,
+    style: PropTypes.object,
+    active: PropTypes.bool,
+    value: PropTypes.number,
+    onClick: PropTypes.func,
+  }
+
+  static defaultProps = {
+  }
+
   handleClick = () => {
-    const { onItemClick, value } = this.props;
-    onItemClick && onItemClick(value);
+    const { onClick, value } = this.props;
+    onClick && onClick(value);
   };
 
   render() {
-    const { className, style, active, value, children } = this.props;
-    const prefix = 'cat-pagination__item';
+    const { prefix, className, style, active, children } = this.props;
+    const classPrefix = `${prefix}__item`;
     const classes = classNames(
-      prefix,
+      classPrefix,
       {
-        [`${prefix}--active`]: active
+        [`${classPrefix}--active`]: active
       },
       className
     );
 
     return (
-      <div className={classes} style={style} onClick={this.handleClick}>
+      <span className={classes} style={style} onClick={this.handleClick}>
         {children}
-      </div>
+      </span>
     );
   }
 }
