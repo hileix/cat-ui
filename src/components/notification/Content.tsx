@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import Icon from '../Icon';
 import PurePortal from '../PurePortal';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 
 export type Types = 'success' | 'warn' | 'error';
@@ -10,7 +10,7 @@ export type Types = 'success' | 'warn' | 'error';
 const TIMEOUT = 300; // ms
 
 export interface ContentProps {
-  id?: string;
+  id: string;
   prefix?: string;
   className?: string;
   style?: React.CSSProperties;
@@ -26,6 +26,18 @@ export interface ContentState {
 }
 
 class Content extends React.Component<ContentProps, ContentState> {
+  static propTypes = {
+    id: PropTypes.string.isRequired,
+    prefix: PropTypes.string,
+    className: PropTypes.string,
+    style: PropTypes.object,
+    title: PropTypes.node,
+    content: PropTypes.node,
+    type: PropTypes.oneOf(['success', 'warn', 'error']),
+    selector: PropTypes.string,
+    onClose: PropTypes.func,
+  }
+
   static defaultProps = {
     prefix: 'cat'
   };

@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 export interface AvatarProps {
@@ -24,13 +24,17 @@ export interface AvatarProps {
   /** 样式前缀 */
   prefix?: string;
   /** 错误回调 */
-  onError?: (e: any) => boolean;
+  onError?: (e: React.SyntheticEvent<HTMLImageElement, Event>) => boolean;
+}
+
+export interface AvatarState {
+  src: string | undefined;
 }
 
 /**
  * Avatar
  */
-class Avatar extends React.Component<AvatarProps, any> {
+class Avatar extends React.Component<AvatarProps, AvatarState> {
   static propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
@@ -54,15 +58,14 @@ class Avatar extends React.Component<AvatarProps, any> {
     shape: 'square'
   };
 
-  constructor(props) {
+  constructor(props: AvatarProps) {
     super(props);
     this.state = {
-      loadErr: false,
       src: props.src
     };
   }
 
-  handleImgLoadError = (e: any) => {
+  handleImgLoadError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     if (this.props.fallbackSrc) {
       this.setState({
         src: this.props.fallbackSrc

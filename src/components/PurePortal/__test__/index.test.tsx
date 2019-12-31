@@ -7,7 +7,7 @@ import PurePortal from '../index';
 describe('PurePortal', () => {
   // reset dom
   afterEach(() => {
-    document.querySelector('body').innerHTML = '';
+    (document.querySelector('body') as any).innerHTML = '';
   });
 
   test('renders correctly', () => {
@@ -32,7 +32,7 @@ describe('PurePortal', () => {
       </PurePortal>
     );
     let contentDOM = document.querySelector('.my-pure-portal-content');
-    let parentDOM = contentDOM.parentNode;
+    let parentDOM = (contentDOM as any).parentNode;
     expect(parentDOM instanceof HTMLBodyElement).toBe(true);
   });
 
@@ -44,7 +44,7 @@ describe('PurePortal', () => {
     );
 
     let contentDOM = document.querySelector('.my-pure-portal-content');
-    let parentDOM = contentDOM.parentNode;
+    let parentDOM = (contentDOM as any).parentNode;
     expect(parentDOM instanceof HTMLBodyElement).toBe(true);
 
     // create dom
@@ -55,7 +55,7 @@ describe('PurePortal', () => {
     wrapper.setProps({ selector: '.my-new-container' });
 
     contentDOM = document.querySelector('.my-pure-portal-content');
-    parentDOM = contentDOM.parentNode;
+    parentDOM = (contentDOM as any).parentNode;
 
     expect((parentDOM as Element).getAttribute('class')).toBe(
       'my-new-container'

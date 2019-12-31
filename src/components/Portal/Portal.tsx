@@ -9,14 +9,14 @@ export interface ProtalProps {
   /** 类名 */
   className?: string;
   /** 样式 */
-  style?: object;
+  style?: React.CSSProperties;
   /** 容器的 css 选择器 */
-  selector?: string;
+  selector: string;
   /** 子元素 */
   children?: React.ReactNode;
   /** 弹层是否可见 */
   visible?: boolean;
-  /** 返回传送门需要渲染的内容，优先级高于children */
+  /** 返回传送门需要渲染的内容，优先级高于 children */
   render?: () => {};
   /** children 被 mount 之后的回调函数 */
   onMount?: () => {};
@@ -87,7 +87,7 @@ class Portal extends PureComponent<ProtalProps, any> {
   }
 
   getContainer = (selector: string): HTMLElement => {
-    let domNode: HTMLElement;
+    let domNode: any;
     if (selector) {
       domNode = document.querySelector(selector);
     }

@@ -117,7 +117,7 @@ class Search extends React.Component<ISearchProps, ISearchState> {
 
   static Option: typeof Option;
 
-  constructor (props) {
+  constructor (props: ISearchProps) {
     super(props)
     this.state = {
       value: props.value || '',
@@ -148,19 +148,19 @@ class Search extends React.Component<ISearchProps, ISearchState> {
     onChange && onChange(e.target.value)
   }
 
-  hanldeKeyDown = e => {
+  hanldeKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const { onSearch } = this.props
 
     e.persist()
 
     setTimeout(() => {
-      if (keycode(e) === 'enter') {
+      if (keycode(e as any) === 'enter') {
         onSearch && onSearch(this.state.value)
       }
     }, 0)
   }
 
-  handleBlur = e => {
+  handleBlur = (e: any) => {
     e.persist();
 
     setTimeout(() => {
@@ -170,7 +170,7 @@ class Search extends React.Component<ISearchProps, ISearchState> {
     }, 200);
   }
 
-  handleSelect = (value) => {
+  handleSelect = (value: any) => {
     const { onSelect } = this.props
 
     if (!('value' in this.props)) {
@@ -186,7 +186,7 @@ class Search extends React.Component<ISearchProps, ISearchState> {
     onSelect && onSelect(value)
   }
 
-  handlePopoverChange = (visible) => {
+  handlePopoverChange = (visible: boolean) => {
     this.setState({
       visible
     })

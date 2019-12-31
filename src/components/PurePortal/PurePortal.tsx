@@ -10,7 +10,7 @@ export interface PurePortalProps {
   /**
    * 作为容器的 css 选择器
    */
-  selector?: string;
+  selector: string;
   /**
    * unmount 时的回调
    */
@@ -32,7 +32,7 @@ class PurePortal extends React.Component<PurePortalProps> {
     selector: 'body'
   };
 
-  private container: Element;
+  private container: Element | null;
 
   componentDidMount = () => {
     this.getContainer();

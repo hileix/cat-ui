@@ -29,9 +29,9 @@ class CheckboxGroup extends Component<CheckboxGroupProps, any> {
     super(props);
     let value = [];
     if ('value' in props) {
-      value = props.value;
+      value = props.value as any;
     } else if ('defaultValue' in props) {
-      value = props.defaultValue;
+      value = props.defaultValue as any;
     }
     this.state = {
       value: value

@@ -1,6 +1,9 @@
 import * as React from 'react'
 
 export interface ColumnProps<T> {
+  /**
+   * record 对应的 key 值
+   */
   id: string;
   /** 
    * 表头显示文字 

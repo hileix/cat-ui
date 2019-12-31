@@ -16,11 +16,11 @@ export interface ISelectionProps {
   /**
    * 行内样式
    */
-  style?: object;
+  style?: React.CSSProperties;
   /**
    * 是否显示选择菜单
    */
-  visible?: boolean;
+  visible: boolean;
   /**
    * 用于初始化的默认值
    */
@@ -88,10 +88,11 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
     const initialValue = defaultValue || value
     let focusIndex
     
-    React.Children.forEach(children, (Option, index) => {
+    React.Children.forEach(children, (Option: any, index: number) => {
       if (Option.props.value === initialValue) {
-        return focusIndex = index
+        return focusIndex = index;
       }
+      return null;
     })
 
     this.state = {
@@ -134,7 +135,7 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
 
   moveFocusIndex = (offset: number) => {
     const { focusIndex } = this.state
-    let nextIndex = focusIndex + offset
+    let nextIndex = focusIndex as any + offset
   
     if (nextIndex === this.childrenLength) {
       nextIndex = 0
@@ -147,7 +148,11 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
     })
   }
 
-  handleClickOption = ({value, index, disabled}) => {
+  handleClickOption = ({value, index, disabled}: {
+    value: any,
+    index: any,
+    disabled: any
+  }) => {
     const { onSelect } = this.props
 
     if (disabled) {
@@ -161,7 +166,10 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
     onSelect && onSelect(value)
   }
 
-  handleMouseEnterOption = ({index, disabled}) => {
+  handleMouseEnterOption = ({index, disabled}: {
+    index: any,
+    disabled: any
+  }) => {
     if (disabled) {
       return
     }
@@ -171,7 +179,10 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
     })
   }
 
-  handleMouseLeaveOption = ({index, disabled}) => {
+  handleMouseLeaveOption = ({index, disabled}: {
+    index: any,
+    disabled: any
+  }) => {
     if (disabled) {
       return
     }
@@ -185,12 +196,12 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
     const { onSelect, children } = this.props
     const { focusIndex } = this.state
 
-    if (!children[focusIndex]) {
+    if (!children[focusIndex as number]) {
       return
     }
 
-    let value = children[focusIndex].props.value
-    let disabled = children[focusIndex].props.disabled
+    let value = children[focusIndex as number].props.value
+    let disabled = children[focusIndex as number].props.disabled
 
     if (disabled) {
       return
@@ -202,9 +213,9 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
     onSelect && onSelect(value)
   }
 
-  handleKeydown = e => {
+  handleKeydown = (e: any) => {
     const { visible } = this.state
-    const keyName = keycode(e)
+    const keyName = keycode(e as any)
 
     if (!visible) {
       return

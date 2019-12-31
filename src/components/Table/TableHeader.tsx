@@ -26,6 +26,10 @@ class TableHeader<T> extends Component<TableHeaderProps<T>> {
     align: PropTypes.oneOf(['left', 'center', 'right']).isRequired,
   }
 
+  static defaultProps = {
+    align: 'left'
+  }
+
   renderTds = () => {
     const { columns } = this.props;
     return columns.map((column: ColumnProps<T>) => {

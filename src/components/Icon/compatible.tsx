@@ -21,7 +21,7 @@ import {IconType} from './IconTypeEnum'
  *  
  */
  export function compatible (type: any) {
-    return TypeMap[type] || type
+    return TypeMap[type as keyof typeof TypeMap] || type;
  }
  
 

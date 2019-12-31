@@ -11,7 +11,7 @@ import message from '../../message';
 
 const { useEffect } = React;
 
-const SingleIcon = ({ type }) => {
+const SingleIcon = ({ type }: {type: string}) => {
   return (
     <div
       className='single-icon'

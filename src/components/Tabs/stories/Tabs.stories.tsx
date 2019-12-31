@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Tabs } from '@components/index';
 import '../../../styles/index.scss';
@@ -14,30 +14,27 @@ const Demo = () => {
   const [activeId2, setActiveId2] = useState('d');
   const [activeId3, setActiveId3] = useState('c');
 
-  const onTabChange1 = id => {
-    setActiveId1(id);
+  const onTabChange1 = (id: string | number) => {
+    setActiveId1(id as string);
   };
 
-  const onTabChange2 = id => {
-    setActiveId2(id);
+  const onTabChange2 = (id: string | number) => {
+    setActiveId2(id as string);
   };
 
-  const onTabChange3 = id => {
-    setActiveId3(id);
+  const onTabChange3 = (id: string | number) => {
+    setActiveId3(id as string);
   };
 
   return (
     <div>
       <h3>基础Tabs</h3>
       <Tabs activeId={activeId1} onChange={onTabChange1}>
-        <TabPanel id='a' tab='选项A'>
+        <TabPanel id='a' tab='选项a'>
           <div>选项A的内容11111</div>
         </TabPanel>
-        <TabPanel id='b' tab='选项B'>
-          <div>选项B的内容2222222</div>
-        </TabPanel>
-        <TabPanel id='c' tab='选项C'>
-          <div>选项C的内容333333</div>
+        <TabPanel id='b' tab='选项b'>
+          <div>选项A的内容11111</div>
         </TabPanel>
       </Tabs>
 

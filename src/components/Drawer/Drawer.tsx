@@ -22,7 +22,7 @@ export interface DrawerProps {
   /** 是否显示 */
   visible?: boolean;
   /** 获取抽屉所在的 dom 节点 */
-  getContainer?: () => HTMLElement;
+  getContainer: () => HTMLElement;
   /** children */
   children?: React.ReactNode;
   /** 类名前缀 */
@@ -116,7 +116,7 @@ class Drawer extends Component<DrawerProps, DrawerStateInterface> {
       return null;
     }
 
-    const closeIconStyle = typeof closeIcon === 'boolean' ? null : closeIcon;
+    const closeIconStyle = typeof closeIcon === 'boolean' ? {} : closeIcon;
 
     const content = (
       <div className={classNames(`${prefix}-drawer`)}>

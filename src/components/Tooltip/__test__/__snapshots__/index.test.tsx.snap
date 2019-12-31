@@ -34,6 +34,9 @@ exports[`Tooltip renders correctly 1`] = `
         "top",
       ]
     }
+    mode="click"
+    offsetX={0}
+    offsetY={0}
     selector="body"
     triggerPosition={
       Array [
@@ -81,6 +84,9 @@ exports[`Tooltip renders correctly 2`] = `
         "top",
       ]
     }
+    mode="click"
+    offsetX={0}
+    offsetY={0}
     selector="body"
     triggerPosition={
       Array [
@@ -128,6 +134,9 @@ exports[`Tooltip renders correctly 3`] = `
         "top",
       ]
     }
+    mode="click"
+    offsetX={0}
+    offsetY={0}
     selector="body"
     triggerPosition={
       Array [
@@ -175,6 +184,9 @@ exports[`Tooltip renders correctly 4`] = `
         "top",
       ]
     }
+    mode="click"
+    offsetX={0}
+    offsetY={0}
     selector="body"
     triggerPosition={
       Array [
@@ -222,6 +234,9 @@ exports[`Tooltip renders correctly 5`] = `
         "top",
       ]
     }
+    mode="click"
+    offsetX={0}
+    offsetY={0}
     selector="body"
     triggerPosition={
       Array [
@@ -269,6 +284,9 @@ exports[`Tooltip renders correctly 6`] = `
         "top",
       ]
     }
+    mode="click"
+    offsetX={0}
+    offsetY={0}
     selector="body"
     triggerPosition={
       Array [
@@ -316,6 +334,9 @@ exports[`Tooltip renders correctly 7`] = `
         "top",
       ]
     }
+    mode="click"
+    offsetX={0}
+    offsetY={0}
     selector="body"
     triggerPosition={
       Array [
@@ -363,6 +384,9 @@ exports[`Tooltip renders correctly 8`] = `
         "top",
       ]
     }
+    mode="click"
+    offsetX={0}
+    offsetY={0}
     selector="body"
     triggerPosition={
       Array [
@@ -410,6 +434,9 @@ exports[`Tooltip renders correctly 9`] = `
         "top",
       ]
     }
+    mode="click"
+    offsetX={0}
+    offsetY={0}
     selector="body"
     triggerPosition={
       Array [
@@ -457,6 +484,9 @@ exports[`Tooltip renders correctly 10`] = `
         "top",
       ]
     }
+    mode="click"
+    offsetX={0}
+    offsetY={0}
     selector="body"
     triggerPosition={
       Array [
@@ -504,6 +534,9 @@ exports[`Tooltip renders correctly 11`] = `
         "top",
       ]
     }
+    mode="click"
+    offsetX={0}
+    offsetY={0}
     selector="body"
     triggerPosition={
       Array [
@@ -551,6 +584,9 @@ exports[`Tooltip renders correctly 12`] = `
         "top",
       ]
     }
+    mode="click"
+    offsetX={0}
+    offsetY={0}
     selector="body"
     triggerPosition={
       Array [

@@ -145,16 +145,16 @@ class TextArea extends React.PureComponent<TextAreaProps, TextAreaStates> {
           className={classes}
           value={value}
           style={areaStyle}
-          onFocus={handleFocus.bind(this)}
-          onBlur={handleBlur.bind(this)}
-          onChange={handleChange.bind(this)}
-          onKeyDown={handleKeyDown.bind(this)}
-          onMouseEnter={handleMouseEnter.bind(this)}
-          onMouseLeave={handleMouseLeave.bind(this)}
-          onPaste={handleClipboard.bind(this)}
-          onContextMenu={handleClipboard.bind(this)}
-          onCopy={handleClipboard.bind(this)}
-          onCut={handleClipboard.bind(this)}
+          onFocus={(handleFocus as any).bind(this)}
+          onBlur={(handleBlur as any).bind(this)}
+          onChange={(handleChange as any).bind(this)}
+          onKeyDown={(handleKeyDown as any).bind(this)}
+          onMouseEnter={(handleMouseEnter as any).bind(this)}
+          onMouseLeave={(handleMouseLeave as any).bind(this)}
+          onPaste={(handleClipboard as any).bind(this)}
+          onContextMenu={(handleClipboard as any).bind(this)}
+          onCopy={(handleClipboard as any).bind(this)}
+          onCut={(handleClipboard as any).bind(this)}
           {...props}
         />
       </Wrapper>
@@ -162,4 +162,4 @@ class TextArea extends React.PureComponent<TextAreaProps, TextAreaStates> {
   }
 }
 
-export default Handles(TextArea);
+export default Handles(TextArea as any);

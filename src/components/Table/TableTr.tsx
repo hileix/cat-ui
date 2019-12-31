@@ -1,7 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import { Component } from 'react';
 import classNames from 'classnames';
 import { ColumnProps, Align } from './interface';
+import PropTypes from 'prop-types';
 
 export interface TableTrProps<T> {
   /** 
@@ -41,6 +42,18 @@ export interface TableTrProps<T> {
  * TableTr
  */
 class TableTr<T> extends Component<TableTrProps<T>, any> {
+  static propTypes = {
+    columns: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.node.isRequired,
+      render: PropTypes.func,
+    })
+  }
+
+  static defaultProps = {
+    align: 'left'
+  }
+
   constructor(props: TableTrProps<T>) {
     super(props);
     this.state = {
@@ -66,14 +79,25 @@ class TableTr<T> extends Component<TableTrProps<T>, any> {
     const prefix = 'cat-table__col';
     return columns.map((column: ColumnProps<T>) => {
       const id = column.id;
-      // 渲染字符串或函数返回的DOM
+      /**
+       * dataSource = [
+       *   {
+       *     name: 'zhangsan',
+       *     age: 18,
+       *   },
+       *   {
+       *     name: 'lisi',
+       *     age: () => 19
+       *   }
+       * ]
+       */
       const value = typeof record[id] === 'function' ? record[id]() : record[id];
       return (
         <td key={id} className={prefix}>
-          {column.render ? (
+          {typeof column.render === 'function' ? (
             column.render(value, record, order - 1)
           ) : (
-              <div className="cat-table__col-inner">{value}</div>
+              <div className="cat-table__col-inner" >{value}</div>
             )}
         </td>
       );

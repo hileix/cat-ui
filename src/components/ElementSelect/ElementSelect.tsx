@@ -1,7 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 import { Component } from 'react';
 import classNames from 'classnames';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import PurePortal from '../PurePortal';
 import { scroll, getViewportSize } from '@hife/utils';
 
@@ -9,7 +9,7 @@ export interface ElementSelectProps {
   /**
    * 前缀
    */
-  prefix?: string;
+  prefix: string;
   /**
    * 类名
    */
@@ -25,7 +25,7 @@ export interface ElementSelectProps {
   /**
    * 选中元素的 css 选择器
    */
-  selector?: string;
+  selector: string;
   /**
    * 选中的元素的样式
    */
@@ -48,7 +48,7 @@ export interface ElementSelectProps {
   /**
    * 不在视图内时，自动滚动的多余的距离
    */
-  offset?: number;
+  offset: number;
 }
 
 export interface ElementSelectState {
@@ -60,8 +60,8 @@ export interface ElementSelectState {
    * 选中元素的 css 选择器
    */
   selector: string;
+  hasDetect: boolean;
   domRect?: DOMRect | ClientRect;
-  hasDetect?: boolean;
 }
 
 export interface PositionInterface {
@@ -121,7 +121,7 @@ class ElementSelect extends Component<ElementSelectProps, ElementSelectState> {
     isDidmount: false, // 是否 didmount 了
     selector: '', // 选中元素的 css 选择器
     hasDetect: false,
-    domRect: null
+    domRect: undefined
   };
 
   public domRect: DOMRect | ClientRect;
@@ -153,7 +153,7 @@ class ElementSelect extends Component<ElementSelectProps, ElementSelectState> {
     });
   };
 
-  componentDidUpdate = prevProps => {
+  componentDidUpdate = (prevProps: ElementSelectProps) => {
     if (this.props.visible) {
       scroll.disableScroll(document.body);
     } else {
@@ -175,6 +175,9 @@ class ElementSelect extends Component<ElementSelectProps, ElementSelectState> {
     }
     const root = document.documentElement;
     const target = document.querySelector<HTMLElement>(selector);
+    if (!target) {
+      return;
+    }
 
     // 不在 viewport 中，则滚动
     if (!isExistRoot(root, target)) {
@@ -199,7 +202,7 @@ class ElementSelect extends Component<ElementSelectProps, ElementSelectState> {
       top: eleTop,
       width: eleWidth,
       height: eleHeight
-    } = this.state.domRect;
+    } = this.state.domRect as any;
     return {
       eleWidth,
       eleHeight,
@@ -208,7 +211,14 @@ class ElementSelect extends Component<ElementSelectProps, ElementSelectState> {
     };
   };
 
-  getMakStyle = (position: 'top' | 'right' | 'bottom' | 'left' | 'center') => {
+  getMakStyle = (position: 'top' | 'right' | 'bottom' | 'left' | 'center'): {
+    top: number;
+    right?: number;
+    bottom?: number;
+    left: number;
+    width?: number;
+    height?: number;
+  } => {
     const { eleWidth, eleHeight, eleLeft, eleTop } = this.getSizeAndPosition();
     let style: {
       top: number;
@@ -217,6 +227,9 @@ class ElementSelect extends Component<ElementSelectProps, ElementSelectState> {
       left: number;
       width?: number;
       height?: number;
+    } = {
+      top: 0,
+      left: 0,
     };
     if (position === 'top') {
       style = {
@@ -265,10 +278,10 @@ class ElementSelect extends Component<ElementSelectProps, ElementSelectState> {
     const { domRect } = this.state;
     const viewPortWidth = window.innerWidth;
     const viewPortHeight = window.innerHeight;
-    const width = domRect.width;
-    const height = domRect.height;
-    const left = domRect.left;
-    const top = domRect.top;
+    const width = (domRect as any).width;
+    const height = (domRect as any).height;
+    const left = (domRect as any).left;
+    const top = (domRect as any).top;
     const right = viewPortWidth - left - width;
     const bottom = viewPortHeight - top - height;
     return {

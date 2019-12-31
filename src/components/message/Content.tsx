@@ -15,7 +15,7 @@ export interface ContentProps {
   /**
    * message 类型
    */
-  type?: MessageType;
+  type: MessageType;
   /**
    * message 内容
    */
@@ -27,7 +27,7 @@ export interface ContentProps {
   /**
    * 持续时间，单位：ms
    */
-  duration?: number;
+  duration: number;
   /**
    * 关闭后的回调
    */
@@ -57,7 +57,8 @@ class Content extends React.Component<ContentProps, ContentState> {
   };
   static defaultProps = {
     selector: 'body',
-    duration: 3
+    duration: 3,
+    type: 'success'
   };
 
   state = {
@@ -70,7 +71,7 @@ class Content extends React.Component<ContentProps, ContentState> {
     const { duration, onClose, id } = this.props;
     this.timer = setTimeout(() => {
       this.setState({ visible: false });
-      onClose(id);
+      onClose && onClose(id);
     }, duration * 1000);
   };
 

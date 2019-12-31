@@ -41,7 +41,7 @@ export interface DemoWrapperProps extends CommonProps {
 /**
  * demo wrapper
  */
-class DemoWrapper extends React.PureComponent<DemoWrapperProps, null> {
+class DemoWrapper extends React.PureComponent<DemoWrapperProps> {
   static propTypes = {
     title: PropTypes.node,
     desc: PropTypes.node,

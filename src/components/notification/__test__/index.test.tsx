@@ -6,7 +6,7 @@ describe('notification', () => {
       title: 'success title',
       content: 'success content'
     });
-    const dom = document.querySelector('.cat-notification-container');
+    const dom: any = document.querySelector('.cat-notification-container');
     expect(dom.childNodes.length).toBe(1);
   });
 
@@ -15,7 +15,7 @@ describe('notification', () => {
       title: 'warn title',
       content: 'warn content'
     });
-    const dom = document.querySelector('.cat-notification-container');
+    const dom: any = document.querySelector('.cat-notification-container');
     expect(dom.childNodes.length).toBe(2);
   });
 
@@ -24,7 +24,7 @@ describe('notification', () => {
       title: 'error title',
       content: 'error content'
     });
-    const dom = document.querySelector('.cat-notification-container');
+    const dom: any = document.querySelector('.cat-notification-container');
     expect(dom.childNodes.length).toBe(3);
   });
 });

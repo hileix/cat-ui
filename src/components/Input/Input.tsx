@@ -154,7 +154,7 @@ class Input extends React.PureComponent<InputProps, InputStates> {
 
   public componentDidMount() {
     const { autoFocus } = this.props;
-    if (autoFocus) this.input.current.focus();
+    if (autoFocus) (this.input.current as any).focus();
   }
 
   private handleClear(e: React.MouseEvent<HTMLElement, MouseEvent>): void {
@@ -163,12 +163,12 @@ class Input extends React.PureComponent<InputProps, InputStates> {
     if (onChange) {
       let event = e;
       event = Object.create(e);
-      event.target = this.input.current;
-      event.currentTarget = this.input.current;
-      const originalInputValue = this.input.current.value;
-      this.input.current.value = '';
+      event.target = this.input.current as any;
+      event.currentTarget = this.input.current as any;
+      const originalInputValue = (this.input.current as any).value;
+      (this.input.current as any).value = '';
       onChange(event as any);
-      this.input.current.value = originalInputValue;
+      (this.input.current as any).value = originalInputValue;
     }
   }
 
@@ -182,7 +182,7 @@ class Input extends React.PureComponent<InputProps, InputStates> {
   private handleBlur(e: React.FocusEvent<HTMLInputElement>): void {
     if (!this.isIconBlur) {
       const { handleBlur } = this.props;
-      handleBlur.call(this, e);
+      (handleBlur as any).call(this, e);
     }
   }
 
@@ -191,11 +191,11 @@ class Input extends React.PureComponent<InputProps, InputStates> {
   }
 
   private iconAllowBlur(): void {
-    this.input.current.focus();
+    (this.input.current as any).focus();
     this.isIconBlur = false;
   }
 
-  handleClick = e => {
+  handleClick = (e: any) => {
     const { onClick } = this.props
     onClick && onClick(e)
   }
@@ -231,7 +231,7 @@ class Input extends React.PureComponent<InputProps, InputStates> {
         size={size}
         state={inputState}
         className={className}
-        placeholder={!placeholderOrigin && placeholder}
+        placeholder={!placeholderOrigin && placeholder as any}
         message={message}
         showClear={showClear}
         showEye={showEye}
@@ -242,16 +242,16 @@ class Input extends React.PureComponent<InputProps, InputStates> {
           })}
           type={type}
           value={value}
-          onFocus={handleFocus.bind(this)}
-          onBlur={this.handleBlur.bind(this)}
-          onChange={handleChange.bind(this)}
-          onKeyDown={handleKeyDown.bind(this)}
-          onMouseEnter={handleMouseEnter.bind(this)}
-          onMouseLeave={handleMouseLeave.bind(this)}
-          onPaste={handleClipboard.bind(this)}
-          onContextMenu={handleClipboard.bind(this)}
-          onCopy={handleClipboard.bind(this)}
-          onCut={handleClipboard.bind(this)}
+          onFocus={(handleFocus as any).bind(this)}
+          onBlur={(this.handleBlur as any).bind(this)}
+          onChange={(handleChange as any).bind(this)}
+          onKeyDown={(handleKeyDown as any).bind(this)}
+          onMouseEnter={(handleMouseEnter as any).bind(this)}
+          onMouseLeave={(handleMouseLeave as any).bind(this)}
+          onPaste={(handleClipboard as any).bind(this)}
+          onContextMenu={(handleClipboard as any).bind(this)}
+          onCopy={(handleClipboard as any).bind(this)}
+          onCut={(handleClipboard as any).bind(this)}
           onClick={this.handleClick}
           placeholder={placeholderOrigin ? placeholder : ''}
           ref={this.input}
@@ -285,4 +285,4 @@ class Input extends React.PureComponent<InputProps, InputStates> {
   }
 }
 
-export default Handles(Input);
+export default Handles(Input as any);

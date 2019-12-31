@@ -110,7 +110,7 @@ const Handles = (WrappedComponent: React.ComponentType<HandlesProps>) => {
         if (e && e.preventDefault) {
           e.preventDefault();
         } else {
-          window.event.returnValue = false;
+          (window.event as any).returnValue = false;
         }
       }
     }

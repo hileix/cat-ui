@@ -3,12 +3,13 @@ import { Component } from 'react';
 import { ColumnProps, Align } from './interface';
 import TableTr from './TableTr';
 import Empty from './Empty';
+import PropTypes from 'prop-types';
 
 export interface TableBodyProps<T> {
   /**
    * 行对应的 key 值
    */
-  rowKey?: string;
+  rowKey: string;
   /** 
    * 每一列需要的所有数据
    */
@@ -16,11 +17,11 @@ export interface TableBodyProps<T> {
   /** 
    * 每一行需要展示的数据	interfaceinterindex
    */
-  currentPageData?: Array<any>;
+  currentPageData: Array<T>;
   /** 
    * 对齐
    */
-  align?: Align;
+  align: Align;
   /** 
    * 是否可拖拽的
    */
@@ -28,7 +29,7 @@ export interface TableBodyProps<T> {
   /** 
    * 自定义的空模板
    */
-  empty?: React.ReactNode;
+  empty: React.ReactNode;
   /** 
    * 空模板的文案
    */
@@ -63,6 +64,14 @@ export interface TableBodyProps<T> {
  * TableBody
  */
 class TableBody<T> extends Component<TableBodyProps<T>> {
+  static propTypes = {
+    rowKey: PropTypes.string,
+  }
+
+  static defaultProps = {
+  }
+
+
   private draggerRef: any;
   private dragged: any;
   private over: any;
@@ -111,7 +120,7 @@ class TableBody<T> extends Component<TableBodyProps<T>> {
     } = this.props;
     let from = Number(this.dragged.dataset.order);
     let to = Number(this.over.dataset.order);
-    let childrenNode = Array.from(currentPageData);
+    let childrenNode = Array.from(currentPageData as any);
 
     this.over.removeAttribute('style');
 
@@ -148,13 +157,13 @@ class TableBody<T> extends Component<TableBodyProps<T>> {
   };
 
   renderTrs = () => {
-    const { rowKey, columns, currentPageData, align, draggable } = this.props;
-    return currentPageData.map((record, index) => {
+    const { columns, currentPageData, align, draggable, rowKey } = this.props;
+    return (currentPageData as any[]).map((record, index) => {
       const trDraggable =
         'draggable' in record ? record.draggable : draggable;
       return (
         <TableTr
-          key={record.key || record[rowKey]}
+          key={record[rowKey]}
           order={index + 1}
           columns={columns}
           record={record}

@@ -48,7 +48,7 @@ export interface PopoverProps {
 
 export interface PopoverState {
   visible: boolean;
-  triggerDOM: Element;
+  triggerDOM: Element | null;
 }
 
 /**
@@ -162,8 +162,9 @@ class Popover extends Component<PopoverProps, PopoverState> {
         'There must be one and only one trigger and content in Popover'
       );
     }
+
     const { trigger, content } = childArray.reduce<genChildProps>(
-      (result, child: React.ReactElement) => {
+      (result: any, child: any) => {
         const type = child.type;
         if (kindOf(type, PopoverTrigger)) {
           result.trigger = child;

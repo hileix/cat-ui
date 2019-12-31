@@ -30,7 +30,7 @@ describe('Scroll', () => {
   test('call onPageIndexChange correctly', () => {
     const onPageIndexChange = jest.fn()
 
-    const eventMap = {
+    const eventMap: any = {
       scroll: null,
     };
 

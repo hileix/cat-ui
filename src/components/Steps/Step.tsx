@@ -39,9 +39,9 @@ class Step extends React.PureComponent<StepProps, StepStates> {
       isLast
     } = this.props;
     const suffix =
-      +current === +stepNumber
+      +(current as number) === +(stepNumber as number)
         ? 'current'
-        : +current > +stepNumber
+        : +(current as number) > +(stepNumber as number)
         ? 'active'
         : '';
     const classes = classnames({ prefix, theme, suffix });

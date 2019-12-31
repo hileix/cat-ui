@@ -9,7 +9,7 @@ export interface GuidanceProps {
   /**
    * 前缀
    */
-  prefix?: string;
+  prefix: string;
   /**
    * 类名
    */
@@ -30,10 +30,6 @@ export interface GuidanceProps {
    * step 改变时的回调
    */
   onChange?: (currentId: number | string) => void;
-  /**
-   * children
-   */
-  children?: React.ReactNode;
   /**
    * 下一步按钮文案
    */
@@ -57,7 +53,7 @@ const DISTANCE_TOP = 12;
 /**
  * Guidance 引导
  */
-class Guidance extends Component<GuidanceProps, null> {
+class Guidance extends Component<GuidanceProps> {
   static propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
@@ -84,7 +80,7 @@ class Guidance extends Component<GuidanceProps, null> {
     onChange && onChange(this.activeId);
   };
 
-  renderExtraContent = (sizeAndPos, stepProps) => {
+  renderExtraContent = (sizeAndPos: any, stepProps: any) => {
     const { style: stepStyle, className, children } = stepProps;
 
     const style: React.CSSProperties = {
@@ -108,8 +104,8 @@ class Guidance extends Component<GuidanceProps, null> {
 
   getActiveGuidaneStepProps = () => {
     const { children, activeId } = this.props;
-    let ret;
-    React.Children.forEach(children, (child: React.ReactElement) => {
+    let ret: any;
+    React.Children.forEach(children as any, (child: React.ReactElement) => {
       const isElemet = React.isValidElement(child);
       if (!isElemet || activeId !== child.props.id) {
         return;

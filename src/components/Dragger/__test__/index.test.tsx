@@ -4,8 +4,6 @@ import { render, mount } from 'enzyme'
 import * as Adapter from 'enzyme-adapter-react-16'
 import Dragger from '../index'
 
-Enzyme.configure({ adapter: new Adapter() })
-
 describe('Dragger', () => {
   test('renders correctly', () => {
     const wrapper = render(

@@ -30,11 +30,7 @@ export interface TableProps<T> {
   /** 
    * 对齐
    */
-  align?: Align;
-  /** 
-   * 是否可拖拽的
-   */
-  draggable?: boolean;
+  align: Align;
   /** 
    * 分页参数
    */
@@ -43,6 +39,14 @@ export interface TableProps<T> {
    * 自定义的空模板 
    */
   empty?: React.ReactNode;
+  /**
+   * 行对应的 key 值
+   */
+  rowKey: string;
+  /** 
+   * 是否可拖拽的
+   */
+  draggable?: boolean;
   /** 
    * 获取被拖拽的元素
    */
@@ -71,10 +75,11 @@ export interface TableProps<T> {
    * 返回排序后的id列表
    */
   onSort?: (sortedIds?: Array<any>, activeId?: any) => void;
-  /**
-   * 行对应的 key 值
-   */
-  rowKey?: string;
+
+}
+
+export interface TableState {
+  
 }
 
 /**
@@ -82,13 +87,27 @@ export interface TableProps<T> {
  */
 class Table<T> extends Component<TableProps<T>, any> {
   static propTypes = {
-
+    className: PropTypes.string,
+    style: PropTypes.object,
+    columns: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.node.isRequired,
+      render: PropTypes.func,
+    })),
+    dataSource: PropTypes.array,
+    align: PropTypes.oneOf(['left', 'center', 'right']),
+    pagination: PropTypes.object, // 需调整
+    empty: PropTypes.node,
+    rowKey: PropTypes.string,
   }
 
   static defaultProps = {
+    dataSource: [],
     align: 'left',
-    pagination: {},
-    draggable: false
+    pagination: {}, // 需调整
+    empty: 'No Data',
+    rowKey: 'key',
+    draggable: false,
   };
 
   constructor(props: TableProps<T>) {
@@ -144,9 +163,9 @@ class Table<T> extends Component<TableProps<T>, any> {
     const { current, pageSize } = pagination;
     // 优先采用传入的current
     const currentPage = currentArg || current;
-    const begin = (currentPage - 1) * pageSize;
+    const begin = (currentPage as number - 1) * (pageSize as number);
     // 分页后当前页面显示的数据
-    const currentPageData = filterDataSource.slice(begin, begin + pageSize);
+    const currentPageData = filterDataSource.slice(begin, begin + (pageSize as number));
     if (this.hasPagination()) {
       this.setState({ currentPageData: currentPageData });
     }
