@@ -20,7 +20,8 @@ const existComponents = [
   'Modal',
   'Selection',
   'Search',
-  'Select'
+  'Select',
+  'Pagination'
 ];
 
 function getTestMatch() {
