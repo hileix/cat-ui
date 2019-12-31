@@ -1,19 +1,24 @@
 import NotificationContainer from '../../utils/NotificationContainer';
 import Content from './Content';
+import { Types } from './interface';
 
-export type Types = 'success' | 'warn' | 'error';
 
 export interface NotificationConfig {
   title?: React.ReactNode;
   content?: React.ReactNode;
 }
 
+export interface NotificationMethod {
+  (config: NotificationConfig): void;
+}
+
 export interface NotificationInterface {
   [method: string]: Function;
   open: (type: Types, config: NotificationConfig) => void;
-  success: (config: NotificationConfig) => void;
-  warn: (config: NotificationConfig) => void;
-  error: (config: NotificationConfig) => void;
+  default: NotificationMethod;
+  success: NotificationMethod;
+  warn: NotificationMethod;
+  error: NotificationMethod;
 }
 
 let notificationInstance: NotificationContainer;
@@ -42,6 +47,9 @@ function open(type: Types, config: NotificationConfig) {
 
 const notification: NotificationInterface = {
   open,
+  default(config: NotificationConfig) {
+    this.open('default', config)
+  },
   success(config: NotificationConfig) {
     this.open('success', config);
   },
