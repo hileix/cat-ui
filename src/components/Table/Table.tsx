@@ -2,15 +2,14 @@ import React from 'react';
 import { Component } from 'react';
 import classNames from 'classnames';
 import isEmpty from 'lodash/isEmpty';
-import isEqual from 'lodash/isEqual';
 import { ColumnProps, PaginationProps, Align } from './interface';
 import TableHeader from './TableHeader';
 import TableBody from './TableBody';
 import Pagination from '../Pagination';
 import PropTypes from 'prop-types';
+import Loading from '../Loading';
 
-
-export interface TableProps<T> {
+export interface TableProps<T = {}> {
   /** 
    * 类名
    */
@@ -34,7 +33,7 @@ export interface TableProps<T> {
   /** 
    * 分页参数
    */
-  pagination: PaginationProps;
+  pagination?: PaginationProps;
   /** 
    * 自定义的空模板 
    */
@@ -43,6 +42,10 @@ export interface TableProps<T> {
    * 行对应的 key 值
    */
   rowKey: string;
+  /**
+   * 加载状态
+   */
+  loading?: boolean;
   /** 
    * 是否可拖拽的
    */
@@ -75,11 +78,25 @@ export interface TableProps<T> {
    * 返回排序后的id列表
    */
   onSort?: (sortedIds?: Array<any>, activeId?: any) => void;
-
 }
 
 export interface TableState {
-  
+
+}
+
+/**
+ * 获取当前页数据
+ * @param dataSource 表格记录
+ * @param page 页码
+ * @param pageSize 每页数量
+ */
+export const getCurrentPageData = <T extends {}>(dataSource: Array<T>, page: number = 1, pageSize: number = 10) => {
+  if (dataSource.length <= pageSize) {
+    return dataSource;
+  }
+  const start = (page - 1) * pageSize;
+  const end = start + pageSize;
+  return dataSource.slice(start, end);
 }
 
 /**
@@ -96,7 +113,12 @@ class Table<T> extends Component<TableProps<T>, any> {
     })),
     dataSource: PropTypes.array,
     align: PropTypes.oneOf(['left', 'center', 'right']),
-    pagination: PropTypes.object, // 需调整
+    pagination: PropTypes.shape({
+      current: PropTypes.number,
+      total: PropTypes.number,
+      pageSize: PropTypes.number,
+      onChange: PropTypes.func,
+    }), // 需调整
     empty: PropTypes.node,
     rowKey: PropTypes.string,
   }
@@ -104,81 +126,14 @@ class Table<T> extends Component<TableProps<T>, any> {
   static defaultProps = {
     dataSource: [],
     align: 'left',
-    pagination: {}, // 需调整
     empty: 'No Data',
     rowKey: 'key',
     draggable: false,
+    loading: false,
   };
-
-  constructor(props: TableProps<T>) {
-    super(props);
-    this.state = {
-      filterKeys: {},
-      pageTotal: 0,
-      filterDataSource: props.dataSource,
-      currentPageData: props.dataSource
-    };
-  }
-
-  // static getDerivedStateFromProps(nextProps: TableProps) {
-  //   if ('dataSource' in nextProps) {
-  //     return {
-  //       filterDataSource: nextProps.dataSource,
-  //       currentPageData: nextProps.dataSource
-  //     }
-  //   }
-  //   return null
-  // }
-
-  componentDidMount() {
-    if (this.hasPagination()) {
-      const { pagination } = this.props;
-      const { total = 0 } = pagination;
-      this.setState({ pageTotal: total });
-      // 暂时注释掉内部分页
-      // this.pagingDataSource()
-    }
-  }
-
-  componentDidUpdate(prevProps: TableProps<T>) {
-    const { dataSource } = this.props;
-    const { dataSource: prevDataSource } = prevProps;
-    // 比对两次dataSource
-    if (!isEqual(dataSource, prevDataSource)) {
-      this.setState({
-        filterDataSource: dataSource,
-        currentPageData: dataSource
-      });
-    }
-  }
 
   hasPagination = () => {
     return !isEmpty(this.props.pagination);
-  };
-
-  // 对数据进行分页
-  pagingDataSource = (currentArg?: number) => {
-    const { pagination } = this.props;
-    const { filterDataSource } = this.state;
-    const { current, pageSize } = pagination;
-    // 优先采用传入的current
-    const currentPage = currentArg || current;
-    const begin = (currentPage as number - 1) * (pageSize as number);
-    // 分页后当前页面显示的数据
-    const currentPageData = filterDataSource.slice(begin, begin + (pageSize as number));
-    if (this.hasPagination()) {
-      this.setState({ currentPageData: currentPageData });
-    }
-  };
-
-  // 分页点击之后的回调函数
-  onPaginationChange = (page: number) => {
-    const { pagination, onPageChange } = this.props;
-    onPageChange && onPageChange(page);
-    // 暂时注释掉Table内部翻页
-    const { onChange } = pagination;
-    onChange && onChange(page);
-    this.pagingDataSource(page);
   };
 
   // 拖拽事件之后的回调
@@ -187,7 +142,6 @@ class Table<T> extends Component<TableProps<T>, any> {
   };
 
   render() {
-    const { filterKeys, currentPageData, pageTotal } = this.state;
     const {
       className,
       style,
@@ -200,12 +154,17 @@ class Table<T> extends Component<TableProps<T>, any> {
       onDragEnd,
       onSort,
       dataSource,
-      rowKey
+      rowKey,
+      loading,
     } = this.props;
-    const { current, pageSize } = pagination;
     const prefix = 'cat-table';
     const classes = classNames(prefix, className);
     const showPagination = this.hasPagination() && dataSource.length > 0;
+    const currentPageData = getCurrentPageData(
+      dataSource,
+      pagination && pagination.current,
+      pagination && pagination.pageSize
+    );
 
     return (
       <div className={classes} style={style}>
@@ -229,14 +188,24 @@ class Table<T> extends Component<TableProps<T>, any> {
         </table>
         {showPagination && (
           <div className={classNames(`${prefix}__pagination`)}>
-            <Pagination
-              current={current}
-              total={pageTotal}
-              pageSize={pageSize}
-              onChange={this.onPaginationChange}
-            />
+            <Pagination {...pagination as PaginationProps} />
           </div>
         )}
+        <div
+          className={classNames(`${prefix}__loading`, {
+            [`${prefix}__loading--hide`]: !loading
+          })}
+        >
+          <div
+            className={classNames(`${prefix}__loading-mask`, {
+              [`${prefix}__loading-mask--hide`]: !loading
+            })}
+          />
+          <Loading
+            visible={loading}
+            className={`${prefix}__loading-inner`}
+          />
+        </div>
       </div>
     );
   }

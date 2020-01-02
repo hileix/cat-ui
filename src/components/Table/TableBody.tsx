@@ -13,7 +13,7 @@ export interface TableBodyProps<T> {
   /** 
    * 每一列需要的所有数据
    */
-  columns: Array<ColumnProps<T>>;
+  columns: ColumnProps<T>[];
   /** 
    * 每一行需要展示的数据	interfaceinterindex
    */
@@ -81,16 +81,16 @@ class TableBody<T> extends Component<TableBodyProps<T>> {
     this.draggerRef = React.createRef();
   }
 
-  dragStart = (event: any) => {
+  handleDragStart = (event: any) => {
     const { onDragStart } = this.props;
     this.dragged = event.currentTarget;
     onDragStart && onDragStart(event);
   };
 
-  dragOver = (event: any) => {
+  handleDragOver = (event: any) => {
     const { onDragOver } = this.props;
     event.preventDefault();
-    this.over = event.target.closest('.cat-table-row');
+    this.over = event.target.closest('.cat-table__row');
 
     // 若未找到安放的DOM元素，则设为本身
     if (this.over === null) {
@@ -99,18 +99,18 @@ class TableBody<T> extends Component<TableBodyProps<T>> {
     onDragOver && onDragOver(event);
   };
 
-  onDragEnter = (event: any) => {
-    const node = event.target.closest('.cat-table-row');
+  handleDragEnter = (event: any) => {
+    const node = event.target.closest('.cat-table__row');
     const newStyle = 'transform: translateY(10px);';
     node.setAttribute('style', newStyle);
   };
 
   onDragLeave = (event: any) => {
-    const node = event.target.closest('.cat-table-row');
+    const node = event.target.closest('.cat-table__row');
     node.removeAttribute('style');
   };
 
-  dragEnd = (event: any, activeId: any) => {
+  handleDragEnd = (event: any, activeId: any) => {
     const {
       currentPageData,
       draggedElement,
@@ -169,8 +169,8 @@ class TableBody<T> extends Component<TableBodyProps<T>> {
           record={record}
           align={align}
           draggable={trDraggable}
-          onDragStart={this.dragStart}
-          onDragEnd={this.dragEnd}
+          onDragStart={this.handleDragStart}
+          onDragEnd={this.handleDragEnd}
         />
       );
     });
@@ -186,8 +186,8 @@ class TableBody<T> extends Component<TableBodyProps<T>> {
     return (
       <tbody
         ref={this.draggerRef}
-        onDragOver={this.dragOver}
-        onDragEnter={this.onDragEnter}
+        onDragOver={this.handleDragOver}
+        onDragEnter={this.handleDragEnter}
         onDragLeave={this.onDragLeave}
       >
         {currentPageData.length === 0 ? (

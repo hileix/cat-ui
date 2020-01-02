@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 
 export interface ColumnProps<T> {
   /**
@@ -12,7 +12,7 @@ export interface ColumnProps<T> {
   /** 
    * 自定义渲染
    */
-  render?: (value?: any, record?: T, index?: number) => React.ReactNode;
+  render?: (value: any, record?: T, index?: number) => React.ReactNode;
   /** 
    * 表头的筛选菜单项
    */
@@ -21,6 +21,10 @@ export interface ColumnProps<T> {
    *  本地模式下，确定筛选的运行函数
    */
   onFilter?: any;
+}
+
+export interface DataSource {
+  
 }
 
 export interface EmptyInnerProps {
@@ -41,15 +45,21 @@ export interface StyledFilterProps {
 }
 
 export interface PaginationProps {
-  /** 当前页数 */
-  current?: number;
-  /** 数据总数 */
-  total?: number;
-  /** 每页条数 */
+  /** 
+   * 当前页数
+   */
+  current: number;
+  /** 
+   * 数据总数
+   */
+  total: number;
+  /** 
+   * 每页条数
+   */
   pageSize?: number;
-  /** 分页大小改变时候的回调函数 */
-  onPageSizeChange?: (current: number) => void;
-  /** 每页条数 */
+  /** 
+   * 页码改变的回调。参数是改变后的页码及每页条数
+   */
   onChange?: (page: number, pageSize?: number) => void;
 }
 

@@ -30,7 +30,7 @@ const Empty: FComponent<EmptyProps> = ({ colSpan, empty }) => {
 Empty.displayName = 'Empty';
 
 Empty.propTypes = {
-  colSpan: PropTypes.string.isRequired,
+  colSpan: PropTypes.number.isRequired,
   empty: PropTypes.node,
 }
 

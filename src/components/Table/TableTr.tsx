@@ -8,7 +8,7 @@ export interface TableTrProps<T> {
   /** 
    * 每一列需要的所有数据
    */
-  columns: Array<ColumnProps<T>>;
+  columns: ColumnProps<T>[];
   /** 
    * 每一行的数据
    */
@@ -19,11 +19,7 @@ export interface TableTrProps<T> {
   /** 
    * 是否可拖拽的
    */
-  draggable?: boolean;
-  /** 
-   * id
-   */
-  id?: string | number;
+  draggable: boolean;
   /** 
    * order 
    */
@@ -43,15 +39,19 @@ export interface TableTrProps<T> {
  */
 class TableTr<T> extends Component<TableTrProps<T>, any> {
   static propTypes = {
-    columns: PropTypes.shape({
+    columns: PropTypes.arrayOf(PropTypes.shape({
       id: PropTypes.string.isRequired,
       title: PropTypes.node.isRequired,
       render: PropTypes.func,
-    })
+    })),
+    record: PropTypes.object,
+    align: PropTypes.oneOf(['left', 'center', 'right']),
+    draggable: PropTypes.bool,
   }
 
   static defaultProps = {
-    align: 'left'
+    align: 'left',
+    draggable: false,
   }
 
   constructor(props: TableTrProps<T>) {
