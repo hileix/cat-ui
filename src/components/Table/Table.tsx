@@ -110,7 +110,7 @@ class Table<T> extends Component<TableProps<T>, any> {
       id: PropTypes.string.isRequired,
       title: PropTypes.node.isRequired,
       render: PropTypes.func,
-    })),
+    })).isRequired,
     dataSource: PropTypes.array,
     align: PropTypes.oneOf(['left', 'center', 'right']),
     pagination: PropTypes.shape({
