@@ -86,7 +86,7 @@ const Demo2 = () => {
           error
         </Button>
 
-        <Notification visible={defaultVisible} type='success' title='default title' onClose={() => setDefaultVisible(false)}>
+        <Notification visible={defaultVisible} title='default title' onClose={() => setDefaultVisible(false)}>
           default content
         </Notification>
 
