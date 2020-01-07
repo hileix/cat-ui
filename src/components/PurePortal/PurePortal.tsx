@@ -23,7 +23,7 @@ export interface PurePortalProps {
 class PurePortal extends React.Component<PurePortalProps> {
   static propTypes = {
     children: PropTypes.node,
-    selector: PropTypes.string,
+    selector: PropTypes.oneOfType([PropTypes.string, PropTypes.object,]),
     render: PropTypes.func,
     onMount: PropTypes.func,
     onUnmount: PropTypes.func
