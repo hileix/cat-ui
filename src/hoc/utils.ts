@@ -5,7 +5,7 @@ import hoistStatics from 'hoist-non-react-statics';
  * 获取需要增强功能组件的名称
  * @param {class} WrappedComponent 需要增强功能的组件
  */
-function getDisplayName<T = {}>(WrappedComponent: React.ComponentType<T>): string {
+export function getDisplayName<T = {}>(WrappedComponent: React.ComponentType<T>): string {
   return (
     WrappedComponent.displayName || WrappedComponent.name || 'WrappedComponent'
   );

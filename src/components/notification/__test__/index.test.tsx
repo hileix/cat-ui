@@ -25,7 +25,6 @@ describe('notification', () => {
       content: 'error content'
     });
     const dom: any = document.querySelector('.cat-notification-container');
-    console.log('dom:', dom);
     expect(dom.childNodes.length).toBe(6);
   });
 

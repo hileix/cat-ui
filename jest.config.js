@@ -25,7 +25,7 @@ const existComponents = [
 ];
 
 function getTestMatch() {
-  const testMatch = [];
+  const testMatch = ['**/hoc/__test__/**/*.[jt]s?(x)'];
   const componentsPath = path.resolve(__dirname, 'src/components');
   const components = fs.readdirSync(componentsPath);
   components.forEach(name => {
