@@ -1,15 +1,30 @@
-import * as React from 'react'
+import React from 'react'
 
-export interface ColumnProps {
+export interface ColumnProps<T> {
+  /**
+   * record 对应的 key 值
+   */
   id: string;
-  /** 表头显示文字 */
-  title: string | React.ReactNode;
-  /** 生成复杂数据的渲染函数 */
-  render?: string | React.ReactNode;
-  /** 表头的筛选菜单项 */
+  /** 
+   * 表头显示文字 
+   */
+  title: React.ReactNode;
+  /** 
+   * 自定义渲染
+   */
+  render?: (value: any, record?: T, index?: number) => React.ReactNode;
+  /** 
+   * 表头的筛选菜单项
+   */
   filters?: Array<any>;
-  /** 本地模式下，确定筛选的运行函数 */
+  /**
+   *  本地模式下，确定筛选的运行函数
+   */
   onFilter?: any;
+}
+
+export interface DataSource {
+  
 }
 
 export interface EmptyInnerProps {
@@ -30,14 +45,22 @@ export interface StyledFilterProps {
 }
 
 export interface PaginationProps {
-  /** 当前页数 */
-  current?: number;
-  /** 数据总数 */
-  total?: number;
-  /** 每页条数 */
+  /** 
+   * 当前页数
+   */
+  current: number;
+  /** 
+   * 数据总数
+   */
+  total: number;
+  /** 
+   * 每页条数
+   */
   pageSize?: number;
-  /** 分页大小改变时候的回调函数 */
-  onPageSizeChange?: (current: number) => void;
-  /** 每页条数 */
+  /** 
+   * 页码改变的回调。参数是改变后的页码及每页条数
+   */
   onChange?: (page: number, pageSize?: number) => void;
 }
+
+export type Align = 'left' | 'center' | 'right';
