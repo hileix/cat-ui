@@ -64,7 +64,7 @@ function open(type: Types, config: NotificationConfig) {
 }
 
 const Notification: typeof Content = withCreateNotificationContainer({
-  selector: 'cat-notification-container'
+  className: 'cat-notification-container'
 })(Content);
 
 const notification: NotificationInterface = {

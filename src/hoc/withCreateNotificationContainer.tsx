@@ -2,11 +2,14 @@ import React from 'react';
 import { argumentContainer } from './utils';
 
 export interface Options {
-  selector: string;
+  /**
+   * 容器的 className
+   */
+  className: string;
 }
 
 /**
- * 创建 notification 容器的高阶组件
+ * 创建 notification 容器（若存在 className 对应的 容器，则不再创建容器）的高阶组件
  * @param WrappedComponent 
  */
 const withCreateNotificationContainer = (
@@ -19,10 +22,10 @@ const withCreateNotificationContainer = (
       }
 
       componentDidMount = () => {
-        const container = document.querySelector(options.selector);
+        const container = document.querySelector(`.${options.className}`);
         if (!container) {
           const div = document.createElement('div');
-          div.className = options.selector;
+          div.className = options.className;
           document.body.appendChild(div);
         }
         this.setState({ didMount: true });
