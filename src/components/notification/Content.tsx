@@ -45,7 +45,8 @@ class Content extends React.Component<ContentProps, ContentState> {
 
   static defaultProps = {
     prefix: 'cat',
-    selector: '.cat-notification-container'
+    selector: '.cat-notification-container',
+    type: 'default'
   };
 
   static getDerivedStateFromProps(props: ContentProps) {
