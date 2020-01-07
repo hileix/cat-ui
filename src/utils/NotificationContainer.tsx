@@ -42,7 +42,7 @@ class NotificationContainer {
     return ++this.index + '';
   };
 
-  remove = (id: number, callback?: () => void) => {
+  remove = (id: string, callback?: () => void) => {
     const containerObj = this.containerMaps[id];
     if (!containerObj) {
       return;

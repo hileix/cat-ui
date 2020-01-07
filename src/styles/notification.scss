@@ -1,4 +1,4 @@
-@import './common/index.scss';
+@import "./common/index.scss";
 
 .cat-notification-container {
   position: fixed;
@@ -20,6 +20,15 @@
   text-align: left;
 
   &-appear {
+    transform: translateX(100%);
+    &-active {
+      transform: translateX(0);
+    }
+    &-done {
+      transform: translateX(0);
+    }
+  }
+  &-enter {
     transform: translateX(100%);
     &-active {
       transform: translateX(0);

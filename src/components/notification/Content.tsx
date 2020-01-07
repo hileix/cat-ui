@@ -10,15 +10,17 @@ import { Types } from './interface';
 const TIMEOUT = 300; // ms
 
 export interface ContentProps {
-  id: string;
+  id?: string;
+  visible?: boolean;
   prefix?: string;
   className?: string;
   style?: React.CSSProperties;
   title?: React.ReactNode;
   content?: React.ReactNode;
+  children?: React.ReactNode;
   type?: Types;
   selector?: string;
-  onClose?: (id: string) => void;
+  onClose?: (id?: string) => void;
 }
 
 export interface ContentState {
@@ -26,8 +28,11 @@ export interface ContentState {
 }
 
 class Content extends React.Component<ContentProps, ContentState> {
+  static displayName = 'Notification';
+
   static propTypes = {
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
+    visible: PropTypes.bool,
     prefix: PropTypes.string,
     className: PropTypes.string,
     style: PropTypes.object,
@@ -39,11 +44,21 @@ class Content extends React.Component<ContentProps, ContentState> {
   }
 
   static defaultProps = {
-    prefix: 'cat'
+    prefix: 'cat',
+    selector: '.cat-notification-container'
   };
 
+  static getDerivedStateFromProps(props: ContentProps) {
+    if ('visible' in props) {
+      return {
+        visible: props.visible
+      }
+    }
+    return null;
+  }
+
   state = {
-    visible: true
+    visible: true,
   };
 
   handleClose = () => {
@@ -60,10 +75,13 @@ class Content extends React.Component<ContentProps, ContentState> {
       className,
       type,
       style,
-      selector
+      selector,
+      children,
     } = this.props;
     const classPrefix = `${prefix}-notification`;
     const { visible } = this.state;
+
+    const notificationContent = children || content;
 
     return (
       <PurePortal selector={selector}>
@@ -85,7 +103,7 @@ class Content extends React.Component<ContentProps, ContentState> {
               style={style}
             >
               {title && <p className={`${classPrefix}__title`}>{title}</p>}
-              {content && <p className={`${classPrefix}__content`}>{content}</p>}
+              {notificationContent && <p className={`${classPrefix}__content`}>{notificationContent}</p>}
               <Icon
                 type='close'
                 className={`${classPrefix}__close`}
