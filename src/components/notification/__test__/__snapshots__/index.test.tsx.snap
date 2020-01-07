@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notification render Notification 1`] = `
+<withCreateNotificationContainer(Notification)
+  onClose={[Function]}
+  title="default title"
+  visible={false}
+>
+  <Notification
+    onClose={[Function]}
+    prefix="cat"
+    selector=".cat-notification-container"
+    title="default title"
+    type="default"
+    visible={false}
+  >
+    <PurePortal
+      selector=".cat-notification-container"
+    >
+      <Portal
+        containerInfo={
+          <div
+            class="cat-notification-container"
+          />
+        }
+      >
+        <CSSTransition
+          appear={true}
+          classNames="cat-notification"
+          in={false}
+          mountOnEnter={true}
+          timeout={300}
+          unmountOnExit={true}
+        >
+          <Transition
+            appear={true}
+            enter={true}
+            exit={true}
+            in={false}
+            mountOnEnter={true}
+            onEnter={[Function]}
+            onEntered={[Function]}
+            onEntering={[Function]}
+            onExit={[Function]}
+            onExited={[Function]}
+            onExiting={[Function]}
+            timeout={300}
+            unmountOnExit={true}
+          />
+        </CSSTransition>
+      </Portal>
+    </PurePortal>
+  </Notification>
+</withCreateNotificationContainer(Notification)>
+`;

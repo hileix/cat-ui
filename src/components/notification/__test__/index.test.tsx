@@ -1,4 +1,10 @@
+import React from 'react';
 import notification from '../index';
+import { mount } from 'enzyme';
+import sinon from 'sinon';
+
+
+const { Notification } = notification;
 
 describe('notification', () => {
   test('renders one notification', () => {
@@ -25,7 +31,6 @@ describe('notification', () => {
       content: 'error content'
     });
     const dom: any = document.querySelector('.cat-notification-container');
-    console.log('dom:', dom);
     expect(dom.childNodes.length).toBe(6);
   });
 
@@ -36,5 +41,21 @@ describe('notification', () => {
     });
     const dom: any = document.querySelector('.cat-notification-container');
     expect(dom.childNodes.length).toBe(8);
+  });
+});
+
+
+describe('Notification', () => {
+  test('render Notification', () => {
+    document.body.innerHTML = '';
+    const handleClose = sinon.spy();
+
+    const wrapper = mount(
+      <Notification visible={false} title='default title' onClose={handleClose}>
+        default content
+      </Notification>
+    );
+
+    expect(wrapper).toMatchSnapshot();
   });
 });

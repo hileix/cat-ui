@@ -8,9 +8,9 @@ export interface PurePortalProps {
    */
   children?: React.ReactNode;
   /**
-   * 作为容器的 css 选择器
+   * 作为容器的 css 选择器（或 dom 元素）
    */
-  selector: string;
+  selector: string | HTMLElement;
   /**
    * unmount 时的回调
    */
@@ -23,7 +23,7 @@ export interface PurePortalProps {
 class PurePortal extends React.Component<PurePortalProps> {
   static propTypes = {
     children: PropTypes.node,
-    selector: PropTypes.string,
+    selector: PropTypes.oneOfType([PropTypes.string, PropTypes.object,]),
     render: PropTypes.func,
     onMount: PropTypes.func,
     onUnmount: PropTypes.func
@@ -52,7 +52,14 @@ class PurePortal extends React.Component<PurePortalProps> {
 
   getContainer = (): void => {
     const { selector } = this.props;
-    let container = document.querySelector(selector);
+    let container;
+
+    if (selector instanceof HTMLElement) {
+      container = selector;
+    } else {
+      container = document.querySelector(selector);
+    }
+
     if (!container) {
       container = document.body;
     }
@@ -64,6 +71,7 @@ class PurePortal extends React.Component<PurePortalProps> {
     if (!this.container) {
       return null;
     }
+
 
     return ReactDOM.createPortal(this.props.children, this.container);
   }
