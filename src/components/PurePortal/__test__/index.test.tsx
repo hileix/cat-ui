@@ -6,13 +6,24 @@ import PurePortal from '../index';
 
 describe('PurePortal', () => {
   // reset dom
+  beforeEach(() => {
+    document.body.innerHTML = '';
+  });
   afterEach(() => {
-    (document.querySelector('body') as any).innerHTML = '';
+    document.body.innerHTML = '';
   });
 
   test('renders correctly', () => {
     const wrapper = mount(<PurePortal>content</PurePortal>);
     expect(wrapper).toMatchSnapshot();
+
+    let portalContainerDOM = document.createElement('div');
+    portalContainerDOM.className = 'my-portal-container';
+    document.body.append(portalContainerDOM);
+
+    mount(<PurePortal selector={portalContainerDOM}>content</PurePortal>)
+    expect(portalContainerDOM.innerHTML).toBe('content');
+
   });
 
   test('onUnmount is called', () => {
@@ -32,7 +43,7 @@ describe('PurePortal', () => {
       </PurePortal>
     );
     let contentDOM = document.querySelector('.my-pure-portal-content');
-    let parentDOM = (contentDOM as any).parentNode;
+    let parentDOM = (contentDOM as Element).parentNode;
     expect(parentDOM instanceof HTMLBodyElement).toBe(true);
   });
 
@@ -55,7 +66,7 @@ describe('PurePortal', () => {
     wrapper.setProps({ selector: '.my-new-container' });
 
     contentDOM = document.querySelector('.my-pure-portal-content');
-    parentDOM = (contentDOM as any).parentNode;
+    parentDOM = (contentDOM as Element).parentNode;
 
     expect((parentDOM as Element).getAttribute('class')).toBe(
       'my-new-container'
