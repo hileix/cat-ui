@@ -18,11 +18,12 @@
 
 ## Row
 
-|   属性    |   类型   | 默认值  |                                          描述                                           | 是否必填 |
-| :-------: | :------: | :-----: | :-------------------------------------------------------------------------------------: | :------: |
-| className | `string` |    -    |                                          类名                                           |    -     |
-|  justify  | `string` | `start` | flex 布局下的水平排列方式，可选值 `start` `end` `center` `space-around` `space-between` |    -     |
-|   align   | `string` |  `top`  |                flex 布局下的垂直排列方式，可选值 `top` `center` `bottom`                |    -     |
+|   属性    |                                                类型                                                | 默认值  |                                          描述                                           | 是否必填 |
+| :-------: | :------------------------------------------------------------------------------------------------: | :-----: | :-------------------------------------------------------------------------------------: | :------: |
+| className |                                              `string`                                              |    -    |                                          类名                                           |    -     |
+|  justify  |                                              `string`                                              | `start` | flex 布局下的水平排列方式，可选值 `start` `end` `center` `space-around` `space-between` |    -     |
+|   align   |                                              `string`                                              |  `top`  |                flex 布局下的垂直排列方式，可选值 `top` `center` `bottom`                |    -     |
+|  gutter   | `number` \| `{xs: number; sm: number; md: number; lg: number; xl: number; xxl: number; fhd: number;}` |   `0`   |                                        栅格间距                                         |    -     |
 
 ## Col
 
