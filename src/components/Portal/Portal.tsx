@@ -94,7 +94,7 @@ class Portal extends PureComponent<ProtalProps, any> {
     return domNode || document.body;
   };
 
-  render() {
+  render(): React.ReactPortal | null {
     // 在服务端不渲染
     if (!canUseDOM()) {
       return null;

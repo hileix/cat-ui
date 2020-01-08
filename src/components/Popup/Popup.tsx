@@ -141,7 +141,7 @@ class Popup extends React.Component<any, any> {
     })
   }
 
-  createPopElement = () => {
+  createPopElement = (): React.ReactPortal => {
     const { className, outStyle, title } = this.props
     const popProperty = {
       key: 'popElement',
