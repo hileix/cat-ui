@@ -1,12 +1,13 @@
-import * as React from 'react';
+import React from 'react';
 import { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import Col from './Col';
+import enquire from 'enquire.js';
 
-type AlignType = 'top' | 'center' | 'bottom';
+export type AlignType = 'top' | 'center' | 'bottom';
 
-type JustifyType =
+export type JustifyType =
   | 'start'
   | 'end'
   | 'center'
@@ -26,18 +27,56 @@ export interface RowProps {
    * flex 布局下的垂直对齐方式
    */
   align: AlignType;
+  /**
+   * 栅格间距
+   */
+  gutter: number | {
+    [key: string]: number;
+    xs: number,
+    sm: number,
+    md: number,
+    lg: number,
+    xl: number,
+    xxl: number,
+    fhd: number,
+  };
 }
 
-enum AlignEnum {
+export interface RowState {
+  gutter: number;
+}
+
+export enum AlignEnum {
   top = 'start',
   center = 'center',
   bottom = 'bottom'
 }
 
+export interface MediaQueryMap {
+  [key: string]: string;
+  xs: string,
+  sm: string,
+  md: string,
+  lg: string,
+  xl: string,
+  xxl: string,
+  fhd: string,
+}
+
+const mediaQueryMap: MediaQueryMap = {
+  xs: 'screen and (max-width:575px)',
+  sm: 'screen and (min-width:576px)',
+  md: 'screen and (min-width:768px)',
+  lg: 'screen and (min-width:992px)',
+  xl: 'screen and (min-width:1200px)',
+  xxl: 'screen and (min-width:1600px)',
+  fhd: 'screen and (min-width:1920px)',
+}
+
 /**
  * Row
  */
-class Row extends Component<RowProps> {
+class Row extends Component<RowProps, RowState> {
   static Col: typeof Col;
   static propTypes = {
     className: PropTypes.string,
@@ -48,16 +87,65 @@ class Row extends Component<RowProps> {
       'space-around',
       'space-between'
     ]),
-    align: PropTypes.oneOf(['top', 'center', 'bottom'])
+    align: PropTypes.oneOf(['top', 'center', 'bottom']),
+    gutter: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.shape({
+        xs: PropTypes.number,
+        sm: PropTypes.number,
+        md: PropTypes.number,
+        lg: PropTypes.number,
+        xl: PropTypes.number,
+        xxl: PropTypes.number,
+        fhd: PropTypes.number,
+      }),
+    ]),
   };
 
   static defaultProps = {
     justify: 'start',
-    align: 'top'
+    align: 'top',
+    gutter: 0,
   };
+
+  state = {
+    gutter: 0,
+  }
+
+  componentDidMount = () => {
+    this.register();
+  }
+
+  componentWillUnmount = () => {
+    this.unregister();
+  }
+
+  register = () => {
+    const { gutter } = this.props
+    Object.keys(mediaQueryMap).forEach((key) => {
+      enquire.register(mediaQueryMap[key], {
+        match: () => {
+          let newGutter: number;
+          if (typeof gutter === 'number') {
+            newGutter = gutter;
+          } else {
+            newGutter = gutter[key];
+          }
+          this.setState({ gutter: newGutter });
+        },
+      });
+    })
+  }
+
+  unregister() {
+    Object.keys(mediaQueryMap).map((key) =>
+      enquire.unregister(mediaQueryMap[key]),
+    );
+  }
 
   render() {
     const { children, className, justify, align } = this.props;
+    const { gutter } = this.state
 
     const prefix = 'cat-row';
     const classes = classNames(
@@ -67,7 +155,18 @@ class Row extends Component<RowProps> {
       `${prefix}--align-${AlignEnum[align]}`
     );
 
-    return <div className={classes}>{children}</div>;
+    const childs = React.Children.map(children, (child) => {
+      if (React.isValidElement(child)) {
+        return React.cloneElement(child, { ...child.props, gutter })
+      }
+      return null;
+    });
+
+    const style: React.CSSProperties = {
+      margin: `0 -${gutter / 2}px`
+    };
+
+    return <div className={classes} style={style}>{childs}</div>;
   }
 }
 
