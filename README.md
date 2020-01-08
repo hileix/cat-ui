@@ -8,20 +8,6 @@
 
 [![NPM](https://nodei.co/npm/@hife/catui.png?downloads=true)](https://nodei.co/npm/@hife/catui?downloads=true)
 
-## 版本 2.0 已有组件
-
-- [x] Avatar
-- [x] Icon
-- [x] message
-- [x] Guidance
-- [x] Question
-- [x] Button
-- [x] Tabs
-- [x] Loading
-- [x] Modal
-- [x] Drawer
-- [x] notification
-
 ## 更新日志
 
 [更新日志](./changelog.md)
