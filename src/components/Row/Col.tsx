@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { PureComponent } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
@@ -28,6 +28,10 @@ export interface ColProps {
    */
   order?: number;
   /**
+   * 栅格间距
+   */
+  gutter: number;
+  /**
    * width < 576px 时的其他属性对象
    */
   xs?: ResponsiveProps;
@@ -48,7 +52,7 @@ export interface ColProps {
    */
   xl?: ResponsiveProps;
   /**
-   * width >= 1200px 时的其他属性对象
+   * width >= 1600px 时的其他属性对象
    */
   xxl?: ResponsiveProps;
   /**
@@ -71,12 +75,14 @@ class Col extends PureComponent<ColProps> {
     lg: PropTypes.object,
     xl: PropTypes.object,
     xxl: PropTypes.object,
-    fhd: PropTypes.object
+    fhd: PropTypes.object,
+    gutter: PropTypes.number,
   };
 
   static defaultProps = {
     span: 0,
-    offset: 0
+    offset: 0,
+    gutter: 0,
   };
 
   getClasses = () => {
@@ -102,17 +108,17 @@ class Col extends PureComponent<ColProps> {
       return {
         [`${prefix}--${sizeName}-span-${
           typeof responsiveProps?.span === 'number' ? responsiveProps?.span : 0
-        }`]: responsiveProps,
+          }`]: responsiveProps,
         [`${prefix}--${sizeName}-offset-${
           typeof responsiveProps?.offset === 'number'
             ? responsiveProps?.offset
             : 0
-        }`]: responsiveProps,
+          }`]: responsiveProps,
         [`${prefix}--${sizeName}-order-${
           typeof responsiveProps?.order === 'number'
             ? responsiveProps?.order
             : 0
-        }`]: responsiveProps?.order
+          }`]: responsiveProps?.order
       };
     };
 
@@ -137,11 +143,15 @@ class Col extends PureComponent<ColProps> {
   };
 
   render() {
-    const { children } = this.props;
+    const { children, gutter } = this.props;
 
     const classes = this.getClasses();
 
-    return <div className={classes}>{children}</div>;
+    let style: React.CSSProperties = {
+      margin: `0 ${gutter / 2}px`
+    };
+
+    return <div className={classes} style={style}>{children}</div>;
   }
 }
 
