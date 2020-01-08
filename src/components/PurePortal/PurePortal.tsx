@@ -1,6 +1,6 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import * as PropTypes from 'prop-types';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 
 export interface PurePortalProps {
   /**
@@ -67,7 +67,7 @@ class PurePortal extends React.Component<PurePortalProps> {
     this.forceUpdate();
   };
 
-  render() {
+  render(): React.ReactPortal | null {
     if (!this.container) {
       return null;
     }

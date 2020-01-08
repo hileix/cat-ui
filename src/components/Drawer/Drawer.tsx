@@ -94,7 +94,7 @@ class Drawer extends Component<DrawerProps, DrawerStateInterface> {
     });
   };
 
-  render() {
+  render(): React.ReactPortal | null {
     if (!canUseDOM()) {
       return null;
     }
