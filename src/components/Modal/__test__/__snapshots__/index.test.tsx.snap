@@ -18,315 +18,324 @@ exports[`Modal renders correctly 1`] = `
     <Portal
       containerInfo={
         <body>
-          <div />
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__header"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                title
                 <div
-                  class="cat-modal__close"
+                  class="cat-modal__header"
                 >
-                  <i
-                    class="cat-icon cat-icon-close"
-                  />
+                  title
+                  <div
+                    class="cat-modal__close"
+                  >
+                    <i
+                      class="cat-icon cat-icon-close"
+                    />
+                  </div>
                 </div>
-              </div>
-              <div
-                class="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Confirm
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
-            >
-              <div
-                class="cat-modal__header"
-              >
-                title
                 <div
-                  class="cat-modal__close"
+                  class="cat-modal__body"
                 >
-                  <i
-                    class="cat-icon cat-icon-close"
-                  />
+                  content
                 </div>
-              </div>
-              <div
-                class="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Confirm
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
-            />
-            <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
-            >
-              <div
-                class="cat-modal__header"
-              >
-                title
                 <div
-                  class="cat-modal__close"
+                  class="cat-modal__footer"
                 >
-                  <i
-                    class="cat-icon cat-icon-close"
-                  />
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
                 </div>
               </div>
+            </div>
+          </div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
+            <div
+              class="cat-modal__modal-wrapper"
+            >
               <div
-                class="cat-modal__body"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <div>
-                  footer
+                <div
+                  class="cat-modal__header"
+                >
+                  title
+                  <div
+                    class="cat-modal__close"
+                  >
+                    <i
+                      class="cat-icon cat-icon-close"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="cat-modal__body"
+                >
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__header"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                title
-              </div>
-              <div
-                class="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
+                <div
+                  class="cat-modal__header"
                 >
-                  <span
-                    class="cat-button__children"
+                  title
+                  <div
+                    class="cat-modal__close"
                   >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
+                    <i
+                      class="cat-icon cat-icon-close"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="cat-modal__body"
                 >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Confirm
-                  </span>
-                </button>
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <div>
+                    footer
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__body"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
+                <div
+                  class="cat-modal__header"
                 >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
+                  title
+                </div>
+                <div
+                  class="cat-modal__body"
                 >
-                  <span
-                    class="cat-button__children"
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
                   >
-                    Confirm
-                  </span>
-                </button>
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 500px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__body"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                content
+                <div
+                  class="cat-modal__body"
+                >
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
+                </div>
               </div>
+            </div>
+          </div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
+            <div
+              class="cat-modal__mask"
+            />
+            <div
+              class="cat-modal__modal-wrapper"
+            >
               <div
-                class="cat-modal__footer"
+                class="cat-modal"
+                style="width: 500px; transform: translate(-50%, -50%);"
               >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
+                <div
+                  class="cat-modal__body"
                 >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
                 >
-                  <span
-                    class="cat-button__children"
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
                   >
-                    Confirm
-                  </span>
-                </button>
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </body>
       }
     >
-      <div>
-        <CSSTransition
+      <CSSTransition
+        appear={true}
+        classNames="cat-modal-container"
+        in={false}
+        mountOnEnter={true}
+        timeout={300}
+        unmountOnExit={false}
+      >
+        <Transition
           appear={true}
-          classNames="cat-modal__mask"
+          enter={true}
+          exit={true}
           in={false}
           mountOnEnter={true}
+          onEnter={[Function]}
+          onEntered={[Function]}
+          onEntering={[Function]}
+          onExit={[Function]}
+          onExited={[Function]}
+          onExiting={[Function]}
           timeout={300}
           unmountOnExit={false}
-        >
-          <Transition
-            appear={true}
-            enter={true}
-            exit={true}
-            in={false}
-            mountOnEnter={true}
-            onEnter={[Function]}
-            onEntered={[Function]}
-            onEntering={[Function]}
-            onExit={[Function]}
-            onExited={[Function]}
-            onExiting={[Function]}
-            timeout={300}
-            unmountOnExit={false}
-          />
-        </CSSTransition>
-        <CSSTransition
-          appear={true}
-          classNames="cat-modal"
-          in={false}
-          mountOnEnter={true}
-          timeout={300}
-          unmountOnExit={false}
-        >
-          <Transition
-            appear={true}
-            enter={true}
-            exit={true}
-            in={false}
-            mountOnEnter={true}
-            onEnter={[Function]}
-            onEntered={[Function]}
-            onEntering={[Function]}
-            onExit={[Function]}
-            onExited={[Function]}
-            onExiting={[Function]}
-            timeout={300}
-            unmountOnExit={false}
-          />
-        </CSSTransition>
-      </div>
+        />
+      </CSSTransition>
     </Portal>
   </PurePortal>
 </Modal>
@@ -350,408 +359,426 @@ exports[`Modal renders correctly 2`] = `
     <Portal
       containerInfo={
         <body>
-          <div />
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__header"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                title
                 <div
-                  class="cat-modal__close"
+                  class="cat-modal__header"
                 >
-                  <i
-                    class="cat-icon cat-icon-close"
-                  />
+                  title
+                  <div
+                    class="cat-modal__close"
+                  >
+                    <i
+                      class="cat-icon cat-icon-close"
+                    />
+                  </div>
                 </div>
-              </div>
-              <div
-                class="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Confirm
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
-            >
-              <div
-                class="cat-modal__header"
-              >
-                title
                 <div
-                  class="cat-modal__close"
+                  class="cat-modal__body"
                 >
-                  <i
-                    class="cat-icon cat-icon-close"
-                  />
+                  content
                 </div>
-              </div>
-              <div
-                class="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Confirm
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
-            />
-            <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
-            >
-              <div
-                class="cat-modal__header"
-              >
-                title
                 <div
-                  class="cat-modal__close"
+                  class="cat-modal__footer"
                 >
-                  <i
-                    class="cat-icon cat-icon-close"
-                  />
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
                 </div>
               </div>
+            </div>
+          </div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
+            <div
+              class="cat-modal__modal-wrapper"
+            >
               <div
-                class="cat-modal__body"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <div>
-                  footer
+                <div
+                  class="cat-modal__header"
+                >
+                  title
+                  <div
+                    class="cat-modal__close"
+                  >
+                    <i
+                      class="cat-icon cat-icon-close"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="cat-modal__body"
+                >
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__header"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                title
-              </div>
-              <div
-                class="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
+                <div
+                  class="cat-modal__header"
                 >
-                  <span
-                    class="cat-button__children"
+                  title
+                  <div
+                    class="cat-modal__close"
                   >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
+                    <i
+                      class="cat-icon cat-icon-close"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="cat-modal__body"
                 >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Confirm
-                  </span>
-                </button>
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <div>
+                    footer
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__body"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
+                <div
+                  class="cat-modal__header"
                 >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
+                  title
+                </div>
+                <div
+                  class="cat-modal__body"
                 >
-                  <span
-                    class="cat-button__children"
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
                   >
-                    Confirm
-                  </span>
-                </button>
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 500px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__body"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                content
+                <div
+                  class="cat-modal__body"
+                >
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
+                </div>
               </div>
+            </div>
+          </div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
+            <div
+              class="cat-modal__mask"
+            />
+            <div
+              class="cat-modal__modal-wrapper"
+            >
               <div
-                class="cat-modal__footer"
+                class="cat-modal"
+                style="width: 500px; transform: translate(-50%, -50%);"
               >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
+                <div
+                  class="cat-modal__body"
                 >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
                 >
-                  <span
-                    class="cat-button__children"
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
                   >
-                    Confirm
-                  </span>
-                </button>
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </body>
       }
     >
-      <div>
-        <CSSTransition
+      <CSSTransition
+        appear={true}
+        classNames="cat-modal-container"
+        in={true}
+        mountOnEnter={true}
+        timeout={300}
+        unmountOnExit={false}
+      >
+        <Transition
           appear={true}
-          classNames="cat-modal__mask"
+          enter={true}
+          exit={true}
           in={true}
           mountOnEnter={true}
+          onEnter={[Function]}
+          onEntered={[Function]}
+          onEntering={[Function]}
+          onExit={[Function]}
+          onExited={[Function]}
+          onExiting={[Function]}
           timeout={300}
           unmountOnExit={false}
         >
-          <Transition
-            appear={true}
-            enter={true}
-            exit={true}
-            in={true}
-            mountOnEnter={true}
-            onEnter={[Function]}
-            onEntered={[Function]}
-            onEntering={[Function]}
-            onExit={[Function]}
-            onExited={[Function]}
-            onExiting={[Function]}
-            timeout={300}
-            unmountOnExit={false}
+          <div
+            className="cat-modal-container"
           >
             <div
               className="cat-modal__mask"
-              onClick={[Function]}
             />
-          </Transition>
-        </CSSTransition>
-        <CSSTransition
-          appear={true}
-          classNames="cat-modal"
-          in={true}
-          mountOnEnter={true}
-          timeout={300}
-          unmountOnExit={false}
-        >
-          <Transition
-            appear={true}
-            enter={true}
-            exit={true}
-            in={true}
-            mountOnEnter={true}
-            onEnter={[Function]}
-            onEntered={[Function]}
-            onEntering={[Function]}
-            onExit={[Function]}
-            onExited={[Function]}
-            onExiting={[Function]}
-            timeout={300}
-            unmountOnExit={false}
-          >
             <div
-              className="cat-modal"
-              style={
-                Object {
-                  "width": 428,
-                }
-              }
+              className="cat-modal__modal-wrapper"
+              onClick={[Function]}
             >
               <div
-                className="cat-modal__header"
+                className="cat-modal"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "transform": "translate(-50%, -50%)",
+                    "width": 428,
+                  }
+                }
               >
-                title
                 <div
-                  className="cat-modal__close"
+                  className="cat-modal__header"
                 >
-                  <Icon
-                    onClick={[Function]}
-                    type="close"
+                  title
+                  <div
+                    className="cat-modal__close"
                   >
-                    <i
-                      className="cat-icon cat-icon-close"
+                    <Icon
                       onClick={[Function]}
-                    />
-                  </Icon>
+                      type="close"
+                    >
+                      <i
+                        className="cat-icon cat-icon-close"
+                        onClick={[Function]}
+                      />
+                    </Icon>
+                  </div>
+                </div>
+                <div
+                  className="cat-modal__body"
+                >
+                  content
+                </div>
+                <div
+                  className="cat-modal__footer"
+                >
+                  <Button
+                    block={false}
+                    disabled={false}
+                    htmlType="button"
+                    loading={false}
+                    onClick={[Function]}
+                    prefix="cat"
+                    shape="square"
+                    size="md"
+                    type="default"
+                  >
+                    <button
+                      className="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                      disabled={false}
+                      onClick={[Function]}
+                      style={Object {}}
+                      type="button"
+                    >
+                      <span
+                        className="cat-button__children"
+                      >
+                        Cancel
+                      </span>
+                    </button>
+                  </Button>
+                  <Button
+                    block={false}
+                    className="cat-modal__footer-confirm"
+                    disabled={false}
+                    htmlType="button"
+                    loading={false}
+                    onClick={[Function]}
+                    prefix="cat"
+                    shape="square"
+                    size="md"
+                    type="primary"
+                  >
+                    <button
+                      className="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                      disabled={false}
+                      onClick={[Function]}
+                      style={Object {}}
+                      type="button"
+                    >
+                      <span
+                        className="cat-button__children"
+                      >
+                        Confirm
+                      </span>
+                    </button>
+                  </Button>
                 </div>
               </div>
-              <div
-                className="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                className="cat-modal__footer"
-              >
-                <Button
-                  block={false}
-                  disabled={false}
-                  htmlType="button"
-                  loading={false}
-                  onClick={[Function]}
-                  prefix="cat"
-                  shape="square"
-                  size="md"
-                  type="default"
-                >
-                  <button
-                    className="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                    disabled={false}
-                    onClick={[Function]}
-                    style={Object {}}
-                    type="button"
-                  >
-                    <span
-                      className="cat-button__children"
-                    >
-                      Cancel
-                    </span>
-                  </button>
-                </Button>
-                <Button
-                  block={false}
-                  className="cat-modal__footer-confirm"
-                  disabled={false}
-                  htmlType="button"
-                  loading={false}
-                  onClick={[Function]}
-                  prefix="cat"
-                  shape="square"
-                  size="md"
-                  type="primary"
-                >
-                  <button
-                    className="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                    disabled={false}
-                    onClick={[Function]}
-                    style={Object {}}
-                    type="button"
-                  >
-                    <span
-                      className="cat-button__children"
-                    >
-                      Confirm
-                    </span>
-                  </button>
-                </Button>
-              </div>
             </div>
-          </Transition>
-        </CSSTransition>
-      </div>
+          </div>
+        </Transition>
+      </CSSTransition>
     </Portal>
   </PurePortal>
 </Modal>
@@ -775,379 +802,423 @@ exports[`Modal renders correctly 3`] = `
     <Portal
       containerInfo={
         <body>
-          <div />
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__header"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                title
                 <div
-                  class="cat-modal__close"
+                  class="cat-modal__header"
                 >
-                  <i
-                    class="cat-icon cat-icon-close"
-                  />
+                  title
+                  <div
+                    class="cat-modal__close"
+                  >
+                    <i
+                      class="cat-icon cat-icon-close"
+                    />
+                  </div>
                 </div>
-              </div>
-              <div
-                class="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Confirm
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
-            >
-              <div
-                class="cat-modal__header"
-              >
-                title
                 <div
-                  class="cat-modal__close"
+                  class="cat-modal__body"
                 >
-                  <i
-                    class="cat-icon cat-icon-close"
-                  />
+                  content
                 </div>
-              </div>
-              <div
-                class="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Confirm
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
-            />
-            <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
-            >
-              <div
-                class="cat-modal__header"
-              >
-                title
                 <div
-                  class="cat-modal__close"
+                  class="cat-modal__footer"
                 >
-                  <i
-                    class="cat-icon cat-icon-close"
-                  />
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
                 </div>
               </div>
+            </div>
+          </div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
+            <div
+              class="cat-modal__modal-wrapper"
+            >
               <div
-                class="cat-modal__body"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <div>
-                  footer
+                <div
+                  class="cat-modal__header"
+                >
+                  title
+                  <div
+                    class="cat-modal__close"
+                  >
+                    <i
+                      class="cat-icon cat-icon-close"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="cat-modal__body"
+                >
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__header"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                title
-              </div>
-              <div
-                class="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
+                <div
+                  class="cat-modal__header"
                 >
-                  <span
-                    class="cat-button__children"
+                  title
+                  <div
+                    class="cat-modal__close"
                   >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
+                    <i
+                      class="cat-icon cat-icon-close"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="cat-modal__body"
                 >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Confirm
-                  </span>
-                </button>
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <div>
+                    footer
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__body"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
+                <div
+                  class="cat-modal__header"
                 >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
+                  title
+                </div>
+                <div
+                  class="cat-modal__body"
                 >
-                  <span
-                    class="cat-button__children"
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
                   >
-                    Confirm
-                  </span>
-                </button>
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 500px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__body"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                content
+                <div
+                  class="cat-modal__body"
+                >
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
+                </div>
               </div>
+            </div>
+          </div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
+            <div
+              class="cat-modal__mask"
+            />
+            <div
+              class="cat-modal__modal-wrapper"
+            >
               <div
-                class="cat-modal__footer"
+                class="cat-modal"
+                style="width: 500px; transform: translate(-50%, -50%);"
               >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
+                <div
+                  class="cat-modal__body"
                 >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
                 >
-                  <span
-                    class="cat-button__children"
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
                   >
-                    Confirm
-                  </span>
-                </button>
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </body>
       }
     >
-      <div>
-        <CSSTransition
+      <CSSTransition
+        appear={true}
+        classNames="cat-modal-container"
+        in={true}
+        mountOnEnter={true}
+        timeout={300}
+        unmountOnExit={false}
+      >
+        <Transition
           appear={true}
-          classNames="cat-modal"
+          enter={true}
+          exit={true}
           in={true}
           mountOnEnter={true}
+          onEnter={[Function]}
+          onEntered={[Function]}
+          onEntering={[Function]}
+          onExit={[Function]}
+          onExited={[Function]}
+          onExiting={[Function]}
           timeout={300}
           unmountOnExit={false}
         >
-          <Transition
-            appear={true}
-            enter={true}
-            exit={true}
-            in={true}
-            mountOnEnter={true}
-            onEnter={[Function]}
-            onEntered={[Function]}
-            onEntering={[Function]}
-            onExit={[Function]}
-            onExited={[Function]}
-            onExiting={[Function]}
-            timeout={300}
-            unmountOnExit={false}
+          <div
+            className="cat-modal-container"
           >
             <div
-              className="cat-modal"
-              style={
-                Object {
-                  "width": 428,
-                }
-              }
+              className="cat-modal__modal-wrapper"
+              onClick={[Function]}
             >
               <div
-                className="cat-modal__header"
+                className="cat-modal"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "transform": "translate(-50%, -50%)",
+                    "width": 428,
+                  }
+                }
               >
-                title
                 <div
-                  className="cat-modal__close"
+                  className="cat-modal__header"
                 >
-                  <Icon
-                    onClick={[Function]}
-                    type="close"
+                  title
+                  <div
+                    className="cat-modal__close"
                   >
-                    <i
-                      className="cat-icon cat-icon-close"
+                    <Icon
                       onClick={[Function]}
-                    />
-                  </Icon>
+                      type="close"
+                    >
+                      <i
+                        className="cat-icon cat-icon-close"
+                        onClick={[Function]}
+                      />
+                    </Icon>
+                  </div>
+                </div>
+                <div
+                  className="cat-modal__body"
+                >
+                  content
+                </div>
+                <div
+                  className="cat-modal__footer"
+                >
+                  <Button
+                    block={false}
+                    disabled={false}
+                    htmlType="button"
+                    loading={false}
+                    onClick={[Function]}
+                    prefix="cat"
+                    shape="square"
+                    size="md"
+                    type="default"
+                  >
+                    <button
+                      className="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                      disabled={false}
+                      onClick={[Function]}
+                      style={Object {}}
+                      type="button"
+                    >
+                      <span
+                        className="cat-button__children"
+                      >
+                        Cancel
+                      </span>
+                    </button>
+                  </Button>
+                  <Button
+                    block={false}
+                    className="cat-modal__footer-confirm"
+                    disabled={false}
+                    htmlType="button"
+                    loading={false}
+                    onClick={[Function]}
+                    prefix="cat"
+                    shape="square"
+                    size="md"
+                    type="primary"
+                  >
+                    <button
+                      className="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                      disabled={false}
+                      onClick={[Function]}
+                      style={Object {}}
+                      type="button"
+                    >
+                      <span
+                        className="cat-button__children"
+                      >
+                        Confirm
+                      </span>
+                    </button>
+                  </Button>
                 </div>
               </div>
-              <div
-                className="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                className="cat-modal__footer"
-              >
-                <Button
-                  block={false}
-                  disabled={false}
-                  htmlType="button"
-                  loading={false}
-                  onClick={[Function]}
-                  prefix="cat"
-                  shape="square"
-                  size="md"
-                  type="default"
-                >
-                  <button
-                    className="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                    disabled={false}
-                    onClick={[Function]}
-                    style={Object {}}
-                    type="button"
-                  >
-                    <span
-                      className="cat-button__children"
-                    >
-                      Cancel
-                    </span>
-                  </button>
-                </Button>
-                <Button
-                  block={false}
-                  className="cat-modal__footer-confirm"
-                  disabled={false}
-                  htmlType="button"
-                  loading={false}
-                  onClick={[Function]}
-                  prefix="cat"
-                  shape="square"
-                  size="md"
-                  type="primary"
-                >
-                  <button
-                    className="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                    disabled={false}
-                    onClick={[Function]}
-                    style={Object {}}
-                    type="button"
-                  >
-                    <span
-                      className="cat-button__children"
-                    >
-                      Confirm
-                    </span>
-                  </button>
-                </Button>
-              </div>
             </div>
-          </Transition>
-        </CSSTransition>
-      </div>
+          </div>
+        </Transition>
+      </CSSTransition>
     </Portal>
   </PurePortal>
 </Modal>
@@ -1176,360 +1247,378 @@ exports[`Modal renders correctly 4`] = `
     <Portal
       containerInfo={
         <body>
-          <div />
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__header"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                title
                 <div
-                  class="cat-modal__close"
+                  class="cat-modal__header"
                 >
-                  <i
-                    class="cat-icon cat-icon-close"
-                  />
+                  title
+                  <div
+                    class="cat-modal__close"
+                  >
+                    <i
+                      class="cat-icon cat-icon-close"
+                    />
+                  </div>
                 </div>
-              </div>
-              <div
-                class="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Confirm
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
-            >
-              <div
-                class="cat-modal__header"
-              >
-                title
                 <div
-                  class="cat-modal__close"
+                  class="cat-modal__body"
                 >
-                  <i
-                    class="cat-icon cat-icon-close"
-                  />
+                  content
                 </div>
-              </div>
-              <div
-                class="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Confirm
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
-            />
-            <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
-            >
-              <div
-                class="cat-modal__header"
-              >
-                title
                 <div
-                  class="cat-modal__close"
+                  class="cat-modal__footer"
                 >
-                  <i
-                    class="cat-icon cat-icon-close"
-                  />
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
                 </div>
               </div>
+            </div>
+          </div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
+            <div
+              class="cat-modal__modal-wrapper"
+            >
               <div
-                class="cat-modal__body"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <div>
-                  footer
+                <div
+                  class="cat-modal__header"
+                >
+                  title
+                  <div
+                    class="cat-modal__close"
+                  >
+                    <i
+                      class="cat-icon cat-icon-close"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="cat-modal__body"
+                >
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__header"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                title
-              </div>
-              <div
-                class="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
+                <div
+                  class="cat-modal__header"
                 >
-                  <span
-                    class="cat-button__children"
+                  title
+                  <div
+                    class="cat-modal__close"
                   >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
+                    <i
+                      class="cat-icon cat-icon-close"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="cat-modal__body"
                 >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Confirm
-                  </span>
-                </button>
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <div>
+                    footer
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__body"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
+                <div
+                  class="cat-modal__header"
                 >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
+                  title
+                </div>
+                <div
+                  class="cat-modal__body"
                 >
-                  <span
-                    class="cat-button__children"
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
                   >
-                    Confirm
-                  </span>
-                </button>
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 500px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__body"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                content
+                <div
+                  class="cat-modal__body"
+                >
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
+                </div>
               </div>
+            </div>
+          </div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
+            <div
+              class="cat-modal__mask"
+            />
+            <div
+              class="cat-modal__modal-wrapper"
+            >
               <div
-                class="cat-modal__footer"
+                class="cat-modal"
+                style="width: 500px; transform: translate(-50%, -50%);"
               >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
+                <div
+                  class="cat-modal__body"
                 >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
                 >
-                  <span
-                    class="cat-button__children"
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
                   >
-                    Confirm
-                  </span>
-                </button>
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </body>
       }
     >
-      <div>
-        <CSSTransition
+      <CSSTransition
+        appear={true}
+        classNames="cat-modal-container"
+        in={true}
+        mountOnEnter={true}
+        timeout={300}
+        unmountOnExit={false}
+      >
+        <Transition
           appear={true}
-          classNames="cat-modal__mask"
+          enter={true}
+          exit={true}
           in={true}
           mountOnEnter={true}
+          onEnter={[Function]}
+          onEntered={[Function]}
+          onEntering={[Function]}
+          onExit={[Function]}
+          onExited={[Function]}
+          onExiting={[Function]}
           timeout={300}
           unmountOnExit={false}
         >
-          <Transition
-            appear={true}
-            enter={true}
-            exit={true}
-            in={true}
-            mountOnEnter={true}
-            onEnter={[Function]}
-            onEntered={[Function]}
-            onEntering={[Function]}
-            onExit={[Function]}
-            onExited={[Function]}
-            onExiting={[Function]}
-            timeout={300}
-            unmountOnExit={false}
+          <div
+            className="cat-modal-container"
           >
             <div
               className="cat-modal__mask"
-              onClick={[Function]}
             />
-          </Transition>
-        </CSSTransition>
-        <CSSTransition
-          appear={true}
-          classNames="cat-modal"
-          in={true}
-          mountOnEnter={true}
-          timeout={300}
-          unmountOnExit={false}
-        >
-          <Transition
-            appear={true}
-            enter={true}
-            exit={true}
-            in={true}
-            mountOnEnter={true}
-            onEnter={[Function]}
-            onEntered={[Function]}
-            onEntering={[Function]}
-            onExit={[Function]}
-            onExited={[Function]}
-            onExiting={[Function]}
-            timeout={300}
-            unmountOnExit={false}
-          >
             <div
-              className="cat-modal"
-              style={
-                Object {
-                  "width": 428,
-                }
-              }
+              className="cat-modal__modal-wrapper"
+              onClick={[Function]}
             >
               <div
-                className="cat-modal__header"
+                className="cat-modal"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "transform": "translate(-50%, -50%)",
+                    "width": 428,
+                  }
+                }
               >
-                title
                 <div
-                  className="cat-modal__close"
+                  className="cat-modal__header"
                 >
-                  <Icon
-                    onClick={[Function]}
-                    type="close"
+                  title
+                  <div
+                    className="cat-modal__close"
                   >
-                    <i
-                      className="cat-icon cat-icon-close"
+                    <Icon
                       onClick={[Function]}
-                    />
-                  </Icon>
+                      type="close"
+                    >
+                      <i
+                        className="cat-icon cat-icon-close"
+                        onClick={[Function]}
+                      />
+                    </Icon>
+                  </div>
                 </div>
-              </div>
-              <div
-                className="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                className="cat-modal__footer"
-              >
-                <div>
-                  footer
+                <div
+                  className="cat-modal__body"
+                >
+                  content
+                </div>
+                <div
+                  className="cat-modal__footer"
+                >
+                  <div>
+                    footer
+                  </div>
                 </div>
               </div>
             </div>
-          </Transition>
-        </CSSTransition>
-      </div>
+          </div>
+        </Transition>
+      </CSSTransition>
     </Portal>
   </PurePortal>
 </Modal>
@@ -1553,395 +1642,413 @@ exports[`Modal renders correctly 5`] = `
     <Portal
       containerInfo={
         <body>
-          <div />
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__header"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                title
                 <div
-                  class="cat-modal__close"
+                  class="cat-modal__header"
                 >
-                  <i
-                    class="cat-icon cat-icon-close"
-                  />
+                  title
+                  <div
+                    class="cat-modal__close"
+                  >
+                    <i
+                      class="cat-icon cat-icon-close"
+                    />
+                  </div>
                 </div>
-              </div>
-              <div
-                class="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Confirm
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
-            >
-              <div
-                class="cat-modal__header"
-              >
-                title
                 <div
-                  class="cat-modal__close"
+                  class="cat-modal__body"
                 >
-                  <i
-                    class="cat-icon cat-icon-close"
-                  />
+                  content
                 </div>
-              </div>
-              <div
-                class="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Confirm
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
-            />
-            <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
-            >
-              <div
-                class="cat-modal__header"
-              >
-                title
                 <div
-                  class="cat-modal__close"
+                  class="cat-modal__footer"
                 >
-                  <i
-                    class="cat-icon cat-icon-close"
-                  />
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
                 </div>
               </div>
+            </div>
+          </div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
+            <div
+              class="cat-modal__modal-wrapper"
+            >
               <div
-                class="cat-modal__body"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <div>
-                  footer
+                <div
+                  class="cat-modal__header"
+                >
+                  title
+                  <div
+                    class="cat-modal__close"
+                  >
+                    <i
+                      class="cat-icon cat-icon-close"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="cat-modal__body"
+                >
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__header"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                title
-              </div>
-              <div
-                class="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
+                <div
+                  class="cat-modal__header"
                 >
-                  <span
-                    class="cat-button__children"
+                  title
+                  <div
+                    class="cat-modal__close"
                   >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
+                    <i
+                      class="cat-icon cat-icon-close"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="cat-modal__body"
                 >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Confirm
-                  </span>
-                </button>
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <div>
+                    footer
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__body"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
+                <div
+                  class="cat-modal__header"
                 >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
+                  title
+                </div>
+                <div
+                  class="cat-modal__body"
                 >
-                  <span
-                    class="cat-button__children"
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
                   >
-                    Confirm
-                  </span>
-                </button>
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 500px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__body"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                content
+                <div
+                  class="cat-modal__body"
+                >
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
+                </div>
               </div>
+            </div>
+          </div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
+            <div
+              class="cat-modal__mask"
+            />
+            <div
+              class="cat-modal__modal-wrapper"
+            >
               <div
-                class="cat-modal__footer"
+                class="cat-modal"
+                style="width: 500px; transform: translate(-50%, -50%);"
               >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
+                <div
+                  class="cat-modal__body"
                 >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
                 >
-                  <span
-                    class="cat-button__children"
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
                   >
-                    Confirm
-                  </span>
-                </button>
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </body>
       }
     >
-      <div>
-        <CSSTransition
+      <CSSTransition
+        appear={true}
+        classNames="cat-modal-container"
+        in={true}
+        mountOnEnter={true}
+        timeout={300}
+        unmountOnExit={false}
+      >
+        <Transition
           appear={true}
-          classNames="cat-modal__mask"
+          enter={true}
+          exit={true}
           in={true}
           mountOnEnter={true}
+          onEnter={[Function]}
+          onEntered={[Function]}
+          onEntering={[Function]}
+          onExit={[Function]}
+          onExited={[Function]}
+          onExiting={[Function]}
           timeout={300}
           unmountOnExit={false}
         >
-          <Transition
-            appear={true}
-            enter={true}
-            exit={true}
-            in={true}
-            mountOnEnter={true}
-            onEnter={[Function]}
-            onEntered={[Function]}
-            onEntering={[Function]}
-            onExit={[Function]}
-            onExited={[Function]}
-            onExiting={[Function]}
-            timeout={300}
-            unmountOnExit={false}
+          <div
+            className="cat-modal-container"
           >
             <div
               className="cat-modal__mask"
-              onClick={[Function]}
             />
-          </Transition>
-        </CSSTransition>
-        <CSSTransition
-          appear={true}
-          classNames="cat-modal"
-          in={true}
-          mountOnEnter={true}
-          timeout={300}
-          unmountOnExit={false}
-        >
-          <Transition
-            appear={true}
-            enter={true}
-            exit={true}
-            in={true}
-            mountOnEnter={true}
-            onEnter={[Function]}
-            onEntered={[Function]}
-            onEntering={[Function]}
-            onExit={[Function]}
-            onExited={[Function]}
-            onExiting={[Function]}
-            timeout={300}
-            unmountOnExit={false}
-          >
             <div
-              className="cat-modal"
-              style={
-                Object {
-                  "width": 428,
-                }
-              }
+              className="cat-modal__modal-wrapper"
+              onClick={[Function]}
             >
               <div
-                className="cat-modal__header"
+                className="cat-modal"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "transform": "translate(-50%, -50%)",
+                    "width": 428,
+                  }
+                }
               >
-                title
-              </div>
-              <div
-                className="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                className="cat-modal__footer"
-              >
-                <Button
-                  block={false}
-                  disabled={false}
-                  htmlType="button"
-                  loading={false}
-                  onClick={[Function]}
-                  prefix="cat"
-                  shape="square"
-                  size="md"
-                  type="default"
+                <div
+                  className="cat-modal__header"
                 >
-                  <button
-                    className="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                    disabled={false}
-                    onClick={[Function]}
-                    style={Object {}}
-                    type="button"
-                  >
-                    <span
-                      className="cat-button__children"
-                    >
-                      Cancel
-                    </span>
-                  </button>
-                </Button>
-                <Button
-                  block={false}
-                  className="cat-modal__footer-confirm"
-                  disabled={false}
-                  htmlType="button"
-                  loading={false}
-                  onClick={[Function]}
-                  prefix="cat"
-                  shape="square"
-                  size="md"
-                  type="primary"
+                  title
+                </div>
+                <div
+                  className="cat-modal__body"
                 >
-                  <button
-                    className="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                  content
+                </div>
+                <div
+                  className="cat-modal__footer"
+                >
+                  <Button
+                    block={false}
                     disabled={false}
+                    htmlType="button"
+                    loading={false}
                     onClick={[Function]}
-                    style={Object {}}
-                    type="button"
+                    prefix="cat"
+                    shape="square"
+                    size="md"
+                    type="default"
                   >
-                    <span
-                      className="cat-button__children"
+                    <button
+                      className="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                      disabled={false}
+                      onClick={[Function]}
+                      style={Object {}}
+                      type="button"
                     >
-                      Confirm
-                    </span>
-                  </button>
-                </Button>
+                      <span
+                        className="cat-button__children"
+                      >
+                        Cancel
+                      </span>
+                    </button>
+                  </Button>
+                  <Button
+                    block={false}
+                    className="cat-modal__footer-confirm"
+                    disabled={false}
+                    htmlType="button"
+                    loading={false}
+                    onClick={[Function]}
+                    prefix="cat"
+                    shape="square"
+                    size="md"
+                    type="primary"
+                  >
+                    <button
+                      className="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                      disabled={false}
+                      onClick={[Function]}
+                      style={Object {}}
+                      type="button"
+                    >
+                      <span
+                        className="cat-button__children"
+                      >
+                        Confirm
+                      </span>
+                    </button>
+                  </Button>
+                </div>
               </div>
             </div>
-          </Transition>
-        </CSSTransition>
-      </div>
+          </div>
+        </Transition>
+      </CSSTransition>
     </Portal>
   </PurePortal>
 </Modal>
@@ -1964,390 +2071,408 @@ exports[`Modal renders correctly 6`] = `
     <Portal
       containerInfo={
         <body>
-          <div />
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__header"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                title
                 <div
-                  class="cat-modal__close"
+                  class="cat-modal__header"
                 >
-                  <i
-                    class="cat-icon cat-icon-close"
-                  />
+                  title
+                  <div
+                    class="cat-modal__close"
+                  >
+                    <i
+                      class="cat-icon cat-icon-close"
+                    />
+                  </div>
                 </div>
-              </div>
-              <div
-                class="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Confirm
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
-            >
-              <div
-                class="cat-modal__header"
-              >
-                title
                 <div
-                  class="cat-modal__close"
+                  class="cat-modal__body"
                 >
-                  <i
-                    class="cat-icon cat-icon-close"
-                  />
+                  content
                 </div>
-              </div>
-              <div
-                class="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Confirm
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
-            />
-            <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
-            >
-              <div
-                class="cat-modal__header"
-              >
-                title
                 <div
-                  class="cat-modal__close"
+                  class="cat-modal__footer"
                 >
-                  <i
-                    class="cat-icon cat-icon-close"
-                  />
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
                 </div>
               </div>
+            </div>
+          </div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
+            <div
+              class="cat-modal__modal-wrapper"
+            >
               <div
-                class="cat-modal__body"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <div>
-                  footer
+                <div
+                  class="cat-modal__header"
+                >
+                  title
+                  <div
+                    class="cat-modal__close"
+                  >
+                    <i
+                      class="cat-icon cat-icon-close"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="cat-modal__body"
+                >
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__header"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                title
-              </div>
-              <div
-                class="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
+                <div
+                  class="cat-modal__header"
                 >
-                  <span
-                    class="cat-button__children"
+                  title
+                  <div
+                    class="cat-modal__close"
                   >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
+                    <i
+                      class="cat-icon cat-icon-close"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="cat-modal__body"
                 >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Confirm
-                  </span>
-                </button>
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <div>
+                    footer
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__body"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
+                <div
+                  class="cat-modal__header"
                 >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
+                  title
+                </div>
+                <div
+                  class="cat-modal__body"
                 >
-                  <span
-                    class="cat-button__children"
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
                   >
-                    Confirm
-                  </span>
-                </button>
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 500px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__body"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                content
+                <div
+                  class="cat-modal__body"
+                >
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
+                </div>
               </div>
+            </div>
+          </div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
+            <div
+              class="cat-modal__mask"
+            />
+            <div
+              class="cat-modal__modal-wrapper"
+            >
               <div
-                class="cat-modal__footer"
+                class="cat-modal"
+                style="width: 500px; transform: translate(-50%, -50%);"
               >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
+                <div
+                  class="cat-modal__body"
                 >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
                 >
-                  <span
-                    class="cat-button__children"
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
                   >
-                    Confirm
-                  </span>
-                </button>
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </body>
       }
     >
-      <div>
-        <CSSTransition
+      <CSSTransition
+        appear={true}
+        classNames="cat-modal-container"
+        in={true}
+        mountOnEnter={true}
+        timeout={300}
+        unmountOnExit={false}
+      >
+        <Transition
           appear={true}
-          classNames="cat-modal__mask"
+          enter={true}
+          exit={true}
           in={true}
           mountOnEnter={true}
+          onEnter={[Function]}
+          onEntered={[Function]}
+          onEntering={[Function]}
+          onExit={[Function]}
+          onExited={[Function]}
+          onExiting={[Function]}
           timeout={300}
           unmountOnExit={false}
         >
-          <Transition
-            appear={true}
-            enter={true}
-            exit={true}
-            in={true}
-            mountOnEnter={true}
-            onEnter={[Function]}
-            onEntered={[Function]}
-            onEntering={[Function]}
-            onExit={[Function]}
-            onExited={[Function]}
-            onExiting={[Function]}
-            timeout={300}
-            unmountOnExit={false}
+          <div
+            className="cat-modal-container"
           >
             <div
               className="cat-modal__mask"
-              onClick={[Function]}
             />
-          </Transition>
-        </CSSTransition>
-        <CSSTransition
-          appear={true}
-          classNames="cat-modal"
-          in={true}
-          mountOnEnter={true}
-          timeout={300}
-          unmountOnExit={false}
-        >
-          <Transition
-            appear={true}
-            enter={true}
-            exit={true}
-            in={true}
-            mountOnEnter={true}
-            onEnter={[Function]}
-            onEntered={[Function]}
-            onEntering={[Function]}
-            onExit={[Function]}
-            onExited={[Function]}
-            onExiting={[Function]}
-            timeout={300}
-            unmountOnExit={false}
-          >
             <div
-              className="cat-modal"
-              style={
-                Object {
-                  "width": 428,
-                }
-              }
+              className="cat-modal__modal-wrapper"
+              onClick={[Function]}
             >
               <div
-                className="cat-modal__body"
+                className="cat-modal"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "transform": "translate(-50%, -50%)",
+                    "width": 428,
+                  }
+                }
               >
-                content
-              </div>
-              <div
-                className="cat-modal__footer"
-              >
-                <Button
-                  block={false}
-                  disabled={false}
-                  htmlType="button"
-                  loading={false}
-                  onClick={[Function]}
-                  prefix="cat"
-                  shape="square"
-                  size="md"
-                  type="default"
+                <div
+                  className="cat-modal__body"
                 >
-                  <button
-                    className="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                    disabled={false}
-                    onClick={[Function]}
-                    style={Object {}}
-                    type="button"
-                  >
-                    <span
-                      className="cat-button__children"
-                    >
-                      Cancel
-                    </span>
-                  </button>
-                </Button>
-                <Button
-                  block={false}
-                  className="cat-modal__footer-confirm"
-                  disabled={false}
-                  htmlType="button"
-                  loading={false}
-                  onClick={[Function]}
-                  prefix="cat"
-                  shape="square"
-                  size="md"
-                  type="primary"
+                  content
+                </div>
+                <div
+                  className="cat-modal__footer"
                 >
-                  <button
-                    className="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                  <Button
+                    block={false}
                     disabled={false}
+                    htmlType="button"
+                    loading={false}
                     onClick={[Function]}
-                    style={Object {}}
-                    type="button"
+                    prefix="cat"
+                    shape="square"
+                    size="md"
+                    type="default"
                   >
-                    <span
-                      className="cat-button__children"
+                    <button
+                      className="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                      disabled={false}
+                      onClick={[Function]}
+                      style={Object {}}
+                      type="button"
                     >
-                      Confirm
-                    </span>
-                  </button>
-                </Button>
+                      <span
+                        className="cat-button__children"
+                      >
+                        Cancel
+                      </span>
+                    </button>
+                  </Button>
+                  <Button
+                    block={false}
+                    className="cat-modal__footer-confirm"
+                    disabled={false}
+                    htmlType="button"
+                    loading={false}
+                    onClick={[Function]}
+                    prefix="cat"
+                    shape="square"
+                    size="md"
+                    type="primary"
+                  >
+                    <button
+                      className="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                      disabled={false}
+                      onClick={[Function]}
+                      style={Object {}}
+                      type="button"
+                    >
+                      <span
+                        className="cat-button__children"
+                      >
+                        Confirm
+                      </span>
+                    </button>
+                  </Button>
+                </div>
               </div>
             </div>
-          </Transition>
-        </CSSTransition>
-      </div>
+          </div>
+        </Transition>
+      </CSSTransition>
     </Portal>
   </PurePortal>
 </Modal>
@@ -2375,390 +2500,408 @@ exports[`Modal renders correctly 7`] = `
     <Portal
       containerInfo={
         <body>
-          <div />
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__header"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                title
                 <div
-                  class="cat-modal__close"
+                  class="cat-modal__header"
                 >
-                  <i
-                    class="cat-icon cat-icon-close"
-                  />
+                  title
+                  <div
+                    class="cat-modal__close"
+                  >
+                    <i
+                      class="cat-icon cat-icon-close"
+                    />
+                  </div>
                 </div>
-              </div>
-              <div
-                class="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Confirm
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
-            >
-              <div
-                class="cat-modal__header"
-              >
-                title
                 <div
-                  class="cat-modal__close"
+                  class="cat-modal__body"
                 >
-                  <i
-                    class="cat-icon cat-icon-close"
-                  />
+                  content
                 </div>
-              </div>
-              <div
-                class="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
-                >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Confirm
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
-            />
-            <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
-            >
-              <div
-                class="cat-modal__header"
-              >
-                title
                 <div
-                  class="cat-modal__close"
+                  class="cat-modal__footer"
                 >
-                  <i
-                    class="cat-icon cat-icon-close"
-                  />
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
                 </div>
               </div>
+            </div>
+          </div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
+            <div
+              class="cat-modal__modal-wrapper"
+            >
               <div
-                class="cat-modal__body"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <div>
-                  footer
+                <div
+                  class="cat-modal__header"
+                >
+                  title
+                  <div
+                    class="cat-modal__close"
+                  >
+                    <i
+                      class="cat-icon cat-icon-close"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="cat-modal__body"
+                >
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__header"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                title
-              </div>
-              <div
-                class="cat-modal__body"
-              >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
+                <div
+                  class="cat-modal__header"
                 >
-                  <span
-                    class="cat-button__children"
+                  title
+                  <div
+                    class="cat-modal__close"
                   >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
+                    <i
+                      class="cat-icon cat-icon-close"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="cat-modal__body"
                 >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Confirm
-                  </span>
-                </button>
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <div>
+                    footer
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 428px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__body"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                content
-              </div>
-              <div
-                class="cat-modal__footer"
-              >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
+                <div
+                  class="cat-modal__header"
                 >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
+                  title
+                </div>
+                <div
+                  class="cat-modal__body"
                 >
-                  <span
-                    class="cat-button__children"
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
                   >
-                    Confirm
-                  </span>
-                </button>
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-          <div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
             <div
-              class="cat-modal__mask cat-modal__mask-appear cat-modal__mask-appear-active"
+              class="cat-modal__mask"
             />
             <div
-              class="cat-modal cat-modal-appear cat-modal-appear-active"
-              style="width: 500px;"
+              class="cat-modal__modal-wrapper"
             >
               <div
-                class="cat-modal__body"
+                class="cat-modal"
+                style="width: 428px; transform: translate(-50%, -50%);"
               >
-                content
+                <div
+                  class="cat-modal__body"
+                >
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
+                >
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
+                </div>
               </div>
+            </div>
+          </div>
+          <div
+            class="cat-modal-container cat-modal-container-appear cat-modal-container-appear-active"
+          >
+            <div
+              class="cat-modal__mask"
+            />
+            <div
+              class="cat-modal__modal-wrapper"
+            >
               <div
-                class="cat-modal__footer"
+                class="cat-modal"
+                style="width: 500px; transform: translate(-50%, -50%);"
               >
-                <button
-                  class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                  type="button"
+                <div
+                  class="cat-modal__body"
                 >
-                  <span
-                    class="cat-button__children"
-                  >
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
-                  type="button"
+                  content
+                </div>
+                <div
+                  class="cat-modal__footer"
                 >
-                  <span
-                    class="cat-button__children"
+                  <button
+                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    type="button"
                   >
-                    Confirm
-                  </span>
-                </button>
+                    <span
+                      class="cat-button__children"
+                    >
+                      Cancel
+                    </span>
+                  </button>
+                  <button
+                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    type="button"
+                  >
+                    <span
+                      class="cat-button__children"
+                    >
+                      Confirm
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </body>
       }
     >
-      <div>
-        <CSSTransition
+      <CSSTransition
+        appear={true}
+        classNames="cat-modal-container"
+        in={true}
+        mountOnEnter={true}
+        timeout={300}
+        unmountOnExit={false}
+      >
+        <Transition
           appear={true}
-          classNames="cat-modal__mask"
+          enter={true}
+          exit={true}
           in={true}
           mountOnEnter={true}
+          onEnter={[Function]}
+          onEntered={[Function]}
+          onEntering={[Function]}
+          onExit={[Function]}
+          onExited={[Function]}
+          onExiting={[Function]}
           timeout={300}
           unmountOnExit={false}
         >
-          <Transition
-            appear={true}
-            enter={true}
-            exit={true}
-            in={true}
-            mountOnEnter={true}
-            onEnter={[Function]}
-            onEntered={[Function]}
-            onEntering={[Function]}
-            onExit={[Function]}
-            onExited={[Function]}
-            onExiting={[Function]}
-            timeout={300}
-            unmountOnExit={false}
+          <div
+            className="cat-modal-container"
           >
             <div
               className="cat-modal__mask"
-              onClick={[Function]}
             />
-          </Transition>
-        </CSSTransition>
-        <CSSTransition
-          appear={true}
-          classNames="cat-modal"
-          in={true}
-          mountOnEnter={true}
-          timeout={300}
-          unmountOnExit={false}
-        >
-          <Transition
-            appear={true}
-            enter={true}
-            exit={true}
-            in={true}
-            mountOnEnter={true}
-            onEnter={[Function]}
-            onEntered={[Function]}
-            onEntering={[Function]}
-            onExit={[Function]}
-            onExited={[Function]}
-            onExiting={[Function]}
-            timeout={300}
-            unmountOnExit={false}
-          >
             <div
-              className="cat-modal"
-              style={
-                Object {
-                  "width": 500,
-                }
-              }
+              className="cat-modal__modal-wrapper"
+              onClick={[Function]}
             >
               <div
-                className="cat-modal__body"
+                className="cat-modal"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "transform": "translate(-50%, -50%)",
+                    "width": 500,
+                  }
+                }
               >
-                content
-              </div>
-              <div
-                className="cat-modal__footer"
-              >
-                <Button
-                  block={false}
-                  disabled={false}
-                  htmlType="button"
-                  loading={false}
-                  onClick={[Function]}
-                  prefix="cat"
-                  shape="square"
-                  size="md"
-                  type="default"
+                <div
+                  className="cat-modal__body"
                 >
-                  <button
-                    className="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
-                    disabled={false}
-                    onClick={[Function]}
-                    style={Object {}}
-                    type="button"
-                  >
-                    <span
-                      className="cat-button__children"
-                    >
-                      Cancel
-                    </span>
-                  </button>
-                </Button>
-                <Button
-                  block={false}
-                  className="cat-modal__footer-confirm"
-                  disabled={false}
-                  htmlType="button"
-                  loading={false}
-                  onClick={[Function]}
-                  prefix="cat"
-                  shape="square"
-                  size="md"
-                  type="primary"
+                  content
+                </div>
+                <div
+                  className="cat-modal__footer"
                 >
-                  <button
-                    className="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                  <Button
+                    block={false}
                     disabled={false}
+                    htmlType="button"
+                    loading={false}
                     onClick={[Function]}
-                    style={Object {}}
-                    type="button"
+                    prefix="cat"
+                    shape="square"
+                    size="md"
+                    type="default"
                   >
-                    <span
-                      className="cat-button__children"
+                    <button
+                      className="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                      disabled={false}
+                      onClick={[Function]}
+                      style={Object {}}
+                      type="button"
                     >
-                      Confirm
-                    </span>
-                  </button>
-                </Button>
+                      <span
+                        className="cat-button__children"
+                      >
+                        Cancel
+                      </span>
+                    </button>
+                  </Button>
+                  <Button
+                    block={false}
+                    className="cat-modal__footer-confirm"
+                    disabled={false}
+                    htmlType="button"
+                    loading={false}
+                    onClick={[Function]}
+                    prefix="cat"
+                    shape="square"
+                    size="md"
+                    type="primary"
+                  >
+                    <button
+                      className="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                      disabled={false}
+                      onClick={[Function]}
+                      style={Object {}}
+                      type="button"
+                    >
+                      <span
+                        className="cat-button__children"
+                      >
+                        Confirm
+                      </span>
+                    </button>
+                  </Button>
+                </div>
               </div>
             </div>
-          </Transition>
-        </CSSTransition>
-      </div>
+          </div>
+        </Transition>
+      </CSSTransition>
     </Portal>
   </PurePortal>
 </Modal>

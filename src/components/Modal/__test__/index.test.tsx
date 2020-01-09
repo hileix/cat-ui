@@ -126,7 +126,7 @@ describe('Modal', () => {
     cancelBtnDOM.simulate('click');
     expect(clickCancelCallback.callCount).toBe(1);
 
-    const maskDOM = wrapper.find('.cat-modal__mask');
+    const maskDOM = wrapper.find('.cat-modal__modal-wrapper');
     maskDOM.simulate('click');
     expect(clickCancelCallback.callCount).toBe(2);
   });

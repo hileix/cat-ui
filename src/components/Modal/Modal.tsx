@@ -6,6 +6,7 @@ import Button from '../Button';
 import Icon from '../Icon';
 import { CSSTransition } from 'react-transition-group';
 import PropTypes from 'prop-types';
+import { getViewportSize } from '../../utils/getViewportSize';
 
 
 export interface ModalProps {
@@ -71,13 +72,20 @@ export interface ModalProps {
   mask: boolean;
 }
 
+export interface ModalState {
+  /**
+   * 模态窗高度是否溢出了浏览器可视区域高度
+   */
+  isOverflow: boolean;
+}
+
 
 const TIMEOUT = 300;
 
 /**
  * Modal 对话框
  */
-class Modal extends PureComponent<ModalProps> {
+class Modal extends PureComponent<ModalProps, ModalState> {
   static propTypes = {
     prefix: PropTypes.string,
     className: PropTypes.string,
@@ -107,6 +115,40 @@ class Modal extends PureComponent<ModalProps> {
     cancelText: 'Cancel',
   };
 
+  state = {
+    isOverflow: false,
+  }
+
+  componentDidMount = () => {
+    this.handleOverflow();
+  }
+
+  componentDidUpdate = () => {
+    this.handleOverflow();
+  }
+
+  modalRef: HTMLDivElement | null;
+
+  getModalRef = (node: HTMLDivElement) => {
+    this.modalRef = node;
+  }
+
+  handleOverflow = () => {
+    const { height: viewPortHeight } = getViewportSize();
+    if (!this.modalRef) {
+      return;
+    }
+    const modalHeight = this.modalRef.clientHeight;
+    if (modalHeight > viewPortHeight && !this.state.isOverflow) {
+      this.setState({ isOverflow: true });
+    }
+  }
+
+  handleMaskClose = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    const { mask } = this.props;
+    mask && this.handleClose(e);
+  }
+
   handleClose = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     const { onClose } = this.props;
     onClose && onClose(e);
@@ -116,6 +158,10 @@ class Modal extends PureComponent<ModalProps> {
     const { onOk } = this.props;
     onOk && onOk(e);
   };
+
+  handleModalClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    e.stopPropagation();
+  }
 
   renderHeader = () => {
     const { prefix, title, noCloseIcon } = this.props;
@@ -173,6 +219,8 @@ class Modal extends PureComponent<ModalProps> {
       width,
       mask,
     } = this.props;
+    const { isOverflow } = this.state;
+
     const modalPrefix = `${prefix}-modal`;
 
     const classes = classNames(
@@ -180,44 +228,42 @@ class Modal extends PureComponent<ModalProps> {
       className
     );
 
-    let modalStyle: React.CSSProperties = { width };
-    if (style) {
-      modalStyle = { ...modalStyle, ...style };
+    let moreStyle: React.CSSProperties = {
+      transform: 'translate(-50%, -50%)'
+    };
+    if (isOverflow) {
+      moreStyle.transform = 'translate(-50%)';
+      moreStyle.top = 0;
+      moreStyle.margin = '60px 0';
     }
+
+    const modalStyle: React.CSSProperties = { width, ...style, ...moreStyle };
 
     return (
       <PurePortal selector='body'>
-        <div>
-          {mask && <CSSTransition
-            timeout={TIMEOUT}
-            in={visible}
-            classNames={`${modalPrefix}__mask`}
-            unmountOnExit={destroyOnClose}
-            mountOnEnter
-            appear
-          >
-            <div
-              className={`${modalPrefix}__mask`}
-              onClick={this.handleClose}
-            />
-          </CSSTransition>}
-
-
-          <CSSTransition
-            timeout={TIMEOUT}
-            in={visible}
-            classNames={modalPrefix}
-            unmountOnExit={destroyOnClose}
-            mountOnEnter
-            appear
-          >
-            <div className={classes} style={modalStyle}>
-              {this.renderHeader()}
-              {this.renderBody()}
-              {this.renderFooter()}
+        <CSSTransition
+          timeout={TIMEOUT}
+          in={visible}
+          classNames={`${modalPrefix}-container`}
+          unmountOnExit={destroyOnClose}
+          mountOnEnter
+          appear
+        >
+          <div className={`${modalPrefix}-container`}>
+            {mask && (
+              <div
+                className={`${modalPrefix}__mask`}
+              />
+            )}
+            <div className={`${modalPrefix}__modal-wrapper`} onClick={this.handleMaskClose}>
+              <div className={classes} style={modalStyle} ref={this.getModalRef} onClick={this.handleModalClick}>
+                {this.renderHeader()}
+                {this.renderBody()}
+                {this.renderFooter()}
+              </div>
             </div>
-          </CSSTransition>
-        </div>
+          </div>
+        </CSSTransition>
       </PurePortal>
     );
   }
