@@ -9,43 +9,103 @@ import markdown from '../README.md';
 
 const { useState } = React;
 
-const Demo1 = () => {
-  const [visible3, setvisible3] = useState(false);
-
-
-
-  return (
-    <div className='modal-box'>
-      <Button className='modal-button' onClick={() => setvisible3(true)}>
-        关闭 Modal 后自动销毁 children 的 Modal（请打开控制台，查看 DOM）
-      </Button>
-
-
-
-
-
-    </div>
-  );
-};
-
-
 const BaseModal = () => {
   const [visible, setVisible] = useState(false);
+  const [visible2, setVisible2] = useState(false);
+  const [isMore, setIsMore] = useState(false);
 
   return (
     <>
       <Button className='modal-button' onClick={() => setVisible(true)}>
         基础 Modal
       </Button>
+      <Button className='modal-button' onClick={() => setVisible2(true)}>
+        高度大于可视区高度
+      </Button>
+
       <Modal
         title='Enter the amount you want to redeem'
         visible={visible}
         onClose={() => setVisible(false)}
+        mask
       >
         <p>
           Please ensure that the amount you are redeeming does not exceed the
           remaining total amount.
         </p>
+      </Modal>
+      <Modal
+        title='Enter the amount you want to redeem'
+        visible={visible2}
+        onClose={() => setVisible2(false)}
+        mask
+      >
+        <p>
+          Please ensure that the amount you are redeeming does not exceed the
+          remaining total amount.
+        </p>
+        <p>
+          Please ensure that the amount you are redeeming does not exceed the
+          remaining total amount.
+        </p> <p>
+          Please ensure that the amount you are redeeming does not exceed the
+          remaining total amount.
+        </p> <p>
+          Please ensure that the amount you are redeeming does not exceed the
+          remaining total amount.
+        </p> <p>
+          Please ensure that the amount you are redeeming does not exceed the
+          remaining total amount.
+        </p> <p>
+          Please ensure that the amount you are redeeming does not exceed the
+          remaining total amount.
+        </p> <p>
+          Please ensure that the amount you are redeeming does not exceed the
+          remaining total amount.
+        </p> <p>
+          Please ensure that the amount you are redeeming does not exceed the
+          remaining total amount.
+        </p> <p>
+          Please ensure that the amount you are redeeming does not exceed the
+          remaining total amount.
+        </p> <p>
+          Please ensure that the amount you are redeeming does not exceed the
+          remaining total amount.
+        </p> <p>
+          Please ensure that the amount you are redeeming does not exceed the
+          remaining total amount.
+        </p> <p>
+          Please ensure that the amount you are redeeming does not exceed the
+          remaining total amount.
+        </p> <p>
+          Please ensure that the amount you are redeeming does not exceed the
+          remaining total amount.
+        </p> <p>
+          Please ensure that the amount you are redeeming does not exceed the
+          remaining total amount.
+        </p> <p>
+          Please ensure that the amount you are redeeming does not exceed the
+          remaining total amount.
+        </p> <p>
+          Please ensure that the amount you are redeeming does not exceed the
+          remaining total amount.
+        </p> <p>
+          Please ensure that the amount you are redeeming does not exceed the
+          remaining total amount.
+        </p> <p>
+          Please ensure that the amount you are redeeming does not exceed the
+          remaining total amount.
+        </p> <p>
+          Please ensure that the amount you are redeeming does not exceed the
+          remaining total amount.
+        </p> <p>
+          Please ensure that the amount you are redeeming does not exceed the
+          remaining total amount.
+        </p> <p>
+          Please ensure that the amount you are redeeming does not exceed the
+          remaining total amount.
+        </p>
+
       </Modal>
     </>
   )
