@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { InputProps, InputStates, inputStates } from './Input';
 import TextArea, { TextAreaProps, TextAreaStates } from './TextArea';
-import { THandleDOM } from './Input.d';
+import { THandleDOM } from './interface';
 
 type HandlesProps = InputProps | TextAreaProps;
 type HandlesStates = InputStates | TextAreaStates;

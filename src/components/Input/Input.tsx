@@ -1,6 +1,6 @@
 import * as React from 'react';
 import pick from 'lodash/pick';
-import { TSize, Ttheme, TinputState, HandleProps } from './Input.d';
+import { TSize, Ttheme, TinputState, HandleProps } from './interface';
 import Wrapper from './Wrapper';
 import Handles from './Handles';
 import Icon from '../Icon';
