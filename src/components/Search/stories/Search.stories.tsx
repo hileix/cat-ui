@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Search from '../Search';
 import { ISearchProps } from '../Search';
@@ -145,7 +145,7 @@ class Demo extends React.Component<ISearchProps, any> {
   }
 }
 
-storiesOf('Search 搜索', module)
+storiesOf('数据录入/Search 搜索', module)
 .add(
   'Search',
   () => <Demo />,

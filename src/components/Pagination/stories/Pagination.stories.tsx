@@ -32,7 +32,7 @@ const Demo = () => {
   )
 };
 
-storiesOf('Pagination 分页', module)
+storiesOf('导航/Pagination 分页', module)
   .add('Pagination', () => <Demo />, {
     info: {
       text: markdown

@@ -121,7 +121,7 @@ const Demo = () => {
   );
 };
 
-storiesOf('Input 输入框', module)
+storiesOf('数据录入/Input 输入框', module)
   .add('Input', () => <Demo />, {
     info: {
       text: markdown

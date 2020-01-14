@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import message from '../index';
 import '../../../styles/index.scss';
@@ -28,7 +28,7 @@ const Demo = () => {
   );
 };
 
-storiesOf('message 全局提示', module).add('message', () => <Demo />, {
+storiesOf('反馈/message 全局提示', module).add('message', () => <Demo />, {
   info: {
     text: markdown
   }

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Scroll from '../'
 import '../../../styles/index.scss';
@@ -44,7 +44,7 @@ const Demo1 = () => {
   )
 }
 
-storiesOf('Scroll 滚动', module)
+storiesOf('工具/Scroll 滚动', module)
   .add('滚动位置', () => <Demo />)
   .add('设置滚动 监听时间', () => <Demo1 />)
 
