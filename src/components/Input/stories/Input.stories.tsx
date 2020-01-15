@@ -5,7 +5,19 @@ import '../../../styles/index.scss';
 import './style.scss';
 import markdown from '../README.md';
 
-const Demo = () => {
+const TextAreaDemo = () => {
+  return (
+    <div className='input-box'>
+      <span className='hint' >
+        文本域:
+      </span>
+      <Input.TextArea className='item' />
+    </div>
+
+  );
+};
+
+const LineDemo = () => {
   return (
     <div className='input-box'>
       <span className='hint' >
@@ -68,10 +80,17 @@ const Demo = () => {
         线型输入框错误展示:
       </span>
       <Input className='item err' value='test value' error message='error msg is xxxx' />
+    </div>
+  )
+}
+
+const BoxDemo = () => {
+  return (
+    <div className='input-box'>
       <span className='hint' >
         盒子输入框 small:
       </span>
-      <Input size='small' type='box' />
+      <Input size='small' />
       <span className='hint' >
         盒子输入框 normal:
       </span>
@@ -112,18 +131,25 @@ const Demo = () => {
         盒子输入框带错误展示和占位符:
       </span>
       <Input className='item item-box err' type='box' value='123123' error message='error msg is yyyy' placeholder='Please fill username' />
-      <span className='hint' >
-        文本域:
-      </span>
-      <Input.TextArea className='item' />
     </div>
-
-  );
-};
+  )
+}
 
 storiesOf('数据录入/Input 输入框', module)
-  .add('Input', () => <Demo />, {
+  .add('线性 Input', () => <LineDemo />, {
     info: {
       text: markdown
     }
   })
+  .add('盒子 Input', () => <BoxDemo />, {
+    info: {
+      text: markdown
+    }
+  })
+  .add('文本域 TextArea', () => <TextAreaDemo />, {
+    info: {
+      text: markdown
+    }
+  })
+
+
