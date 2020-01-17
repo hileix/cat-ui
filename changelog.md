@@ -1,3 +1,6 @@
+## Release v2.18.0
+- ✨ (Switch) 添加 Switch 组件
+
 ## Release v2.17.1
 - 🐛 (Modal) 修复 Modal 组件在高度超出屏幕高度时，不能滚动的 bug
 
