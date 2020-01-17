@@ -21,7 +21,8 @@ const existComponents = [
   'Selection',
   'Search',
   'Select',
-  'Pagination'
+  'Pagination',
+  'Switch'
 ];
 
 function getTestMatch() {
