@@ -40,7 +40,7 @@ const Demo = () => {
   );
 };
 
-storiesOf('Icon 字体图标', module).add(
+storiesOf('通用/Icon 字体图标', module).add(
   'icones',
   () => {
     return <Demo />;

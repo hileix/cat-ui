@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TSize, Ttheme, TinputState } from './Input.d';
+import { TSize, Ttheme, TinputState } from './interface';
 import classNames from 'classnames';
 
 export interface IWrapperProps {

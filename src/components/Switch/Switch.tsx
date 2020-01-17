@@ -1,53 +1,83 @@
-import * as React from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import { Component } from 'react';
 import noop from 'lodash/noop';
+import PropTypes from 'prop-types';
+import omit from 'lodash/omit';
 
-export interface SwitchProps {
-  /** 类名 */
+export interface SwitchProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onChange'> {
+  /**
+   * 类名前缀
+   */
+  prefix: string;
+  /** 
+   * 类名
+   */
   className?: string;
-  /** 样式 */
-  style?: object;
-  /** 禁用 */
+  /** 
+   * 样式
+   */
+  style?: React.CSSProperties;
+  /** 
+   * 禁用
+   */
   disabled?: boolean;
-  /** 激活时 */
-  checkedChildren?: any;
-  /** 未激活时 */
-  unCheckedChildren?: any;
-  /** 开关状态变化时 */
-  onChange?: any;
-  /** 鼠标松开 */
-  onMouseUp?: any;
-  /** 鼠标点击 */
-  onClick?: any;
-  /** tab索引 */
-  tabIndex?: number;
-  /** 是否激活 */
+  /** 
+   * 选中时的内容
+   */
+  checkedChildren?: React.ReactNode;
+  /** 
+   * 非选中时的内容
+   */
+  unCheckedChildren?: React.ReactNode;
+  /** 
+   * 变化时的回调
+   */
+  onChange?: (checked: boolean) => void;
+  /** 
+   * 是否激活
+   */
   checked?: boolean;
-  /** 默认值 */
+  /** 
+   * 默认值
+   */
   defaultChecked?: boolean;
-  /** 自动聚焦 */
-  autoFocus?: boolean;
-  /** 自动聚焦 */
-  loadingIcon?: any;
+  /** 
+   * 自动聚焦
+   */
+  autoFocus: boolean;
 }
+
+export interface SwitchState {
+  checked: boolean;
+}
+
 /**
  * Switch
  */
-
-class Switch extends Component<SwitchProps, any> {
-  private switchRef: any;
-  private node: any;
-  [key: string]: any;
+class Switch extends Component<SwitchProps, SwitchState> {
+  static propTypes = {
+    prefix: PropTypes.string,
+    className: PropTypes.string,
+    style: PropTypes.object,
+    disabled: PropTypes.bool,
+    checkedChildren: PropTypes.node,
+    unCheckedChildren: PropTypes.node,
+    onChange: PropTypes.func,
+    checked: PropTypes.bool,
+    defaultChecked: PropTypes.bool,
+    autoFocus: PropTypes.bool,
+  }
 
   static defaultProps = {
-    // checkedChildren: '',
-    // unCheckedChildren: '',
-    className: '',
-    defaultChecked: false,
+    prefix: 'cat',
+    disabled: false,
     onChange: noop,
-    onClick: noop
+    defaultChecked: false,
+    autoFocus: false,
   };
+
+  private node: HTMLButtonElement;
 
   constructor(props: SwitchProps) {
     super(props);
@@ -57,13 +87,13 @@ class Switch extends Component<SwitchProps, any> {
     } else {
       checked = !!props.defaultChecked;
     }
-    this.state = { checked };
-    this.switchRef = React.createRef();
+    this.state = {
+      checked
+    };
   }
 
   componentDidMount() {
     const { autoFocus, disabled } = this.props;
-    this.node = this.switchRef.current;
     if (autoFocus && !disabled) {
       this.focus();
     }
@@ -76,24 +106,27 @@ class Switch extends Component<SwitchProps, any> {
     return null;
   }
 
-  setChecked(checked: any) {
+  setChecked(checked: boolean) {
     if (this.props.disabled) {
       return;
     }
     if (!('checked' in this.props)) {
       this.setState({ checked });
     }
-    this.props.onChange(checked);
+
+    const { onChange } = this.props;
+
+    onChange && onChange(checked);
   }
 
-  toggle: React.MouseEventHandler<HTMLButtonElement> = () => {
+  handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const { onClick } = this.props;
     const checked = !this.state.checked;
     this.setChecked(checked);
-    onClick(checked);
+    onClick && onClick(event);
   };
 
-  handleKeyDown = (e: any) => {
+  handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     if (e.keyCode === 37) {
       // Left
       this.setChecked(false);
@@ -104,9 +137,9 @@ class Switch extends Component<SwitchProps, any> {
   };
 
   // Handle auto focus when click switch in Chrome
-  handleMouseUp = (e: any) => {
+  handleMouseUp = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     if (this.node) {
-      this.node.blur();
+      this.blur();
     }
     if (this.props.onMouseUp) {
       this.props.onMouseUp(e);
@@ -121,44 +154,46 @@ class Switch extends Component<SwitchProps, any> {
     this.node.blur();
   };
 
-  saveNode = (node: any) => {
+  getButtonNode = (node: HTMLButtonElement) => {
     this.node = node;
   };
 
   render() {
     const {
+      prefix,
       className,
       disabled,
-      loadingIcon,
       checkedChildren,
       unCheckedChildren,
       ...restProps
     } = this.props;
     const checked = this.state.checked;
 
-    const prefix = 'cat-switch';
+    const classPrefix = `${prefix}-switch`;
     const calsses = classNames(
-      prefix,
+      classPrefix,
       {
         'cat-switch--checked': checked,
         'cat-switch--disabled': disabled
       },
       className
     );
+
+    const buttonProps = omit(restProps, ['onChange'])
+
     return (
       <button
-        {...restProps}
+        {...buttonProps}
         type="button"
         role="switch"
         aria-checked={checked}
         disabled={disabled}
         className={calsses}
-        ref={this.saveNode}
+        ref={this.getButtonNode}
         onKeyDown={this.handleKeyDown}
-        onClick={this.toggle}
+        onClick={this.handleClick}
         onMouseUp={this.handleMouseUp}
       >
-        {loadingIcon}
         <span className="cat-switch__inner">
           {checked ? checkedChildren : unCheckedChildren}
         </span>

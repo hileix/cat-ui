@@ -74,7 +74,7 @@ const Demo = () => {
   );
 };
 
-storiesOf('Tabs 标签页', module).add('Tabs', () => <Demo />, {
+storiesOf('数据展示/Tabs 标签页', module).add('Tabs', () => <Demo />, {
   info: {
     text: markdown
   }

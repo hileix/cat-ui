@@ -7,7 +7,7 @@ import { getModeArray, positionNameConvert, getPosition } from '../utils';
 describe('Popover', () => {
   // reset dom
   afterEach(() => {
-    (document.querySelector('body') as any).innerHTML = '';
+    document.body.innerHTML = '';
   });
 
   test('renders correctly', () => {

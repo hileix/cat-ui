@@ -90,7 +90,7 @@ const Demo = () => {
   );
 };
 
-storiesOf('Tooltip 文字提示', module).add('Tooltip', () => <Demo />, {
+storiesOf('数据展示/Tooltip 文字提示', module).add('Tooltip', () => <Demo />, {
   info: {
     text: markdown
   }

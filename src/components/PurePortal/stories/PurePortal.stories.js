@@ -17,7 +17,7 @@ const Demo1 = () => {
   )
 };
 
-storiesOf('PurePortal 传送门', module)
+storiesOf('工具/PurePortal 传送门', module)
   .add('PurePortal',
     () => <Demo1 />,
     {

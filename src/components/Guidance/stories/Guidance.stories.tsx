@@ -72,7 +72,7 @@ const Demo = () => {
   );
 };
 
-storiesOf('Guidance 引导', module).add('Guidance', () => <Demo />, {
+storiesOf('其他/Guidance 引导', module).add('Guidance', () => <Demo />, {
   info: {
     text: markdown
   }

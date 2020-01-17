@@ -234,4 +234,4 @@ const Demo = () => {
   );
 };
 
-storiesOf('Popover 弹层', module).add('Popover', () => <Demo />);
+storiesOf('工具/Popover 弹层', module).add('Popover', () => <Demo />);

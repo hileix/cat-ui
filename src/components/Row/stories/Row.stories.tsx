@@ -188,7 +188,7 @@ const ResponsiveDemo = () => {
   );
 }
 
-storiesOf('Grid 栅格系统', module)
+storiesOf('布局/Grid 栅格系统', module)
   .add('Grid', () => <Demo />, {
     info: {
       text: markdown

@@ -136,7 +136,7 @@ const Demo3 = () => {
   </>
 }
 
-storiesOf('Table 表格', module)
+storiesOf('数据展示/Table 表格', module)
   .add('基础表格', () => <Demo1 />)
   .add('加载服务端数据', () => <Demo2></Demo2>)
   .add('空数据', () => <Demo3></Demo3>);

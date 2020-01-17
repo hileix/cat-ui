@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Modal } from '@components/index';
 import '../../../styles/index.scss';
@@ -188,7 +188,7 @@ const DestroyOnCloseModal = () => {
   )
 }
 
-storiesOf('Modal 模态窗', module)
+storiesOf('反馈/Modal 模态窗', module)
   .add('基础 Modal', () => <BaseModal />, {
     info: {
       text: markdown

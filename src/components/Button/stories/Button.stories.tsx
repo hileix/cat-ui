@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Button, Icon } from '@components/index';
 import './style.scss';
@@ -68,10 +68,10 @@ const Demo = () => {
   );
 };
 
-let ShapeDemo = ()=> {
+let ShapeDemo = () => {
   return (
     <>
-    <DemoWrapper title='类型' desc='五种类型'>
+      <DemoWrapper title='类型' desc='五种类型'>
         <Button shape='round' type='default' className='button-stories__button'>
           default
         </Button>
@@ -88,36 +88,38 @@ let ShapeDemo = ()=> {
           Golden
         </Button>
       </DemoWrapper>
-    <DemoWrapper title='尺寸' desc='三种尺寸'>
-      <Button size='sm' shape='round' className='button-stories__button'>smRound</Button>    
-      <Button size='md' shape='round' className='button-stories__button'>mdRound</Button>    
-      <Button size='lg' shape='round' className='button-stories__button'>lgRound</Button>    
-    </DemoWrapper>
+      <DemoWrapper title='尺寸' desc='三种尺寸'>
+        <Button size='sm' shape='round' className='button-stories__button'>smRound</Button>
+        <Button size='md' shape='round' className='button-stories__button'>mdRound</Button>
+        <Button size='lg' shape='round' className='button-stories__button'>lgRound</Button>
+      </DemoWrapper>
 
-    <DemoWrapper title='Shape' desc='圆形'>
-      <Button size='sm' shape='circle' className='button-stories__button'>S</Button>    
-      <Button size='md' shape='circle' className='button-stories__button'>MD</Button>    
-      <Button size='lg' shape='circle' className='button-stories__button'>LG</Button>    
-    </DemoWrapper>
+      <DemoWrapper title='Shape' desc='圆形'>
+        <Button size='sm' shape='circle' className='button-stories__button'>S</Button>
+        <Button size='md' shape='circle' className='button-stories__button'>MD</Button>
+        <Button size='lg' shape='circle' className='button-stories__button'>LG</Button>
+      </DemoWrapper>
 
-    <DemoWrapper title='Icon' desc='Icon'>
-      <Button size='sm' shape='round' className='button-stories__button'><Icon type="add" /> Add</Button>    
-      <Button size='md'  className='button-stories__button'><Icon type="add" /> Add</Button>    
-    </DemoWrapper>
-    
-    
-  </>);
+      <DemoWrapper title='Icon' desc='Icon'>
+        <Button size='sm' shape='round' className='button-stories__button'><Icon type="add" /> Add</Button>
+        <Button size='md' className='button-stories__button'><Icon type="add" /> Add</Button>
+      </DemoWrapper>
+
+
+    </>);
 }
 
-storiesOf('Button 按钮', module).add('Button', () => <Demo />, {
-  info: {
-    text: markdown
-  }
-}).add('Shape', () => <ShapeDemo />, {
-  info: {
-    text: markdown
-  }
-})
+storiesOf('通用/Button 按钮', module)
+  .add('Button', () => <Demo />, {
+    info: {
+      text: markdown
+    }
+  })
+  .add('Shape', () => <ShapeDemo />, {
+    info: {
+      text: markdown
+    }
+  });
 
 
 

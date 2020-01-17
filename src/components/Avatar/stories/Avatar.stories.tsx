@@ -5,7 +5,7 @@ import '../../../styles/index.scss';
 import './style.scss';
 import markdown from '../README.md';
 
-storiesOf('Avatar 头像', module)
+storiesOf('通用/Avatar 头像', module)
   .add(
     'Size',
     () => (

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Loading } from '@components/index';
 import '../../../styles/index.scss';
@@ -51,7 +51,7 @@ const Demo = () => {
   );
 };
 
-storiesOf('Loading 加载', module).add('Loading', () => <Demo />, {
+storiesOf('反馈/Loading 加载', module).add('Loading', () => <Demo />, {
   info: {
     text: markdown
   }
