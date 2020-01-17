@@ -107,7 +107,7 @@ const Demo2 = () => {
   );
 };
 
-storiesOf('notification 通知', module)
+storiesOf('反馈/notification 通知', module)
   .add('函数式', () => <Demo1 />, {
     info: {
       text: markdown

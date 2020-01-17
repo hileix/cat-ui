@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Drawer } from '@components/index';
 import '../../../styles/index.scss';
@@ -136,7 +136,7 @@ const Demo = () => {
   );
 };
 
-storiesOf('Drawer 抽屉', module).add('Drawer', () => <Demo />, {
+storiesOf('反馈/Drawer 抽屉', module).add('Drawer', () => <Demo />, {
   info: {
     text: markdown
   }

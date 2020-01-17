@@ -28,7 +28,7 @@ let CardRoundDemo = () =>{
 }
 
 
-storiesOf('Card 卡片', module).add('Card', CardDemo, {
+storiesOf('数据展示/Card 卡片', module).add('Card', CardDemo, {
   info: {
     text: markdown
   }

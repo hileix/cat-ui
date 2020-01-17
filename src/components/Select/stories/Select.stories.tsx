@@ -118,5 +118,5 @@ const Demo1 = () => {
   )
 };
 
-storiesOf('Select 下拉选择', module)
+storiesOf('数据录入/Select 下拉选择', module)
   .add('Select', () => <Demo1 />)

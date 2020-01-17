@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Selection from '../index';
 import Option from '../Option';
@@ -8,7 +8,7 @@ import './style.scss';
 import '../../../styles/selection.scss'
 import '../../../styles/option.scss'
 
-storiesOf('Selection 选择面板', module)
+storiesOf('工具/Selection 选择面板', module)
 .add(
   'Selection',
   () => {

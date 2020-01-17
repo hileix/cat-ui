@@ -1,7 +1,7 @@
 import * as React from 'react';
 import pick from 'lodash/pick';
 import { IdomProps, inputStates } from './Input';
-import { TinputState, HandleProps } from './Input.d';
+import { TinputState, HandleProps } from './interface';
 import Wrapper from './Wrapper';
 import Handles from './Handles';
 import classNames from 'classnames';
