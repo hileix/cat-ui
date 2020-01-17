@@ -1,3 +1,6 @@
+## Release v2.17.1
+- 🐛 (Modal) 修复 Modal 组件在高度超出屏幕高度时，不能滚动的 bug
+
 ## Release v2.17.0
 - ✨ (Row) Row 组件添加 gutter 属性
 - ✨ (Notification) 添加 notification.Notification 组件
