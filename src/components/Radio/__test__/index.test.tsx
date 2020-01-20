@@ -35,6 +35,8 @@ describe('Radio', () => {
     expect(wrapper.state('checked')).toBe(false);
 
     const input = wrapper.find('input');
+
+    // https://github.com/airbnb/enzyme/issues/216#issuecomment-191114107
     input.simulate('change', { target: { checked: true } });
 
     expect(handleChange.callCount).toBe(1);
