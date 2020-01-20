@@ -4,6 +4,7 @@ import Switch from '../index';
 import '../../../styles/index.scss';
 import './style.scss';
 import DemoWrapper from '@utils/DemoWrapper';
+import markdown from '../README.md';
 
 const Base = () => {
   return (
@@ -51,7 +52,31 @@ const AutoFocus = () => {
 
 
 storiesOf('数据录入/Switch 开关', module)
-  .add('Base', () => <Base />)
-  .add('Disabled', () => <Disabled />)
-  .add('Children', () => <Children />)
-  .add('AutoFocus', () => <AutoFocus />)
+  .add('Base',
+    () => <Base />,
+    {
+      info: {
+        text: markdown
+      }
+    })
+  .add('Disabled',
+    () => <Disabled />,
+    {
+      info: {
+        text: markdown
+      }
+    })
+  .add('Children',
+    () => <Children />,
+    {
+      info: {
+        text: markdown
+      }
+    })
+  .add('AutoFocus',
+    () => <AutoFocus />,
+    {
+      info: {
+        text: markdown
+      }
+    });
