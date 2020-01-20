@@ -1,275 +1,366 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Radio renders correctly 1`] = `
-initialize {
-  "0": Object {
-    "attribs": Object {
-      "class": "cat-radio-wrapper cat-radio-wrapper--horizontal",
-    },
-    "children": Array [
-      Object {
-        "attribs": Object {
-          "class": "cat-radio-inner-wrapper cat-radio-inner-wrapper--horizontal",
-        },
-        "children": Array [
-          Object {
-            "attribs": Object {
-              "class": "cat-radio-inner",
-            },
-            "children": Array [],
-            "name": "span",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": Object {
-              "attribs": Object {
-                "class": "cat-radio",
-              },
-              "children": Array [],
-              "name": "input",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": [Circular],
-              "type": "tag",
-              "x-attribsNamespace": Object {
-                "class": undefined,
-              },
-              "x-attribsPrefix": Object {
-                "class": undefined,
-              },
-            },
-            "parent": [Circular],
-            "prev": null,
-            "type": "tag",
-            "x-attribsNamespace": Object {
-              "class": undefined,
-            },
-            "x-attribsPrefix": Object {
-              "class": undefined,
-            },
-          },
-          Object {
-            "attribs": Object {
-              "class": "cat-radio",
-            },
-            "children": Array [],
-            "name": "input",
-            "namespace": "http://www.w3.org/1999/xhtml",
-            "next": null,
-            "parent": [Circular],
-            "prev": Object {
-              "attribs": Object {
-                "class": "cat-radio-inner",
-              },
-              "children": Array [],
-              "name": "span",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": [Circular],
-              "parent": [Circular],
-              "prev": null,
-              "type": "tag",
-              "x-attribsNamespace": Object {
-                "class": undefined,
-              },
-              "x-attribsPrefix": Object {
-                "class": undefined,
-              },
-            },
-            "type": "tag",
-            "x-attribsNamespace": Object {
-              "class": undefined,
-            },
-            "x-attribsPrefix": Object {
-              "class": undefined,
-            },
-          },
-        ],
-        "name": "span",
-        "namespace": "http://www.w3.org/1999/xhtml",
-        "next": Object {
-          "attribs": Object {
-            "class": "cat-radio__label cat-radio__label--horizontal",
-          },
-          "children": Array [
-            Object {
-              "data": "Test",
-              "next": null,
-              "parent": [Circular],
-              "prev": null,
-              "type": "text",
-            },
-          ],
-          "name": "span",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": null,
-          "parent": [Circular],
-          "prev": [Circular],
-          "type": "tag",
-          "x-attribsNamespace": Object {
-            "class": undefined,
-          },
-          "x-attribsPrefix": Object {
-            "class": undefined,
-          },
-        },
-        "parent": [Circular],
-        "prev": null,
-        "type": "tag",
-        "x-attribsNamespace": Object {
-          "class": undefined,
-        },
-        "x-attribsPrefix": Object {
-          "class": undefined,
-        },
-      },
-      Object {
-        "attribs": Object {
-          "class": "cat-radio__label cat-radio__label--horizontal",
-        },
-        "children": Array [
-          Object {
-            "data": "Test",
-            "next": null,
-            "parent": [Circular],
-            "prev": null,
-            "type": "text",
-          },
-        ],
-        "name": "span",
-        "namespace": "http://www.w3.org/1999/xhtml",
-        "next": null,
-        "parent": [Circular],
-        "prev": Object {
-          "attribs": Object {
-            "class": "cat-radio-inner-wrapper cat-radio-inner-wrapper--horizontal",
-          },
-          "children": Array [
-            Object {
-              "attribs": Object {
-                "class": "cat-radio-inner",
-              },
-              "children": Array [],
-              "name": "span",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": Object {
-                "attribs": Object {
-                  "class": "cat-radio",
-                },
-                "children": Array [],
-                "name": "input",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": null,
-                "parent": [Circular],
-                "prev": [Circular],
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                },
-              },
-              "parent": [Circular],
-              "prev": null,
-              "type": "tag",
-              "x-attribsNamespace": Object {
-                "class": undefined,
-              },
-              "x-attribsPrefix": Object {
-                "class": undefined,
-              },
-            },
-            Object {
-              "attribs": Object {
-                "class": "cat-radio",
-              },
-              "children": Array [],
-              "name": "input",
-              "namespace": "http://www.w3.org/1999/xhtml",
-              "next": null,
-              "parent": [Circular],
-              "prev": Object {
-                "attribs": Object {
-                  "class": "cat-radio-inner",
-                },
-                "children": Array [],
-                "name": "span",
-                "namespace": "http://www.w3.org/1999/xhtml",
-                "next": [Circular],
-                "parent": [Circular],
-                "prev": null,
-                "type": "tag",
-                "x-attribsNamespace": Object {
-                  "class": undefined,
-                },
-                "x-attribsPrefix": Object {
-                  "class": undefined,
-                },
-              },
-              "type": "tag",
-              "x-attribsNamespace": Object {
-                "class": undefined,
-              },
-              "x-attribsPrefix": Object {
-                "class": undefined,
-              },
-            },
-          ],
-          "name": "span",
-          "namespace": "http://www.w3.org/1999/xhtml",
-          "next": [Circular],
-          "parent": [Circular],
-          "prev": null,
-          "type": "tag",
-          "x-attribsNamespace": Object {
-            "class": undefined,
-          },
-          "x-attribsPrefix": Object {
-            "class": undefined,
-          },
-        },
-        "type": "tag",
-        "x-attribsNamespace": Object {
-          "class": undefined,
-        },
-        "x-attribsPrefix": Object {
-          "class": undefined,
-        },
-      },
-    ],
-    "name": "div",
-    "namespace": "http://www.w3.org/1999/xhtml",
-    "next": null,
-    "parent": null,
-    "prev": null,
-    "root": Object {
-      "attribs": Object {},
-      "children": Array [
-        [Circular],
-      ],
-      "name": "root",
-      "namespace": "http://www.w3.org/1999/xhtml",
-      "next": null,
-      "parent": null,
-      "prev": null,
-      "type": "root",
-      "x-attribsNamespace": Object {},
-      "x-attribsPrefix": Object {},
-    },
-    "type": "tag",
-    "x-attribsNamespace": Object {
-      "class": undefined,
-    },
-    "x-attribsPrefix": Object {
-      "class": undefined,
-    },
-  },
-  "_root": [Circular],
-  "length": 1,
-  "options": Object {
-    "decodeEntities": true,
-    "normalizeWhitespace": false,
-    "withDomLvl1": true,
-    "xml": false,
-  },
-}
+<Radio
+  defaultChecked={false}
+  disabled={false}
+  prefix="cat"
+  value="A"
+>
+  <label
+    className="cat-radio-wrapper"
+  >
+    <span
+      className="cat-radio__inner-wrapper"
+    >
+      <span
+        className="cat-radio__inner"
+      />
+      <input
+        checked={false}
+        className="cat-radio"
+        disabled={false}
+        onChange={[Function]}
+        type="radio"
+        value="A"
+      />
+    </span>
+    <span
+      className="cat-radio__label"
+    >
+      radio
+    </span>
+  </label>
+</Radio>
+`;
+
+exports[`Radio renders correctly 2`] = `
+<Radio
+  checked={true}
+  defaultChecked={false}
+  disabled={false}
+  prefix="cat"
+  value="A"
+>
+  <label
+    className="cat-radio-wrapper"
+  >
+    <span
+      className="cat-radio__inner-wrapper"
+    >
+      <span
+        className="cat-radio__inner cat-radio__inner--checked"
+      />
+      <input
+        checked={true}
+        className="cat-radio"
+        disabled={false}
+        onChange={[Function]}
+        type="radio"
+        value="A"
+      />
+    </span>
+    <span
+      className="cat-radio__label"
+    >
+      radio
+    </span>
+  </label>
+</Radio>
+`;
+
+exports[`Radio.Group When Radio.group has null children, null should not be rendered 1`] = `
+<RadioGroup
+  defaultValue="A"
+  disabled={false}
+>
+  <div
+    className="cat-radio-group"
+  >
+    <Radio
+      checked={true}
+      defaultChecked={false}
+      disabled={false}
+      key=".0"
+      onChange={[Function]}
+      prefix="cat"
+      value="A"
+    >
+      <label
+        className="cat-radio-wrapper"
+      >
+        <span
+          className="cat-radio__inner-wrapper"
+        >
+          <span
+            className="cat-radio__inner cat-radio__inner--checked"
+          />
+          <input
+            checked={true}
+            className="cat-radio"
+            disabled={false}
+            onChange={[Function]}
+            type="radio"
+            value="A"
+          />
+        </span>
+        <span
+          className="cat-radio__label"
+        >
+          A
+        </span>
+      </label>
+    </Radio>
+    <Radio
+      checked={false}
+      defaultChecked={false}
+      disabled={false}
+      key=".1"
+      onChange={[Function]}
+      prefix="cat"
+      value="B"
+    >
+      <label
+        className="cat-radio-wrapper"
+      >
+        <span
+          className="cat-radio__inner-wrapper"
+        >
+          <span
+            className="cat-radio__inner"
+          />
+          <input
+            checked={false}
+            className="cat-radio"
+            disabled={false}
+            onChange={[Function]}
+            type="radio"
+            value="B"
+          />
+        </span>
+        <span
+          className="cat-radio__label"
+        >
+          B
+        </span>
+      </label>
+    </Radio>
+    <Radio
+      checked={false}
+      defaultChecked={false}
+      disabled={false}
+      key=".2"
+      onChange={[Function]}
+      prefix="cat"
+      value="C"
+    >
+      <label
+        className="cat-radio-wrapper"
+      >
+        <span
+          className="cat-radio__inner-wrapper"
+        >
+          <span
+            className="cat-radio__inner"
+          />
+          <input
+            checked={false}
+            className="cat-radio"
+            disabled={false}
+            onChange={[Function]}
+            type="radio"
+            value="C"
+          />
+        </span>
+        <span
+          className="cat-radio__label"
+        >
+          C
+        </span>
+      </label>
+    </Radio>
+    <Radio
+      checked={false}
+      defaultChecked={false}
+      disabled={false}
+      key=".3"
+      onChange={[Function]}
+      prefix="cat"
+      value="D"
+    >
+      <label
+        className="cat-radio-wrapper"
+      >
+        <span
+          className="cat-radio__inner-wrapper"
+        >
+          <span
+            className="cat-radio__inner"
+          />
+          <input
+            checked={false}
+            className="cat-radio"
+            disabled={false}
+            onChange={[Function]}
+            type="radio"
+            value="D"
+          />
+        </span>
+        <span
+          className="cat-radio__label"
+        >
+          D
+        </span>
+      </label>
+    </Radio>
+  </div>
+</RadioGroup>
+`;
+
+exports[`Radio.Group renders correctly 1`] = `
+<RadioGroup
+  defaultValue="A"
+  disabled={false}
+>
+  <div
+    className="cat-radio-group"
+  >
+    <Radio
+      checked={true}
+      defaultChecked={false}
+      disabled={false}
+      key=".0"
+      onChange={[Function]}
+      prefix="cat"
+      value="A"
+    >
+      <label
+        className="cat-radio-wrapper"
+      >
+        <span
+          className="cat-radio__inner-wrapper"
+        >
+          <span
+            className="cat-radio__inner cat-radio__inner--checked"
+          />
+          <input
+            checked={true}
+            className="cat-radio"
+            disabled={false}
+            onChange={[Function]}
+            type="radio"
+            value="A"
+          />
+        </span>
+        <span
+          className="cat-radio__label"
+        >
+          A
+        </span>
+      </label>
+    </Radio>
+    <Radio
+      checked={false}
+      defaultChecked={false}
+      disabled={false}
+      key=".1"
+      onChange={[Function]}
+      prefix="cat"
+      value="B"
+    >
+      <label
+        className="cat-radio-wrapper"
+      >
+        <span
+          className="cat-radio__inner-wrapper"
+        >
+          <span
+            className="cat-radio__inner"
+          />
+          <input
+            checked={false}
+            className="cat-radio"
+            disabled={false}
+            onChange={[Function]}
+            type="radio"
+            value="B"
+          />
+        </span>
+        <span
+          className="cat-radio__label"
+        >
+          B
+        </span>
+      </label>
+    </Radio>
+    <Radio
+      checked={false}
+      defaultChecked={false}
+      disabled={false}
+      key=".2"
+      onChange={[Function]}
+      prefix="cat"
+      value="C"
+    >
+      <label
+        className="cat-radio-wrapper"
+      >
+        <span
+          className="cat-radio__inner-wrapper"
+        >
+          <span
+            className="cat-radio__inner"
+          />
+          <input
+            checked={false}
+            className="cat-radio"
+            disabled={false}
+            onChange={[Function]}
+            type="radio"
+            value="C"
+          />
+        </span>
+        <span
+          className="cat-radio__label"
+        >
+          C
+        </span>
+      </label>
+    </Radio>
+    <Radio
+      checked={false}
+      defaultChecked={false}
+      disabled={false}
+      key=".3"
+      onChange={[Function]}
+      prefix="cat"
+      value="D"
+    >
+      <label
+        className="cat-radio-wrapper"
+      >
+        <span
+          className="cat-radio__inner-wrapper"
+        >
+          <span
+            className="cat-radio__inner"
+          />
+          <input
+            checked={false}
+            className="cat-radio"
+            disabled={false}
+            onChange={[Function]}
+            type="radio"
+            value="D"
+          />
+        </span>
+        <span
+          className="cat-radio__label"
+        >
+          D
+        </span>
+      </label>
+    </Radio>
+  </div>
+</RadioGroup>
 `;

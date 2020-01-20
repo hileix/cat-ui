@@ -22,7 +22,8 @@ const existComponents = [
   'Search',
   'Select',
   'Pagination',
-  'Switch'
+  'Switch',
+  'Radio',
 ];
 
 function getTestMatch() {
