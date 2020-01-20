@@ -1,61 +1,98 @@
-import * as React from 'react';
+import React from 'react';
 import { Component } from 'react';
 import classNames from 'classnames';
 import RadioGroup from './RadioGroup';
+import PropTypes from 'prop-types';
 
 export interface RadioProps {
-  /** 类名 */
+  /**
+   * 类名前缀
+   */
+  prefix: string;
+  /** 
+   * 类名
+   */
   className?: string;
-  /** 样式 */
-  style?: object;
-  /** 是否禁用 */
-  disabled?: boolean;
-  /** 是否只读 */
-  readOnly?: boolean;
-  /** 是否选中 */
+  /** 
+   * 样式
+   */
+  style?: React.CSSProperties;
+  /** 
+   * 是否禁用
+   */
+  disabled: boolean;
+  /**
+   * 默认是否选中
+   */
+  defaultChecked: boolean;
+  /** 
+   * 是否选中
+   */
   checked?: boolean;
-  /** 值 */
-  value?: any;
-  /** 布局 */
-  layout?: 'vertical' | 'horizontal';
-  /** 选项变化时的回调函数	 */
-  onChange?: any;
+  /** 
+   * 值
+   */
+  value: any;
+  /**
+   * 点击时的回调
+   */
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export interface RadioState {
+  checked: boolean;
 }
 
 /**
  * 单选框
  */
-class Radio extends Component<RadioProps, any> {
+class Radio extends Component<RadioProps, RadioState> {
+  static propTypes = {
+    prefix: PropTypes.string,
+    className: PropTypes.string,
+    style: PropTypes.object,
+    disabled: PropTypes.bool,
+    defaultChecked: PropTypes.bool,
+    checked: PropTypes.bool,
+    value: PropTypes.any,
+  }
+
   static defaultProps = {
-    layout: 'horizontal'
+    prefix: 'cat',
+    disabled: false,
+    defaultChecked: false,
   };
 
   static Group: typeof RadioGroup;
 
-  handleChange = (e: any) => {
-    console.log('handleChange');
-  };
+  static getDerivedStateFromProps(nextProps: RadioProps) {
+    if ('checked' in nextProps) {
+      return { checked: nextProps.checked };
+    }
+    return null;
+  }
 
-  handleClick = (e: any) => {
+  constructor(props: RadioProps) {
+    super(props);
+    let checked = false;
+    if ('checked' in props) {
+      checked = !!props.checked;
+    } else {
+      checked = !!props.defaultChecked;
+    }
+    this.state = {
+      checked,
+    };
+  }
+
+  handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { disabled, onChange } = this.props;
     if (disabled) {
       return;
     }
 
-    onChange &&
-      onChange({
-        target: {
-          ...this.props,
-          checked: e.target.checked
-        },
-        stopPropagation() {
-          e.stopPropagation();
-        },
-        preventDefault() {
-          e.preventDefault();
-        },
-        nativeEvent: e.nativeEvent
-      });
+    this.setState({ checked: !this.state.checked });
+    onChange && onChange(e);
   };
 
   render() {
@@ -63,58 +100,58 @@ class Radio extends Component<RadioProps, any> {
       className,
       style,
       disabled,
-      readOnly,
-      checked,
+      children,
+      prefix,
       value,
-      layout,
-      children
     } = this.props;
+    const { checked } = this.state;
 
-    const prefix = 'cat-radio';
+    const classPrefix = `${prefix}-radio`;
     const classes = classNames(
-      `${prefix}-wrapper`,
-      `${prefix}-wrapper--${layout}`,
-      className
+      `${classPrefix}-wrapper`,
+      {
+        [`${classPrefix}-wrapper--disabled`]: disabled,
+      },
+      className,
     );
 
     return (
-      <div className={classes} style={style}>
+      <label className={classes} style={style}>
         <span
           className={classNames(
-            `${prefix}-inner-wrapper`,
-            `${prefix}-inner-wrapper--${layout}`
+            `${classPrefix}__inner-wrapper`,
           )}
         >
           <span
-            className={classNames(`${prefix}-inner`, {
-              [`${prefix}-inner--disabled`]: disabled,
-              [`${prefix}-inner--checked`]: checked
+            className={classNames(`${classPrefix}__inner`, {
+              [`${classPrefix}__inner--disabled`]: disabled,
+              [`${classPrefix}__inner--checked`]: checked
             })}
           />
           <input
-            className={classNames(prefix, {
-              [`${prefix}--disabled`]: disabled
+            className={classNames(classPrefix, {
+              [`${classPrefix}--disabled`]: disabled
             })}
+            type='radio'
             value={value}
             checked={checked}
             disabled={disabled}
-            readOnly={readOnly}
-            onClick={this.handleClick}
             onChange={this.handleChange}
           />
         </span>
-        <span
-          className={classNames(
-            'cat-radio__label',
-            `cat-radio__label--${layout}`,
-            {
-              [`cat-radio__label--disabled`]: disabled
-            }
-          )}
-        >
-          {children}
-        </span>
-      </div>
+        {children && (
+          <span
+            className={classNames(
+              'cat-radio__label',
+              {
+                [`cat-radio__label--disabled`]: disabled
+              }
+            )}
+          >
+            {children}
+          </span>
+        )}
+      </label>
     );
   }
 }
