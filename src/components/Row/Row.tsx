@@ -3,7 +3,6 @@ import { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import Col from './Col';
-import enquire from 'enquire.js';
 
 export type AlignType = 'top' | 'center' | 'bottom';
 
@@ -73,6 +72,22 @@ const mediaQueryMap: MediaQueryMap = {
   fhd: 'screen and (min-width:1920px)',
 }
 
+// matchMedia polyfill for
+// https://github.com/WickyNilliams/enquire.js/issues/82
+let enquire: any;
+
+if (typeof window !== 'undefined') {
+  const matchMediaPolyfill = (mediaQuery: string) => {
+    return {
+      media: mediaQuery,
+      matches: false,
+      addListener() { },
+      removeListener() { },
+    };
+  };
+  window.matchMedia = window.matchMedia || matchMediaPolyfill;
+  enquire = require('enquire.js');
+}
 /**
  * Row
  */
