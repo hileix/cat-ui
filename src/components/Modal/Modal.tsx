@@ -8,57 +8,56 @@ import { CSSTransition } from 'react-transition-group';
 import PropTypes from 'prop-types';
 import { getViewportSize } from '../../utils/getViewportSize';
 
-
 export interface ModalProps {
-  /** 
+  /**
    * 前缀
    */
   prefix: string;
-  /** 
+  /**
    * 类名
    */
   className?: string;
-  /** 
-   * 样式 
+  /**
+   * 样式
    */
   style?: React.CSSProperties;
-  /** 
-   * 标题 
+  /**
+   * 标题
    */
   title?: React.ReactNode;
-  /** 
+  /**
    * 是否可见
    */
   visible: boolean;
-  /** 
+  /**
    * 宽度
    */
   width: number;
-  /** 
+  /**
    * Modal 中的内容
    */
   children: React.ReactNode;
-  /** 
+  /**
    * 确认按钮文字
    */
   okText?: React.ReactNode;
-  /** 
+  /**
    * 取消按钮文字
    */
   cancelText?: React.ReactNode;
-  /** 
+  /**
    * 不要关闭按钮
    */
   noCloseIcon: boolean;
-  /** 
+  /**
    * 自定义的ModalFooter
    */
   footer?: React.ReactNode;
-  /** 
+  /**
    * 点击确定回调
    */
   onOk?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  /** 
+  /**
    * 关闭操作回调函数
    */
   onClose?: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
@@ -79,7 +78,6 @@ export interface ModalState {
   isOverflow: boolean;
 }
 
-
 const TIMEOUT = 300;
 
 /**
@@ -92,7 +90,7 @@ class Modal extends PureComponent<ModalProps, ModalState> {
     style: PropTypes.object,
     title: PropTypes.node,
     visible: PropTypes.bool,
-    width: PropTypes.oneOfType([PropTypes.number, PropTypes.string,]),
+    width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     children: PropTypes.node,
     okText: PropTypes.node,
     cancelText: PropTypes.node,
@@ -101,8 +99,8 @@ class Modal extends PureComponent<ModalProps, ModalState> {
     onOk: PropTypes.func,
     onClose: PropTypes.func,
     destroyOnClose: PropTypes.bool,
-    mask: PropTypes.bool,
-  }
+    mask: PropTypes.bool
+  };
 
   static defaultProps = {
     prefix: 'cat',
@@ -112,26 +110,26 @@ class Modal extends PureComponent<ModalProps, ModalState> {
     destroyOnClose: false,
     mask: true,
     okText: 'Confirm',
-    cancelText: 'Cancel',
+    cancelText: 'Cancel'
   };
 
   state = {
-    isOverflow: false,
-  }
+    isOverflow: false
+  };
 
   componentDidMount = () => {
     this.handleOverflow();
-  }
+  };
 
   componentDidUpdate = () => {
     this.handleOverflow();
-  }
+  };
 
   modalRef: HTMLDivElement | null;
 
   getModalRef = (node: HTMLDivElement) => {
     this.modalRef = node;
-  }
+  };
 
   handleOverflow = () => {
     const { height: viewPortHeight } = getViewportSize();
@@ -142,17 +140,17 @@ class Modal extends PureComponent<ModalProps, ModalState> {
     if (modalHeight > viewPortHeight && !this.state.isOverflow) {
       this.setState({ isOverflow: true });
     }
-  }
+  };
 
   handleMaskClose = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     const { mask } = this.props;
     mask && this.handleClose(e);
-  }
+  };
 
   handleClose = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     const { onClose } = this.props;
     onClose && onClose(e);
-  }
+  };
 
   handleOk = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const { onOk } = this.props;
@@ -161,7 +159,7 @@ class Modal extends PureComponent<ModalProps, ModalState> {
 
   handleModalClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     e.stopPropagation();
-  }
+  };
 
   renderHeader = () => {
     const { prefix, title, noCloseIcon } = this.props;
@@ -181,32 +179,37 @@ class Modal extends PureComponent<ModalProps, ModalState> {
           </div>
         )}
       </div>
-    )
-  }
+    );
+  };
 
   renderBody = () => {
-    const { prefix, children } = this.props
+    const { prefix, children } = this.props;
     const modalPrefix = `${prefix}-modal`;
-    return <div className={`${modalPrefix}__body`}>{children}</div>
-  }
+    return <div className={`${modalPrefix}__body`}>{children}</div>;
+  };
 
   renderFooter = () => {
-    const { footer, okText, cancelText, } = this.props;
+    const { footer, okText, cancelText } = this.props;
     const footerPrefix = 'cat-modal__footer';
 
-    return (
-      <div
-        className={classNames(footerPrefix, {
-        })}
-      >
-        {footer ? footer : (
-          <>
-            <Button onClick={this.handleClose}>{cancelText}</Button>
-            <Button onClick={this.handleOk} type='primary' className={`${footerPrefix}-confirm`}>{okText}</Button>
-          </>
-        )}
-      </div>
-    );
+    // 当没传 footer 时，才使用默认的按钮
+    const newFooter =
+      typeof footer === 'undefined' ? (
+        <>
+          <Button onClick={this.handleClose}>{cancelText}</Button>
+          <Button
+            onClick={this.handleOk}
+            type='primary'
+            className={`${footerPrefix}-confirm`}
+          >
+            {okText}
+          </Button>
+        </>
+      ) : (
+        footer
+      );
+
+    return <div className={classNames(footerPrefix, {})}>{newFooter}</div>;
   };
 
   render() {
@@ -217,16 +220,13 @@ class Modal extends PureComponent<ModalProps, ModalState> {
       visible,
       destroyOnClose,
       width,
-      mask,
+      mask
     } = this.props;
     const { isOverflow } = this.state;
 
     const modalPrefix = `${prefix}-modal`;
 
-    const classes = classNames(
-      modalPrefix,
-      className
-    );
+    const classes = classNames(modalPrefix, className);
 
     let moreStyle: React.CSSProperties = {
       transform: 'translate(-50%, -50%)'
@@ -250,13 +250,17 @@ class Modal extends PureComponent<ModalProps, ModalState> {
           appear
         >
           <div className={`${modalPrefix}-container`}>
-            {mask && (
+            {mask && <div className={`${modalPrefix}__mask`} />}
+            <div
+              className={`${modalPrefix}__modal-wrapper`}
+              onClick={this.handleMaskClose}
+            >
               <div
-                className={`${modalPrefix}__mask`}
-              />
-            )}
-            <div className={`${modalPrefix}__modal-wrapper`} onClick={this.handleMaskClose}>
-              <div className={classes} style={modalStyle} ref={this.getModalRef} onClick={this.handleModalClick}>
+                className={classes}
+                style={modalStyle}
+                ref={this.getModalRef}
+                onClick={this.handleModalClick}
+              >
                 {this.renderHeader()}
                 {this.renderBody()}
                 {this.renderFooter()}
