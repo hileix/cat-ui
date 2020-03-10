@@ -7,103 +7,107 @@ import Icon from '../Icon';
 import classNames from 'classnames';
 
 export interface InputProps extends HandleProps {
-  /** 
+  /**
    * 自动聚焦
    */
   autoFocus?: boolean;
-  /** 
+  /**
    * 类名
    */
   className?: string;
-  /** 
+  /**
    * 默认值
    */
   defaultValue?: string;
-  /** 
+  /**
    * 禁用
    */
   disabled?: boolean;
-  /** 
-   * 值 - 如果传入value属性，则input框变为受控, 因此输入框的值只根据value设置 
+  /**
+   * 值 - 如果传入value属性，则input框变为受控, 因此输入框的值只根据value设置
    */
   value?: string;
-  /** 
-   * 大小尺寸 'large' | 'normal' | 'small' 
+  /**
+   * 大小尺寸 'large' | 'normal' | 'small'
    */
   size?: TSize;
-  /** 
-   * 类型 'line' | 'line-pwd' | 'box' | 'box-pwd' 
+  /**
+   * 类型 'line' | 'line-pwd' | 'box' | 'box-pwd'
    */
   type?: Ttheme;
-  /** 
+  /**
    * 占位符
    */
   placeholder?: string;
-  /** 
-   * 是否启用原生占位符(无动效) 
+  /**
+   * 是否启用原生占位符(无动效)
    */
   placeholderOrigin?: boolean;
-  /** 
-   * 展示一键清除按钮 
+  /**
+   * 展示一键清除按钮
    */
   showClear?: boolean;
-  /** 
+  /**
+   * 自定义清除按钮
+   */
+  customClear?: React.ReactNode;
+  /**
    * 展示密码和文本切换按钮
    */
   showEye?: boolean;
-  /** 
+  /**
    * 是否出错
    */
   error?: boolean;
-  /** 
+  /**
    * 输入框消息提示
    */
   message?: string;
-  /** 
+  /**
    * 是否能对输入框进行复制、粘贴、剪贴的操作
    */
   clipboardFree?: boolean;
-  /** 
+  /**
    * 是否能对输入框进行复制的操作
    */
   copyFree?: boolean;
-  /** 
+  /**
    * 是否能对输入框进行粘贴的操作
    */
   pasteFree?: boolean;
-  /** 
+  /**
    * 是否能对输入框进行剪贴的操作
    */
   cutFree?: boolean;
-  /** 
+  /**
    * icon style样式
    */
   iconStyle?: object;
-  /** 
+  /**
    * 聚焦回调
    */
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => any;
-  /** 
+  /**
    * 失焦回调
    */
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => any;
-  /** 
+  /**
    * 值改变的回调
    */
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => any;
-  /** 
+  /**
    * 按键的回调
    */
   onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => any;
-  /** 
+  /**
    * 按下回车键的回调
    */
   onPressEnter?: (e: React.KeyboardEvent<HTMLInputElement>) => any;
-  /** 
+  /**
    * 点击事件
    */
   onClick?: (e: React.MouseEvent<HTMLInputElement>) => any;
-  /** 
+  /**
    * 执行粘贴操作的回调
    */
   onPaste?: (
@@ -111,7 +115,7 @@ export interface InputProps extends HandleProps {
       | React.MouseEvent<HTMLInputElement, MouseEvent>
       | React.ClipboardEvent<HTMLInputElement>
   ) => any;
-  /** 
+  /**
    * 点击鼠标右键的回调
    */
   onContextMenu?: (
@@ -119,7 +123,7 @@ export interface InputProps extends HandleProps {
       | React.MouseEvent<HTMLInputElement, MouseEvent>
       | React.ClipboardEvent<HTMLInputElement>
   ) => any;
-  /** 
+  /**
    * 执行复制操作的回调
    */
   onCopy?: (
@@ -127,7 +131,7 @@ export interface InputProps extends HandleProps {
       | React.MouseEvent<HTMLInputElement, MouseEvent>
       | React.ClipboardEvent<HTMLInputElement>
   ) => any;
-  /** 
+  /**
    * 执行剪切操作的回调
    */
   onCut?: (
@@ -191,8 +195,8 @@ class Input extends React.PureComponent<InputProps, InputStates> {
       typeof props.type === 'undefined'
         ? 'text'
         : props.type === 'line-pwd' || props.type === 'box-pwd'
-          ? 'password'
-          : 'text';
+        ? 'password'
+        : 'text';
     const value =
       (typeof props.value === 'undefined' ? props.defaultValue : props.value) ||
       '';
@@ -252,9 +256,17 @@ class Input extends React.PureComponent<InputProps, InputStates> {
   }
 
   handleClick = (e: any) => {
-    const { onClick } = this.props
-    onClick && onClick(e)
-  }
+    const { onClick } = this.props;
+    onClick && onClick(e);
+  };
+
+  renderClear = () => {
+    const { customClear } = this.props;
+    if (customClear) {
+      return <span onClick={this.handleClear.bind(this)}>{customClear}</span>;
+    }
+    return <Icon type='close' onClick={this.handleClear.bind(this)} />;
+  };
 
   public render() {
     const { type, value, domProps, inputState } = this.state;
@@ -287,7 +299,7 @@ class Input extends React.PureComponent<InputProps, InputStates> {
         size={size}
         state={inputState}
         className={className}
-        placeholder={!placeholderOrigin && placeholder as any}
+        placeholder={!placeholderOrigin && (placeholder as any)}
         message={message}
         showClear={showClear}
         showEye={showEye}
@@ -324,9 +336,7 @@ class Input extends React.PureComponent<InputProps, InputStates> {
           onTouchStart={this.iconForbidBlur.bind(this)}
           onTouchEnd={this.iconAllowBlur.bind(this)}
         >
-          {showClear && (
-            <Icon type="close" onClick={this.handleClear.bind(this)} />
-          )}
+          {showClear && this.renderClear()}
           {!showClear &&
             (theme === 'line-pwd' || theme === 'box-pwd') &&
             showEye && (

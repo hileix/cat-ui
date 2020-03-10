@@ -57,6 +57,10 @@ const LineDemo = () => {
       </span>
       <Input className='item' showClear />
       <span className='hint' >
+        自定义清除按钮：
+      </span>
+      <Input className='item' showClear customClear={<span>clear</span>} />
+      <span className='hint' >
         线型密码输入框:
       </span>
       <Input className='item' type='line-pwd' />
