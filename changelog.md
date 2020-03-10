@@ -1,3 +1,7 @@
+## Release v2.19.0
+- ✨ (Radio) 添加 Radio 组件
+- 📝 (Switch) 添加 Switch 组件文档
+
 ## Release v2.18.0
 - ✨ (Switch) 添加 Switch 组件
 
