@@ -1,3 +1,8 @@
+## Release v2.20.0
+- ✨ (Input) Input 添加 customClear prop
+- 🐛 (Modal) 修复 Modal footer  显示不正确的 bug
+- 🐛 (Row) 修复 Row 不支持服务端渲染的 bug
+
 ## Release v2.19.0
 - ✨ (Radio) 添加 Radio 组件
 - 📝 (Switch) 添加 Switch 组件文档
