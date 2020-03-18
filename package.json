@@ -1,6 +1,6 @@
 {
   "name": "@hife/catui",
-  "version": "2.20.0",
+  "version": "2.20.1",
   "main": "lib/components/index.js",
   "license": "MIT",
   "repository": {
