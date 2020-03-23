@@ -177,10 +177,11 @@ class Input extends React.PureComponent<InputProps, InputStates> {
     cutFree: true
   };
 
-  static getDerivedStateFromProps(nextProps: InputProps) {
-    if ('value' in nextProps) {
-      return {
-        value: nextProps.value
+  static getDerivedStateFromProps(nextProps: InputProps, prevState: InputStates) {
+    if ('value' in nextProps ||  'error' in nextProps) {
+      return { 
+        value: nextProps.value,
+        inputState: nextProps.error ? inputStates.error : inputStates.active
       };
     }
     return null;

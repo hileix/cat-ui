@@ -18,6 +18,18 @@ const TextAreaDemo = () => {
 };
 
 const LineDemo = () => {
+  let [value, SetValue] = useState();
+  let [errorMessage, SetErrorMessage] = useState();
+  let onChange = (e: any)=>{
+    let value = e.target.value;
+    SetValue(value);
+    if(value.length > 5 ){
+      SetErrorMessage('不能大于5个字符')
+    } else {
+      SetErrorMessage('');
+    }
+  }
+
   return (
     <div className='input-box'>
       <span className='hint' >
@@ -83,7 +95,7 @@ const LineDemo = () => {
       <span className='hint' >
         线型输入框错误展示:
       </span>
-      <Input className='item err' value='test value' error message='error msg is xxxx' />
+      <Input className='item err' onChange={onChange} value={value} error={!!errorMessage} message={errorMessage} />
     </div>
   )
 }
