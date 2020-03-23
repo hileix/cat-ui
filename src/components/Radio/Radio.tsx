@@ -99,6 +99,8 @@ class Radio extends Component<RadioProps, RadioState> {
 
   render() {
     const {
+      id,
+      name,
       className,
       style,
       disabled,
@@ -135,6 +137,8 @@ class Radio extends Component<RadioProps, RadioState> {
               [`${classPrefix}--disabled`]: disabled
             })}
             type='radio'
+            name={name}
+            id={id}
             value={value}
             checked={checked}
             disabled={disabled}
