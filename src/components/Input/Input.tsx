@@ -7,6 +7,8 @@ import Icon from '../Icon';
 import classNames from 'classnames';
 
 export interface InputProps extends HandleProps {
+  id?: string;
+  name?: string;
   /**
    * 自动聚焦
    */
