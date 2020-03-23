@@ -104,7 +104,7 @@ class Content extends React.Component<ContentProps, ContentState> {
               style={style}
             >
               {title && <p className={`${classPrefix}__title`}>{title}</p>}
-              {notificationContent && <p className={`${classPrefix}__content`}>{notificationContent}</p>}
+              {notificationContent && <div className={`${classPrefix}__content`}>{notificationContent}</div>}
               <Icon
                 type='close'
                 className={`${classPrefix}__close`}
