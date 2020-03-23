@@ -5,6 +5,8 @@ import RadioGroup from './RadioGroup';
 import PropTypes from 'prop-types';
 
 export interface RadioProps {
+  id?: string;
+  name?: string;
   /**
    * 类名前缀
    */
