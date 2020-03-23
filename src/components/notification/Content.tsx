@@ -21,7 +21,7 @@ export interface ContentProps {
   type?: Types;
   selector?: string;
   onClose?: (id?: string) => void;
-  iconStyle?: object;
+  iconStyle?: React.CSSProperties;
 }
 
 export interface ContentState {
