@@ -21,6 +21,7 @@ export interface ContentProps {
   type?: Types;
   selector?: string;
   onClose?: (id?: string) => void;
+  iconStyle?: object;
 }
 
 export interface ContentState {
@@ -78,6 +79,7 @@ class Content extends React.Component<ContentProps, ContentState> {
       style,
       selector,
       children,
+      iconStyle
     } = this.props;
     const classPrefix = `${prefix}-notification`;
     const { visible } = this.state;
@@ -109,6 +111,7 @@ class Content extends React.Component<ContentProps, ContentState> {
                 type='close'
                 className={`${classPrefix}__close`}
                 onClick={this.handleClose}
+                style={iconStyle}
               />
             </div>
             <br />
