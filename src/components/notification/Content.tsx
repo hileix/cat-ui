@@ -21,6 +21,7 @@ export interface ContentProps {
   type?: Types;
   selector?: string;
   onClose?: (id?: string) => void;
+  iconStyle?: React.CSSProperties;
 }
 
 export interface ContentState {
@@ -78,6 +79,7 @@ class Content extends React.Component<ContentProps, ContentState> {
       style,
       selector,
       children,
+      iconStyle
     } = this.props;
     const classPrefix = `${prefix}-notification`;
     const { visible } = this.state;
@@ -104,11 +106,12 @@ class Content extends React.Component<ContentProps, ContentState> {
               style={style}
             >
               {title && <p className={`${classPrefix}__title`}>{title}</p>}
-              {notificationContent && <p className={`${classPrefix}__content`}>{notificationContent}</p>}
+              {notificationContent && <div className={`${classPrefix}__content`}>{notificationContent}</div>}
               <Icon
                 type='close'
                 className={`${classPrefix}__close`}
                 onClick={this.handleClose}
+                style={iconStyle}
               />
             </div>
             <br />
