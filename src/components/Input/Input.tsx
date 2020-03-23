@@ -177,15 +177,14 @@ class Input extends React.PureComponent<InputProps, InputStates> {
     cutFree: true
   };
 
-  static getDerivedStateFromProps(nextProps: InputProps) {
-    let updateProps = {
-      value: nextProps.value,
-      error: nextProps.error,
-      message: nextProps.message,
-      className: nextProps.className
+  static getDerivedStateFromProps(nextProps: InputProps, prevState: InputStates) {
+    if ('value' in nextProps ||  'error' in nextProps) {
+      return { 
+        value: nextProps.value,
+        inputState: nextProps.error ? inputStates.error : inputStates.active
+      };
     }
-
-    return updateProps;
+    return null;
   }
 
   private input: React.RefObject<HTMLInputElement>;
