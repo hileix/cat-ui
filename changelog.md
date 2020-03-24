@@ -1,3 +1,9 @@
+## Release v2.20.5
+- Merge pull request #120 from hifeteam/component/Radio
+- Merge pull request #119 from hifeteam/component/Radio
+- 添加id, anme
+- Radio 添加ID, name
+
 ## Release v2.20.0
 - ✨ (Input) Input 添加 customClear prop
 - 🐛 (Modal) 修复 Modal footer  显示不正确的 bug
