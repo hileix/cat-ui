@@ -23,7 +23,7 @@ export interface ISelectProps {
   /**
    * 宽度
    */
-  width?: string | number;
+  width: string | number;
   /**
    * 禁用搜索
    */
