@@ -19,15 +19,15 @@ export interface ISelectProps {
   /**
    * 最外层包裹盒子样式
    */
-  style?: object;
+  style?: React.CSSProperties;
   /**
    * 触发盒子样式
    */
-  triggerStyle?: object;
+  triggerStyle?: React.CSSProperties;
   /**
    * 内容盒子样式
    */
-  contentStyle?: object;
+  contentStyle?: React.CSSProperties;
   /**
    * 宽度
    */
