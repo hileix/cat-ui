@@ -21,6 +21,10 @@ export interface ISelectProps {
    */
   style?: object;
   /**
+   * 宽度
+   */
+  width?: string | number;
+  /**
    * 禁用搜索
    */
   disabled?: boolean;
@@ -58,6 +62,10 @@ class Select extends React.Component<ISelectProps, ISelectState> {
     prefix: PropTypes.string,
     className: PropTypes.string,
     style: PropTypes.object,
+    width: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ]),
     disabled: PropTypes.bool,
     defaultValue: PropTypes.string,
     value: PropTypes.string,
@@ -66,7 +74,9 @@ class Select extends React.Component<ISelectProps, ISelectState> {
   }
 
   static defaultProps = {
-    prefix: 'cat'
+    prefix: 'cat',
+    width: 'inherit',
+    disabled: false
   }
 
   constructor (props: ISelectProps) {
@@ -116,7 +126,7 @@ class Select extends React.Component<ISelectProps, ISelectState> {
   }
 
   renderSelection = () => {
-    const { prefix, defaultValue, value, children } = this.props
+    const { prefix, defaultValue, value, width, children } = this.props
     const { visible } = this.state
 
     return (
@@ -130,6 +140,7 @@ class Select extends React.Component<ISelectProps, ISelectState> {
       >
         <Selection
           className={`${prefix}-select-selection`}
+          width={width}
           visible={visible}
           defaultValue={defaultValue || value || ''}
           onSelect={this.handleSelect}
@@ -163,7 +174,7 @@ class Select extends React.Component<ISelectProps, ISelectState> {
   }
 
   render () {
-    const { prefix, style, className = '', disabled } = this.props
+    const { prefix, style, className = '', width, disabled } = this.props
     const { value } = this.state
     const classes = classNames(`${prefix}-select-wrap`, className)
     let selectedStyle: React.HTMLAttributes<HTMLSpanElement> = {}
@@ -186,6 +197,7 @@ class Select extends React.Component<ISelectProps, ISelectState> {
                 'disabled': disabled
               })
             }
+            style={{width}}
             {...selectedStyle}
             onClick={this.handleClick}
           >

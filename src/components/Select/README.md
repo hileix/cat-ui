@@ -1,22 +1,24 @@
-# Selection 选择选项
+# Select 选择
 
 ## Example
 
 ```jsx
-<Selection
-  visible={visible}
-  value='选项 2'
-  onSelect={this.handleSelect}
+const Option = Select.Option;
+
+<Select
+  className='select-1'
+  onSelect={() => {}}
+  onChange={() => {}}
 >
-  <Option className='qwer' value='选项 1' />
-  <Option value='选项 2' />
-  <Option value='选项 3' />
-  <Option value='选项 4' />
-  <Option value='选项 5' />
-</Selection>
+  <Option value='Option 1'>Option 1</Option>
+  <Option value='Option 2'>Option 2</Option>
+  <Option value='Option 3'>Option 3</Option>
+  <Option value='Option 4'>Option 4</Option>
+  <Option value='Option 5'>Option 5</Option>
+</Select>
 ```
 
-## Selection API
+## Select API
 
 |    属性     |         类型          |    默认值    |                描述                | 是否必填 |
 | :---------: | :-------------------: | :----------: | :--------------------------------: | :------: |
@@ -24,11 +26,11 @@
 |  className  |       `string`        |      -       |                类名                |    -     |
 |    style    |       `object`        |      -       |              行内样式              |    -     |
 |    width    |  `string | number`    |   'inherit'  |                宽度                |    -     |
-|    visible  |       `boolean`       |     true     |           是否显示选择菜单          |    -     |
+|  disabled   |       `boolean`       |     false    |                禁用                |    -     |
 |  defaultValue  |       `string`     |      -       |         用于初始化的默认值          |    -     |
 |    value    |       `string`        |      -       |              选中项的值            |    -     |
-|   children  |        `any`          |      -       |              任何类型              |    -     |
-|   onSelect  |       `func`          |      -       |        选中一项触发的回调函数        |    -     |
+|   onSelect  |       `func`          |      -       |        选择一项触发的回调函数        |    -     |
+|   onChange  |       `func`          |      -       |        选择的项发生变化时调用        |    -     |
 
 ## Option API
 

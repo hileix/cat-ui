@@ -18,6 +18,10 @@ export interface ISelectionProps {
    */
   style?: React.CSSProperties;
   /**
+   * 宽度
+   */
+  width?: string | number;
+  /**
    * 是否显示选择菜单
    */
   visible: boolean;
@@ -64,6 +68,10 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
     prefix: PropTypes.string,
     className: PropTypes.string,
     style: PropTypes.object,
+    width: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ]),
     visible: PropTypes.bool,
     defaultValue: PropTypes.oneOfType([
       PropTypes.string,
@@ -79,7 +87,8 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
 
   static defaultProps = {
     visible: true,
-    prefix: 'cat'
+    prefix: 'cat',
+    width: '189px'
   }
 
   constructor(props: ISelectionProps) {
@@ -243,7 +252,7 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
   }
 
   render () {
-    const { prefix, style, className, children } = this.props
+    const { prefix, style, className, width, children } = this.props
     const { visible, focusIndex, selectedIndex } = this.state
     const classes = classNames(`${prefix}-selection-wrap`, {
       'visible': visible,
@@ -274,7 +283,10 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
     return (
       <div
         className={classes}
-        style={style}
+        style={{
+          ...style,
+          width
+        }}
         onKeyDown={this.handleKeydown}
       >
         {Options}
