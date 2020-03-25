@@ -24,8 +24,10 @@ const Option = Select.Option;
 | :---------: | :-------------------: | :----------: | :--------------------------------: | :------: |
 |   prefix    |       `string`        | `cat-avatar` |              样式前缀              |    -     |
 |  className  |       `string`        |      -       |                类名                |    -     |
-|    style    |       `object`        |      -       |              行内样式              |    -     |
-|    width    |  `string | number`    |   'inherit'  |                宽度                |    -     |
+|    style    |       `object`        |      -       |       最外层包裹盒子行内样式         |    -     |
+| triggerStyle |       `object`        |      -       |           触发盒子样式             |    -     |
+| contentStyle |       `object`        |      -       |           内容盒子样式             |    -     |
+|    width    |  `string | number`    |       -      |                宽度                |    -     |
 |  disabled   |       `boolean`       |     false    |                禁用                |    -     |
 |  defaultValue  |       `string`     |      -       |         用于初始化的默认值          |    -     |
 |    value    |       `string`        |      -       |              选中项的值            |    -     |
