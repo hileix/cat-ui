@@ -23,7 +23,6 @@
 |   prefix    |       `string`        | `cat-avatar` |              样式前缀              |    -     |
 |  className  |       `string`        |      -       |                类名                |    -     |
 |    style    |       `object`        |      -       |              行内样式              |    -     |
-|    width    |  `string | number`    |   'inherit'  |                宽度                |    -     |
 |    visible  |       `boolean`       |     true     |           是否显示选择菜单          |    -     |
 |  defaultValue  |       `string`     |      -       |         用于初始化的默认值          |    -     |
 |    value    |       `string`        |      -       |              选中项的值            |    -     |

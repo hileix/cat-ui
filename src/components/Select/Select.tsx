@@ -140,7 +140,7 @@ class Select extends React.Component<ISelectProps, ISelectState> {
       >
         <Selection
           className={`${prefix}-select-selection`}
-          width={width}
+          style={{width}}
           visible={visible}
           defaultValue={defaultValue || value || ''}
           onSelect={this.handleSelect}
