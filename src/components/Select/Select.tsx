@@ -17,9 +17,21 @@ export interface ISelectProps {
    */
   className?: string;
   /**
-   * 样式
+   * 最外层包裹盒子样式
    */
-  style?: object;
+  style?: React.CSSProperties;
+  /**
+   * 触发盒子样式
+   */
+  triggerStyle?: React.CSSProperties;
+  /**
+   * 内容盒子样式
+   */
+  contentStyle?: React.CSSProperties;
+  /**
+   * 宽度
+   */
+  width?: string | number;
   /**
    * 禁用搜索
    */
@@ -58,6 +70,10 @@ class Select extends React.Component<ISelectProps, ISelectState> {
     prefix: PropTypes.string,
     className: PropTypes.string,
     style: PropTypes.object,
+    width: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ]),
     disabled: PropTypes.bool,
     defaultValue: PropTypes.string,
     value: PropTypes.string,
@@ -66,7 +82,8 @@ class Select extends React.Component<ISelectProps, ISelectState> {
   }
 
   static defaultProps = {
-    prefix: 'cat'
+    prefix: 'cat',
+    disabled: false
   }
 
   constructor (props: ISelectProps) {
@@ -116,8 +133,11 @@ class Select extends React.Component<ISelectProps, ISelectState> {
   }
 
   renderSelection = () => {
-    const { prefix, defaultValue, value, children } = this.props
+    let { prefix, defaultValue, value, width, contentStyle, children } = this.props
     const { visible } = this.state
+
+    let contentComputedStyle: React.CSSProperties = {...contentStyle}
+    width && (contentComputedStyle.width = width)
 
     return (
       <CSSTransition
@@ -130,6 +150,7 @@ class Select extends React.Component<ISelectProps, ISelectState> {
       >
         <Selection
           className={`${prefix}-select-selection`}
+          style={contentComputedStyle}
           visible={visible}
           defaultValue={defaultValue || value || ''}
           onSelect={this.handleSelect}
@@ -163,13 +184,14 @@ class Select extends React.Component<ISelectProps, ISelectState> {
   }
 
   render () {
-    const { prefix, style, className = '', disabled } = this.props
+    const { prefix, style, triggerStyle, className = '', width, disabled } = this.props
     const { value } = this.state
     const classes = classNames(`${prefix}-select-wrap`, className)
-    let selectedStyle: React.HTMLAttributes<HTMLSpanElement> = {}
-
+    let triggerAttr: React.HTMLAttributes<HTMLSpanElement> = {}
+    let triggerComputedStyle: React.CSSProperties = {...triggerStyle}
+    width && (triggerComputedStyle.width = width)
     if (!disabled) {
-      selectedStyle.tabIndex = 0
+      triggerAttr.tabIndex = 0
     }
 
     return (
@@ -186,7 +208,8 @@ class Select extends React.Component<ISelectProps, ISelectState> {
                 'disabled': disabled
               })
             }
-            {...selectedStyle}
+            style={triggerComputedStyle}
+            {...triggerAttr}
             onClick={this.handleClick}
           >
             {value}

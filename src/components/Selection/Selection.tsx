@@ -79,7 +79,10 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
 
   static defaultProps = {
     visible: true,
-    prefix: 'cat'
+    prefix: 'cat',
+    style: {
+      width: '190px'
+    }
   }
 
   constructor(props: ISelectionProps) {
