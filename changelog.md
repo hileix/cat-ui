@@ -1,7 +1,8 @@
+## Release v2.21.0
+- ✨ (Select) add width props, contentStyle, triggerStyle
+
 ## Release v2.20.5
-- Merge pull request #120 from hifeteam/component/Radio
-- Merge pull request #119 from hifeteam/component/Radio
-- 添加id, anme
+- Input 添加id, name
 - Radio 添加ID, name
 
 ## Release v2.20.0
