@@ -1,12 +1,6 @@
 ## Release v2.22.0
-- Merge pull request #123 from hifeteam/fix/Select
-- 🐛 (class name)
-- 🐛 (Selection) 去除 maxTagCount
-- ✨ (doc) 更新 readme
-- ✨ (demo) 完善 demo
+- ✨(Select) 完善 demo
 - 🐛 (value) value 类型 兼容 string 和 number
-- :zap: (Select) Selecte 组件返回 index, 支持设置最大显示个数
-- ✨ (changelog) 更新 changelog
 
 ## Release v2.21.0
 - ✨ (Select) add width props, contentStyle, triggerStyle
