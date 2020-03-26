@@ -12,8 +12,8 @@ storiesOf('工具/Selection 选择面板', module)
 .add(
   'Selection',
   () => {
-    const handleSelect = (value: any) => {
-      console.log('Selection:handleSelect', value)
+    const handleSelect = (value: any, index: number) => {
+      console.log('Selection:handleSelect', value, index)
     }
 
     return (
@@ -21,6 +21,7 @@ storiesOf('工具/Selection 选择面板', module)
         visible={true}
         value='选项 2'
         onSelect={handleSelect}
+        maxTagCount={3}
       >
         <Option className='qwer' value='选项 1' />
         <Option disabled value='选项 2 禁用' />

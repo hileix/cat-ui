@@ -47,11 +47,11 @@ export interface ISelectProps {
   /**
    * 选择的项发生变化时调用
    */
-  onChange?: (value: string) => void;
+  onChange?: (value: string, index: number) => void;
   /**
    * 选择一项时调用
    */
-  onSelect?: (value: string) => void;
+  onSelect?: (value: string, index: number) => void;
 }
 
 export interface ISelectState {
@@ -112,7 +112,7 @@ class Select extends React.Component<ISelectProps, ISelectState> {
     })
   }
 
-  handleSelect = (value: any) => {
+  handleSelect = (value: any, index: number) => {
     const { onSelect, onChange } = this.props
 
     if (!('value' in this.props)) {
@@ -125,10 +125,10 @@ class Select extends React.Component<ISelectProps, ISelectState> {
       visible: false
     })
 
-    onSelect && onSelect(value)
+    onSelect && onSelect(value, index)
 
     if (value !== this.state.value) {
-      onChange && onChange(value)
+      onChange && onChange(value, index)
     }
   }
 

@@ -30,13 +30,17 @@ export interface ISelectionProps {
    */
   value?: string | number;
   /**
+   * 最多显示多少个选项，超过会出现滚动条
+   */
+  maxTagCount?: number;
+  /**
    * 子组件
    */
   children?: any;
   /**
    * 选中一项触发的回调函数
    */
-  onSelect?: (value?: string | number) => void;
+  onSelect?: (value: string | number, index: number) => void;
 }
 
 export interface ISelectionState {
@@ -73,6 +77,7 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
       PropTypes.string,
       PropTypes.number
     ]),
+    maxTagCount: PropTypes.number,
     children: PropTypes.node,
     onSelect: PropTypes.func
   };
@@ -166,7 +171,7 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
       selectedIndex: index,
       focusIndex: -1
     })
-    onSelect && onSelect(value)
+    onSelect && onSelect(value, index)
   }
 
   handleMouseEnterOption = ({index, disabled}: {
@@ -213,7 +218,7 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
     this.setState({
       selectedIndex: focusIndex
     })
-    onSelect && onSelect(value)
+    onSelect && onSelect(value, Number(focusIndex))
   }
 
   handleKeydown = (e: any) => {
@@ -246,12 +251,16 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
   }
 
   render () {
-    const { prefix, style, className, children } = this.props
+    const { prefix, style, className, children, maxTagCount } = this.props
     const { visible, focusIndex, selectedIndex } = this.state
     const classes = classNames(`${prefix}-selection-wrap`, {
       'visible': visible,
+      'limit': maxTagCount
     }, className);
-
+    let computedStyle: React.CSSProperties = {...style}
+    if (maxTagCount) {
+      computedStyle.height = 32 * maxTagCount
+    }
     this.childrenLength = 0
     const Options = React.Children.map(children, (Option: React.ReactElement, index) => {
       if (!('value' in Option.props)) {
@@ -277,7 +286,7 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
     return (
       <div
         className={classes}
-        style={style}
+        style={computedStyle}
         onKeyDown={this.handleKeydown}
       >
         {Options}

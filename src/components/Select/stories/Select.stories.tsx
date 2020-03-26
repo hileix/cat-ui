@@ -8,8 +8,15 @@ import './style.scss';
 const Option = Select.Option;
 
 const Demo1 = () => {
-  const handleSelect1 = (value: any) => {
-    console.log('handleSelect', value)
+  const handleSelect0 = (value: any, index: number) => {
+    console.log('handleSelect', value, index)
+  }
+
+  const handleChange0 = (value: any) => {
+    console.log('handleChange', value)
+  }
+  const handleSelect1 = (value: any, index: number) => {
+    console.log('handleSelect', value, index)
   }
 
   const handleChange1 = (value: any) => {
@@ -48,8 +55,8 @@ const Demo1 = () => {
         <p className='title'>基本用法</p>
         <Select
           className='select-1'
-          onSelect={handleSelect1}
-          onChange={handleChange1}
+          onSelect={handleSelect0}
+          onChange={handleChange0}
         >
           <Option value='Option 1'>Option 1</Option>
           <Option value='Option 2'>Option 2</Option>
