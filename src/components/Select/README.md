@@ -27,9 +27,9 @@ const Option = Select.Option;
 |    style    |       `object`        |      -       |       最外层包裹盒子行内样式         |    -     |
 | triggerStyle |       `object`        |      -       |           触发盒子样式             |    -     |
 | contentStyle |       `object`        |      -       |           内容盒子样式             |    -     |
-|    width    |  `string | number`    |       -      |                宽度                |    -     |
+|    width    |  `string number`    |       -      |                宽度                |    -     |
 |  disabled   |       `boolean`       |     false    |                禁用                |    -     |
-|  defaultValue  | `string | number`  |      -       |         用于初始化的默认值          |    -     |
+|  defaultValue  | `string number`  |      -       |         用于初始化的默认值          |    -     |
 |    value    |       `string`        |      -       |              选中项的值            |    -     |
 |   onSelect  |       `func`          |      -       |        选择一项触发的回调函数        |    -     |
 |   onChange  |       `func`          |      -       |        选择的项发生变化时调用        |    -     |
