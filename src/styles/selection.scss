@@ -62,8 +62,4 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     @include selecteAnimate(scaleY(0), scaleY(1))
   }
-
-  &.limit {
-    overflow-y: auto;
-  }
 }

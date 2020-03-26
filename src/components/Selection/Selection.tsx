@@ -30,10 +30,6 @@ export interface ISelectionProps {
    */
   value?: string | number;
   /**
-   * 最多显示多少个选项，超过会出现滚动条
-   */
-  maxTagCount?: number;
-  /**
    * 子组件
    */
   children?: any;
@@ -77,7 +73,6 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
       PropTypes.string,
       PropTypes.number
     ]),
-    maxTagCount: PropTypes.number,
     children: PropTypes.node,
     onSelect: PropTypes.func
   };
@@ -251,16 +246,12 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
   }
 
   render () {
-    const { prefix, style, className, children, maxTagCount } = this.props
+    const { prefix, style, className, children } = this.props
     const { visible, focusIndex, selectedIndex } = this.state
     const classes = classNames(`${prefix}-selection-wrap`, {
-      'visible': visible,
-      'limit': maxTagCount
+      'visible': visible
     }, className);
     let computedStyle: React.CSSProperties = {...style}
-    if (maxTagCount) {
-      computedStyle.height = 32 * maxTagCount
-    }
     this.childrenLength = 0
     const Options = React.Children.map(children, (Option: React.ReactElement, index) => {
       if (!('value' in Option.props)) {

@@ -5,11 +5,21 @@ exports[`Option option disabled 1`] = `
   className="as"
   defaultValue="选项 1"
   prefix="cat"
+  style={
+    Object {
+      "width": "190px",
+    }
+  }
   visible={false}
 >
   <div
     className="cat-selection-wrap as"
     onKeyDown={[Function]}
+    style={
+      Object {
+        "width": "190px",
+      }
+    }
   >
     <Option
       className="disabled focus selected"
@@ -78,11 +88,21 @@ exports[`Option option mouse event 1`] = `
   className="as"
   defaultValue="选项 1"
   prefix="cat"
+  style={
+    Object {
+      "width": "190px",
+    }
+  }
   visible={true}
 >
   <div
     className="cat-selection-wrap visible as"
     onKeyDown={[Function]}
+    style={
+      Object {
+        "width": "190px",
+      }
+    }
   >
     <Option
       className="my-option selected"
@@ -154,12 +174,22 @@ exports[`Selection keyboard event 1`] = `
   className="my-selection"
   defaultValue="选项 1"
   prefix="cat"
+  style={
+    Object {
+      "width": "190px",
+    }
+  }
   value="选项 2"
   visible={true}
 >
   <div
     className="cat-selection-wrap visible my-selection"
     onKeyDown={[Function]}
+    style={
+      Object {
+        "width": "190px",
+      }
+    }
   >
     <Option
       className="option-1 selected"
@@ -226,12 +256,22 @@ exports[`Selection keyboard event 1`] = `
 exports[`Selection renders correctly 1`] = `
 <Selection
   prefix="cat"
+  style={
+    Object {
+      "width": "190px",
+    }
+  }
   value="选项 2"
   visible={true}
 >
   <div
     className="cat-selection-wrap visible"
     onKeyDown={[Function]}
+    style={
+      Object {
+        "width": "190px",
+      }
+    }
   >
     <Option
       className="option1"
