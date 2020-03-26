@@ -116,6 +116,7 @@ class Demo1 extends React.Component<any, any> {
           <br/>
           <Select
             className='select-1'
+            value={value0}
             onSelect={this.handleSelect0}
             onChange={this.handleChange0}
           >
@@ -133,6 +134,7 @@ class Demo1 extends React.Component<any, any> {
           <br/>
           <Select
             className='select-1'
+            value={value1}
             width={300}
             onSelect={this.handleSelect1}
             onChange={this.handleChange1}
@@ -181,6 +183,7 @@ class Demo1 extends React.Component<any, any> {
           <br/>
           <Select
             className='select-1'
+            value={value3}
             defaultValue='Option 1'
             onSelect={this.handleSelect3}
             onChange={this.handleChange3}
@@ -189,24 +192,6 @@ class Demo1 extends React.Component<any, any> {
             <Option value='Option 2'>Option 2</Option>
             <Option value='Option 3'>Option 3</Option>
             <Option disabled value='Option 4'>Option 4</Option>
-            <Option value='Option 5'>Option 5</Option>
-          </Select>
-        </div>
-        <div className='select-item'>
-          <p className='title'>受控的Select</p>
-          <div>{`value: ${value4}`}</div>
-          <div>{`index: ${index4}`}</div>
-          <br/>
-          <Select
-            className='select-1'
-            value={value4}
-            onSelect={this.handleSelect4}
-            onChange={this.handleChange4}
-          >
-            <Option value='Option 1'>Option 1</Option>
-            <Option value='Option 2'>Option 2</Option>
-            <Option value='Option 3'>Option 3</Option>
-            <Option value='Option 4'>Option 4</Option>
             <Option value='Option 5'>Option 5</Option>
           </Select>
         </div>

@@ -13,7 +13,7 @@ exports[`Option option disabled 1`] = `
   visible={false}
 >
   <div
-    className="cat-selection-wrap as"
+    className="cat-selection as"
     onKeyDown={[Function]}
     style={
       Object {
@@ -96,7 +96,7 @@ exports[`Option option mouse event 1`] = `
   visible={true}
 >
   <div
-    className="cat-selection-wrap visible as"
+    className="cat-selection cat-selection--visible as"
     onKeyDown={[Function]}
     style={
       Object {
@@ -183,7 +183,7 @@ exports[`Selection keyboard event 1`] = `
   visible={true}
 >
   <div
-    className="cat-selection-wrap visible my-selection"
+    className="cat-selection cat-selection--visible my-selection"
     onKeyDown={[Function]}
     style={
       Object {
@@ -265,7 +265,7 @@ exports[`Selection renders correctly 1`] = `
   visible={true}
 >
   <div
-    className="cat-selection-wrap visible"
+    className="cat-selection cat-selection--visible"
     onKeyDown={[Function]}
     style={
       Object {

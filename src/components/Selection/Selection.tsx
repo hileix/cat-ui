@@ -89,7 +89,7 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
     super(props)
     const { visible, defaultValue, value, children } = props
     const initialValue = defaultValue || value
-    let focusIndex
+    let focusIndex = -1
     
     React.Children.forEach(children, (Option: any, index: number) => {
       if (Option.props.value === initialValue) {
@@ -197,7 +197,7 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
 
   selectCurrentFocusIndex = () => {
     const { onSelect, children } = this.props
-    const { focusIndex } = this.state
+    const { focusIndex = -1 } = this.state
 
     if (!children[focusIndex as number]) {
       return
@@ -213,7 +213,7 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
     this.setState({
       selectedIndex: focusIndex
     })
-    onSelect && onSelect(value, Number(focusIndex))
+    onSelect && onSelect(value, focusIndex)
   }
 
   handleKeydown = (e: any) => {
@@ -248,8 +248,8 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
   render () {
     const { prefix, style, className, children } = this.props
     const { visible, focusIndex, selectedIndex } = this.state
-    const classes = classNames(`${prefix}-selection-wrap`, {
-      'visible': visible
+    const classes = classNames(`${prefix}-selection`, {
+      [`${prefix}-selection--visible`]: visible
     }, className);
     let computedStyle: React.CSSProperties = {...style}
     this.childrenLength = 0

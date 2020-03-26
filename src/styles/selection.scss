@@ -47,13 +47,13 @@
   }
 }
 
-.cat-selection-wrap {
+.cat-selection {
   display: none;
   width: 100%;
   min-width: 189px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   
-  &.visible {
+  &--visible {
     display: block;
   }
 

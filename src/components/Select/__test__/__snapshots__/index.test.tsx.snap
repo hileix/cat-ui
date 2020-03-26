@@ -115,7 +115,7 @@ exports[`Select disabled 1`] = `
                   style="position: absolute; top: 0px; left: 0px;"
                 >
                   <div
-                    class="cat-selection-wrap cat-select-selection visible-exit visible-exit-active"
+                    class="cat-selection cat-select-selection visible-exit visible-exit-active"
                   >
                     <div
                       class="cat-select-option"
@@ -316,7 +316,7 @@ exports[`Select renders correctly 1`] = `
                   style="position: absolute; top: 0px; left: 0px;"
                 >
                   <div
-                    class="cat-selection-wrap cat-select-selection visible-exit visible-exit-active"
+                    class="cat-selection cat-select-selection visible-exit visible-exit-active"
                   >
                     <div
                       class="cat-select-option"
@@ -391,7 +391,7 @@ exports[`Select renders correctly 1`] = `
                     visible={false}
                   >
                     <div
-                      className="cat-selection-wrap cat-select-selection"
+                      className="cat-selection cat-select-selection"
                       onKeyDown={[Function]}
                       style={Object {}}
                     >
@@ -625,7 +625,7 @@ exports[`Select value 1`] = `
                     style="position: absolute; top: 0px; left: 0px;"
                   >
                     <div
-                      class="cat-selection-wrap cat-select-selection visible-exit visible-exit-active"
+                      class="cat-selection cat-select-selection visible-exit visible-exit-active"
                     >
                       <div
                         class="cat-select-option"
@@ -663,7 +663,7 @@ exports[`Select value 1`] = `
                     style="position: absolute; top: 0px; left: 0px;"
                   >
                     <div
-                      class="cat-selection-wrap cat-select-selection visible-exit visible-exit-active"
+                      class="cat-selection cat-select-selection visible-exit visible-exit-active"
                     >
                       <div
                         class="cat-select-option"
@@ -728,7 +728,7 @@ exports[`Select value 1`] = `
                       visible={false}
                     >
                       <div
-                        className="cat-selection-wrap cat-select-selection"
+                        className="cat-selection cat-select-selection"
                         onKeyDown={[Function]}
                         style={Object {}}
                       >
