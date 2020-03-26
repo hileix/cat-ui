@@ -25,7 +25,7 @@
 |    style    |       `object`        |      -       |              行内样式              |    -     |
 |    visible  |       `boolean`       |     true     |           是否显示选择菜单          |    -     |
 |  defaultValue  |       `string`     |      -       |         用于初始化的默认值          |    -     |
-|    value    |       `string`        |      -       |              选中项的值            |    -     |
+|    value    |   `string | number`   |      -       |              选中项的值            |    -     |
 |   children  |        `any`          |      -       |              任何类型              |    -     |
 |   onSelect  |       `func`          |      -       |        选中一项触发的回调函数        |    -     |
 
@@ -36,7 +36,7 @@
 |   prefix    |       `string`        | `cat-avatar` |              样式前缀               |    -     |
 |  className  |       `string`        |      -       |                类名                 |    -     |
 |    style    |       `object`        |      -       |              行内样式               |    -     |
-|    value    |       `string`        |      -       |              选中项的值             |    -     |
+|    value    |   `string | number`   |      -       |              选中项的值             |    -     |
 |    index    |       `number`        |      -       |              选中项的索引           |    -     |
 |  disabled   |       `bool`          |      -       |              禁用该项（不可选）      |    -     |
 |  children   |   `React.ReactNode`   |      -       |              react节点              |    -     |
