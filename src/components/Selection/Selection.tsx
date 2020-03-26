@@ -36,7 +36,7 @@ export interface ISelectionProps {
   /**
    * 选中一项触发的回调函数
    */
-  onSelect?: (value?: string | number) => void;
+  onSelect?: (value: string | number, index: number) => void;
 }
 
 export interface ISelectionState {
@@ -89,7 +89,7 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
     super(props)
     const { visible, defaultValue, value, children } = props
     const initialValue = defaultValue || value
-    let focusIndex
+    let focusIndex = -1
     
     React.Children.forEach(children, (Option: any, index: number) => {
       if (Option.props.value === initialValue) {
@@ -166,7 +166,7 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
       selectedIndex: index,
       focusIndex: -1
     })
-    onSelect && onSelect(value)
+    onSelect && onSelect(value, index)
   }
 
   handleMouseEnterOption = ({index, disabled}: {
@@ -197,7 +197,7 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
 
   selectCurrentFocusIndex = () => {
     const { onSelect, children } = this.props
-    const { focusIndex } = this.state
+    const { focusIndex = -1 } = this.state
 
     if (!children[focusIndex as number]) {
       return
@@ -213,7 +213,7 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
     this.setState({
       selectedIndex: focusIndex
     })
-    onSelect && onSelect(value)
+    onSelect && onSelect(value, focusIndex)
   }
 
   handleKeydown = (e: any) => {
@@ -248,10 +248,10 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
   render () {
     const { prefix, style, className, children } = this.props
     const { visible, focusIndex, selectedIndex } = this.state
-    const classes = classNames(`${prefix}-selection-wrap`, {
-      'visible': visible,
+    const classes = classNames(`${prefix}-selection`, {
+      [`${prefix}-selection--visible`]: visible
     }, className);
-
+    let computedStyle: React.CSSProperties = {...style}
     this.childrenLength = 0
     const Options = React.Children.map(children, (Option: React.ReactElement, index) => {
       if (!('value' in Option.props)) {
@@ -277,7 +277,7 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
     return (
       <div
         className={classes}
-        style={style}
+        style={computedStyle}
         onKeyDown={this.handleKeydown}
       >
         {Options}

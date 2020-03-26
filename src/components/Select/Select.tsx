@@ -43,22 +43,22 @@ export interface ISelectProps {
   /**
    * 指定当前选中的项
    */
-  value?: string;
+  value?: string | number;
   /**
    * 选择的项发生变化时调用
    */
-  onChange?: (value: string) => void;
+  onChange?: (value: string | number, index: number) => void;
   /**
    * 选择一项时调用
    */
-  onSelect?: (value: string) => void;
+  onSelect?: (value: string | number, index: number) => void;
 }
 
 export interface ISelectState {
   /**
    * 当前选择项的值
    */
-  value: string;
+  value: string | number;
   /**
    * 是否显示选项列表
    */
@@ -76,7 +76,10 @@ class Select extends React.Component<ISelectProps, ISelectState> {
     ]),
     disabled: PropTypes.bool,
     defaultValue: PropTypes.string,
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ]),
     onChange: PropTypes.func,
     onSelect: PropTypes.func
   }
@@ -112,7 +115,7 @@ class Select extends React.Component<ISelectProps, ISelectState> {
     })
   }
 
-  handleSelect = (value: any) => {
+  handleSelect = (value: string | number, index: number) => {
     const { onSelect, onChange } = this.props
 
     if (!('value' in this.props)) {
@@ -125,10 +128,10 @@ class Select extends React.Component<ISelectProps, ISelectState> {
       visible: false
     })
 
-    onSelect && onSelect(value)
+    onSelect && onSelect(value, index)
 
     if (value !== this.state.value) {
-      onChange && onChange(value)
+      onChange && onChange(value, index)
     }
   }
 
