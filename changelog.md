@@ -1,3 +1,6 @@
+## Release v2.22.1
+- 🐛 (Input) 修复 Input 右侧 Icon 位置偏下的 bug
+
 ## Release v2.22.0
 - ✨(Select) 完善 demo
 - 🐛 (value) value 类型 兼容 string 和 number
