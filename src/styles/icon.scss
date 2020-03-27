@@ -1,12 +1,12 @@
 
     // 该文件有模板生成，不要手动修改文件，具体查看scipts/updateIcon/processCss
     @font-face {font-family: "cat-iconfont";
-  src: url('https://at.alicdn.com/t/font_1236545_n8bi6cl0lqi.eot?t=1584519276256'); /* IE9 */
-  src: url('https://at.alicdn.com/t/font_1236545_n8bi6cl0lqi.eot?t=1584519276256#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  src: url('https://at.alicdn.com/t/font_1236545_zfatueow45e.eot?t=1585294023152'); /* IE9 */
+  src: url('https://at.alicdn.com/t/font_1236545_zfatueow45e.eot?t=1585294023152#iefix') format('embedded-opentype'), /* IE6-IE8 */
   
-  url('https://at.alicdn.com/t/font_1236545_n8bi6cl0lqi.woff?t=1584519276256') format('woff'),
-  url('https://at.alicdn.com/t/font_1236545_n8bi6cl0lqi.ttf?t=1584519276256') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-  url('https://at.alicdn.com/t/font_1236545_n8bi6cl0lqi.svg?t=1584519276256#iconfont') format('svg'); /* iOS 4.1- */
+  url('https://at.alicdn.com/t/font_1236545_zfatueow45e.woff?t=1585294023152') format('woff'),
+  url('https://at.alicdn.com/t/font_1236545_zfatueow45e.ttf?t=1585294023152') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('https://at.alicdn.com/t/font_1236545_zfatueow45e.svg?t=1585294023152#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 .cat-icon {
@@ -15,6 +15,54 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.cat-icon-bold:before {
+  content: "\e68c";
+}
+
+.cat-icon-italic:before {
+  content: "\e68b";
+}
+
+.cat-icon-underline:before {
+  content: "\e68a";
+}
+
+.cat-icon-strikethrough:before {
+  content: "\e689";
+}
+
+.cat-icon-fontcolor:before {
+  content: "\e687";
+}
+
+.cat-icon-quote:before {
+  content: "\e686";
+}
+
+.cat-icon-bulletpoint:before {
+  content: "\e685";
+}
+
+.cat-icon-heading:before {
+  content: "\e688";
+}
+
+.cat-icon-heading1:before {
+  content: "\e68d";
+}
+
+.cat-icon-audio:before {
+  content: "\e682";
+}
+
+.cat-icon-dividing:before {
+  content: "\e683";
+}
+
+.cat-icon-unsplash:before {
+  content: "\e684";
 }
 
 .cat-icon-analytics:before {
