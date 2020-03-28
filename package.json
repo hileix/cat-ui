@@ -29,7 +29,7 @@
     "update:snapshot": "jest --updateSnapshot",
     "build:storybook": "build-storybook -o .out",
     "build": "rm -rf lib styles && npm run build:ts && npm run build:css",
-    "deploy:gitpage": "npm run build:storybook && echo 'cat-ui.cn' > '.out/CNAME' && storybook-to-ghpages -o storybook --existing-output-dir=.out",
+    "deploy:gitpage": "npm run build:storybook && echo 'cat-ui.cn' > '.out/CNAME' && storybook-to-ghpages -o .out --existing-output-dir=.out",
     "release": "npm run build && hi-pkg-scripts release && npm run deploy:gitpage"
   },
   "peerDependencies": {
