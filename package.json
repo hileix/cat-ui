@@ -28,7 +28,8 @@
     "build:ts": "tsc --build",
     "update:snapshot": "jest --updateSnapshot",
     "build": "rm -rf lib styles && npm run build:ts && npm run build:css",
-    "deploy:gitpage": "storybook-to-ghpages -o storybook",
+    "deploy:gitpage": "storybook-to-ghpages -o storybook -s yarn run cp:CNAME",
+    "cp:CNAME": "cp CNAME storybook/CNAME",
     "release": "npm run build && hi-pkg-scripts release && npm run deploy:gitpage"
   },
   "peerDependencies": {
