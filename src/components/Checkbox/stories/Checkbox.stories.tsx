@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import { storiesOf, addDecorator } from '@storybook/react';
-import { actions } from '@storybook/addon-actions';
 import Checkbox from '../Checkbox';
 import '../../../styles/index.scss';
-import { withInfo } from '@storybook/addon-info';
-
-addDecorator(withInfo);
 
 const Demo1 = () => {
   const [checked, setChecked] = useState(false);
 
-  const handleChange = e => {
+  const handleChange = (e: any) => {
+    console.log({e});
     const checked = e.target.checked;
     const value = e.target.value;
     setChecked(!checked);
@@ -27,7 +24,7 @@ const Demo1 = () => {
 const Demo2 = () => {
   const [value, setValue] = useState(['A']);
 
-  const handleChange = value => {
+  const handleChange = (value: any) => {
     setValue(value);
   };
 
@@ -36,7 +33,7 @@ const Demo2 = () => {
       <Checkbox value={'A'}>A</Checkbox>
       <Checkbox value={'B'}>B</Checkbox>
       <Checkbox value={'C'}>C</Checkbox>
-      <Checkbox disabled value="D">
+      <Checkbox disabled value='D'>
         D
       </Checkbox>
       <Checkbox value={'E'}>E</Checkbox>
@@ -47,7 +44,7 @@ const Demo2 = () => {
 const Demo3 = () => {
   const [value, setValue] = useState(['A']);
 
-  const handleChange = value => {
+  const handleChange = (value: any) => {
     setValue(value);
   };
 
@@ -56,7 +53,7 @@ const Demo3 = () => {
       <Checkbox value={'A'}>A</Checkbox>
       <Checkbox value={'B'}>B</Checkbox>
       <Checkbox value={'C'}>C</Checkbox>
-      <Checkbox disabled value="D">
+      <Checkbox disabled value='D'>
         D
       </Checkbox>
       <Checkbox value={'E'}>E</Checkbox>
@@ -64,7 +61,7 @@ const Demo3 = () => {
   );
 };
 
-storiesOf('Checkbox 多选框', module)
+storiesOf('数据录入/Checkbox 多选框', module)
   .add('Checkbox', () => <Demo1 />)
   .add('Checkbox.Group', () => <Demo2 />)
   .add('Checkbox.Group 禁用', () => <Demo3 />);

@@ -7,7 +7,7 @@ export interface CheckboxProps {
   /** 类名 */
   className?: string;
   /** 样式 */
-  style?: object;
+  style?: React.CSSProperties;
   /** 是否禁用 */
   disabled?: boolean;
   /** 是否只读 */
@@ -63,7 +63,7 @@ class Checkbox extends Component<CheckboxProps, any> {
 
     return (
       <div className={classes} style={style}>
-        <span className="cat-checkbox__wrapper">
+        <span className='cat-checkbox__wrapper'>
           <span
             className={classNames('cat-checkbox__inner', {
               'cat-checkbox__inner--checked': checked,
