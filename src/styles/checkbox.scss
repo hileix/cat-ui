@@ -2,13 +2,13 @@
   position: relative;
   padding: 0;
   list-style: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   white-space: nowrap;
   cursor: pointer;
   box-sizing: border-box;
   color: #767676;
   font-weight: 600;
-  line-height: 24px;
   height: 24px;
   & + & {
     margin-left: 40px;
@@ -16,7 +16,6 @@
 
   &__wrapper {
     position: relative;
-    top: 2px;
     display: inline-block;
     margin: 0;
     padding: 0;
@@ -98,7 +97,6 @@
     font-size: 14px;
     cursor: pointer;
     box-sizing: border-box;
-    vertical-align: text-top;
     cursor: pointer;
     &--disabled {
       color: rgba(0, 0, 0, 0.25);
