@@ -1,3 +1,6 @@
+## Release v2.23.0
+- ✨ (Checkbox) 添加 Checkbox 组件
+
 ## Release v2.22.1
 - 🐛 (Input) 修复 Input 右侧 Icon 位置偏下的 bug
 
