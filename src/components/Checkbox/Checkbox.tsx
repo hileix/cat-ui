@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Component } from 'react';
 import classNames from 'classnames';
 import CheckboxGroup from './CheckboxGroup';
@@ -62,7 +62,7 @@ class Checkbox extends Component<CheckboxProps, any> {
     const classes = classNames('cat-checkbox', className);
 
     return (
-      <div className={classes} style={style}>
+      <label className={classes} style={style}>
         <span className='cat-checkbox__wrapper'>
           <span
             className={classNames('cat-checkbox__inner', {
@@ -89,7 +89,7 @@ class Checkbox extends Component<CheckboxProps, any> {
         >
           {children}
         </span>
-      </div>
+      </label>
     );
   }
 }
