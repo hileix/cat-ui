@@ -1,3 +1,6 @@
+## Release v2.23.2
+- 🐛 (Checkbox) 修复 Checkbox 样式 bug
+
 ## Release v2.23.1
 - 🐛 (Checkbox) 修复 Checkbox 组件样式 bug
 
