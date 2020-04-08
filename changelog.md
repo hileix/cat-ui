@@ -1,3 +1,6 @@
+## Release v2.24.0
+- ✨ (Tabs) Tabs.TabPanel 组件添加可以修改 className 和 style 的功能
+
 ## Release v2.23.2
 - 🐛 (Checkbox) 修复 Checkbox 样式 bug
 
