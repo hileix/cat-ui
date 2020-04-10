@@ -1,3 +1,6 @@
+## Release v2.25.0
+- ✨ (Search) Search 组件添加 contentStyle props
+
 ## Release v2.24.0
 - ✨ (Tabs) Tabs.TabPanel 组件添加可以修改 className 和 style 的功能
 
