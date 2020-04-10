@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { storiesOf, addDecorator } from '@storybook/react';
-import { actions } from '@storybook/addon-actions';
 import Menu from '../index';
 import '../../../styles/index.scss';
 import './style.scss';
-import { withInfo } from '@storybook/addon-info';
 import Icon from '../../Icon';
+import Avatar from '@components/Avatar';
+import MenuHeader from '../MenuHeader';
 
-addDecorator(withInfo);
 
 const Demo1 = () => {
 
@@ -17,23 +16,23 @@ const Demo1 = () => {
   const [activeKey7, setActiveKey7] = useState('setting')
 
 
-  const onItem1Click = (e) => {
+  const onItem1Click = (e: any) => {
     console.log('Example:onItem1Click', e)
   }
 
-  const onMenu4Change = (key) => {
+  const onMenu4Change = (key: any) => {
     setActiveKey4(key);
   }
 
-  const onMenu5Change = (key) => {
+  const onMenu5Change = (key: any) => {
     setActiveKey5(key);
   }
 
-  const onMenu6Change = (key) => {
+  const onMenu6Change = (key: any) => {
     setActiveKey6(key);
   }
 
-  const onMenu7Change = (key) => {
+  const onMenu7Change = (key: any) => {
     setActiveKey7(key);
   }
 
@@ -168,5 +167,32 @@ const Demo1 = () => {
   )
 };
 
-storiesOf('Menu 菜单', module)
+
+let DemoHeader = ()=>{
+  let onItem1Click =(v: any) =>{
+    console.log(v);
+  }
+
+  return (<div className='menu-box'>
+  <div className='menu-unit'>
+    <h3>带Header的Menu</h3>
+    <Menu mode='pop' className='menu1'>
+      <MenuHeader > <div>
+        <Avatar
+              src='https://imagev2.xmcdn.com/group47/M0A/9C/59/wKgKk1tYNLzyfxrAAAIVC-YGMlU958.jpg!strip=1&quality=7&magick=webp&op_type=5&upload_type=cover&name=web_large&device_type=ios'
+              size="medium"
+            />
+      </div> </MenuHeader>
+      <Menu.Item onClick={onItem1Click}>Edit</Menu.Item>
+      <Menu.Item onClick={onItem1Click}>Share</Menu.Item>
+      <Menu.Item onClick={onItem1Click}>Download</Menu.Item>
+      <Menu.Item onClick={onItem1Click}>Delete</Menu.Item>
+    </Menu>
+  </div>
+
+</div>)
+}
+
+storiesOf('通用/Menu 菜单', module)
   .add('Menu', () => <Demo1 />)
+  .add('MenuHeader', () => <DemoHeader />)
