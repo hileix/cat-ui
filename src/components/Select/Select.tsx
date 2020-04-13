@@ -147,7 +147,6 @@ class Select extends React.Component<ISelectProps, ISelectState> {
         timeout={300}
         in={visible}
         classNames='visible'
-        unmountOnExit
         mountOnEnter
         appear
       >
