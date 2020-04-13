@@ -1,6 +1,6 @@
 {
   "name": "@hife/catui",
-  "version": "2.22.0",
+  "version": "2.26.0",
   "main": "lib/components/index.js",
   "license": "MIT",
   "repository": {
@@ -27,8 +27,9 @@
     "build:css": "sass --color --no-source-map src/styles:styles",
     "build:ts": "tsc --build",
     "update:snapshot": "jest --updateSnapshot",
+    "build:storybook": "build-storybook -o .out",
     "build": "rm -rf lib styles && npm run build:ts && npm run build:css",
-    "deploy:gitpage": "storybook-to-ghpages -o storybook",
+    "deploy:gitpage": "npm run build:storybook && echo 'cat-ui.cn' > '.out/CNAME' && storybook-to-ghpages -o .out --existing-output-dir=.out",
     "release": "npm run build && hi-pkg-scripts release && npm run deploy:gitpage"
   },
   "peerDependencies": {
@@ -214,6 +215,6 @@
     }
   },
   "publishConfig": {
-    "registory": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/"
   }
 }

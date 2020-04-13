@@ -19,6 +19,7 @@
 |  className  |       `string`        |      -       |              样式类名              |    -     |
 | selectionClassName  |  `string`     |      -       |         搜索列表样式类名            |    -     |
 |    style    |       `object`        |      -       |              行内样式              |    -     |
+|contentStyle |`React.CSSProperties`  |      -       |              下拉菜单的行内样式      |    -     |
 |   offsetX   |       `number`        |      0       |  搜索列表相对于搜索框的 x 偏移量     |    -     |
 |   offsetY   |       `number`        |      5       |  搜索列表相对于搜索框的 y 偏移量     |    -     |
 |  disabled   |        `bool`         |      -       |              禁用搜索              |    -     |

@@ -1,16 +1,16 @@
-import * as React from 'react'
-import * as PropTypes from 'prop-types'
-import keycode from 'keycode'
-import classNames from 'classnames'
-import Input from '../Input'
-import Selection from '../Selection'
-import Option from '../Selection/Option'
-import Popover from '../Popover'
-import { positionNameConvert } from '../Popover/utils'
+import * as React from 'react';
+import * as PropTypes from 'prop-types';
+import keycode from 'keycode';
+import classNames from 'classnames';
+import Input from '../Input';
+import Selection from '../Selection';
+import Option from '../Selection/Option';
+import Popover from '../Popover';
+import { positionNameConvert } from '../Popover/utils';
 
 interface IDataSource {
   value: string;
-  render: React.ReactNode
+  render: React.ReactNode;
 }
 
 export interface ISearchProps {
@@ -46,7 +46,7 @@ export interface ISearchProps {
    * 显示清除按钮
    */
   allowClear?: boolean;
-   /**
+  /**
    * 显示loading
    */
   loading?: boolean;
@@ -78,6 +78,10 @@ export interface ISearchProps {
    * 被选中时调用，参数为选中项的 value 值
    */
   onSelect?: (value: string) => any;
+  /**
+   * 下拉菜单的样式
+   */
+  contentStyle?: React.CSSProperties;
 }
 
 export interface ISearchState {
@@ -102,7 +106,7 @@ class Search extends React.Component<ISearchProps, ISearchState> {
     loading: PropTypes.bool,
     onChange: PropTypes.func,
     onSelect: PropTypes.func
-  }
+  };
 
   static defaultProps = {
     prefix: 'cat',
@@ -113,52 +117,52 @@ class Search extends React.Component<ISearchProps, ISearchState> {
     autoFocus: false,
     loading: false,
     placeholder: ''
-  }
+  };
 
   static Option: typeof Option;
 
-  constructor (props: ISearchProps) {
-    super(props)
+  constructor(props: ISearchProps) {
+    super(props);
     this.state = {
       value: props.value || '',
       visible: false
-    }
+    };
   }
 
   static getDerivedStateFromProps(nextProps: ISearchProps) {
     if ('value' in nextProps) {
       return {
         value: nextProps.value
-      }
+      };
     }
 
-    return null
+    return null;
   }
 
   handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { onChange } = this.props
-    const value = e.target.value
+    const { onChange } = this.props;
+    const value = e.target.value;
 
     if (!('value' in this.props)) {
       this.setState({
         value
-      })
+      });
     }
-    
-    onChange && onChange(e.target.value)
-  }
+
+    onChange && onChange(e.target.value);
+  };
 
   hanldeKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    const { onSearch } = this.props
+    const { onSearch } = this.props;
 
-    e.persist()
+    e.persist();
 
     setTimeout(() => {
       if (keycode(e as any) === 'enter') {
-        onSearch && onSearch(this.state.value)
+        onSearch && onSearch(this.state.value);
       }
-    }, 0)
-  }
+    }, 0);
+  };
 
   handleBlur = (e: any) => {
     e.persist();
@@ -166,75 +170,83 @@ class Search extends React.Component<ISearchProps, ISearchState> {
     setTimeout(() => {
       this.setState({
         visible: false
-      })
+      });
     }, 200);
-  }
+  };
 
   handleSelect = (value: any) => {
-    const { onSelect } = this.props
+    const { onSelect } = this.props;
 
     if (!('value' in this.props)) {
       this.setState({
         value
-      })
+      });
     }
 
     this.setState({
       visible: false
-    })
+    });
 
-    onSelect && onSelect(value)
-  }
+    onSelect && onSelect(value);
+  };
 
   handlePopoverChange = (visible: boolean) => {
     this.setState({
       visible
-    })
-  }
+    });
+  };
 
   renderOption = () => {
-    const { dataSource = [], children } = this.props
+    const { dataSource = [], children } = this.props;
 
     if ('dataSource' in this.props) {
       return dataSource.map(item => {
         if (typeof item === 'string') {
-          return (
-            <Option key={item} value={item} />
-          )
+          return <Option key={item} value={item} />;
         }
-  
-        const { value, render } = item
-  
+
+        const { value, render } = item;
+
         return (
-          <Option key={value} value={value} >
+          <Option key={value} value={value}>
             {render}
           </Option>
-        )
-      })
+        );
+      });
     }
 
-    return children
-  }
+    return children;
+  };
 
   renderSelection = () => {
-    const { selectionClassName } = this.props
-    const { visible } = this.state
-    
+    const { selectionClassName, contentStyle } = this.props;
+    const { visible } = this.state;
+
     return (
       <Selection
         visible={visible}
         className={selectionClassName}
         onSelect={this.handleSelect}
+        style={contentStyle}
       >
         {this.renderOption()}
       </Selection>
-    )
-  }
+    );
+  };
 
-  render () {
-    const { prefix, className = '', offsetX, offsetY, placeholder, disabled, autoFocus, loading } = this.props
-    const { value, visible } = this.state
-    const classes = classNames(`${prefix}-search-wrap`, className)
+  render() {
+    const {
+      prefix,
+      className = '',
+      offsetX,
+      offsetY,
+      placeholder,
+      disabled,
+      autoFocus,
+      loading
+    } = this.props;
+    const { value, visible } = this.state;
+    const classes = classNames(`${prefix}-search-wrap`, className);
 
     return (
       <div className={classes}>
@@ -260,13 +272,11 @@ class Search extends React.Component<ISearchProps, ISearchState> {
               onBlur={this.handleBlur}
             />
           </Popover.Trigger>
-          <Popover.Content>
-            {this.renderSelection}
-          </Popover.Content>
+          <Popover.Content>{this.renderSelection}</Popover.Content>
         </Popover>
       </div>
-    )
+    );
   }
 }
 
-export default Search
+export default Search;

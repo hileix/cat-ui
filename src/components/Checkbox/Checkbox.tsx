@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Component } from 'react';
 import classNames from 'classnames';
 import CheckboxGroup from './CheckboxGroup';
@@ -7,7 +7,7 @@ export interface CheckboxProps {
   /** 类名 */
   className?: string;
   /** 样式 */
-  style?: object;
+  style?: React.CSSProperties;
   /** 是否禁用 */
   disabled?: boolean;
   /** 是否只读 */
@@ -62,8 +62,8 @@ class Checkbox extends Component<CheckboxProps, any> {
     const classes = classNames('cat-checkbox', className);
 
     return (
-      <div className={classes} style={style}>
-        <span className="cat-checkbox__wrapper">
+      <label className={classes} style={style}>
+        <span className='cat-checkbox__wrapper'>
           <span
             className={classNames('cat-checkbox__inner', {
               'cat-checkbox__inner--checked': checked,
@@ -89,7 +89,7 @@ class Checkbox extends Component<CheckboxProps, any> {
         >
           {children}
         </span>
-      </div>
+      </label>
     );
   }
 }

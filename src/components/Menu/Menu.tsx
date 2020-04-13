@@ -3,6 +3,7 @@ import { Component, cloneElement } from 'react';
 import classNames from 'classnames';
 import SubMenu from './SubMenu';
 import MenuItem from './MenuItem';
+import MenuHeader from './MenuHeader';
 
 export interface MenuProps {
   /** 类名 */
@@ -25,6 +26,7 @@ export interface MenuProps {
 class Menu extends Component<MenuProps, any> {
   static Item: typeof MenuItem;
   static SubMenu: typeof SubMenu;
+  static Header: typeof MenuHeader;
   static defaultProps = {
     mode: 'pop'
   };
@@ -75,29 +77,40 @@ class Menu extends Component<MenuProps, any> {
       className
     );
 
-    const items = React.Children.map(activeMenu, (element: any, index) => {
+    let header;
+    let items: any = [];
+    React.Children.map(activeMenu, (element: any, index) => {
       if (!element) {
         return element;
       }
-      return cloneElement(element, {
+      
+      if (element.type  && element.type.name === 'MenuHeader'){
+        header = element;
+        return;
+      }
+
+      items.push(cloneElement(element, {
         key: index,
         id: element.key,
         mode: mode,
         checked: activeKey === element.key,
         onMenuChange: self.onMenuChange,
         onSwitchMenu: self.onSwitchMenu
-      });
+      }));
     });
 
     return (
-      <ul className={classes} style={style}>
-        {isSubMenu && (
-          <div className={`${prefix}--submenu`} onClick={this.onBackClick}>
-            {activeHeader}
-          </div>
-        )}
-        {items}
-      </ul>
+      <div className={classes}>
+        {header}
+        <ul style={style}>
+          {isSubMenu && (
+            <div className={`${prefix}--submenu`} onClick={this.onBackClick}>
+              {activeHeader}
+            </div>
+          )}
+          {items}
+        </ul>
+      </div>
     );
   }
 }

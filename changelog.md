@@ -1,3 +1,21 @@
+## Release v2.25.0
+- ✨ (Search) Search 组件添加 contentStyle props
+
+## Release v2.24.0
+- ✨ (Tabs) Tabs.TabPanel 组件添加可以修改 className 和 style 的功能
+
+## Release v2.23.2
+- 🐛 (Checkbox) 修复 Checkbox 样式 bug
+
+## Release v2.23.1
+- 🐛 (Checkbox) 修复 Checkbox 组件样式 bug
+
+## Release v2.23.0
+- ✨ (Checkbox) 添加 Checkbox 组件
+
+## Release v2.22.1
+- 🐛 (Input) 修复 Input 右侧 Icon 位置偏下的 bug
+
 ## Release v2.22.0
 - ✨(Select) 完善 demo
 - 🐛 (value) value 类型 兼容 string 和 number
