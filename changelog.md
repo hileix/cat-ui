@@ -1,3 +1,7 @@
+## Release v2.27.1
+- Merge pull request #139 from hifeteam/fix/tooltip
+- 🐛 (Tooltip) 修复 Tooltip containerSelector 无效的 bug
+
 ## Release v2.26.0
 - ✨ (Tooltip) Tooltip 组件添加 containerSelector prop
 
