@@ -6,6 +6,7 @@ import './style.scss';
 import Button from '../../Button';
 import { CSSTransition } from 'react-transition-group';
 import { PositionType } from '../interface';
+import markdown from '../README.md';
 
 const horizontalOptions = [
   {
@@ -234,4 +235,8 @@ const Demo = () => {
   );
 };
 
-storiesOf('工具/Popover 弹层', module).add('Popover', () => <Demo />);
+storiesOf('工具/Popover 弹层', module).add('Popover', () => <Demo />, {
+  info: {
+    text: markdown
+  }
+});

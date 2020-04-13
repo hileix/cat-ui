@@ -2,6 +2,7 @@
 
 exports[`Select disabled 1`] = `
 <Select
+  containerSelector="body"
   disabled={true}
   prefix="cat"
 >
@@ -35,6 +36,7 @@ exports[`Select disabled 1`] = `
       >
         <span
           className="selected-section disabled"
+          onBlur={[Function]}
           onClick={[Function]}
           style={Object {}}
         >
@@ -198,6 +200,7 @@ exports[`Select disabled 1`] = `
 exports[`Select renders correctly 1`] = `
 <Select
   className="select-1"
+  containerSelector="body"
   disabled={false}
   onChange={[Function]}
   onSelect={[Function]}
@@ -233,6 +236,7 @@ exports[`Select renders correctly 1`] = `
       >
         <span
           className="selected-section"
+          onBlur={[Function]}
           onClick={[Function]}
           style={Object {}}
           tabIndex={0}
@@ -506,6 +510,7 @@ exports[`Select renders correctly 1`] = `
 exports[`Select value 1`] = `
 <Demo>
   <Select
+    containerSelector="body"
     disabled={false}
     onChange={[Function]}
     onSelect={[Function]}
@@ -542,6 +547,7 @@ exports[`Select value 1`] = `
         >
           <span
             className="selected-section"
+            onBlur={[Function]}
             onClick={[Function]}
             style={Object {}}
             tabIndex={0}
