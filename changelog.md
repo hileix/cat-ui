@@ -1,3 +1,6 @@
+## Release v2.26.0
+- ✨ (Tooltip) Tooltip 组件添加 containerSelector prop
+
 ## Release v2.25.0
 - ✨ (Search) Search 组件添加 contentStyle props
 
