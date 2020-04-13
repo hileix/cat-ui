@@ -52,6 +52,10 @@ export interface ISelectProps {
    * 选择一项时调用
    */
   onSelect?: (value: string | number, index: number) => void;
+  /**
+   * 弹出层所在容器的 css 选择器
+   */
+  containerSelector: string;
 }
 
 export interface ISelectState {
@@ -81,12 +85,14 @@ class Select extends React.Component<ISelectProps, ISelectState> {
       PropTypes.number
     ]),
     onChange: PropTypes.func,
-    onSelect: PropTypes.func
+    onSelect: PropTypes.func,
+    containerSelector: PropTypes.string,
   }
 
   static defaultProps = {
     prefix: 'cat',
-    disabled: false
+    disabled: false,
+    containerSelector: 'body',
   }
 
   constructor (props: ISelectProps) {
@@ -200,7 +206,7 @@ class Select extends React.Component<ISelectProps, ISelectState> {
   }
 
   render () {
-    const { prefix, style, triggerStyle, className = '', width, disabled } = this.props
+    const { prefix, style, triggerStyle, className = '', width, disabled, containerSelector } = this.props
     const { value } = this.state
     const classes = classNames(`${prefix}-select-wrap`, className)
     let triggerAttr: React.HTMLAttributes<HTMLSpanElement> = {}
@@ -216,6 +222,7 @@ class Select extends React.Component<ISelectProps, ISelectState> {
           mode='click'
           {...positionNameConvert('bottomLeft')}
           onChange={this.handlePopoverChange}
+          selector={containerSelector}
         >
           <Popover.Trigger disabled={disabled}>
           <span

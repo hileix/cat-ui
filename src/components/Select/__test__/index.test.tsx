@@ -54,7 +54,7 @@ describe('Select', () => {
   })
 })
 
-class Demo extends React.Component<ISelectProps, {value: string}> {
+class Demo extends React.Component<any, {value: string}> {
   constructor(props: ISelectProps) {
     super(props)
     this.state = {
