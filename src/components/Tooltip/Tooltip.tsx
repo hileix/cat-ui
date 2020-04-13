@@ -155,11 +155,10 @@ class Tooltip extends Component<TooltipProps> {
         contentPosition={contentPosition}
         offsetX={offsetX}
         offsetY={offsetY}
+        selector={containerSelector}
       >
         <Popover.Trigger>{children}</Popover.Trigger>
-        <Popover.Content selector={containerSelector}>
-          {this.renderTooltipContent}
-        </Popover.Content>
+        <Popover.Content>{this.renderTooltipContent}</Popover.Content>
       </Popover>
     );
   }
