@@ -37,6 +37,10 @@ export interface TooltipProps {
    * 显示或隐藏的回调
    */
   onChange?: (visible: boolean) => void;
+  /**
+   * tooltip 内容所在容器的 css 选择器
+   */
+  containerSelector: string;
 }
 
 const OFFSET = 10;
@@ -67,12 +71,15 @@ class Tooltip extends Component<TooltipProps> {
     ]),
     maxWidth: PropTypes.number,
     content: PropTypes.node,
-    children: PropTypes.node
+    children: PropTypes.node,
+    containerSelector: PropTypes.string,
   };
+
   static defaultProps = {
     mode: 'hover',
     position: 'top',
-    maxWidth: 400
+    maxWidth: 400,
+    containerSelector: 'body',
   };
 
   getOffset = memoizeOne((position: PositionNameType): {
@@ -136,7 +143,7 @@ class Tooltip extends Component<TooltipProps> {
   };
 
   render() {
-    const { mode, children, visible, position } = this.props;
+    const { mode, children, visible, position, containerSelector } = this.props;
     const { triggerPosition, contentPosition } = positionNameConvert(position);
     const { offsetX, offsetY } = this.getOffset(position);
 
@@ -150,7 +157,9 @@ class Tooltip extends Component<TooltipProps> {
         offsetY={offsetY}
       >
         <Popover.Trigger>{children}</Popover.Trigger>
-        <Popover.Content>{this.renderTooltipContent}</Popover.Content>
+        <Popover.Content selector={containerSelector}>
+          {this.renderTooltipContent}
+        </Popover.Content>
       </Popover>
     );
   }
