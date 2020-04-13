@@ -36,10 +36,6 @@
     &:focus {
       border-color: #40a9ff;
       box-shadow: 0 0 0 2px rgba(24,144,255,0.2);
-
-      .select-arrow {
-        transform: translateY(-50%) rotateZ(180deg);
-      }
     }
 
     &.disabled {
@@ -58,6 +54,10 @@
       height: 14px;
       width: 12px;
       transition: all .2s cubic-bezier(.645, .045, .355, 1);
+
+      &--rotate {
+        transform: translateY(-50%) rotateZ(180deg);
+      }
     }
   }
 }
