@@ -1,3 +1,6 @@
+## Release v2.29.1
+- 🐛 (Select) 修复多个 Select 组件放在一起时，点开一个 Select，其他的 Select 点不开的 bug
+
 ## Release v2.28.0
 - ✨ (Select) Select 组件添加 containerSelector prop
 
