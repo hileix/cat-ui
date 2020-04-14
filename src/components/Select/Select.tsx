@@ -142,8 +142,8 @@ class Select extends React.Component<ISelectProps, ISelectState> {
   }
 
   renderSelection = () => {
-    let { prefix, defaultValue, value, width, contentStyle, children } = this.props
-    const { visible } = this.state
+    let { prefix, defaultValue, width, contentStyle, children } = this.props
+    const { visible, value, } = this.state
 
     let contentComputedStyle: React.CSSProperties = {...contentStyle}
     width && (contentComputedStyle.width = width)
@@ -154,13 +154,14 @@ class Select extends React.Component<ISelectProps, ISelectState> {
         in={visible}
         classNames='visible'
         mountOnEnter
+        unmountOnExit
         appear
       >
         <Selection
           className={`${prefix}-select-selection`}
           style={contentComputedStyle}
           visible={visible}
-          defaultValue={defaultValue || value || ''}
+          value={value}
           onSelect={this.handleSelect}
         >
           {children}
