@@ -388,10 +388,10 @@ exports[`Select renders correctly 1`] = `
                 >
                   <Selection
                     className="cat-select-selection"
-                    defaultValue=""
                     onSelect={[Function]}
                     prefix="cat"
                     style={Object {}}
+                    value="Option 4"
                     visible={false}
                   >
                     <div
@@ -727,10 +727,10 @@ exports[`Select value 1`] = `
                   >
                     <Selection
                       className="cat-select-selection"
-                      defaultValue="Option 2"
                       onSelect={[Function]}
                       prefix="cat"
                       style={Object {}}
+                      value="Option 2"
                       visible={false}
                     >
                       <div
