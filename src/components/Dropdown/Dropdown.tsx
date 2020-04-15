@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { Component } from 'react'
 import classNames from 'classnames'
-import Popover from '@components/Popover';
-import { PopoverProps } from '@components/Popover/Popover';
-import { positionNameConvert } from '@components/Popover/utils';
+import Popover from '../../components/Popover';
+import { PopoverProps } from '../../components/Popover/Popover';
+import { positionNameConvert } from '../../components/Popover/utils';
 
 export interface DropdownProps {
   mode: string;
