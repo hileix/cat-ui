@@ -1,3 +1,6 @@
+## Release v2.30.2
+- Merge pull request #146 from hifeteam/fiximport
+
 ## Release v2.28.0
 - ✨ (Select) Select 组件添加 containerSelector prop
 
