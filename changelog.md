@@ -1,3 +1,7 @@
+## Release v2.31.0
+- 更新模态框和按钮组件样式 (#149)
+- Merge branch 'master' of github.com:hifeteam/cat-ui
+
 ## Release v2.29.1
 - 🐛 (Select) 修复多个 Select 组件放在一起时，点开一个 Select，其他的 Select 点不开的 bug
 
