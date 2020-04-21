@@ -10,7 +10,7 @@ export interface MenuItemProps {
   /** 菜单类型，现在支持扩展弹出、行内内嵌、原地替换三种 */
   mode?: 'pop' | 'inline' | 'replace';
   /** 当前MenuItem的id */
-  id?: boolean;
+  id?: string;
   /** 是否选中 */
   checked?: boolean;
   /** 是否禁用 */

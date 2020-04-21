@@ -21,3 +21,4 @@ export { default as Select } from './Select';
 export { default as Radio } from './Radio';
 export { default as Checkbox } from './Checkbox';
 export { default as Menu } from './Menu';
+export { default as Dropdown } from './Dropdown'
