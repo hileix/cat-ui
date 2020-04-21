@@ -105,7 +105,7 @@ class Modal extends PureComponent<ModalProps, ModalState> {
   static defaultProps = {
     prefix: 'cat',
     visible: false,
-    width: 428,
+    width: 460,
     noCloseIcon: false,
     destroyOnClose: false,
     mask: true,
@@ -196,8 +196,9 @@ class Modal extends PureComponent<ModalProps, ModalState> {
     const newFooter =
       typeof footer === 'undefined' ? (
         <>
-          <Button onClick={this.handleClose}>{cancelText}</Button>
+          <Button shape='round' type='grey' onClick={this.handleClose}>{cancelText}</Button>
           <Button
+            shape='round'
             onClick={this.handleOk}
             type='primary'
             className={`${footerPrefix}-confirm`}
@@ -206,8 +207,8 @@ class Modal extends PureComponent<ModalProps, ModalState> {
           </Button>
         </>
       ) : (
-        footer
-      );
+          footer
+        );
 
     return <div className={classNames(footerPrefix, {})}>{newFooter}</div>;
   };

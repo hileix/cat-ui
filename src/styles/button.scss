@@ -7,7 +7,8 @@
 }
 
 .cat-button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   outline: none;
   cursor: pointer;
   font-size: 14px;
@@ -16,20 +17,16 @@
   color: $primary-color;
   background: #fff;
   transition: 0.3s;
-  line-height: 1.45;
-  height: 32px;
+  line-height: 36px;
+  height: 38px;
   font-weight: 400;
   &__children {
-    vertical-align: middle;
     display: inline-block;
   }
 
   &:hover {
-    background: $red-2;
-  }
-
-  &:active {
-    background: $red-3;
+    background: $primary-color;
+    color: #fff;
   }
 
   &--primary {
@@ -37,28 +34,14 @@
     color: #fff;
 
     &:hover {
-      opacity: 0.8;
-      background: $primary-color;
-    }
-
-    &:active {
-      opacity: 1;
-      background: $red-7;
-      border-color: $red-7;
+      color: $primary-color;
+      background: #fff;
     }
   }
 
   &--link {
     border: none;
     background: #fff;
-
-    &:hover {
-      opacity: 0.8;
-    }
-
-    &:active {
-      opacity: 1;
-    }
   }
 
   &--golden {
@@ -66,41 +49,40 @@
     color: $gray-1;
     border: solid 1px $yellow-6;
     &:hover {
-      opacity: 0.8;
-      background: $yellow-6;
+      background: #fff;
+      color: $yellow-6;
     }
+  }
 
-    &:active {
-      opacity: 1;
-      background: $yellow-6;
-      border-color: $yellow-6;
+  &--grey {
+    background: #fff;
+    color: $gray-4;
+    border: solid 1px $blue-gray-1;
+    &:hover {
+      background: $blue-gray-1;
+      color: #fff;
     }
   }
 
   &--dashed {
-    background: $gray-1;
     color: $blue-gray-10;
     border: dashed 1px $blue-gray-10;
     &:hover {
-      opacity: 0.8;
-      background: $gray-1;
-    }
-
-    &:active {
-      opacity: 1;
-      background: $gray-1;
-      border-color: $blue-gray-10;
+      background: $blue-gray-10;
+      color: #fff;
     }
   }
 
   &--sm {
     height: 24px;
     font-size: 13px;
+    line-height: 22px;
   }
 
   &--lg {
-    font-size: 18px;
-    height: 40px;
+    font-size: 16px;
+    height: 44px;
+    line-height: 42px;
   }
 
   &--padding-sm {
@@ -108,25 +90,23 @@
   }
 
   &--padding-md {
-    padding: 0px 12px;
+    padding: 0px 20px;
   }
 
   &--padding-lg {
-    padding: 0px 16px;
+    padding: 0px 28px;
   }
 
   &--circle {
     border-radius: 50%;
-    padding: auto;
   }
 
   &--round {
     // .cat-ui-round.cat-ui--
     @include selectRadius('--sm', 12px);
-    @include selectRadius('--md', 16px);
-    @include selectRadius('--lg', 20px);
+    @include selectRadius('--md', 20px);
+    @include selectRadius('--lg', 28px);
   }
-
 
   &--block {
     display: block;

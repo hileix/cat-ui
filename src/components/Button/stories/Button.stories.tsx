@@ -12,7 +12,7 @@ const Demo = () => {
 
   return (
     <Fragment>
-      <DemoWrapper title='类型' desc='五种类型'>
+      <DemoWrapper title='类型' desc='六种类型'>
         <Button type='default' className='button-stories__button'>
           default
         </Button>
@@ -27,6 +27,9 @@ const Demo = () => {
         </Button>
         <Button type='golden' className='button-stories__button'>
           Golden
+        </Button>
+        <Button type='grey' className='button-stories__button'>
+          Grey
         </Button>
       </DemoWrapper>
       <DemoWrapper title='尺寸' desc='三种尺寸'>
@@ -71,7 +74,7 @@ const Demo = () => {
 let ShapeDemo = () => {
   return (
     <>
-      <DemoWrapper title='类型' desc='五种类型'>
+      <DemoWrapper title='类型' desc='六种类型'>
         <Button shape='round' type='default' className='button-stories__button'>
           default
         </Button>
@@ -86,6 +89,9 @@ let ShapeDemo = () => {
         </Button>
         <Button shape='round' type='golden' className='button-stories__button'>
           Golden
+        </Button>
+        <Button shape='round' type='grey' className='button-stories__button'>
+          Grey
         </Button>
       </DemoWrapper>
       <DemoWrapper title='尺寸' desc='三种尺寸'>

@@ -8,7 +8,7 @@ export interface ButtonProps extends CommonProps {
   /**
    * 按钮类型
    */
-  type: 'default' | 'primary' | 'link' | 'dashed' | 'golden';
+  type: 'default' | 'primary' | 'link' | 'dashed' | 'golden' | 'grey';
   /**
    * 原生 button 的 type 属性
    */
@@ -50,7 +50,7 @@ class Button extends React.PureComponent<
   ButtonProps & React.DOMAttributes<HTMLButtonElement>
 > {
   static propTypes = {
-    type: PropTypes.oneOf(['default', 'primary', 'link', 'dashed', 'golden']),
+    type: PropTypes.oneOf(['default', 'primary', 'link', 'dashed', 'golden', 'grey']),
     htmlType: PropTypes.string,
     disabled: PropTypes.bool,
     block: PropTypes.bool,
