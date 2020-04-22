@@ -1,4 +1,15 @@
-@import './common/index.scss';
+@import "./common/index.scss";
+
+@keyframes loadingAnimation {
+  0% {
+    left: -70%;
+    width: 70%;
+  }
+  100% {
+    left: 100%;
+    width: 40%;
+  }
+}
 
 .cat-modal-container {
   position: fixed;
@@ -67,6 +78,54 @@
   box-shadow: 0 2px 8px 0 rgba(20, 23, 26, 0.2);
   background-color: #fff;
   transition: 0.3s opacity;
+  overflow: hidden;
+
+  &__loading-mask {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    &--show {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__loading-bar {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    &--show {
+      opacity: 1;
+      visibility: visible;
+    }
+    border-radius: 8px 8px 0 0;
+    background-color: $gray-5;
+    overflow: hidden;
+  }
+
+  &__loading-bar-inner {
+    border-radius: 2;
+    position: absolute;
+    height: 100%;
+    width: 30%;
+    background-color: $red-6;
+    left: 0;
+    &--animation {
+      animation: loadingAnimation linear 0.8s infinite;
+    }
+  }
 
   &__modal-wrapper {
     position: absolute;

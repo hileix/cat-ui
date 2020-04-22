@@ -4,6 +4,7 @@ exports[`Modal renders correctly 1`] = `
 <Modal
   cancelText="Cancel"
   destroyOnClose={false}
+  loading={false}
   mask={true}
   noCloseIcon={false}
   okText="Confirm"
@@ -72,6 +73,16 @@ exports[`Modal renders correctly 1`] = `
                     </span>
                   </button>
                 </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -125,6 +136,16 @@ exports[`Modal renders correctly 1`] = `
                       Confirm
                     </span>
                   </button>
+                </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
                 </div>
               </div>
             </div>
@@ -166,6 +187,16 @@ exports[`Modal renders correctly 1`] = `
                     footer
                   </div>
                 </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -216,6 +247,16 @@ exports[`Modal renders correctly 1`] = `
                     </span>
                   </button>
                 </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -260,6 +301,16 @@ exports[`Modal renders correctly 1`] = `
                       Confirm
                     </span>
                   </button>
+                </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
                 </div>
               </div>
             </div>
@@ -306,6 +357,16 @@ exports[`Modal renders correctly 1`] = `
                     </span>
                   </button>
                 </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -345,6 +406,7 @@ exports[`Modal renders correctly 2`] = `
 <Modal
   cancelText="Cancel"
   destroyOnClose={false}
+  loading={false}
   mask={true}
   noCloseIcon={false}
   okText="Confirm"
@@ -413,6 +475,16 @@ exports[`Modal renders correctly 2`] = `
                     </span>
                   </button>
                 </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -466,6 +538,16 @@ exports[`Modal renders correctly 2`] = `
                       Confirm
                     </span>
                   </button>
+                </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
                 </div>
               </div>
             </div>
@@ -507,6 +589,16 @@ exports[`Modal renders correctly 2`] = `
                     footer
                   </div>
                 </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -557,6 +649,16 @@ exports[`Modal renders correctly 2`] = `
                     </span>
                   </button>
                 </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -601,6 +703,16 @@ exports[`Modal renders correctly 2`] = `
                       Confirm
                     </span>
                   </button>
+                </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
                 </div>
               </div>
             </div>
@@ -646,6 +758,16 @@ exports[`Modal renders correctly 2`] = `
                       Confirm
                     </span>
                   </button>
+                </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
                 </div>
               </div>
             </div>
@@ -774,6 +896,16 @@ exports[`Modal renders correctly 2`] = `
                     </button>
                   </Button>
                 </div>
+                <div
+                  className="cat-modal__loading-mask"
+                />
+                <div
+                  className="cat-modal__loading-bar"
+                >
+                  <div
+                    className="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -788,6 +920,7 @@ exports[`Modal renders correctly 3`] = `
 <Modal
   cancelText="Cancel"
   destroyOnClose={false}
+  loading={false}
   mask={false}
   noCloseIcon={false}
   okText="Confirm"
@@ -856,6 +989,16 @@ exports[`Modal renders correctly 3`] = `
                     </span>
                   </button>
                 </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -909,6 +1052,16 @@ exports[`Modal renders correctly 3`] = `
                       Confirm
                     </span>
                   </button>
+                </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
                 </div>
               </div>
             </div>
@@ -950,6 +1103,16 @@ exports[`Modal renders correctly 3`] = `
                     footer
                   </div>
                 </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -1000,6 +1163,16 @@ exports[`Modal renders correctly 3`] = `
                     </span>
                   </button>
                 </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -1044,6 +1217,16 @@ exports[`Modal renders correctly 3`] = `
                       Confirm
                     </span>
                   </button>
+                </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
                 </div>
               </div>
             </div>
@@ -1089,6 +1272,16 @@ exports[`Modal renders correctly 3`] = `
                       Confirm
                     </span>
                   </button>
+                </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
                 </div>
               </div>
             </div>
@@ -1214,6 +1407,16 @@ exports[`Modal renders correctly 3`] = `
                     </button>
                   </Button>
                 </div>
+                <div
+                  className="cat-modal__loading-mask"
+                />
+                <div
+                  className="cat-modal__loading-bar"
+                >
+                  <div
+                    className="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -1233,6 +1436,7 @@ exports[`Modal renders correctly 4`] = `
       footer
     </div>
   }
+  loading={false}
   mask={true}
   noCloseIcon={false}
   okText="Confirm"
@@ -1301,6 +1505,16 @@ exports[`Modal renders correctly 4`] = `
                     </span>
                   </button>
                 </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -1354,6 +1568,16 @@ exports[`Modal renders correctly 4`] = `
                       Confirm
                     </span>
                   </button>
+                </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
                 </div>
               </div>
             </div>
@@ -1395,6 +1619,16 @@ exports[`Modal renders correctly 4`] = `
                     footer
                   </div>
                 </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -1445,6 +1679,16 @@ exports[`Modal renders correctly 4`] = `
                     </span>
                   </button>
                 </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -1489,6 +1733,16 @@ exports[`Modal renders correctly 4`] = `
                       Confirm
                     </span>
                   </button>
+                </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
                 </div>
               </div>
             </div>
@@ -1534,6 +1788,16 @@ exports[`Modal renders correctly 4`] = `
                       Confirm
                     </span>
                   </button>
+                </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
                 </div>
               </div>
             </div>
@@ -1614,6 +1878,16 @@ exports[`Modal renders correctly 4`] = `
                     footer
                   </div>
                 </div>
+                <div
+                  className="cat-modal__loading-mask"
+                />
+                <div
+                  className="cat-modal__loading-bar"
+                >
+                  <div
+                    className="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -1628,6 +1902,7 @@ exports[`Modal renders correctly 5`] = `
 <Modal
   cancelText="Cancel"
   destroyOnClose={false}
+  loading={false}
   mask={true}
   noCloseIcon={true}
   okText="Confirm"
@@ -1696,6 +1971,16 @@ exports[`Modal renders correctly 5`] = `
                     </span>
                   </button>
                 </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -1749,6 +2034,16 @@ exports[`Modal renders correctly 5`] = `
                       Confirm
                     </span>
                   </button>
+                </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
                 </div>
               </div>
             </div>
@@ -1790,6 +2085,16 @@ exports[`Modal renders correctly 5`] = `
                     footer
                   </div>
                 </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -1840,6 +2145,16 @@ exports[`Modal renders correctly 5`] = `
                     </span>
                   </button>
                 </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -1884,6 +2199,16 @@ exports[`Modal renders correctly 5`] = `
                       Confirm
                     </span>
                   </button>
+                </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
                 </div>
               </div>
             </div>
@@ -1929,6 +2254,16 @@ exports[`Modal renders correctly 5`] = `
                       Confirm
                     </span>
                   </button>
+                </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
                 </div>
               </div>
             </div>
@@ -2044,6 +2379,16 @@ exports[`Modal renders correctly 5`] = `
                     </button>
                   </Button>
                 </div>
+                <div
+                  className="cat-modal__loading-mask"
+                />
+                <div
+                  className="cat-modal__loading-bar"
+                >
+                  <div
+                    className="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -2058,6 +2403,7 @@ exports[`Modal renders correctly 6`] = `
 <Modal
   cancelText="Cancel"
   destroyOnClose={false}
+  loading={false}
   mask={true}
   noCloseIcon={false}
   okText="Confirm"
@@ -2125,6 +2471,16 @@ exports[`Modal renders correctly 6`] = `
                     </span>
                   </button>
                 </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -2178,6 +2534,16 @@ exports[`Modal renders correctly 6`] = `
                       Confirm
                     </span>
                   </button>
+                </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
                 </div>
               </div>
             </div>
@@ -2219,6 +2585,16 @@ exports[`Modal renders correctly 6`] = `
                     footer
                   </div>
                 </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -2269,6 +2645,16 @@ exports[`Modal renders correctly 6`] = `
                     </span>
                   </button>
                 </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -2313,6 +2699,16 @@ exports[`Modal renders correctly 6`] = `
                       Confirm
                     </span>
                   </button>
+                </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
                 </div>
               </div>
             </div>
@@ -2358,6 +2754,16 @@ exports[`Modal renders correctly 6`] = `
                       Confirm
                     </span>
                   </button>
+                </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
                 </div>
               </div>
             </div>
@@ -2468,6 +2874,16 @@ exports[`Modal renders correctly 6`] = `
                     </button>
                   </Button>
                 </div>
+                <div
+                  className="cat-modal__loading-mask"
+                />
+                <div
+                  className="cat-modal__loading-bar"
+                >
+                  <div
+                    className="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -2482,6 +2898,7 @@ exports[`Modal renders correctly 7`] = `
 <Modal
   cancelText="Cancel"
   destroyOnClose={false}
+  loading={false}
   mask={true}
   noCloseIcon={false}
   okText="Confirm"
@@ -2554,6 +2971,16 @@ exports[`Modal renders correctly 7`] = `
                     </span>
                   </button>
                 </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -2607,6 +3034,16 @@ exports[`Modal renders correctly 7`] = `
                       Confirm
                     </span>
                   </button>
+                </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
                 </div>
               </div>
             </div>
@@ -2648,6 +3085,16 @@ exports[`Modal renders correctly 7`] = `
                     footer
                   </div>
                 </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -2698,6 +3145,16 @@ exports[`Modal renders correctly 7`] = `
                     </span>
                   </button>
                 </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -2742,6 +3199,16 @@ exports[`Modal renders correctly 7`] = `
                       Confirm
                     </span>
                   </button>
+                </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
                 </div>
               </div>
             </div>
@@ -2787,6 +3254,16 @@ exports[`Modal renders correctly 7`] = `
                       Confirm
                     </span>
                   </button>
+                </div>
+                <div
+                  class="cat-modal__loading-mask"
+                />
+                <div
+                  class="cat-modal__loading-bar"
+                >
+                  <div
+                    class="cat-modal__loading-bar-inner"
+                  />
                 </div>
               </div>
             </div>
@@ -2896,6 +3373,16 @@ exports[`Modal renders correctly 7`] = `
                       </span>
                     </button>
                   </Button>
+                </div>
+                <div
+                  className="cat-modal__loading-mask"
+                />
+                <div
+                  className="cat-modal__loading-bar"
+                >
+                  <div
+                    className="cat-modal__loading-bar-inner"
+                  />
                 </div>
               </div>
             </div>

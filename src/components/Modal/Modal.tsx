@@ -69,6 +69,10 @@ export interface ModalProps {
    * 是否显示遮罩
    */
   mask: boolean;
+  /**
+   * 是否处于加载中状态
+   */
+  loading: boolean;
 }
 
 export interface ModalState {
@@ -110,7 +114,8 @@ class Modal extends PureComponent<ModalProps, ModalState> {
     destroyOnClose: false,
     mask: true,
     okText: 'Confirm',
-    cancelText: 'Cancel'
+    cancelText: 'Cancel',
+    loading: false
   };
 
   state = {
@@ -143,8 +148,8 @@ class Modal extends PureComponent<ModalProps, ModalState> {
   };
 
   handleMaskClose = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    const { mask } = this.props;
-    mask && this.handleClose(e);
+    const { mask, loading } = this.props;
+    mask && !loading && this.handleClose(e);
   };
 
   handleClose = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
@@ -196,7 +201,9 @@ class Modal extends PureComponent<ModalProps, ModalState> {
     const newFooter =
       typeof footer === 'undefined' ? (
         <>
-          <Button shape='round' type='grey' onClick={this.handleClose}>{cancelText}</Button>
+          <Button shape='round' type='grey' onClick={this.handleClose}>
+            {cancelText}
+          </Button>
           <Button
             shape='round'
             onClick={this.handleOk}
@@ -207,8 +214,8 @@ class Modal extends PureComponent<ModalProps, ModalState> {
           </Button>
         </>
       ) : (
-          footer
-        );
+        footer
+      );
 
     return <div className={classNames(footerPrefix, {})}>{newFooter}</div>;
   };
@@ -221,7 +228,8 @@ class Modal extends PureComponent<ModalProps, ModalState> {
       visible,
       destroyOnClose,
       width,
-      mask
+      mask,
+      loading
     } = this.props;
     const { isOverflow } = this.state;
 
@@ -265,6 +273,23 @@ class Modal extends PureComponent<ModalProps, ModalState> {
                 {this.renderHeader()}
                 {this.renderBody()}
                 {this.renderFooter()}
+                <div
+                  className={classNames(`${modalPrefix}__loading-mask`, {
+                    [`${modalPrefix}__loading-mask--show`]: loading
+                  })}
+                />
+
+                <div
+                  className={classNames(`${modalPrefix}__loading-bar`, {
+                    [`${modalPrefix}__loading-bar--show`]: loading
+                  })}
+                >
+                  <div
+                    className={classNames(`${modalPrefix}__loading-bar-inner`, {
+                      [`${modalPrefix}__loading-bar-inner--animation`]: loading
+                    })}
+                  />
+                </div>
               </div>
             </div>
           </div>

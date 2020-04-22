@@ -6,7 +6,6 @@ import './style.scss';
 import Button from '../../Button';
 import markdown from '../README.md';
 
-
 const { useState } = React;
 
 const BaseModal = () => {
@@ -47,69 +46,87 @@ const BaseModal = () => {
         <p>
           Please ensure that the amount you are redeeming does not exceed the
           remaining total amount.
-        </p> <p>
+        </p>{' '}
+        <p>
           Please ensure that the amount you are redeeming does not exceed the
           remaining total amount.
-        </p> <p>
+        </p>{' '}
+        <p>
           Please ensure that the amount you are redeeming does not exceed the
           remaining total amount.
-        </p> <p>
+        </p>{' '}
+        <p>
           Please ensure that the amount you are redeeming does not exceed the
           remaining total amount.
-        </p> <p>
+        </p>{' '}
+        <p>
           Please ensure that the amount you are redeeming does not exceed the
           remaining total amount.
-        </p> <p>
+        </p>{' '}
+        <p>
           Please ensure that the amount you are redeeming does not exceed the
           remaining total amount.
-        </p> <p>
+        </p>{' '}
+        <p>
           Please ensure that the amount you are redeeming does not exceed the
           remaining total amount.
-        </p> <p>
+        </p>{' '}
+        <p>
           Please ensure that the amount you are redeeming does not exceed the
           remaining total amount.
-        </p> <p>
+        </p>{' '}
+        <p>
           Please ensure that the amount you are redeeming does not exceed the
           remaining total amount.
-        </p> <p>
+        </p>{' '}
+        <p>
           Please ensure that the amount you are redeeming does not exceed the
           remaining total amount.
-        </p> <p>
+        </p>{' '}
+        <p>
           Please ensure that the amount you are redeeming does not exceed the
           remaining total amount.
-        </p> <p>
+        </p>{' '}
+        <p>
           Please ensure that the amount you are redeeming does not exceed the
           remaining total amount.
-        </p> <p>
+        </p>{' '}
+        <p>
           Please ensure that the amount you are redeeming does not exceed the
           remaining total amount.
-        </p> <p>
+        </p>{' '}
+        <p>
           Please ensure that the amount you are redeeming does not exceed the
           remaining total amount.
-        </p> <p>
+        </p>{' '}
+        <p>
           Please ensure that the amount you are redeeming does not exceed the
           remaining total amount.
-        </p> <p>
+        </p>{' '}
+        <p>
           Please ensure that the amount you are redeeming does not exceed the
           remaining total amount.
-        </p> <p>
+        </p>{' '}
+        <p>
           Please ensure that the amount you are redeeming does not exceed the
           remaining total amount.
-        </p> <p>
+        </p>{' '}
+        <p>
           Please ensure that the amount you are redeeming does not exceed the
           remaining total amount.
-        </p> <p>
+        </p>{' '}
+        <p>
           Please ensure that the amount you are redeeming does not exceed the
           remaining total amount.
-        </p> <p>
+        </p>{' '}
+        <p>
           Please ensure that the amount you are redeeming does not exceed the
           remaining total amount.
         </p>
-
       </Modal>
     </>
-  )
-}
+  );
+};
 
 const FooterModal = () => {
   const [visible, setVisible] = useState(false);
@@ -139,8 +156,8 @@ const FooterModal = () => {
         </p>
       </Modal>
     </>
-  )
-}
+  );
+};
 
 const NoMaskModal = () => {
   const [visible, setVisible] = useState(false);
@@ -162,8 +179,42 @@ const NoMaskModal = () => {
         </p>
       </Modal>
     </>
-  )
-}
+  );
+};
+
+const Loading = () => {
+  const [visible, setVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleOk = () => {
+    setLoading(true);
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  };
+
+  return (
+    <>
+      <Button className='modal-button' onClick={() => setVisible(true)}>
+        打开 Modal
+      </Button>
+
+      <Modal
+        title='Enter the amount you want to redeem'
+        visible={visible}
+        onClose={() => setVisible(false)}
+        onOk={handleOk}
+        loading={loading}
+      >
+        <p>
+          Please ensure that the amount you are redeeming does not exceed the
+          remaining total amount.
+        </p>
+      </Modal>
+    </>
+  );
+};
 
 const DestroyOnCloseModal = () => {
   const [visible, setVisible] = useState(false);
@@ -185,8 +236,8 @@ const DestroyOnCloseModal = () => {
         </p>
       </Modal>
     </>
-  )
-}
+  );
+};
 
 storiesOf('反馈/Modal 模态窗', module)
   .add('基础 Modal', () => <BaseModal />, {
@@ -204,8 +255,13 @@ storiesOf('反馈/Modal 模态窗', module)
       text: markdown
     }
   })
-  .add('关闭 Modal 后自动销毁 children', () => <DestroyOnCloseModal />, {
+  .add('loading 状态', () => <Loading />, {
     info: {
       text: markdown
     }
   })
+  .add('关闭 Modal 后自动销毁 children', () => <DestroyOnCloseModal />, {
+    info: {
+      text: markdown
+    }
+  });
