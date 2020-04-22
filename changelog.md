@@ -1,16 +1,16 @@
+## Release v2.32.0
+- Select 组件添加 position 属性 (#150)
+
 ## Release v2.31.0
 - 更新模态框和按钮组件样式 (#149)
-- Merge branch 'master' of github.com:hifeteam/cat-ui
 
 ## Release v2.29.1
 - 🐛 (Select) 修复多个 Select 组件放在一起时，点开一个 Select，其他的 Select 点不开的 bug
-
 
 ## Release v2.28.0
 - ✨ (Select) Select 组件添加 containerSelector prop
 
 ## Release v2.27.1
-- Merge pull request #139 from hifeteam/fix/tooltip
 - 🐛 (Tooltip) 修复 Tooltip containerSelector 无效的 bug
 
 ## Release v2.26.0
