@@ -4,6 +4,7 @@ exports[`Select disabled 1`] = `
 <Select
   containerSelector="body"
   disabled={true}
+  position="bottomLeft"
   prefix="cat"
 >
   <div
@@ -204,6 +205,7 @@ exports[`Select renders correctly 1`] = `
   disabled={false}
   onChange={[Function]}
   onSelect={[Function]}
+  position="bottomLeft"
   prefix="cat"
 >
   <div
@@ -514,6 +516,7 @@ exports[`Select value 1`] = `
     disabled={false}
     onChange={[Function]}
     onSelect={[Function]}
+    position="bottomLeft"
     prefix="cat"
     value="Option 2"
   >

@@ -36,7 +36,7 @@ export interface ISelectionProps {
   /**
    * 选中一项触发的回调函数
    */
-  onSelect?: (value: string | number, index: number) => void;
+  onSelect?: (value: string | number, index: number, label: string) => void;
 }
 
 export interface ISelectionState {
@@ -151,10 +151,11 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
     })
   }
 
-  handleClickOption = ({value, index, disabled}: {
-    value: any,
-    index: any,
-    disabled: any
+  handleClickOption = ({value, index, disabled, label}: {
+    value: any;
+    index: any;
+    disabled: any;
+    label: string;
   }) => {
     const { onSelect } = this.props
 
@@ -166,7 +167,7 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
       selectedIndex: index,
       focusIndex: -1
     })
-    onSelect && onSelect(value, index)
+    onSelect && onSelect(value, index, label)
   }
 
   handleMouseEnterOption = ({index, disabled}: {
@@ -205,6 +206,8 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
 
     let value = children[focusIndex as number].props.value
     let disabled = children[focusIndex as number].props.disabled
+    
+    const label = children[focusIndex as number].props.label || children[focusIndex as number].props.children;
 
     if (disabled) {
       return
@@ -213,7 +216,7 @@ class Selection extends PureComponent<ISelectionProps, ISelectionState> {
     this.setState({
       selectedIndex: focusIndex
     })
-    onSelect && onSelect(value, focusIndex)
+    onSelect && onSelect(value, focusIndex, label)
   }
 
   handleKeydown = (e: any) => {
