@@ -1,3 +1,6 @@
+## Release v2.34.0
+- ✨ (Modal) Modal 组件添加 loading 属性 (#154)
+
 ## Release v2.33.0
 - ✨ (message) 添加 message 组件当鼠标 hover 在其上时，不会消失的功能 (#152)
 - ✨ (message) message 组件添加直接传字符串的功能 (#151)
