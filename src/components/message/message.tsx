@@ -9,10 +9,10 @@ export interface MessageConfig {
   onClose?: () => void;
 }
 
-export type MethodType = (options: MessageConfig) => void;
+export type MethodType = (options: MessageConfig | string) => void;
 
 export interface MessageInterface {
-  open: (type: Types, config: MessageConfig) => void;
+  open: (type: Types, config: MessageConfig | string) => void;
   success: MethodType;
   warn: MethodType;
   error: MethodType;
@@ -30,15 +30,24 @@ function getInstance() {
   return notificationInstance;
 }
 
-function open(type: Types, config: MessageConfig) {
+function open(type: Types, config: MessageConfig | string) {
   const notificationInstance = getInstance();
+  let _config: MessageConfig = {
+    content: ''
+  };
+  if (typeof config === 'string') {
+    _config.content = config;
+  } else {
+    _config = config;
+  }
+
   const props = {
     type,
-    content: config.content,
+    content: _config.content,
     onClose: (id: string | number) => {
-      notificationInstance.remove(id, config.onClose);
+      notificationInstance.remove(id, _config.onClose);
     },
-    duration: config.duration,
+    duration: _config.duration,
     selector: '.cat-message-container'
   };
   notificationInstance.render(Content, props);
@@ -46,13 +55,13 @@ function open(type: Types, config: MessageConfig) {
 
 const message: MessageInterface = {
   open,
-  success(options: MessageConfig) {
+  success(options: MessageConfig | string) {
     this.open('success', options);
   },
-  warn(options: MessageConfig) {
+  warn(options: MessageConfig | string) {
     this.open('warn', options);
   },
-  error(options: MessageConfig) {
+  error(options: MessageConfig | string) {
     this.open('error', options);
   }
 };

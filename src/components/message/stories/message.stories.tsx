@@ -11,7 +11,7 @@ const Demo = () => {
     <div className='message-box'>
       <Button
         onClick={() =>
-          message.success({ content: 'success content', duration: 3 })
+          message.success('success content')
         }
       >
         success
