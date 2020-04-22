@@ -10,7 +10,7 @@ exports[`Modal renders correctly 1`] = `
   prefix="cat"
   title="title"
   visible={false}
-  width={428}
+  width={460}
 >
   <PurePortal
     selector="body"
@@ -29,7 +29,7 @@ exports[`Modal renders correctly 1`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -52,7 +52,7 @@ exports[`Modal renders correctly 1`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -62,7 +62,7 @@ exports[`Modal renders correctly 1`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -83,7 +83,7 @@ exports[`Modal renders correctly 1`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -106,7 +106,7 @@ exports[`Modal renders correctly 1`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -116,7 +116,7 @@ exports[`Modal renders correctly 1`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -140,7 +140,7 @@ exports[`Modal renders correctly 1`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -180,7 +180,7 @@ exports[`Modal renders correctly 1`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -196,7 +196,7 @@ exports[`Modal renders correctly 1`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -206,7 +206,7 @@ exports[`Modal renders correctly 1`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -230,7 +230,7 @@ exports[`Modal renders correctly 1`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__body"
@@ -241,7 +241,7 @@ exports[`Modal renders correctly 1`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -251,7 +251,7 @@ exports[`Modal renders correctly 1`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -286,7 +286,7 @@ exports[`Modal renders correctly 1`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -296,7 +296,7 @@ exports[`Modal renders correctly 1`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -351,7 +351,7 @@ exports[`Modal renders correctly 2`] = `
   prefix="cat"
   title="title"
   visible={true}
-  width={428}
+  width={460}
 >
   <PurePortal
     selector="body"
@@ -370,7 +370,7 @@ exports[`Modal renders correctly 2`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -393,7 +393,7 @@ exports[`Modal renders correctly 2`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -403,7 +403,7 @@ exports[`Modal renders correctly 2`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -424,7 +424,7 @@ exports[`Modal renders correctly 2`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -447,7 +447,7 @@ exports[`Modal renders correctly 2`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -457,7 +457,7 @@ exports[`Modal renders correctly 2`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -481,7 +481,7 @@ exports[`Modal renders correctly 2`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -521,7 +521,7 @@ exports[`Modal renders correctly 2`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -537,7 +537,7 @@ exports[`Modal renders correctly 2`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -547,7 +547,7 @@ exports[`Modal renders correctly 2`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -571,7 +571,7 @@ exports[`Modal renders correctly 2`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__body"
@@ -582,7 +582,7 @@ exports[`Modal renders correctly 2`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -592,7 +592,7 @@ exports[`Modal renders correctly 2`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -627,7 +627,7 @@ exports[`Modal renders correctly 2`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -637,7 +637,7 @@ exports[`Modal renders correctly 2`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -692,7 +692,7 @@ exports[`Modal renders correctly 2`] = `
                 style={
                   Object {
                     "transform": "translate(-50%, -50%)",
-                    "width": 428,
+                    "width": 460,
                   }
                 }
               >
@@ -729,12 +729,12 @@ exports[`Modal renders correctly 2`] = `
                     loading={false}
                     onClick={[Function]}
                     prefix="cat"
-                    shape="square"
+                    shape="round"
                     size="md"
-                    type="default"
+                    type="grey"
                   >
                     <button
-                      className="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                      className="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                       disabled={false}
                       onClick={[Function]}
                       style={Object {}}
@@ -755,12 +755,12 @@ exports[`Modal renders correctly 2`] = `
                     loading={false}
                     onClick={[Function]}
                     prefix="cat"
-                    shape="square"
+                    shape="round"
                     size="md"
                     type="primary"
                   >
                     <button
-                      className="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                      className="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                       disabled={false}
                       onClick={[Function]}
                       style={Object {}}
@@ -794,7 +794,7 @@ exports[`Modal renders correctly 3`] = `
   prefix="cat"
   title="title"
   visible={true}
-  width={428}
+  width={460}
 >
   <PurePortal
     selector="body"
@@ -813,7 +813,7 @@ exports[`Modal renders correctly 3`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -836,7 +836,7 @@ exports[`Modal renders correctly 3`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -846,7 +846,7 @@ exports[`Modal renders correctly 3`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -867,7 +867,7 @@ exports[`Modal renders correctly 3`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -890,7 +890,7 @@ exports[`Modal renders correctly 3`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -900,7 +900,7 @@ exports[`Modal renders correctly 3`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -924,7 +924,7 @@ exports[`Modal renders correctly 3`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -964,7 +964,7 @@ exports[`Modal renders correctly 3`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -980,7 +980,7 @@ exports[`Modal renders correctly 3`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -990,7 +990,7 @@ exports[`Modal renders correctly 3`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -1014,7 +1014,7 @@ exports[`Modal renders correctly 3`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__body"
@@ -1025,7 +1025,7 @@ exports[`Modal renders correctly 3`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -1035,7 +1035,7 @@ exports[`Modal renders correctly 3`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -1070,7 +1070,7 @@ exports[`Modal renders correctly 3`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -1080,7 +1080,7 @@ exports[`Modal renders correctly 3`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -1132,7 +1132,7 @@ exports[`Modal renders correctly 3`] = `
                 style={
                   Object {
                     "transform": "translate(-50%, -50%)",
-                    "width": 428,
+                    "width": 460,
                   }
                 }
               >
@@ -1169,12 +1169,12 @@ exports[`Modal renders correctly 3`] = `
                     loading={false}
                     onClick={[Function]}
                     prefix="cat"
-                    shape="square"
+                    shape="round"
                     size="md"
-                    type="default"
+                    type="grey"
                   >
                     <button
-                      className="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                      className="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                       disabled={false}
                       onClick={[Function]}
                       style={Object {}}
@@ -1195,12 +1195,12 @@ exports[`Modal renders correctly 3`] = `
                     loading={false}
                     onClick={[Function]}
                     prefix="cat"
-                    shape="square"
+                    shape="round"
                     size="md"
                     type="primary"
                   >
                     <button
-                      className="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                      className="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                       disabled={false}
                       onClick={[Function]}
                       style={Object {}}
@@ -1239,7 +1239,7 @@ exports[`Modal renders correctly 4`] = `
   prefix="cat"
   title="title"
   visible={true}
-  width={428}
+  width={460}
 >
   <PurePortal
     selector="body"
@@ -1258,7 +1258,7 @@ exports[`Modal renders correctly 4`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -1281,7 +1281,7 @@ exports[`Modal renders correctly 4`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -1291,7 +1291,7 @@ exports[`Modal renders correctly 4`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -1312,7 +1312,7 @@ exports[`Modal renders correctly 4`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -1335,7 +1335,7 @@ exports[`Modal renders correctly 4`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -1345,7 +1345,7 @@ exports[`Modal renders correctly 4`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -1369,7 +1369,7 @@ exports[`Modal renders correctly 4`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -1409,7 +1409,7 @@ exports[`Modal renders correctly 4`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -1425,7 +1425,7 @@ exports[`Modal renders correctly 4`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -1435,7 +1435,7 @@ exports[`Modal renders correctly 4`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -1459,7 +1459,7 @@ exports[`Modal renders correctly 4`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__body"
@@ -1470,7 +1470,7 @@ exports[`Modal renders correctly 4`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -1480,7 +1480,7 @@ exports[`Modal renders correctly 4`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -1515,7 +1515,7 @@ exports[`Modal renders correctly 4`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -1525,7 +1525,7 @@ exports[`Modal renders correctly 4`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -1580,7 +1580,7 @@ exports[`Modal renders correctly 4`] = `
                 style={
                   Object {
                     "transform": "translate(-50%, -50%)",
-                    "width": 428,
+                    "width": 460,
                   }
                 }
               >
@@ -1634,7 +1634,7 @@ exports[`Modal renders correctly 5`] = `
   prefix="cat"
   title="title"
   visible={true}
-  width={428}
+  width={460}
 >
   <PurePortal
     selector="body"
@@ -1653,7 +1653,7 @@ exports[`Modal renders correctly 5`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -1676,7 +1676,7 @@ exports[`Modal renders correctly 5`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -1686,7 +1686,7 @@ exports[`Modal renders correctly 5`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -1707,7 +1707,7 @@ exports[`Modal renders correctly 5`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -1730,7 +1730,7 @@ exports[`Modal renders correctly 5`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -1740,7 +1740,7 @@ exports[`Modal renders correctly 5`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -1764,7 +1764,7 @@ exports[`Modal renders correctly 5`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -1804,7 +1804,7 @@ exports[`Modal renders correctly 5`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -1820,7 +1820,7 @@ exports[`Modal renders correctly 5`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -1830,7 +1830,7 @@ exports[`Modal renders correctly 5`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -1854,7 +1854,7 @@ exports[`Modal renders correctly 5`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__body"
@@ -1865,7 +1865,7 @@ exports[`Modal renders correctly 5`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -1875,7 +1875,7 @@ exports[`Modal renders correctly 5`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -1910,7 +1910,7 @@ exports[`Modal renders correctly 5`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -1920,7 +1920,7 @@ exports[`Modal renders correctly 5`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -1975,7 +1975,7 @@ exports[`Modal renders correctly 5`] = `
                 style={
                   Object {
                     "transform": "translate(-50%, -50%)",
-                    "width": 428,
+                    "width": 460,
                   }
                 }
               >
@@ -1999,12 +1999,12 @@ exports[`Modal renders correctly 5`] = `
                     loading={false}
                     onClick={[Function]}
                     prefix="cat"
-                    shape="square"
+                    shape="round"
                     size="md"
-                    type="default"
+                    type="grey"
                   >
                     <button
-                      className="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                      className="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                       disabled={false}
                       onClick={[Function]}
                       style={Object {}}
@@ -2025,12 +2025,12 @@ exports[`Modal renders correctly 5`] = `
                     loading={false}
                     onClick={[Function]}
                     prefix="cat"
-                    shape="square"
+                    shape="round"
                     size="md"
                     type="primary"
                   >
                     <button
-                      className="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                      className="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                       disabled={false}
                       onClick={[Function]}
                       style={Object {}}
@@ -2063,7 +2063,7 @@ exports[`Modal renders correctly 6`] = `
   okText="Confirm"
   prefix="cat"
   visible={true}
-  width={428}
+  width={460}
 >
   <PurePortal
     selector="body"
@@ -2082,7 +2082,7 @@ exports[`Modal renders correctly 6`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -2105,7 +2105,7 @@ exports[`Modal renders correctly 6`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -2115,7 +2115,7 @@ exports[`Modal renders correctly 6`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -2136,7 +2136,7 @@ exports[`Modal renders correctly 6`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -2159,7 +2159,7 @@ exports[`Modal renders correctly 6`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -2169,7 +2169,7 @@ exports[`Modal renders correctly 6`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -2193,7 +2193,7 @@ exports[`Modal renders correctly 6`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -2233,7 +2233,7 @@ exports[`Modal renders correctly 6`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -2249,7 +2249,7 @@ exports[`Modal renders correctly 6`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -2259,7 +2259,7 @@ exports[`Modal renders correctly 6`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -2283,7 +2283,7 @@ exports[`Modal renders correctly 6`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__body"
@@ -2294,7 +2294,7 @@ exports[`Modal renders correctly 6`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -2304,7 +2304,7 @@ exports[`Modal renders correctly 6`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -2339,7 +2339,7 @@ exports[`Modal renders correctly 6`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -2349,7 +2349,7 @@ exports[`Modal renders correctly 6`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -2404,7 +2404,7 @@ exports[`Modal renders correctly 6`] = `
                 style={
                   Object {
                     "transform": "translate(-50%, -50%)",
-                    "width": 428,
+                    "width": 460,
                   }
                 }
               >
@@ -2423,12 +2423,12 @@ exports[`Modal renders correctly 6`] = `
                     loading={false}
                     onClick={[Function]}
                     prefix="cat"
-                    shape="square"
+                    shape="round"
                     size="md"
-                    type="default"
+                    type="grey"
                   >
                     <button
-                      className="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                      className="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                       disabled={false}
                       onClick={[Function]}
                       style={Object {}}
@@ -2449,12 +2449,12 @@ exports[`Modal renders correctly 6`] = `
                     loading={false}
                     onClick={[Function]}
                     prefix="cat"
-                    shape="square"
+                    shape="round"
                     size="md"
                     type="primary"
                   >
                     <button
-                      className="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                      className="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                       disabled={false}
                       onClick={[Function]}
                       style={Object {}}
@@ -2492,7 +2492,7 @@ exports[`Modal renders correctly 7`] = `
     }
   }
   visible={true}
-  width={428}
+  width={460}
 >
   <PurePortal
     selector="body"
@@ -2511,7 +2511,7 @@ exports[`Modal renders correctly 7`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -2534,7 +2534,7 @@ exports[`Modal renders correctly 7`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -2544,7 +2544,7 @@ exports[`Modal renders correctly 7`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -2565,7 +2565,7 @@ exports[`Modal renders correctly 7`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -2588,7 +2588,7 @@ exports[`Modal renders correctly 7`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -2598,7 +2598,7 @@ exports[`Modal renders correctly 7`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -2622,7 +2622,7 @@ exports[`Modal renders correctly 7`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -2662,7 +2662,7 @@ exports[`Modal renders correctly 7`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__header"
@@ -2678,7 +2678,7 @@ exports[`Modal renders correctly 7`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -2688,7 +2688,7 @@ exports[`Modal renders correctly 7`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -2712,7 +2712,7 @@ exports[`Modal renders correctly 7`] = `
             >
               <div
                 class="cat-modal"
-                style="width: 428px; transform: translate(-50%, -50%);"
+                style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
                   class="cat-modal__body"
@@ -2723,7 +2723,7 @@ exports[`Modal renders correctly 7`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -2733,7 +2733,7 @@ exports[`Modal renders correctly 7`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -2768,7 +2768,7 @@ exports[`Modal renders correctly 7`] = `
                   class="cat-modal__footer"
                 >
                   <button
-                    class="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                    class="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                     type="button"
                   >
                     <span
@@ -2778,7 +2778,7 @@ exports[`Modal renders correctly 7`] = `
                     </span>
                   </button>
                   <button
-                    class="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                    class="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                     type="button"
                   >
                     <span
@@ -2852,12 +2852,12 @@ exports[`Modal renders correctly 7`] = `
                     loading={false}
                     onClick={[Function]}
                     prefix="cat"
-                    shape="square"
+                    shape="round"
                     size="md"
-                    type="default"
+                    type="grey"
                   >
                     <button
-                      className="cat-button cat-button--default cat-button--square cat-button--md cat-button--padding-md"
+                      className="cat-button cat-button--grey cat-button--round cat-button--md cat-button--padding-md"
                       disabled={false}
                       onClick={[Function]}
                       style={Object {}}
@@ -2878,12 +2878,12 @@ exports[`Modal renders correctly 7`] = `
                     loading={false}
                     onClick={[Function]}
                     prefix="cat"
-                    shape="square"
+                    shape="round"
                     size="md"
                     type="primary"
                   >
                     <button
-                      className="cat-button cat-button--primary cat-button--square cat-button--md cat-button--padding-md cat-modal__footer-confirm"
+                      className="cat-button cat-button--primary cat-button--round cat-button--md cat-button--padding-md cat-modal__footer-confirm"
                       disabled={false}
                       onClick={[Function]}
                       style={Object {}}

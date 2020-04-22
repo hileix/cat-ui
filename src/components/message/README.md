@@ -8,11 +8,11 @@ message.success('success');
 
 ## API
 
-- notification.success(config)
-- notification.warn(config)
-- notification.error(config)
+- notification.success(Config | string)
+- notification.warn(Config | string)
+- notification.error(Config | string)
 
-config 参数如下：
+Config 接口参数如下：
 
 |   属性   |       类型        | 默认值 |        描述        | 是否必填 |
 | :------: | :---------------: | :----: | :----------------: | :------: |
