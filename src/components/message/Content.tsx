@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import PurePortal from '../PurePortal';
 import Icon from '../Icon';
-import * as PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 
 export type MessageType = 'success' | 'warn' | 'error';
@@ -68,6 +68,10 @@ class Content extends React.Component<ContentProps, ContentState> {
   timer: ReturnType<typeof setTimeout>;
 
   componentDidMount = () => {
+    this.close();
+  };
+
+  close = () => {
     const { duration, onClose, id } = this.props;
     this.timer = setTimeout(() => {
       this.setState({ visible: false });
@@ -77,6 +81,14 @@ class Content extends React.Component<ContentProps, ContentState> {
 
   componentWillUnmount = () => {
     clearTimeout(this.timer);
+  };
+
+  handleMouseOver = () => {
+    clearTimeout(this.timer);
+  };
+
+  handleMouseOut = () => {
+    this.close();
   };
 
   render() {
@@ -100,7 +112,11 @@ class Content extends React.Component<ContentProps, ContentState> {
           appear
         >
           <>
-            <div className={classes}>
+            <div
+              className={classes}
+              onMouseOver={this.handleMouseOver}
+              onMouseOut={this.handleMouseOut}
+            >
               <Icon type={IconTypeMap[type]} className={`${prefix}__icon`} />
               {content && <span className={`${prefix}__text`}>{content}</span>}
             </div>
