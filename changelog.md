@@ -1,3 +1,6 @@
+## Release v2.34.1
+- 🐛 (Input) 修复 Input 样式 bug (#155)
+
 ## Release v2.34.0
 - ✨ (Modal) Modal 组件添加 loading 属性 (#154)
 
