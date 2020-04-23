@@ -1,3 +1,7 @@
+## Release v2.35.0
+- ✨ (Modal) Modal 组件在 loading 状态时指针状态为 not-allowed (#156)
+- 🐛 (Input) 修复 Input 组件样式 bug (#157)
+
 ## Release v2.34.1
 - 🐛 (Input) 修复 Input 样式 bug (#155)
 
