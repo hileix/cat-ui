@@ -1,4 +1,5 @@
-@import './common/index.scss';
+@import './common/color.scss';
+@import './common/z-index.scss';
 
 @mixin selectRadius($size, $radius) {
   &.cat-button#{$size} {
