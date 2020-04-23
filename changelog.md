@@ -1,3 +1,6 @@
+## Release v2.35.1
+- 🐛 (Modal) 修复 Modal 组件在隐藏后还会存在于页面导致该区域不可点击的 bug (#158)
+
 ## Release v2.35.0
 - ✨ (Modal) Modal 组件在 loading 状态时指针状态为 not-allowed (#156)
 - 🐛 (Input) 修复 Input 组件样式 bug (#157)
