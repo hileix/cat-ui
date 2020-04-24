@@ -1,4 +1,4 @@
-import React, { ReactNode, ReactElement } from 'react';
+import React, { ReactNode, ReactElement, isValidElement } from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 import classNames from 'classnames';
@@ -64,7 +64,7 @@ export interface ISelectProps {
   /**
    * 子组件
    */
-  children?: ReactNode;
+  children?: ReactElement[];
 }
 
 export interface ISelectState {
@@ -108,8 +108,8 @@ class Select extends React.Component<ISelectProps, ISelectState> {
     const { defaultValue, value } = props;
     const selectValue = defaultValue || value || ''
     let defaultLabel = ''
-    React.Children.map(props.children as ReactElement, (Option: React.ReactElement) => {
-      if (Option && Option.props.value === selectValue) {
+    React.Children.map(props.children, Option => {
+      if (isValidElement(Option) && Option.props.value === selectValue) {
         defaultLabel = Option.props.children as string
       }
     })
