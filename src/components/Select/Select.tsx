@@ -110,7 +110,7 @@ class Select extends React.Component<ISelectProps, ISelectState> {
     let defaultLabel = ''
     React.Children.map(props.children, option => {
       if (isValidElement(option) && (option.type === Option) && option.props.value === selectValue) {
-        defaultLabel = option.props.children as string
+        defaultLabel = (option.props.label || option.props.children) as string
       }
     })
     this.state = {
