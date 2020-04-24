@@ -105,7 +105,7 @@ class Select extends React.Component<ISelectProps, ISelectState> {
     this.state = {
       value: defaultValue || value || '',
       visible: false,
-      label: '',
+      label: String(defaultValue || value || ''),
     };
   }
 
