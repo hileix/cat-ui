@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode, ReactElement, isValidElement } from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 import classNames from 'classnames';
@@ -61,6 +61,10 @@ export interface ISelectProps {
    * 弹出层的方位
    */
   position: PositionNameType;
+  /**
+   * 子组件
+   */
+  children?: ReactElement[];
 }
 
 export interface ISelectState {
@@ -102,10 +106,17 @@ class Select extends React.Component<ISelectProps, ISelectState> {
   constructor(props: ISelectProps) {
     super(props);
     const { defaultValue, value } = props;
+    const selectValue = defaultValue || value || ''
+    let defaultLabel = ''
+    React.Children.map(props.children, option => {
+      if (isValidElement(option) && (option.type === Option) && option.props.value === selectValue) {
+        defaultLabel = (option.props.label || option.props.children) as string
+      }
+    })
     this.state = {
-      value: defaultValue || value || '',
+      value: selectValue,
       visible: false,
-      label: '',
+      label: defaultLabel,
     };
   }
 

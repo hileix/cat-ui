@@ -136,6 +136,7 @@ class Demo1 extends React.Component<any, any> {
             <Option value='Option 3'>Option 3</Option>
             <Option value='Option 4'>Option 4</Option>
             <Option value='Option 5'>Option 5</Option>
+            <Option value='Option 7' label='Option 6'/>
           </Select>
         </div>
         <div className='select-item'>
@@ -181,6 +182,7 @@ class Demo1 extends React.Component<any, any> {
             <Option value='Option 1'>Option 1</Option>
             <Option value='Option 2'>Option 2</Option>
             <Option value='Option 3'>Option 3</Option>
+            <Option value='Option 3' label='Option 4'/>
           </Select>
         </div>
         <div className='select-item'>

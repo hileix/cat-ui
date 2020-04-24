@@ -111,7 +111,7 @@ class Option extends PureComponent<IOptionProps, {}> {
   };
 
   render() {
-    const { prefix, style, className, value, children } = this.props;
+    const { prefix, style, className, label, children } = this.props;
     const classes = classNames(`${prefix}-select-option`, className);
 
     return (
@@ -122,7 +122,7 @@ class Option extends PureComponent<IOptionProps, {}> {
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
       >
-        {children || value}
+        {label || children}
       </div>
     );
   }
