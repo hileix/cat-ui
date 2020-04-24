@@ -1,3 +1,6 @@
+## Release v2.35.2
+- 🐛 (bug) 修复select 组件默认值问题 (#161)
+
 ## Release v2.35.1
 - 🐛 (Modal) 修复 Modal 组件在隐藏后还会存在于页面导致该区域不可点击的 bug (#158)
 
