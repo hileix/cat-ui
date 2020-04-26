@@ -1,3 +1,6 @@
+## Release v2.35.3
+- 🐛 (style) 修复 font-family 错误的 bug (#162)
+
 ## Release v2.35.2
 - 🐛 (bug) 修复select 组件默认值问题 (#161)
 
