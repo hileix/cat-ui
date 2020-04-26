@@ -166,8 +166,22 @@ class Modal extends PureComponent<ModalProps, ModalState> {
     e.stopPropagation();
   };
 
+  renderCloseIcon = () => {
+    const { noCloseIcon, prefix } = this.props;
+    if (noCloseIcon) {
+      return null;
+    }
+
+    const modalPrefix = `${prefix}-modal`;
+    return (
+      <div className={`${modalPrefix}__close`}>
+        <Icon type='close' onClick={this.handleClose} />
+      </div>
+    );
+  };
+
   renderHeader = () => {
-    const { prefix, title, noCloseIcon } = this.props;
+    const { prefix, title } = this.props;
 
     if (!title) {
       return null;
@@ -175,16 +189,7 @@ class Modal extends PureComponent<ModalProps, ModalState> {
 
     const modalPrefix = `${prefix}-modal`;
 
-    return (
-      <div className={`${modalPrefix}__header`}>
-        {title}
-        {!noCloseIcon && (
-          <div className={`${modalPrefix}__close`}>
-            <Icon type='close' onClick={this.handleClose} />
-          </div>
-        )}
-      </div>
-    );
+    return <div className={`${modalPrefix}__header`}>{title}</div>;
   };
 
   renderBody = () => {
@@ -270,6 +275,7 @@ class Modal extends PureComponent<ModalProps, ModalState> {
                 ref={this.getModalRef}
                 onClick={this.handleModalClick}
               >
+                {this.renderCloseIcon()}
                 {this.renderHeader()}
                 {this.renderBody()}
                 {this.renderFooter()}
