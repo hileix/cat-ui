@@ -37,9 +37,7 @@ exports[`Option option disabled 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-      >
-        选项 1
-      </div>
+      />
     </Option>
     <Option
       className=""
@@ -56,9 +54,7 @@ exports[`Option option disabled 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-      >
-        选项 2
-      </div>
+      />
     </Option>
     <Option
       className=""
@@ -75,9 +71,7 @@ exports[`Option option disabled 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-      >
-        选项 3
-      </div>
+      />
     </Option>
   </div>
 </Selection>
@@ -142,9 +136,7 @@ exports[`Option option mouse event 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-      >
-        选项 2
-      </div>
+      />
     </Option>
     <Option
       className=""
@@ -161,9 +153,7 @@ exports[`Option option mouse event 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-      >
-        选项 3
-      </div>
+      />
     </Option>
   </div>
 </Selection>
@@ -206,9 +196,7 @@ exports[`Selection keyboard event 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-      >
-        选项 1
-      </div>
+      />
     </Option>
     <Option
       className="option-2 disabled"
@@ -226,9 +214,7 @@ exports[`Selection keyboard event 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-      >
-        选项 2
-      </div>
+      />
     </Option>
     <Option
       className="option-3 focus"
@@ -245,9 +231,7 @@ exports[`Selection keyboard event 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-      >
-        选项 3
-      </div>
+      />
     </Option>
   </div>
 </Selection>
@@ -288,9 +272,7 @@ exports[`Selection renders correctly 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-      >
-        选项 1
-      </div>
+      />
     </Option>
     <Option
       className="focus selected"
@@ -307,9 +289,7 @@ exports[`Selection renders correctly 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-      >
-        选项 2
-      </div>
+      />
     </Option>
     <Option
       className=""
@@ -326,9 +306,7 @@ exports[`Selection renders correctly 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-      >
-        选项 3
-      </div>
+      />
     </Option>
     <Option
       className=""
@@ -345,9 +323,7 @@ exports[`Selection renders correctly 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-      >
-        选项 4
-      </div>
+      />
     </Option>
     <Option
       className=""
@@ -364,9 +340,7 @@ exports[`Selection renders correctly 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
-      >
-        选项 5
-      </div>
+      />
     </Option>
   </div>
 </Selection>

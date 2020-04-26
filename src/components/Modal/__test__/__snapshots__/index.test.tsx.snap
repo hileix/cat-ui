@@ -33,16 +33,16 @@ exports[`Modal renders correctly 1`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__header"
                 >
                   title
-                  <div
-                    class="cat-modal__close"
-                  >
-                    <i
-                      class="cat-icon cat-icon-close"
-                    />
-                  </div>
                 </div>
                 <div
                   class="cat-modal__body"
@@ -97,16 +97,16 @@ exports[`Modal renders correctly 1`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__header"
                 >
                   title
-                  <div
-                    class="cat-modal__close"
-                  >
-                    <i
-                      class="cat-icon cat-icon-close"
-                    />
-                  </div>
                 </div>
                 <div
                   class="cat-modal__body"
@@ -164,16 +164,16 @@ exports[`Modal renders correctly 1`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__header"
                 >
                   title
-                  <div
-                    class="cat-modal__close"
-                  >
-                    <i
-                      class="cat-icon cat-icon-close"
-                    />
-                  </div>
                 </div>
                 <div
                   class="cat-modal__body"
@@ -274,6 +274,13 @@ exports[`Modal renders correctly 1`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__body"
                 >
                   content
@@ -328,6 +335,13 @@ exports[`Modal renders correctly 1`] = `
                 class="cat-modal"
                 style="width: 500px; transform: translate(-50%, -50%);"
               >
+                <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
                 <div
                   class="cat-modal__body"
                 >
@@ -435,16 +449,16 @@ exports[`Modal renders correctly 2`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__header"
                 >
                   title
-                  <div
-                    class="cat-modal__close"
-                  >
-                    <i
-                      class="cat-icon cat-icon-close"
-                    />
-                  </div>
                 </div>
                 <div
                   class="cat-modal__body"
@@ -499,16 +513,16 @@ exports[`Modal renders correctly 2`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__header"
                 >
                   title
-                  <div
-                    class="cat-modal__close"
-                  >
-                    <i
-                      class="cat-icon cat-icon-close"
-                    />
-                  </div>
                 </div>
                 <div
                   class="cat-modal__body"
@@ -566,16 +580,16 @@ exports[`Modal renders correctly 2`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__header"
                 >
                   title
-                  <div
-                    class="cat-modal__close"
-                  >
-                    <i
-                      class="cat-icon cat-icon-close"
-                    />
-                  </div>
                 </div>
                 <div
                   class="cat-modal__body"
@@ -676,6 +690,13 @@ exports[`Modal renders correctly 2`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__body"
                 >
                   content
@@ -730,6 +751,13 @@ exports[`Modal renders correctly 2`] = `
                 class="cat-modal"
                 style="width: 500px; transform: translate(-50%, -50%);"
               >
+                <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
                 <div
                   class="cat-modal__body"
                 >
@@ -819,22 +847,22 @@ exports[`Modal renders correctly 2`] = `
                 }
               >
                 <div
+                  className="cat-modal__close"
+                >
+                  <Icon
+                    onClick={[Function]}
+                    type="close"
+                  >
+                    <i
+                      className="cat-icon cat-icon-close"
+                      onClick={[Function]}
+                    />
+                  </Icon>
+                </div>
+                <div
                   className="cat-modal__header"
                 >
                   title
-                  <div
-                    className="cat-modal__close"
-                  >
-                    <Icon
-                      onClick={[Function]}
-                      type="close"
-                    >
-                      <i
-                        className="cat-icon cat-icon-close"
-                        onClick={[Function]}
-                      />
-                    </Icon>
-                  </div>
                 </div>
                 <div
                   className="cat-modal__body"
@@ -949,16 +977,16 @@ exports[`Modal renders correctly 3`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__header"
                 >
                   title
-                  <div
-                    class="cat-modal__close"
-                  >
-                    <i
-                      class="cat-icon cat-icon-close"
-                    />
-                  </div>
                 </div>
                 <div
                   class="cat-modal__body"
@@ -1013,16 +1041,16 @@ exports[`Modal renders correctly 3`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__header"
                 >
                   title
-                  <div
-                    class="cat-modal__close"
-                  >
-                    <i
-                      class="cat-icon cat-icon-close"
-                    />
-                  </div>
                 </div>
                 <div
                   class="cat-modal__body"
@@ -1080,16 +1108,16 @@ exports[`Modal renders correctly 3`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__header"
                 >
                   title
-                  <div
-                    class="cat-modal__close"
-                  >
-                    <i
-                      class="cat-icon cat-icon-close"
-                    />
-                  </div>
                 </div>
                 <div
                   class="cat-modal__body"
@@ -1190,6 +1218,13 @@ exports[`Modal renders correctly 3`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__body"
                 >
                   content
@@ -1244,6 +1279,13 @@ exports[`Modal renders correctly 3`] = `
                 class="cat-modal"
                 style="width: 500px; transform: translate(-50%, -50%);"
               >
+                <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
                 <div
                   class="cat-modal__body"
                 >
@@ -1330,22 +1372,22 @@ exports[`Modal renders correctly 3`] = `
                 }
               >
                 <div
+                  className="cat-modal__close"
+                >
+                  <Icon
+                    onClick={[Function]}
+                    type="close"
+                  >
+                    <i
+                      className="cat-icon cat-icon-close"
+                      onClick={[Function]}
+                    />
+                  </Icon>
+                </div>
+                <div
                   className="cat-modal__header"
                 >
                   title
-                  <div
-                    className="cat-modal__close"
-                  >
-                    <Icon
-                      onClick={[Function]}
-                      type="close"
-                    >
-                      <i
-                        className="cat-icon cat-icon-close"
-                        onClick={[Function]}
-                      />
-                    </Icon>
-                  </div>
                 </div>
                 <div
                   className="cat-modal__body"
@@ -1465,16 +1507,16 @@ exports[`Modal renders correctly 4`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__header"
                 >
                   title
-                  <div
-                    class="cat-modal__close"
-                  >
-                    <i
-                      class="cat-icon cat-icon-close"
-                    />
-                  </div>
                 </div>
                 <div
                   class="cat-modal__body"
@@ -1529,16 +1571,16 @@ exports[`Modal renders correctly 4`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__header"
                 >
                   title
-                  <div
-                    class="cat-modal__close"
-                  >
-                    <i
-                      class="cat-icon cat-icon-close"
-                    />
-                  </div>
                 </div>
                 <div
                   class="cat-modal__body"
@@ -1596,16 +1638,16 @@ exports[`Modal renders correctly 4`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__header"
                 >
                   title
-                  <div
-                    class="cat-modal__close"
-                  >
-                    <i
-                      class="cat-icon cat-icon-close"
-                    />
-                  </div>
                 </div>
                 <div
                   class="cat-modal__body"
@@ -1706,6 +1748,13 @@ exports[`Modal renders correctly 4`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__body"
                 >
                   content
@@ -1760,6 +1809,13 @@ exports[`Modal renders correctly 4`] = `
                 class="cat-modal"
                 style="width: 500px; transform: translate(-50%, -50%);"
               >
+                <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
                 <div
                   class="cat-modal__body"
                 >
@@ -1849,22 +1905,22 @@ exports[`Modal renders correctly 4`] = `
                 }
               >
                 <div
+                  className="cat-modal__close"
+                >
+                  <Icon
+                    onClick={[Function]}
+                    type="close"
+                  >
+                    <i
+                      className="cat-icon cat-icon-close"
+                      onClick={[Function]}
+                    />
+                  </Icon>
+                </div>
+                <div
                   className="cat-modal__header"
                 >
                   title
-                  <div
-                    className="cat-modal__close"
-                  >
-                    <Icon
-                      onClick={[Function]}
-                      type="close"
-                    >
-                      <i
-                        className="cat-icon cat-icon-close"
-                        onClick={[Function]}
-                      />
-                    </Icon>
-                  </div>
                 </div>
                 <div
                   className="cat-modal__body"
@@ -1931,16 +1987,16 @@ exports[`Modal renders correctly 5`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__header"
                 >
                   title
-                  <div
-                    class="cat-modal__close"
-                  >
-                    <i
-                      class="cat-icon cat-icon-close"
-                    />
-                  </div>
                 </div>
                 <div
                   class="cat-modal__body"
@@ -1995,16 +2051,16 @@ exports[`Modal renders correctly 5`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__header"
                 >
                   title
-                  <div
-                    class="cat-modal__close"
-                  >
-                    <i
-                      class="cat-icon cat-icon-close"
-                    />
-                  </div>
                 </div>
                 <div
                   class="cat-modal__body"
@@ -2062,16 +2118,16 @@ exports[`Modal renders correctly 5`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__header"
                 >
                   title
-                  <div
-                    class="cat-modal__close"
-                  >
-                    <i
-                      class="cat-icon cat-icon-close"
-                    />
-                  </div>
                 </div>
                 <div
                   class="cat-modal__body"
@@ -2172,6 +2228,13 @@ exports[`Modal renders correctly 5`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__body"
                 >
                   content
@@ -2226,6 +2289,13 @@ exports[`Modal renders correctly 5`] = `
                 class="cat-modal"
                 style="width: 500px; transform: translate(-50%, -50%);"
               >
+                <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
                 <div
                   class="cat-modal__body"
                 >
@@ -2431,16 +2501,16 @@ exports[`Modal renders correctly 6`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__header"
                 >
                   title
-                  <div
-                    class="cat-modal__close"
-                  >
-                    <i
-                      class="cat-icon cat-icon-close"
-                    />
-                  </div>
                 </div>
                 <div
                   class="cat-modal__body"
@@ -2495,16 +2565,16 @@ exports[`Modal renders correctly 6`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__header"
                 >
                   title
-                  <div
-                    class="cat-modal__close"
-                  >
-                    <i
-                      class="cat-icon cat-icon-close"
-                    />
-                  </div>
                 </div>
                 <div
                   class="cat-modal__body"
@@ -2562,16 +2632,16 @@ exports[`Modal renders correctly 6`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__header"
                 >
                   title
-                  <div
-                    class="cat-modal__close"
-                  >
-                    <i
-                      class="cat-icon cat-icon-close"
-                    />
-                  </div>
                 </div>
                 <div
                   class="cat-modal__body"
@@ -2672,6 +2742,13 @@ exports[`Modal renders correctly 6`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__body"
                 >
                   content
@@ -2726,6 +2803,13 @@ exports[`Modal renders correctly 6`] = `
                 class="cat-modal"
                 style="width: 500px; transform: translate(-50%, -50%);"
               >
+                <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
                 <div
                   class="cat-modal__body"
                 >
@@ -2814,6 +2898,19 @@ exports[`Modal renders correctly 6`] = `
                   }
                 }
               >
+                <div
+                  className="cat-modal__close"
+                >
+                  <Icon
+                    onClick={[Function]}
+                    type="close"
+                  >
+                    <i
+                      className="cat-icon cat-icon-close"
+                      onClick={[Function]}
+                    />
+                  </Icon>
+                </div>
                 <div
                   className="cat-modal__body"
                 >
@@ -2931,16 +3028,16 @@ exports[`Modal renders correctly 7`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__header"
                 >
                   title
-                  <div
-                    class="cat-modal__close"
-                  >
-                    <i
-                      class="cat-icon cat-icon-close"
-                    />
-                  </div>
                 </div>
                 <div
                   class="cat-modal__body"
@@ -2995,16 +3092,16 @@ exports[`Modal renders correctly 7`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__header"
                 >
                   title
-                  <div
-                    class="cat-modal__close"
-                  >
-                    <i
-                      class="cat-icon cat-icon-close"
-                    />
-                  </div>
                 </div>
                 <div
                   class="cat-modal__body"
@@ -3062,16 +3159,16 @@ exports[`Modal renders correctly 7`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__header"
                 >
                   title
-                  <div
-                    class="cat-modal__close"
-                  >
-                    <i
-                      class="cat-icon cat-icon-close"
-                    />
-                  </div>
                 </div>
                 <div
                   class="cat-modal__body"
@@ -3172,6 +3269,13 @@ exports[`Modal renders correctly 7`] = `
                 style="width: 460px; transform: translate(-50%, -50%);"
               >
                 <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
+                <div
                   class="cat-modal__body"
                 >
                   content
@@ -3226,6 +3330,13 @@ exports[`Modal renders correctly 7`] = `
                 class="cat-modal"
                 style="width: 500px; transform: translate(-50%, -50%);"
               >
+                <div
+                  class="cat-modal__close"
+                >
+                  <i
+                    class="cat-icon cat-icon-close"
+                  />
+                </div>
                 <div
                   class="cat-modal__body"
                 >
@@ -3314,6 +3425,19 @@ exports[`Modal renders correctly 7`] = `
                   }
                 }
               >
+                <div
+                  className="cat-modal__close"
+                >
+                  <Icon
+                    onClick={[Function]}
+                    type="close"
+                  >
+                    <i
+                      className="cat-icon cat-icon-close"
+                      onClick={[Function]}
+                    />
+                  </Icon>
+                </div>
                 <div
                   className="cat-modal__body"
                 >

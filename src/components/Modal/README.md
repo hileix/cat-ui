@@ -27,7 +27,7 @@
 |    children    |   `React.ReactNode`   |     -     |       Modal 中的内容        |    -     |
 |     okText     |   `React.ReactNode`   | `Confirm` |        确认按钮文案         |    -     |
 |   cancelText   |   `React.ReactNode`   | `Cancel`  |        取消按钮文案         |    -     |
-|  onCloseIcon   |       `boolean`       |  `false`  |        不要关闭按钮         |    -     |
+|  noCloseIcon   |       `boolean`       |  `false`  |        不要关闭按钮         |    -     |
 |     footer     |   `React.ReactNode`   |     -     |        自定义 footer        |    -     |
 |      onOk      |     `(e) => void`     |     -     |     点击确定按钮的回调      |    -     |
 |    onClose     |     `(e) => void`     |     -     |       关闭操作的回调        |    -     |
