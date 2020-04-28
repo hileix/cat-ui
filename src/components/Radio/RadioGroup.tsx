@@ -105,7 +105,7 @@ class RadioGroup extends Component<RadioGroupProps, RadioGroupState> {
       return cloneElement(element, {
         onChange: this.handleRadioChange,
         checked: value === element.props.value,
-        disabled,
+        disabled: disabled || element.props.disabled,
       });
     });
 
